@@ -1,17 +1,4 @@
 <div class="content-wrapper">
-    <div class="wwsgd" style="display:none;">
-        <p style="border:thin dotted black; padding:3mm;margin-bottom:10px">
-            If you're new here, you may want to subscribe to my
-            <a href="http://www.raywenderlich.com/feed/" sl-processed="1">
-                RSS feed
-            </a>
-            or follow me on
-            <a href="http://twitter.com/rwenderlich" sl-processed="1">
-                Twitter
-            </a>
-            . Thanks for visiting!
-        </p>
-    </div>
     <p>
         <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png"
         alt="250x250" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-128x128.png 128w"
@@ -19,9 +6,7 @@
         想要学习怎么使用Swift为你的Mac开发App？
     </p>
     <p>
-        Good news – Apple makes developing for OS X incredibly easy – and in this
-        tutorial series we’ll show you how. You’ll learn how to create your first
-        app for OS X – even if you’re a complete beginner.
+        好消息 - 苹果让为OS X开发难以置信得容易 - 我们将在这个教程中展示给你。你讲学到怎么创建你的第一个OS X app - 即使你完全就是个初学者。
     </p>
     <ol>
         <li>
