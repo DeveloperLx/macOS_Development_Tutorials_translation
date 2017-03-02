@@ -22,9 +22,9 @@
     <p>启动最好的方式是从我们的<a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X 初学者开发教程</a>系列第一部分开始。</p> 
     <p>这个系列将教给你OS X开发最基础的东西。你可以接下来了解更多关于OS X的<a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1" sl-processed="1">核心控件</a>，例如labels, combo boxes, 和buttons.</p>
     <ul>
-     <li><a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode</a></li>
-     <li><a href="https://www.raywenderlich.com/110267/mac-os-x-development-tutorial-beginners-part-2-os-x-app-anatomy" sl-processed="1">Mac OS X Development Tutorial for Beginners Part 2: OS X App Anatomy</a></li>
-     <li><a href="https://www.raywenderlich.com/110269/mac-os-x-development-tutorial-beginners-part-3-first-os-x-app" sl-processed="1">Mac OS X Development Tutorial for Beginners Part 3: Your First OS X App</a></li>
+     <li><a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X 初学者开发教程 第一部分：Xcode介绍</a></li>
+     <li><a href="https://www.raywenderlich.com/110267/mac-os-x-development-tutorial-beginners-part-2-os-x-app-anatomy" sl-processed="1">Mac OS X 初学者开发教程 第二部分：OS X App剖析</a></li>
+     <li><a href="https://www.raywenderlich.com/110269/mac-os-x-development-tutorial-beginners-part-3-first-os-x-app" sl-processed="1">Mac OS X 初学者开发教程 第三部分：你的第一个OS X App</a></li>
      <li><a href="https://www.raywenderlich.com/141297/cocoa-bindings-macos" sl-processed="1">Cocoa Bindings on macOS</a></li>
      <li><a href="https://www.raywenderlich.com/149295/macos-controls-tutorial-part-12" sl-processed="1">macOS Controls Tutorial: Part 1/2</a></li>
      <li><a href="https://www.raywenderlich.com/149297/macos-controls-tutorial-part-22" sl-processed="1">macOS Controls Tutorial: Part 2/2</a></li>
@@ -32,9 +32,9 @@
      <li><a href="https://www.raywenderlich.com/151746/macos-development-beginners-part-2" sl-processed="1">macOS Development for Beginners: Part 2</a></li>
      <li><a href="https://www.raywenderlich.com/151748/macos-development-beginners-part-3" sl-processed="1">macOS Development for Beginners: Part 3</a></li>
     </ul>
-    <h2 style="clear:both; padding-top: 20px;">Windows, Views, and View Controllers</h2>
+    <h2 style="clear:both; padding-top: 20px;">Windows, Views, 和View Controllers</h2>
     <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/CocoaBindings-feature-250x250.png" alt="CocoaBindings-feature" width="250" height="250" class="alignright size-thumbnail wp-image-129292 bordered" /> 
-    <p>Once you have gone through the basics, you should learn about how windows, views, and view controllers work in OS X, along with some of the critical view controllers and views that you will be using in your day-to-day development.</p>
+    <p>一旦你通过了基础，你应该了解windows, views, 和view controllers在OS X中如何工作, 以及一些在你每天的开发中用到的关键的view controllers和views。</p>
     <ul>
      <li><a href="https://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial" sl-processed="1">Windows and Window Controllers in OS X Tutorial</a></li>
      <li><a href="https://www.raywenderlich.com/112811/os-x-view-controllers-tutorial" sl-processed="1">OS X View Controllers Tutorial</a></li>
@@ -48,7 +48,7 @@
     </ul>
     <h2 style="clear:both; padding-top: 20px;">Other OS X Development Tutorials</h2>
     <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/NSTask-for-mac-feature-250x250.png" alt="See a practical example of using NSTask!" width="250" height="250" class="size-thumbnail wp-image-129761 bordered alignright" /> 
-    <p>But wait, there's more! In this section, you'll learn how to make specialty apps that run on the command lnine, apps that run other command line programs, and even apps that reside primarily in the menu bar.</p>
+    <p>稍等，还有！在这部分，你将了解到怎么制作运行在命令行的专业的app（执行其它命令行程序的app），甚至是主要都在菜单栏中的app。</p>
     <ul>
      <li><a href="https://www.raywenderlich.com/98178/os-x-tutorial-menus-popovers-menu-bar-apps" sl-processed="1">OS X Tutorial: Menus and Popovers in Menu Bar Apps</a></li>
      <li><a href="https://www.raywenderlich.com/124490/cocoa-bindings-os-x-tutorial" sl-processed="1">Cocoa Bindings on OS X Tutorial</a></li>
