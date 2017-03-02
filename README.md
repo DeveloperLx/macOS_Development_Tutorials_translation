@@ -19,10 +19,10 @@
    <div class="content-wrapper"> 
     <h2 style="clear:both; padding-top: 20px;">启动</h2>
     <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png" alt="250x250" width="250" height="250" /> 
-    <p>启动最好的方式是从我们的<a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X 初学者开发教程</a>系列第一部分开始。</p> 
+    <p>启动最好的方式是从我们的<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md" sl-processed="1">Mac OS X 初学者开发教程</a>系列第一部分开始。</p> 
     <p>这个系列将教给你OS X开发最基础的东西。你可以接下来了解更多关于OS X的<a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1" sl-processed="1">核心控件</a>，例如labels, combo boxes, 和buttons.</p>
     <ul>
-     <li><a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X 初学者开发教程 第一部分：Xcode介绍</a></li>
+     <li><a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md" sl-processed="1">Mac OS X 初学者开发教程 第一部分：Xcode介绍</a></li>
      <li><a href="https://www.raywenderlich.com/110267/mac-os-x-development-tutorial-beginners-part-2-os-x-app-anatomy" sl-processed="1">Mac OS X 初学者开发教程 第二部分：OS X App剖析</a></li>
      <li><a href="https://www.raywenderlich.com/110269/mac-os-x-development-tutorial-beginners-part-3-first-os-x-app" sl-processed="1">Mac OS X 初学者开发教程 第三部分：你的第一个OS X App</a></li>
      <li><a href="https://www.raywenderlich.com/141297/cocoa-bindings-macos" sl-processed="1">Cocoa Bindings on macOS</a></li>
