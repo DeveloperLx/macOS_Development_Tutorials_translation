@@ -9,10 +9,9 @@
     <h2 class="entry-title">macOS 开发教程</h2>
     <div class="content-wrapper taxonomy-description">
      <p>想要学习怎么使用Swift为你的Mac开发App？</p> 
-     <p>点击我们超过15个的免费macOS开发教程，它们覆盖了所有你知道去起步的事情！</p> 
+     <p>点击我们超过15个的免费macOS开发教程，覆盖所有你了解的启动的事情！</p> 
      <div class="note">
-      <em>Note:</em> All macOS tutorials on our site use Apple’s new Swift programming language. If you are new to Swift, be sure to check out our 
-      <a href="http://www.raywenderlich.com/swift-language-tutorials" sl-processed="1">Swift Language Tutorials</a> first.
+      <em>注意：</em>在我们网站上，所有的macOS教程使用苹果新的Swift编程语言。如果你对于Swift是个新手，请确保首先点击我们的<a href="http://www.raywenderlich.com/swift-language-tutorials" sl-processed="1">Swift语言教程</a>。
      </div> 
     </div> 
     <!-- </h2> --> 
