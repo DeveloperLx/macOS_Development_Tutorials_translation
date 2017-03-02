@@ -17,10 +17,10 @@
     <!-- </h2> --> 
    </header> 
    <div class="content-wrapper"> 
-    <h2 style="clear:both; padding-top: 20px;">Getting Started</h2>
+    <h2 style="clear:both; padding-top: 20px;">启动</h2>
     <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png" alt="250x250" width="250" height="250" /> 
-    <p>The best way to get started is with part 1 of our <a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X Development Tutorial for Beginners</a> series.</p> 
-    <p>This series will teach you the basics of getting started with OS X development. You can then move on to learn about some of the <a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1" sl-processed="1">Core Controls</a> in OS X, like labels, combo boxes, and buttons.</p>
+    <p>启动最好的方式是从我们的<a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X 初学者开发教程</a>系列第一部分开始。</p> 
+    <p>这个系列将教给你OS X开发最基础的东西。你可以接下来了解更多关于OS X的<a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1" sl-processed="1">核心控件</a>，例如labels, combo boxes, 和buttons.</p>
     <ul>
      <li><a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode" sl-processed="1">Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode</a></li>
      <li><a href="https://www.raywenderlich.com/110267/mac-os-x-development-tutorial-beginners-part-2-os-x-app-anatomy" sl-processed="1">Mac OS X Development Tutorial for Beginners Part 2: OS X App Anatomy</a></li>
