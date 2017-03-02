@@ -19,7 +19,7 @@
    <div class="content-wrapper"> 
     <h2 style="clear:both; padding-top: 20px;">启动</h2>
     <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png" alt="250x250" width="250" height="250" /> 
-    <p>启动最好的方式是从我们的<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md" sl-processed="1">Mac OS X 初学者开发教程</a>系列第一部分开始。</p> 
+    <p>启动最好的方式是从我们的Mac OS X 初学者开发教程系列<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md" sl-processed="1">第一部分</a>开始。</p> 
     <p>这个系列将教给你OS X开发最基础的东西。你可以接下来了解更多关于OS X的<a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1" sl-processed="1">核心控件</a>，例如labels, combo boxes, 和buttons.</p>
     <ul>
      <li><a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md" sl-processed="1">Mac OS X 初学者开发教程 第一部分：Xcode介绍</a></li>
