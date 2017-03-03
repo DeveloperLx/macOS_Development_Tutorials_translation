@@ -119,7 +119,7 @@
         sizes="(max-width: 679px) 100vw, 679px">
     </p>
     <p>
-        下载和安装好它之后，从你的Applications目录下打开Xcode。第一次打开Xcode时，它会请求你安装一些额外的组件。 Go ahead and let it, entering your password if required.
+        下载和安装好它之后，从你的Applications目录下打开Xcode。第一次打开Xcode时，它会请求你安装一些额外的组件。让它安装，并输入你的密码如果它要求的话。
     </p>
     <p>
        接下来你会看到Xcode的欢迎界面：
