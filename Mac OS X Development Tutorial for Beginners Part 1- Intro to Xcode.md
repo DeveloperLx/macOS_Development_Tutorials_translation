@@ -133,18 +133,13 @@
         恭喜你成功地安装了Xcode！继续阅读，学习它可以做什么。
     </p>
     <h3>
-        Beta versions of Xcode
+    	Beta版本的Xcode
     </h3>
     <p>
-        Before moving on to describing the power of Xcode, it’s worth taking a
-        few minutes learning about beta versions of Xcode.
+    	在继续描述Xcode的强大之前，值得花几分钟了解一下Beta版本的Xcode。
     </p>
     <p>
-        When Apple releases new updates to Xcode (often to support new features
-        in OS X, iOS and watchOS) they go through an agressive cycle of beta releases.
-        These releases include the new features, but consequently many bugs. If
-        you are interested in developing an app which leverages these new features,
-        you’ll need to download the latest beta from Apple.
+    	当苹果发布Xcode新的更新时（常常支持新的OS X，iOS和watchOS特性），会通过发布一轮激进（agressive）的beta版本。这些发布包括新的特性，但因而也会有很多bug。如果你感兴趣于开发利用这些新特性的app，你需要从苹果下载最新beta版的Xcode。
     </p>
     <p>
         This tutorial requires Xcode 7, since the sample project used in this
