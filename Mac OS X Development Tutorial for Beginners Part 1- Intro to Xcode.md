@@ -1,3 +1,7 @@
+# macOS X 初学者开发教程 第一部分 Xcode介绍
+
+#### [原文地址](https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+
 <div class="content-wrapper">
     <p>
         <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png"
