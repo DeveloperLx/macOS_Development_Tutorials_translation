@@ -90,12 +90,10 @@
     	一旦你构建好了你的app，你想把它上传到App Store并发布，你就需要去买一个苹果开发者账号。但在你准备发送你的app到全世界前，这都不是必须的。
     </p>
     <h2>
-        Obtaining Tools
-    </h2>
-    <p>
-        Unlike some other platforms, developing for OS X requires the installation
-        of one tool – known as Xcode. Xcode is an IDE that includes everything
-        you need to develop iOS, watchOS and OS X apps.
+        获取工具
+    </h2>
+    <p>
+        不像一些其它的平台，开发OS X只要求安装一个工具-就是我们所知的Xcode。Xcode是一个包含所有开发iOS，watchOS和OS X app所需的集成开发环境。
     </p>
     <p>
         If you don’t have Xcode already, click on the Apple icon in the upper
