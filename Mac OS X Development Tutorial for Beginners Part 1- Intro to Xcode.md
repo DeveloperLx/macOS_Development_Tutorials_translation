@@ -20,7 +20,7 @@
             sl-processed="1">第二部分</a>，你将从Xcode挪步到了解构成一个OS X app的组成部分。从一个app怎么启动，到UI怎么构建，再到怎么控制交互。
         </li>
         <li>在<a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
-            sl-processed="1">最后一部分</a>， 你将“弄脏你的手”（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
+            sl-processed="1">最后一部分</a>， 你将亲自动手（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
         </li>
     </ol>
     <p>
@@ -95,13 +95,12 @@
     <p>
         不像一些其它的平台，开发OS X只要求安装一个工具-就是我们所知的Xcode。Xcode是一个包含所有开发iOS，watchOS和OS X app所需的集成开发环境。
     </p>
-    <p>
-        If you don’t have Xcode already, click on the Apple icon in the upper
-        left of your menu and select
+    <p>
+        如果你还没有Xcode，点击你菜单栏左上角的Apple icon图标，选择
         <em>
             App Store
         </em>
-        to open the Mac App Store.
+        来打开Mac App商店。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/AppStore21.png"
@@ -112,7 +111,7 @@
         </a>
     </p>
     <p>
-        Search for Xcode and download it:
+        搜索Xcode，然后下载它：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110235 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/xcode_mas-679x500.png"
@@ -120,12 +119,10 @@
         sizes="(max-width: 679px) 100vw, 679px">
     </p>
     <p>
-        Once it has downloaded and installed, open Xcode from your Applications
-        folder. The first time you open Xcode it’ll ask to install some additional
-        components. Go ahead and let it, entering your password if required.
+        下载和安装好它之后，从你的Applications目录下打开Xcode。第一次打开Xcode时，它会请求你安装一些额外的组件。 Go ahead and let it, entering your password if required.
     </p>
     <p>
-        You’ll then be presented with the Xcode welcome screen:
+       接下来你会看到Xcode的欢迎界面：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110236" src="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png"
@@ -133,8 +130,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Congratulations, you’ve successfully installed Xcode! Read on to learn
-        all about what it can do.
+        恭喜你成功地安装了Xcode！继续阅读，学习它可以做什么。
     </p>
     <h3>
         Beta versions of Xcode
