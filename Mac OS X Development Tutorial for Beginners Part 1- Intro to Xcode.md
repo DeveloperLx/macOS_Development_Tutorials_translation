@@ -15,7 +15,7 @@
             sl-processed="1">第二部分</a>，你将从Xcode挪步到了解构成一个OS X app的组成部分。从一个app怎么启动，到UI怎么构建，再到怎么控制交互。
         </li>
         <li>在<a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
-            sl-processed="1">最后一部分</a>， 你将“让你的手变脏”（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
+            sl-processed="1">最后一部分</a>， 你将“弄脏你的手”（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
         </li>
     </ol>
     <p>
