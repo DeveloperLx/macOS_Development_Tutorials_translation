@@ -10,34 +10,28 @@
     </p>
     <ol>
         <li>
-            In this first part you’ll first learn about how to obtain the tools you
-            need to develop for OS X. Then, using an app you’ve downloaded as an example,
-            you’ll take a tour of Xcode, discovering how to run an app, edit code,
-            design the UI and debug it.
-        </li>
+            在第一部分，你将首次怎么获取你需要的OS X开发的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的旅行，发现怎么运行一个App，编辑代码，设计UI，debug程序。
+        </li>
         <li>
-            In
-            <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
+            在
+            <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
             sl-processed="1">
-                part two
-            </a>
-            , you’ll take a step back from Xcode to learn about the components that
-            make up an OS X app. From how an app starts, through how the UI is constructed
-            all the way to handling user interaction.
+                第二部分
+            </a>
+            ，你将从Xcode挪步到了解构成一个OS X app的组成部分。从一个app怎么启动，到UI怎么构建，再到怎么控制交互。
         </li>
         <li>
-            You’ll get your hands dirty in the
+            在
             <a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
             sl-processed="1">
-                final part
+            最后一部分
             </a>
-            – building your first ever OS X app. Starting from nothing, you’ll soon
-            have a simple app up and running on your mac!
+            ， 你将“让你的手变脏”（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
         </li>
     </ol>
     <p>
-        So what are you waiting for? The world of desktop apps awaits!
-    </p>
+        所以你还在等什么？等待桌面app的世界！
+    </p>
     <div class="note">
         <p>
             <em>
