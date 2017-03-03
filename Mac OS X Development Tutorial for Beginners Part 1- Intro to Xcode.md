@@ -4,10 +4,11 @@
 
 <div class="content-wrapper">
     <p>
+    	想要学习怎么使用Swift为你的Mac开发App？
         <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png"
         alt="250x250" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-128x128.png 128w"
         sizes="(max-width: 250px) 100vw, 250px">
-        想要学习怎么使用Swift为你的Mac开发App？
+        
     </p>
     <p>
         好消息 - 苹果让为OS X开发难以置信得容易 - 我们将在这个教程中展示给你。你讲学到怎么创建你的第一个OS X app - 即使你完全就是个初学者。
@@ -28,77 +29,65 @@
     <div class="note">
         <p>
             <em>
-                Note:
+            	注意：
             </em>
-            Here’s some guidance of where to begin with this series:
+            这里有一些从哪里开始这个系列的指导：
         </p>
         <ul>
             <li>
                 <em>
-                    If you are new to Swift
+                	如果你是Swift的新手
                 </em>
-                , this series assumes Swift knowledge, so first check out our
+                ，这个系列要求Swift的知识，所以首先点击我们的
                 <a href="http://www.raywenderlich.com/category/swift" sl-processed="1">
-                    Swift tutorials
+                	Swift教程
                 </a>
-                to get a great introduction.
+                ，来获取一个不错的介绍。
             </li>
             <li>
                 <em>
+                	如果你早就有了iOS的经验
                     If you already have iOS experience
                 </em>
-                , this first part of the series will be review. Take a quick look through
-                the topics to make sure and then skip straight ahead to the
-                <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
-                sl-processed="1">
-                    next part of the series
-                </a>
-                .
+                ，这个系列的第一部分将是回顾。快速地浏览主题来确认你已掌握，然后直接跳到这个系列的<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
+                sl-processed="1">下一部分</a>。
             </li>
             <li>
                 <em>
-                    Otherwise
+                    否则
                 </em>
-                , keep reading – this series is for complete beginners – no experience
-                of developing for iOS or OS X is required!
+                ，保持继续阅读 - 这个系列是面对完全的初学者 - 没有要求有过开发iOS或OS X经验。
             </li>
         </ul>
     </div>
     <h2>
-        Prerequisites
+    	预备条件
     </h2>
     <p>
-        To become an OS X developer, you will need a few things:
+    	要变成一个OS X的开发者，你需要这些东西：
     </p>
     <ul>
         <li>
             <em>
-                Mac running OS X.
+            	运行OS X的Mac。
             </em>
-            The OS X operating system only runs on Apple computers, so you need a
-            Mac both to develop and run OS X apps. If you’re wondering which Mac to
-            buy, we recommend a Mac Mini with extra memory and a solid state or Fusion
-            drive; it’s the best balance between cost and power.
+            OS X操作系统只能在苹果电脑上运行，因此你需要一个Mac来开发和运行OS X app。如果你困惑该买哪个Mac，我们推荐Mac mini搭配额外的内存和固态或融合的驱动；这是对于费用和性能的最佳平衡。
         </li>
         <li>
             <em>
-                An AppleID.
+                一个AppleID。
             </em>
-            In order to download the tools from the App Store, you’ll need an AppleID.
+            为了从App Store下载开发工具，你需要有一个AppleID。
         </li>
         <li>
             <em>
-                Xcode.
+                Xcode。
             </em>
-            This is the IDE and toolchain used to create OS X apps. You’ll learn how
-            to install this in the next section.
+            它是用来创建OS X app的集成开发环境和工具链。你会在下一个部分学到如何安装它。
         </li>
     </ul>
     <p>
-        Once you’ve built your app, and you want to upload it to the App Store
-        to be distributed, you’ll also need to pay for an Apple developer account.
-        But this is not a requirement until you are ready to send your app out
-        to the world.
+    	一旦你构建好了你的app，你想把它上传到App Store并发布，你就需要去买一个苹果开发者账号。但在你准备发送你的app到全世界前，这都不是必须的。
     </p>
     <h2>
         Obtaining Tools
