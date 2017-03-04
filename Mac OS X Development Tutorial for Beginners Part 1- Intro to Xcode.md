@@ -142,50 +142,44 @@
     	当苹果发布Xcode新的更新时（常常支持新的OS X，iOS和watchOS特性），会通过发布一轮激进（agressive）的beta版本。这些发布包括新的特性，但因而也会有很多bug。如果你感兴趣于开发利用这些新特性的app，你需要从苹果下载最新beta版的Xcode。
     </p>
     <p>
-        This tutorial requires Xcode 7, since the sample project used in this
-        tutorial has been updated to the Swift 2.0 programming language. There
-        are two cases:
+    	本教程需要Xcode 7的版本，因为教程中的样本工程已更新到Swift 2.0编程语言。有两种情形：
     </p>
     <ul>
         <li>
             <em>
-                If the App Store version of Xcode is Xcode 7 at the time of reading this
-                tutorial
+            	当阅读本教程时，如果App Store中的Xcode 版本是Xcode 7
             </em>
-            , you are all set!
+            ，你就直接省心了！
         </li>
         <li>
             <em>
-                If the App Store version of Xcode is Xcode 6 at the time of reading this
-                tutorial
+	            当阅读本教程时，如果App Store中的Xcode 版本是Xcode 6
             </em>
-            , you’ll need to install a beta version of Xcode 7 – keep reading to learn
-            how.
+            ，你就得安装一个beta版本的Xcode 7 - 继续阅读来学习怎么做。
         </li>
     </ul>
     <p>
+    	要获取Xcode的最新版本，浏览
         To get the latest beta version of Xcode, visit
         <a href="https://developer.apple.com/" sl-processed="1">
             developer.apple.com
         </a>
-        , click on
+        ，点击
         <em>
             Resources
         </em>
-        ,
+        ，
         <em>
             Xcode
         </em>
-        , and then
+        及
         <em>
             Download
         </em>
-        . Follow the link to download the latest version of Xcode beta there.
+        。在这里跟随链接去下载最新版本的Xcode。
     </p>
     <p>
-        Note you can install a beta version of Xcode alongside the stable version,
-        so there’s no problem with continuing work on projects that aren’t ready
-        for upgrade.
+    	注意你可以在稳定版的Xcode旁，安装一个beta版本的Xcode。所以让没有为更新准备好的项目继续正常运行，是没有问题的。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/XcodeBeta.png"
@@ -196,13 +190,11 @@
         </a>
     </p>
     <p>
-        The download is a DMG, so you can install by dragging the Xcode app across
-        into
+    	下载到的是一个DMG文件，因此你可以像往常一样，通过将Xcode app拖到
         <em>
             Applications
         </em>
-        in the usual way. You’ll then have two versions of Xcode in your applications
-        folder:
+        中。这样你就会有两个版本的Xcode在你的applications目录中：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/2Xcode.png"
@@ -212,11 +204,11 @@
         </a>
     </p>
     <p>
-        Run
+        运行
         <em>
             Xcode-beta
         </em>
-        and then you’re ready to continue on!
+        ，准备好继续下面的内容！
     </p>
     <h2>
         Hello World!
