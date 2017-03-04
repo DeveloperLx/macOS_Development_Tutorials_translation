@@ -179,7 +179,7 @@
         。在这里跟随链接去下载最新版本的Xcode。
     </p>
     <p>
-    	注意你可以在稳定版的Xcode旁，安装一个beta版本的Xcode。所以让没有为更新准备好的项目继续正常运行，是没有问题的。
+    	注意你可以在稳定版的Xcode旁，安装一个beta版本的Xcode。所以完全可以使没有为更新准备好的项目继续正常运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/XcodeBeta.png"
@@ -214,14 +214,10 @@
         Hello World!
     </h2>
     <p>
-        Xcode is an Integrated Development Environment (IDE) which means that
-        it is a collection of all the tools you need, from source code editing,
-        compilation through to debugging and UI design.
+    	Xcode是一个集成开发环境，这意味着它是一个你需要的所有开发工具的集合，从源码编辑，编译，到debug和UI设计。
     </p>
     <p>
-        When you open Xcode it allows you to create a new project, or open an
-        existing one. You can also open an existing project by double clicking
-        on an Xcode project or workspace in Finder:
+    	当你大开Xcode时，它会让你创建一个新项目，或打开一个已存在的项目。你也可以通过双击目录中的Xcode project或workspace来打开一个已存在的项目：
     </p>
     <p>
         <img class="aligncenter wp-image-110225 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/open_finder-480x269.png"
@@ -229,28 +225,25 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <h3>
-        Creating a new app
+        创建一个新的app
     </h3>
     <p>
-        For most of this tutorial you’ll tour Xcode via a sample app, but first
-        things first – you can’t start learning about a new platform without first
-        creating a “Hello World” app!
+    	在这个教程中的大部分，你将通过一个样本项目来游览Xcode，但是首先的第一件事情 - 你必须创建一个“Hello World” app来了解新的平台！
     </p>
     <p>
-        To do this, select
+    	要想这么做，从Xcode的欢迎屏幕中，选择
         <em>
             Create a new Xcode project
         </em>
-        from the Xcode welcome screen:
-    </p>
+		：
+	</p>
     <p>
         <img class="aligncenter wp-image-110236 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png"
         alt="xocde_welcome" width="480" height="289" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-700x422.png 700w"
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        The template chooser allows you to decide how Xcode will configure your
-        new project. In the
+    	模板选择器允许你决定Xcode怎么配置你的新工程。在
         <em>
             OS X
         </em>
@@ -260,7 +253,7 @@
         <em>
             Application
         </em>
-        section you can see the three different core OS X app types:
+        部分，你可以看到三个不同的核心OS X app的类型：
     </p>
     <p>
         <img class="aligncenter wp-image-110224 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/new_project-451x320.png"
@@ -268,55 +261,54 @@
         sizes="(max-width: 451px) 100vw, 451px">
     </p>
     <p>
-        The three different app types are as follows:
+    	三个不同的app类型如下：
     </p>
     <ul>
         <li>
             <em>
                 Cocoa Application
             </em>
-            : An OS X desktop app – with a window-based UI. Cocoa is the name of the
-            framework upon which all OS X applications are built.
+            ：OS X桌面app，基于窗口的UI。全部的OS X应用构建在名为Cocoa的framework上。
         </li>
         <li>
             <em>
                 Game
             </em>
-            : Games built using Apple’s SpriteKit or SceneKit frameworks.
+            ：使用苹果的SpriteKit或SceneKit frameworks构建的游戏。
         </li>
         <li>
             <em>
                 Command Line Tool
             </em>
-            : A utility that runs in a shell, and has a text-based UI.
+            ：运行在shell上的工具，有基于文本的UI。
         </li>
     </ul>
     <p>
-        Select
+        选择
         <em>
             Cocoa Application
         </em>
-        , and click
+        ，点击
         <em>
             Next
         </em>
-        . On the screen that follows, set the
+        。在接下来的屏幕中，设置
         <em>
             Product Name
         </em>
-        to
+        为
         <em>
             HelloWorld
         </em>
-        , check the language is set to
+        ，检查language被设置为
         <em>
             Swift
         </em>
-        and that
+        和
         <em>
             Use Storyboards
         </em>
-        is checked:
+		已被勾选：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110277" src="https://koenig-media.raywenderlich.com/uploads/2015/07/new_project1-450x320.png"
@@ -324,19 +316,17 @@
         sizes="(max-width: 450px) 100vw, 450px">
     </p>
     <p>
-        Click
+        点击
         <em>
             Next
         </em>
-        , and choose a location on disk to save your project.
+        ，选择一个磁盘中的位置来保存你的项目。
     </p>
     <p>
-        This creates a new, empty project ready for you to craft into your amazing
-        app. The first thing you’ll want to do is build and run it to check that
-        it’s all working.
+    	这将创建一个新的空项目，为你准备好打造令人惊叹的app。第一件你想做的事，是build和运行来检查它是否工作正常。
     </p>
     <h3>
-        Running your app
+        运行你的app
     </h3>
     <p>
         Whether you’ve opened an existing app or created a new one, the most important
