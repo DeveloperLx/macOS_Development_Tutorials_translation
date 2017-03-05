@@ -535,46 +535,38 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <h2>
-        Introducing HubEvent
+        介绍HubEvent
     </h2>
     <p>
-        You’ll continue learning how to make projects from scratch and code OS
-        X apps in later parts of this series, but for the rest of this tutorial
-        you’ll focus on learning more about Xcode itself.
+    	在这个系列之后的部分，你将学习怎么通过从涂画（scratch）和编码OS X app来制作项目，但在这个教程的剩余部分，你将关注更多Xcode本身的东西。
     </p>
     <p>
-        To help with that, I’ve created a sample project for you called
-        <em>
+    	为了有所帮助，我为你创建了一个名叫
+    	<em>
             HubEvent
         </em>
-        that you’ll work with for the rest of this tutorial. This way you can
-        get a tour of Xcode with a real-world project.
+    	的简单的项目，在这个教程接下来，你将与之一起工作。这样你就可以得到一个真实世界项目中的Xcode的旅程。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/HubEvent_7.1.zip"
         sl-processed="1">
-            Download
+            下载
         </a>
-        the
         <em>
             HubEvent
         </em>
-        &nbsp;starter project, unzip it and
+        启动器项目，解压它，然后在Finder中
         <em>
-            double click
+        	双击HubEvent\HubEvent.xcodeproj
         </em>
-        on
-        <em>
-            HubEvent\HubEvent.xcodeproj
-        </em>
-        in Finder to open it in Xcode.
+        来打开这个项目在Xcode中。
     </p>
     <p>
-        Build and run
+        Build并运行
         <em>
             HubEvent
         </em>
-        sample project and you’ll see it compile and then launch:
+        样本项目，你将看到它编译然后启动：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110220" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent-613x500.png"
@@ -582,10 +574,7 @@
         sizes="(max-width: 613px) 100vw, 613px">
     </p>
     <p>
-        HubEvent uses the public GitHub API to pull down all the events for a
-        user, and displays a summary of them in a table. As you select each row
-        of the table, the raw JSON associated with that event is displayed in the
-        panel below.
+    	HubEvent使用公开的GitHub API来获取一个用户的所有事件，然后在一个表格中展示它们。当你选择列表中的每一行时，相关事件的源JSON就会展示在下面的面板中。
     </p>
     <h2>
         Xcode Core Functionality
