@@ -380,15 +380,15 @@
     	现在你要更新你的app的用户界面（UI），让它变成一真正的“Hello World” app，因此你要使用一个名叫Interface Builder (IB)的工具来实现。在这个教程后面，你会学到很多关于Interface Builder的 - 对于现在，你只需要知道怎么添加一些文本到布局中就够了。
     </p>
     <p>
-        Find the
+    	在
+    	<em>
+            Project Navigator
+        </em>
+        中，找到
         <em>
             Main.storyboard
         </em>
-        file in the
-        <em>
-            Project Navigator
-        </em>
-        , and click on it:
+        文件，点击它：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110287" src="https://koenig-media.raywenderlich.com/uploads/2015/07/open_storyboard-294x320.png"
@@ -396,8 +396,7 @@
         sizes="(max-width: 294px) 100vw, 294px">
     </p>
     <p>
-        This opens the storyboard file in Interface Builder – you can see an outline
-        of your entire app:
+    	这会在Interface Builder中打开storyboard文件 - 你会看到你全部app的轮廓：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110288" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_world_storyboard-343x500.png"
@@ -405,24 +404,22 @@
         sizes="(max-width: 343px) 100vw, 343px">
     </p>
     <p>
-        The lower component (entitled “View Controller”) represents the visual
-        appearance of your app. You’re going to add a text label to this to create
-        your “Hello World” app.
+        下方的组件（被标为“View Controller”）的，代表着你app的可见的外观。你要添加一个text label到这里来创建你的“Hello World”app。
     </p>
     <p>
-        Find the
+        在Xcode窗口的右下部分，找到
         <em>
             Object Library
         </em>
-        in the lower right part of the Xcode window. Type
+        。在搜索框中输入
         <em>
             label
         </em>
-        into the search box and locate the
+        并定位到
         <em>
             Label
         </em>
-        entry:
+        入口：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110291" src="https://koenig-media.raywenderlich.com/uploads/2015/07/object_library-330x320.png"
@@ -430,18 +427,19 @@
         sizes="(max-width: 330px) 100vw, 330px">
     </p>
     <p>
-        <em>
-            Drag
-        </em>
-        a label from the
-        <em>
+    	从
+   	    <em>
             Object Library
         </em>
-        onto the empty
+        中
         <em>
+    		拖拽
+    	</em>
+    	一个label到
+ 	    <em>
             View Controller
         </em>
-        scene canvas:
+    	的空的场景画布上：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110292" src="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png"
@@ -449,32 +447,31 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        A label represents a static piece of text – with no user interaction –
-        perfect for your Hello World app. You don’t want it to say “label” though
-        – you’re going to update that next.
+    	一个label代表一块静态的文本 - 没有用户交互 - 对于你的Hello World app来说是完美的。你并不想让它说出“label”来直到你下次要升级的时候。
     </p>
     <p>
         To configure the label, select it and then open the
+        要配置这个label，选择它，然后在Xcode窗口右侧打开
         <em>
             Attributes Inspector
         </em>
-        (the 4th tab) on the right hand side of the Xcode window. Set the
+        （第四个标签）。设置
         <em>
             title
         </em>
-        to
+        为
         <em>
             “Hello OS X!”
         </em>
-        , and update the
+        ，把
         <em>
             font
         </em>
-        to be
+        修改为
         <em>
-            size 40
+            40号
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110294" src="https://koenig-media.raywenderlich.com/uploads/2015/07/label_config-296x320.png"
@@ -482,8 +479,7 @@
         sizes="(max-width: 296px) 100vw, 296px">
     </p>
     <p>
-        You may see that the label is no longer sized correctly – next you’ll
-        fix that and set it to the correct position.
+    	你可能会看到label的尺寸不再合适 - 下一步你会修复，并把它设到正确的位置上。
     </p>
     <p>
         You position UI elements in OS X using a system called Auto Layout – which
