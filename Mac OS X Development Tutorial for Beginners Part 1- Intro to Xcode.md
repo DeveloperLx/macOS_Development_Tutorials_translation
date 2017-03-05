@@ -329,18 +329,14 @@
         运行你的app
     </h3>
     <p>
-        Whether you’ve opened an existing app or created a new one, the most important
-        thing you’ll want to do is to build and run it.
+    	不管你是打开一个已存在的app，还是创建一个新的，最重要的事都是你想build和运行它。
     </p>
     <p>
-        This involves compiling all of the code you’ve written into machine code,
-        bundling up the resources required by the app and then executing it. This
-        process is complex, but luckily Xcode has your back. To build and run your
-        project simply press the
+    	这会将所有你写的code编译成机器码，打包所有app需求的资源，然后执行。这个过程是复杂的，但幸运的时Xcode会帮你搞定。要想build和执行你的项目，只需点击工具栏上的
         <em>
             play
         </em>
-        button on the toolbar:
+        按钮：
     </p>
     <p>
         <img class="aligncenter wp-image-110281 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/play_button1-480x124.png"
@@ -348,11 +344,11 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        You can also build and run your app with the
+    	你也可以使用快捷键
         <em>
             ⌘R
         </em>
-        keyboard shortcut.
+        来build和运行你的app。
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110284" src="https://koenig-media.raywenderlich.com/uploads/2015/07/bar_empty-480x292.png"
@@ -361,38 +357,30 @@
     </p>
     <div class="note">
         <em>
-            Note:
+        	注意：
         </em>
-        The first time you ever build and run an app in Xcode, you might well
-        be asked whether you want to
+        当你第一次用Xcode build和执行app时，你可能被询问是否想要
         <em>
-            Enable Developer Mode on this Mac?
+        	在这台电脑上打开开发者模式？
         </em>
-        . You’re safe to select
+        你可以安全地选择
         <em>
-            Enable
+        	打开
         </em>
-        , at which point you may have to enter your password. Developer mode allows
-        Xcode to attach a debugger to running processes – which will be extremely
-        useful when building your application!
+        ，并可能会遇到要求输入你的密码的时候。开发者模式允许附加一个调试者 - 这在当你build你的应用时将会非常得有用！
     </div>
     <p>
-        Your
+        当前，你的
         <em>
             HelloWorld
         </em>
-        app is currently looking a bit empty – and doesn’t even say hello! You’re
-        going to fix that now.
+        app看起来有一点空 - 甚至连hello都没有说！现在，你将要修复它。
     </p>
     <h3>
-        Adding Text
+    	添加文本
     </h3>
     <p>
-        You’re going to update the user interface (UI) of your app to make it
-        into a true “Hello World” app, and to do this you’re going to use a tool
-        called Interface Builder (IB). You’ll learn much more about Interface Builder
-        later in this tutorial – for now, you&nbsp;just need to know enough to
-        add some text to the layout.
+    	现在你要更新你的app的用户界面（UI），让它变成一真正的“Hello World” app，因此你要使用一个名叫Interface Builder (IB)的工具来实现。在这个教程后面，你会学到很多关于Interface Builder的 - 对于现在，你只需要知道怎么添加一些文本到布局中就够了。
     </p>
     <p>
         Find the
