@@ -450,7 +450,6 @@
     	一个label代表一块静态的文本 - 没有用户交互 - 对于你的Hello World app来说是完美的。你并不想让它说出“label”来直到你下次要升级的时候。
     </p>
     <p>
-        To configure the label, select it and then open the
         要配置这个label，选择它，然后在Xcode窗口右侧打开
         <em>
             Attributes Inspector
@@ -482,41 +481,38 @@
     	你可能会看到label的尺寸不再合适 - 下一步你会修复，并把它设到正确的位置上。
     </p>
     <p>
-        You position UI elements in OS X using a system called Auto Layout – which
-        allows you to specify positions and sizes of UI elements in terms of their
-        relationships. You want to put your “Hello OS X!” label in the center of
-        the window – so you’re going to add constraints to achieve this.
+    	在OS X中，你安置UI原件是使用一个名叫Auto Layout的系统 - 它允许你根据它们之间的关系，指定UI原件的位置和大小。你想要摆放你的“Hello OS X!” label在窗口中央 - 因此你需要添加约束（constraints）来实现。
     </p>
     <p>
-        Select the label once again, and click the
+    	再次选择label，在底栏点击
         <em>
             Align
         </em>
-        button in the bottom bar (the second from the left). Check both the
+        按钮（从左往右数第二个）。勾选
         <em>
             Horizontally in Container
         </em>
-        and the
+        和        
         <em>
             Vertically in Container
         </em>
-        boxes, and ensure that they are both
+        勾选框，并确保它们都被
         <em>
-            set to 0
+        	设为0
         </em>
-        . Select
+        。在最后点击
+        <em>
+            Add 2 Constraints
+        </em>
+        按钮前，在
+        <em>
+            Update Frames
+        </em>        
+        中选择
         <em>
             Items of New Constraints
         </em>
-        in the
-        <em>
-            Update Frames
-        </em>
-        selection box before finally clicking the
-        <em>
-            Add 2 Constraints button
-        </em>
-        :
+		选择框：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110297" src="https://koenig-media.raywenderlich.com/uploads/2015/07/constraints-413x320.png"
@@ -524,14 +520,14 @@
         sizes="(max-width: 413px) 100vw, 413px">
     </p>
     <p>
-        This will update the storyboard to position and size your label correctly.
+    	这会更新storyboard让你的label的位置和大小正确。
     </p>
     <p>
-        Build and run your app (either by clicking the play button, or using the&nbsp;
-        <em>
+    	Build并执行的你的app（点击play按钮或使用
+    	<em>
             ⌘R
         </em>
-        keyboard shortcut) to see your “Hello World!” Mac OS X app:
+        快捷键均可），来查看你的“Hello World!” Mac OS X app：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110300" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_osx-480x293.png"
