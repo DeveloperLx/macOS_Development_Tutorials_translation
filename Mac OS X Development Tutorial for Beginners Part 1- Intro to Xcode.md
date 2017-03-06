@@ -843,28 +843,25 @@
         Asset Catalog
     </h3>
     <p>
-        In addition to code and user interfaces, your app will also need some
-        assets such as artwork. Due to the different screen types (e.g. retina
-        and non-retina), you often need to provide multiple versions of each asset.
-        To simplify this process, Xcode uses
+        除了代码和用户交互，你的app也需要一些资产（assets）例如artwork。由于不同的屏幕类型（例如视网膜的和非视网膜的），你通常需要提供多种版本的资产。为了简化这个过程，Xcode使用
         <em>
             Asset Libraries
         </em>
-        to store and organize the assets that accompany the app.
+        来保存和组织伴随app的资产。
     </p>
     <p>
         <em>
             HubEvent
         </em>
-        already has the default asset library, called
+        早已有了一个默认的asset library，名叫
         <em>
             Images.xcassets
         </em>
-        . Select it in the
+        。在
         <em>
             Project navigator
         </em>
-        to reveal its content:
+        中选择它来展示它的内容：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110208" src="https://koenig-media.raywenderlich.com/uploads/2015/07/asset_library-700x247.png"
@@ -872,14 +869,11 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        When you create a new app, the template includes an asset library, with
-        just one entry – the app logo. This is exactly the state of the asset library
-        in
+        当你创建一个新的app时，它的模板就会包含一个asset library，并只有一个入口 - app的logo。这正是
         <em>
             HubEvent
         </em>
-        . You can see the different asset types you can create by right clicking
-        in the left pane of the library:
+        的状态。你可以通过右击library左侧的窗格，看到不同的你可以创建的资产类型：
     </p>
     <p>
         <img class="aligncenter wp-image-110209 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/asset_types-285x320.png"
@@ -887,23 +881,22 @@
         sizes="(max-width: 285px) 100vw, 285px">
     </p>
     <p>
-        Currently the app icon for
+        当前
         <em>
             HubEvent
         </em>
-        is the default OS X icon:
+        的app图标是默认的OS X图标：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-110226" src="https://koenig-media.raywenderlich.com/uploads/2015/07/original_icon.png"
         alt="original_icon" width="126" height="144">
     </p>
     <p>
-        Since the app icon is provided by the asset catalog, you’re going to replace
-        it with something more appropriate. Click on the
+        因为app icon是由asset catalog提供的，你可以用一些更合适的来替换它。点击
         <em>
             AppIcon
         </em>
-        asset:
+        资产：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110206" src="https://koenig-media.raywenderlich.com/uploads/2015/07/appicon-700x328.png"
@@ -911,12 +904,10 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        When you provide an app icon for an app, you have to provide it in many
-        different sizes and densities for use around the system. As a demonstration,
-        you’re going to add one of these sizes to see the app icon change.
+        当你为一个app提供icon时，你必须为围绕这个系统使用 提供多种尺寸和分辨率，作为一个演示，你将添加这些尺寸中的一种来查看app图标的变化。
     </p>
     <p>
-        Use Finder to locate
+        使用Finder来在你刚下载和解压的目录中找到
         <em>
             rw
         </em>
@@ -926,16 +917,19 @@
         <em>
             icon.png
         </em>
-        in the unzipped directory you downloaded. Then drag this from Finder into
-        the
-        <em>
-            Mac 512pt 2x
-        </em>
-        cell in the
+        。然后将其从Finder中拖拽到在
         <em>
             AppIcon
         </em>
-        asset:
+        资产，
+        <em>
+            Mac 512pt 2x
+        </em>
+        的单元格中的
+        <em>
+            AppIcon
+        </em>
+        ：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110207" src="https://koenig-media.raywenderlich.com/uploads/2015/07/appicon_updated-700x320.png"
@@ -944,14 +938,12 @@
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Providing a single image in this manner is not generally appropriate.
-        In a real application you should provide all ten versions of the icon.
+        像这样地提供一个单独的图像通常都是不合适的。在真实的应用中你应该提供全部版本的icon。
     </div>
     <p>
-        Now build and run the app again and you’ll see the updated icon in the
-        dock:
+        现在再次build和运行app，你将在dock中看到更新的图标：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-110223" src="https://koenig-media.raywenderlich.com/uploads/2015/07/new_icon.png"
