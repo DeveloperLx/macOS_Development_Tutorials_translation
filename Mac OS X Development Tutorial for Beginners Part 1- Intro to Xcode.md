@@ -1260,14 +1260,13 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h2>
-        Fixing a bug with documentation
+        使用文档来修复一个bug
     </h2>
     <p>
-        Let’s see how you can use Xcode’s documentation to fix another bug.
+        让我们来看一看你可以怎么使用Xcode的文档来修复另一个bug。
     </p>
     <p>
-        When HubEvent first loads, you’ll notice that the divider between the
-        table and the JSON view is positioned very high:
+        当HubEvent第一次加载时，你将注意到在table和JSON视图之间的分隔器被放置得非常高：
     </p>
     <p>
         <img class="aligncenter wp-image-110310 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/07/divider_initial-479x500.png"
@@ -1275,36 +1274,34 @@
         sizes="(max-width: 479px) 100vw, 479px">
     </p>
     <p>
-        If you try to drag the divider down, you’ll see that it snaps to the middle
-        of the window, and is then immovable. This is the behavior you’d like,
-        but the divider should be in the correct position when the app starts.
+        如果你想把分隔器拖拽下来，你将看到它会“咬合”（snaps）到窗口中央，然后就固定不动了。这是你想要的效果，但是在app启动时，应该让分隔器在正确的位置上。
     </p>
     <p>
-        You can achieve this by adding a single line to the
-        <code>
-            viewWillAppear()
-        </code>
-        method inside the
+        你可以通过在
         <em>
             SplitViewController.swift
         </em>
-        file. Use the documentation browser to search for
+        文件中添加一行到
+        <code>
+            viewWillAppear()
+        </code>
+        方法。使用文档浏览器来搜索
         <code>
             NSSplitView
         </code>
-        , and read about the
+        ，阅读
         <code>
             setPosition(_:, ofDividerAtIndex:)
         </code>
-        method. Then use this method on the
+        方法的相关内容。然后使用这个方法在
         <code>
             splitView
         </code>
-        property in the aforementioned method, passing in
+        property （在之前提到的方法），传递
         <code>
             view.bounds.height / 2.0
         </code>
-        for the position.
+        在这个位置。
     </p>
     <pre class="swift" style="font-family:monospace;">splitView.setPosition<span style="color: #002200;">(</span>view.bounds.height <span style="color: #002200;">/</span> <span style="color: #2400d9;">2.0</span>, ofDividerAtIndex<span style="color: #002200;">:</span> <span style="color: #2400d9;">0</span><span style="color: #002200;">)</span>
     </pre>
@@ -1312,7 +1309,6 @@
         &nbsp;
     </p>
     <h2>
-        Where To Go From Here?
         从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
