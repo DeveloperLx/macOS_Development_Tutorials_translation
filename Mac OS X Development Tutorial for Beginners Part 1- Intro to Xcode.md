@@ -637,11 +637,11 @@
         <em>
             Project navigator
         </em>
-        从
+        中，从
         <em>
             Controllers
         </em>
-        中选择
+        选择
         <em>
             WindowController.swift
         </em>
@@ -654,22 +654,26 @@
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        You might need to show the
+        你可能需要工具栏中的按钮展示左手边栏的
         <em>
-            Navigator pane
+            Navigator面板
         </em>
-        on the left hand side using the buttons in the toolbar, and choose the
+        ，然后选择导航面板中的
         <em>
             Project navigator
         </em>
-        within the navigator pane. The buttons are shown in the above screenshot.
+        。这些按钮已展示在上面的屏幕截图中。
     </div>
     <p>
-        In the main section of the Xcode window, you can now see the source code
-        associated with the Window Controller. Find the following line:
+        在Xcode窗口的主要部分，你现在可以看到相关于Window Controller的源代码。找到下面这行：
     </p>
+```swift
+    let sharedDataStore = DataStore (username: "rwenderlich", type: .Network)
+```
+
+
     <div class="wp_codebox">
         <table>
             <tbody>
