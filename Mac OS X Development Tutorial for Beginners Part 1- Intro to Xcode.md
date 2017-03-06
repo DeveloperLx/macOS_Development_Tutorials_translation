@@ -733,25 +733,21 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This storyboard includes the layout for the entire app. You can see how
-        the table at the top of the app is split out as a separate entity from
-        the JSON viewer at the bottom.
+        这个storyboard中包含了整个app的布局。你可以看到怎么从底部的JSON观察器中被分离出这个app顶部的列表作为一个分离的实体。
     </p>
     <p>
-        To get a really quick feel for interface builder, you’re going to change
-        the color of the icon in the left hand column.
+        要得到一个interface builder的快速的体验，你可以改变icon的颜色在左手边的栏中。
     </p>
     <p>
-        Although being zoomed out allows you to get a good view of the entire
-        storyboard, you can’t edit a zoomed out storyboard. Zoom in to the
-        <em>
-            EventList VC
-        </em>
-        scene using
+        尽管可以通过收缩来获得一个全部storyboard的好的查看，但是你不能编译一个收缩的storyboard。使用
         <em>
             ⌘+
         </em>
-        . This is the scene that contains the table:
+        键来将其收缩到
+        <em>
+            EventList VC
+        </em>
+        。这是包含列表的场景：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110218" src="https://koenig-media.raywenderlich.com/uploads/2015/07/eventlist-700x320.png"
@@ -759,12 +755,11 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Use the button in the bottom left corner to
+        使用左下角的按钮来
         <em>
-            Show Document Outline
+            显示 Document Outline
         </em>
-        . This is a panel along the left hand side of Interface Builder which
-        shows you the hierarchy of components that make up the current scene.
+        。这是一个在Interface Builder左手边的面板，会向你展示构成当前场景的组件的层级。
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110228" src="https://koenig-media.raywenderlich.com/uploads/2015/07/select_icon-345x500.png"
@@ -772,55 +767,52 @@
         sizes="(max-width: 345px) 100vw, 345px">
     </p>
     <p>
-        If you click on the purple
+        如果你在列表视图点击紫色的
         <em>
             ⌘
         </em>
-        symbol in the table view, you’ll highlight the corresponding
-        <em>
-            Table Cell View
-        </em>
-        row in the
+        符号，你就会高亮在
         <em>
             Document Outline
         </em>
-        . Since you want to access the text field
+        中的相应的
+        <em>
+            列表单元格视图
+        </em>
+        。要是你想访问在这个单元格
         <i>
-            inside
+            中
         </i>
-        this cell, click on the
+        的text field，再次点击
         <em>
             ⌘
         </em>
-        again. Now you’ll have the row selected as in the previous image.
+        。现在你就有了行的选择在之前的图像中。
     </p>
     <p>
-        Once you’ve selected this text field, you can configure various attributes
-        associated with it, which determine its appearance.
+        一旦你选择了这个text field，你可以配置各种相关于它的属性，这将决定它的外观。
     </p>
     <p>
-        If the
+        如果在Xcode右手边底部的
         <em>
             Utilities
         </em>
-        panel is not visible down the right hand side of Xcode, use the button
-        in the toolbar to show it:
+        面板不可见， 使用工具栏中的按钮来展示它：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-110233" src="https://koenig-media.raywenderlich.com/uploads/2015/07/utilities_button.png"
         alt="utilities_button" width="220" height="66">
     </p>
     <p>
-        This panel can display many different inspectors, but the one you want
-        now is the
+        这个面板可以展示很多inspectors（检查器），但是你现在想要的那个是
         <em>
             Atrributes Inspector
         </em>
-        . Select it now and you’ll find the
+        。选择它，你会找到
         <em>
             Text Color
         </em>
-        attribute:
+        属性：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110210" src="https://koenig-media.raywenderlich.com/uploads/2015/07/attributes_inspector-337x500.png"
@@ -828,8 +820,7 @@
         sizes="(max-width: 337px) 100vw, 337px">
     </p>
     <p>
-        Tap on the purple color bar, and you’ll see a colors panel. Use this to
-        select a different color – e.g. yellow:
+        点击紫色的条，你会看到一个颜色的面板。使用它来选择一个不同的颜色 - 例如黄色：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110212" src="https://koenig-media.raywenderlich.com/uploads/2015/07/color_panel-290x500.png"
@@ -837,11 +828,11 @@
         sizes="(max-width: 290px) 100vw, 290px">
     </p>
     <p>
-        Now you can build and run
+        现在你可以再次build和执行
         <em>
             HubEvent
         </em>
-        again to see the effect your change has had:
+        来查看你刚刚改变的效果：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110222" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent_yellow-700x438.png"
