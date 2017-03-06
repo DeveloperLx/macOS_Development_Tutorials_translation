@@ -671,6 +671,7 @@
     </p>
 
 ```swift
+    // The shared data model
     let sharedDataStore = DataStore (username: "rwenderlich", type: .Network)
 ```
 
