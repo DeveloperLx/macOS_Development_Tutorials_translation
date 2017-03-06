@@ -1205,31 +1205,28 @@
         the network. Well done – you’ve fixed your first OS X bug!
     </p>
     <h2>
-        Documentation
+        文档
     </h2>
     <p>
-        Xcode has a couple of integrated ways to get access to documentation for
-        system frameworks. The first is the ability to show a tooltip containing
-        the most salient information about a class or method.
+        Xcode有一些整合的方法去访问系统frameworks的文档。第一是展示包含关于类或方法的最显著信息的提示工具的能力。
     </p>
     <p>
-        As an example, open
+        例如，打开
         <em>
             Controllers\WindowController.swift
         </em>
-        and inside the
+        在
         <code>
             transformedValueClass()
         </code>
-        method,
+        方法里，
         <em>
-            Option-Click
+            Option-点击
         </em>
-        on
         <code>
             NSString
         </code>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-110232 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/tooltip-480x194.png"
@@ -1237,12 +1234,11 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        The second method of accessing documentation shows you the full documentation
-        in a dedicated browser. To access this, either click on the
+        第二种访问文档的方法会展示完整的文档在一个专用的浏览器中。要访问它，点击
         <em>
             Reference
         </em>
-        link at the bottom of the tooltip, or click the
+        在工具提示的底部，或点击
         <em>
             Window
         </em>
@@ -1252,11 +1248,11 @@
         <em>
             Documentation and Reference
         </em>
-        menu. Then search for
+        菜单。然后搜获
         <code>
             NSString
         </code>
-        to pull up the documentation:
+        来获取文档：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110216" src="https://koenig-media.raywenderlich.com/uploads/2015/07/doc_browser-700x339.png"
