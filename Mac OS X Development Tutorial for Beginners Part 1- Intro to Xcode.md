@@ -1310,58 +1310,8 @@
         </code>
         for the position.
     </p>
-    <div class="easySpoilerWrapper" style="">
-        <table class="easySpoilerTable" border="0" style="text-align:center;"
-        align="center" bgcolor="FFFFFF">
-            <tbody>
-                <tr style="white-space:normal;">
-                    <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
-                        Solution Inside: Divider Position
-                    </th>
-                    <th class="easySpoilerTitleB" style="text-align:right;vertical-align:middle;font-size:100%; white-space:nowrap;">
-                        <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv14998001&quot;); return false;"
-                        class="easySpoilerButtonOther" style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px; padding: 4px; "
-                        align="right" sl-processed="1">
-                            Select
-                        </a>
-                        <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv14998001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
-                        id="spoilerDiv14998001_action" class="easySpoilerButton" value="Show" align="right"
-                        style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px 5px; padding: 4px;"
-                        sl-processed="1">
-                            Show
-                        </a>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="easySpoilerRow" colspan="2" style="">
-                        <div id="spoilerDiv14998001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
-                            <p>
-                            </p>
-                            <pre class="swift" style="font-family:monospace;">splitView.setPosition<span style="color: #002200;">(</span>view.bounds.height <span style="color: #002200;">/</span> <span style="color: #2400d9;">2.0</span>, ofDividerAtIndex<span style="color: #002200;">:</span> <span style="color: #2400d9;">0</span><span style="color: #002200;">)</span>
-                            </pre>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="easySpoilerConclude" style="">
-            <table class="easySpoilerTable" border="0" style="text-align:center;"
-            frame="box" align="center" bgcolor="FFFFFF">
-                <tbody>
-                    <tr>
-                        <th class="easySpoilerEnd" style="width:100%;">
-                        </th>
-                        <td class="easySpoilerEnd" style="white-space:nowrap;" colspan="2">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="easySpoilerGroupWrapperLastRow" colspan="2" style="">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <pre class="swift" style="font-family:monospace;">splitView.setPosition<span style="color: #002200;">(</span>view.bounds.height <span style="color: #002200;">/</span> <span style="color: #2400d9;">2.0</span>, ofDividerAtIndex<span style="color: #002200;">:</span> <span style="color: #2400d9;">0</span><span style="color: #002200;">)</span>
+    </pre>
     <p>
         &nbsp;
     </p>
