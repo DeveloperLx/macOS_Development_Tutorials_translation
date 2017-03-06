@@ -619,36 +619,33 @@
         </li>
     </ul>
     <h3>
-        Code Editor
+        代码编辑器
     </h3>
     <p>
-        Apps are built primarily from code, written in the Swift programming language.
-        You can also use Objective-C to write apps for OS X, but Apple introduced
-        Swift in 2014, and was very clear that it is the langauge of the future.
+        App主要build自代码，由Swift编程语言写成。你也可以用OC来为OS X写app，但是苹果在2014年引入了Swift，很明显它是编程语言的未来。
         <em>
             HubEvent
         </em>
-        is written in Swift.
+        是由Swift写成的。
     </p>
     <p>
-        One of the views available in Xcode is the
+        在Xcode中一个可用的视图是
         <em>
-            Code Editor
+            代码编辑器
         </em>
-        , which is activated whenever you open a source code file. To see it,
-        select
-        <em>
-            WindowController.swift
-        </em>
-        from the
-        <em>
-            Controllers
-        </em>
-        group in the
+        ，无论何时你打开源码文件，它都是活跃的。要查看它，在
         <em>
             Project navigator
         </em>
-        .
+        从
+        <em>
+            Controllers
+        </em>
+        中选择
+        <em>
+            WindowController.swift
+        </em>
+        。
     </p>
     <p>
         <img class="aligncenter wp-image-110238 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/07/source_editor-700x368.png"
