@@ -676,24 +676,22 @@
 </pre>
 
     <p>
-        This line is selecting the source of the GitHub event data – here choosing
-        Ray’s username (
+        这行选择了GitHub事件的数据源 - 这里选择了Ray的名字（
         <code>
             rwenderlich
         </code>
-        ).
+        ）。
     </p>
     <p>
-        Try changing
+        尝试改变
         <code>
             rwenderlich
         </code>
-        to a different GitHub username – for example
+        为一个不同的GitHub用户名 - 例如
         <code>
             sammyd
         </code>
-        . Then, build and run your app as you did before. You’ll see the new user’s
-        events listed in the app:
+        。然后，就像你刚刚选择的一样，构建并运行你的app。你就会在app中看到新用户的事件被列出来：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110221" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent_sammyd-629x500.png"
@@ -701,11 +699,10 @@
         sizes="(max-width: 629px) 100vw, 629px">
     </p>
     <p>
-        Well done! You’ve changed your first code in an OS X app!
+        干得好！你已经在OS X app里改变了你的第一行代码！
     </p>
     <p>
-        The code editor includes many powerful features to assist you as your
-        write code, including autocompletion and QuickLook documentation.
+        这个文档编辑器包含很多有力的特性来帮助你写代码，包含自动完成（autocompletion）和快速查看的文档（QuickLook documentation）。
     </p>
     <h3>
         Interface Builder
