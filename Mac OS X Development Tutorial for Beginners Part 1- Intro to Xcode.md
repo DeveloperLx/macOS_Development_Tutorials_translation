@@ -577,56 +577,45 @@
     	HubEvent使用公开的GitHub API来获取一个用户的所有事件，然后在一个表格中展示它们。当你选择列表中的每一行时，相关事件的源JSON就会展示在下面的面板中。
     </p>
     <h2>
-        Xcode Core Functionality
+        Xcode核心功能
     </h2>
     <p>
-        HubEvent&nbsp;is a fairly simple app, but is complex enough to demonstrate
-        the core functionality of Xcode. The remainder of this tutorial will cover
-        the following:
+    	HubEvent是一个相当简单的app，但是足够来演示Xcode的核心功能。这篇教程的剩余部分将覆盖如下内容：
     </p>
     <ul>
         <li>
             <em>
-                Code Editor.
+                代码编辑器。
             </em>
-            All OS X apps have a code component, and HubEvent is no different. The
-            code in HubEvent is responsible for downloading the data from the GitHub
-            API, and wiring it up to the user interface.
+            所有的OS X app都有一个代码组件，HubEvent也不例外。HubEvent的代码对于从GitHub API下载数据是非常靠得住的，并将其展示到用户界面上。
         </li>
         <li>
             <em>
                 Interface Builder.
             </em>
-            You’ve already used Interface Builder when you build your “Hello World!”
-            app. You’ll learn more about how this powerful tool allows you to build
-            up the split-window UI used in
+            当你构建你的“Hello World!”app时，你已经使用过Interface Builder。你将学到更多关于这个强有力的工具的东西，它能让你构建出用在
             <em>
                 HubEvent
             </em>
-            .
+            上的分离窗口的UI效果。
         </li>
         <li>
             <em>
-                Asset Catalog.
+                Asset Catalog.（资产目录）
             </em>
-            All image assets are stored inside asset catalogs – you’ll discover how
-            to replace the standard app icon with something more interesting.
+            所有的图像都存放在asset catalogs中 - 你将发现怎么用一些更有趣的app icon代替标注的。
         </li>
         <li>
             <em>
                 Debugging.
             </em>
-            Everybody makes mistakes when writing code and building apps and Xocde’s
-            debugger makes identifying and fixing bugs a whole lot easier.
+            在写代码和build app时，每个人都会犯错，Xcode的debugger让识别和修复bug大幅度地变得容易。
         </li>
         <li>
             <em>
-                Documentation.
+                文档。                
             </em>
-            OS X apps are build on top of some extremely advanced system frameworks,
-            and nobody can remember exactly how to use each and every one of them.
-            Luckily Apple creates high-quality documentation and has integrated it
-            with Xcode to make it easy to find answers to your questions.
+            OS X app构建在一些非常先进的系统frameworks上，没有人可以精确地记住怎么去使用每一种。幸运的是，苹果创建了高质量的文档，并将其整合到了Xcode中，它可以使得你找到你问题的答案变得容易。
         </li>
     </ul>
     <h3>
@@ -1618,6 +1607,7 @@
     </p>
     <h2>
         Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1629,10 +1619,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                        	想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1640,32 +1631,26 @@
         </div>
     </div>
     <p>
-        Here’s the
+        这里是这个Max OS X开发教程
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/HubEvent_7.1.zip"
         sl-processed="1">
-            finished project
+            最终完成的项目
         </a>
-        &nbsp;for this Max OS X development tutorial.
+        。
     </p>
     <p>
-        At this point, you have a birds-eye overview of the most important aspects
-        of Xcode. In the
+    	现在，你已经有了对于Xcode所有最重要当面的把握（birds-eye overview）。在
         <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
         sl-processed="1">
-            next article
+        	下一篇文章
         </a>
-        you’ll learn about the anatomy of an app, and finally move on to creating
-        your first OS X app.
+        中，你将学习对一个app的剖析，并最终创建出你的第一个OS X app。
     </p>
     <p>
-        Apple has a huge amount of documentation for OS X – all available on the
+        苹果有着OS X的大量文档 - 全部可以获取的在这里
         <a href="https://developer.apple.com/library/mac/navigation/" sl-processed="1">
             Developer Portal
         </a>
         .
-    </p>
-    <p>
-        If you have any questions or comments then please join in below or on
-        the forums.
     </p>
 </div>
