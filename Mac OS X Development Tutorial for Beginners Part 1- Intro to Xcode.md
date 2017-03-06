@@ -979,39 +979,9 @@
     <p>
         Find the following line in the code:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1101702">
-                    <td class="code" id="p110170code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #400080;">
-                                NSAttributedString
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            string
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            unescaped, attributes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            attributes
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">
+        <span style="color: #a61390;">return</span> <span style="color: #400080;">NSAttributedString</span><span style="color: #002200;">(</span>string<span style="color: #002200;">:</span> unescaped, attributes<span style="color: #002200;">:</span> attributes<span style="color: #002200;">)</span>
+    </pre>
     <p>
         <em>
             Click
@@ -1124,44 +1094,8 @@
         </code>
         , and update it to match the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1101703">
-                    <td class="code" id="p110170code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            sharedDataStore
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            DataStore
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            username
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "rwenderlich"
-                            </span>
-                            , type
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            .Disk
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Disk<span style="color: #002200;">)</span>
+    </pre>
     <p>
         Now run up the app, and confirm that the data is indeed still being pulled
         from the network (the on-disk data was acquired in April 2015).
@@ -1210,64 +1144,13 @@
         </code>
         object is created:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1101704">
-                    <td class="code" id="p110170code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                switch
-                            </span>
-                            type
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                case
-                            </span>
-                            .Network
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            dataProvider
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            GitHubDataNetworkProvider
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                case
-                            </span>
-                            .Disk
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            dataProvider
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            GitHubDataNetworkProvider
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">switch</span> type <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">case</span> .Network<span style="color: #002200;">:</span>
+      dataProvider <span style="color: #002200;">=</span> GitHubDataNetworkProvider<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    <span style="color: #a61390;">case</span> .Disk<span style="color: #002200;">:</span>
+      dataProvider <span style="color: #002200;">=</span> GitHubDataNetworkProvider<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span>
+    </pre>
     <p>
         This is a switch statement that decides what kind of provider it needs
         to create – why does it create a
@@ -1287,36 +1170,11 @@
         </code>
         case to match the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1101705">
-                    <td class="code" id="p110170code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                case
-                            </span>
-                            .Disk
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            dataProvider
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            GitHubDataFileProvider
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">case</span> .Disk<span style="color: #002200;">:</span>
+      dataProvider <span style="color: #002200;">=</span> GitHubDataFileProvider<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    </pre>
+
     <p>
         Now re-run the app, and it’ll pause on the same breakpoint. Check the
         type of the
@@ -1479,41 +1337,8 @@
                         <div id="spoilerDiv14998001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
                             <p>
                             </p>
-                            <div class="wp_codebox">
-                                <table>
-                                    <tbody>
-                                        <tr id="p1101706">
-                                            <td class="code" id="p110170code6">
-                                                <pre class="swift" style="font-family:monospace;">
-                                                    splitView.setPosition
-                                                    <span style="color: #002200;">
-                                                        (
-                                                    </span>
-                                                    view.bounds.height
-                                                    <span style="color: #002200;">
-                                                        /
-                                                    </span>
-                                                    <span style="color: #2400d9;">
-                                                        2.0
-                                                    </span>
-                                                    , ofDividerAtIndex
-                                                    <span style="color: #002200;">
-                                                        :
-                                                    </span>
-                                                    <span style="color: #2400d9;">
-                                                        0
-                                                    </span>
-                                                    <span style="color: #002200;">
-                                                        )
-                                                    </span>
-                                                </pre>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <p>
-                            </p>
+                            <pre class="swift" style="font-family:monospace;">splitView.setPosition<span style="color: #002200;">(</span>view.bounds.height <span style="color: #002200;">/</span> <span style="color: #2400d9;">2.0</span>, ofDividerAtIndex<span style="color: #002200;">:</span> <span style="color: #2400d9;">0</span><span style="color: #002200;">)</span>
+                            </pre>
                         </div>
                     </td>
                 </tr>
