@@ -669,6 +669,7 @@
     <p>
         在Xcode窗口的主要部分，你现在可以看到相关于Window Controller的源代码。找到下面这行：
     </p>
+
 ```swift
     let sharedDataStore = DataStore (username: "rwenderlich", type: .Network)
 ```
