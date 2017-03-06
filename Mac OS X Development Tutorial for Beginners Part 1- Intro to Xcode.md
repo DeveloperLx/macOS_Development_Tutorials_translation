@@ -708,30 +708,24 @@
         Interface Builder
     </h3>
     <p>
-        Although it is possible to build the user interface of an OS X app entirely
-        in code, since UI is inherently visual, proceeding in this manner isn’t
-        very intuitive.
+        尽管你是可以完全用代码来构建一个OS X app的，但由于UI本来是可见的，使用这个模式并不非常直观。
     </p>
     <p>
-        Xcode includes a tool called Interface Builder (IB), which is a fully-featured
-        visual design tool that allows you to build your UI from reusable components.
+        Xcode包含一个名叫Interface Builder (IB)的工具，这是一个全特性的可见的设计工具，让你可以从可重用的组件来构建你的UI。
     </p>
     <p>
-        The files which make up these visual interfaces are called Storyboards
-        – a name inspired by the film industry. In the same way that a storyboard
-        is used to depict scenes in a film, and the progression through it, a storyboard
-        in an app depicts the scenes and the flow between them.
+        构建这些可见界面的文件被叫做Storyboard - 这个名称的灵感来自于电影产业。同样的方式，storyboard被用来在一个电影中描述场景，连接起来。在一个app钟，一个storyboard描述场景和它们之间的流程（flow）。
     </p>
     <p>
-        To see a storyboard in Interface Builder, select
-        <em>
-            Main.storyboard
-        </em>
-        in the
+        要在Interface Builder中看到storyboard，请在
         <em>
             Project navigator
         </em>
-        :
+        中选择
+        <em>
+            Main.storyboard
+        </em>
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-110239 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/07/storyboard-700x492.png"
