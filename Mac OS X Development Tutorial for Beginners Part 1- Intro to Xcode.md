@@ -675,6 +675,9 @@
     let sharedDataStore = DataStore (username: "rwenderlich", type: .Network)
 ```
 
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// The shared data model</span>
+<span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Network<span style="color: #002200;">)</span></pre>
+
 
     <div class="wp_codebox">
         <table>
