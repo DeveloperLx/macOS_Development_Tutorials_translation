@@ -14,7 +14,6 @@
     <ol>
         <li>
             在
-            In
             <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
             sl-processed="1">
                 第一部分
@@ -31,37 +30,31 @@
         </li>
     </ol>
     <p>
-        This article&nbsp;is aimed at developers who&nbsp;have either completed
+        这篇文章是定位于那些完成了这个系列
         <a href="http://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode"
         sl-processed="1">
             part one
+            第一部分
         </a>
-        of the series, or have experience with Xcode. It assumes little or no
-        knowledge of OS X apps, and if you’re already familiar with the architecture
-        of OS X apps, you might like to skim through before skipping right on to
-        the
+        ，或拥有使用Xcode经验的人。它假设你没有或很少关于OS X app的知识，并且如果你早已熟悉OS X app的架构，你可以略过这里直到
         <a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
         sl-processed="1">
-            final part
+            最后一部分
         </a>
-        .
+        之前。
     </p>
     <p>
-        By the end of this article you’ll have a good grounding in how the different
-        parts of an OS X app fit together, although not necessarily a wide-ranging
-        understanding of how each of them works.
+        到这篇文章最后的时候，你将有一个对于OS X app不同的部分怎么配合到一起的很好的掌控，尽管不必理解他们中的每一个都是怎么工作的。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This part of the series is just background information that you need to
-            know about how OS X apps work; there is no coding involved.
+            系列的这一部分，仅仅是你需要知道的OS X app怎么工作的背景信息；不涉及到写代码。
         </p>
         <p>
-            Just sit back, relax, and learn – you’ll get back to coding and make your
-            first OS X app in the next and final part of the series!
+            休息一下，放松，然后学习 - 你将在下一个，也是这个系列的最后一部分，回到编码并制作你的第一个OS X app！
         </p>
     </div>
     <h2>
