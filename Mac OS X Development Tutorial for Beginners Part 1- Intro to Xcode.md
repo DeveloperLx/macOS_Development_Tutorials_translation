@@ -11,11 +11,11 @@
     <p>
         好消息 - 苹果让开发OS X变得难以置信得容易 - 在这个系列教程中，我们会展示给你要怎么做。你会学到怎么创建你的第一个OS X app - 即使你是一个完全的新手。
     </p>
-    <ol>
-        <li>在第一部分，你将首次怎么获取你需要的OS X开发的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的旅行，发现怎么运行一个App，编辑代码，设计UI，debug程序。
+    <ol>32
+        <li>在这个第一部分，你将首次了解怎么获取你需要的用来开发OS X的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的游历，发现怎么去运行一个App，编辑代码，设计UI，debug程序。
         </li>
         <li>在<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
-            sl-processed="1">第二部分</a>，你将从Xcode挪步到了解构成一个OS X app的组成部分。从一个app怎么启动，到UI怎么构建，再到怎么控制交互。
+            sl-processed="1">第二部分</a>，你将从Xcode回退一步，学习构成一个OS X app的组成成分。从一个app怎么启动，到UI怎么构建，再到怎么控制交互。
         </li>
         <li>在<a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
             sl-processed="1">最后一部分</a>， 你将亲自动手（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
@@ -29,7 +29,7 @@
             <em>
             	注意：
             </em>
-            这里有一些从哪里开始这个系列的指导：
+            这里有一些这个系列该从哪里开始的指导：
         </p>
         <ul>
             <li>
@@ -40,18 +40,17 @@
                 <a href="http://www.raywenderlich.com/category/swift" sl-processed="1">
                 	Swift教程
                 </a>
-                ，来获取一个不错的介绍。
+                ，来获取一个很赞的介绍。
             </li>
             <li>
                 <em>
                 	如果你早就有了iOS的经验
-                    If you already have iOS experience
                 </em>
-                ，这个系列的第一部分将是回顾。快速地浏览主题来确认你已掌握，然后直接跳到这个系列的<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
+                ，这个系列的第一部分将是回顾。快速地浏览主题，来确认你已掌握它们，然后直接跳到这个系列的<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
                 sl-processed="1">下一部分</a>。
             </li>
             <li>
-                <em>否则</em>，保持继续阅读 - 这个系列是面对完全的初学者 - 不要求有过开发iOS或OS X经验。
+                <em>否则</em>，继续阅读 - 这个系列是面对纯小白的 - 不要求有过开发iOS或OS X的经验。
             </li>
         </ul>
     </div>
@@ -66,7 +65,7 @@
             <em>
             	运行OS X的Mac。
             </em>
-            OS X操作系统只能在苹果电脑上运行，因此你需要一个Mac来开发和运行OS X app。如果你困惑该买哪个Mac，我们推荐Mac mini搭配额外的内存和固态或融合的驱动；这是对于费用和性能的最佳平衡。
+            OS X操作系统只能在苹果电脑上运行，因此你需要一个Mac来开发和运行OS X app。如果你困惑该买哪个Mac，我们推荐Mac mini，搭配额外的内存，和固态或融合的驱动；这是对于费用和性能的最佳平衡。
         </li>
         <li>
             <em>
@@ -78,17 +77,17 @@
             <em>
                 Xcode。
             </em>
-            它是用来创建OS X app的集成开发环境和工具链。你会在下一个部分学到如何安装它。
+            它是用来创建OS X app的集成开发环境和工具链。你会在下一个部分学到如何来安装它。
         </li>
     </ul>
     <p>
-    	一旦你构建好了你的app，你想把它上传到App Store并发布，你就需要去买一个苹果开发者账号。但在你准备发送你的app到全世界前，这都不是必须的。
+    	一旦你构建好了你的app，你想把它上传到App Store并发布，你就需要去买一个苹果开发者账号。但在你准备好发送你的app到全世界前，这都不是必须的。
     </p>
     <h2>
         获取工具
     </h2>
     <p>
-        不像一些其它的平台，开发OS X只要求安装一个工具-就是我们所知的Xcode。Xcode是一个包含所有开发iOS，watchOS和OS X app所需的集成开发环境。
+        开发OS X只要求安装一个工具 - 就是我们所知的Xcode，不像一些其它的平台。Xcode是一个包含所有开发iOS，watchOS和OS X app所需的集成开发环境。
     </p>
     <p>
         如果你还没有Xcode，点击你菜单栏左上角的Apple icon图标，选择
@@ -106,7 +105,7 @@
         </a>
     </p>
     <p>
-        搜索Xcode，然后下载它：
+        搜索Xcode并下载它：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110235 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/xcode_mas-679x500.png"
@@ -114,10 +113,10 @@
         sizes="(max-width: 679px) 100vw, 679px">
     </p>
     <p>
-        下载和安装好它之后，从你的Applications目录下打开Xcode。第一次打开Xcode时，它会请求你安装一些额外的组件。让它安装，并输入你的密码如果它要求的话。
+        下载和安装好它之后，从你的Applications目录下打开Xcode。第一次打开Xcode时，它会请求你安装一些额外的组件。让它安装，如果它要求的话，输入你的密码。
     </p>
     <p>
-       接下来你会看到Xcode的欢迎界面：
+        接下来你会看到Xcode的欢迎界面：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110236" src="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png"
@@ -155,7 +154,6 @@
     </ul>
     <p>
     	要获取Xcode的最新版本，浏览
-        To get the latest beta version of Xcode, visit
         <a href="https://developer.apple.com/" sl-processed="1">
             developer.apple.com
         </a>
@@ -174,7 +172,7 @@
         。在这里跟随链接去下载最新版本的Xcode。
     </p>
     <p>
-    	注意你可以在稳定版的Xcode旁，安装一个beta版本的Xcode。所以完全可以使没有为更新准备好的项目继续正常运行。
+    	注意你可以在稳定版的Xcode旁，安装一个beta版本的Xcode。所以在没有为升级做好准备的项目上继续工作完全没有问题。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/XcodeBeta.png"
@@ -209,10 +207,10 @@
         Hello World!
     </h2>
     <p>
-    	Xcode是一个集成开发环境，这意味着它是一个你需要的所有开发工具的集合，从源码编辑，编译，到debug和UI设计。
+    	Xcode是一个集成开发环境，这意味着它是一个你需要的从源码编辑，编译，到debug和UI设计的所有开发的工具的集合。
     </p>
     <p>
-    	当你大开Xcode时，它会让你创建一个新项目，或打开一个已存在的项目。你也可以通过双击目录中的Xcode project或workspace来打开一个已存在的项目：
+    	当你打开Xcode时，它会让你创建一个新项目，或打开一个已存在的项目。你也可以通过双击目录中的Xcode project或workspace来打开一个已存在的项目：
     </p>
     <p>
         <img class="aligncenter wp-image-110225 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/07/open_finder-480x269.png"
@@ -223,7 +221,7 @@
         创建一个新的app
     </h3>
     <p>
-    	在这个教程中的大部分，你将通过一个样本项目来游览Xcode，但是首先的第一件事情 - 你必须创建一个“Hello World” app来了解新的平台！
+    	在这个教程中的大部分，你将通过一个样本项目来游览Xcode，但是首先的第一件事情 - 你必须创建一个“Hello World”app来了解新的平台！
     </p>
     <p>
     	要想这么做，从Xcode的欢迎屏幕中，选择
@@ -238,7 +236,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-    	模板选择器允许你决定Xcode怎么配置你的新工程。在
+    	模板选择器允许你来决定Xcode怎么配置你的新工程。在
         <em>
             OS X
         </em>
@@ -295,7 +293,7 @@
         <em>
             HelloWorld
         </em>
-        ，检查language被设置为
+        ，让language被设置为
         <em>
             Swift
         </em>
@@ -318,16 +316,16 @@
         ，选择一个磁盘中的位置来保存你的项目。
     </p>
     <p>
-    	这将创建一个新的空项目，准备好为你打造令人惊叹的app。第一件你想做的事，是build和运行来检查它是否工作正常。
+    	这将创建一个新的空项目，准备好为你打造令人惊叹的app。你想做第一件的事，是build和运行来检查它是否工作正常。
     </p>
     <h3>
         运行你的app
     </h3>
     <p>
-    	不管你是打开一个已存在的app，还是创建一个新的，最重要的事都是你想build和运行它。
+    	不管你是打开一个已存在的app，还是创建一个新的，你想做的最重要的事都是build和运行它。
     </p>
     <p>
-    	这会将所有你写的code编译成机器码，打包所有app需求的资源，然后执行。这个过程是复杂的，但幸运的时Xcode会帮你搞定。要想build和执行你的项目，只需点击工具栏上的
+    	这会将所有你写的code编译成机器码，打包所有app需求的资源，然后执行。这个过程是复杂的，但幸运的shiXcode会帮你搞定。要想build和执行你的项目，只需点击工具栏上的
         <em>
             play
         </em>
@@ -402,7 +400,7 @@
         sizes="(max-width: 343px) 100vw, 343px">
     </p>
     <p>
-        下方的组件（被标为“View Controller”）的，代表着你app的可见的外观。你要添加一个text label到这里来创建你的“Hello World”app。
+        下方的组件（被标为“View Controller”）的，代表着你app的可见的外观。你要添加一个text label到这里，来创建你的“Hello World”app。
     </p>
     <p>
         在Xcode窗口的右下部分，找到
@@ -441,8 +439,7 @@
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110292" src="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png"
-        alt="drag_label" width="480" height="312" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-700x455.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label.png 1022w"
-        sizes="(max-width: 480px) 100vw, 480px">
+        alt="drag_label" width="480" height="312" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-700x455.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label.png 1022w" sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
     	一个label代表一块静态的文本 - 没有用户交互 - 对于你的Hello World app来说是完美的。你并不想让它说出“label”来直到你下次要升级的时候。
@@ -479,7 +476,7 @@
     	你可能会看到label的尺寸不再合适 - 下一步你会修复，并把它设到正确的位置上。
     </p>
     <p>
-    	在OS X中，你安置UI原件是使用一个名叫Auto Layout的系统 - 它允许你根据它们之间的关系，指定UI原件的位置和大小。你想要摆放你的“Hello OS X!” label在窗口中央 - 因此你需要添加约束（constraints）来实现。
+    	在OS X中，你定位UI原件是使用一个名叫Auto Layout的系统 - 它允许你根据它们之间的关系，指定UI原件的位置和大小。你想要摆放你的“Hello OS X!” label在窗口中央 - 因此你需要添加约束（constraints）来实现。
     </p>
     <p>
     	再次选择label，在底栏点击
