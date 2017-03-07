@@ -1062,54 +1062,48 @@
         。
     </p>
     <h3>
-        Fixing a bug with the debugger
+        使用debugger来修复一个bug
     </h3>
     <p>
-        To see how debugging works, you’re going to fix a real-world bug! You’ve
-        had reports that if you change HubEvent to use a disk-based data source
-        instead of network then it ignores your choice – and still queries the
-        network. Your job is to find this bug and fix it.
+    	为了看到debug怎么工作，你将修复一个真实世界中的bug！你已经报告 如果你将HubEvent从基于网络改变为基于硬盘的数据源，然后发现它忽了你的选择 - 它仍然是查询网络。你的工作是找到并修复它。
     </p>
     <p>
-        First, to change the app into disk-mode instead of network-mode, open
+    	首先，为了改变app到硬盘模式来替换网络模式，打开
         <em>
             WindowController.swift
         </em>
-        , locate the line that creates the
+        ，定位到创建
         <code>
             sharedDataStore
         </code>
-        , and update it to match the following:
+        的那行，更新它到如下的样子：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Disk<span style="color: #002200;">)</span>
     </pre>
     <p>
-        Now run up the app, and confirm that the data is indeed still being pulled
-        from the network (the on-disk data was acquired in April 2015).
+    	现在运行app，确认数据就是从网获取的（硬盘上的数据是2015年四月获取的）。
     </p>
     <p>
-        To debug this problem, you’re going to add a break point at the point
-        the data store is created to find out what’s happening. Open
+    	为了debug这个问题，你要添加在数据存储的地方添加一个断点，来找到发生了什么。打开
         <em>
             DataStore.swift
         </em>
-        , and add a breakpoint on the line that contains
+        ，然后添加一个断点在包含
         <code>
             super.init()
         </code>
-        .
+        的这行。
     </p>
     <p>
-        Run the app and wait for it to pause at the break point. Use the debug
-        browser to locate the
+    	运行app，并等待停到断点这里。使用debug来在
+    	<code>
+            self
+        </code>
+    	中定位
         <code>
             dataProvider
         </code>
-        property within
-        <code>
-            self
-        </code>
-        :
+        属性：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110313" src="https://koenig-media.raywenderlich.com/uploads/2015/07/debugging_dataprovider-480x254.png"
@@ -1117,19 +1111,18 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Notice that the type next to it is
+    	注意靠近它的类型是
         <code>
             GitHubData.GitHubDataNetworkProvider
         </code>
-        . This doesn’t sound right – why would it be using an object called network
-        when it’s reading off disk.
+        。这听起来不对 - 为何他使用一个叫做网络的对象当从硬盘读取的时候。
     </p>
     <p>
-        Now take a look further up the file, and you’ll find where this
+    	现在跟进一步地看下这个文件，你会找到
         <code>
             dataProvider
         </code>
-        object is created:
+        这个对象是从哪里创建的：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">switch</span> type <span style="color: #002200;">{</span>
     <span style="color: #a61390;">case</span> .Network<span style="color: #002200;">:</span>
@@ -1139,23 +1132,22 @@
     <span style="color: #002200;">}</span>
     </pre>
     <p>
-        This is a switch statement that decides what kind of provider it needs
-        to create – why does it create a
+    	这是一个选择哪种提供者需要被创建的转换语句 - 为何它为
+    	<code>
+            .Disk
+        </code>
+        创建的是
         <code>
             GitHubDataNetworkProvider
         </code>
-        for the
-        <code>
-            .Disk
-        </code>
-        type? This is the bug!
+        类型？这就是bug！
     </p>
     <p>
-        Replace the
+    	替换
         <code>
             .Disk
         </code>
-        case to match the following:
+        到如下的样子：
     </p>
 
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">case</span> .Disk<span style="color: #002200;">:</span>
@@ -1163,12 +1155,11 @@
     </pre>
 
     <p>
-        Now re-run the app, and it’ll pause on the same breakpoint. Check the
-        type of the
+    	现在再次运行app，它会停到相同的断点上。再次检查
         <code>
             dataProvider
         </code>
-        property once again:
+        属性的类型：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-110314" src="https://koenig-media.raywenderlich.com/uploads/2015/07/debugging_fixed-480x166.png"
@@ -1176,11 +1167,11 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        The type now looks correct – use the
+    	这个类型看起来就正确了 - 使用
         <em>
             Continue program execution
         </em>
-        button to run the app:
+        按钮来运行app：
     </p>
     <p>
         <img class="aligncenter wp-image-110315 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent_disk-479x500.png"
@@ -1188,8 +1179,7 @@
         sizes="(max-width: 479px) 100vw, 479px">
     </p>
     <p>
-        Yay! The app is now reading from the disk-based store, rather than over
-        the network. Well done – you’ve fixed your first OS X bug!
+    	哇！现在app从磁盘中读取了，而不是从网络中。干得好 - 你修复了你的第一个OS X bug！
     </p>
     <h2>
         文档
