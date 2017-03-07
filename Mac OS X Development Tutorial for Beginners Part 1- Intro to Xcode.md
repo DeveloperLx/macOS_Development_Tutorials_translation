@@ -954,43 +954,38 @@
         Debugging
     </h2>
     <p>
-        Nobody is capable of writing code that works perfectly every time, and
-        therefore you’re likely to spend time trying to fix problems in your code.
-        You’ll soon find that it’d be really helpful to be able to stop your app
-        at a particular line of code and investigate the values of variables. This
-        is precisely the functionality provided by a debugger.
+    	没有人有每次写的代码都能够完美运行的能力，因此你很有可能需要花费一些时间来修复代码中的问题。你会很快发现，能够在特定的那行代码停下来并调查变量的值是非常有用的。这恰恰就是debugger所提供的功能。
     </p>
     <p>
-        Once again, Xcode is here to help. It has an integrated debugger that
-        makes runtime investigation of your code really easy. To demonstrate some
-        of its functionality, you’re going to use it.
+    	再一次的，Xcode在这里提供帮助。它有一个整合的debugger，使得在运行时调查你爹代码非常容易。为了演示它的一些功能，你要使用它：
+        Once again, Xcode is here to help. It has an integrated debugger that makes runtime investigation of your code really easy. To demonstrate some of its functionality, you’re going to use it.
     </p>
     <p>
-        Open
-        <em>
-            Value Transformers\CodeStringFormattingTransformer.swift
-        </em>
-        by selecting it in the
+        通过选择
         <em>
             Project navigator
         </em>
-        .
+        上的
+        <em>
+            Value Transformers\CodeStringFormattingTransformer.swift
+        </em>
+        来打开它。
     </p>
     <p>
-        Find the following line in the code:
+    	找到下面这行代码：
     </p>
     <pre class="swift" style="font-family:monospace;">
         <span style="color: #a61390;">return</span> <span style="color: #400080;">NSAttributedString</span><span style="color: #002200;">(</span>string<span style="color: #002200;">:</span> unescaped, attributes<span style="color: #002200;">:</span> attributes<span style="color: #002200;">)</span>
     </pre>
     <p>
         <em>
-            Click
+        	点击
         </em>
-        in the gutter to the left of this line to insert a
+        这行代码左边的“沟”（gutter）来插入一个
         <em>
-            breakpoint
+        	断点
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-110211" src="https://koenig-media.raywenderlich.com/uploads/2015/07/breakpoint.png"
@@ -998,16 +993,13 @@
         sizes="(max-width: 672px) 100vw, 672px">
     </p>
     <p>
-        A breakpoint marks the line in your code at which point execution will
-        stop. Your app will pause at this point to allow you to investigate the
-        state.
+    	断点将标记你代码中的这行在执行时停下。你的app会在此刻暂停来让你调查它的状态。
     </p>
     <p>
         <em>
-            Build and run
+            Build并执行
         </em>
-        the app. You’ll see the app start, before Xcode comes back to the foreground.
-        You’ll see the line you added the breakpoint to highlighted:
+        app。你将看到app被启动，在Xcode进入前台之前。你会看到你添加断点的这行代码被高亮了起来：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110219" src="https://koenig-media.raywenderlich.com/uploads/2015/07/highlighted_line-700x39.png"
@@ -1015,12 +1007,10 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This means that your app has started running, and then reached this line
-        of code. It has paused here to allow you to investigate.
+    	这意味着你的app已经启动运行，并到达了代码中的这行。它暂停在了此处，让你可以研究。
     </p>
     <p>
-        The bottom pane in Xcode shows you the state of the variables at the current
-        point of execution, including their variables.
+    	Xcode底部的窗格展示给你当前执行时变量的状态，包括它们所含的变量。
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110214" src="https://koenig-media.raywenderlich.com/uploads/2015/07/debug_pane-700x186.png"
@@ -1028,34 +1018,33 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This particular method is removing escaped characters from the JSON downloaded
-        from the GitHub API. You can see the input string
+    	这个方法是用来从下载自GitHub API的JSON中移除转义的字符。你可以看到输入的字符串
         <code>
             s
         </code>
-        and the resultant string
+        和合成的字符串
         <code>
             unescaped
         </code>
-        .
+        。
     </p>
     <p>
-        You can progress to the next line of execution with the
+    	你可以使用
         <em>
             stepover
         </em>
-        button:
+        按钮前进到执行的下一行：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-110230" src="https://koenig-media.raywenderlich.com/uploads/2015/07/stepover.png"
         alt="stepover" width="56" height="52">
     </p>
     <p>
-        Or to continue the program execution, use the
+    	或使用
         <em>
             continue
         </em>
-        button:
+        按钮来继续程序的进行：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-110213" src="https://koenig-media.raywenderlich.com/uploads/2015/07/continue.png"
@@ -1063,16 +1052,14 @@
         sizes="(max-width: 52px) 100vw, 52px">
     </p>
     <p>
-        Note that continuing will then run the program until it comes across another
-        breakpoint.
+    	注意，继续会接着执行程序直到遇到另一个断点。
     </p>
     <p>
-        To remove a breakpoint, you can drag it out of the gutter until the pointer
-        changes to a
+    	为了移除一个断点，你可以将它拖拽出“沟”（gutter），直到指针变成了一个
         <em>
             x
         </em>
-        .
+        。
     </p>
     <h3>
         Fixing a bug with the debugger
