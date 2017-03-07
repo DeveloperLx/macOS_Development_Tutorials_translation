@@ -12,7 +12,7 @@
         好消息 - 苹果让开发OS X变得难以置信得容易 - 在这个系列教程中，我们会展示给你要怎么做。你会学到怎么创建你的第一个OS X app - 即使你是一个完全的新手。
     </p>
     <ol>
-        <li>在这个第一部分，你将首次了解怎么获取你需要的用来开发OS X的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的游历，发现怎么去运行一个App，编辑代码，设计UI，debug程序。
+        <li>在这个第一部分，你将首次了解怎么获取你需要的用来开发OS X的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的游览，发现怎么去运行一个App，编辑代码，设计UI，debug程序。
         </li>
         <li>在<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
             sl-processed="1">第二部分</a>，你将从Xcode回退一步，学习构成一个OS X app的组成成分。从一个app怎么启动，到UI怎么构建，再到怎么控制交互。
@@ -90,11 +90,7 @@
         开发OS X只要求安装一个工具 - 就是我们所知的Xcode，不像一些其它的平台。Xcode是一个包含所有开发iOS，watchOS和OS X app所需的集成开发环境。
     </p>
     <p>
-        如果你还没有Xcode，点击你菜单栏左上角的Apple icon图标，选择
-        <em>
-            App Store
-        </em>
-        来打开Mac App商店。
+        如果你还没有Xcode，点击你菜单栏左上角的Apple icon图标，选择<em>App Store</em>来打开Mac App商店。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/AppStore21.png"
@@ -124,13 +120,13 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        恭喜你成功地安装了Xcode！继续阅读，学习它可以做什么。
+        恭喜你成功地安装了Xcode！继续阅读，学习它能够做什么。
     </p>
     <h3>
     	Beta版本的Xcode
     </h3>
     <p>
-    	在继续描述Xcode的强大之前，值得花几分钟了解一下Beta版本的Xcode。
+    	在继续描述Xcode的能量之前，值得花几分钟去了解一下Beta版本的Xcode。
     </p>
     <p>
     	当苹果发布Xcode新的更新时（常常支持新的OS X，iOS和watchOS特性），会通过发布一轮激进（agressive）的beta版本。这些发布包括新的特性，但因而也会有很多bug。如果你感兴趣于开发利用这些新特性的app，你需要从苹果下载最新beta版的Xcode。
@@ -322,7 +318,7 @@
         运行你的app
     </h3>
     <p>
-    	不管你是打开一个已存在的app，还是创建一个新的，你想做的最重要的事都是build和运行它。
+    	不管你是打开一个已存在的，还是创建一个新的app，你想做的最重要的事都是build和运行它。
     </p>
     <p>
     	这会将所有你写的code编译成机器码，打包所有app需求的资源，然后执行。这个过程是复杂的，但幸运的是Xcode会帮你搞定。要想build和执行你的项目，只需点击工具栏上的
@@ -352,7 +348,7 @@
         <em>
         	注意：
         </em>
-        当你第一次用Xcode build和执行app时，你可能被询问是否想要
+        当你第一次用Xcode build和执行app时，可能被询问你是否想要
         <em>
         	在这台电脑上打开开发者模式？
         </em>
@@ -686,7 +682,7 @@
         <code>
             sammyd
         </code>
-        。然后，就像你刚刚选择的一样，构建并运行你的app。你就会在app中看到新用户的事件被列出来：
+        。然后，就像你刚刚选择的一样，构建并运行你的app。你就会看到在app中列出了新用户的事件：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110221" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent_sammyd-629x500.png"
@@ -703,7 +699,7 @@
         Interface Builder
     </h3>
     <p>
-        尽管你是可以完全用代码来构建一个OS X app的，但由于UI本来是可见的，使用这个模式并不非常直观。
+        尽管你是可以完全用代码来构建一个OS X app，由于UI本来是可见的，使用这个模式并不非常直观。
     </p>
     <p>
         Xcode包含一个名叫Interface Builder (IB)的工具，这是一个全特性的可见的设计工具，让你可以从可重用的组件来构建你的UI。
@@ -752,7 +748,7 @@
     <p>
         使用左下角的按钮来
         <em>
-            显示 Document Outline
+            显示Document Outline
         </em>
         。这是一个在Interface Builder左手边的面板，会向你展示构成当前场景的组件的层级。
     </p>
@@ -785,7 +781,7 @@
         。现在你就有了行的选择在之前的图像中。
     </p>
     <p>
-        一旦你选择了这个text field，你可以配置各种相关于它的属性，这将决定它的外观。
+        你选择了这个text field之后，你就可以配置各种相关于它的属性，这会决定它的外观。
     </p>
     <p>
         如果在Xcode右手边底部的
@@ -838,11 +834,11 @@
         Asset Catalog
     </h3>
     <p>
-        除了代码和用户交互，你的app也需要一些资产（assets）例如artwork。由于不同的屏幕类型（例如视网膜的和非视网膜的），你通常需要提供多种版本的资产。为了简化这个过程，Xcode使用
+        除了代码和用户交互，你的app也需要一些资产（assets）例如原图（artwork）。由于不同的屏幕类型（例如视网膜的和非视网膜的），你通常需要提供多种版本的资产。为了简化这个过程，Xcode使用
         <em>
             Asset Libraries
         </em>
-        来保存和组织伴随app的资产。
+        来保存和组织伴同app的资产。
     </p>
     <p>
         <em>
@@ -949,11 +945,10 @@
         Debugging
     </h2>
     <p>
-    	没有人有每次写的代码都能够完美运行的能力，因此你很有可能需要花费一些时间来修复代码中的问题。你会很快发现，能够在特定的那行代码停下来并调查变量的值是非常有用的。这恰恰就是debugger所提供的功能。
+    	没有人有能力，让每次写的代码都能够完美运行，因此你很有可能需要花费一些时间来修复代码中的问题。你会很快发现，能够在特定的那行代码停下来，并调查变量的值是非常有用的。这恰恰就是debugger所提供的功能。
     </p>
     <p>
-    	再一次的，Xcode在这里提供帮助。它有一个整合的debugger，使得在运行时调查你爹代码非常容易。为了演示它的一些功能，你要使用它：
-        Once again, Xcode is here to help. It has an integrated debugger that makes runtime investigation of your code really easy. To demonstrate some of its functionality, you’re going to use it.
+    	Xcode在这里再次提供猎头帮助。它有一个整合的debugger，使得在运行时研究（investigation）你的代码非常容易。为了演示它的一些功能，你要使用它：
     </p>
     <p>
         通过选择
@@ -988,7 +983,7 @@
         sizes="(max-width: 672px) 100vw, 672px">
     </p>
     <p>
-    	断点将标记你代码中的这行在执行时停下。你的app会在此刻暂停来让你调查它的状态。
+    	断点将标记你代码中的这行在执行时停下。你的app会在此刻暂停来让你研究它的状态。
     </p>
     <p>
         <em>
@@ -1061,10 +1056,10 @@
     </h3>
     <p>
     	为了看到debug怎么工作，你将修复一个真实世界中的bug！
-        你得到报告说，如果你将HubEvent从基于网络改变为基于硬盘的数据源，然后发现它忽视了你的选择 - 仍是查询网络。你的工作是找到并修复它。
+        你得到报告说，如果你将HubEvent从基于网络改变为基于磁盘的数据源，然后发现它忽视了你的选择 - 仍是查询网络。你的工作是找到并修复它。
     </p>
     <p>
-    	首先，为了改变app到硬盘模式来替换网络模式，打开
+    	首先，为了改变app到磁盘模式来替换网络模式，打开
         <em>
             WindowController.swift
         </em>
@@ -1077,7 +1072,7 @@
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Disk<span style="color: #002200;">)</span>
     </pre>
     <p>
-    	现在运行app，确认数据就是从网获取的（硬盘上的数据是2015年四月获取的）。
+    	现在运行app，确认数据就是从网络获取的（磁盘上的数据是2015年四月获取的）。
     </p>
     <p>
     	为了debug这个问题，你要添加在数据存储的地方添加一个断点，来找到发生了什么。打开
@@ -1111,10 +1106,10 @@
         <code>
             GitHubData.GitHubDataNetworkProvider
         </code>
-        。这听起来不对 - 为何他使用一个叫做网络的对象当从硬盘读取的时候。
+        。这听起来不对 - 为何它从磁盘读取的时候，使用一个叫做网络的对象。
     </p>
     <p>
-    	现在跟进一步地看下这个文件，你会找到
+    	现在更进一步地看下这个文件，你会找到
         <code>
             dataProvider
         </code>
