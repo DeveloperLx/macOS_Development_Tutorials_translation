@@ -24,18 +24,10 @@
         </li>
         <li>
             在第二部分，你将从Xcode退回一步来了解一下构成OS X app的组件。从一个app怎么启动，到UI怎么构建，直到处理用户的交互
-            In this second part, you’ll take a step back from Xcode to learn about
-            the components that make up an OS X app. From how an app starts, through
-            how the UI is constructed all the way to handling user interaction.
         </li>
         <li>
-            You’ll get your hands dirty in the
-            <a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
-            sl-processed="1">
-                final part
-            </a>
-            – building your first ever OS X app. Starting from nothing, you’ll soon
-            have a simple app up and running on your mac!
+            在<a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
+            sl-processed="1">最后一部分</a>， 你将亲自动手（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
         </li>
     </ol>
     <p>
