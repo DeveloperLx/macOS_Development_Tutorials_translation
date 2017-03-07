@@ -11,7 +11,7 @@
     <p>
         好消息 - 苹果让开发OS X变得难以置信得容易 - 在这个系列教程中，我们会展示给你要怎么做。你会学到怎么创建你的第一个OS X app - 即使你是一个完全的新手。
     </p>
-    <ol>32
+    <ol>
         <li>在这个第一部分，你将首次了解怎么获取你需要的用来开发OS X的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的游历，发现怎么去运行一个App，编辑代码，设计UI，debug程序。
         </li>
         <li>在<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
