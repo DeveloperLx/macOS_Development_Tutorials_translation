@@ -6,12 +6,10 @@
     <p>
     	想要学习怎么使用Swift为你的Mac开发App？
         <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png"
-        alt="250x250" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-128x128.png 128w"
-        sizes="(max-width: 250px) 100vw, 250px">
-        
+        alt="250x250" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/07/250x250-128x128.png 128w" sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        好消息 - 苹果让为OS X开发难以置信得容易 - 我们将在这个教程中展示给你。你讲学到怎么创建你的第一个OS X app - 即使你完全就是个初学者。
+        好消息 - 苹果让开发OS X变得难以置信得容易 - 在这个系列教程中，我们会展示给你要怎么做。你会学到怎么创建你的第一个OS X app - 即使你是一个完全的新手。
     </p>
     <ol>
         <li>在第一部分，你将首次怎么获取你需要的OS X开发的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的旅行，发现怎么运行一个App，编辑代码，设计UI，debug程序。
