@@ -1310,7 +1310,7 @@
     </p>
     <p>
     	现在，你已经有了对于Xcode所有最重要当面的把握（birds-eye overview）。在
-        <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20Intro%20to%20Xcode.md"
         sl-processed="1">
         	下一篇文章
         </a>

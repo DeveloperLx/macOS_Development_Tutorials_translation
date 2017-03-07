@@ -36,7 +36,7 @@
            
         <p>
             启动最好的方式是从我们的Mac OS X 初学者开发教程系列
-            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md"
+            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
             sl-processed="1">
                 第一部分
             </a>
@@ -52,13 +52,13 @@
         </p>
         <ul>
             <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201-%20Intro%20to%20Xcode.md"
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
                 sl-processed="1">
                     Mac OS X 初学者开发教程 第一部分：Xcode介绍
                 </a>
             </li>
             <li>
-                <a href="https://www.raywenderlich.com/110267/mac-os-x-development-tutorial-beginners-part-2-os-x-app-anatomy"
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20Intro%20to%20Xcode.md"
                 sl-processed="1">
                     Mac OS X 初学者开发教程 第二部分：OS X App剖析
                 </a>
