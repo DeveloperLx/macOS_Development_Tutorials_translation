@@ -5,7 +5,6 @@
 <div id="content">
     <header class="entry-header">
         <!-- <h2 class="entry-title"> -->
-           
         <h2 class="entry-title">
             macOS 开发教程
         </h2>
@@ -27,10 +26,8 @@
                 。
             </div>
         </div>
-        <!-- </h2> -->
     </header>
     <div class="content-wrapper">
-           
         <h2 style="clear:both; padding-top: 20px;">
             启动
         </h2>
@@ -74,37 +71,37 @@
             </li>
             <li>
                 <a href="https://www.raywenderlich.com/141297/cocoa-bindings-macos" sl-processed="1">
-                    Cocoa Bindings on macOS
+                    绑定在macOS上的Cocoa
                 </a>
             </li>
             <li>
                 <a href="https://www.raywenderlich.com/149295/macos-controls-tutorial-part-12"
                 sl-processed="1">
-                    macOS Controls Tutorial: Part 1/2
+                    macOS控件教程：1/2部分
                 </a>
             </li>
             <li>
                 <a href="https://www.raywenderlich.com/149297/macos-controls-tutorial-part-22"
                 sl-processed="1">
-                    macOS Controls Tutorial: Part 2/2
+                    macOS控件教程：2/2部分
                 </a>
             </li>
             <li>
                 <a href="https://www.raywenderlich.com/151741/macos-development-beginners-part-1"
                 sl-processed="1">
-                    macOS Development for Beginners: Part 1
+                    macOS新手开发：第一部分
                 </a>
             </li>
             <li>
                 <a href="https://www.raywenderlich.com/151746/macos-development-beginners-part-2"
                 sl-processed="1">
-                    macOS Development for Beginners: Part 2
+                    macOS新手开发：第二部分
                 </a>
             </li>
             <li>
                 <a href="https://www.raywenderlich.com/151748/macos-development-beginners-part-3"
                 sl-processed="1">
-                    macOS Development for Beginners: Part 3
+                    macOS新手开发：第三部分
                 </a>
             </li>
         </ul>
@@ -167,7 +164,6 @@
                     macOS NSTableView教程
                 </a>
             </li>
-               
             <li>
                 <a href="https://www.raywenderlich.com/145978/nscollectionview-tutorial"
                 sl-processed="1">
