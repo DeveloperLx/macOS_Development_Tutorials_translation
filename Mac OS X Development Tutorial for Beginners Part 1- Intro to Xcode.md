@@ -325,7 +325,7 @@
     	不管你是打开一个已存在的app，还是创建一个新的，你想做的最重要的事都是build和运行它。
     </p>
     <p>
-    	这会将所有你写的code编译成机器码，打包所有app需求的资源，然后执行。这个过程是复杂的，但幸运的shiXcode会帮你搞定。要想build和执行你的项目，只需点击工具栏上的
+    	这会将所有你写的code编译成机器码，打包所有app需求的资源，然后执行。这个过程是复杂的，但幸运的是Xcode会帮你搞定。要想build和执行你的项目，只需点击工具栏上的
         <em>
             play
         </em>
@@ -392,7 +392,7 @@
         sizes="(max-width: 294px) 100vw, 294px">
     </p>
     <p>
-    	这会在Interface Builder中打开storyboard文件 - 你会看到你全部app的轮廓：
+    	这会在Interface Builder中打开storyboard文件 - 你会看到你全部app的概貌：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110288" src="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_world_storyboard-343x500.png"
@@ -442,7 +442,7 @@
         alt="drag_label" width="480" height="312" srcset="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-700x455.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label.png 1022w" sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-    	一个label代表一块静态的文本 - 没有用户交互 - 对于你的Hello World app来说是完美的。你并不想让它说出“label”来直到你下次要升级的时候。
+    	一个label代表一块静态的文本 - 没有用户交互 - 对于你的Hello World app来说是完美的。你并不想让它说“label”，直到你下次要升级之前。
     </p>
     <p>
         要配置这个label，选择它，然后在Xcode窗口右侧打开
@@ -473,7 +473,7 @@
         sizes="(max-width: 296px) 100vw, 296px">
     </p>
     <p>
-    	你可能会看到label的尺寸不再合适 - 下一步你会修复，并把它设到正确的位置上。
+    	你可能会看到label的尺寸不再合适 - 下一步你将修复，把它设到正确的位置上。
     </p>
     <p>
     	在OS X中，你定位UI原件是使用一个名叫Auto Layout的系统 - 它允许你根据它们之间的关系，指定UI原件的位置和大小。你想要摆放你的“Hello OS X!” label在窗口中央 - 因此你需要添加约束（constraints）来实现。
@@ -575,7 +575,7 @@
         Xcode核心功能
     </h2>
     <p>
-    	HubEvent是一个相当简单的app，但是足够来演示Xcode的核心功能。这篇教程的剩余部分将覆盖如下内容：
+    	HubEvent是一个相当简单的app，但是足够来演示Xcode的核心功能。这篇教程的剩余部分将包含如下内容：
     </p>
     <ul>
         <li>
@@ -697,7 +697,7 @@
         干得好！你已经在OS X app里改变了你的第一行代码！
     </p>
     <p>
-        这个文档编辑器包含很多有力的特性来帮助你写代码，包含自动完成（autocompletion）和快速查看的文档（QuickLook documentation）。
+        这个文档编辑器包含了很多有力的特性来帮助你写代码，包含自动完成（autocompletion）和快速查看的文档（QuickLook documentation）。
     </p>
     <h3>
         Interface Builder
@@ -734,7 +734,7 @@
         要得到一个interface builder的快速的体验，你可以改变icon的颜色在左手边的栏中。
     </p>
     <p>
-        尽管可以通过收缩来获得一个全部storyboard的好的查看，但是你不能编译一个收缩的storyboard。使用
+        尽管可以通过收缩来获得一个全部storyboard的好的视角，但是你不能编译一个收缩的storyboard。使用
         <em>
             ⌘+
         </em>
