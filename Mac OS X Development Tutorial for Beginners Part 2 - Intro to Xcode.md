@@ -9,22 +9,21 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        Welcome back to our 3-part Mac OS X Development tutorial for beginner
-        series!
+        欢迎回到我们三个部分的Mac OS X新手开发教程系列！
     </p>
     <ol>
         <li>
+            在
             In
-            <a href="http://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode"
+            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
             sl-processed="1">
+                第一部分
                 part 1
             </a>
-            you first learned&nbsp;how to obtain the tools you need to develop for
-            OS X. Then, using an app you downloaded as an example, you took a tour
-            of Xcode, discovering how to run an app, edit code, design the UI and debug
-            it.
+            你学到了怎样获取你需要的用来OS X开发的工具。接下来，使用了一个你下载的app作为例子，你进行了一次OS X的游览，发现了怎么执行app，编辑代码，设计UI和调试它。
         </li>
         <li>
+            在第二部分，你将从Xcode退回一步来了解一下构成OS X app的组件。从一个app怎么启动，到UI怎么构建，直到处理用户的交互
             In this second part, you’ll take a step back from Xcode to learn about
             the components that make up an OS X app. From how an app starts, through
             how the UI is constructed all the way to handling user interaction.
