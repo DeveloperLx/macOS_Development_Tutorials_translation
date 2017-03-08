@@ -119,10 +119,9 @@
     </p>
     <h2>
     	用户界面
-        User interface
     </h2>
     <p>
-    	你早已认识到UI可以由storyboard提供这个事实，但这实际上意味着什么？在这个部分你将cover到不同的UI组件 - 他们表现什么及它们怎么配合在一起。
+    	你早已认识到UI可以由storyboard提供这个事实，但这实际上意味着什么？在这个部分你将cover到不同的UI组件 - 他们代表什么及它们怎么配合在一起。
     </p>
     <p>
         <img class="aligncenter size-large wp-image-111919" src="https://koenig-media.raywenderlich.com/uploads/2015/08/app_components-632x500.png"
@@ -133,10 +132,10 @@
         Window
     </h3>
     <p>
-    	你的app的UI将被一个或多个window对象包含。这些表现了你的app，负责提供UI的屏幕上的区域。操作系统会执行一个window管理器来处理移动和缩放这些window，在用户做出改变是更新你的app。
+    	你的app的UI将被一个或多个window对象包含。这些表现了你的app，负责提供UI的屏幕上的区域。操作系统会执行一个window管理器来处理移动和缩放这些window，在用户做出改变时更新你的app。
     </p>
     <p>
-    	除了可视化你的app之外，window对象也处理传递，通过用户和鼠标键盘交互到你的app中而触发的事件。
+    	除了可视化你的app之外，window对象也处理传递通过用户和鼠标键盘交互到你的app中而触发的事件。
     </p>
     <p>
     	尽管你可以直接和window对象交互，但通常它们是被window controller控制的 - 尤其当结合storyboard使用的时候。
