@@ -25,7 +25,7 @@
             在第二部分，你将从Xcode退回一步来了解一下构成OS X app的组件。从一个app怎么启动，到UI怎么构建，直到处理用户的交互
         </li>
         <li>
-            在<a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
+            在<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md"
             sl-processed="1">最后一部分</a>， 你将亲自动手（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
         </li>
     </ol>
@@ -642,7 +642,7 @@
         together, but it hasn’t given you a great idea of how you can actually
         use this to get started creating apps. Fear not – for that is the purpose
         of the
-        <a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md"
         sl-processed="1">
             next article
         </a>

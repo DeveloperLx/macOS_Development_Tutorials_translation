@@ -14,10 +14,9 @@
     <ol>
         <li>在这个第一部分，你将首次了解怎么获取你需要的用来开发OS X的工具。然后，使用你下载的app作为例子，你将进行一次Xcode的游览，发现怎么去运行一个App，编辑代码，设计UI，debug程序。
         </li>
-        <li>在<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20Intro%20to%20Xcode.md"
-            sl-processed="1">第二部分</a>，你将从Xcode回退一步，学习构成一个OS X app的组成成分。从一个app怎么启动，到UI怎么构建，再到怎么处理交互。
+        <li>在<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md" sl-processed="1">第二部分</a>，你将从Xcode回退一步，学习构成一个OS X app的组成成分。从一个app怎么启动，到UI怎么构建，再到怎么处理交互。
         </li>
-        <li>在<a href="http://www.raywenderlich.com/110269/mac-os-x-development-tutorial-for-beginners-part-3-your-first-os-x-app"
+        <li>在<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md"
             sl-processed="1">最后一部分</a>， 你将亲自动手（get your hands dirty）- 构建你史无前例的第一个OS X app。从一无所有开始，你将很快地拥有一个简单的app，并运行在你的mac上！
         </li>
     </ol>
@@ -46,7 +45,7 @@
                 <em>
                 	如果你早就有了iOS的经验
                 </em>
-                ，这个系列的第一部分将是回顾。快速地浏览主题，来确认你已掌握它们，然后直接跳到这个系列的<a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
+                ，这个系列的第一部分将是回顾。快速地浏览主题，来确认你已掌握它们，然后直接跳到这个系列的<a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md"
                 sl-processed="1">下一部分</a>。
             </li>
             <li>
@@ -1310,7 +1309,7 @@
     </p>
     <p>
     	现在，你已经有了对于Xcode所有最重要当面的把握（birds-eye overview）。在
-        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20Intro%20to%20Xcode.md"
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md"
         sl-processed="1">
         	下一篇文章
         </a>
