@@ -351,64 +351,38 @@
         Collection view内置了cell选择的支持，带动画的重新排序，以及将cell分组到部分中。
     </p>
     <h3>
-        Handling user interaction
+        处理用户交互
     </h3>
     <p>
-        A key part of any OS X is allowing user interaction through the mouse,
-        trackpad, keyboard and any other of a number of input devices. To assist
-        with designing user input to your app, OS X provides a unified event dispatch
-        model, built around the concept of a responder chain.
+        对于任何OS X，一个关键的部分就是通过鼠标、触控板、键盘和任何其它大量的输入设备来进行用户交互。为了帮助设计用户的输入到你的app，OS X提供了一个统一的事件派发模型，构建于一个响应者链的概念下。
     </p>
     <p>
-        Events generated from a keyboard are known as
+        生成自键盘的事件称作
         <em>
             Key Events
         </em>
-        , and these follow quite a complicated path to arrive at your app. Some
-        key presses don’t event make it to your app – as they are intercepted at
-        the OS level (e.g. power button, screen brightness, volume).
+        ，这些会跟随一个相当复杂的路径到达你的app。一些键的点击不会将事件传递给你的app - 它们被拦截在操作系统的层级上（例如：电源按钮，屏幕亮度，音量）。
     </p>
     <p>
-        Key events can represents a single key, or a key combination – and when
-        they arrive at your app, they are first checked to see whether they are
-        a keyboard shortcut that’s bound to a menu item.
+        键的事件可以表示一个单独的键，或一个键的组合 - 当事件到达你的app时，它们会首先被检查是不是一个对应于菜单项的快捷键。
     </p>
     <p>
-        If not, they are checked to see whether the are used to navigate around
-        the user interface of your app – e.g. tabbing between input fields. If
-        this isn’t the case, then the window works out which of its views is currently
-        “active” (so-called first responder) before passing it the key events.
-        These can either be interpreted as per-view commands or as characters to
-        insert.
+        如果不是的话，它们就会被检查是不是用来引导你的app的用户交互的 - 例如：在输入框之间切换。如果这个不是这种情况，window会在传递键事件前，确定出哪个view当前是活跃的（所谓的第一响应者）。这些可以被打断作为每个视图的命令，或作为字符来插入。
     </p>
     <p>
-        Keyboard input is really quite complicated, since it can affect many levels
-        of the system and app architecture, but OS X goes a long way to assist
-        with this processing. In many cases, you’ll find that it behaves as you
-        would expect it out of the box.
+        键盘输入确实相当复杂，因为它可以影响到很多层的系统和app架构，但OS X走了一大段路来帮助这个处理。在很多情形下，你会发现它表现的就像你期望的一样的“开箱即用”（out of the box）。
     </p>
     <p>
-        Mouse-like events are passed to your application, which establishes which
-        window and hence view they were performed on, before passing them to your
-        custom subclass to allow you to handle them appropriately. The responder
-        class (which views inherit from) includes methods you can override which
-        get called when a clicks and moves the mouse.
+        类鼠标事件（mouse-like event）传递到你的应用中，在传递它们到你定制的子类，使你能够恰当地操作它们之前，确立它们执行在哪个window和相应view上。响应者类（view继承自的）包含你可以重写的，在点击或移动鼠标时会调用的方法。
     </p>
     <p>
-        Trackpads offer lots of additional gestures to a traditional mouse, so
-        the concept of gesture recognizers has been borrowed from iOS. These can
-        be use to interpret a sequence of multi-finger touches into a semantic
-        action – such as a pan or rotation.
+        触控板相对于传统的鼠标，提供了很多额外的手势，因此gesture recognizer的概念是从iOS借来的。这些可以用来将一系列的多指触控解释为一个语义上的动作，例如移动和旋转。
     </p>
     <p>
-        Gesture recognizers offer a much higher level of interpretation of mouse-like
-        events, and they’re associated with views and can intercept all the mouse-like
-        events associated with that view.
+        Gesture recognizer对类鼠标事件提供了更高水平的解释，它们被关联到view，并拦截所有关联到那个view的类鼠标事件。
     </p>
     <p>
-        The event handling architecture in OS X is quite complicated, but the
-        defaults go a long way to handling many common cases. The power of the
-        responder chain makes it easy to handle events at the highest level possible.
+        在OS X中，事件处理架构相当地复杂，但默认走了一大段路来处理很多共同的情形。相应者链的力量使其在最高水平的可能上，让操纵事件变得容易。
     </p>
     <h3>
         Menus
