@@ -61,60 +61,47 @@
         OS X App怎么启动？
     </h2>
     <p>
-    	
-        Your journey through an OS X app starts right at the beginning – looking at how an app actually
+    	你的OS X app旅程已开始 - 着眼于一个app实际上上是怎么
         <i>
-            starts
+            启动
         </i>
-        .
+        的。
     </p>
     <p>
-        There are three components that you need to be aware of when considering
-        the OS X app start process:
+    	当考虑到OS X app启动进程时，你需要考虑到三个组件：
     </p>
     <ul>
         <li>
             <em>
                 App Delegate
             </em>
-            : The entry point for code. The App Delegate provides methods associated
-            with both the lifecycle of the app, and its interaction with the operating
-            system. This is your first opportunity to run code, and provides you with
-            notifications from OS X, such as Handoff requests, command line arguments
-            and push notifications.
+            ：代码的入口。App Delegate提供了关连于app生命循环的方法，并与操作系统进行交互。这是你的第一次执行代码的机会，并提供了你来自OS X的通知，例如Handoff请求，命令行参数和推送通知。
         </li>
         <li>
             <em>
                 Storyboard
             </em>
-            : Storyboards have a designated “entry point”, and this allows the system
-            to construct the UI at app launch. The entrypoint looks like an arrow on
-            the left hand side of a scene:
+            ：Storyboards有一个指定的“入口点”，他让系统在app启动时构建UI。entrypoint看起来像一个在场景（scene）左手边的箭头：
             <br>
             <img class="aligncenter size-full wp-image-111915" src="https://koenig-media.raywenderlich.com/uploads/2015/08/storyboard_entry.png"
             alt="storyboard_entry" width="264" height="164">
             <br>
-            This denotes which of the scenes in the storyboard will form the initial
-            UI of your app.
+            这表示storyboard中的这个场景将构成你的app的初始UI。
         </li>
         <li>
             <em>
                 Info.plist
             </em>
-            : You can have multiple storyboards within your app, so how does OS X
-            know which one it should use as the initial UI? This information (and a
-            load of other useful things) is stored inside the
+            ：在你的app中，你可以有多个storyboard，OS X怎么知道该使用哪一个作为初始的UI？这个信息（和大量其它有用的东西）保存在
             <em>
                 Info.plist
             </em>
-            file. You can see the relevant entry below:
+            文件中。你可以在下面看到关联的入口：
             <img class="aligncenter size-medium wp-image-111908" src="https://koenig-media.raywenderlich.com/uploads/2015/08/info_plist-480x245.png"
             alt="info_plist" width="480" height="245" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/info_plist-480x245.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/info_plist-700x357.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/info_plist.png 1238w"
             sizes="(max-width: 480px) 100vw, 480px">
             <p>
-                This file contains lots of useful app configuration options, many of which
-                are exposed through the target configuration screen in Xcode. The image
-                below shows the same storyboard setting in a more user-friendly location:
+            	这个文件包含了大量有用的配置选项，其中很多被暴露在Xcode的target配置的界面中。下面的图片展示了相同的storyboard设置位于更对用户友好的位置上：
             </p>
             <p>
                 <img class="aligncenter wp-image-111912 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/08/project_config-700x436.png"
@@ -124,14 +111,11 @@
         </li>
     </ul>
     <p>
-        Starting an app is
+    	启动一个app比这要
         <i>
-            slightly
+        	稍
         </i>
-        more complicated than this, but these three places explain where you can
-        interact and configure your app’s startup. Now that you’ve got your app
-        up and running it’s time to take a look at a very important aspect – its
-        User Interface.
+        复杂些。但这三个地方解释了，你可以在什么地方交互和配置你的app的启动。现在你建立起了你的app，并运行起来，是时候来看一个重要的方面了 - 它的用户交互。
     </p>
     <h2>
         User interface
