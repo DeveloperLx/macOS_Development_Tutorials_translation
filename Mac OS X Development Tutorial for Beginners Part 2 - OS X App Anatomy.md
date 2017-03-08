@@ -118,12 +118,11 @@
         复杂些。但这三个地方解释了，你可以在什么地方交互和配置你的app的启动。现在你建立起了你的app，并运行起来，是时候来看一个重要的方面了 - 它的用户交互。
     </p>
     <h2>
+    	用户界面
         User interface
     </h2>
     <p>
-        You’re already aware of the fact that the UI can be provided by a storyboard,
-        but what does this actually mean? In this section you’ll cover the different
-        UI components – what they represent and how they fit together.
+    	你早已认识到UI可以由storyboard提供这个事实，但这实际上意味着什么？在这个部分你将cover到不同的UI组件 - 他们表现什么及它们怎么配合在一起。
     </p>
     <p>
         <img class="aligncenter size-large wp-image-111919" src="https://koenig-media.raywenderlich.com/uploads/2015/08/app_components-632x500.png"
@@ -134,30 +133,19 @@
         Window
     </h3>
     <p>
-        The UI for your app will be contained within one or more window objects.
-        These represent an area of the screen for which your app is responsible
-        for providing the UI. The operating system runs a window manager that handles
-        the moving and resizing of these windows, updating your app as the user
-        makes these changes.
+    	你的app的UI将被一个或多个window对象包含。这些表现了你的app，负责提供UI的屏幕上的区域。操作系统会执行一个window管理器来处理移动和缩放这些window，在用户做出改变是更新你的app。
     </p>
     <p>
-        In addition to representing the visualization of your app, the window
-        object also handles passing user events triggered by user interaction with
-        the mouse and keyboard into your app.
+    	除了可视化你的app之外，window对象也处理传递，通过用户和鼠标键盘交互到你的app中而触发的事件。
     </p>
     <p>
-        Although you can interact directly with a window object, often they’re
-        managed by window controllers – especially when used in conjunction with
-        storyboards.
+    	尽管你可以直接和window对象交互，但通常它们是被window controller控制的 - 尤其当结合storyboard使用的时候。
     </p>
     <p>
-        A window controller is responsible for the loading of the window itself,
-        and allows you to hook into different events throughout the lifecycle of
-        the window.
+    	window controller负责加载它自己的window，让你能够hook贯穿于window生命周期的不同的事件。
     </p>
     <p>
-        A storyboard would contain at least one window controller, which is represented
-        as follows:
+    	一个storyboard会包含至少一个window controller，就像下面这样：
     </p>
     <p>
         <img class="aligncenter wp-image-111918 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/window_controller-475x320.png"
@@ -165,12 +153,10 @@
         sizes="(max-width: 475px) 100vw, 475px">
     </p>
     <p>
-        Window controllers are represented by the
-        <code>
+    	<code>
             NSWindowController
         </code>
-        class, and as you configure your different windows, you would normally
-        create different subclasses to manage their individual behavior.
+    	这个类代表了Window controller，因此当你需要配置不同的window时，你通常就需要创建不同的子类来管理它们各自的行为。
     </p>
     <h3>
         Views
