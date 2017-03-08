@@ -537,25 +537,14 @@
         </div>
     </div>
     <p>
-        This article has given you an overview of how Cocoa apps for OS X fit
-        together, but it hasn’t given you a great idea of how you can actually
-        use this to get started creating apps. Fear not – for that is the purpose
-        of the
+        这篇文章给了你OS X的app怎么配合在一起的概述，但它没有给你你改怎么实际地使用这些来启动创建app的好主意。不要担心 - 这恰是这个引导性系列中
         <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md"
         sl-processed="1">
-            next article
+            下一篇文章
         </a>
-        in this introductory series.
+        的目标。
     </p>
     <p>
-        If you’d like to learn more about the theoretical side of building OS
-        X apps then Apple has provided a good guide to Cocoa apps as part of the
-        documentation guides. It’s not especially helpful at the practical aspects
-        of building apps, but if you read it in its entirety then you’ll know an
-        awful lot about Cocoa!
-    </p>
-    <p>
-        As ever, if you have any questions or comments feel free to get involved
-        on the forums or leave a comment below.
+        如果你想学习更多关于build OS X app理论方面的内容，苹果提供了一个好的Cocoa app的引导作为文档引导的一部分。它在实际build app上并不是特别有用，但是你如果全部读过它，你将对Cocoa拥有可怕的知识！
     </p>
 </div>
