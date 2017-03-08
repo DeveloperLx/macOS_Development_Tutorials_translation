@@ -453,9 +453,6 @@
         尽管你可以创建你自己的数据层，苹果提供了一个名叫Core Data的框架。这是一个综合框架，用来创建对象图（object graph）来完成你全部数据层的模型。它支持持久化到磁盘，数据校验，撤销等。
     </p>
     <p>
-        Core Data has great support for Cocoa Bindings, meaning that it’s really
-        easy to integrate your model editing UI with a Core Data backend to build
-        the bulk of your app really quickly.
         Core Data很好地支持了Cocoa Bindings，意味着整合你的模型编辑UI和Core Data后端真的容易，这使得build你的app相当得快。
     </p>
     <h2>
