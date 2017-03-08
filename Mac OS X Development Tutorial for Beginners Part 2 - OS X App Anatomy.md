@@ -217,43 +217,38 @@
         定制的子类来构成的，每一个都负责window中不同的部分。它们是一个app中非常重要的一方面 - 形成允许你展示基础的（underlying）数据给用户的连接。
     </p>
     <h3>
-        View components
+        View组件
     </h3>
     <p>
-        You’ve discovered that views are used to draw on the screen – but how
-        is that actually achieved? At the lowest level you can create a custom
-        subclass of
+        你已知道了view是用来被绘制到屏幕上的 - 但它实际上是怎么实现的？在最低层你可以创建一个
         <code>
             NSView
         </code>
-        and override the
+        定制的子类并重写
         <code>
             drawRect()
         </code>
-        method to manually draw the content of your view.
+        方法来手动地绘制你的view的内容。
     </p>
     <p>
-        This is extremely powerful – allowing you to create completely custom
-        views, but would be arduous if you had to do this to draw some text on
-        the screen!
+        这是极其强大的 - 允许你创建完全定制的view，如果你不得不绘制一些文本到屏幕上去，将会是费劲的！
     </p>
     <p>
-        Luckily, you don’t have to. AppKit contains a large selection of commonly
-        used
+        幸运的是，你不必这么做。AppKit包含一系列常用的
         <code>
             NSView
         </code>
-        subclasses that you can use to display content on the screen.
+        的子类，你可以用来在屏幕上展示内容。
     </p>
     <p>
-        Some of the most useful examples are:
+        一些最有用的例子是：
     </p>
     <ul>
         <li>
             <em>
                 Label
             </em>
-            : Displays static text. Configurable font and appearance
+            ：展示静态的文本。配置字体和外观
             <br>
             <img class="aligncenter wp-image-111909 size-full" src="https://koenig-media.raywenderlich.com/uploads/2015/08/label.png"
             alt="" width="430" height="120">
@@ -262,7 +257,7 @@
             <em>
                 Text Field
             </em>
-            : User-editable text control. Used to collect a string from the user.
+            ：用户可编辑的文本控制器。用来从用户那里手机字符串。
             <br>
             <img class="aligncenter size-full wp-image-111917" src="https://koenig-media.raywenderlich.com/uploads/2015/08/text_field.png"
             alt="text_field" width="474" height="110">
@@ -271,11 +266,11 @@
             <em>
                 Image View
             </em>
-            : Draws an image – provided by an
+            ：绘制一副图像 - 由
             <code>
                 NSImage
             </code>
-            object.
+            对象提供。
             <br>
             <img class="aligncenter size-full wp-image-111907" src="https://koenig-media.raywenderlich.com/uploads/2015/08/image_view.png"
             alt="image_view" width="468" height="108">
@@ -284,8 +279,7 @@
             <em>
                 Push Button
             </em>
-            : One of the many button types – each of which respond to a user’s mouse
-            click.
+            ：是众多按钮类型中的一种 - 相应用户点击事件的那个。
             <br>
             <img class="aligncenter size-full wp-image-111913" src="https://koenig-media.raywenderlich.com/uploads/2015/08/push_button.png"
             alt="push_button" width="470" height="88">
@@ -294,11 +288,11 @@
             <em>
                 Table View
             </em>
-            : An example of one of the many view subclasses used for showing not just
+            ：一个用来展示不止
             <i>
-                one
+                一
             </i>
-            data object, but rather a collection of them.
+            个数据对象的很多view的子类的例子，而是展示它们的集合。
             <br>
             <img class="aligncenter size-full wp-image-111916" src="https://koenig-media.raywenderlich.com/uploads/2015/08/table_view.png"
             alt="table_view" width="490" height="112" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/table_view.png 490w, https://koenig-media.raywenderlich.com/uploads/2015/08/table_view-480x110.png 480w"
@@ -306,9 +300,7 @@
         </li>
     </ul>
     <p>
-        These are just a few of the different view subclasses available to you
-        as you build up the user interface of your app. You can discover the entire
-        range in the object library within Interface Builder:
+        这些只是几个不同的对你可用的view的子类，你可以用来构建你的app的用户界面。在Interface Builder，你可以在对象库中发现所有的子类：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-111911" src="https://koenig-media.raywenderlich.com/uploads/2015/08/object_library-383x500.png"
@@ -316,9 +308,7 @@
         sizes="(max-width: 383px) 100vw, 383px">
     </p>
     <p>
-        The raywenderlich.com OS X tutorial team will also be putting together
-        a quick reference guide to different UI components over the coming months
-        – so be sure to check back for that.
+        raywenderlich.com OS X教程团队也将在未来几个月中，打造一个快速的对于不同UI组建的参考指南 - 所以请确保回来查阅。
     </p>
     <h3>
         Viewing collections
@@ -565,7 +555,7 @@
         </li>
     </ul>
     <h2>
-        Where to go from here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -577,10 +567,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
