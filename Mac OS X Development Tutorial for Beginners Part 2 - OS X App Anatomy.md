@@ -314,18 +314,13 @@
         Viewing collections
     </h3>
     <p>
-        Often you’ll want your app to display UI for multiple model objects at
-        the same time – for example showing a list of upcoming appointments, or
-        a set of photos in an album.
+        你经常想要你的app的UI同时展示多个模型对象 - 例如一个即将到来的约会的列表，或一个相册中照片的集合。
     </p>
     <p>
-        OS X provides two different views that are designed to show collections
-        of model objects – in the form of table views and collection views.
+        OS X提供两个不同的view用来展示模型对象的集合 - 以table view的形式和collection view的形式。
     </p>
     <p>
-        As their name suggests, table views are used to show tabular data, with
-        rows representing individual model objects, and the columns representing
-        attributes on those objects.
+        如同它的名字，table view用来展示扁平的数据，使用行来表示个体的数据模型，列来表示那些对象的属性。
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-111922" src="https://koenig-media.raywenderlich.com/uploads/2015/08/table_view_sample-480x145.png"
@@ -333,18 +328,13 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Table views are made up of cells that can be recycled as they scroll on
-        and off screen. Data can be provided either via a data source protocol
-        or using Cocoa Bindings.
+        Table view由可以在被滚入和滚出屏幕时，可以被回收利用的cell构成。数据可以通过数据源协议或使用Cocoa Bindings来提供。
     </p>
     <p>
-        Tables support sorting, editing and custom cells, giving you a very powerful
-        view for displaying data.
+        Table支持排序，编辑和定制cell，给你一个强有力的view来展示数据。
     </p>
     <p>
-        The more generic collection view is also comprised of a collection of
-        cells, but this time, each cell represents the entire model object. The
-        layout of these cells is completely customizable.
+        更通用的collection view也是由cell的集合构成的，但这次，每个cell代表全部的模型对象。这些cell的布局是完全可定制的。
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-111902" src="https://koenig-media.raywenderlich.com/uploads/2015/08/collection_view-475x320.png"
@@ -355,13 +345,10 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Similarly to the table view, the data for a collection view can be provided
-        either via a data source protocol, or through Cocoa Bindings. Cells are
-        also recycled as they disappear out of the view, reducing the memory footprint.
+        类似table view，collection view可以通过数据源或Cocoa Bindings来提供。它的cell也是可以回收利用的 - 当它们从view中消失的时候，以此减少内存的占用。
     </p>
     <p>
-        Collection views have built in support for cell selection, animated re-ordering
-        and grouping cells into sections.
+        Collection view内置了cell选择的支持，带动画的重新排序，以及将cell分组到部分中。
     </p>
     <h3>
         Handling user interaction
