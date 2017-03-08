@@ -431,46 +431,32 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <h2>
-        Data Layer
+        数据层
     </h2>
     <p>
-        The user interface is an enormously important part of your OS X app, but
-        it’s probably not the
+        用户界面是你OS X app的一个巨大的部分，但它大概不是你app的
         <i>
-            entirety
+            全部
         </i>
-        of your app. Most apps provide a user interface so that users can interact
-        with an underlying data model.
+        。大多app提供一个用户界面，来让用户可以和背后的数据模型交互。
     </p>
     <p>
-        Data models depend heavily on the domain in which your app exists – there’s
-        no magical solution to building a data layer. In fact, it’s often the case
-        that you’ll use the object oriented language features available in Swift
-        to create a set of objects that model the domain of your app.
+        数据模型高度依赖于你的app存在的域（domain） - 并没有魔术的办法来build一个数据层。事实上，通常的情形是，你会使用Swift中可用的，面向对象语言的特性来创建一套模拟你app的域（domain）的对象。
     </p>
     <p>
-        It’s extremely important that the data layer should be separated out from
-        the user interface, making your software your software more maintainable
-        and less error-prone. OS X supports this architecture through Cocoa Bindings
-        – a technology that wires up model objects to the UI and ensures that they
-        are automatically kept in sync with each other.
+        让数据层和用户界面分类是极其重要的，让你的软件更易维护和不易出错。OS X通过Cocoa Bindings支持这种架构 - 一种接通模型对象到UI，并确保它们自动保持互相同步的技术。
     </p>
     <p>
-        You can create a completely separate dynamic framework to contain your
-        data layer – completely separating it from the UI layer. This can allow
-        the same data layer to be used in multiple apps – possibly even shared
-        between an OS X and an iOS app, and increases testability.
+        你可以穿件一个完全隔离的动态framework来包含你的数据层 - 完全和UI隔离。这可以让相同的数据层在多个app中被使用 - 甚至再OS X和iOS app之间，增强可测试性。
     </p>
     <p>
-        Although you can create your own data layer, Apple provides a framework
-        called Core Data. This is a comprehensive framework for creating an object
-        graph to completely model your entire data layer. It supports persistence
-        to disk, data validation, undo and much more.
+        尽管你可以创建你自己的数据层，苹果提供了一个名叫Core Data的框架。这是一个综合框架，用来创建对象图（object graph）来完成你全部数据层的模型。它支持持久化到磁盘，数据校验，撤销等。
     </p>
     <p>
         Core Data has great support for Cocoa Bindings, meaning that it’s really
         easy to integrate your model editing UI with a Core Data backend to build
         the bulk of your app really quickly.
+        Core Data很好地支持了Cocoa Bindings，意味着整合你的模型编辑UI和Core Data后端真的容易，这使得build你的app相当得快。
     </p>
     <h2>
         Other useful Cocoa functionality
