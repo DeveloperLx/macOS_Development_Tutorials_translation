@@ -388,15 +388,14 @@
         Menus
     </h3>
     <p>
-        Menus are collections of different actions that you can associate with
-        your app. Menus can appear in different places, including:
+        Menus是关联到你的app的不同动作的集合。Menus可以出现在不同的地方，包括：
     </p>
     <ul>
         <li>
             <em>
                 Menu Bar
             </em>
-            this is bar along the top of the screen
+            这是沿着屏幕顶部的“条”
             <br>
             <img class="aligncenter size-medium wp-image-111910" src="https://koenig-media.raywenderlich.com/uploads/2015/08/menu_bar-480x283.png"
             alt="menu_bar" width="480" height="283" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/menu_bar-480x283.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/menu_bar-700x412.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/menu_bar.png 842w"
@@ -404,9 +403,9 @@
         </li>
         <li>
             <em>
-                Context Menus
+                Context Menus（交互菜单）
             </em>
-            appear when the user right clicks
+            出现在用户右击时
             <br>
             <img class="aligncenter size-medium wp-image-111904" src="https://koenig-media.raywenderlich.com/uploads/2015/08/context_menu-480x291.png"
             alt="context_menu" width="480" height="291" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/context_menu-480x291.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/context_menu.png 578w"
@@ -416,7 +415,7 @@
             <em>
                 Dock Menu
             </em>
-            when the user long-presses the dock icon
+            当用户长按dock的图标时
             <br>
             <img class="aligncenter size-medium wp-image-111905" src="https://koenig-media.raywenderlich.com/uploads/2015/08/dock_menu-270x320.png"
             alt="dock_menu" width="270" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/dock_menu-270x320.png 270w, https://koenig-media.raywenderlich.com/uploads/2015/08/dock_menu-422x500.png 422w, https://koenig-media.raywenderlich.com/uploads/2015/08/dock_menu.png 466w"
@@ -424,9 +423,7 @@
         </li>
     </ul>
     <p>
-        All of these menus can be configured in Interface Builder, allowing you
-        to configure their appearance, the hierarchy they appear in and to associate
-        actions with each item.
+        所有的menus可以在Interface Builder中被配置，允许你配置它们的外观，它们出现的层级，和每一项关联的动作。
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-111906" src="https://koenig-media.raywenderlich.com/uploads/2015/08/ib_menu-480x127.png"
