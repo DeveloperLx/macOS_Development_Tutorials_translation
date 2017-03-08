@@ -161,39 +161,30 @@
         Views
     </h3>
     <p>
-        The window specifies the area of the screen that your app is responsible
-        for drawing on, but not what to draw. This is one of the primary responsibilities
-        of the view – providing you with functionality to draw on the screen.
+        window指定了你的app在屏幕上负责绘制的区域，但不是要绘制的东西。这就是view的主要职责之一 - 为你提供在屏幕上绘制的功能。
     </p>
     <p>
-        Views are rectangular in shape, and are represented by the
+        View是矩形的，由
         <code>
             NSView
         </code>
-        class. Views exist within a hierarchy – i.e. any view can contain zero
-        or more subviews – allowing you to construct a complex layout using much
-        simpler, reusable view components.
+        来表示。View存在在层级中 - 也就是说，任何view都可以包含0个或多个subview - 让你能够用更简单，可重用的view组件来构成负责的布局。
     </p>
     <h3>
         View Controllers
     </h3>
     <p>
-        In the same way that windows are managed by a window controller in storyboards,
-        views are managed by a view controller class. This links the view hierarchy
-        in with the the model layer, either by manipulating properties directly,
-        or through Cocoa bindings.
+        就如同window在storyboard中是被一个window controller来管理的，view是被window controller类来管理的。这就使用模型层通过直接操作property，或通过Cocoa绑定来连接了view的层级。
     </p>
     <p>
-        In a typical application, a view controller is a reusable component that,
-        when provided a model object of a particular type, would update all of
-        its constituent views to represent the values of its associated model object.
+        在一个典型的应用中，view controller是一个可重用的组件，当对一个特定的类型提供了模型的对象，就会更新所有构成它的view来表现相关的模型对象的值。
     </p>
     <p>
-        For example, in the previous tutorial you poked around the
+        例如，在之前的教程中，你“闲逛”（poke around）了
         <em>
             HubEvent
         </em>
-        app.
+        这个app。
     </p>
     <p>
         <img class="aligncenter wp-image-111920 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/view_controllers-480x311.png"
