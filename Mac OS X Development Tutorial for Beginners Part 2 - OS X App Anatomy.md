@@ -192,39 +192,29 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        In the above screenshot, you can see that it is made up of two major view
-        controllers – one managing the table view on the top, and the other the
-        detail text view. When you select a row in the table view, it sets the
-        model object on the lower detail view controller, which then updates the
-        text view to display the correct JSON.
+        在上面的截图中，你可以看到它是由两个主要的view controller构成的 - 一个管理在顶部的table view，另一个管理详细的text view。当你的table view中选择一行，它设置了模型对象在较低细节的view controller，然后更新text view去展示了正确的JSON。
     </p>
     <p>
-        View controllers are represented by
+        View controller是由
         <code>
             NSViewController
         </code>
-        , which provides a full range of lifecycle events – allowing you to perform
-        custom actions at different times. For example you can fire animation as
-        the view is about to appear on the screen with
+        来表现的，它提供了全范围的生命周期的事件 - 允许你在不同的时刻执行定制的动作。例如你可以在当view将要出现在屏幕上时，用这个方法
         <code>
             viewWillAppear()
         </code>
-        , or populate relevant views with data once the view hierarchy has correctly
-        loaded with
+        来启动动画，或在view的层次已正确地装载时，使用填数据充相关的view在这个方法中
         <code>
             viewDidLoad()
         </code>
-        .
+        。
     </p>
     <p>
-        Your app is likely to be formed from a selection of custom subclasses
-        of
+        你的app有可能是由一系列
         <code>
             NSViewController
         </code>
-        , each responsible for a different section of a window. They’re an incredibly
-        important aspect of an app – forming the link that allows you to display
-        the underlying data to the user.
+        定制的子类来构成的，每一个都负责window中不同的部分。它们是一个app中非常重要的一方面 - 形成允许你展示基础的（underlying）数据给用户的连接。
     </p>
     <h3>
         View components
