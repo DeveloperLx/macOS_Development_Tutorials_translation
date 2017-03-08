@@ -58,11 +58,11 @@
         </p>
     </div>
     <h2>
-        How Does an OS X App Start?
+        OS X App怎么启动？
     </h2>
     <p>
-        Your journey through an OS X app starts right at the beginning – looking
-        at how an app actually
+    	
+        Your journey through an OS X app starts right at the beginning – looking at how an app actually
         <i>
             starts
         </i>
