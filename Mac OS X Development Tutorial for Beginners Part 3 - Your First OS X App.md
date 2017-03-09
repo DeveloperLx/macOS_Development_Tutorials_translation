@@ -152,7 +152,7 @@
         sizes="(max-width: 357px) 100vw, 357px">
     </p>
     <p>
-        You’ll now see the storyboard open in the center panel:
+        你会看到现在storyboard已打开在了中部的面板：
     </p>
     <p>
         <img class="aligncenter wp-image-121079 size-full" src="https://koenig-media.raywenderlich.com/uploads/2015/11/05_storyboard.png"
@@ -160,33 +160,30 @@
         sizes="(max-width: 666px) 100vw, 666px">
     </p>
     <p>
-        The template storyboard contains three components:
+        模板的storyboard包含三个组件：
     </p>
     <ul>
         <li>
             <em>
                 Menu Bar
             </em>
-            : Controls the menu that appears when the app runs.
+            ：控制当app运行时出现的菜单。
         </li>
         <li>
             <em>
                 Window Controller
             </em>
-            : Manages the default window that appears. Uses one or more view controllers
-            to manage its content.
+            ：管理出现的默认窗口。使用一个或多个view controller来管理它们的内容。
         </li>
         <li>
             <em>
                 View Controller
             </em>
-            Responsible for a region of the window–both for display and handling user
-            interaction.
+            负责window中的一个区域来展示和处理用户交互。
         </li>
     </ul>
     <p>
-        During this introductory tutorial you’ll concentrate your efforts on the
-        view controller.
+        在这个引导性的教程中，你将集中你的努力到view controller上。
     </p>
     <h3>
         Adding a Label
