@@ -57,14 +57,14 @@
         这个app要求OS X El Capitan操作系统和Xcode7.1及以上的版本 - 确认你在尝试跟随这个教程之前已升级。
     </div>
     <h2>
-        Getting Started
+        开始啦
     </h2>
     <p>
-        Open Xcode and click
+        打开Xcode并点击
         <em>
             Create a new Xcode project
         </em>
-        to start your new app. Choose
+        来启动你的新app。选择
         <em>
             OS X
         </em>
@@ -80,7 +80,7 @@
         <em>
             Cocoa Application
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121075" src="https://koenig-media.raywenderlich.com/uploads/2015/11/01_project_template-451x320.png"
@@ -88,19 +88,19 @@
         sizes="(max-width: 451px) 100vw, 451px">
     </p>
     <p>
-        Set the product name
+        设置产品名称为
         <em>
             MagicEight
         </em>
-        , the language to
+        ，语言为
         <em>
             Swift
         </em>
-        and ensure that the
+        并确保
         <em>
             Use Storyboards
         </em>
-        is checked:
+        被勾选：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121076" src="https://koenig-media.raywenderlich.com/uploads/2015/11/02_project_options-450x320.png"
@@ -108,18 +108,18 @@
         sizes="(max-width: 450px) 100vw, 450px">
     </p>
     <p>
-        Choose a location on disk to save your project and then click
+        选择一个磁盘上的位置来保存你的项目，并点击
         <em>
             Create
         </em>
-        to open your empty project.
+        来打开你的空项目。
     </p>
     <p>
-        Build and run
+        Build并运行
         <em>
             MagicEight
         </em>
-        to check that everything is working:
+        来检查每一项正在工作：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121077" src="https://koenig-media.raywenderlich.com/uploads/2015/11/03_bar_01-480x292.png"
@@ -127,27 +127,24 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Great – so the app runs, but it does
+        很好 - 这样app运行起来了，但它确实
         <i>
-            absolutely nothing
+            没有做任何事
         </i>
-        yet. It wouldn’t be right to start a new platform without creating “Hello
-        World!” first…
+        。这样地启动了一个新的平台却没有首先创建“Hello World!”大概是不对的...
     </p>
     <h2>
         Hello World!
     </h2>
     <p>
-        The user interface for an OS X app is provided by the storyboard file,
-        which you edit using interface builder. This allows you to design the UI
-        in a visual manner, reducing the amount of complex code you have to write.
+        OS X app的用户界面是由你使用interface builder编辑的storyboard文件提供的，它让你用一种可见的方式来编辑UI，减少了大量你必须去写的复杂的代码。
     </p>
     <p>
-        Open
+        通过在左手边窗格中的Project Navigator中选择
         <em>
             Main.storyboard
         </em>
-        by selecting it in the Project Navigator in the left-hand pane:
+        来打开它：        
     </p>
     <p>
         <img class="aligncenter wp-image-121078 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/04_project_navigator-e1448290107849-357x320.png"
