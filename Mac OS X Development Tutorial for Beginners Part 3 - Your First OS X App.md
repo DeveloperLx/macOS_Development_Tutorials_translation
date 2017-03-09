@@ -858,42 +858,9 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102692">
-                    <td class="code" id="p110269code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            handleWelcome
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                AnyObject
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleWelcome<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #002200;">}</span>
+    </pre>
     <p>
         This method will be called every time the user clicks the button.
     </p>
@@ -904,29 +871,8 @@
         </code>
         method body:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102693">
-                    <td class="code" id="p110269code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            welcomeLabel.stringValue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "Hello
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                nameTextField.stringValue)!"
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span>
+    </pre>
     <p>
         This updates the
         <code>
@@ -1566,46 +1512,9 @@
         </em>
         ). This adds the following new outlets:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102694">
-                    <td class="code" id="p110269code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            ballImageView
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSImageView
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet weak
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            adviceLabel
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> ballImageView<span style="color: #002200;">:</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">!</span>
+    @IBOutlet weak <span style="color: #a61390;">var</span> adviceLabel<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
+    </pre>
     <p>
         You also need an action to wire up the newly-created gesture recognizer.
         <em>
@@ -1646,42 +1555,9 @@
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102695">
-                    <td class="code" id="p110269code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            handleBallClick
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                AnyObject
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleBallClick<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #002200;">}</span>
+    </pre>
     <p>
         You’ve now finished all the work in Interface Builder, so you can switch
         back to the standard editor, and open
@@ -1708,106 +1584,17 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102696">
-                    <td class="code" id="p110269code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                // 1:
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            adviceLabel.hidden
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 2:
-                            </span>
-                            adviceLabel.hidden
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            ballImageView.image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            named
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "magic8ball"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 3:
-                            </span>
-                            adviceLabel.hidden
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            ballImageView.image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            named
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "8ball"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1:</span>
+    <span style="color: #a61390;">if</span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #11740a; font-style: italic;">// 2:</span>
+    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span> <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+    <span style="color: #11740a; font-style: italic;">// 3:</span>
+    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span>
+    </pre>
     <ol start="1">
         <li>
             Check whether the
@@ -1886,45 +1673,9 @@
         </code>
         method and add the following body:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102697">
-                    <td class="code" id="p110269code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            adviceLabel.hidden
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            ballImageView.image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            named
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "8ball"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
+    </pre>
     <p>
         You’ll recognize this code from the click handler action—it just hides
         the advice label and sets the image to
@@ -1951,63 +1702,17 @@
         </code>
         —just below the class definition line:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102698">
-                    <td class="code" id="p110269code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            adviceList
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "Yes"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "No"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "Ray says 'do it!'"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "Maybe"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "Try again later"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "How can I know?"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "Totally"
-                            </span>
-                            ,
-                            <span style="color: #bf1d1a;">
-                                "Never"
-                            </span>
-                            ,
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> adviceList <span style="color: #002200;">=</span> <span style="color: #002200;">[</span>
+    <span style="color: #bf1d1a;">"Yes"</span>,
+    <span style="color: #bf1d1a;">"No"</span>,
+    <span style="color: #bf1d1a;">"Ray says 'do it!'"</span>,
+    <span style="color: #bf1d1a;">"Maybe"</span>,
+    <span style="color: #bf1d1a;">"Try again later"</span>,
+    <span style="color: #bf1d1a;">"How can I know?"</span>,
+    <span style="color: #bf1d1a;">"Totally"</span>,
+    <span style="color: #bf1d1a;">"Never"</span>,
+    <span style="color: #002200;">]</span>
+    </pre>
     <p>
         This is an array of strings the make up all the different options for
         advice that the ball can dispense.
@@ -2019,108 +1724,14 @@
         </code>
         class) and add the following extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102699">
-                    <td class="code" id="p110269code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension
-                            <span style="color: #a61390;">
-                                Array
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            randomElement
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Element?
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                count
-                            </span>
-                            &lt;
-                            <span style="color: #2400d9;">
-                                1
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            .None
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            randomIndex
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            arc4random_uniform
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            UInt32
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                count
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                Int
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            randomIndex
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">extension <span style="color: #a61390;">Array</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">var</span> randomElement<span style="color: #002200;">:</span> Element? <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">if</span> <span style="color: #a61390;">count</span> &lt; <span style="color: #2400d9;">1</span> <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> .None <span style="color: #002200;">}</span>
+    <span style="color: #a61390;">let</span> randomIndex <span style="color: #002200;">=</span> arc4random_uniform<span style="color: #002200;">(</span>UInt32<span style="color: #002200;">(</span><span style="color: #a61390;">count</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+    <span style="color: #a61390;">return</span> <span style="color: #a61390;">self</span><span style="color: #002200;">[</span><span style="color: #a61390;">Int</span><span style="color: #002200;">(</span>randomIndex<span style="color: #002200;">)</span><span style="color: #002200;">]</span>
+    <span style="color: #002200;">}</span>
+    <span style="color: #002200;">}</span>
+    </pre>
     <p>
         This adds a new property to the standard library’s
         <code>
@@ -2151,66 +1762,12 @@
         </code>
         to match the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p11026910">
-                    <td class="code" id="p110269code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            advice
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            adviceList.randomElement
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            adviceLabel.stringValue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            advice adviceLabel.hidden
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            ballImageView.image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            named
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "magic8ball"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> advice <span style="color: #002200;">=</span> adviceList.randomElement <span style="color: #002200;">{</span>
+    adviceLabel.stringValue <span style="color: #002200;">=</span> advice
+    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span>
+    </pre>
     <p>
         This attempts to get a random piece of advice to display, and if successful
         updates the
