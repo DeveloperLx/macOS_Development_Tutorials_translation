@@ -9,55 +9,52 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        Welcome back to our 3-part Mac OS X Development tutorial for beginner
-        series!
+    	欢迎回到我们的Max OS X新手开发教程的第三部分！
     </p>
     <p>
-        This introductory series about building apps on OS X has covered a lot
-        of ground. This is what you’ve already learned:
+    	这个关于在OS X上build app的引导性的系列，包含很多的东西（ground）。这些是你已学到的：
     </p>
     <ul>
         <li>
             <em>
                 Tooling
             </em>
-            : In
-            <a href="http://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode"
+            ：在
+            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
             sl-processed="1">
-                part one
+            	第一部分
             </a>
-            you learned about the many facets of Xcode – and had a glimpse of how
-            you could use it to start developing for OS X.
+            你学到了Xcode的很多方面 - “瞥”（glimpse）了一眼你可以怎么来用它开始OS X的开发。
         </li>
         <li>
             <em>
-                App Anatomy
+                App剖析
             </em>
-            : The
+            ：
             <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy"
             sl-processed="1">
                 second part
+                第二部分
             </a>
-            covered a lot of the theory behind how OS X app are constructed – from
-            the data layer, through the binary assets, to designing the UI.
+            包含了很多的OS X app在背后如何构建的理论 - 从数据层，到二进制的资源，再到设计UI。
         </li>
     </ul>
     <p>
-        In this third and final part, you’re going to dive deep into the world
-        of OS X development, by creating your first ever app!
+    	在这个第三也就是最后一部分，你将通过创造你史无前例的第一个app，来潜入（dive deep into）OS X开发的世界！
     </p>
     <p>
-        The app you’re going to build is a magic-8 ball app, to help you make
-        all those difficult decisions in day-to-day life. You’ll start from scratch
-        – first creating a “Hello World!” app before moving on to creating an app
-        to solve all your problems!
+    	你将要build的app是一个
+    	<em>
+    		magic-8 ball app
+    	</em>
+    	，来帮助你做出一天天生活中的困难的决定。你将从涂画（scratch）开始 - 在继续创造app来解决你的所有问题前，首先创造一个“Hello World!” app！
     </p>
     <div class="note">
         <em>
+        	注意
             Note:
         </em>
-        This app requires OS X El Capitan and Xcode &gt;=7.1 — make sure you upgrade
-        before trying to follow the tutorial.
+        这个app要求OS X El Capitan操作系统和Xcode7.1及以上的版本 - 确认你在尝试跟随这个教程之前已升级。
     </div>
     <h2>
         Getting Started
