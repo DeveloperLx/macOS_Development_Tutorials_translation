@@ -2233,7 +2233,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h2>
-        Where to go from here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -2245,10 +2245,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -2256,21 +2257,18 @@
         </div>
     </div>
     <p>
-        You can download the completed version of MagicEight
+        你可以下载完整版本的MagicEight在
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/MagicEight.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        。
     </p>
     <p>
-        This Mac OS X development tutorial introductory series has given you a
-        basic level of knowledge to get started with OS X apps–but there’s so much
-        more to learn!
+        这个Mac OS X的开发教程引导系列已经给了你一个开始OS X app的基层的知识 - 但是这里有太多的东西要学！
     </p>
     <p>
-        Apple has some great documentation covering all aspects of OS X development
-        – head on over to
+        苹果有一些很棒的文档，覆盖了OS X开发的全部方面 - 请前往
         <a href="https://developer.apple.com/library/mac/navigation/" sl-processed="1">
             https://developer.apple.com/library/mac/navigation/
         </a>
