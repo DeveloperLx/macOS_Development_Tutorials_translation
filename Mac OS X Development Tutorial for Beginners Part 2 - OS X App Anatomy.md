@@ -456,43 +456,32 @@
         Core Data很好地支持了Cocoa Bindings，意味着整合你的模型编辑UI和Core Data后端真的容易，这使得build你的app相当得快。
     </p>
     <h2>
-        Other useful Cocoa functionality
+        其它有用的Cocoa功能
     </h2>
     <p>
-        This article has given you a very brief overview of some of the Cocoa
-        concepts that are likely to be used in every single OS X app. This barely
-        scrapes the surface of what is a very rich platform.
+    	这篇文章给了你一些可以被用到每个OS Xapp的Cocoa概念的非常简短的概述。这仅仅触碰到了这个非常丰富的平台的表面。
     </p>
     <p>
-        Some highlights of other parts of Cocoa that are extremely useful when
-        building powerful OS X apps:
+    	一些Cocoa的其它突出的部分，在build强大的OS X app时也是非常有用的：
     </p>
     <ul>
         <li>
             <em>
                 Networking
             </em>
-            : In addition to access to the very lowest level of networking functionality,
-            OS X provides a much higher-level API for handling HTTP requests. The networking
-            model is built around an asynchronous session – seamlessly handling uploads
-            and downloads as a list of tasks.
+            ：除了访问最底层的网络功能，OS X提供了一个更高层的API来处理HTTP请求。networking构建在一个异步的session上 - 无缝地将上传和下载处理成一个任务的列表。
         </li>
         <li>
             <em>
                 Location
             </em>
-            : You might associate location-based services primarily with mobile devices,
-            but you have full access to a lot of powerful functionality both about
-            location through Core Location, and for mapping using MapKit.
+            ：你可能主要在移动设备上关联到基于位置的服务，但你有完全的访问权限，来通过Core Location访问很多关于位置的强大的功能，并使用MapKit处理地图。
         </li>
         <li>
             <em>
                 WebKit
             </em>
-            : Safari is one of the top web browsers, and you can integrate the powerful
-            rendering engine into your own app via WebKit. It also includes the ability
-            to interact with the content, and to render HTML content from a selection
-            of sources.
+            ：Safari是顶级的web浏览器之一，你可以通过WebKit来整合强有力的渲染引擎（rendering engine）到你自己的app中。它也包含了与内容交互的能力，并可以从一系列的来源中渲染HTML的内容。
         </li>
     </ul>
     <h2>
