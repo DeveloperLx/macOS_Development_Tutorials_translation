@@ -292,7 +292,7 @@
             <i>
                 一
             </i>
-            个数据对象的很多view的子类的例子，而是展示它们的集合。
+            个数据对象，而是展示它们的集合的例子，它是view的很多子类中的一个。
             <br>
             <img class="aligncenter size-full wp-image-111916" src="https://koenig-media.raywenderlich.com/uploads/2015/08/table_view.png"
             alt="table_view" width="490" height="112" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/table_view.png 490w, https://koenig-media.raywenderlich.com/uploads/2015/08/table_view-480x110.png 480w"
@@ -361,7 +361,7 @@
         <em>
             Key Events
         </em>
-        ，这些会跟随一个相当复杂的路径到达你的app。一些键的点击不会将事件传递给你的app - 它们被拦截在操作系统的层级上（例如：电源按钮，屏幕亮度，音量）。
+        ，这些会跟随一个相当复杂的路径到达你的app。一些键的点击甚至不会将事件传递给你的app - 它们被拦截在操作系统的层级上（例如：电源按钮，屏幕亮度，音量）。
     </p>
     <p>
         键的事件可以表示一个单独的键，或一个键的组合 - 当事件到达你的app时，它们会首先被检查是不是一个对应于菜单项的快捷键。
@@ -453,7 +453,7 @@
         尽管你可以创建你自己的数据层，苹果提供了一个名叫Core Data的框架。这是一个综合框架，用来创建对象图（object graph）来完成你全部数据层的模型。它支持持久化到磁盘，数据校验，撤销等。
     </p>
     <p>
-        Core Data很好地支持了Cocoa Bindings，意味着整合你的模型编辑UI和Core Data后端真的容易，这使得build你的app相当得快。
+        Core Data很好地支持了Cocoa Bindings，意味着整合你的模型编辑UI和Core Data后端真的容易，这使得build你大部分的app相当得快。
     </p>
     <h2>
         其它有用的Cocoa功能

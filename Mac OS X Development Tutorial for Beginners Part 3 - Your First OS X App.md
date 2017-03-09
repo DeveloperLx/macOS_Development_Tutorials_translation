@@ -179,49 +179,45 @@
             <em>
                 View Controller
             </em>
-            负责window中的一个区域来展示和处理用户交互。
+            负责window中的一个区域，来展示和处理用户的交互。
         </li>
     </ul>
     <p>
         在这个引导性的教程中，你将集中你的努力到view controller上。
     </p>
     <h3>
-        Adding a Label
+        添加一个Label
     </h3>
     <p>
-        First up, you need to add a label to the view controller to display your
-        welcome text. A label is actually a special type of
+        首先，你需要添加一个label到view controller上来展示你的欢迎文本。label事实上特定的类型是
         <code>
             NSTextField
         </code>
-        that’s designed for displaying a single line of non-editable text–perfect
-        for “Hello World”.
+        ，它被设计来展示一个单行的不可编辑的文本 - 对“Hello World”来说完美。
     </p>
     <p>
-        To add your first label:
+        为了添加你的第一个label：
     </p>
     <ol start="1">
         <li>
-            Click the icon in the toolbar to show the utilities panel on the right-hand
-            side.
+            点击在工具栏中的图标来展示右手边的工具面板（utilities panel）。
         </li>
         <li>
-            Use the icon towards the bottom of the panel to open the
+            使用靠近面板底部的图标来打开
             <em>
                 Object Library
             </em>
-            . This, as the name suggests, is a catalog of things you can drag onto
-            the storyboard canvas to construct your layout.
+            。这个，就如同它名称所表达的一样，是一个你可以拖拽到storyboard画布上的物品的目录，用来构建你的布局。
         </li>
         <li>
-            Use the search box at the bottom to search for
+            使用底部的搜索框搜索
             <em>
                 label
             </em>
-            .
+            。
         </li>
         <li>
-            You’ll see the label object highlighted in the library.
+            你会发现label对象在library中被高亮了起来。
         </li>
     </ol>
     <p>
@@ -230,7 +226,7 @@
         sizes="(max-width: 332px) 100vw, 332px">
     </p>
     <p>
-        Drag the label from the object library onto the view controller:
+        将label从object library拖拽到view controller上：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121081" src="https://koenig-media.raywenderlich.com/uploads/2015/11/07_label_vc-480x137.png"
@@ -238,19 +234,19 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        To change the text content of the label, select the
+        为了label的文本内容，在Utilities panel中选择
         <em>
             Attributes Inspector
         </em>
-        tab of the Utilities panel, locate the
+        这个tab，找到
         <em>
             Title
         </em>
-        field and enter
+        域，并输入
         <em>
             Hello World!
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121082 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/08_hello_world-e1448325932458-480x168.png"
@@ -258,28 +254,27 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        You use the attributes inspector to control the appearance and behavior
-        of the different controls that OS X offers. Find the
+        你可以使用attributes inspector来控制OS X提供的不同的组件的外观和行为。找到
         <em>
             Font
         </em>
-        entry, and click the
+        入口，点击右边的
         <em>
             T
         </em>
-        icon to the right to open the font panel. Change the style to
+        图标来打开字体面板。改变Style为
         <em>
             Thin
         </em>
-        and the size to
+        ，Size为
         <em>
             40
         </em>
-        . Click
+        。点击
         <em>
             Done
         </em>
-        to save the changes:
+        来保存你的修改：
     </p>
     <p>
         <img class="aligncenter wp-image-121083 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/09_font-473x320.png"
@@ -287,8 +282,7 @@
         sizes="(max-width: 473px) 100vw, 473px">
     </p>
     <p>
-        Cast your eyes back over to the view controller canvas and you’ll see
-        something strange:
+        将你的眼睛投回到view controller的画布上，你会看到一些奇怪的事：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121084" src="https://koenig-media.raywenderlich.com/uploads/2015/11/10_wrong_size-480x139.png"
@@ -296,8 +290,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Although you’ve adjusted the text and size of the label, it has remained
-        the same size, causing nearly all of the text to disappear. Why is this?
+        尽管你已经调整了label的文本和大小，但它仍然是那个尺寸，造成几乎全部的文本消失了。为什么会这样？
     </p>
     <h3>
         Basic Auto Layout
