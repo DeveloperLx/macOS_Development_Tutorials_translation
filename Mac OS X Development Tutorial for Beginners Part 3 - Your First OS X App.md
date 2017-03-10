@@ -294,27 +294,21 @@
     </p>
     <h3>
         Basic Auto Layout
+        基本的自动布局
     </h3>
     <p>
-        You placed the label on the view controller’s canvas, but you haven’t
-        actually told OS X
-        <i>
-            how
+    	你把label放在了view controller的画布上，但你并没有实际地告诉OS X
+    	<i>
+            怎么
         </i>
-        it should position it. The view controller appears at one size in the
-        storyboard, but once it’s running in the app, the user can change the window
-        size–so you need to specify how the label should be positioned for
+    	来定位它。view controller在storyboard中以一种尺寸出现，但一旦运行在app中，用户是可以改变window的尺寸的 - 因此你需要指定对于
         <i>
-            any
+            任意
         </i>
-        window size.
+        的window的尺寸，这个label该怎么定位。
     </p>
     <p>
-        This sounds like it might be a really difficult task, but luckily Apple
-        has your back. OS X uses a powerful layout engine called Auto Layout, in
-        which the relationships between different components of the view are expressed
-        as constraints. These constraints&nbsp;are then interpreted at runtime
-        to calculate the size and position of each element within the view.
+    	这听起来是一件非常困难的任务，但幸运的是苹果会帮你（has your back）。OS X使用了一个叫做Auto Layout的强有力的布局引擎，不同view的组件之间的关系被表达为约束（constraints）。这些约束在运行时会计算view中的每个原件的尺寸和位置。
     </p>
     <div class="note">
         <em>
