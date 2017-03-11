@@ -1129,27 +1129,25 @@
     	现在你可以将你的注意力转回手上的任务了 - build magic 8-ball的“magic”。好的，接近了 - 首先这里有一些布局要做。
     </p>
     <h2>
-        Handling clicks
+    	处理点击
     </h2>
     <p>
-        When the user clicks on the 8-ball you will switch the image to the other
-        side and display a piece of advice. You need a new label to display this
-        advice.
+    	当用户点击8-ball时，你将改变图片到另一面，并展示一条建议。你需要一个新的label来展示这条建议。
     </p>
     <p>
-        Open
+    	打开
         <em>
             Main.storyboard
         </em>
-        and find the view controller scene. Use the
+        ，并找到view controller场景。使用
         <em>
             Object Library
         </em>
-        to locate a
+        去找到一个
         <em>
             wrapping label
         </em>
-        and drag it from the library beneath the stack view:
+        ，并将它从library拖拽到stack view的下方：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121127" src="https://koenig-media.raywenderlich.com/uploads/2015/11/53_wrapping_label-700x388.png"
@@ -1157,26 +1155,29 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You want this label to be positioned at the center of the magic-8 image,
-        so you need to add some auto layout constraints.
+    	你想要将这个label放置在magic-8图片的中央，因此你需要添加一些自动布局的约束。
     </p>
-    <p>
-        <em>
-            Control-drag
+    <p>    
+    	在
+    	<em>
+            Document Outline
         </em>
-        from the
+    	中，
+        <em>
+        	按住control拖拽
+        </em>
         <em>
             Multiline Label
         </em>
-        to the
+        到
         <em>
             Image View
         </em>
-        in the
+        上
         <em>
             Document Outline
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-121128" src="https://koenig-media.raywenderlich.com/uploads/2015/11/54_adding_constraints.png"
@@ -1184,23 +1185,23 @@
         sizes="(max-width: 486px) 100vw, 486px">
     </p>
     <p>
-        Hold
+    	在点击
+  	    <em>
+            Add Constraints
+        </em>
+    	前，按住
         <i>
             shift
         </i>
-        and select
+        并选择
         <em>
             Center Vertically
         </em>
-        and
+        和
         <em>
             Center Horizontally
         </em>
-        before clicking
-        <em>
-            Add Constraints
-        </em>
-        :
+		：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121129" src="https://koenig-media.raywenderlich.com/uploads/2015/11/55_center_constraints-215x320.png"
@@ -1208,12 +1209,11 @@
         sizes="(max-width: 215px) 100vw, 215px">
     </p>
     <p>
-        The label doesn’t automatically reposition—but you’ve handled this before.
-        Use the
+    	这个label不能自动地重新调整位置 - 但你之前已经处理了。使用底部自动布局工具栏中的
         <em>
             Resolve Auto Layout Issues
         </em>
-        menu on the bottom auto layout toolbar to select
+        菜单，选择
         <em>
             All View in View Controller
         </em>
@@ -1223,7 +1223,7 @@
         <em>
             Update Frames
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121130" src="https://koenig-media.raywenderlich.com/uploads/2015/11/56_fix_al-374x320.png"
@@ -1231,22 +1231,21 @@
         sizes="(max-width: 374px) 100vw, 374px">
     </p>
     <p>
-        This repositions the label, and it becomes&nbsp;immediately obvious that
-        you need to do some work on the appearance.
+    	这样就重新调整了label的位置，立即变得明显了，你需要在外表上做一些工作。
     </p>
     <p>
-        Select the multiline label, and use the
+    	选择multiline label，使用
         <em>
             Attributes Inspector
         </em>
-        to set the following:
+        来进行如下的设置：
     </p>
     <ul>
         <li>
             <em>
                 Title
             </em>
-            :
+            ：
             <em>
                 Piece of Advice
             </em>
@@ -1255,7 +1254,7 @@
             <em>
                 Alignment
             </em>
-            :
+            ：
             <em>
                 Center
             </em>
@@ -1264,7 +1263,7 @@
             <em>
                 Text Color
             </em>
-            :
+            ：
             <em>
                 Keyboard Focus Indicator
             </em>
@@ -1273,7 +1272,7 @@
             <em>
                 Font
             </em>
-            :
+            ：
             <em>
                 System 20
             </em>
@@ -1285,19 +1284,19 @@
         sizes="(max-width: 356px) 100vw, 356px">
     </p>
     <p>
-        Head over to the
+    	前往
         <em>
             Size Inspector
         </em>
-        and set the Preferred Width to
+        ，设置Preferred Width为
         <em>
             Explicit
         </em>
-        with a value of
+        ，值为
         <em>
             75
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121132 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/58_label_size-e1448290564918-480x184.png"
@@ -1305,16 +1304,15 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        To get an idea of what the end product might look like, select the image
-        view, and use the
+    	为了了解产品最后可能的样子，选择image view，并使用
         <em>
             Attributes Inspector
         </em>
-        to set the Image to
+        来设置Image为
         <em>
             magic8ball
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121133 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/59_change_image-e1448290610187-480x147.png"
@@ -1322,11 +1320,11 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Once again, click the main view and use the
+    	再一次的，点击主view，并使用
         <em>
             Resolve Auto Layout Issues\All Views in View Controller\Update Frames
         </em>
-        to update the layout:
+        去更新布局：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121134" src="https://koenig-media.raywenderlich.com/uploads/2015/11/60_magic8_layout-337x320.png"
@@ -1334,8 +1332,7 @@
         sizes="(max-width: 337px) 100vw, 337px">
     </p>
     <p>
-        This is looking pretty good. You need to respond each time the user clicks
-        on the 8-ball—time to discover gesture recognizers.
+    	这看起来相当好。当每次用户点击8-ball时，你需要响应去发现手势。
     </p>
     <h3>
         Gesture Recognizers
