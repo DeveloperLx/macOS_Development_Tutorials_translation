@@ -928,25 +928,25 @@
     </p>
     <h3>
         Displaying Images
+        展示图像
     </h3>
     <p>
-        You’ve already seen how to display text, buttons and text input fields
-        in your app, but how about images? Enter
+    	你已经看过怎么在你的app中展示文本，按钮和文本输入框了，但对于图像呢？进入
         <code>
             ImageView
         </code>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and use the object library to search for
+        ，并使用object library来搜索
         <em>
             image view
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121115" src="https://koenig-media.raywenderlich.com/uploads/2015/11/41_image_view-340x320.png"
@@ -954,9 +954,7 @@
         sizes="(max-width: 340px) 100vw, 340px">
     </p>
     <p>
-        Drag an image view onto the view controller canvas, at the bottom of the
-        stack view. Notice how a horizontal blue line will appear denoting where
-        in the stack view that the new image view will appear:
+    	将一个image view拖拽到view controller的画布上，放在stack view的底部。注意一条水平的蓝色的线是怎么出现的，它会指示新的image view会出现在stack view的哪里：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121116" src="https://koenig-media.raywenderlich.com/uploads/2015/11/42_add_to_stack-480x299.png"
@@ -964,15 +962,15 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Open the
+        打开
         <em>
             Attributes Inspector
         </em>
-        and set the Image property to
+        ，并设置Image属性为
         <em>
             8ball
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121117 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/43_set_8ball-e1448290344741-480x160.png"
@@ -980,7 +978,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This will update the canvas with the image, read from the asset catalog:
+    	这将使用来自asset目录的图像来更新画布：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121118" src="https://koenig-media.raywenderlich.com/uploads/2015/11/44_vc_with_image-480x310.png"
@@ -988,7 +986,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Build and run the app to see how the image appears:
+    	build并运行app来查看这个图怎么出现：
     </p>
     <p>
         <img class="aligncenter wp-image-121119 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/11/45_bar_03-e1448290439265-700x430.png"
@@ -996,10 +994,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Well, the image has appeared, but is clipped by the window. You can drag
-        to resize the window in the usual way, but it would be much better if the
-        window was correctly sized when the app starts, and then keeps a fixed
-        size.
+    	好的，这个图出现了，但却被window裁剪掉了一部分。你可以以通常的方式拖拽来改变window的大小，但显然如果当app启动时，window的尺寸就是正确的就更好了，并且要保持一个固定的尺寸。
     </p>
     <h2>
         Window Size
