@@ -1509,51 +1509,46 @@
         </li>
     </ol>
     <p>
-    	build并执行，点击那个球来查看它的“8”和一条建议之间的切换。相当好对么？注意怎么当你第一次启动app时，建议已经显示了？这确实不是你想要的，但是要修复很简单。
+    	build并执行，点击那个球来查看它的“8”和一条建议之间的切换。相当好对么？注意怎么当你第一次启动app时，建议已经显示了？这确实不是你想要的，但要修复它很简单。
     </p>
     <h2>
-        Initial Setup
+    	初始设置
     </h2>
     <p>
-        When the app first starts you want to ensure that the advice label is
-        hidden, and the 8-ball image is showing. View controllers have a perfect
-        way of configuring this initial setup—in the form of
+    	当app第一次启动时，你想确保那个建议label是隐藏的，8-ball则是显示的。View controller有一个完美的方法来配置这个初始化的设置 - 以
         <code>
             viewDidLoad()
         </code>
-        .
+        的形式。
     </p>
     <p>
-        Once the view controller has finished loading all the view components
-        from the storyboard, it calls&nbsp;
+    	一旦view controller完成了从storyboard中加载所有的view组件，它就会调用
         <code>
             viewDidLoad()
         </code>
-        &nbsp;to give you a chance to perform&nbsp;some final configuration.
+        ；来给你一个机会执行最终的配置。
     </p>
     <p>
-        In
+        在
         <em>
             ViewController.swift
         </em>
-        , find the
+        中，找到
         <code>
             viewDidLoad()
         </code>
-        method and add the following body:
+        方法并添加下列的内容：
     </p>
-    <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span></pre>
+    <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span></pre>
     <p>
-        You’ll recognize this code from the click handler action—it just hides
-        the advice label and sets the image to
+    	你将从点击事件的处理动作中区别出这个代码 - 它仅是隐藏了建议label，并设置image为
         <em>
             8ball
         </em>
-        .
+        。
     </p>
     <p>
-        Build and run to check that you can’t see the advice from the outset.
+    	build并运行，来检查你在开始时不会看到建议。
     </p>
     <h2>
         Advice Generator
