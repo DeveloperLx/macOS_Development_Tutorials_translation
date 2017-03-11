@@ -587,18 +587,18 @@
     	现在你可以将你的注意力转到那些你新添加的控件上了。
     </p>
     <h3>
-        Outlets and Actions
+        Outlets 和 Actions
     </h3>
     <p>
-        Select the text field and open the
+    	选择text field并打开
         <em>
             Attributes Inspector
         </em>
-        . In the Placeholder field type
+        。在In the Placeholder这里输入
         <em>
             Name
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121099 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/25_name-e1448290291815-480x249.png"
@@ -606,19 +606,18 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This grayed out text will instruct the user what the field is for, and
-        disappears as soon as they start typing.
+    	这个灰色的文本将指示用户这个text field是用来干什么的，当用户开始输入时会立即消失掉。
     </p>
     <p>
-        Select the button, and again open the
+    	选择按钮，再次打开
         <em>
             Attributes Inspector
         </em>
-        . Set the Title to
+        。设置Title为
         <em>
             Welcome
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121100" src="https://koenig-media.raywenderlich.com/uploads/2015/11/26_welcome-362x320.png"
@@ -626,12 +625,10 @@
         sizes="(max-width: 362px) 100vw, 362px">
     </p>
     <p>
-        That’s the cosmetic aspect done. Time to wire these two controls into
-        code.
+    	外观的美化就到这里了。现在是时候将这两个的控制写到代码里了。
     </p>
     <p>
-        OS X provides a way to interact with the storyboard UI from code using
-        outlets and actions:
+    	OS X使用outlets和actions，提供了从代码和storyboard的UI交互的方法：
     </p>
     <ul>
         <li>
