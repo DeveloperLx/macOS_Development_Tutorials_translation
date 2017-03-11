@@ -1000,24 +1000,23 @@
         Window Size
     </h2>
     <p>
-        The initial size of MagicEight’s window is determined by the size of the
-        view controller in the storyboard. Select the view controller’s view in
+    	MagicEight的window的初始尺寸是由storyboard中的view controller的尺寸决定的。在
         <em>
             Main.storyboard
         </em>
-        and open the
+        中选择view controller的view，并打开
         <em>
             Size Inspector
         </em>
-        . Set the Width to
+        。设置Width为
         <em>
             350
         </em>
-        and the height to
+        ，height为
         <em>
             480
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121120 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/46_vc_size-e1448290482977-421x320.png"
@@ -1025,7 +1024,7 @@
         sizes="(max-width: 421px) 100vw, 421px">
     </p>
     <p>
-        Notice that the storyboard canvas now looks strange:
+    	注意storyboard的画布现在看起来很奇怪：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121121" src="https://koenig-media.raywenderlich.com/uploads/2015/11/47_stange_vc-220x320.png"
@@ -1033,14 +1032,14 @@
         sizes="(max-width: 220px) 100vw, 220px">
     </p>
     <p>
-        This is because the layout constraints need to be re-evaluated.
+    	这是因为布局的约束需要重新被计算。
     </p>
     <p>
-        Use the
+        使用在底部的自动布局菜单栏中的
         <em>
             Resolve Auto Layout Issues
         </em>
-        menu on the bottom auto layout menu bar and select
+        菜单，并选择
         <em>
             All View in View Controller
         </em>
@@ -1050,7 +1049,7 @@
         <em>
             Update Frames
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121122" src="https://koenig-media.raywenderlich.com/uploads/2015/11/48_fix_al-374x320.png"
@@ -1058,8 +1057,7 @@
         sizes="(max-width: 374px) 100vw, 374px">
     </p>
     <p>
-        This will re-run the layout engine over the storyboard, and update the
-        preview:
+    	这会在storyboard中重新运行布局引擎，并更新预览图：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121123" src="https://koenig-media.raywenderlich.com/uploads/2015/11/49_fixed_vc-537x500.png"
@@ -1067,7 +1065,7 @@
         sizes="(max-width: 537px) 100vw, 537px">
     </p>
     <p>
-        Build and run to see how the app looks now:
+    	build并执行来查看app的样子：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121124" src="https://koenig-media.raywenderlich.com/uploads/2015/11/50_bar_04-348x500.png"
@@ -1075,14 +1073,10 @@
         sizes="(max-width: 348px) 100vw, 348px">
     </p>
     <p>
-        That looks much better. Try resizing the window—you’ll see that you can
-        still manually drag it to sizes that don’t work for MagicEight’s layout.
+    	看起来好了很多。尝试调整window的大小 - 你会看到你仍然可以手动拖动它到对MagicEight的布局无效的尺寸。
     </p>
     <p>
-        You have a couple of options here—you can either update the layout so
-        that it adapts nicely as the window changes size (e.g. to resize the image
-        for small windows), or you can fix the window size. You’re going to take
-        the second, easier approach.
+    	在这儿你有几个选项 - 你可以更新布局，让它在window的尺寸改变时也适应得不错（例如对于小的window调整image的尺寸），或者你可以固定window的尺寸。你将使用第二种较容易的方法。
     </p>
     <h3>
         Window Sizing
