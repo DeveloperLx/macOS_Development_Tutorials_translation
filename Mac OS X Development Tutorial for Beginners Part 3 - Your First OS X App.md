@@ -632,19 +632,17 @@
     </p>
     <ul>
         <li>
+        	在代码中，
             <em>
-                An outlet
+                outlet
             </em>
-            is a property in code that is connected to a component in the storyboard.
-            This allows you to access the properties of controls within a storyboard
-            from your code.
+            是一个属性，它被连接到了一个storyboard中的组件。这就让你可以从你的代码中访问在storyboard中的属性。
         </li>
         <li>
             <em>
                 An action
             </em>
-            is a method on a class&nbsp;in code that is invoked when the user interacts
-            with the components in the UI – e.g. by clicking on a button.
+            是一个代码中的类中的方法；当用户和UI中的组件交互时，就会调用它 - 例如，点击一个button。
         </li>
     </ul>
     <p>
