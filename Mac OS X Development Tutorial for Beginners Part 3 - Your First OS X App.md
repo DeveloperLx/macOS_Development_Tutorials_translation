@@ -1407,15 +1407,15 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Change the Connection to
+    	改变Connection为
         <em>
             Action
         </em>
-        and name it
+        ，并命名为
         <em>
             handleBallClick
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121137" src="https://koenig-media.raywenderlich.com/uploads/2015/11/63_action_config-480x220.png"
@@ -1423,25 +1423,25 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Click
+    	点击
         <em>
             Connect
         </em>
-        and Xcode will add the following function definition to the
+        ，Xcode将添加下列的函数定义到
         <code>
             ViewController
         </code>
-        class:
+        类中：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleBallClick<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #002200;">}</span></pre>
+
+<span style="color: #002200;">}</span></pre>
     <p>
-        You’ve now finished all the work in Interface Builder, so you can switch
-        back to the standard editor, and open
+    	现在你完成了所有在Interface Builder中的工作，你可以切回到标注编辑器中了，打开
         <em>
             ViewController.swift
         </em>
-        .
+        。
     </p>
     <h2>
         Manipulating UI from code
