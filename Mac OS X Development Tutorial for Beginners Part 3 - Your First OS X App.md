@@ -1460,7 +1460,7 @@
         中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1:</span>
-<span style="color: #a61390;">if</span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+<span style="color: #a61390;">if </span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   <span style="color: #11740a; font-style: italic;">// 2:</span>
   adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
   ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
@@ -1469,53 +1469,47 @@
   adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
   ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
 <span style="color: #002200;">}</span></pre>
-    <span style="color: #002200;">}</span></pre>
     <ol start="1">
         <li>
-            Check whether the
+        	检查当前
             <code>
                 adviceLabel
             </code>
-            is currently visible.
+            是否可见。
             <code>
                 hidden
             </code>
-            is a boolean property on
+            是一个在
             <code>
                 NSView
             </code>
-            (and hence
+            上的布尔类型的属性（因此
             <code>
                 NSTextField
             </code>
-            ) that allows you to specify whether the view should be visible or not.
+            也就有了），允许你指定是否要让view隐藏。
         </li>
         <li>
-            If the advice label is currently hidden then show it, and change the image
-            to the magic-side.
+        	如果建议label当前被隐藏了，显示它，并改变图片为magic这边。
             <code>
                 NSImage(named:)
             </code>
-            loads the image from the asset catalog, and the
-            <code>
-                image
-            </code>
-            property on
+            会从asset目录中加载图片，而
             <code>
                 NSImageView
             </code>
-            specifies the image to display.
+            的
+            <code>
+                image
+            </code>
+            属性指定了要展示的图片。
         </li>
         <li>
-            Conversely, if the advice label is currently visible then hide it and
-            switch the ball back to the “8” side.
+        	反过来，如果当前建议label是可见的，隐藏它，并将其切换到“8”这边。
         </li>
     </ol>
     <p>
-        Build and run and click the ball to see it switching between showing the
-        “8” and the piece of advice. Pretty neat right? Notice how when you first
-        start the app the advice is already showing? That’s not really what you
-        want, but it’s a simple fix.
+    	build并执行，点击那个球来查看它的“8”和一条建议之间的切换。相当好对么？注意怎么当你第一次启动app时，建议已经显示了？这确实不是你想要的，但是要修复很简单。
     </p>
     <h2>
         Initial Setup
