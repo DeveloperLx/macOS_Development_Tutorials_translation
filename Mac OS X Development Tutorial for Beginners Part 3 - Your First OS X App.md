@@ -312,37 +312,34 @@
     </p>
     <div class="note">
         <em>
+        	注意：
             Note:
         </em>
-        Auto Layout is a complex topic, and this introductory tutorial won’t cover
-        it in any great depth. If you’d like to read more on the topic then there
-        are some excellent
+        Auto Layout是一个复杂的话题，在这个引导性的教程中不会覆盖任何的深度。如果你想要阅读更多关于这个话题的内容，这里有一些很棒的
         <a href="http://www.raywenderlich.com/115440/auto-layout-tutorial-in-ios-9-part-1-getting-started-2"
         sl-processed="1">
-            tutorials
+            教程
         </a>
-        on the site targeted to Auto Layout on iOS—luckily the engine is almost
-        identical on the two platforms.
+        ，在这个地址上是面向iOS的 - 幸运的是这个引擎在这两个平台上几乎是完全相同的。
     </div>
     <p>
-        Ensure that the label is selected in the view controller, and then click
-        the
+    	确保这个label已在view controller中被选中，单后在下面的工具栏中点击
         <em>
             Align
         </em>
-        button in the lower toolbar. Select
+        按钮。选择
         <em>
             Horizontally in Container
         </em>
-        , ensuring the value is set to
-        <em>
-            0
-        </em>
-        before clicking
+        ，确定在点击
         <em>
             Add 1 Constraint
         </em>
-        to add the constraint:
+        去添加约束前，它的值被设置为
+        <em>
+            0
+        </em>
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121085" src="https://koenig-media.raywenderlich.com/uploads/2015/11/11_align-300x320.png"
@@ -350,9 +347,7 @@
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <p>
-        This will ensure that the label will always appear in the center of the
-        window, irrespective of its width. You’ll notice that some angry red lines
-        have appeared in the storyboard:
+    	这会确保这个label总是出现在window的中央，无论window有多宽。你会注意到在storyboard上出现了一些“生气的”红色的线（some angry red lines）：
     </p>
     <p>
         <img class="aligncenter size-thumbnail wp-image-121086" src="https://koenig-media.raywenderlich.com/uploads/2015/11/12_angry_red-250x250.png"
@@ -360,30 +355,22 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        This is because you’ve provided a constraint that&nbsp;specifies the location
-        of the label in the horizontal direction, but you’ve not provided any information
-        about the vertical axis yet.
+    	这是因为你在水平方向上提供了一个约束来确定label的位置，但你没有提供关于数轴的任何信息。
     </p>
     <p>
-        Once again, ensure that the label is selected in the view controller,
-        and this time click the
+    	再一次地，确定这个label在view controller中已被选中，这次点击底部Auto Layout工具栏中的
         <em>
             Pin
         </em>
-        menu on the Auto Layout toolbar at the bottom. Enter
-        <em>
-            30
-        </em>
-        in the top constraint box and ensure that the I-bar beneath it is solid
-        red. Set the value of Update Frames to
-        <em>
-            Items of New Constraints
-        </em>
-        before clicking
+        菜单。在点击
         <em>
             Add 1 Constraint
         </em>
-        :
+        前，输入
+        <em>
+            30
+        </em>
+        在顶部的约束框中，确保下方的“I”型条是实心红色的：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121087" src="https://koenig-media.raywenderlich.com/uploads/2015/11/13_pin-227x320.png"
@@ -391,8 +378,7 @@
         sizes="(max-width: 227px) 100vw, 227px">
     </p>
     <p>
-        Immediately you’ll notice the view controller update—you can now see the
-        entire label, and the angry red lines have changed to calming blue:
+    	你会立即看到这个view controller更新了 - 你现在可以看到完全的label了，那个生气的红色的线变成了平静的蓝色：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121088" src="https://koenig-media.raywenderlich.com/uploads/2015/11/14_happy_storyboard-480x138.png"
@@ -400,8 +386,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        And that’s your “Hello World” app done (for now). Use the “play” button
-        to build and run, and inspect your handiwork:
+    	这就是的你的“Hello World”app完成了（对于现在）。使用“play”按钮来build和运行，检查你的作品（handiwork）：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121089" src="https://koenig-media.raywenderlich.com/uploads/2015/11/15_bar_02-480x293.png"
@@ -409,8 +394,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Congratulations! Not very personal though is it? In the next section you’ll
-        discover how to make the traditional greeting a little more friendly.
+    	祝贺！尽管它还不是非常个性化？在下一部分，你将发现怎么让传统的问候更友好一点。
     </p>
     <h2>
         Handling User Input
