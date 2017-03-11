@@ -1080,14 +1080,14 @@
     </p>
     <h3>
         Window Sizing
+       	调整Window的尺寸
     </h3>
     <p>
-        The window controller is responsible for managing the size of the window.
-        Open
+    	window controller是用来负责管理window的尺寸的。打开
         <em>
             Main.storyboard
         </em>
-        and select the window inside the window controller:
+        ，并选择window controller中的window：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121125" src="https://koenig-media.raywenderlich.com/uploads/2015/11/51_select_window-700x295.png"
@@ -1095,27 +1095,27 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Open the
+    	打开
         <em>
             Size Inspector
         </em>
-        and set the Content Size to a Width of
+        ，并设定Content Size的Width为
         <em>
             350
         </em>
-        and a height of
+        ，height为
         <em>
             480
         </em>
-        . Then check
+        。然后点击
         <em>
             Minimum Content Size
         </em>
-        and
+        和
         <em>
             Maximum Content Size
         </em>
-        ensuring that the the sizes are the same as the content size you entered:
+        ，确认它们和你刚输入的content size相同：
     </p>
     <p>
         <img class="aligncenter wp-image-121126 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/52_content_size-e1448290524705-410x320.png"
@@ -1123,14 +1123,10 @@
         sizes="(max-width: 410px) 100vw, 410px">
     </p>
     <p>
-        Build and run MagicEight again, and attempt to resize the window. You
-        no longer have control over the window size—it’s now fixed. Mega—just what
-        you wanted.
+    	再次build和运行MagicEight，并尝试改变window的大小。你已不再能控制window的大小 - 现在它是固定的。的确，这就是你想要的。
     </p>
     <p>
-        You can now turn your attention back to the task in-hand—building the
-        “magic” of the magic 8-ball. Well, nearly—there’s a bit more layout to
-        do first.
+    	现在你可以将你的注意力转回手上的任务了 - build magic 8-ball的“magic”。好的，接近了 - 首先这里有一些布局要做。
     </p>
     <h2>
         Handling clicks
