@@ -1332,44 +1332,38 @@
         sizes="(max-width: 337px) 100vw, 337px">
     </p>
     <p>
-    	这看起来相当好。当每次用户点击8-ball时，你需要响应去发现手势。
+    	这看起来相当好。当每次用户点击8-ball时，你需要响应去发现手势识别。
     </p>
     <h3>
-        Gesture Recognizers
+        Gesture Recognizer
     </h3>
     <p>
-        You were able to create an action in code that would run every time the
-        user clicks the button. That was possible because buttons are designed
-        to handle clicks—but the same is not true of image views.
+    	你可以在代码中创造一个动作，在每次用户点击button时执行。这是可以的，因为button被设计来处理点击 - 但是相同的事对于image view来说却是不成立的。
     </p>
     <p>
-        Apple has provided a set of gesture recognizers that can be added to any
-        view. These recognizers convert low-level mouse and trackpad input into
-        semantic events—such as click, zoom and rotate.
+    	苹果提供了一组gesture recognizer，可以被添加到任何view上。这些recognizer将低级的鼠标和触控板的输入转化成语义化的事件 - 例如点击，缩放和旋转。
     </p>
     <p>
-        You will add a click gesture recognizer to the image view, and then create
-        a corresponding action in the view controller’s code.
+    	你将添加一个gesture recognizer到image view上，然后在view controller的代码中创建相应的动作。
     </p>
     <p>
-        In
+    	在
         <em>
             Main.storyboard
         </em>
-        , head over to the
+        中，前往
         <em>
             Object Library
         </em>
-        and search for
+        并搜索
         <em>
             click gesture
         </em>
-        . Drag the
+        。将
         <em>
             Click Gesture Recognizer
         </em>
-        out of the library and onto the image view. It will appear like this in
-        the document outline:
+        从library拖拽到image view上。它将像这样的出现在document outline中：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121135" src="https://koenig-media.raywenderlich.com/uploads/2015/11/61_gesture_recogniser-480x119.png"
@@ -1377,9 +1371,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This gesture recognizer will be activated whenever the user clicks on
-        the image—exactly what you want. You now need to create some new connections,
-        and then you’ll be ready to switch over to code for the final sprint.
+    	无论何时用户点击图片，这个gesture recognizer都会被激活 - 恰好是你想要的。现在你需要添加一些新的连接，然后你将为最后的冲刺，准备好切换到代码。
     </p>
     <h3>
         IB Connections
