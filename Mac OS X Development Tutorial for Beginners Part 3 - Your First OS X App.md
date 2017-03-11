@@ -1434,7 +1434,6 @@
         类中：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleBallClick<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-
 <span style="color: #002200;">}</span></pre>
     <p>
     	现在你完成了所有在Interface Builder中的工作，你可以切回到标注编辑器中了，打开
@@ -1444,32 +1443,32 @@
         。
     </p>
     <h2>
-        Manipulating UI from code
+        在代码中操作UI
     </h2>
     <p>
-        When the user clicks on the 8-ball you want to switch between showing
-        some advice, or showing the “8”. This means that the
+    	当用户点击8-ball时，你想在展示建议或展示“8”。这意味着
         <code>
             handleBallClick(_:)
         </code>
-        will manipulate both the image view and the advice label.
+        会同时操作image view和建议label。
     </p>
     <p>
-        Add the following code to
+    	添加下列的代码到
         <code>
             handleBallClick(_:)
         </code>
-        :
+        中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1:</span>
-    <span style="color: #a61390;">if</span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #11740a; font-style: italic;">// 2:</span>
-    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span> <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
-    <span style="color: #11740a; font-style: italic;">// 3:</span>
-    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
+<span style="color: #a61390;">if</span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">// 2:</span>
+  adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+  ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span> <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">// 3:</span>
+  adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+  ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <span style="color: #002200;">}</span></pre>
     <ol start="1">
         <li>
