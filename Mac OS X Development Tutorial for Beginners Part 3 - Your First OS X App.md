@@ -308,7 +308,7 @@
         的window的尺寸，这个label该怎么定位。
     </p>
     <p>
-    	这听起来是一件非常困难的任务，但幸运的是苹果会帮你（has your back）。OS X使用了一个叫做Auto Layout的强有力的布局引擎，不同view的组件之间的关系被表达为约束（constraints）。这些约束在运行时会计算view中的每个原件的尺寸和位置。
+    	这听起来是一件相当困难的任务，但幸运的是苹果会帮你（has your back）。OS X使用了一个叫做Auto Layout的强有力的布局引擎，不同view的组件之间的关系被表达为约束（constraints）。这些约束在运行时会计算view中的每个原件的尺寸和位置。
     </p>
     <div class="note">
         <em>
