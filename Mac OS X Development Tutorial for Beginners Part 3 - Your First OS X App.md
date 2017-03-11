@@ -640,37 +640,34 @@
         </li>
         <li>
             <em>
-                An action
+                action
             </em>
             是一个代码中的类中的方法；当用户和UI中的组件交互时，就会调用它 - 例如，点击一个button。
         </li>
     </ul>
     <p>
-        You are going to add outlets for the text field and the label, and an
-        action that will be called when the user clicks the welcome button.
+    	你将为text field和label添加outlet，当用户点击欢迎按钮的时候，一个动作就会被调用。
     </p>
     <p>
-        The view controller you’ve been working on already has a skeleton class
-        associated with it in code—in
+    	你一直工作在的这个view controller早已有了一个骨架类关联到了代码中 - 就在
         <em>
             ViewController.swift
         </em>
-        . This is where you’ll add the outlets and action.
+        。这是你将要添加outlets和action的地方。
     </p>
     <p>
-        Open the assistant editor using the button in the toolbar:
+    	使用工具栏中的按钮打开assistant editor。
     </p>
     <p>
         <img class="aligncenter size-full wp-image-121101" src="https://koenig-media.raywenderlich.com/uploads/2015/11/27_assistant_editor.png"
         alt="27_assistant_editor" width="210" height="64">
     </p>
     <p>
-        This will split the screen and show a code file alongside the storyboard.
-        It should be displaying
+    	这会拆分屏幕，并展示出一个代码文件在storyboard旁边。它本应该展示
         <em>
             ViewController.swift
         </em>
-        , but if it isn’t use the jump bar to select
+        ，但如果不是的话，就使用跳转栏（jump bar）来选择
         <em>
             Automatic
         </em>
@@ -680,7 +677,7 @@
         <em>
             ViewController.swift
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121102 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/28_jump_bar-480x52.png"
@@ -688,22 +685,23 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
+    	从storyboard中
         <em>
-            Right-click-drag
+	        右击拖拽
         </em>
-        (or
+        （或
         <em>
-            control-drag
+        	按住control拖拽
         </em>
-        ) from the text field in the storyboard over to the line above
-        <code>
-            override func viewDidLoad()
-        </code>
-        in
+        ）text field直到那条线到了
         <em>
             ViewController.swift
         </em>
-        :
+        中的  
+        <code>
+            override func viewDidLoad()
+        </code>
+        的上边：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121103" src="https://koenig-media.raywenderlich.com/uploads/2015/11/29_textfield_outlet-700x289.png"
@@ -711,15 +709,15 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Ensure that
+    	确保
         <em>
             Outlet
         </em>
-        is selected and call the new outlet
+        已选中，并叫做
         <em>
             nameTextField
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121104" src="https://koenig-media.raywenderlich.com/uploads/2015/11/30_name_textfield-480x276.png"
@@ -727,46 +725,20 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This will add the following property to&nbsp;
+    	这将添加下列的属性到
         <code>
             ViewController
         </code>
-        &nbsp;and updates the storyboard to automatically connect the text field
-        when loading the view controller:
+        中，并在加载view controller时，更新storyboard来自动地连接text field：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102691">
-                    <td class="code" id="p110269code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            nameTextField
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+	<pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> nameTextField<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
+	</pre>
     <p>
-        Repeat exactly the same process for the “Hello World!” label, this time
-        specifying that the outlet should be called
+    	对“Hello World!”label正确地重复相同的过程，这次指定这个outlet应当被叫做
         <em>
             welcomeLabel
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121105" src="https://koenig-media.raywenderlich.com/uploads/2015/11/31_welcome_label-480x282.png"
@@ -774,15 +746,17 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
+    	现在是时间把你的注意力转到button上了。再一次从storyboard中
         Now time to turn your attention to the button. Once again
         <em>
+        	按住Control拖拽
             Control-drag
         </em>
-        from the button in the storyboard over to the
+        button到你的
         <code>
             ViewController
         </code>
-        class:
+        类上：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121106" src="https://koenig-media.raywenderlich.com/uploads/2015/11/32_button_action-700x177.png"
@@ -790,15 +764,15 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This time, change the Connection to
+    	这次，改变这个连接到
         <em>
             Action
         </em>
-        and name it
+        ，并命名为
         <em>
             handleWelcome
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121107" src="https://koenig-media.raywenderlich.com/uploads/2015/11/33_action_settings-480x241.png"
@@ -806,67 +780,57 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Click
+        点击
         <em>
             Connect
         </em>
-        to make the connection and Xcode will add the following empty method to&nbsp;
+        来完成连接，Xcode会添加下列的空方法到
         <code>
             ViewController
         </code>
-        :
+        上：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleWelcome<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
     <span style="color: #002200;">}</span>
     </pre>
     <p>
+    	这个方法会在用户每次点击按钮时被调用：
         This method will be called every time the user clicks the button.
     </p>
     <p>
-        Add the following line to the
+    	添加下面这行代码到
         <code>
             handleWelcome(_:)
         </code>
-        method body:
+        方法体中：
     </p>
     <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span>
     </pre>
     <p>
-        This updates the
-        <code>
-            stringValue
-        </code>
-        property of the
-        <code>
+    	这会更新
+    	<code>
             welcomeLabel
         </code>
-        to a welcome message constructed using the
+        的
         <code>
             stringValue
         </code>
-        of the
-        <code>
-            nameTextField
-        </code>
-        .
+        属性，变为一个由nameTextField的stringValue所构成的欢迎的信息。
         <code>
             stringValue
         </code>
-        represents the value currently displayed by a text-based control—be it
-        user-entered or defined in the storyboard.
+        代表了一个基于文本的控件的当前的值 - 由用户输入的或在storyboard上定义的。
     </p>
     <p>
-        That’s all the code you need to get your personalized version of “Hello
-        World” going! Build and run to give it a try. Once the app has started,
-        try entering your name in the
+    	这就是你需要的“Hello World”的个人化版本的全部代码！build并执行来尝试一下。当app启动的时候，尝试输入你的名字到
         <em>
             Name
         </em>
-        box and clicking the
+        框中并点击
         <em>
             Welcome
         </em>
-        button. You’ll see your very own version of “Hello world!”:
+        按钮。你会看到你的非常个性化版本的“Hello world!”：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121108" src="https://koenig-media.raywenderlich.com/uploads/2015/11/34_hello_sam-700x426.png"
@@ -874,9 +838,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Pretty cool eh? Well, the fun doesn’t stop there. Next up you’re going
-        to learn about adding images to your app, to create an amazing magic-8
-        ball utility!
+    	是不是相当酷？好的，乐趣不止于此。下一步你将学习关于添加image到你的app，来创建一个令人惊奇的magic-8 ball工具！
     </p>
     <h2>
         Assets
