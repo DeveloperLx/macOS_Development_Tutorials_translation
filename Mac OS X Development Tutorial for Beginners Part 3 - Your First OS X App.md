@@ -844,18 +844,18 @@
         Assets
     </h2>
     <p>
-        You were promised a magic 8-ball app at the start of this tutorial, and
-        so far you’ve seen no mention of a ball. Well, that’s all about to change.
+    	你在教程的开头被承诺了一个magic 8-ball的app，但到目前为止你看到都没有提到过一个球。好了，这就是全部将要改变的事。
     </p>
     <p>
+    	8-ball是相当与众不同的，如果没有一些可视化的东西，它无法成为一个令人兴奋的8-ball app。
         An 8-ball is pretty distinctive, and it wouldn’t be a very exciting 8-ball
         app without some visualization.
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/8ball-images.zip"
         sl-processed="1">
             Download
+            下载
         </a>
-        &nbsp;the images you’ll need to make your app look swish. You’ll find
-        two images inside the zip file—representing the two sides of a magic 8-ball:
+        这些你需要的图片，它们会让你的app看起来更漂亮。你会发现在zip文件中有两个图片 - 代表magic 8-ball的两面：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-121109" src="https://koenig-media.raywenderlich.com/uploads/2015/11/35_assets.png"
@@ -863,16 +863,14 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Image assets are stored in an asset catalog within an OS X app. This catalog
-        manages the different imagery and the different resolutions required for
-        the app icons and the in-app images.
+    	图片资产保存在OS X app中的一个资产目录中。这个目录管理了由app图标和app中的图像所要求的，含有不同分辨率的图像（imagery）。
     </p>
     <p>
-        Open
+    	通过在project navigator中选择
         <em>
             Assets.xcassets
         </em>
-        by selecting it in the project navigator:
+        来打开它：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121110" src="https://koenig-media.raywenderlich.com/uploads/2015/11/36_asset_catalog-700x182.png"
@@ -880,19 +878,18 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You can see that the catalog currently only contains one item –
+    	你可以看到这个目录中当前仅包含了一个项目 - 
         <em>
             AppIcon
         </em>
-        . This is where you would put the artwork to give your app a cool icon.
+        。这里就是你可以用艺术品（artwork）来给你的app一个很酷的图标的地方。
     </p>
     <p>
-        You need to add the downloaded images to the asset catalog. Locate the
-        images in finder, and
+    	你需要将下载到的图片添加到asset目录中。在finder找到图片，并将它们都
         <em>
-            drag
+            拖拽到
         </em>
-        them both into the asset catalog:
+        asset catalog目录中：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121111" src="https://koenig-media.raywenderlich.com/uploads/2015/11/37_drag_asset_catalog-700x323.png"
@@ -900,7 +897,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This will create two new entries in the asset catalog:
+    	这将在asset catalog中创建两个记录（entry）：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121112" src="https://koenig-media.raywenderlich.com/uploads/2015/11/38_added_assets-700x372.png"
@@ -908,15 +905,10 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Notice that there are three “cells” for the images. These cells represent
-        the different screen scales–standard (1x), retina (2x) and retina-HD (3x).
-        Normally you would provide assets for each of these cells, but in this
-        simple project you will provide just one.
+    	注意到这里有三个图片的“单元格”（cell）。这些单元格代表了三种不同的屏幕分辨率 - 标准的 (1x), retina (2x) 和 retina-HD (3x)。通常来说，你要为每一个单元格提供资产，但在这个简单的工程中你提供一个就行了。
     </p>
     <p>
-        The image you’ve been provided is actually designed to be used at retina
-        resolutions (2x), so drag the image from the left-hand cell to the central
-        (2x) cell:
+    	你刚刚提供的图像实际上被设计为用作retina分辨率的 (2x)，因此将它从左边的单元格拖到中间来：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121113" src="https://koenig-media.raywenderlich.com/uploads/2015/11/39_drag_retina-480x176.png"
@@ -924,8 +916,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Repeat for both of the 8-balls assets, so that the asset catalog looks
-        like this:
+    	对两个8-balls资产做同样的操作，asset目录现在看起来就像这样了：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121114" src="https://koenig-media.raywenderlich.com/uploads/2015/11/40_finished_asset_catalog-700x434.png"
@@ -933,8 +924,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Those images are now available to use in your app—both from code and inside
-        the storyboard.
+    	那些图像现在可以被用在你的app中了 - 无论在代码中还是storyboard中。
     </p>
     <h3>
         Displaying Images
