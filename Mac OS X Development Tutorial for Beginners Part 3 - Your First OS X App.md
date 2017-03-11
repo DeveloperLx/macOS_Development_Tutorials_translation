@@ -1377,26 +1377,26 @@
         IB Connections
     </h3>
     <p>
-        In the same way you did before, open up the assistant editor and ensure
-        that it is showing
+    	用你之前的相同的方式，打开assistant editor，并确保它正在展示
         <em>
             ViewController.swift
         </em>
-        . Then create two new outlets by
+        。然后通过从storyboard
         <em>
-            control-dragging
+        	按住control拖拽
         </em>
-        from the storyboard to the code: one for the image view (call it
+        到代码中：一个是从image view（叫做
         <em>
             ballImageView
         </em>
-        ) and one for the multiline label (call it
+        ），另一个是从multiline label（交错
         <em>
             adviceLabel
         </em>
-        ). This adds the following new outlets:
+        ）。这添加了下列的outlets：
     </p>
-    <pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> ballImageView<span style="color: #002200;">:</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">!</span>
+    <pre class="swift" style="font-family:monospace;">
+    @IBOutlet weak <span style="color: #a61390;">var</span> ballImageView<span style="color: #002200;">:</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">!</span>
     @IBOutlet weak <span style="color: #a61390;">var</span> adviceLabel<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
     </pre>
     <p>
