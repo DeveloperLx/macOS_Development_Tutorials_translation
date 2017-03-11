@@ -397,25 +397,25 @@
     	祝贺！尽管它还不是非常个性化？在下一部分，你将发现怎么让传统的问候更友好一点。
     </p>
     <h2>
-        Handling User Input
+    	处理用户的输入
     </h2>
     <p>
-        In this section you’re going to add a text field to allow the user to
-        enter their name so that you can welcome them personally.
+    	在这一部分，你将添加一个text field来让用户可以输入它们的名字，这样你就可以个性化地欢迎他们了。
     </p>
     <h3>
         Control Layout
+        控制布局
     </h3>
     <p>
-        As you did before, use the object library to locate and then drag a
+    	在行动之前，使用object library来找到并拖拽一个
         <em>
             Text Field
         </em>
-        and a
+        和一个
         <em>
             Push Button
         </em>
-        onto the view controller. Position them above the “Hello World!” label:
+        到view controller上。将它们放置到“Hello World!”label的上面：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121090" src="https://koenig-media.raywenderlich.com/uploads/2015/11/16_position_textfield-480x115.png"
@@ -423,20 +423,18 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Remember that placing the controls on the canvas isn’t enough for OS X
-        to understand how you want them positioned as the window changes size.
-        You need to add some constraints to convey your wishes.
+    	记住，仅仅将控件放置到画布的上面是不足以让OS X理解，当window的尺寸发生变化时，你想怎么定位它们。你需要添加一些约束来传达你的意愿。
     </p>
     <p>
-        Select the text field, and then
+    	选择text field，然后
         <em>
-            Command-Click
+            按住Command点击
         </em>
-        the button to select both simultaneously. Click the
+        button来同时选取。在storyboard底部的Auto Layout工具栏点击
         <em>
             Stack
         </em>
-        icon on the Auto Layout toolbar at the bottom of the storyboard:
+        图标：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121091" src="https://koenig-media.raywenderlich.com/uploads/2015/11/17_stack-480x265.png"
@@ -444,47 +442,40 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This has created a new stack view containing the text field and the button.
-        A stack view automatically generates the layout constraints required to
-        position the contained views in a line. You can use the attributes inspector
-        to configure many common properties of the stack view.
+    	这就创建了一个新的包含text field和button的stack view。stack view会自动地生成要放置和包含view在一条线上的布局约束。你可以使用attributes inspector来配置很多stack view的共同的熟悉。
     </p>
     <div class="note">
         <em>
             NOTE:
+            注意：
         </em>
         <code>
             NSStackView
         </code>
-        has been in OS X since 10.9, but received a significant update in 10.11
-        (El Capitan)—in line with its introduction (
+        是从OS X 10.9开始支持的，但在10.11（El Capitan）时收到了一个重大的更新 - 与在iOS中介绍的（
         <code>
             UIStackView
         </code>
-        ) in iOS. Stack views are similar on both platforms, so you can check
-        out the iOS
+        ）一致。Stack view在两个平台上是类似的，因此你可以点击
         <a href="http://www.raywenderlich.com/114552/uistackview-tutorial-introducing-stack-views"
         sl-processed="1">
-            tutorial on stack views
+        	iOS的stack view教程
         </a>
-        to get up to speed. Or hang tight—there’s a tutorial on
+        来加快学习的速度。或是稍等，
         <code>
             NSStackView
         </code>
-        &nbsp;dropping in the next few weeks.
+        的教程将在接下来的几周内发布。
     </div>
     <p>
-        Once you’ve started stacking it’s difficult to stop. This time, you’re
-        going to stack your newly created stack view with the “Hello World!” label—in
-        a vertical stack view.
+    	一旦你开始stacking，你就很难停下来了。这次，你要stack你刚创建的stack view和“Hello World!”label到一个垂直的stack view上。
     </p>
     <p>
-        Use the button to the left of the lower toolbar to show the Document Outline
-        and then locate the “Hello World” control and the existing stack view.
+    	使用底部工具栏左侧的按钮来展示Document Outline，然后找到“Hello World”控件和已存在的stack view。
         <i>
-            Command-click
+            按住Command点击
         </i>
-        them to select both:
+        它们可以同时选择：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121092" src="https://koenig-media.raywenderlich.com/uploads/2015/11/18_document_outline-469x320.png"
@@ -492,11 +483,11 @@
         sizes="(max-width: 469px) 100vw, 469px">
     </p>
     <p>
-        As you did before, use the
+    	和你刚才做的一样，使用底部工具栏的
         <em>
             Stack
         </em>
-        button on the bottom toolbar to create a new stack view:
+        按钮来创建一个新的stack view：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121093" src="https://koenig-media.raywenderlich.com/uploads/2015/11/19_stack-480x195.png"
@@ -504,19 +495,19 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        While this new stack view is selected, open the
+    	在这个新的stack view被选中时，打开
         <em>
             Attributes Inspector
         </em>
-        and set the Alignment to
+        并设置Alignment为
         <em>
             Center X
         </em>
-        , and the spacing to
+        ，spacing为
         <em>
             20
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121094 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/20_stack_config-e1448290245207-480x306.png"
@@ -524,21 +515,17 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This ensures that the label and the upper stack view are nicely centered
-        and there’s a gap of 20 points between them.
+    	这就确保了这个label合上面的stack view漂亮地居中了，并且它们之间有20个点的间隔。
     </p>
     <p>
-        A couple more bits of layout to complete before you can turn your attention
-        to the task of handling user input.
+    	在将你的注意力转移到处理用户输入的任务之前，有一些布局需要去完成。
     </p>
     <p>
-        The stack view handles the positioning of its content relative to each
-        other, but it needs to be positioned within the view controller’s view.
-        Select the outer stack view and use the
+    	stack view处理了它内容中控件相互之间的位置，但它也需要在view controller的view中被定位。选择外部的stack view并使用
         <em>
             Align
         </em>
-        auto layout menu to center it horizontally&nbsp;within its container:
+        这个auto layout菜单，来让它在容器中居中：
     </p>
     <p>
         <img class="aligncenter wp-image-121095 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/21_align-300x320.png"
@@ -546,15 +533,15 @@
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <p>
-        And use the
+    	使用
         <em>
             Pin
         </em>
-        menu to pin the stack view to the top, with a spacing of
+        菜单来固定住（pin）住stack view到顶部，并带有一个
         <em>
             30
         </em>
-        :
+        的距离：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121096" src="https://koenig-media.raywenderlich.com/uploads/2015/11/22_pin-227x320.png"
@@ -562,27 +549,26 @@
         sizes="(max-width: 227px) 100vw, 227px">
     </p>
     <p>
-        Finally, to ensure that the text field always has the space for the user’s
-        name, you will fix its width.
+    	最后，确保text field总是含有足够的用户名字的空间，你要修正它的宽度。
     </p>
     <p>
-        Select the text field and use the
+    	选择text field并使用底部工具栏中的
         <em>
             Pin
         </em>
-        menu in the bottom toolbar to specify a
+        菜单，来指定
         <em>
             Width
         </em>
-        of
+        为
         <em>
             100
         </em>
-        . Click
+        。点击
         <em>
             Add 1 Constraint
         </em>
-        to save the new constraint:
+        来保存新的约束：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121097" src="https://koenig-media.raywenderlich.com/uploads/2015/11/23_textfield_width-480x311.png"
@@ -590,8 +576,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        With that your layout is pretty much complete—it should look like the
-        following:
+    	这样你的布局就较好地完成了 - 它应该看起来像下面这样：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121098" src="https://koenig-media.raywenderlich.com/uploads/2015/11/24_layout-480x176.png"
@@ -599,7 +584,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Now you can turn your attention back to those new controls you added.
+    	现在你可以将你的注意力转到那些你新添加的控件上了。
     </p>
     <h3>
         Outlets and Actions
