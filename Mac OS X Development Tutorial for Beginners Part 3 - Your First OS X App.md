@@ -731,8 +731,7 @@
         </code>
         中，并在加载view controller时，更新storyboard来自动地连接text field：
     </p>
-	<pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> nameTextField<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
-	</pre>
+	<pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> nameTextField<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
     <p>
     	对“Hello World!”label正确地重复相同的过程，这次指定这个outlet应当被叫做
         <em>
@@ -791,11 +790,9 @@
         上：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleWelcome<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+    <span style="color: #002200;">}</span></pre>
     <p>
-    	这个方法会在用户每次点击按钮时被调用：
-        This method will be called every time the user clicks the button.
+    	这个方法会在用户每次点击按钮时被调用。
     </p>
     <p>
     	添加下面这行代码到
@@ -804,8 +801,7 @@
         </code>
         方法体中：
     </p>
-    <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span>
-    </pre>
+    <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span></pre>
     <p>
     	这会更新
     	<code>
@@ -1397,15 +1393,13 @@
     </p>
     <pre class="swift" style="font-family:monospace;">
     @IBOutlet weak <span style="color: #a61390;">var</span> ballImageView<span style="color: #002200;">:</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">!</span>
-    @IBOutlet weak <span style="color: #a61390;">var</span> adviceLabel<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
-    </pre>
+    @IBOutlet weak <span style="color: #a61390;">var</span> adviceLabel<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
     <p>
-        You also need an action to wire up the newly-created gesture recognizer.
+    	你也需要一个action来接通新创建的gesture recognizer。从document outline中的click gesture recognizer，
         <em>
-            Control-drag
+        	按住Control拖拽
         </em>
-        from the click gesture recognizer in the document outline, over to the
-        code:
+        到代码中：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121136" src="https://koenig-media.raywenderlich.com/uploads/2015/11/62_gesture_action-700x158.png"
@@ -1440,8 +1434,7 @@
         class:
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleBallClick<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+    <span style="color: #002200;">}</span></pre>
     <p>
         You’ve now finished all the work in Interface Builder, so you can switch
         back to the standard editor, and open
@@ -1477,8 +1470,7 @@
     <span style="color: #11740a; font-style: italic;">// 3:</span>
     adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
     ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+    <span style="color: #002200;">}</span></pre>
     <ol start="1">
         <li>
             Check whether the
@@ -1558,8 +1550,7 @@
         method and add the following body:
     </p>
     <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
-    </pre>
+    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span></pre>
     <p>
         You’ll recognize this code from the click handler action—it just hides
         the advice label and sets the image to
@@ -1595,8 +1586,7 @@
     <span style="color: #bf1d1a;">"How can I know?"</span>,
     <span style="color: #bf1d1a;">"Totally"</span>,
     <span style="color: #bf1d1a;">"Never"</span>,
-    <span style="color: #002200;">]</span>
-    </pre>
+    <span style="color: #002200;">]</span></pre>
     <p>
         This is an array of strings the make up all the different options for
         advice that the ball can dispense.
@@ -1614,8 +1604,7 @@
     <span style="color: #a61390;">let</span> randomIndex <span style="color: #002200;">=</span> arc4random_uniform<span style="color: #002200;">(</span>UInt32<span style="color: #002200;">(</span><span style="color: #a61390;">count</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
     <span style="color: #a61390;">return</span> <span style="color: #a61390;">self</span><span style="color: #002200;">[</span><span style="color: #a61390;">Int</span><span style="color: #002200;">(</span>randomIndex<span style="color: #002200;">)</span><span style="color: #002200;">]</span>
     <span style="color: #002200;">}</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+    <span style="color: #002200;">}</span></pre>
     <p>
         This adds a new property to the standard library’s
         <code>
@@ -1650,8 +1639,7 @@
     adviceLabel.stringValue <span style="color: #002200;">=</span> advice
     adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
     ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+    <span style="color: #002200;">}</span></pre>
     <p>
         This attempts to get a random piece of advice to display, and if successful
         updates the
