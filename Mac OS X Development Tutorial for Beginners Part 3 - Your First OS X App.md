@@ -1551,19 +1551,17 @@
     	build并运行，来检查你在开始时不会看到建议。
     </p>
     <h2>
-        Advice Generator
+    	建议生成器
     </h2>
     <p>
-        At the moment, no matter how many times you “shake” the ball, it always
-        gives you the same advice. That’s not especially helpful. Time to add a
-        bit of randomness.
+    	此刻，无论你“摇动”那个球多少次，它总是给你相同的建议。这不是特别有帮助的。是时候添加一些随机性了。
     </p>
     <p>
-        Add the following code as a property inside
-        <code>
+    	在
+    	<code>
             ViewController
         </code>
-        —just below the class definition line:
+        中添加下列的代码作为属性 - 就在类定义的下面：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> adviceList <span style="color: #002200;">=</span> <span style="color: #002200;">[</span>
     <span style="color: #bf1d1a;">"Yes"</span>,
@@ -1574,75 +1572,72 @@
     <span style="color: #bf1d1a;">"How can I know?"</span>,
     <span style="color: #bf1d1a;">"Totally"</span>,
     <span style="color: #bf1d1a;">"Never"</span>,
-    <span style="color: #002200;">]</span></pre>
+<span style="color: #002200;">]</span></pre>
     <p>
-        This is an array of strings the make up all the different options for
-        advice that the ball can dispense.
+    	这是一个字符串的数组，由全部不同的那个球可以分发的建议构成。
     </p>
     <p>
-        Head to the very bottom of the file (not within the
+    	找到文件的最底部（不在）
         <code>
             ViewController
         </code>
-        class) and add the following extension:
+        类中），添加下列的extension:
     </p>
     <pre class="swift" style="font-family:monospace;">extension <span style="color: #a61390;">Array</span> <span style="color: #002200;">{</span>
-    <span style="color: #a61390;">var</span> randomElement<span style="color: #002200;">:</span> Element? <span style="color: #002200;">{</span>
+  <span style="color: #a61390;">var</span> randomElement<span style="color: #002200;">:</span> Element? <span style="color: #002200;">{</span>
     <span style="color: #a61390;">if</span> <span style="color: #a61390;">count</span> &lt; <span style="color: #2400d9;">1</span> <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> .None <span style="color: #002200;">}</span>
     <span style="color: #a61390;">let</span> randomIndex <span style="color: #002200;">=</span> arc4random_uniform<span style="color: #002200;">(</span>UInt32<span style="color: #002200;">(</span><span style="color: #a61390;">count</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
     <span style="color: #a61390;">return</span> <span style="color: #a61390;">self</span><span style="color: #002200;">[</span><span style="color: #a61390;">Int</span><span style="color: #002200;">(</span>randomIndex<span style="color: #002200;">)</span><span style="color: #002200;">]</span>
-    <span style="color: #002200;">}</span>
-    <span style="color: #002200;">}</span></pre>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
-        This adds a new property to the standard library’s
+    	这添加了一个新的property到标注库的
         <code>
             Array
         </code>
-        type that will return a random element. If the array is empty it returns
+        类型，它会返回一个随机的严肃。如果Array是空的，它就返回
         <code>
             nil
         </code>
-        , otherwise it generates a random index using
+        ，否则它会在返回相应的元素前，使用
         <code>
             arc4random_uniform()
         </code>
-        before returning the corresponding element.
+        产生一个随机的序号。
     </p>
     <p>
-        Update the first branch (i.e.
-        <code>
-            adviceLabel.hidden == true
-        </code>
-        ) of the
-        <code>
-            if
-        </code>
-        statement in
+    	在
         <code>
             handleBallClick(_:)
         </code>
-        to match the following:
+        中，更新
+    	<code>
+            if
+        </code>
+        语句的第一个分支（也就是说
+        <code>
+            adviceLabel.hidden == true
+        </code>
+        ）为如下：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> advice <span style="color: #002200;">=</span> adviceList.randomElement <span style="color: #002200;">{</span>
     adviceLabel.stringValue <span style="color: #002200;">=</span> advice
     adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
     ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span></pre>
+<span style="color: #002200;">}</span></pre>
     <p>
-        This attempts to get a random piece of advice to display, and if successful
-        updates the
+    	这会尝试获取一条随机的建议来展示，如果成功的话就会更新
+    	<code>
+            adviceLabel
+        </code>
+        的
         <code>
             stringValue
         </code>
-        on
-        <code>
-            adviceLabel
-        </code>
-        to show it.
+        来展示。
     </p>
     <p>
-        Build and run, and click the 8-ball a few times to start benefiting from
-        the ball’s wisdom:
+    	build并执行，点击8-ball几次开始从这个球的智慧中受益：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121138" src="https://koenig-media.raywenderlich.com/uploads/2015/11/64_final_bar-700x334.png"
