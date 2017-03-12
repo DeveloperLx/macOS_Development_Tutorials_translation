@@ -1378,13 +1378,14 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
         </li>
     </ul>
     <p>
+    	这里有更多你可以使用table view来做的事，让你可以为你的app构建高雅的UI。如果你想要关于它更多的内容，可以参考下列资源：
         There is a lot more you can do with table views to build elegant UI for
         your app. If you’re looking to learn more about it, consider the following
         resources:
     </p>
     <ul>
         <li>
-            Apple’s
+            苹果的
             <a title="Table View Programming Guide for Mac" href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/TableView/Introduction/Introduction.html"
             target="_blank">
                 Table View Programming Guide for Mac
@@ -1396,7 +1397,7 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
             <a href="https://developer.apple.com/videos/play/wwdc2016/239/" target="_blank">
                 Crafting Modern Cocoa Apps
             </a>
-            for a fast course in how to build a cutting edge table view.
+            中的一个关于怎样构建一个切掉边的（cutting edge）table view的快速教程。
         </li>
         <li>
             WWDC 2011 – Session 120 Video
@@ -1411,8 +1412,7 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
             target="_blank">
                 TableViewPlayGround
             </a>
-            has Objective-C sample code to show how to create different kinds of custom
-            table views.
+            中有OC的示例代码来展示怎样创建不同种的定制的table view。
         </li>
     </ul>
 </div>
