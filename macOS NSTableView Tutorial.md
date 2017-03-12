@@ -1196,46 +1196,36 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
         数据排序
     </h3>
     <p>
-        Everybody loves a good sort, and in this next section you’ll learn how
-        to sort the table view based on the user’s selection.
+    	每个人都喜欢好的排序，在这一部分你将学习怎么基于用户的选择给table view排序。
     </p>
     <p>
-        One of the best features of a table is one- or two-click sorting by a
-        specific column. One click will sort it in ascending order and a second
-        click will sort in descending order.
+    	table最好的特性之一就是通过单击或双击指定的一列来排序。单击会以升序排列，双击则以降序排列。
     </p>
     <p>
-        Implementing this particular UI is easy because
+    	实现这个特定的UI是非常容易的，因为
         <code>
             NSTableView
         </code>
-        packs most of the functionality right out of the box.
+        打包了大多数直接“开箱即用”的功能。
     </p>
     <p>
         <em>
             Sort descriptors
         </em>
-        are what you’ll use to handle this bit, and they are simply instances
-        of the
+        是你用来处理这个的
         <code>
             NSSortDescriptor
         </code>
-        class that specify the desired attribute and sort order.
+        类的简单的实例，它指定了要求的属性并排序。
     </p>
     <p>
-        After setting up descriptors, this is what happens: clicking on a column
-        header in the table view will inform you, via the delegate, which attribute
-        should be used, and then the user will be able sort the data.
+    	在设置descriptor之后，将会发生：点击table view的一个列头，将通知你，通过代理，哪个属性将被使用，用户就能够给数据排序。
     </p>
     <p>
-        Once you set the sort descriptors, the table view provides all the UI
-        to handle sorting, like clickable headers, arrows and notification of which
-        sort descriptor was selected. However, it’s your responsibility to order
-        the data based on that information, and refresh the table view to reflect
-        the new order.
+    	一旦你设置了sort descriptor，table view就会提供全部的UI来处理排序，像是可点击的header，箭头，以及哪个sort descriptor被选择了的通知。然而，基于那些信息排序，然后刷新table view来反映新的顺序是你的责任。
     </p>
     <p>
-        You’ll learn how to do that right now.
+    	现在你将学到怎么去做：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-29-at-6.24.36-PM.png">
@@ -1244,12 +1234,12 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
             sizes="(max-width: 294px) 100vw, 294px">
         </a>
     </p>
-    <p>
-        Add the following code inside
+    <p>    
+        在
         <code>
             viewDidLoad()
         </code>
-        to create the sort descriptors:
+        中添加下列代码来创建sort descriptor:
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1</span>
 <span style="color: #a61390;">let</span> descriptorName <span style="color: #002200;">=</span> <span style="color: #400080;">NSSortDescriptor</span><span style="color: #002200;">(</span>key<span style="color: #002200;">:</span> Directory.FileOrder.Name.rawValue, ascending<span style="color: #002200;">:</span> <span style="color: #a61390;">true</span><span style="color: #002200;">)</span>
@@ -1261,32 +1251,29 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
 tableView.tableColumns<span style="color: #002200;">[</span><span style="color: #2400d9;">1</span><span style="color: #002200;">]</span>.sortDescriptorPrototype <span style="color: #002200;">=</span> descriptorDate
 tableView.tableColumns<span style="color: #002200;">[</span><span style="color: #2400d9;">2</span><span style="color: #002200;">]</span>.sortDescriptorPrototype <span style="color: #002200;">=</span> descriptorSize</pre>
     <p>
-        This is what this code does:
+    	这个代码做了下面的事：
     </p>
     <ol>
         <li>
-            Creates a sort descriptor for every column, complete with a key (Name,
-            Date or Size), that indicates the attribute by which the file list can
-            be ordered.
+        	为每一列创建sort descriptor，使用一个键(Name，Date或Size)来完成，它指示了可以让文件列表被排序的那个属性。
         </li>
         <li>
-            Adds the sort descriptors to each column by setting its
-            <code>
+        	通过设置
+        	<code>
                 sortDescriptorPrototype
             </code>
-            property.
+        	属性，为每一列添加sort descriptor。
         </li>
     </ol>
     <p>
-        When the user clicks on any column header, the table view will call the
-        data source method
+    	当用户点击任一列头时，这个table view会调用data source的方法
         <code>
             tableView(_:sortDescriptorsDidChange:)
         </code>
-        , at which point the app should sort the data based on the supplied descriptor.
+        ，app就会基于提供的descriptor来进行排序。
     </p>
     <p>
-        Add the following code to the data source extension:
+    	添加下列的代码到data source的extension中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableView<span style="color: #002200;">(</span>_ tableView<span style="color: #002200;">:</span> <span style="color: #400080;">NSTableView</span>, sortDescriptorsDidChange oldDescriptors<span style="color: #002200;">:</span> <span style="color: #002200;">[</span><span style="color: #400080;">NSSortDescriptor</span><span style="color: #002200;">]</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   <span style="color: #11740a; font-style: italic;">// 1</span>
@@ -1301,31 +1288,30 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This code does the following:
+    	这个code做了这些事：
     </p>
     <ol>
         <li>
-            Retrieves the first sort descriptor that corresponds to the column header
-            clicked by the user.
+        	获取符合用户点击的列头的第一个sort descriptor。
         </li>
         <li>
-            Assigns the
+        	给view controller的
             <code>
                 sortOrder
             </code>
-            and
+            和
             <code>
                 sortAscending
             </code>
-            properties of the view controller, and then calls
+            属性赋值，然后调用
             <code>
                 reloadFileList()
             </code>
-            . You set it up earlier to get a sorted array of files and tell the table
-            view to reload the data.
+            。你提早设置它来获取一个已排好序的文件的列表，并告诉table view来重载数据。
         </li>
     </ol>
     <p>
+    	build并运行。
         Build and run.
     </p>
     <p>
@@ -1335,14 +1321,13 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
         sizes="(max-width: 619px) 100vw, 619px">
     </p>
     <p>
-        Click any header to see your table view sort data. Click again in the
-        same header to alternate between ascending and descending order.
+	    点击任一header来查看你的table view排序数据。再次点击相同的header来在升序和降序之间切换。
     </p>
     <p>
-        You’ve built a nice file viewer using a table view. Congratulations!
+    	你已经使用table view构建了一个很好的文件查看器。恭喜！
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
