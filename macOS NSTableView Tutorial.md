@@ -1135,32 +1135,8 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14382810">
-                    <td class="code" id="p143828code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            tableView.target
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            tableView.doubleAction
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #6e371a;">
-                                #selector(tableViewDoubleClick(_:))
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">tableView.target <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
+tableView.doubleAction <span style="color: #002200;">=</span> <span style="color: #6e371a;">#selector(tableViewDoubleClick(_:))</span></pre>
     <p>
         This tells the table view that the view controller will become the target
         for its actions, and then it sets the method that will be called after
