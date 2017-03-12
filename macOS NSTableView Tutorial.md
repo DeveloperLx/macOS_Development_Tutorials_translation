@@ -1077,73 +1077,64 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     	响应双击
     </h3>
     <p>
-        In macOS, a double-click usually means the user has triggered an action
-        and your program needs to perform it.
+    	在macOS中，双击通常意味着用户触发了一个动作，你的程序就需要执行它。
     </p>
     <p>
-        For instance, when you’re dealing with files you usually expect the double-clicked
-        file to open in its default application and for a folder, you expect to
-        see its content.
+    	例如，当你正在处理文件，你通常期望双击这个文件来已它默认的应用打开它；对于目录，则你期望查看它的内容。
     </p>
     <p>
-        You’re going to implement double-click responses now.
+    	现在你就要实现双击的响应。
     </p>
     <p>
-        Double-click notifications are not sent via the table view delegate; instead,
-        they’re sent as an action to the table view target. But to receive those
-        notifications in the view controller, you need to set the table view’s
+    	双击的通知不是通过table view的delegate来发送，而是发送一个动作给table view的target。但是为了在view controller中接收到那些通知，你需要设定
         <code>
             target
         </code>
-        and
+        和
         <code>
             doubleAction
         </code>
-        properties.
+        两个属性。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+            	注意
             </em>
-            : Target-action is a pattern used by most controls in Cocoa to notify
-            events. If you’re not familiar with this pattern, you can learn about it
-            in the
+            ：Target-action是一个被大多数Cocoa的控件使用的模式。如果你不熟悉这个模式，你可以在苹果的
+            <em>
+                Cocoa Application Competencies for macOS
+            </em>
+            这个文档中学习
             <a title="Target-Action" href="https://developer.apple.com/library/mac/documentation/General/Devpedia-CocoaApp-MOSX/TargetAction.html"
             target="_blank">
                 Target-Action
             </a>
-            section of Apple’s
-            <em>
-                Cocoa Application Competencies for macOS
-            </em>
-            documentation.
+            这一部分。
         </p>
     </div>
     <p>
-        Add the following code inside
+    	在
+    	<code>
+            ViewController
+        </code>
+        的
         <code>
             viewDidLoad()
         </code>
-        of the
-        <code>
-            ViewController
-        </code>
-        :
+        方法中添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;">tableView.target <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
 tableView.doubleAction <span style="color: #002200;">=</span> <span style="color: #6e371a;">#selector(tableViewDoubleClick(_:))</span></pre>
     <p>
-        This tells the table view that the view controller will become the target
-        for its actions, and then it sets the method that will be called after
-        a double-click.
+    	这告诉了table view这个view controller将变成它的动作的target，这样这个方法就会在双击后被调用。
     </p>
     <p>
-        Add the
+    	添加
         <code>
             tableViewDoubleClick(_:)
         </code>
-        method implementation:
+        方法的实现：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableViewDoubleClick<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span><span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
 &nbsp;
@@ -1163,52 +1154,46 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        Here’s the above code broken out step-by-step:
+    	这里是上述代码的一步步的分解：
     </p>
     <ol>
         <li>
-            If the table view selection is empty, it does nothing and returns. Also
-            note that a double-click on an empty area of the table view will result
-            in an
+        	如果table view的选择是空的，它什么都不会做直接返回。同时注意，双击一个table view的空的区域将使得
             <code>
                 tableView.selectedRow
             </code>
-            value equal to -1.
+            的值等于1。
         </li>
         <li>
-            If it’s a folder, it sets the
+        	如果是一个目录，它会设置
             <code>
                 representedObject
             </code>
-            property to the item’s URL. Then the table view refreshes to show the
-            contents of that folder.
+            属性为它的URL。然后这个table view会刷新来显示那个目录的内容。
         </li>
         <li>
-            If the item is a file, it opens it in the default application by calling
-            the
+        	如果这一项是一个文件，它会通过调用
             <code>
                 NSWorkspace
             </code>
-            method
+            的方法
             <code>
                 openURL()
             </code>
+            来使用默认的应用打开它。
         </li>
     </ol>
     <p>
-        Build and run and check out your handiwork.
+    	build并运行来检查你的作品。
     </p>
     <p>
-        Double-click on any file and observe how it opens in the default application.
-        Now choose a folder and watch how the table view refreshes and displays
-        the content of that folder.
+    	双击任何文件并观察它是怎么用默认的应用打开的。现在，选择一个目录并观察table view怎么更新及展示那个目录的内容。
     </p>
     <p>
-        Whoa, wait, did you just create a DIY version of Finder? Sure looks that
-        way!
+        咳，稍等，你只是创造了一个DIY版本的Finder？确实看起来是这样！
     </p>
     <h3>
-        Sorting Data
+        数据排序
     </h3>
     <p>
         Everybody loves a good sort, and in this next section you’ll learn how
