@@ -948,7 +948,6 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
             didSet
         </code>
         中，替换这行代码：
-        , and replace this line of code:
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">print</span><span style="color: #002200;">(</span><span style="color: #bf1d1a;">"Represented object: <span style="color: #2400d9;">\(</span>url)"</span><span style="color: #002200;">)</span></pre>
     <p>
@@ -957,31 +956,29 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
     <pre class="swift" style="font-family:monospace;">directory <span style="color: #002200;">=</span> Directory<span style="color: #002200;">(</span>folderURL<span style="color: #002200;">:</span> url<span style="color: #002200;">)</span>
 reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span></pre>
     <p>
-        You’ve just created an instance of
+    	你刚创建了一个
         <code>
             Directory
         </code>
-        pointing to the folder URL, and it calls the
+        的示例，指向目录的URL，它调用
         <code>
             reloadFileList()
         </code>
-        method to refresh the table view data.
+        方法来更新table view的数据。
     </p>
     <p>
-        Build and run.
+        build并运行。
     </p>
     <p>
-        Open a folder using the menu
+        使用菜单上的
         <em>
             File &gt; Open…
         </em>
-        or the
+        或
         <em>
             Command+O
         </em>
-        keyboard shortcut and watch the magic happen! Now the table is full of
-        contents from the folder you just selected. Resize the columns to see all
-        the information about each file or folder.
+        快捷键来打开一个目录，观察魔法的发生！现在table已经被你刚选择目录的内容填满了。调整列的大小来查看每一个文件或目录的所有信息。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/table-first-population.png"
