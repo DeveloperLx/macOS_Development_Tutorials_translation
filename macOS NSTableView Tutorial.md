@@ -540,8 +540,7 @@
         </p>
     </div>
     <p>
-    	最后，如果你还是不能看到Size这列，选择Modification Date这列并改变Width为200。
-        It beats fishing around for the resize handle with your mouse. :]
+    	最后，如果你还是不能看到Size这列，选择Modification Date这列并改变Width为200。通过使用你的鼠标来回调整（It beats fishing around for the resize handle with your mouse）:]
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/date-column-size-1.png"
