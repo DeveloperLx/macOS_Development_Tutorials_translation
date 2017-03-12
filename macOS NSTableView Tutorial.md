@@ -1173,142 +1173,23 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         </code>
         method implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14382811">
-                    <td class="code" id="p143828code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            tableViewDoubleClick
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                AnyObject
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 1
-                            </span>
-                            guard tableView.selectedRow &gt;
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            ,
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            item
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            directoryItems?
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            tableView.selectedRow
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            item.isFolder
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 2
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .representedObject
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            item.url
-                            <span style="color: #a61390;">
-                                as
-                            </span>
-                            <span style="color: #a61390;">
-                                Any
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 3
-                            </span>
-                            <span style="color: #400080;">
-                                NSWorkspace
-                            </span>
-                            .shared
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            .open
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            item.url
-                            <span style="color: #a61390;">
-                                as
-                            </span>
-                            URL
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableViewDoubleClick<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span><span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">// 1</span>
+  guard tableView.selectedRow &gt;<span style="color: #002200;">=</span> <span style="color: #2400d9;">0</span>,     
+      <span style="color: #a61390;">let</span> item <span style="color: #002200;">=</span> directoryItems?<span style="color: #002200;">[</span>tableView.selectedRow<span style="color: #002200;">]</span> <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">return</span>
+  <span style="color: #002200;">}</span>
+&nbsp;
+  <span style="color: #a61390;">if</span> item.isFolder <span style="color: #002200;">{</span>
+    <span style="color: #11740a; font-style: italic;">// 2</span>
+    <span style="color: #a61390;">self</span>.representedObject <span style="color: #002200;">=</span> item.url <span style="color: #a61390;">as</span> <span style="color: #a61390;">Any</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+    <span style="color: #11740a; font-style: italic;">// 3</span>
+    <span style="color: #400080;">NSWorkspace</span>.shared<span style="color: #002200;">(</span><span style="color: #002200;">)</span>.open<span style="color: #002200;">(</span>item.url <span style="color: #a61390;">as</span> URL<span style="color: #002200;">)</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         Here’s the above code broken out step-by-step:
     </p>
@@ -1413,149 +1294,15 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         </code>
         to create the sort descriptors:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14382812">
-                    <td class="code" id="p143828code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                // 1
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            descriptorName
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSSortDescriptor
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            key
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Directory.FileOrder.Name.rawValue, ascending
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            descriptorDate
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSSortDescriptor
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            key
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Directory.FileOrder.Date.rawValue, ascending
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            descriptorSize
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSSortDescriptor
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            key
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Directory.FileOrder.Size.rawValue, ascending
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 2
-                            </span>
-                            tableView.tableColumns
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            .sortDescriptorPrototype
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            descriptorName tableView.tableColumns
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #2400d9;">
-                                1
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            .sortDescriptorPrototype
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            descriptorDate tableView.tableColumns
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #2400d9;">
-                                2
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            .sortDescriptorPrototype
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            descriptorSize
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1</span>
+<span style="color: #a61390;">let</span> descriptorName <span style="color: #002200;">=</span> <span style="color: #400080;">NSSortDescriptor</span><span style="color: #002200;">(</span>key<span style="color: #002200;">:</span> Directory.FileOrder.Name.rawValue, ascending<span style="color: #002200;">:</span> <span style="color: #a61390;">true</span><span style="color: #002200;">)</span>
+<span style="color: #a61390;">let</span> descriptorDate <span style="color: #002200;">=</span> <span style="color: #400080;">NSSortDescriptor</span><span style="color: #002200;">(</span>key<span style="color: #002200;">:</span> Directory.FileOrder.Date.rawValue, ascending<span style="color: #002200;">:</span> <span style="color: #a61390;">true</span><span style="color: #002200;">)</span>
+<span style="color: #a61390;">let</span> descriptorSize <span style="color: #002200;">=</span> <span style="color: #400080;">NSSortDescriptor</span><span style="color: #002200;">(</span>key<span style="color: #002200;">:</span> Directory.FileOrder.Size.rawValue, ascending<span style="color: #002200;">:</span> <span style="color: #a61390;">true</span><span style="color: #002200;">)</span>
+&nbsp;
+<span style="color: #11740a; font-style: italic;">// 2</span>
+tableView.tableColumns<span style="color: #002200;">[</span><span style="color: #2400d9;">0</span><span style="color: #002200;">]</span>.sortDescriptorPrototype <span style="color: #002200;">=</span> descriptorName
+tableView.tableColumns<span style="color: #002200;">[</span><span style="color: #2400d9;">1</span><span style="color: #002200;">]</span>.sortDescriptorPrototype <span style="color: #002200;">=</span> descriptorDate
+tableView.tableColumns<span style="color: #002200;">[</span><span style="color: #2400d9;">2</span><span style="color: #002200;">]</span>.sortDescriptorPrototype <span style="color: #002200;">=</span> descriptorSize</pre>
     <p>
         This is what this code does:
     </p>
@@ -1584,127 +1331,18 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     <p>
         Add the following code to the data source extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14382813">
-                    <td class="code" id="p143828code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            tableView
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ tableView
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTableView
-                            </span>
-                            , sortDescriptorsDidChange oldDescriptors
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #400080;">
-                                NSSortDescriptor
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 1
-                            </span>
-                            guard
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            sortDescriptor
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            tableView.sortDescriptors.first
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            order
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Directory.FileOrder
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            rawValue
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            sortDescriptor.key
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 2
-                            </span>
-                            sortOrder
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            order sortAscending
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            sortDescriptor.ascending reloadFileList
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableView<span style="color: #002200;">(</span>_ tableView<span style="color: #002200;">:</span> <span style="color: #400080;">NSTableView</span>, sortDescriptorsDidChange oldDescriptors<span style="color: #002200;">:</span> <span style="color: #002200;">[</span><span style="color: #400080;">NSSortDescriptor</span><span style="color: #002200;">]</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">// 1</span>
+  guard <span style="color: #a61390;">let</span> sortDescriptor <span style="color: #002200;">=</span> tableView.sortDescriptors.first <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">return</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> order <span style="color: #002200;">=</span> Directory.FileOrder<span style="color: #002200;">(</span>rawValue<span style="color: #002200;">:</span> sortDescriptor.key<span style="color: #002200;">!</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #11740a; font-style: italic;">// 2</span>
+    sortOrder <span style="color: #002200;">=</span> order
+    sortAscending <span style="color: #002200;">=</span> sortDescriptor.ascending
+    reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This code does the following:
     </p>
