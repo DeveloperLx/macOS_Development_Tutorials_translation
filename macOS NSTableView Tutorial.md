@@ -1035,37 +1035,34 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
   statusLabel.stringValue <span style="color: #002200;">=</span> text
 <span style="color: #002200;">}</span></pre>
     <p>
-        This method updates the status label text based on the user selection.
+    	这个方法基于用户的选择更新了status label。
     </p>
     <ol>
         <li>
-            The table view property
+        	table view的属性
             <code>
                 selectedRowIndexes
             </code>
-            contains the indexes of the selected rows. To know how many items are
-            selected, it just gets the array count.
+            包含了选择的行的序号。要得知有多少项被选择了，只需获取这个array的count。
         </li>
         <li>
-            Based on the number of items, this builds the informative text string.
+        	基于项目的个数，构建了有益的文本字符串。
         </li>
         <li>
-            Sets the status label text.
+        	设置状态label的文本。
         </li>
     </ol>
     <p>
-        Now, you just need to invoke this method when the user changes the table
-        view selection. Add the following code inside the table view delegate extension:
+    	现在，你只需要当用户改变了table view的选择时，调用这个方法。在table view的delegate extension中添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableViewSelectionDidChange<span style="color: #002200;">(</span>_ notification<span style="color: #002200;">:</span> Notification<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   updateStatus<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        When the selection changes this method is called by the table view, and
-        then it updates the status text.
+    	当选择改变时，table view就会调用这个方法，然后更新状态文本。
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/table-selection-label.png"
@@ -1074,11 +1071,10 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         sizes="(max-width: 606px) 100vw, 606px">
     </p>
     <p>
-        Try it out for yourself; select one or more files in the table view and
-        watch the informative text change to reflect your selection.
+    	自己来试一下；在table view中选择一个或多个文件，并观察情报信息的改变，反映你的选择。
     </p>
     <h3>
-        Responding to Double-Click
+    	响应双击
     </h3>
     <p>
         In macOS, a double-click usually means the user has triggered an action
