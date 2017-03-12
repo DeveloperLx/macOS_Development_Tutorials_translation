@@ -1288,7 +1288,7 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-    	这个code做了这些事：
+    	这个代码做了这些事：
     </p>
     <ol>
         <li>
@@ -1331,7 +1331,7 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
-            <a href="https://videos.raywenderlich.com/courses">
+            <a href="https://videos.raywenderlich.com/courses" sl-processed="1">
                 <div class="col-wrapper">
                     <div class="col">
                         <img src="https://cdn3.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png"
@@ -1339,10 +1339,11 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1350,33 +1351,30 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
         </div>
     </div>
     <p>
-        You can download the completed project
+	    你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/10/FileViewer_final2.zip">
-            here
+            这里
         </a>
-        .
+        下载完整版本的项目。
     </p>
     <p>
-        This macOS NSTableView tutorial covered quite a bit, and you should now
-        feel much more confident in your ability to use table views to organize
-        data. In addition, you also covered:
+    	这个macOS NSTableView教程覆盖了相当多的内容，你现在应当感到更多的自信，来以你的能力使用table view来组织数据。除此以外，你还学到了：
     </p>
     <ul>
         <li>
-            The basics of table view construction, including the unique qualities
-            of headers, rows, columns and cells.
+        	table view的基本结构，包括header、row、column和cell的单独的特质。
         </li>
         <li>
-            How to add columns to display more data.
+        	怎样添加列来展示更多的数据。
         </li>
         <li>
-            How to identify various components for later reference.
+        	怎么为之后的引用鉴别多种元件。
         </li>
         <li>
-            How to load data in the table.
+        	怎样在table中加载数据。
         </li>
         <li>
-            How to respond to various user interactions.
+        	怎样响应各种用户交互。
         </li>
     </ul>
     <p>
@@ -1417,8 +1415,4 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
             table views.
         </li>
     </ul>
-    <p>
-        If you have any questions or comments on this tutorial, feel free to join
-        the discussion below in the forums!
-    </p>
 </div>
