@@ -36,7 +36,7 @@
         使用行和列来排列数据。每一行代表给出数据集合中的一个单独的数据模型，每一列展示这个数据模型的一个特定的属性。
     </p>
     <p>
-    	在这篇macOS的NSTableView教程中，你将使用一个table view来创建带有功能的文件浏览器，它将具有和Finder惊人的相似性。在你完成它之后，你将学到很多关于table view的知识，例如：
+    	在这篇macOS的NSTableView教程中，你将使用一个table view来创建带有功能的文件查看器，它将具有和Finder惊人的相似性。在你完成它之后，你将学到很多关于table view的知识，例如：
     </p>
     <ul>
         <li>
@@ -56,18 +56,18 @@
     	开始吧
     </h2>
     <p>
-        Download
+    	下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/10/FileViewer_starter-2.zip">
-            the starter project
+            启动的项目
         </a>
-        and open it in
+        并在
         <em>
             Xcode
         </em>
-        .
+        中打开它。
     </p>
     <p>
-        Build and run to see what you’re starting with:
+    	build并运行，来查看你会从什么地方开始：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/build-run-empty.png">
@@ -77,20 +77,18 @@
         </a>
     </p>
     <p>
-        You have a blank canvas from which you’ll create a cool file viewer. The
-        starter app already has some of the functionality you’ll need to work through
-        this tutorial.
+    	你有一块空白的画布，这是你将要创建很酷的文件查看器的地方。这个起始的app已经包含了一些你需要在这个教程中使用的功能。
     </p>
     <p>
-        With the application open, choose
+    	当文件打开时，选择
         <em>
             File &gt; Open…
         </em>
-        (or use the
+        （或使用
         <em>
             Command+O
         </em>
-        keyboard shortcut).
+        快捷键）。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/build-run-fileopen.png">
@@ -100,66 +98,50 @@
         </a>
     </p>
     <p>
-        From the new window that pops up, choose any folder you want and click
-        the
+    	从弹出的新窗口中，选择任意你想要的目录，并点击
         <em>
             Open
         </em>
-        button. You’ll see something like this in Xcode’s console:
+        按钮。你会在Xcode的控制台中看到像如下的东西：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438281">
-                    <td class="code" id="p143828code1">
-                        <pre class="none" style="font-family:monospace;">
-                            Represented object: file:///Users/tutorials/FileViewer/FileViewer/
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="none" style="font-family:monospace;">
+    	Represented object: file:///Users/tutorials/FileViewer/FileViewer/	</pre>
     <p>
-        This message shows the selected folder’s path, and the code in the starter
-        project passes that URL to the view controller.
+    	这个信息展示了被选择的目录的路径，在起始项目的代码中传递了URL到view controller中。
     </p>
     <p>
-        If you’re curious and want to learn more about how things are implemented,
-        here’s where you should look:
+    	如果你很好奇并想了解更多关于这些东西是怎么实现的，这些是你应该查看的地方：
     </p>
     <ul>
         <li>
             <em>
                 Directory.swift
             </em>
-            : Contains the implementation of the
+            ：包含了结构体
             <em>
                 Directory
             </em>
-            struct that reads the content of a directory.
+            从目录中读取内容的实现。
         </li>
         <li>
             <em>
                 WindowController.swift
             </em>
-            : Contains the code that presents you with the folder selection panel
-            and passes the selected directory to the
+            ：包含了展示给你目录选择面板的代码，并传递被选择的目录给
             <em>
                 ViewController
             </em>
-            .
+            。
         </li>
         <li>
             <em>
                 ViewController.swift
             </em>
-            : Contains the implementation of the
+            ：包含了
             <code>
                 ViewController
             </code>
-            class and is where you’ll spend some time today. It’s where you’ll create
-            the table view and show the file list.
+            这个类的实现，这也是今天你要花费一些时间的地方。它是你将要创建table view和展示文件列表的地方。
         </li>
     </ul>
     <h2>
