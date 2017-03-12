@@ -258,68 +258,61 @@
         </a>
     </p>
     <p>
-        If you’re familiar with
+    	如果你熟悉iOS中的
         <code>
             UITableView
         </code>
-        on iOS, you’re treading familiar waters, but they’re much deeper here
-        in macOS. In fact, you might be surprised by the number of individual UI
-        objects in the object hierarchy that make up an
+        ，你会在走熟悉的路上（treading familiar waters），但在macOS中，它们会深更加入。事实上，你会惊讶于构成
         <code>
             NSTableView
         </code>
-        .
+        的单个的UI对象的数量。
     </p>
     <p>
         <code>
             NSTableView
         </code>
-        is an older and more complex control than a
+        是一个更老且比
         <code>
             UITableView
         </code>
-        , and it serves a different user interface paradigm, specifically, where
-        the user has a mouse or trackpad.
+        更复杂的控件，它服务于一个不同的用户交互的范例中，特别地在用户有一个鼠标或触控板的情况下。
     </p>
     <p>
-        The main difference with
+    	相对于
         <em>
             UITableView
         </em>
-        is that you have the possibility of multiple columns and a header that
-        can be used to interact with the table view, for example, ordering and
-        selecting.
+        ，它的主要区别是你可以有多列，及一个可以用来同table view交互的表头，例如排序和选取。
     </p>
     <p>
-        Together,
         <code>
             NSScrollView
         </code>
-        and
+        和
         <code>
             NSClipView
         </code>
-        , respectively scroll and clip the contents of the
+        会分别负责滚动和裁剪
         <code>
             NSTableView
         </code>
-        .
+        的内容。
     </p>
     <p>
-        There are two
+    	这里有两个
         <code>
             NSScroller
         </code>
-        objects — one each for vertical and horizontal scrolling across the table.
+        对象 - 各自负责table在垂直和水平方向上的滚动。
     </p>
     <p>
-        There are also a number of column objects. An
+    	这里也有一些列的对象。一个
         <code>
             NSTableView
         </code>
-        has columns, and these columns have headers with titles. It’s important
-        to note that users can resize and reorder columns, though you have the
-        power to remove this ability by setting its default to disabled.
+        有若干的列，这些列都有标题。
+        注意到用户能够改变列的大小和重新排序是非常重要的，尽管你可以通过设置默认为关闭的来移除这项能力。
     </p>
     <h3>
         Anatomy of NSTableView
