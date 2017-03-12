@@ -180,12 +180,12 @@
         </a>
     </p>
     <p>
+    	下一步，你需要添加一些约束。在Auto Layout的工具栏中点击
         Next, you need to add some constraints. Click the
         <em>
             Pin
         </em>
-        button in the Auto Layout toolbar. In the popup that appears, set the
-        all the edge constraints as follows:
+        按钮。在出现的弹出菜单中，设置全部的边缘约束如下：
     </p>
     <ul>
         <li>
@@ -200,11 +200,11 @@
             <em>
                 Leading
             </em>
-            and
+            及
             <em>
                 Trailing
             </em>
-            : 0.
+            ：0。
         </li>
     </ul>
     <p>
@@ -214,40 +214,39 @@
         sizes="(max-width: 362px) 100vw, 362px">
     </p>
     <p>
-        Be sure to set
+    	务必设置
         <em>
             Update Frames
         </em>
-        to
+        为
         <em>
             Items of New Constraints
         </em>
-        , then click
+        ，然后点击
         <em>
             Add 4 Constraints
         </em>
-        .
+        。
     </p>
     <p>
-        Take a moment to have a look at the structure of a newly created table
-        view. As you probably gathered from its name, it follows typical table
-        structuring:
+    	花几分钟来看一下新创建的table view的结构。正如你可能从它的名称中获取的一样，它遵循典型的table的结构：
     </p>
     <ul>
         <li>
+        	由行和列构成。
             It’s made up of rows and columns.
         </li>
         <li>
-            Each row represents a single item within the data model collection.
+        	每一行代表在数据模型集合中的单独的一项。
         </li>
         <li>
-            Each column displays specific attributes of the model.
+        	每一列展示这个model的指定的属性。
         </li>
         <li>
-            Each column can also have a header row.
+        	每一列也可以有一个列头（header row）。
         </li>
         <li>
-            Header rows describe the data within a column.
+        	列头描述了这一列的数据。
         </li>
     </ul>
     <p>
