@@ -557,57 +557,53 @@
         sizes="(max-width: 598px) 100vw, 598px">
     </p>
     <h3>
-        Changing How Information is Represented
+    	改变信息的表现方式
     </h3>
     <p>
-        In its current state, the table view has three columns, each containing
-        a cell view that shows text in a text field.
+    	在当前的状态下，这个table view 有三列，每一列包含一个用text field展示的cell view。
     </p>
     <p>
-        But it’s kind of bland, so spice it up by showing the icon of the file
-        next to the file name. Your table will look much cleaner after this little
-        upgrade.
+    	但这有一点乏味。所以加工一下吧，在文件名旁边展示一下它的图标。你的table会在这个小升级之后变得更整洁。
     </p>
     <p>
-        You need to replace the cell view in the first column with a new cell
-        type that contains an image and a text field.
+    	你需要用一个包含image和text field的新的cell来替换第一列的cell view。
     </p>
     <p>
-        You’re in luck because Interface Builder has this type of cell built in.
+    	你是幸运的，因为Interface Builder拥有这种内建类型的cell。
     </p>
     <p>
-        Select the
+    	在
+    	<em>
+            Name
+        </em>
+        这列中选择
         <em>
             Table Cell View
         </em>
-        in the
-        <em>
-            Name
-        </em>
-        column and delete it.
+        ，并删除它。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/delete-this-view-1.png"
         alt="delete this view" width="301" height="257" class="aligncenter size-full wp-image-145802">
     </p>
     <p>
-        Open the
+    	打开
         <em>
             Object Library
         </em>
-        and drag and drop an
+        并将一个
         <em>
             Image &amp; Text Table Cell View
         </em>
-        into either the first column of the table view or the
+        拖拽到table view的第一列或
         <em>
             View Controller Scene
         </em>
-        tree, just under the
+        的“树”中，就在
         <em>
             Name
         </em>
-        table view column.
+        这个table view的列下面.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/10/set-name-cell.png">
