@@ -8,7 +8,7 @@
             <em>
                 更新记录：
             </em>
-            这个macOS NSTableView的教程已被Warren Burton更新到Xcode 8及Swift 3。
+            这个macOS NSTableView的教程已由Warren Burton更新到Xcode 8及Swift 3的版本。
             <a href="https://www.raywenderlich.com/118835/os-x-nstableview-tutorial">
                 原教程
             </a>
@@ -27,16 +27,16 @@
         </p>
     </div>
     <p>
-    	在macOS应用中，table view是最普遍存在的控件之一，熟悉的例子有邮件信息的列表及Spotlight的搜索结果。它可以让你的Mac以一个迷人的方式，展现列成表格的数据。
+    	在macOS应用中，table view是最普遍存在的控件之一，熟悉的例子有邮件信息的列表及Spotlight的搜索结果。它可以让你的Mac以一个迷人的方式，来展现列成表格的数据。
     </p>
     <p>
         <code>
             NSTableView
         </code>
-        使用行和列来排列数据。每一行代表给出数据集合中的一个单独的数据模型，每一列展示这个数据模型的一个特定的属性。
+        使用行和列来排列数据。每一行代表给出的数据集合中的一个单独的数据模型，每一列展示这个数据模型中的一个特定的属性。
     </p>
     <p>
-    	在这篇macOS的NSTableView教程中，你将使用一个table view来创建带有功能的文件查看器，它将具有和Finder惊人的相似性。在你完成它之后，你将学到很多关于table view的知识，例如：
+    	在这篇macOS的NSTableView教程中，你将使用一个table view来创建带有功能的文件查看器，它具有和Finder惊人的相似性。在你完成它之后，你将学到很多关于table view的知识，例如：
     </p>
     <ul>
         <li>
@@ -46,7 +46,7 @@
         	怎么改变它的视觉风格。
         </li>
         <li>
-        	怎么响应像是选择或双击用户的交互。
+        	怎么响应类似选择或双击用户交互。
         </li>
     </ul>
     <p>
@@ -58,7 +58,7 @@
     <p>
     	下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/10/FileViewer_starter-2.zip">
-            启动的项目
+            起始的项目
         </a>
         并在
         <em>
@@ -110,7 +110,7 @@
     	这个信息展示了被选择的目录的路径，在起始项目的代码中传递了URL到view controller中。
     </p>
     <p>
-    	如果你很好奇并想了解更多关于这些东西是怎么实现的，这些是你应该查看的地方：
+    	如果你很好奇，并想了解更多有关这些东西是怎么实现的，这些是你应该查看的地方：
     </p>
     <ul>
         <li>
@@ -145,7 +145,6 @@
         </li>
     </ul>
     <h2>
-        Creating the Table View
         创建Table View
     </h2>
     <p>
@@ -233,7 +232,6 @@
     <ul>
         <li>
         	由行和列构成。
-            It’s made up of rows and columns.
         </li>
         <li>
         	每一行代表在数据模型集合中的单独的一项。
@@ -317,7 +315,7 @@
         剖析NSTableView
     </h3>
     <p>
-    	在Interface Builder中，你已经看到了table view中，view层级的复杂性。很多的类协作来构建table的结构，通常最终看起来会像这样：
+    	在Interface Builder中，你已经看到了table view中的view层级的复杂性。很多的类协作来构建table的结构，通常最终看起来会像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Artboard-1.png">
@@ -359,7 +357,6 @@
                 NSView
             </code>
             或
-            or
             <code>
                 NSTableCellView
             </code>
@@ -370,7 +367,6 @@
                 Column
             </em>
             ：它是由
-            : The columns are represented by the
             <code>
                 NSTableViewColumn
             </code>
@@ -387,7 +383,6 @@
                 NSCell
             </code>
             的cell的。它像是一个
-            . It’s like an
             <code>
                 NSView
             </code>
@@ -421,7 +416,7 @@
     	玩转table view中的行
     </h3>
     <p>
-    	默认地，Interface Builder创建的table view会带有两列，但是你需要三列来展示名称，日期和大小的文件信息。
+    	默认的，Interface Builder创建的table view会带有两列，但是你需要三列来展示名称，日期和大小的文件信息。
     </p>
     <p>
     	回到
@@ -1199,14 +1194,14 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
     	每个人都喜欢好的排序，在这一部分你将学习怎么基于用户的选择给table view排序。
     </p>
     <p>
-    	table最好的特性之一就是通过单击或双击指定的一列来排序。单击会以升序排列，双击则以降序排列。
+    	table最好的特性之一，就是通过单击或双击指定的一列来排序。单击会以升序排列，双击则以降序排列。
     </p>
     <p>
     	实现这个特定的UI是非常容易的，因为
         <code>
             NSTableView
         </code>
-        打包了大多数直接“开箱即用”的功能。
+        打包了大多数直接“开箱即用”（out of the box）的功能。
     </p>
     <p>
         <em>
@@ -1312,7 +1307,6 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
     </ol>
     <p>
     	build并运行。
-        Build and run.
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/sortable-columns.png"
@@ -1379,9 +1373,6 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
     </ul>
     <p>
     	这里有更多你可以使用table view来做的事，让你可以为你的app构建高雅的UI。如果你想要关于它更多的内容，可以参考下列资源：
-        There is a lot more you can do with table views to build elegant UI for
-        your app. If you’re looking to learn more about it, consider the following
-        resources:
     </p>
     <ul>
         <li>
