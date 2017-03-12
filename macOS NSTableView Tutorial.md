@@ -33,31 +33,27 @@
         <code>
             NSTableView
         </code>
-        arranges data in rows and columns. Each row represents a single model
-        object within a given data collection, and each column displays a specific
-        attribute of a model object.
+        使用行和列来排列数据。每一行代表给出数据集合中的一个单独的数据模型，每一列展示这个数据模型的一个特定的属性。
     </p>
     <p>
-        In this macOS NSTableView tutorial, you’ll use a table view to create
-        a functional file viewer that will bear a striking resemblance to Finder.
-        As you work through it, you’ll learn a lot about table views, such as:
+    	在这篇macOS的NSTableView教程中，你将使用一个table view来创建带有功能的文件浏览器，它将具有和Finder惊人的相似性。在你完成它之后，你将学到很多关于table view的知识，例如：
     </p>
     <ul>
         <li>
-            How to populate a table view.
+        	怎么填充一个table view。
         </li>
         <li>
-            How to change its visual style.
+        	怎么改变它的视觉风格。
         </li>
         <li>
-            How to react to user interaction, like a selection or double-click.
+        	怎么响应像是选择或双击用户的交互。
         </li>
     </ul>
     <p>
-        Ready to create your first table view? Read on!
+    	准备好创建你的第一个table view了么？继续阅读！
     </p>
     <h2>
-        Getting Started
+    	开始吧
     </h2>
     <p>
         Download
