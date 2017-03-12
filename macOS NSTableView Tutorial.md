@@ -181,7 +181,6 @@
     </p>
     <p>
     	下一步，你需要添加一些约束。在Auto Layout的工具栏中点击
-        Next, you need to add some constraints. Click the
         <em>
             Pin
         </em>
@@ -266,7 +265,7 @@
         <code>
             NSTableView
         </code>
-        的单个的UI对象的数量。
+        的单个的UI对象的层级的数量。
     </p>
     <p>
         <code>
@@ -315,12 +314,10 @@
         注意到用户能够改变列的大小和重新排序是非常重要的，尽管你可以通过设置默认为关闭的来移除这项能力。
     </p>
     <h3>
-        Anatomy of NSTableView
+        剖析NSTableView
     </h3>
     <p>
-        In Interface Builder, you’ve seen the complexity of the view hierarchy
-        of the table view. Multiple classes cooperate to build the table structure,
-        which usually ends up looking like this:
+    	在Interface Builder中，你已经看到了table view中，view层级的复杂性。很多的类协作来构建table的结构，通常最终看起来会像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Artboard-1.png">
@@ -330,109 +327,95 @@
         </a>
     </p>
     <p>
-        These are the key parts of an
+    	这些是构成
         <code>
             NSTableView
         </code>
-        :
+        的关键部分：
     </p>
     <ul>
         <li>
             <em>
                 Header View
             </em>
-            : The header view is an instance of
+            ：header view是
             <code>
                 NSTableHeaderView
             </code>
-            . It’s responsible for drawing the headers at top of the table. If you
-            need to display a custom header, you can use your own header subclasses.
+            的实例。它负责在table的顶部绘制header。如果你需要展示一个定制的header，你可以使用你自己的header的子类。
         </li>
         <li>
             <em>
                 Row View
             </em>
-            : The row view displays the visual attributes associated with every row
-            in the table view, like a selection highlight. Each row displayed in the
-            table has its own instance of the row view. An important distinction to
-            make is that rows do not represent your data; that the cell’s responsibility.
-            It only handles visual attributes like selection color or separators. You
-            can create new row subclasses to style your table view differently.
+            ：row view展示了table view中的每一行的可见的属性，像一个选择高亮。展示在table中的每一行都有它自己的row view的实例。一个重大的区别是row不代表你的数据，cell才代表。它只处理可见的数据，例如选择颜色或分隔线。你可以创建新的row的子类来让你的table view风格不同。
         </li>
         <li>
             <em>
                 Cell Views
             </em>
-            : The cell is arguably the most important object in a table view. At the
-            intersection of a row and column, you find a cell. Each one is an
+            ：cell可能是table view中最重要的对象了。在行和列交叉的地方，你会找到一个cell。每个cell都是
             <code>
                 NSView
             </code>
+            或
             or
             <code>
                 NSTableCellView
             </code>
-            subclass, and its responsibility is to display the actual data. And guess
-            what? You can create custom cell view classes to display the content however
-            you’d like.
+            的子类，它用来负责展示实际的数据。猜下还有什么？你可以创建定制的cell view的类来展示任何你喜欢的内容。
         </li>
         <li>
             <em>
                 Column
             </em>
+            ：它是由
             : The columns are represented by the
             <code>
                 NSTableViewColumn
             </code>
-            class, which is responsible for managing width and behavior of the column,
-            such as resizing and repositioning. This class is not a view, but a controller
-            class. You use it to specify how columns should behave, but you don’t control
-            the visual styles of the columns with it because the header, row and cell
-            views have got things covered.
+            代表的，负责管理列的宽度和行为，例如调整大小和重新定位。这个类不是一个view，但却是一个controller的类。你可以用它来指定列的行为，但由于header的缘故，你不能控制列的可见的风格。row和cell view把这件事已经覆盖了。
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note:
+            	注意：
             </em>
-            There are two modes of NSTableView. The first is a cell-based table view
-            called an
+            NSTableView有两种模式。第一种是基于被称作
             <code>
                 NSCell
             </code>
+            的cell的。它像是一个
             . It’s like an
             <code>
                 NSView
             </code>
-            , but older and lighter. It comes from earlier days of computing when
-            the desktop needed optimizations in order to draw controls with minimal
-            overhead.
+            ，但是更老且更轻量。它来自于计算早期的时候，当桌面需要优化，要以最低的消耗绘制时而产生的。
         </p>
         <p>
-            Apple recommends using view-based table views, but you’ll see
+        	苹果推荐使用基于view的table view，但是你会在AppKit的多个控件中看到
             <code>
                 NSCell
             </code>
-            in many of the controls in AppKit, so it’s worth knowing what it is and
-            where it comes from. You can read more about
+            ，值得去了解它是什么及它从哪里来的。你可以阅读更多的
             <code>
                 NSCell
             </code>
-            in Apple’s
+            在苹果的
             <a title="Control and Cell Programming Topics" href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ControlCell/Concepts/AboutControlsCells.html#//apple_ref/doc/uid/20000731-BBCEACEA"
             target="_blank">
                 Control and Cell Programming Topics
             </a>
+            这篇文档中。
         </p>
     </div>
     <p>
-        Well, now that was a nice little jog into the basic theory behind table
-        view structure. Now that you’ve had all that, it’s time to go back to
+    	好的，现在一个很好的“小步慢跑”（little jog），了解table view结构背后的基础理论。既然你已了解了那些，现在就是时候返回
         <em>
             Xcode
         </em>
-        and get to work on your very own table view.
+        来继续完成您非常个性化的table view。
     </p>
     <h3>
         Playing With Columns in a Table View
