@@ -418,29 +418,28 @@
         来继续完成您非常个性化的table view。
     </p>
     <h3>
-        Playing With Columns in a Table View
+    	玩转table view中的行
     </h3>
     <p>
-        By default, Interface Builder creates a table view with two columns, but
-        you need three columns to display name, date and size file information.
+    	默认地，Interface Builder创建的table view会带有两列，但是你需要三列来展示名称，日期和大小的文件信息。
     </p>
     <p>
-        Go back to
+    	回到
         <em>
             Main.storyboard
         </em>
-        .
+        。
     </p>
     <p>
-        Select the table view in the
+        在
         <em>
-            View Controller Scene
+            View Controller场景
         </em>
-        . Make sure that you select the table view and
+        中选择table view。确保你选择的是table view而
         <i>
-            not
+            不是
         </i>
-        the scroll view that contains it.
+        包含它的scroll view。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/add-table-column.png"
@@ -449,47 +448,45 @@
         sizes="(max-width: 317px) 100vw, 317px">
     </p>
     <p>
-        Open the
+    	打开
         <em>
             Attributes Inspector
         </em>
-        . Change the number of
+        。改变
         <em>
             Columns
         </em>
-        to 3. It’s as simple as that! Your table view now has three columns.
+        为3。它是如此地简单！你的table view现在就有了三列。
     </p>
     <p>
-        Next, check the
+    	下一步，因为你想一次操作多个文件，在
+    	<em>
+            Selection
+        </em>
+        中勾选
         <em>
             Multiple
         </em>
-        checkbox in the
-        <em>
-            Selection
-        </em>
-        section, because you want to select multiple files at once. Also check
-        <em>
-            Alternating Rows
-        </em>
-        in the
+        。同时在
         <em>
             Highlight
         </em>
-        section. When enabled, this tells the table view to use alternating row
-        colors for its background, just like Finder.
+        这里勾选
+        <em>
+            Alternating Rows
+        </em>
+        。当它打开时，table view就会使用交替的行的背景颜色，就像Finder一样。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/tableview-attributes.png"
         alt="configure table attributes" width="261" height="382" class="aligncenter size-full wp-image-145679">
     </p>
     <p>
-        Rename the column headers so the text is more descriptive. Select the
-        first column in the
+    	重命名列头，让它更有描述性。在
         <em>
-            View Controller Scene
+            View Controller场景
         </em>
-        .
+        中选择第一列。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/configure-column.png"
@@ -498,19 +495,19 @@
         sizes="(max-width: 322px) 100vw, 322px">
     </p>
     <p>
-        Open the
+        打开
         <em>
             Attributes Inspector
         </em>
-        and change the column
+        并改变列的
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Name
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/tableview-changetitle.png">
@@ -520,42 +517,38 @@
         </a>
     </p>
     <p>
-        Repeat the operation for the second and third column, changing the
+    	对于第二列和第三列重复同样的操作，分别改变
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Modification Date
         </em>
-        and
+        和
         <em>
             Size
         </em>
-        , respectively.
+		。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+            	注意
             </em>
-            : There is an alternative method for changing the column title. You can
-            double-click directly on the header on the table view to make it editable.
-            Both ways have exactly the same end result, so go with whichever method
-            you prefer.
+            ：这里有一个可供替代的方法来改变列的标题。你可以直接双击table view的header来让它变得可编辑。两条路都可以得到正确的结果，所以按你更喜欢的那种来就可以了。
         </p>
     </div>
     <p>
-        Last, if you can’t see the Size column yet, select the Modification Date
-        column and resize to 200. It beats fishing around for the resize handle
-        with your mouse. :]
+    	最后，如果你还是不能看到Size这列，选择Modification Date这列并改变Width为200。
+        It beats fishing around for the resize handle with your mouse. :]
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/date-column-size-1.png"
         alt="resize modification date if needed" width="260" height="129" class="aligncenter size-full wp-image-145687">
     </p>
     <p>
-        Build and run. Here’s what you should see:
+    	build并运行。这里是你应该看到的：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/post-column-naming.png"
