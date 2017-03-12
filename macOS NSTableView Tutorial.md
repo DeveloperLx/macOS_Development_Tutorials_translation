@@ -105,7 +105,7 @@
         按钮。你会在Xcode的控制台中看到像如下的东西：
     </p>
     <pre class="none" style="font-family:monospace;">
-    	Represented object: file:///Users/tutorials/FileViewer/FileViewer/	</pre>
+    Represented object: file:///Users/tutorials/FileViewer/FileViewer/	</pre>
     <p>
     	这个信息展示了被选择的目录的路径，在起始项目的代码中传递了URL到view controller中。
     </p>
@@ -146,29 +146,30 @@
     </ul>
     <h2>
         Creating the Table View
+        创建Table View
     </h2>
     <p>
-        Open
+    	在
+    	<em>
+            Project Navigator
+        </em>
+    	中打开
         <em>
             Main.storyboard
         </em>
-        in the
-        <em>
-            Project Navigator
-        </em>
-        . Select the
+        。选择
         <em>
             View Controller Scene
         </em>
-        and drop a table view from the
+        ，然后从
         <em>
             Object Library
         </em>
-        into the view. There’s a container in the view hierachy named
+        放置一个table view到这个view上。这个在view的层级中，名叫
         <em>
             Table Container
         </em>
-        all ready for you.
+        的容器早已为你备好。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/10/add-table.png">
