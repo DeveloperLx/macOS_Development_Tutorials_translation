@@ -382,7 +382,7 @@
             <code>
                 NSCell
             </code>
-            的cell的。它像是一个
+            的cell。它像是一个
             <code>
                 NSView
             </code>
@@ -930,7 +930,7 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
         来告诉它进行刷新。
     </p>
     <p>
-    	注意你仅需要在一个新的目录被选中是调用这个方法。
+    	注意你仅需要在一个新的目录被选中时调用这个方法。
     </p>
     <p>
     	来到
