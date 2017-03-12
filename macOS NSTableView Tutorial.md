@@ -901,60 +901,58 @@
     <pre class="swift" style="font-family:monospace;">tableView.delegate <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
 tableView.dataSource <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span></pre>
     <p>
-        Here you tell the table view that its data source and delegate will be
-        the view controller.
+    	这里你告诉table view它的data source和delegate是这个view controller。
     </p>
     <p>
-        The last step is to tell the table view to refresh the data when a new
-        directory is selected.
+    	最后一步是当一个新的目录被选中时，告诉tableview刷新数据。
     </p>
     <p>
-        First, add this method to the
+    	首先，添加这个方法到
         <code>
             ViewController
         </code>
-        implementation:
+        的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   directoryItems <span style="color: #002200;">=</span> directory?.contentsOrderedBy<span style="color: #002200;">(</span>sortOrder, ascending<span style="color: #002200;">:</span> sortAscending<span style="color: #002200;">)</span>
   tableView.reloadData<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This helper method refreshes the file list.
+    	这个助手方法可以更新文件的列表。
     </p>
     <p>
-        First, it calls the
+    	首先，它调用了
         <code>
             directory
         </code>
-        method
+        的方法
         <code>
             contentsOrderedBy(_:ascending)
         </code>
-        and returns a sorted array with the directory files. Then it calls the
-        table view method
+        ，并返回了一个包含目录文件的有序的数组。然后调用了table view的方法
         <code>
             reloadData()
         </code>
-        to tell it to refresh.
+        来告诉它进行刷新。
     </p>
     <p>
-        Note that you only need to call this method when a new directory is selected.
+    	注意你仅需要在一个新的目录被选中是调用这个方法。
     </p>
     <p>
-        Go to the
+    	来到
         <code>
             representedObject
         </code>
-        observer
+        的观察者
         <code>
             didSet
         </code>
+        中，替换这行代码：
         , and replace this line of code:
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">print</span><span style="color: #002200;">(</span><span style="color: #bf1d1a;">"Represented object: <span style="color: #2400d9;">\(</span>url)"</span><span style="color: #002200;">)</span></pre>
     <p>
-        With this:
+    	为：
     </p>
     <pre class="swift" style="font-family:monospace;">directory <span style="color: #002200;">=</span> Directory<span style="color: #002200;">(</span>folderURL<span style="color: #002200;">:</span> url<span style="color: #002200;">)</span>
 reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span></pre>
