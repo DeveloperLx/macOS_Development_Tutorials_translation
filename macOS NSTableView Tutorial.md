@@ -989,190 +989,51 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         Nice job!
     </p>
     <h2>
-        Table View Interaction
+    	table view的交互
     </h2>
     <p>
-        In this section, you’ll work with some interactions to improve the UI.
+    	在这一部分，你将与一些交互共事，来提升UI。
     </p>
     <h3>
-        Responding to User Selection
+    	响应用户的选择
     </h3>
     <p>
-        When the user selects one or more files, the application should update
-        the information in the bottom bar to show the total number of files in
-        the folder and how many are selected.
+    	当用户选择了一个或多个文件，这个应用应当更新底部栏的信息，来展示目录中文件的个数，以及被选中的个数。
     </p>
     <p>
-        In order to be notified when the selection changes in the table view,
-        you need to implement
+    	为了在选择发生变化时收到通知，你需要在delegate中实现
         <code>
             tableViewSelectionDidChange(_:)
         </code>
-        in the delegate. This method will be called by the table view when it
-        detects a change in the selection.
+        。这个方法将在table view探测到选择发生变化时被调用。
     </p>
     <p>
-        Add this code to the
+    	添加这个代码到
         <em>
             ViewController
         </em>
-        implementation:
+        的实现中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438288">
-                    <td class="code" id="p143828code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            updateStatus
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            text
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 1
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            itemsSelected
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            tableView.selectedRowIndexes.
-                            <span style="color: #a61390;">
-                                count
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 2
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            directoryItems
-                            <span style="color: #002200;">
-                                ==
-                            </span>
-                            <span style="color: #a61390;">
-                                nil
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            text
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "No Items"
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            itemsSelected
-                            <span style="color: #002200;">
-                                ==
-                            </span>
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            text
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                directoryItems!.count) items"
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            text
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                itemsSelected) of
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                directoryItems!.count) selected"
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                // 3
-                            </span>
-                            statusLabel.stringValue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            text
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> updateStatus<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #a61390;">let</span> text<span style="color: #002200;">:</span> <span style="color: #a61390;">String</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">// 1</span>
+  <span style="color: #a61390;">let</span> itemsSelected <span style="color: #002200;">=</span> tableView.selectedRowIndexes.<span style="color: #a61390;">count</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">// 2</span>
+  <span style="color: #a61390;">if</span> <span style="color: #002200;">(</span>directoryItems <span style="color: #002200;">==</span> <span style="color: #a61390;">nil</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    text <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"No Items"</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span><span style="color: #002200;">(</span>itemsSelected <span style="color: #002200;">==</span> <span style="color: #2400d9;">0</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    text <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"<span style="color: #2400d9;">\(</span>directoryItems!.count) items"</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+    text <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"<span style="color: #2400d9;">\(</span>itemsSelected) of <span style="color: #2400d9;">\(</span>directoryItems!.count) selected"</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #11740a; font-style: italic;">// 3</span>
+  statusLabel.stringValue <span style="color: #002200;">=</span> text
+<span style="color: #002200;">}</span></pre>
     <p>
         This method updates the status label text based on the user selection.
     </p>
@@ -1196,46 +1057,9 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         Now, you just need to invoke this method when the user changes the table
         view selection. Add the following code inside the table view delegate extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438289">
-                    <td class="code" id="p143828code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            tableViewSelectionDidChange
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ notification
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Notification
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            updateStatus
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableViewSelectionDidChange<span style="color: #002200;">(</span>_ notification<span style="color: #002200;">:</span> Notification<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  updateStatus<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         When the selection changes this method is called by the table view, and
         then it updates the status text.
