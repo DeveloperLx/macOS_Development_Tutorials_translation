@@ -614,30 +614,28 @@
         </a>
     </p>
     <p>
-        Now you’re whipping things into shape!
+    	现在你就把它打造成型了！
     </p>
     <h3>
-        Assigning Identifiers
+        设定Identifier
     </h3>
     <p>
-        Every cell type needs an assigned identifier. Otherwise, you’ll be unable
-        to create a cell view that corresponds to a specific column when you’re
-        coding.
+    	每个cell类型都需要有一个被设定的identifier。否则，当你coding时就无法根据指定的列来创建cell view了。
     </p>
     <p>
-        Select the cell view in the first column, and in the
+    	选择第一列的cell view，在
         <em>
             Identity Inspector
         </em>
-        change the
+        中，改变
         <em>
             Identifier
         </em>
-        to
+        为
         <em>
             NameCellID
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/tableview-identifier.png">
@@ -646,16 +644,15 @@
         </a>
     </p>
     <p>
-        Repeat the process for the cell views in the second and third columns,
-        naming the identifiers
-        <em>
+    	在第二列及第三列中的cell view上重复同样的操作，分别命名为
+    	<em>
             DateCellID
         </em>
-        and
+        和
         <em>
             SizeCellID
         </em>
-        respectively.
+        。
     </p>
     <h2>
         Populating the Table View
