@@ -655,39 +655,33 @@
         。
     </p>
     <h2>
-        Populating the Table View
+	    填充table view
     </h2>
     <div class="note">
         <em>
-            Note:
+	        注意：
         </em>
-        There are two ways that you can populate a tableview, either using the
-        datasource and delegate protocols you’ll see in this macOS NSTableView
-        tutorial, or via
+        你有两种方法可以填充tableview：一种使用datasource和delegate协议，你将在这个教程中看到它们；另一种通过
         <a href="https://www.raywenderlich.com/141297/cocoa-bindings-macos" target="_blank">
             Cocoa bindings
         </a>
-        . The two techniques are not mutually exclusive and you may use them together
-        at times to get what you want.
+        来完成。这两种技术不是互斥的，你可以同时使用他们来得到你想要的。
     </div>
     <p>
-        The table view currently knows nothing about the data you need to show
-        or how to display it, but it does need to be looped in! So, you’ll implement
-        these two protocols to provide that information:
+    	这个table view当前并不知道你需要展示的数据，和怎么来展示，但这确实需要形成回路。所以你要实现这两个协议来提供这些信息：
     </p>
     <ul>
         <li>
             <code>
                 NSTableViewDataSource
             </code>
-            : tells the table view how many rows it needs to represent.
+            ：告诉table view有多少行需要展示。
         </li>
         <li>
             <code>
                 NSTableViewDelegate
             </code>
-            : provides the view cell that will be displayed for a specific row and
-            column.
+            ：提供将要展示在指定行和列上的view cell。
         </li>
     </ul>
     <p>
@@ -698,49 +692,45 @@
         </a>
     </p>
     <p>
-        The visualization process is a collaboration between the table view, delegate
-        and data source:
+    	这个形象化的过程是关于table view，delegate和data source之间的协作：
     </p>
     <ol>
         <li>
-            The table view calls the data source method
+        	这个table view调用data source的方法
             <code>
                 numberOfRows(in:)
             </code>
-            that returns the number of rows the table will display.
+            ，它会返回table将要展示的行的数量。
         </li>
         <li>
-            The table view calls the delegate method
+        	这个table view为每一行和列调用delegate的方法
             <code>
                 tableView(_:viewFor:row:)
             </code>
-            for every row and column. The delegate creates the view for that position,
-            populates it with the appropriate data, and then returns it to the table
-            view.
+            。delegate会创建这个位置上的view，并用恰当的数据填充它，然后返回给table view。
         </li>
     </ol>
     <p>
-        Both methods must be implemented in order to show your data in the table
-        view.
+    	为了在table view中展示你的数据，两个方法都必须实现。
     </p>
     <p>
-        Open
-        <em>
-            ViewController.swift
-        </em>
-        in the
-        <em>
+    	在
+    	<em>
             Assistant editor
         </em>
-        and
-        <em>
-            Control-drag
+    	中打开
+	    <em>
+            ViewController.swift
         </em>
-        from the table view into the
-        <code>
+        并
+        <em>
+        	按住control拖拽
+        </em>
+		table view到
+	    <code>
             ViewController
         </code>
-        class implementation to insert an outlet.
+        类的实现中来插入一个outlet。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/10/add-outlet.png">
@@ -751,27 +741,27 @@
         </a>
     </p>
     <p>
-        Make sure that the
+    	确认
         <em>
             Type
         </em>
-        is
+        为
         <em>
             NSTableView
         </em>
-        and the
+		，                
         <em>
             Connection
         </em>
-        is
+        为
         <em>
             Outlet
         </em>
-        . Name the outlet
+        。将outlet命名为：
         <code>
             tableView
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/tableview-outlet-22.png">
@@ -780,22 +770,22 @@
         </a>
     </p>
     <p>
-        You can now refer to the table view in code using this outlet.
+    	你现在就可以在代码中使用outlet引用table view了。
     </p>
     <p>
-        Switch back to the
+        切回到
         <em>
             Standard Editor
         </em>
-        and open
+        ，并打开
         <em>
             ViewController.swift
         </em>
-        . Implement the required data source method in the
+        。通过添加这些代码到
         <code>
             ViewController
         </code>
-        by adding this code at the end of the class:
+        类的最后来实现提供数据源的方法：
     </p>
     <pre class="swift" style="font-family:monospace;">extension ViewController<span style="color: #002200;">:</span> NSTableViewDataSource <span style="color: #002200;">{</span>
 &nbsp;
@@ -805,27 +795,26 @@
 &nbsp;
 <span style="color: #002200;">}</span></pre>
     <p>
-        This creates an extension that conforms to the
-        <code>
+    	这创建了一个遵守
+    	<code>
             NSTableViewDataSource
         </code>
-        protocol and implements the required method
+    	协议的extension，并实现了要求的方法
         <code>
             numberOfRows(in:)
         </code>
-        to return the number files in the directory, which is the size of the
+        来返回目录中文件的数量，它就是
         <code>
             directoryItems
         </code>
-        array.
+        数组的大小。
     </p>
     <p>
-        Now you need to implement the delegate. Add the following extension at
-        the end of
+    	现在你需要实现delegate。添加下列的extension到
         <em>
             ViewController.swift
         </em>
-        :
+        的最后：
     </p>
     <pre class="swift" style="font-family:monospace;">extension ViewController<span style="color: #002200;">:</span> NSTableViewDelegate <span style="color: #002200;">{</span>
 &nbsp;
@@ -874,70 +863,43 @@
 &nbsp;
 <span style="color: #002200;">}</span></pre>
     <p>
-        This code declares an extension that conforms to the
+    	这个代码声明了一个遵守
         <code>
             NSTableViewDelegate
         </code>
-        protocol and implements the method
+        协议的extension，并实现了方法
         <code>
             tableView(_:viewFor:row)
         </code>
-        . It’s then called by the table view for every row and column to get the
-        appropriate cell.
+        。它接下来会被table view的每一行和每一列调用，来得到恰当的cell。
     </p>
     <p>
-        There’s a lot going on the method, so here’s a step-by-step breakdown:
+    	这个方法中还有很多需要做的事，这里有一个一步步的项（breakdown）：
     </p>
     <ol>
         <li>
-            If there is no data to display, it returns no cells.
+        	如果没有数据要展示，它应该不返回cell。
         </li>
         <li>
-            Based on the column where the cell will display (Name, Date or Size),
-            it sets the cell identifier, text and image.
+        	基于cell将要展示的列（Name，Date或Size），它要设置cell identifier，文本和图像。
         </li>
         <li>
-            It gets a cell view by calling
+        	它通过调用
             <code>
                 make(withIdentifier:owner:)
             </code>
-            . This method creates or reuses a cell with that identifier. Then it fills
-            it with the information provided in the previous step and returns it.
+            来得到一个cell。这个方法通过那个identifier来创建或复用一个cell，然后使用之前一步提供的数据来填充它，并返回。
         </li>
     </ol>
     <p>
-        Next up, add this code inside
+    	接下来，在
         <code>
             viewDidLoad()
         </code>
-        :
+        中添加这个代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438284">
-                    <td class="code" id="p143828code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            tableView.delegate
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            tableView.dataSource
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">tableView.delegate <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
+tableView.dataSource <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span></pre>
     <p>
         Here you tell the table view that its data source and delegate will be
         the view controller.
@@ -953,57 +915,10 @@
         </code>
         implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438285">
-                    <td class="code" id="p143828code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            reloadFileList
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            directoryItems
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            directory?.contentsOrderedBy
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sortOrder, ascending
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            sortAscending
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            tableView.reloadData
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  directoryItems <span style="color: #002200;">=</span> directory?.contentsOrderedBy<span style="color: #002200;">(</span>sortOrder, ascending<span style="color: #002200;">:</span> sortAscending<span style="color: #002200;">)</span>
+  tableView.reloadData<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This helper method refreshes the file list.
     </p>
