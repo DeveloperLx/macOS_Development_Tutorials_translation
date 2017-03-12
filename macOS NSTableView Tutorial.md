@@ -952,72 +952,12 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
         </code>
         , and replace this line of code:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438286">
-                    <td class="code" id="p143828code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                print
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "Represented object:
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                url)"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">print</span><span style="color: #002200;">(</span><span style="color: #bf1d1a;">"Represented object: <span style="color: #2400d9;">\(</span>url)"</span><span style="color: #002200;">)</span></pre>
     <p>
         With this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1438287">
-                    <td class="code" id="p143828code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            directory
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Directory
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            folderURL
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            url
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            reloadFileList
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">directory <span style="color: #002200;">=</span> Directory<span style="color: #002200;">(</span>folderURL<span style="color: #002200;">:</span> url<span style="color: #002200;">)</span>
+reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span></pre>
     <p>
         You’ve just created an instance of
         <code>
