@@ -1255,54 +1255,10 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </em>
         . It’s mostly empty except for this important definition:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627218">
-                    <td class="code" id="p136272code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                enum
-                            </span>
-                            SparkleDrag
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                static
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            type
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "com.razeware.StickerDrag.AppAction"
-                            </span>
-                            <span style="color: #a61390;">
-                                static
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            action
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "make sparkles"
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">enum</span> SparkleDrag <span style="color: #002200;">{</span>
+  <span style="color: #a61390;">static</span> <span style="color: #a61390;">let</span> type <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"com.razeware.StickerDrag.AppAction"</span>
+  <span style="color: #a61390;">static</span> <span style="color: #a61390;">let</span> action <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"make sparkles"</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This defines your custom dragging type and action identifier.
     </p>
@@ -1364,109 +1320,20 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </em>
         and add the following extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627219">
-                    <td class="code" id="p136272code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                // MARK: - NSDraggingSource
-                            </span>
-                            extension AppActionSourceView
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingSource
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            draggingSession
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ session
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSDraggingSession, sourceOperationMaskFor context
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSDraggingContext
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            &gt; NSDragOperation
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                switch
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            context
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                case
-                            </span>
-                            .outsideApplication
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            NSDragOperation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                case
-                            </span>
-                            .withinApplication
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            .generic
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// MARK: - NSDraggingSource</span>
+extension AppActionSourceView<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingSource</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #a61390;">func</span> draggingSession<span style="color: #002200;">(</span>_ session<span style="color: #002200;">:</span> NSDraggingSession, sourceOperationMaskFor
+    context<span style="color: #002200;">:</span> NSDraggingContext<span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; NSDragOperation <span style="color: #002200;">{</span>
+&nbsp;
+    <span style="color: #a61390;">switch</span><span style="color: #002200;">(</span>context<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">case</span> .outsideApplication<span style="color: #002200;">:</span>
+      <span style="color: #a61390;">return</span> NSDragOperation<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    <span style="color: #a61390;">case</span> .withinApplication<span style="color: #002200;">:</span>
+      <span style="color: #a61390;">return</span> .generic
+    <span style="color: #002200;">}</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This code block differs from
         <code>
@@ -1497,141 +1364,16 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </code>
         class implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627220">
-                    <td class="code" id="p136272code20">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            mouseDown
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            with theEvent
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSEvent
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            pasteboardItem
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            NSPasteboardItem
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            pasteboardItem.setString
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            SparkleDrag.action, forType
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            SparkleDrag.type
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            draggingItem
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            NSDraggingItem
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            pasteboardWriter
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            pasteboardItem
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            draggingItem.setDraggingFrame
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .bounds, contents
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            snapshot
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp; beginDraggingSession
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            with
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            draggingItem
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            , event
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            theEvent, source
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> mouseDown<span style="color: #002200;">(</span>with theEvent<span style="color: #002200;">:</span> <span style="color: #400080;">NSEvent</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #a61390;">let</span> pasteboardItem <span style="color: #002200;">=</span> NSPasteboardItem<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+  pasteboardItem.setString<span style="color: #002200;">(</span>SparkleDrag.action, forType<span style="color: #002200;">:</span> SparkleDrag.type<span style="color: #002200;">)</span>
+  <span style="color: #a61390;">let</span> draggingItem <span style="color: #002200;">=</span> NSDraggingItem<span style="color: #002200;">(</span>pasteboardWriter<span style="color: #002200;">:</span> pasteboardItem<span style="color: #002200;">)</span>
+  draggingItem.setDraggingFrame<span style="color: #002200;">(</span><span style="color: #a61390;">self</span>.bounds, contents<span style="color: #002200;">:</span>snapshot<span style="color: #002200;">(</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+&nbsp;
+  beginDraggingSession<span style="color: #002200;">(</span>with<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>draggingItem<span style="color: #002200;">]</span>, event<span style="color: #002200;">:</span> theEvent, source<span style="color: #002200;">:</span> <span style="color: #a61390;">self</span><span style="color: #002200;">)</span>
+&nbsp;
+<span style="color: #002200;">}</span></pre>
     <p>
         What did you do in there?
     </p>
@@ -1691,100 +1433,11 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </code>
         to the registered types. Replace the following line:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627221">
-                    <td class="code" id="p136272code21">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            nonURLTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Set&lt;String&gt;
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            kUTTypeTIFF
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span><span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
     <p>
         With this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627222">
-                    <td class="code" id="p136272code22">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            nonURLTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Set&lt;String&gt;
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            kUTTypeTIFF
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            ,SparkleDrag.type
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span>,SparkleDrag.type<span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
     <p>
         Now SparkleDrags are acceptable!
     </p>
@@ -1802,86 +1455,11 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627223">
-                    <td class="code" id="p136272code23">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            types
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            pasteBoard.types, types.
-                            <span style="color: #a61390;">
-                                contains
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            SparkleDrag.type
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            ,
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            action
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            pasteBoard.string
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forType
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            SparkleDrag.type
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            delegate?.processAction
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            action, center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            point
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> types <span style="color: #002200;">=</span> pasteBoard.types, types.<span style="color: #a61390;">contains</span><span style="color: #002200;">(</span>SparkleDrag.type<span style="color: #002200;">)</span>,
+  <span style="color: #a61390;">let</span> action <span style="color: #002200;">=</span> pasteBoard.string<span style="color: #002200;">(</span>forType<span style="color: #002200;">:</span> SparkleDrag.type<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  delegate?.processAction<span style="color: #002200;">(</span>action, center<span style="color: #002200;">:</span>point<span style="color: #002200;">)</span>
+  <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This addition extracts the string from the pasteboard. If it corresponds
         to your custom type, you pass the action back to the delegate.
@@ -1907,300 +1485,37 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </code>
         with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627224">
-                    <td class="code" id="p136272code24">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            processAction
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ action
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            , center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPoint
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            action
-                            <span style="color: #002200;">
-                                ==
-                            </span>
-                            SparkleDrag.action
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            invitationLabel.isHidden
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            named
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "star"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                for
-                            </span>
-                            _
-                            <span style="color: #a61390;">
-                                in
-                            </span>
-                            <span style="color: #2400d9;">
-                                1
-                            </span>
-                            ..&lt;Appearance.numStars
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //A.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            maxSize
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                CGFloat
-                            </span>
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Appearance.maxStarSize
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            sizeChange
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                CGFloat
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            arc4random_uniform
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            Appearance.randonStarSizeChange
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            finalSize
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            maxSize
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            sizeChange
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            newCenter
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            center.addRandomNoise
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            Appearance.randomNoiseStar
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //B.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            imageFrame
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSRect
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            x
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            newCenter.x, y
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            newCenter.y, width
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            finalSize , height
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            finalSize
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            imageView
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImageView
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            frame
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            imageFrame
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //C.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            newImage
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            image.tintedImageWithColor
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #400080;">
-                                NSColor
-                            </span>
-                            .randomColor
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //D.
-                            </span>
-                            imageView.image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            newImage targetLayer.addSubview
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            imageView
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processAction<span style="color: #002200;">(</span>_ action<span style="color: #002200;">:</span> <span style="color: #a61390;">String</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">//1.</span>
+  <span style="color: #a61390;">if</span> action <span style="color: #002200;">==</span> SparkleDrag.action  <span style="color: #002200;">{</span>
+    invitationLabel.isHidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+&nbsp;
+    <span style="color: #11740a; font-style: italic;">//2.</span>
+    <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span><span style="color: #bf1d1a;">"star"</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+      <span style="color: #11740a; font-style: italic;">//3.</span>
+      <span style="color: #a61390;">for</span> _ <span style="color: #a61390;">in</span> <span style="color: #2400d9;">1</span>..&lt;Appearance.numStars <span style="color: #002200;">{</span>
+&nbsp;
+        <span style="color: #11740a; font-style: italic;">//A.</span>
+        <span style="color: #a61390;">let</span> maxSize<span style="color: #002200;">:</span><span style="color: #400080;">CGFloat</span> <span style="color: #002200;">=</span> Appearance.maxStarSize
+        <span style="color: #a61390;">let</span> sizeChange <span style="color: #002200;">=</span> <span style="color: #400080;">CGFloat</span><span style="color: #002200;">(</span>arc4random_uniform<span style="color: #002200;">(</span>Appearance.randonStarSizeChange<span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+        <span style="color: #a61390;">let</span> finalSize <span style="color: #002200;">=</span> maxSize <span style="color: #002200;">-</span> sizeChange
+        <span style="color: #a61390;">let</span> newCenter <span style="color: #002200;">=</span> center.addRandomNoise<span style="color: #002200;">(</span>Appearance.randomNoiseStar<span style="color: #002200;">)</span>
+&nbsp;
+        <span style="color: #11740a; font-style: italic;">//B.</span>
+        <span style="color: #a61390;">let</span> imageFrame <span style="color: #002200;">=</span> <span style="color: #400080;">NSRect</span><span style="color: #002200;">(</span>x<span style="color: #002200;">:</span> newCenter.x, y<span style="color: #002200;">:</span> newCenter.y, width<span style="color: #002200;">:</span> finalSize , height<span style="color: #002200;">:</span> finalSize<span style="color: #002200;">)</span>
+        <span style="color: #a61390;">let</span> imageView <span style="color: #002200;">=</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">(</span>frame<span style="color: #002200;">:</span>imageFrame<span style="color: #002200;">)</span>
+&nbsp;
+        <span style="color: #11740a; font-style: italic;">//C.</span>
+        <span style="color: #a61390;">let</span> newImage <span style="color: #002200;">=</span> image.tintedImageWithColor<span style="color: #002200;">(</span><span style="color: #400080;">NSColor</span>.randomColor<span style="color: #002200;">(</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+&nbsp;
+        <span style="color: #11740a; font-style: italic;">//D.</span>
+        imageView.image <span style="color: #002200;">=</span> newImage
+        targetLayer.addSubview<span style="color: #002200;">(</span>imageView<span style="color: #002200;">)</span>
+      <span style="color: #002200;">}</span>
+    <span style="color: #002200;">}</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         The above code does the following:
     </p>
