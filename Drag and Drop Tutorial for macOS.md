@@ -671,198 +671,24 @@
         </code>
         and replace it with this.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362729">
-                    <td class="code" id="p136272code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            processImage
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ image
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            , center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPoint
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            invitationLabel.isHidden
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            constrainedSize
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            image.aspectFitSizeForMaxDimension
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            Appearance.maxStickerDimension
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            subview
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImageView
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            frame
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSRect
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            x
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            center.x
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            constrainedSize.width
-                            <span style="color: #002200;">
-                                /
-                            </span>
-                            <span style="color: #2400d9;">
-                                2
-                            </span>
-                            , y
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            center.y
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            constrainedSize.height
-                            <span style="color: #002200;">
-                                /
-                            </span>
-                            <span style="color: #2400d9;">
-                                2
-                            </span>
-                            , width
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            constrainedSize.width, height
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            constrainedSize.height
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            subview.image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            image targetLayer.addSubview
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            subview
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            maxrotation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                CGFloat
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            arc4random_uniform
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            Appearance.maxRotation
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            Appearance.rotationOffset subview.frameCenterRotation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            maxrotation &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processImage<span style="color: #002200;">(</span>_ image<span style="color: #002200;">:</span> <span style="color: #400080;">NSImage</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//1.</span>
+  invitationLabel.isHidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//2.</span>
+  <span style="color: #a61390;">let</span> constrainedSize <span style="color: #002200;">=</span> image.aspectFitSizeForMaxDimension<span style="color: #002200;">(</span>Appearance.maxStickerDimension<span style="color: #002200;">)</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//3.</span>
+  <span style="color: #a61390;">let</span> subview <span style="color: #002200;">=</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">(</span>frame<span style="color: #002200;">:</span><span style="color: #400080;">NSRect</span><span style="color: #002200;">(</span>x<span style="color: #002200;">:</span> center.x <span style="color: #002200;">-</span> constrainedSize.width<span style="color: #002200;">/</span><span style="color: #2400d9;">2</span>, y<span style="color: #002200;">:</span> center.y <span style="color: #002200;">-</span> constrainedSize.height<span style="color: #002200;">/</span><span style="color: #2400d9;">2</span>, width<span style="color: #002200;">:</span> constrainedSize.width, height<span style="color: #002200;">:</span> constrainedSize.height<span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+  subview.image <span style="color: #002200;">=</span> image
+  targetLayer.addSubview<span style="color: #002200;">(</span>subview<span style="color: #002200;">)</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//4.</span>
+  <span style="color: #a61390;">let</span> maxrotation <span style="color: #002200;">=</span> <span style="color: #400080;">CGFloat</span><span style="color: #002200;">(</span>arc4random_uniform<span style="color: #002200;">(</span>Appearance.maxRotation<span style="color: #002200;">)</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span> Appearance.rotationOffset
+  subview.frameCenterRotation <span style="color: #002200;">=</span> maxrotation
+&nbsp;
+<span style="color: #002200;">}</span></pre>
     <p>
         This code does the following tricks:
     </p>
@@ -896,165 +722,23 @@
         </code>
         method with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627210">
-                    <td class="code" id="p136272code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            processImageURLs
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ urls
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            URL
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            , center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPoint
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                for
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            index,url
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                in
-                            </span>
-                            urls.enumerated
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            contentsOf
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            url
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            newCenter
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            center
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            index &gt;
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            newCenter
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            center.addRandomNoise
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            Appearance.randomNoise
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            processImage
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            image, center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            newCenter
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processImageURLs<span style="color: #002200;">(</span>_ urls<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>URL<span style="color: #002200;">]</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #a61390;">for</span> <span style="color: #002200;">(</span>index,url<span style="color: #002200;">)</span> <span style="color: #a61390;">in</span> urls.enumerated<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+    <span style="color: #11740a; font-style: italic;">//1.</span>
+    <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>contentsOf<span style="color: #002200;">:</span>url<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+      <span style="color: #a61390;">var</span> newCenter <span style="color: #002200;">=</span> center
+      <span style="color: #11740a; font-style: italic;">//2.</span>
+      <span style="color: #a61390;">if</span> index &gt; <span style="color: #2400d9;">0</span> <span style="color: #002200;">{</span>
+        newCenter <span style="color: #002200;">=</span> center.addRandomNoise<span style="color: #002200;">(</span>Appearance.randomNoise<span style="color: #002200;">)</span>
+      <span style="color: #002200;">}</span>
+&nbsp;
+      <span style="color: #11740a; font-style: italic;">//3.</span>
+      processImage<span style="color: #002200;">(</span>image, center<span style="color: #002200;">:</span>newCenter<span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         What you’re doing here is:
     </p>
@@ -1158,125 +842,21 @@
         </em>
         and add the following extensions:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627211">
-                    <td class="code" id="p136272code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                // MARK: - NSDraggingSource
-                            </span>
-                            extension ImageSourceView
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingSource
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            draggingSession
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ session
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSDraggingSession, sourceOperationMaskFor context
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSDraggingContext
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            &gt; NSDragOperation
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            .generic
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // MARK: - NSDraggingSource
-                            </span>
-                            extension ImageSourceView
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSPasteboardItemDataProvider
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            pasteboard
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ pasteboard
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPasteboard
-                            </span>
-                            ?, item
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSPasteboardItem, provideDataForType type
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //TODO: Return image data
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// MARK: - NSDraggingSource</span>
+extension ImageSourceView<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingSource</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">//1.</span>
+  <span style="color: #a61390;">func</span> draggingSession<span style="color: #002200;">(</span>_ session<span style="color: #002200;">:</span> NSDraggingSession, sourceOperationMaskFor context<span style="color: #002200;">:</span> NSDraggingContext<span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; NSDragOperation <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">return</span> .generic
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span>
+&nbsp;
+<span style="color: #11740a; font-style: italic;">// MARK: - NSDraggingSource</span>
+extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItemDataProvider <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">//2.</span>
+  <span style="color: #a61390;">func</span> pasteboard<span style="color: #002200;">(</span>_ pasteboard<span style="color: #002200;">:</span> <span style="color: #400080;">NSPasteboard</span>?, item<span style="color: #002200;">:</span> NSPasteboardItem, provideDataForType type<span style="color: #002200;">:</span> <span style="color: #a61390;">String</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #11740a; font-style: italic;">//TODO: Return image data</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <ol>
         <li>
             This method is required by
@@ -1323,159 +903,18 @@
         </code>
         class implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627212">
-                    <td class="code" id="p136272code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            mouseDown
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            with theEvent
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSEvent
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            pasteboardItem
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            NSPasteboardItem
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            pasteboardItem.setDataProvider
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            , forTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            kUTTypeTIFF
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            draggingItem
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            NSDraggingItem
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            pasteboardWriter
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            pasteboardItem
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            draggingItem.setDraggingFrame
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .bounds, contents
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            snapshot
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            beginDraggingSession
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            with
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            draggingItem
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            , event
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            theEvent, source
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> mouseDown<span style="color: #002200;">(</span>with theEvent<span style="color: #002200;">:</span> <span style="color: #400080;">NSEvent</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">//1.</span>
+  <span style="color: #a61390;">let</span> pasteboardItem <span style="color: #002200;">=</span> NSPasteboardItem<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+  pasteboardItem.setDataProvider<span style="color: #002200;">(</span><span style="color: #a61390;">self</span>, forTypes<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>kUTTypeTIFF<span style="color: #002200;">]</span><span style="color: #002200;">)</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//2.</span>
+  <span style="color: #a61390;">let</span> draggingItem <span style="color: #002200;">=</span> NSDraggingItem<span style="color: #002200;">(</span>pasteboardWriter<span style="color: #002200;">:</span> pasteboardItem<span style="color: #002200;">)</span>
+  draggingItem.setDraggingFrame<span style="color: #002200;">(</span><span style="color: #a61390;">self</span>.bounds, contents<span style="color: #002200;">:</span>snapshot<span style="color: #002200;">(</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//3.</span>
+  beginDraggingSession<span style="color: #002200;">(</span>with<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>draggingItem<span style="color: #002200;">]</span>, event<span style="color: #002200;">:</span> theEvent, source<span style="color: #002200;">:</span> <span style="color: #a61390;">self</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         Things get rolling when the system calls
         <code>
@@ -1590,121 +1029,12 @@
     <p>
         Replace the following line:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627213">
-                    <td class="code" id="p136272code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            acceptableTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Set&lt;String&gt;
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            NSURLPboardType
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> acceptableTypes<span style="color: #002200;">:</span> Set&lt;String&gt; <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span>NSURLPboardType<span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
     <p>
         With this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627214">
-                    <td class="code" id="p136272code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            nonURLTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Set&lt;String&gt;
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            kUTTypeTIFF
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            acceptableTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Set&lt;String&gt;
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            nonURLTypes.union
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            NSURLPboardType
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span><span style="color: #002200;">]</span> <span style="color: #002200;">}</span>
+<span style="color: #a61390;">var</span> acceptableTypes<span style="color: #002200;">:</span> Set&lt;String&gt; <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> nonURLTypes.union<span style="color: #002200;">(</span><span style="color: #002200;">[</span>NSURLPboardType<span style="color: #002200;">]</span><span style="color: #002200;">)</span> <span style="color: #002200;">}</span></pre>
     <p>
         You’ve just registered the TIFF type like you did for URLs and created
         a subset to use next.
@@ -1724,60 +1054,9 @@
         </code>
         statement:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627215">
-                    <td class="code" id="p136272code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            types
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            pasteBoard.types, nonURLTypes.intersection
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            types
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            .
-                            <span style="color: #a61390;">
-                                count
-                            </span>
-                            &gt;
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            canAccept
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> types <span style="color: #002200;">=</span> pasteBoard.types, nonURLTypes.intersection<span style="color: #002200;">(</span>types<span style="color: #002200;">)</span>.<span style="color: #a61390;">count</span> &gt; <span style="color: #2400d9;">0</span> <span style="color: #002200;">{</span>
+  canAccept <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         Here you’re checking if the
         <code>
@@ -1823,69 +1102,10 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627216">
-                    <td class="code" id="p136272code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            pasteboard
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            pasteBoard
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            delegate?.processImage
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            image, center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            point
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>pasteboard<span style="color: #002200;">:</span> pasteBoard<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  delegate?.processImage<span style="color: #002200;">(</span>image, center<span style="color: #002200;">:</span> point<span style="color: #002200;">)</span>
+  <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This extracts an image from the pasteboard and passes it to the delegate
         for processing.
@@ -1931,124 +1151,14 @@
         </code>
         with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13627217">
-                    <td class="code" id="p136272code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            pasteboard
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            pasteboard, type
-                            <span style="color: #002200;">
-                                ==
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            kUTTypeTIFF
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            ,
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            image
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            named
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "unicorn"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            finalImage
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            image.tintedImageWithColor
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #400080;">
-                                NSColor
-                            </span>
-                            .randomColor
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            tiffdata
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            finalImage.tiffRepresentation pasteboard.setData
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            tiffdata, forType
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            type
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
+<span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> pasteboard <span style="color: #002200;">=</span> pasteboard, type <span style="color: #002200;">==</span> <span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span>, <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span><span style="color: #bf1d1a;">"unicorn"</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">//2.</span>
+  <span style="color: #a61390;">let</span> finalImage <span style="color: #002200;">=</span> image.tintedImageWithColor<span style="color: #002200;">(</span><span style="color: #400080;">NSColor</span>.randomColor<span style="color: #002200;">(</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+  <span style="color: #11740a; font-style: italic;">//3.</span>
+  <span style="color: #a61390;">let</span> tiffdata <span style="color: #002200;">=</span> finalImage.tiffRepresentation
+  pasteboard.setData<span style="color: #002200;">(</span>tiffdata, forType<span style="color: #002200;">:</span>type<span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         In this method, the following things are happening:
     </p>
