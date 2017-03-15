@@ -209,49 +209,44 @@
         </a>
     </p>
     <p>
-        When you drag something with your mouse, e.g., a file, the following happens:
+    	当你用你的鼠标拖拽一样物事的时候，例如一个文件，就会发生下列的事：
     </p>
     <ol>
         <li>
-            A
+        	当你开始拖拽的时候，一个
             <em>
-                dragging session
+                拖拽session
             </em>
-            kicks off when you initiate a drag.
+            就开始了。
         </li>
         <li>
-            Some data bits — often an image and URL — are chosen to represent the
-            information placed on the dragging pasteboard.
+        	选择一些数据 - 通常一个图片和URL - 来表示放置在拖拽粘贴板上的信息。
         </li>
         <li>
-            You drop that image on a destination, which chooses to reject or accept
-            it and take some action — for instance, move the file to a new folder.
+        	你将图片投掷到一个destination上，他会选择拒绝还是接受它，并采取一些动作 - 例如，移动文件到另一个目录下。
         </li>
         <li>
-            The
             <em>
-                dragging session
+                拖拽session
             </em>
-            concludes.
+            结束。
         </li>
     </ol>
     <p>
-        That’s pretty much the gist of it. It’s a pretty simple concept!
+    	这就是它的要点（gist）。这是一个相当简单的概念！
     </p>
     <p>
-        First up is creating a dragging destination for receiving images from
-        Finder or any other app.
+    	第一件事，是为了从Finder和其它app接收图片，创建一个拖拽的destination。
     </p>
     <h2>
-        Creating a Dragging Destination
+    	创建一个拖拽destination
     </h2>
     <p>
-        A dragging destination is a view or window that accepts types of data
-        from the dragging pasteboard. You create a dragging destination by adopting
+    	拖拽的destination是一个view或window，它接受来自拖拽粘贴板的数据类型。你要通过遵守（adopt）
         <code>
             NSDraggingDestination
         </code>
-        .
+        协议来创建拖拽的目的地。
     </p>
     <p>
         This diagram shows the anatomy of a dragging session from the point of
