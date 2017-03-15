@@ -294,61 +294,52 @@
     </p>
     <h3>
         Basic Auto Layout
+        基本的自动布局
     </h3>
     <p>
-        You placed the label on the view controller’s canvas, but you haven’t
-        actually told OS X
-        <i>
-            how
+    	你把label放在了view controller的画布上，但你并没有实际地告诉OS X
+    	<i>
+            怎么
         </i>
-        it should position it. The view controller appears at one size in the
-        storyboard, but once it’s running in the app, the user can change the window
-        size–so you need to specify how the label should be positioned for
+    	来定位它。view controller在storyboard中以一种尺寸出现，但一旦运行在app中，用户是可以改变window的尺寸的 - 因此你需要指定对于
         <i>
-            any
+            任意
         </i>
-        window size.
+        的window的尺寸，这个label该怎么定位。
     </p>
     <p>
-        This sounds like it might be a really difficult task, but luckily Apple
-        has your back. OS X uses a powerful layout engine called Auto Layout, in
-        which the relationships between different components of the view are expressed
-        as constraints. These constraints&nbsp;are then interpreted at runtime
-        to calculate the size and position of each element within the view.
+    	这听起来是一件相当困难的任务，但幸运的是苹果会帮你（has your back）。OS X使用了一个叫做Auto Layout的强有力的布局引擎，不同view的组件之间的关系被表达为约束（constraints）。这些约束在运行时会计算view中的每个原件的尺寸和位置。
     </p>
     <div class="note">
         <em>
+        	注意：
             Note:
         </em>
-        Auto Layout is a complex topic, and this introductory tutorial won’t cover
-        it in any great depth. If you’d like to read more on the topic then there
-        are some excellent
+        Auto Layout是一个复杂的话题，在这个引导性的教程中不会覆盖任何的深度。如果你想要阅读更多关于这个话题的内容，这里有一些很棒的
         <a href="http://www.raywenderlich.com/115440/auto-layout-tutorial-in-ios-9-part-1-getting-started-2"
         sl-processed="1">
-            tutorials
+            教程
         </a>
-        on the site targeted to Auto Layout on iOS—luckily the engine is almost
-        identical on the two platforms.
+        ，在这个地址上是面向iOS的 - 幸运的是这个引擎在这两个平台上几乎是完全相同的。
     </div>
     <p>
-        Ensure that the label is selected in the view controller, and then click
-        the
+    	确保这个label已在view controller中被选中，单后在下面的工具栏中点击
         <em>
             Align
         </em>
-        button in the lower toolbar. Select
+        按钮。选择
         <em>
             Horizontally in Container
         </em>
-        , ensuring the value is set to
-        <em>
-            0
-        </em>
-        before clicking
+        ，确定在点击
         <em>
             Add 1 Constraint
         </em>
-        to add the constraint:
+        去添加约束前，它的值被设置为
+        <em>
+            0
+        </em>
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121085" src="https://koenig-media.raywenderlich.com/uploads/2015/11/11_align-300x320.png"
@@ -356,9 +347,7 @@
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <p>
-        This will ensure that the label will always appear in the center of the
-        window, irrespective of its width. You’ll notice that some angry red lines
-        have appeared in the storyboard:
+    	这会确保这个label总是出现在window的中央，无论window有多宽。你会注意到在storyboard上出现了一些“生气的”红色的线（some angry red lines）：
     </p>
     <p>
         <img class="aligncenter size-thumbnail wp-image-121086" src="https://koenig-media.raywenderlich.com/uploads/2015/11/12_angry_red-250x250.png"
@@ -366,30 +355,22 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        This is because you’ve provided a constraint that&nbsp;specifies the location
-        of the label in the horizontal direction, but you’ve not provided any information
-        about the vertical axis yet.
+    	这是因为你在水平方向上提供了一个约束来确定label的位置，但你没有提供关于数轴的任何信息。
     </p>
     <p>
-        Once again, ensure that the label is selected in the view controller,
-        and this time click the
+    	再一次地，确定这个label在view controller中已被选中，这次点击底部Auto Layout工具栏中的
         <em>
             Pin
         </em>
-        menu on the Auto Layout toolbar at the bottom. Enter
-        <em>
-            30
-        </em>
-        in the top constraint box and ensure that the I-bar beneath it is solid
-        red. Set the value of Update Frames to
-        <em>
-            Items of New Constraints
-        </em>
-        before clicking
+        菜单。在点击
         <em>
             Add 1 Constraint
         </em>
-        :
+        前，输入
+        <em>
+            30
+        </em>
+        在顶部的约束框中，确保下方的“I”型条是实心红色的：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121087" src="https://koenig-media.raywenderlich.com/uploads/2015/11/13_pin-227x320.png"
@@ -397,8 +378,7 @@
         sizes="(max-width: 227px) 100vw, 227px">
     </p>
     <p>
-        Immediately you’ll notice the view controller update—you can now see the
-        entire label, and the angry red lines have changed to calming blue:
+    	你会立即看到这个view controller更新了 - 你现在可以看到完全的label了，那个生气的红色的线变成了平静的蓝色：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121088" src="https://koenig-media.raywenderlich.com/uploads/2015/11/14_happy_storyboard-480x138.png"
@@ -406,8 +386,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        And that’s your “Hello World” app done (for now). Use the “play” button
-        to build and run, and inspect your handiwork:
+    	这就是的你的“Hello World”app完成了（对于现在）。使用“play”按钮来build和运行，检查你的作品（handiwork）：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121089" src="https://koenig-media.raywenderlich.com/uploads/2015/11/15_bar_02-480x293.png"
@@ -415,29 +394,28 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Congratulations! Not very personal though is it? In the next section you’ll
-        discover how to make the traditional greeting a little more friendly.
+    	祝贺！尽管它还不是非常个性化？在下一部分，你将发现怎么让传统的问候更友好一点。
     </p>
     <h2>
-        Handling User Input
+    	处理用户的输入
     </h2>
     <p>
-        In this section you’re going to add a text field to allow the user to
-        enter their name so that you can welcome them personally.
+    	在这一部分，你将添加一个text field来让用户可以输入它们的名字，这样你就可以个性化地欢迎他们了。
     </p>
     <h3>
         Control Layout
+        控制布局
     </h3>
     <p>
-        As you did before, use the object library to locate and then drag a
+    	在行动之前，使用object library来找到并拖拽一个
         <em>
             Text Field
         </em>
-        and a
+        和一个
         <em>
             Push Button
         </em>
-        onto the view controller. Position them above the “Hello World!” label:
+        到view controller上。将它们放置到“Hello World!”label的上面：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121090" src="https://koenig-media.raywenderlich.com/uploads/2015/11/16_position_textfield-480x115.png"
@@ -445,20 +423,18 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Remember that placing the controls on the canvas isn’t enough for OS X
-        to understand how you want them positioned as the window changes size.
-        You need to add some constraints to convey your wishes.
+    	记住，仅仅将控件放置到画布的上面是不足以让OS X理解，当window的尺寸发生变化时，你想怎么定位它们。你需要添加一些约束来传达你的意愿。
     </p>
     <p>
-        Select the text field, and then
+    	选择text field，然后
         <em>
-            Command-Click
+            按住Command点击
         </em>
-        the button to select both simultaneously. Click the
+        button来同时选取。在storyboard底部的Auto Layout工具栏点击
         <em>
             Stack
         </em>
-        icon on the Auto Layout toolbar at the bottom of the storyboard:
+        图标：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121091" src="https://koenig-media.raywenderlich.com/uploads/2015/11/17_stack-480x265.png"
@@ -466,47 +442,40 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This has created a new stack view containing the text field and the button.
-        A stack view automatically generates the layout constraints required to
-        position the contained views in a line. You can use the attributes inspector
-        to configure many common properties of the stack view.
+    	这就创建了一个新的包含text field和button的stack view。stack view会自动地生成要放置和包含view在一条线上的布局约束。你可以使用attributes inspector来配置很多stack view的共同的熟悉。
     </p>
     <div class="note">
         <em>
             NOTE:
+            注意：
         </em>
         <code>
             NSStackView
         </code>
-        has been in OS X since 10.9, but received a significant update in 10.11
-        (El Capitan)—in line with its introduction (
+        是从OS X 10.9开始支持的，但在10.11（El Capitan）时收到了一个重大的更新 - 与在iOS中介绍的（
         <code>
             UIStackView
         </code>
-        ) in iOS. Stack views are similar on both platforms, so you can check
-        out the iOS
+        ）一致。Stack view在两个平台上是类似的，因此你可以点击
         <a href="http://www.raywenderlich.com/114552/uistackview-tutorial-introducing-stack-views"
         sl-processed="1">
-            tutorial on stack views
+        	iOS的stack view教程
         </a>
-        to get up to speed. Or hang tight—there’s a tutorial on
+        来加快学习的速度。或是稍等，
         <code>
             NSStackView
         </code>
-        &nbsp;dropping in the next few weeks.
+        的教程将在接下来的几周内发布。
     </div>
     <p>
-        Once you’ve started stacking it’s difficult to stop. This time, you’re
-        going to stack your newly created stack view with the “Hello World!” label—in
-        a vertical stack view.
+    	一旦你开始stacking，你就很难停下来了。这次，你要stack你刚创建的stack view和“Hello World!”label到一个垂直的stack view上。
     </p>
     <p>
-        Use the button to the left of the lower toolbar to show the Document Outline
-        and then locate the “Hello World” control and the existing stack view.
+    	使用底部工具栏左侧的按钮来展示Document Outline，然后找到“Hello World”控件和已存在的stack view。
         <i>
-            Command-click
+            按住Command点击
         </i>
-        them to select both:
+        它们可以同时选择：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121092" src="https://koenig-media.raywenderlich.com/uploads/2015/11/18_document_outline-469x320.png"
@@ -514,11 +483,11 @@
         sizes="(max-width: 469px) 100vw, 469px">
     </p>
     <p>
-        As you did before, use the
+    	和你刚才做的一样，使用底部工具栏的
         <em>
             Stack
         </em>
-        button on the bottom toolbar to create a new stack view:
+        按钮来创建一个新的stack view：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121093" src="https://koenig-media.raywenderlich.com/uploads/2015/11/19_stack-480x195.png"
@@ -526,19 +495,19 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        While this new stack view is selected, open the
+    	在这个新的stack view被选中时，打开
         <em>
             Attributes Inspector
         </em>
-        and set the Alignment to
+        并设置Alignment为
         <em>
             Center X
         </em>
-        , and the spacing to
+        ，spacing为
         <em>
             20
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121094 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/20_stack_config-e1448290245207-480x306.png"
@@ -546,21 +515,17 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This ensures that the label and the upper stack view are nicely centered
-        and there’s a gap of 20 points between them.
+    	这就确保了这个label合上面的stack view漂亮地居中了，并且它们之间有20个点的间隔。
     </p>
     <p>
-        A couple more bits of layout to complete before you can turn your attention
-        to the task of handling user input.
+    	在将你的注意力转移到处理用户输入的任务之前，有一些布局需要去完成。
     </p>
     <p>
-        The stack view handles the positioning of its content relative to each
-        other, but it needs to be positioned within the view controller’s view.
-        Select the outer stack view and use the
+    	stack view处理了它内容中控件相互之间的位置，但它也需要在view controller的view中被定位。选择外部的stack view并使用
         <em>
             Align
         </em>
-        auto layout menu to center it horizontally&nbsp;within its container:
+        这个auto layout菜单，来让它在容器中居中：
     </p>
     <p>
         <img class="aligncenter wp-image-121095 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/21_align-300x320.png"
@@ -568,15 +533,15 @@
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <p>
-        And use the
+    	使用
         <em>
             Pin
         </em>
-        menu to pin the stack view to the top, with a spacing of
+        菜单来固定住（pin）住stack view到顶部，并带有一个
         <em>
             30
         </em>
-        :
+        的距离：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121096" src="https://koenig-media.raywenderlich.com/uploads/2015/11/22_pin-227x320.png"
@@ -584,27 +549,26 @@
         sizes="(max-width: 227px) 100vw, 227px">
     </p>
     <p>
-        Finally, to ensure that the text field always has the space for the user’s
-        name, you will fix its width.
+    	最后，确保text field总是含有足够的用户名字的空间，你要修正它的宽度。
     </p>
     <p>
-        Select the text field and use the
+    	选择text field并使用底部工具栏中的
         <em>
             Pin
         </em>
-        menu in the bottom toolbar to specify a
+        菜单，来指定
         <em>
             Width
         </em>
-        of
+        为
         <em>
             100
         </em>
-        . Click
+        。点击
         <em>
             Add 1 Constraint
         </em>
-        to save the new constraint:
+        来保存新的约束：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121097" src="https://koenig-media.raywenderlich.com/uploads/2015/11/23_textfield_width-480x311.png"
@@ -612,8 +576,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        With that your layout is pretty much complete—it should look like the
-        following:
+    	这样你的布局就较好地完成了 - 它应该看起来像下面这样：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121098" src="https://koenig-media.raywenderlich.com/uploads/2015/11/24_layout-480x176.png"
@@ -621,21 +584,21 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Now you can turn your attention back to those new controls you added.
+    	现在你可以将你的注意力转到那些你新添加的控件上了。
     </p>
     <h3>
-        Outlets and Actions
+        Outlets 和 Actions
     </h3>
     <p>
-        Select the text field and open the
+    	选择text field并打开
         <em>
             Attributes Inspector
         </em>
-        . In the Placeholder field type
+        。在In the Placeholder这里输入
         <em>
             Name
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121099 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/25_name-e1448290291815-480x249.png"
@@ -643,19 +606,18 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This grayed out text will instruct the user what the field is for, and
-        disappears as soon as they start typing.
+    	这个灰色的文本将指示用户这个text field是用来干什么的，当用户开始输入时会立即消失掉。
     </p>
     <p>
-        Select the button, and again open the
+    	选择按钮，再次打开
         <em>
             Attributes Inspector
         </em>
-        . Set the Title to
+        。设置Title为
         <em>
             Welcome
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121100" src="https://koenig-media.raywenderlich.com/uploads/2015/11/26_welcome-362x320.png"
@@ -663,56 +625,49 @@
         sizes="(max-width: 362px) 100vw, 362px">
     </p>
     <p>
-        That’s the cosmetic aspect done. Time to wire these two controls into
-        code.
+    	外观的美化就到这里了。现在是时候将这两个的控制写到代码里了。
     </p>
     <p>
-        OS X provides a way to interact with the storyboard UI from code using
-        outlets and actions:
+    	OS X使用outlets和actions，提供了从代码和storyboard的UI交互的方法：
     </p>
     <ul>
         <li>
+        	在代码中，
             <em>
-                An outlet
+                outlet
             </em>
-            is a property in code that is connected to a component in the storyboard.
-            This allows you to access the properties of controls within a storyboard
-            from your code.
+            是一个属性，它被连接到了一个storyboard中的组件。这就让你可以从你的代码中访问在storyboard中的属性。
         </li>
         <li>
             <em>
-                An action
+                action
             </em>
-            is a method on a class&nbsp;in code that is invoked when the user interacts
-            with the components in the UI – e.g. by clicking on a button.
+            是一个代码中的类中的方法；当用户和UI中的组件交互时，就会调用它 - 例如，点击一个button。
         </li>
     </ul>
     <p>
-        You are going to add outlets for the text field and the label, and an
-        action that will be called when the user clicks the welcome button.
+    	你将为text field和label添加outlet，当用户点击欢迎按钮的时候，一个动作就会被调用。
     </p>
     <p>
-        The view controller you’ve been working on already has a skeleton class
-        associated with it in code—in
+    	你一直工作在的这个view controller早已有了一个骨架类关联到了代码中 - 就在
         <em>
             ViewController.swift
         </em>
-        . This is where you’ll add the outlets and action.
+        。这是你将要添加outlets和action的地方。
     </p>
     <p>
-        Open the assistant editor using the button in the toolbar:
+    	使用工具栏中的按钮打开assistant editor。
     </p>
     <p>
         <img class="aligncenter size-full wp-image-121101" src="https://koenig-media.raywenderlich.com/uploads/2015/11/27_assistant_editor.png"
         alt="27_assistant_editor" width="210" height="64">
     </p>
     <p>
-        This will split the screen and show a code file alongside the storyboard.
-        It should be displaying
+    	这会拆分屏幕，并展示出一个代码文件在storyboard旁边。它本应该展示
         <em>
             ViewController.swift
         </em>
-        , but if it isn’t use the jump bar to select
+        ，但如果不是的话，就使用跳转栏（jump bar）来选择
         <em>
             Automatic
         </em>
@@ -722,7 +677,7 @@
         <em>
             ViewController.swift
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121102 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/28_jump_bar-480x52.png"
@@ -730,22 +685,23 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
+    	从storyboard中
         <em>
-            Right-click-drag
+	        右击拖拽
         </em>
-        (or
+        （或
         <em>
-            control-drag
+        	按住control拖拽
         </em>
-        ) from the text field in the storyboard over to the line above
-        <code>
-            override func viewDidLoad()
-        </code>
-        in
+        ）text field直到那条线到了
         <em>
             ViewController.swift
         </em>
-        :
+        中的  
+        <code>
+            override func viewDidLoad()
+        </code>
+        的上边：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121103" src="https://koenig-media.raywenderlich.com/uploads/2015/11/29_textfield_outlet-700x289.png"
@@ -753,15 +709,15 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Ensure that
+    	确保
         <em>
             Outlet
         </em>
-        is selected and call the new outlet
+        已选中，并叫做
         <em>
             nameTextField
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121104" src="https://koenig-media.raywenderlich.com/uploads/2015/11/30_name_textfield-480x276.png"
@@ -769,46 +725,19 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This will add the following property to&nbsp;
+    	这将添加下列的属性到
         <code>
             ViewController
         </code>
-        &nbsp;and updates the storyboard to automatically connect the text field
-        when loading the view controller:
+        中，并在加载view controller时，更新storyboard来自动地连接text field：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1102691">
-                    <td class="code" id="p110269code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            nameTextField
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+	<pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> nameTextField<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
     <p>
-        Repeat exactly the same process for the “Hello World!” label, this time
-        specifying that the outlet should be called
+    	对“Hello World!”label正确地重复相同的过程，这次指定这个outlet应当被叫做
         <em>
             welcomeLabel
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121105" src="https://koenig-media.raywenderlich.com/uploads/2015/11/31_welcome_label-480x282.png"
@@ -816,15 +745,17 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
+    	现在是时间把你的注意力转到button上了。再一次从storyboard中
         Now time to turn your attention to the button. Once again
         <em>
+        	按住Control拖拽
             Control-drag
         </em>
-        from the button in the storyboard over to the
+        button到你的
         <code>
             ViewController
         </code>
-        class:
+        类上：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121106" src="https://koenig-media.raywenderlich.com/uploads/2015/11/32_button_action-700x177.png"
@@ -832,15 +763,15 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This time, change the Connection to
+    	这次，改变这个连接到
         <em>
             Action
         </em>
-        and name it
+        ，并命名为
         <em>
             handleWelcome
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121107" src="https://koenig-media.raywenderlich.com/uploads/2015/11/33_action_settings-480x241.png"
@@ -848,67 +779,54 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Click
+        点击
         <em>
             Connect
         </em>
-        to make the connection and Xcode will add the following empty method to&nbsp;
+        来完成连接，Xcode会添加下列的空方法到
         <code>
             ViewController
         </code>
-        :
+        上：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleWelcome<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+    <span style="color: #002200;">}</span></pre>
     <p>
-        This method will be called every time the user clicks the button.
+    	这个方法会在用户每次点击按钮时被调用。
     </p>
     <p>
-        Add the following line to the
+    	添加下面这行代码到
         <code>
             handleWelcome(_:)
         </code>
-        method body:
+        方法体中：
     </p>
-    <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span>
-    </pre>
+    <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span></pre>
     <p>
-        This updates the
-        <code>
-            stringValue
-        </code>
-        property of the
-        <code>
+    	这会更新
+    	<code>
             welcomeLabel
         </code>
-        to a welcome message constructed using the
+        的
         <code>
             stringValue
         </code>
-        of the
-        <code>
-            nameTextField
-        </code>
-        .
+        属性，变为一个由nameTextField的stringValue所构成的欢迎的信息。
         <code>
             stringValue
         </code>
-        represents the value currently displayed by a text-based control—be it
-        user-entered or defined in the storyboard.
+        代表了一个基于文本的控件的当前的值 - 由用户输入的或在storyboard上定义的。
     </p>
     <p>
-        That’s all the code you need to get your personalized version of “Hello
-        World” going! Build and run to give it a try. Once the app has started,
-        try entering your name in the
+    	这就是你需要的“Hello World”的个人化版本的全部代码！build并执行来尝试一下。当app启动的时候，尝试输入你的名字到
         <em>
             Name
         </em>
-        box and clicking the
+        框中并点击
         <em>
             Welcome
         </em>
-        button. You’ll see your very own version of “Hello world!”:
+        按钮。你会看到你的非常个性化版本的“Hello world!”：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121108" src="https://koenig-media.raywenderlich.com/uploads/2015/11/34_hello_sam-700x426.png"
@@ -916,26 +834,24 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Pretty cool eh? Well, the fun doesn’t stop there. Next up you’re going
-        to learn about adding images to your app, to create an amazing magic-8
-        ball utility!
+    	是不是相当酷？好的，乐趣不止于此。下一步你将学习关于添加image到你的app，来创建一个令人惊奇的magic-8 ball工具！
     </p>
     <h2>
         Assets
     </h2>
     <p>
-        You were promised a magic 8-ball app at the start of this tutorial, and
-        so far you’ve seen no mention of a ball. Well, that’s all about to change.
+    	你在教程的开头被承诺了一个magic 8-ball的app，但到目前为止你看到都没有提到过一个球。好了，这就是全部将要改变的事。
     </p>
     <p>
+    	8-ball是相当与众不同的，如果没有一些可视化的东西，它无法成为一个令人兴奋的8-ball app。
         An 8-ball is pretty distinctive, and it wouldn’t be a very exciting 8-ball
         app without some visualization.
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/8ball-images.zip"
         sl-processed="1">
             Download
+            下载
         </a>
-        &nbsp;the images you’ll need to make your app look swish. You’ll find
-        two images inside the zip file—representing the two sides of a magic 8-ball:
+        这些你需要的图片，它们会让你的app看起来更漂亮。你会发现在zip文件中有两个图片 - 代表magic 8-ball的两面：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-121109" src="https://koenig-media.raywenderlich.com/uploads/2015/11/35_assets.png"
@@ -943,16 +859,14 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Image assets are stored in an asset catalog within an OS X app. This catalog
-        manages the different imagery and the different resolutions required for
-        the app icons and the in-app images.
+    	图片资产保存在OS X app中的一个资产目录中。这个目录管理了由app图标和app中的图像所要求的，含有不同分辨率的图像（imagery）。
     </p>
     <p>
-        Open
+    	通过在project navigator中选择
         <em>
             Assets.xcassets
         </em>
-        by selecting it in the project navigator:
+        来打开它：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121110" src="https://koenig-media.raywenderlich.com/uploads/2015/11/36_asset_catalog-700x182.png"
@@ -960,19 +874,18 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You can see that the catalog currently only contains one item –
+    	你可以看到这个目录中当前仅包含了一个项目 - 
         <em>
             AppIcon
         </em>
-        . This is where you would put the artwork to give your app a cool icon.
+        。这里就是你可以用艺术品（artwork）来给你的app一个很酷的图标的地方。
     </p>
     <p>
-        You need to add the downloaded images to the asset catalog. Locate the
-        images in finder, and
+    	你需要将下载到的图片添加到asset目录中。在finder找到图片，并将它们都
         <em>
-            drag
+            拖拽到
         </em>
-        them both into the asset catalog:
+        asset catalog目录中：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121111" src="https://koenig-media.raywenderlich.com/uploads/2015/11/37_drag_asset_catalog-700x323.png"
@@ -980,7 +893,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        This will create two new entries in the asset catalog:
+    	这将在asset catalog中创建两个记录（entry）：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121112" src="https://koenig-media.raywenderlich.com/uploads/2015/11/38_added_assets-700x372.png"
@@ -988,15 +901,10 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Notice that there are three “cells” for the images. These cells represent
-        the different screen scales–standard (1x), retina (2x) and retina-HD (3x).
-        Normally you would provide assets for each of these cells, but in this
-        simple project you will provide just one.
+    	注意到这里有三个图片的“单元格”（cell）。这些单元格代表了三种不同的屏幕分辨率 - 标准的 (1x), retina (2x) 和 retina-HD (3x)。通常来说，你要为每一个单元格提供资产，但在这个简单的工程中你提供一个就行了。
     </p>
     <p>
-        The image you’ve been provided is actually designed to be used at retina
-        resolutions (2x), so drag the image from the left-hand cell to the central
-        (2x) cell:
+    	你刚刚提供的图像实际上被设计为用作retina分辨率的 (2x)，因此将它从左边的单元格拖到中间来：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121113" src="https://koenig-media.raywenderlich.com/uploads/2015/11/39_drag_retina-480x176.png"
@@ -1004,8 +912,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Repeat for both of the 8-balls assets, so that the asset catalog looks
-        like this:
+    	对两个8-balls资产做同样的操作，asset目录现在看起来就像这样了：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121114" src="https://koenig-media.raywenderlich.com/uploads/2015/11/40_finished_asset_catalog-700x434.png"
@@ -1013,30 +920,29 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Those images are now available to use in your app—both from code and inside
-        the storyboard.
+    	那些图像现在可以被用在你的app中了 - 无论在代码中还是storyboard中。
     </p>
     <h3>
         Displaying Images
+        展示图像
     </h3>
     <p>
-        You’ve already seen how to display text, buttons and text input fields
-        in your app, but how about images? Enter
+    	你已经看过怎么在你的app中展示文本，按钮和文本输入框了，但对于图像呢？进入
         <code>
             ImageView
         </code>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and use the object library to search for
+        ，并使用object library来搜索
         <em>
             image view
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121115" src="https://koenig-media.raywenderlich.com/uploads/2015/11/41_image_view-340x320.png"
@@ -1044,9 +950,7 @@
         sizes="(max-width: 340px) 100vw, 340px">
     </p>
     <p>
-        Drag an image view onto the view controller canvas, at the bottom of the
-        stack view. Notice how a horizontal blue line will appear denoting where
-        in the stack view that the new image view will appear:
+    	将一个image view拖拽到view controller的画布上，放在stack view的底部。注意一条水平的蓝色的线是怎么出现的，它会指示新的image view会出现在stack view的哪里：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121116" src="https://koenig-media.raywenderlich.com/uploads/2015/11/42_add_to_stack-480x299.png"
@@ -1054,15 +958,15 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Open the
+        打开
         <em>
             Attributes Inspector
         </em>
-        and set the Image property to
+        ，并设置Image属性为
         <em>
             8ball
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121117 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/43_set_8ball-e1448290344741-480x160.png"
@@ -1070,7 +974,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This will update the canvas with the image, read from the asset catalog:
+    	这将使用来自asset目录的图像来更新画布：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121118" src="https://koenig-media.raywenderlich.com/uploads/2015/11/44_vc_with_image-480x310.png"
@@ -1078,7 +982,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Build and run the app to see how the image appears:
+    	build并运行app来查看这个图怎么出现：
     </p>
     <p>
         <img class="aligncenter wp-image-121119 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/11/45_bar_03-e1448290439265-700x430.png"
@@ -1086,33 +990,29 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Well, the image has appeared, but is clipped by the window. You can drag
-        to resize the window in the usual way, but it would be much better if the
-        window was correctly sized when the app starts, and then keeps a fixed
-        size.
+    	好的，这个图出现了，但却被window裁剪掉了一部分。你可以以通常的方式拖拽来改变window的大小，但显然如果当app启动时，window的尺寸就是正确的就更好了，并且要保持一个固定的尺寸。
     </p>
     <h2>
         Window Size
     </h2>
     <p>
-        The initial size of MagicEight’s window is determined by the size of the
-        view controller in the storyboard. Select the view controller’s view in
+    	MagicEight的window的初始尺寸是由storyboard中的view controller的尺寸决定的。在
         <em>
             Main.storyboard
         </em>
-        and open the
+        中选择view controller的view，并打开
         <em>
             Size Inspector
         </em>
-        . Set the Width to
+        。设置Width为
         <em>
             350
         </em>
-        and the height to
+        ，height为
         <em>
             480
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121120 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/46_vc_size-e1448290482977-421x320.png"
@@ -1120,7 +1020,7 @@
         sizes="(max-width: 421px) 100vw, 421px">
     </p>
     <p>
-        Notice that the storyboard canvas now looks strange:
+    	注意storyboard的画布现在看起来很奇怪：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121121" src="https://koenig-media.raywenderlich.com/uploads/2015/11/47_stange_vc-220x320.png"
@@ -1128,14 +1028,14 @@
         sizes="(max-width: 220px) 100vw, 220px">
     </p>
     <p>
-        This is because the layout constraints need to be re-evaluated.
+    	这是因为布局的约束需要重新被计算。
     </p>
     <p>
-        Use the
+        使用在底部的自动布局菜单栏中的
         <em>
             Resolve Auto Layout Issues
         </em>
-        menu on the bottom auto layout menu bar and select
+        菜单，并选择
         <em>
             All View in View Controller
         </em>
@@ -1145,7 +1045,7 @@
         <em>
             Update Frames
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121122" src="https://koenig-media.raywenderlich.com/uploads/2015/11/48_fix_al-374x320.png"
@@ -1153,8 +1053,7 @@
         sizes="(max-width: 374px) 100vw, 374px">
     </p>
     <p>
-        This will re-run the layout engine over the storyboard, and update the
-        preview:
+    	这会在storyboard中重新运行布局引擎，并更新预览图：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121123" src="https://koenig-media.raywenderlich.com/uploads/2015/11/49_fixed_vc-537x500.png"
@@ -1162,7 +1061,7 @@
         sizes="(max-width: 537px) 100vw, 537px">
     </p>
     <p>
-        Build and run to see how the app looks now:
+    	build并执行来查看app的样子：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121124" src="https://koenig-media.raywenderlich.com/uploads/2015/11/50_bar_04-348x500.png"
@@ -1170,25 +1069,21 @@
         sizes="(max-width: 348px) 100vw, 348px">
     </p>
     <p>
-        That looks much better. Try resizing the window—you’ll see that you can
-        still manually drag it to sizes that don’t work for MagicEight’s layout.
+    	看起来好了很多。尝试调整window的大小 - 你会看到你仍然可以手动拖动它到对MagicEight的布局无效的尺寸。
     </p>
     <p>
-        You have a couple of options here—you can either update the layout so
-        that it adapts nicely as the window changes size (e.g. to resize the image
-        for small windows), or you can fix the window size. You’re going to take
-        the second, easier approach.
+    	在这儿你有几个选项 - 你可以更新布局，让它在window的尺寸改变时也适应得不错（例如对于小的window调整image的尺寸），或者你可以固定window的尺寸。你将使用第二种较容易的方法。
     </p>
     <h3>
         Window Sizing
+       	调整Window的尺寸
     </h3>
     <p>
-        The window controller is responsible for managing the size of the window.
-        Open
+    	window controller是用来负责管理window的尺寸的。打开
         <em>
             Main.storyboard
         </em>
-        and select the window inside the window controller:
+        ，并选择window controller中的window：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121125" src="https://koenig-media.raywenderlich.com/uploads/2015/11/51_select_window-700x295.png"
@@ -1196,27 +1091,27 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Open the
+    	打开
         <em>
             Size Inspector
         </em>
-        and set the Content Size to a Width of
+        ，并设定Content Size的Width为
         <em>
             350
         </em>
-        and a height of
+        ，height为
         <em>
             480
         </em>
-        . Then check
+        。然后点击
         <em>
             Minimum Content Size
         </em>
-        and
+        和
         <em>
             Maximum Content Size
         </em>
-        ensuring that the the sizes are the same as the content size you entered:
+        ，确认它们和你刚输入的content size相同：
     </p>
     <p>
         <img class="aligncenter wp-image-121126 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/52_content_size-e1448290524705-410x320.png"
@@ -1224,37 +1119,31 @@
         sizes="(max-width: 410px) 100vw, 410px">
     </p>
     <p>
-        Build and run MagicEight again, and attempt to resize the window. You
-        no longer have control over the window size—it’s now fixed. Mega—just what
-        you wanted.
+    	再次build和运行MagicEight，并尝试改变window的大小。你已不再能控制window的大小 - 现在它是固定的。的确，这就是你想要的。
     </p>
     <p>
-        You can now turn your attention back to the task in-hand—building the
-        “magic” of the magic 8-ball. Well, nearly—there’s a bit more layout to
-        do first.
+    	现在你可以将你的注意力转回手上的任务了 - build magic 8-ball的“magic”。好的，接近了 - 首先这里有一些布局要做。
     </p>
     <h2>
-        Handling clicks
+    	处理点击
     </h2>
     <p>
-        When the user clicks on the 8-ball you will switch the image to the other
-        side and display a piece of advice. You need a new label to display this
-        advice.
+    	当用户点击8-ball时，你将改变图片到另一面，并展示一条建议。你需要一个新的label来展示这条建议。
     </p>
     <p>
-        Open
+    	打开
         <em>
             Main.storyboard
         </em>
-        and find the view controller scene. Use the
+        ，并找到view controller场景。使用
         <em>
             Object Library
         </em>
-        to locate a
+        去找到一个
         <em>
             wrapping label
         </em>
-        and drag it from the library beneath the stack view:
+        ，并将它从library拖拽到stack view的下方：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121127" src="https://koenig-media.raywenderlich.com/uploads/2015/11/53_wrapping_label-700x388.png"
@@ -1262,26 +1151,29 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You want this label to be positioned at the center of the magic-8 image,
-        so you need to add some auto layout constraints.
+    	你想要将这个label放置在magic-8图片的中央，因此你需要添加一些自动布局的约束。
     </p>
-    <p>
-        <em>
-            Control-drag
+    <p>    
+    	在
+    	<em>
+            Document Outline
         </em>
-        from the
+    	中，
+        <em>
+        	按住control拖拽
+        </em>
         <em>
             Multiline Label
         </em>
-        to the
+        到
         <em>
             Image View
         </em>
-        in the
+        上
         <em>
             Document Outline
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-121128" src="https://koenig-media.raywenderlich.com/uploads/2015/11/54_adding_constraints.png"
@@ -1289,23 +1181,23 @@
         sizes="(max-width: 486px) 100vw, 486px">
     </p>
     <p>
-        Hold
+    	在点击
+  	    <em>
+            Add Constraints
+        </em>
+    	前，按住
         <i>
             shift
         </i>
-        and select
+        并选择
         <em>
             Center Vertically
         </em>
-        and
+        和
         <em>
             Center Horizontally
         </em>
-        before clicking
-        <em>
-            Add Constraints
-        </em>
-        :
+		：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121129" src="https://koenig-media.raywenderlich.com/uploads/2015/11/55_center_constraints-215x320.png"
@@ -1313,12 +1205,11 @@
         sizes="(max-width: 215px) 100vw, 215px">
     </p>
     <p>
-        The label doesn’t automatically reposition—but you’ve handled this before.
-        Use the
+    	这个label不能自动地重新调整位置 - 但你之前已经处理了。使用底部自动布局工具栏中的
         <em>
             Resolve Auto Layout Issues
         </em>
-        menu on the bottom auto layout toolbar to select
+        菜单，选择
         <em>
             All View in View Controller
         </em>
@@ -1328,7 +1219,7 @@
         <em>
             Update Frames
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121130" src="https://koenig-media.raywenderlich.com/uploads/2015/11/56_fix_al-374x320.png"
@@ -1336,22 +1227,21 @@
         sizes="(max-width: 374px) 100vw, 374px">
     </p>
     <p>
-        This repositions the label, and it becomes&nbsp;immediately obvious that
-        you need to do some work on the appearance.
+    	这样就重新调整了label的位置，立即变得明显了，你需要在外表上做一些工作。
     </p>
     <p>
-        Select the multiline label, and use the
+    	选择multiline label，使用
         <em>
             Attributes Inspector
         </em>
-        to set the following:
+        来进行如下的设置：
     </p>
     <ul>
         <li>
             <em>
                 Title
             </em>
-            :
+            ：
             <em>
                 Piece of Advice
             </em>
@@ -1360,7 +1250,7 @@
             <em>
                 Alignment
             </em>
-            :
+            ：
             <em>
                 Center
             </em>
@@ -1369,7 +1259,7 @@
             <em>
                 Text Color
             </em>
-            :
+            ：
             <em>
                 Keyboard Focus Indicator
             </em>
@@ -1378,7 +1268,7 @@
             <em>
                 Font
             </em>
-            :
+            ：
             <em>
                 System 20
             </em>
@@ -1390,19 +1280,19 @@
         sizes="(max-width: 356px) 100vw, 356px">
     </p>
     <p>
-        Head over to the
+    	前往
         <em>
             Size Inspector
         </em>
-        and set the Preferred Width to
+        ，设置Preferred Width为
         <em>
             Explicit
         </em>
-        with a value of
+        ，值为
         <em>
             75
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121132 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/58_label_size-e1448290564918-480x184.png"
@@ -1410,16 +1300,15 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        To get an idea of what the end product might look like, select the image
-        view, and use the
+    	为了了解产品最后可能的样子，选择image view，并使用
         <em>
             Attributes Inspector
         </em>
-        to set the Image to
+        来设置Image为
         <em>
             magic8ball
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter wp-image-121133 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/11/59_change_image-e1448290610187-480x147.png"
@@ -1427,11 +1316,11 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Once again, click the main view and use the
+    	再一次的，点击主view，并使用
         <em>
             Resolve Auto Layout Issues\All Views in View Controller\Update Frames
         </em>
-        to update the layout:
+        去更新布局：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121134" src="https://koenig-media.raywenderlich.com/uploads/2015/11/60_magic8_layout-337x320.png"
@@ -1439,45 +1328,38 @@
         sizes="(max-width: 337px) 100vw, 337px">
     </p>
     <p>
-        This is looking pretty good. You need to respond each time the user clicks
-        on the 8-ball—time to discover gesture recognizers.
+    	这看起来相当好。当每次用户点击8-ball时，你需要响应去发现手势识别。
     </p>
     <h3>
-        Gesture Recognizers
+        Gesture Recognizer
     </h3>
     <p>
-        You were able to create an action in code that would run every time the
-        user clicks the button. That was possible because buttons are designed
-        to handle clicks—but the same is not true of image views.
+    	你可以在代码中创造一个动作，在每次用户点击button时执行。这是可以的，因为button被设计来处理点击 - 但是相同的事对于image view来说却是不成立的。
     </p>
     <p>
-        Apple has provided a set of gesture recognizers that can be added to any
-        view. These recognizers convert low-level mouse and trackpad input into
-        semantic events—such as click, zoom and rotate.
+    	苹果提供了一组gesture recognizer，可以被添加到任何view上。这些recognizer将低级的鼠标和触控板的输入转化成语义化的事件 - 例如点击，缩放和旋转。
     </p>
     <p>
-        You will add a click gesture recognizer to the image view, and then create
-        a corresponding action in the view controller’s code.
+    	你将添加一个gesture recognizer到image view上，然后在view controller的代码中创建相应的动作。
     </p>
     <p>
-        In
+    	在
         <em>
             Main.storyboard
         </em>
-        , head over to the
+        中，前往
         <em>
             Object Library
         </em>
-        and search for
+        并搜索
         <em>
             click gesture
         </em>
-        . Drag the
+        。将
         <em>
             Click Gesture Recognizer
         </em>
-        out of the library and onto the image view. It will appear like this in
-        the document outline:
+        从library拖拽到image view上。它将像这样的出现在document outline中：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121135" src="https://koenig-media.raywenderlich.com/uploads/2015/11/61_gesture_recogniser-480x119.png"
@@ -1485,43 +1367,39 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This gesture recognizer will be activated whenever the user clicks on
-        the image—exactly what you want. You now need to create some new connections,
-        and then you’ll be ready to switch over to code for the final sprint.
+    	无论何时用户点击图片，这个gesture recognizer都会被激活 - 恰好是你想要的。现在你需要添加一些新的连接，然后你将为最后的冲刺，准备好切换到代码。
     </p>
     <h3>
         IB Connections
     </h3>
     <p>
-        In the same way you did before, open up the assistant editor and ensure
-        that it is showing
+    	用你之前的相同的方式，打开assistant editor，并确保它正在展示
         <em>
             ViewController.swift
         </em>
-        . Then create two new outlets by
+        。然后通过从storyboard
         <em>
-            control-dragging
+        	按住control拖拽
         </em>
-        from the storyboard to the code: one for the image view (call it
+        到代码中：一个是从image view（叫做
         <em>
             ballImageView
         </em>
-        ) and one for the multiline label (call it
+        ），另一个是从multiline label（交错
         <em>
             adviceLabel
         </em>
-        ). This adds the following new outlets:
+        ）。这添加了下列的outlets：
     </p>
-    <pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> ballImageView<span style="color: #002200;">:</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">!</span>
-    @IBOutlet weak <span style="color: #a61390;">var</span> adviceLabel<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
-    </pre>
+    <pre class="swift" style="font-family:monospace;">
+    @IBOutlet weak <span style="color: #a61390;">var</span> ballImageView<span style="color: #002200;">:</span> <span style="color: #400080;">NSImageView</span><span style="color: #002200;">!</span>
+    @IBOutlet weak <span style="color: #a61390;">var</span> adviceLabel<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
     <p>
-        You also need an action to wire up the newly-created gesture recognizer.
+    	你也需要一个action来接通新创建的gesture recognizer。从document outline中的click gesture recognizer，
         <em>
-            Control-drag
+        	按住Control拖拽
         </em>
-        from the click gesture recognizer in the document outline, over to the
-        code:
+        到代码中：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121136" src="https://koenig-media.raywenderlich.com/uploads/2015/11/62_gesture_action-700x158.png"
@@ -1529,15 +1407,15 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Change the Connection to
+    	改变Connection为
         <em>
             Action
         </em>
-        and name it
+        ，并命名为
         <em>
             handleBallClick
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-medium wp-image-121137" src="https://koenig-media.raywenderlich.com/uploads/2015/11/63_action_config-480x220.png"
@@ -1545,162 +1423,145 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        Click
+    	点击
         <em>
             Connect
         </em>
-        and Xcode will add the following function definition to the
+        ，Xcode将添加下列的函数定义到
         <code>
             ViewController
         </code>
-        class:
+        类中：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleBallClick<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+<span style="color: #002200;">}</span></pre>
     <p>
-        You’ve now finished all the work in Interface Builder, so you can switch
-        back to the standard editor, and open
+    	现在你完成了所有在Interface Builder中的工作，你可以切回到标注编辑器中了，打开
         <em>
             ViewController.swift
         </em>
-        .
+        。
     </p>
     <h2>
-        Manipulating UI from code
+        在代码中操作UI
     </h2>
     <p>
-        When the user clicks on the 8-ball you want to switch between showing
-        some advice, or showing the “8”. This means that the
+    	当用户点击8-ball时，你想在展示建议或展示“8”。这意味着
         <code>
             handleBallClick(_:)
         </code>
-        will manipulate both the image view and the advice label.
+        会同时操作image view和建议label。
     </p>
     <p>
-        Add the following code to
+    	添加下列的代码到
         <code>
             handleBallClick(_:)
         </code>
-        :
+        中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1:</span>
-    <span style="color: #a61390;">if</span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
-    <span style="color: #11740a; font-style: italic;">// 2:</span>
-    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span> <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
-    <span style="color: #11740a; font-style: italic;">// 3:</span>
-    adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+<span style="color: #a61390;">if </span><span style="color: #002200;">(</span>adviceLabel.hidden<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">// 2:</span>
+  adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+  ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span> <span style="color: #a61390;">else</span> <span style="color: #002200;">{</span>
+  <span style="color: #11740a; font-style: italic;">// 3:</span>
+  adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+  ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <ol start="1">
         <li>
-            Check whether the
+        	检查当前
             <code>
                 adviceLabel
             </code>
-            is currently visible.
+            是否可见。
             <code>
                 hidden
             </code>
-            is a boolean property on
+            是一个在
             <code>
                 NSView
             </code>
-            (and hence
+            上的布尔类型的属性（因此
             <code>
                 NSTextField
             </code>
-            ) that allows you to specify whether the view should be visible or not.
+            也就有了），允许你指定是否要让view隐藏。
         </li>
         <li>
-            If the advice label is currently hidden then show it, and change the image
-            to the magic-side.
+        	如果建议label当前被隐藏了，显示它，并改变图片为magic这边。
             <code>
                 NSImage(named:)
             </code>
-            loads the image from the asset catalog, and the
-            <code>
-                image
-            </code>
-            property on
+            会从asset目录中加载图片，而
             <code>
                 NSImageView
             </code>
-            specifies the image to display.
+            的
+            <code>
+                image
+            </code>
+            属性指定了要展示的图片。
         </li>
         <li>
-            Conversely, if the advice label is currently visible then hide it and
-            switch the ball back to the “8” side.
+        	反过来，如果当前建议label是可见的，隐藏它，并将其切换到“8”这边。
         </li>
     </ol>
     <p>
-        Build and run and click the ball to see it switching between showing the
-        “8” and the piece of advice. Pretty neat right? Notice how when you first
-        start the app the advice is already showing? That’s not really what you
-        want, but it’s a simple fix.
+    	build并执行，点击那个球来查看它的“8”和一条建议之间的切换。相当好对么？注意怎么当你第一次启动app时，建议已经显示了？这确实不是你想要的，但要修复它很简单。
     </p>
     <h2>
-        Initial Setup
+    	初始设置
     </h2>
     <p>
-        When the app first starts you want to ensure that the advice label is
-        hidden, and the 8-ball image is showing. View controllers have a perfect
-        way of configuring this initial setup—in the form of
+    	当app第一次启动时，你想确保那个建议label是隐藏的，8-ball则是显示的。View controller有一个完美的方法来配置这个初始化的设置 - 以
         <code>
             viewDidLoad()
         </code>
-        .
+        的形式。
     </p>
     <p>
-        Once the view controller has finished loading all the view components
-        from the storyboard, it calls&nbsp;
+    	一旦view controller完成了从storyboard中加载所有的view组件，它就会调用
         <code>
             viewDidLoad()
         </code>
-        &nbsp;to give you a chance to perform&nbsp;some final configuration.
+        ；来给你一个机会执行最终的配置。
     </p>
     <p>
-        In
+        在
         <em>
             ViewController.swift
         </em>
-        , find the
+        中，找到
         <code>
             viewDidLoad()
         </code>
-        method and add the following body:
+        方法并添加下列的内容：
     </p>
-    <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
-    ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span>
-    </pre>
+    <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span></pre>
     <p>
-        You’ll recognize this code from the click handler action—it just hides
-        the advice label and sets the image to
+    	你将从点击事件的处理动作中区别出这个代码 - 它仅是隐藏了建议label，并设置image为
         <em>
             8ball
         </em>
-        .
+        。
     </p>
     <p>
-        Build and run to check that you can’t see the advice from the outset.
+    	build并运行，来检查你在开始时不会看到建议。
     </p>
     <h2>
-        Advice Generator
+    	建议生成器
     </h2>
     <p>
-        At the moment, no matter how many times you “shake” the ball, it always
-        gives you the same advice. That’s not especially helpful. Time to add a
-        bit of randomness.
+    	此刻，无论你“摇动”那个球多少次，它总是给你相同的建议。这不是特别有帮助的。是时候添加一些随机性了。
     </p>
     <p>
-        Add the following code as a property inside
-        <code>
+    	在
+    	<code>
             ViewController
         </code>
-        —just below the class definition line:
+        中添加下列的代码作为属性 - 就在类定义的下面：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> adviceList <span style="color: #002200;">=</span> <span style="color: #002200;">[</span>
     <span style="color: #bf1d1a;">"Yes"</span>,
@@ -1711,78 +1572,72 @@
     <span style="color: #bf1d1a;">"How can I know?"</span>,
     <span style="color: #bf1d1a;">"Totally"</span>,
     <span style="color: #bf1d1a;">"Never"</span>,
-    <span style="color: #002200;">]</span>
-    </pre>
+<span style="color: #002200;">]</span></pre>
     <p>
-        This is an array of strings the make up all the different options for
-        advice that the ball can dispense.
+    	这是一个字符串的数组，由全部不同的那个球可以分发的建议构成。
     </p>
     <p>
-        Head to the very bottom of the file (not within the
+    	找到文件的最底部（不在）
         <code>
             ViewController
         </code>
-        class) and add the following extension:
+        类中），添加下列的extension:
     </p>
     <pre class="swift" style="font-family:monospace;">extension <span style="color: #a61390;">Array</span> <span style="color: #002200;">{</span>
-    <span style="color: #a61390;">var</span> randomElement<span style="color: #002200;">:</span> Element? <span style="color: #002200;">{</span>
+  <span style="color: #a61390;">var</span> randomElement<span style="color: #002200;">:</span> Element? <span style="color: #002200;">{</span>
     <span style="color: #a61390;">if</span> <span style="color: #a61390;">count</span> &lt; <span style="color: #2400d9;">1</span> <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> .None <span style="color: #002200;">}</span>
     <span style="color: #a61390;">let</span> randomIndex <span style="color: #002200;">=</span> arc4random_uniform<span style="color: #002200;">(</span>UInt32<span style="color: #002200;">(</span><span style="color: #a61390;">count</span><span style="color: #002200;">)</span><span style="color: #002200;">)</span>
     <span style="color: #a61390;">return</span> <span style="color: #a61390;">self</span><span style="color: #002200;">[</span><span style="color: #a61390;">Int</span><span style="color: #002200;">(</span>randomIndex<span style="color: #002200;">)</span><span style="color: #002200;">]</span>
-    <span style="color: #002200;">}</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
-        This adds a new property to the standard library’s
+    	这添加了一个新的property到标注库的
         <code>
             Array
         </code>
-        type that will return a random element. If the array is empty it returns
+        类型，它会返回一个随机的严肃。如果Array是空的，它就返回
         <code>
             nil
         </code>
-        , otherwise it generates a random index using
+        ，否则它会在返回相应的元素前，使用
         <code>
             arc4random_uniform()
         </code>
-        before returning the corresponding element.
+        产生一个随机的序号。
     </p>
     <p>
-        Update the first branch (i.e.
-        <code>
-            adviceLabel.hidden == true
-        </code>
-        ) of the
-        <code>
-            if
-        </code>
-        statement in
+    	在
         <code>
             handleBallClick(_:)
         </code>
-        to match the following:
+        中，更新
+    	<code>
+            if
+        </code>
+        语句的第一个分支（也就是说
+        <code>
+            adviceLabel.hidden == true
+        </code>
+        ）为如下：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> advice <span style="color: #002200;">=</span> adviceList.randomElement <span style="color: #002200;">{</span>
     adviceLabel.stringValue <span style="color: #002200;">=</span> advice
     adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
     ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"magic8ball"</span><span style="color: #002200;">)</span>
-    <span style="color: #002200;">}</span>
-    </pre>
+<span style="color: #002200;">}</span></pre>
     <p>
-        This attempts to get a random piece of advice to display, and if successful
-        updates the
+    	这会尝试获取一条随机的建议来展示，如果成功的话就会更新
+    	<code>
+            adviceLabel
+        </code>
+        的
         <code>
             stringValue
         </code>
-        on
-        <code>
-            adviceLabel
-        </code>
-        to show it.
+        来展示。
     </p>
     <p>
-        Build and run, and click the 8-ball a few times to start benefiting from
-        the ball’s wisdom:
+    	build并执行，点击8-ball几次开始从这个球的智慧中受益：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-121138" src="https://koenig-media.raywenderlich.com/uploads/2015/11/64_final_bar-700x334.png"
