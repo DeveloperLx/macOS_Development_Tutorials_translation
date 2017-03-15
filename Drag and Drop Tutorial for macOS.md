@@ -441,52 +441,9 @@
         What enters the view may also exit, so the app needs to react when a dragging
         session has exited your view without a drop. Add the following code:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362725">
-                    <td class="code" id="p136272code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            draggingExited
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingInfo
-                            </span>
-                            ?
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            isReceivingDrag
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draggingExited<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span>?<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  isReceivingDrag <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         You’ve overridden
         <code>
@@ -521,101 +478,16 @@
         </code>
         and replace it with this.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362726">
-                    <td class="code" id="p136272code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            draw
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ dirtyRect
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSRect
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            isReceivingDrag
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #400080;">
-                                NSColor
-                            </span>
-                            .selectedControlColor.
-                            <span style="color: #a61390;">
-                                set
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            path
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSBezierPath
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            rect
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            bounds
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            path.lineWidth
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Appearance.lineWidth path.stroke
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draw<span style="color: #002200;">(</span>_ dirtyRect<span style="color: #002200;">:</span> <span style="color: #400080;">NSRect</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #a61390;">if</span> isReceivingDrag <span style="color: #002200;">{</span>
+    <span style="color: #400080;">NSColor</span>.selectedControlColor.<span style="color: #a61390;">set</span><span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+&nbsp;
+    <span style="color: #a61390;">let</span> path <span style="color: #002200;">=</span> <span style="color: #400080;">NSBezierPath</span><span style="color: #002200;">(</span>rect<span style="color: #002200;">:</span>bounds<span style="color: #002200;">)</span>
+    path.lineWidth <span style="color: #002200;">=</span> Appearance.lineWidth
+    path.stroke<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This code draws a system-colored border when a valid drag enters the view.
         Aside from looking sharp, it makes your app consistent with the rest of
