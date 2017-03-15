@@ -539,44 +539,40 @@
     	结束拖拽
     </h3>
     <p>
-        Now, on to the final step for this section: You have to accept the drag,
-        process the data and let the dragging session know that this has occurred.
+    	现在，到了这个部分的最后一步：你必须接受拖拽，处理数据，并告知拖拽session这已发生。
     </p>
     <p>
-        Append the
+    	添加下列代码到
         <code>
             DestinationView
         </code>
-        class implementation with the following:
+        类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> prepareForDragOperation<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
   <span style="color: #a61390;">let</span> allow <span style="color: #002200;">=</span> shouldAllowDrag<span style="color: #002200;">(</span>sender<span style="color: #002200;">)</span>
   <span style="color: #a61390;">return</span> allow
 <span style="color: #002200;">}</span></pre>
     <p>
-        The system calls the above method when you release the mouse inside the
-        view; it’s the last chance to reject or accept the drag. Returning
+    	当你在这个view中释放鼠标的时候，系统就会调用上面的方法；这是最后一次接受或拒绝拖拽的机会。返回
         <code>
             false
         </code>
-        will reject it, causing the drag image to slide back to its origination.
-        Returning
+        就会拒绝，导致拖拽的图像跑回了它起始的位置。返回
         <code>
             true
         </code>
-        means the view accepts the image. When accepted, the system removes the
-        drag image and invokes the next method in the protocol sequence:
+        意味着view接受了这个image。当接受时，系统就会移除拖拽的图片并调用协议序列中的下一个方法：
         <code>
             performDragOperation(_:)
         </code>
-        .
+        。
     </p>
     <p>
-        Add this method to
+    	添加下列方法到
         <code>
             DestinationView
         </code>
-        :
+        中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> performDragOperation<span style="color: #002200;">(</span>_ draggingInfo<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
 &nbsp;
@@ -595,57 +591,56 @@
 &nbsp;
 <span style="color: #002200;">}</span></pre>
     <p>
-        Here’s what you’re doing in there:
+    	你做的事情有：
     </p>
     <ol>
         <li>
-            Reset
+            重置
             <code>
                 isReceivingDrag
             </code>
-            flag to
+            标致为
             <code>
                 false
             </code>
-            .
+            。
         </li>
         <li>
-            Convert the window-based coordinate to a view-relative coordinate.
+        	将基于window的坐标转为view的相对坐标。
         </li>
         <li>
-            Hand off any image URLs to the delegate for processing, and return
+        	将图片的URL移交给delegate进行处理，并返回
             <code>
                 true
             </code>
-            — else you reject the drag operation returning
+            - 否则，你拒绝拖拽操作并返回
             <code>
                 false
             </code>
-            .
+            。
         </li>
     </ol>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : Feeling extra heroic? If you were to make an animated drop sequence,
+            ：感觉更好了？如果你要做一个带动画的投掷序列，
             <code>
                 performDragOperation(:_)
             </code>
-            would be the best place to start the animation.
+            会是开始动画最好的地方。
         </p>
     </div>
     <p>
-        Congratulations! You’ve just finished the first section and have done
-        all the work
-        <code>
+    	祝贺！你刚刚完成了第一部分，并完成了
+    	<code>
             DestinationView
         </code>
-        needs to receive a drag.
+        接收拖拽要做的所有工作。
     </p>
     <h2>
-        Use DestinationView’s Data
+        使用DestinationView的数据
     </h2>
     <p>
         Next up you’ll use the data that
