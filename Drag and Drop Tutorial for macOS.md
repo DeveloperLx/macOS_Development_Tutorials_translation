@@ -555,70 +555,10 @@
         </code>
         class implementation with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362727">
-                    <td class="code" id="p136272code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            prepareForDragOperation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingInfo
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            &gt;
-                            <span style="color: #a61390;">
-                                Bool
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            allow
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            shouldAllowDrag
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sender
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            allow
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> prepareForDragOperation<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
+  <span style="color: #a61390;">let</span> allow <span style="color: #002200;">=</span> shouldAllowDrag<span style="color: #002200;">(</span>sender<span style="color: #002200;">)</span>
+  <span style="color: #a61390;">return</span> allow
+<span style="color: #002200;">}</span></pre>
     <p>
         The system calls the above method when you release the mouse inside the
         view; it’s the last chance to reject or accept the drag. Returning
@@ -644,199 +584,22 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362728">
-                    <td class="code" id="p136272code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            performDragOperation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ draggingInfo
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingInfo
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            &gt;
-                            <span style="color: #a61390;">
-                                Bool
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            isReceivingDrag
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            pasteBoard
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            draggingInfo.draggingPasteboard
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            point
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            convert
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            draggingInfo.draggingLocation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            , from
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                nil
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            urls
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            pasteBoard.readObjects
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forClasses
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #400080;">
-                                NSURL
-                            </span>
-                            .
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            , options
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            filteringOptions
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                as?
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            URL
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            , urls.
-                            <span style="color: #a61390;">
-                                count
-                            </span>
-                            &gt;
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            delegate?.processImageURLs
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            urls, center
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            point
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> performDragOperation<span style="color: #002200;">(</span>_ draggingInfo<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//1.</span>
+  isReceivingDrag <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+  <span style="color: #a61390;">let</span> pasteBoard <span style="color: #002200;">=</span> draggingInfo.draggingPasteboard<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//2.</span>
+  <span style="color: #a61390;">let</span> point <span style="color: #002200;">=</span> convert<span style="color: #002200;">(</span>draggingInfo.draggingLocation<span style="color: #002200;">(</span><span style="color: #002200;">)</span>, from<span style="color: #002200;">:</span> <span style="color: #a61390;">nil</span><span style="color: #002200;">)</span>
+  <span style="color: #11740a; font-style: italic;">//3.</span>
+  <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> urls <span style="color: #002200;">=</span> pasteBoard.readObjects<span style="color: #002200;">(</span>forClasses<span style="color: #002200;">:</span> <span style="color: #002200;">[</span><span style="color: #400080;">NSURL</span>.<span style="color: #a61390;">self</span><span style="color: #002200;">]</span>, options<span style="color: #002200;">:</span>filteringOptions<span style="color: #002200;">)</span> <span style="color: #a61390;">as?</span> <span style="color: #002200;">[</span>URL<span style="color: #002200;">]</span>, urls.<span style="color: #a61390;">count</span> &gt; <span style="color: #2400d9;">0</span> <span style="color: #002200;">{</span>
+    delegate?.processImageURLs<span style="color: #002200;">(</span>urls, center<span style="color: #002200;">:</span> point<span style="color: #002200;">)</span>
+    <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #a61390;">return</span> <span style="color: #a61390;">false</span>
+&nbsp;
+<span style="color: #002200;">}</span></pre>
     <p>
         Here’s what you’re doing in there:
     </p>
