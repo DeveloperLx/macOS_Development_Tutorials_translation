@@ -161,46 +161,43 @@
         </li>
     </ul>
     <p>
-        There are some other files in the Drawing and Other Stuff groups that
-        provide helper methods and are essential to the project app, but you won’t
-        need to give them any of your time. Go ahead and explore if you’d like
-        to see how this thing is built!
+    	这里有一些其它的文件在Drawing和Other Stuff组下，提供了一些助手方法，它们对于这个项目app是非常重要的，但是你不需要为它们花费任何时间。如果想要了解这个事是怎样构建的话，继续探索吧！
     </p>
     <h2>
-        Pasteboards and Dragging Sessions
+    	粘贴板和拖拽session
     </h2>
     <p>
-        Drag and drop involves a
+    	拖拽和投掷包含一个
         <em>
-            source
+        	源（source）
         </em>
-        and a
+        和一个
         <em>
-            destination
+        	目的地（destination）
         </em>
-        .
+        。
     </p>
     <p>
-        You drag an item from a source, which needs to implement the
+    	你从一个source拖拽出一个项目，它需要实现
         <code>
             NSDraggingSource
         </code>
-        protocol. Then you drop it into a destination, which must implement the
+        协议。然后投掷它到一个destination中，它则必须实现
         <code>
             NSDraggingDestination
         </code>
-        protocol in order to accept or reject the items received.
+        协议，为了确定是接受还是拒绝收到的项目。
         <code>
             NSPasteboard
         </code>
-        is the class that facilitates the exchange of data.
+        是用来帮助交换数据的类。
     </p>
     <p>
-        The whole process is known as a
+    	整个的过程被称作
         <em>
             dragging session
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/dragging-session-macro2.png"
