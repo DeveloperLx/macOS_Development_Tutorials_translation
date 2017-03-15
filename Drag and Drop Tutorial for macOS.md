@@ -333,217 +333,109 @@
     </p>
     <ol>
         <li>
-            Created a dictionary to define the desired URL types (images).
+        	创建一个字典来定义期望的URL类型（图片）。
         </li>
         <li>
-            Got a reference to the dragging pasteboard from the dragging session info.
+        	从拖拽session信息中获取对拖拽粘贴板的引用。
         </li>
         <li>
-            Asked pasteboard if it has any URLs and whether those URLs are references
-            to images. If it has images, it accepts the drag. Otherwise, it rejects
-            it.
+        	询问粘贴板它是否包含任何的URL，以及这些URL是指向图片的。如果有图片的话，就接受这个拖拽。否则，拒绝它。
         </li>
     </ol>
     <p>
         <code>
             NSDraggingInfo
         </code>
-        is a protocol that declares methods to supply information about the dragging
-        session. You don’t create them, nor do you store them between events. The
-        system creates the necessary objects during the dragging session.
+        是一个协议，声明了提供有关拖拽session的信息的方法。你不会创建它们，也不会在事件之间储存它们。系统会在拖拽session期间创建必要的对象。
     </p>
     <p>
-        You can use this information to provide feedback to the dragging session
-        when the app receives the image.
+    	当这个app接收到图片时，你可以使用这个信息去提供反馈给拖拽session。
     </p>
     <p>
         <code>
             NSView
         </code>
-        conforms to
+        遵守
         <code>
             NSDraggingDestination
         </code>
-        , so you need to override the
-        <code>
-            draggingEntered(_:)
-        </code>
-        method by adding this code inside the
+        协议，因此你需要在
         <code>
             DestinationView
         </code>
-        class implementation:
+        的实现中添加下列代码去覆盖
+        <code>
+            draggingEntered(_:)
+        </code>
+        方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362724">
-                    <td class="code" id="p136272code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            isReceivingDrag
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            didSet
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            needsDisplay
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            draggingEntered
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingInfo
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            &gt; NSDragOperation
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            allow
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            shouldAllowDrag
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sender
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            isReceivingDrag
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            allow
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            allow ? .copy
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            NSDragOperation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
+<span style="color: #a61390;">var</span> isReceivingDrag <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span> <span style="color: #002200;">{</span>
+  didSet <span style="color: #002200;">{</span>
+    needsDisplay <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+  <span style="color: #002200;">}</span>
+<span style="color: #002200;">}</span>
+&nbsp;
+<span style="color: #11740a; font-style: italic;">//2.</span>
+<span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draggingEntered<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; NSDragOperation <span style="color: #002200;">{</span>
+  <span style="color: #a61390;">let</span> allow <span style="color: #002200;">=</span> shouldAllowDrag<span style="color: #002200;">(</span>sender<span style="color: #002200;">)</span>
+  isReceivingDrag <span style="color: #002200;">=</span> allow
+  <span style="color: #a61390;">return</span> allow ? .copy <span style="color: #002200;">:</span> NSDragOperation<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <p>
-        This is what the code above does:
+    	上面的代码做了这些事：
     </p>
     <ol>
         <li>
-            Creates a property named
+        	创建了一个名为
             <code>
                 isReceivingDrag
             </code>
-            to track when the dragging session is inside the view and has data that
-            you want. It triggers a redraw on the view each time it is set.
+            的property，以便去追踪当前有拖拽session在这个view中，并含有你想要的数据。每次设置时，都会触发这个view的重绘。
         </li>
         <li>
-            Overrides the
+        	覆盖
             <code>
                 draggingEntered(_:)
             </code>
-            , and decides if it accepts the drag operation.
+            方法，并确定它是否接受这个拖拽操作。
         </li>
     </ol>
     <p>
-        In section two, the method needs to return an
+    	在第二部分，这个方法需要返回一个
         <code>
             NSDragOperation
         </code>
-        . You have probably noticed how the mouse pointer changes depending on
-        the keys you hold down or the destination of a drag.
+        。你有可能注意到鼠标指针的变化是依赖于你按住的键或拖拽的destination的。
     </p>
     <p>
-        For example, if you hold down
+    	例如，如果你在
+    	<em>
+            Finder
+        </em>
+    	的拖拽期间按住
         <em>
             Option
         </em>
-        during a
-        <em>
-            Finder
-        </em>
-        drag, the pointer gains a green
+        键，那个指针就会获得一个绿色的
         <em>
             +
         </em>
-        symbol to show you a file copy is about to happen. This value is how you
-        control those pointer changes.
+        符号，用来展示一个文件的拷贝即将发生。这个值是你如何控制那些指针的变化。
     </p>
     <p>
-        In this config, if the dragging pasteboard has an image then it returns
+    	在这个配置中，如果拖拽粘贴板带有一个图片，它就返回
         <code>
             .copy
         </code>
-        to show the user that you’re about to copy the image. Otherwise it returns
+        来向用户展示你将要复制图片。否则，如果它不接受拖拽的项目，它就返回
         <code>
             NSDragOperation()
         </code>
-        if it doesn’t accept the dragged items.
+        。
     </p>
     <h3>
-        Handling an Exit
+    	处理退出
     </h3>
     <p>
         What enters the view may also exit, so the app needs to react when a dragging
