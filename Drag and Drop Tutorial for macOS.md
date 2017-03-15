@@ -438,45 +438,42 @@
     	处理退出
     </h3>
     <p>
-        What enters the view may also exit, so the app needs to react when a dragging
-        session has exited your view without a drop. Add the following code:
+    	进入view的东西同时也有可能退出，所以app需要处理当一个拖拽session没有投掷就退出了你的view时的情况。添加下列的代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draggingExited<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span>?<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   isReceivingDrag <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        You’ve overridden
+    	你已经覆盖了
         <code>
             draggingExited(_:)
         </code>
-        and set the
+        方法，并设置
         <code>
             isReceivingDrag
         </code>
-        variable to
+        变量为
         <code>
             false
         </code>
-        .
+        。
     </p>
     <h3>
-        Tell the User What’s Happening
+    	告诉用户正在发生什么
     </h3>
     <p>
-        You’re almost done with the first stretch of coding! Users love to see
-        a visual cue when something is happening in the background, so the next
-        thing you’ll add is a little drawing code to keep your user in the loop.
+    	你几乎已经完成了第一段的代码！用户喜欢当一些事在背后发生时，能够看到一个视觉上的提示，所以，接下来，你要添加一小段绘图的代码，来保持你的用户在体验闭环（loop）上。
     </p>
     <p>
-        Still in
+        仍然是在
         <em>
             DestinationView.swift
         </em>
-        , find
+        中，找到
         <code>
             draw(:_)
         </code>
-        and replace it with this.
+        并用下列代码替换它。
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draw<span style="color: #002200;">(</span>_ dirtyRect<span style="color: #002200;">:</span> <span style="color: #400080;">NSRect</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
 &nbsp;
@@ -489,33 +486,31 @@
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This code draws a system-colored border when a valid drag enters the view.
-        Aside from looking sharp, it makes your app consistent with the rest of
-        the system by providing a visual when it accepts a dragged item.
+    	当一个有效的拖拽进入到这个view时，这个代码就会绘制出一个系统颜色的代码。除了看起来很尖锐，它通过当接受一个拖拽的项目时，提供视觉的表现，使你的app与系统其余部分保持一致。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+            	注意：
             </em>
-            Want to know more about custom drawing? Check out our
-            <a href="https://www.raywenderlich.com/128614/core-graphics-os-x-tutorial"
+            想要了解更多关于自定义绘图的内容？查看我们的
+            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Core%20Graphics%20on%20macOS%20Tutorial.md"
             target="_blank" title="Core Graphics on macOS Tutorial" sl-processed="1">
-                Core Graphics on macOS Tutorial
+                macOS教程：Core Graphics
             </a>
-            .
+            。
         </p>
     </div>
     <p>
-        Build and run then try dragging an image file from Finder to
+    	build并执行，然后尝试将一个图片从Finder拖拽到
         <em>
             StickerDrag
         </em>
-        . If you don’t have an image handy, use
+        中。如果你没有顺手的图片，就使用项目目录中的
         <em>
             sample.jpg
         </em>
-        inside the project folder.
+        吧。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/06/buildrun-add-plus.png"
@@ -527,22 +522,21 @@
         </a>
     </p>
     <p>
-        You can see that the cursor picks up a
+    	你可以看到，当在这个view中时，指针会带有一个
         <em>
             +
         </em>
-        symbol when inside the view and that the view draws a border around it.
+        的符号。并且view会在周围绘制一个边框。
     </p>
     <p>
-        When you exit the view, the border and
+    	当你退出这个view的时候，边框和
         <em>
             +
         </em>
-        disappears; absolutely nothing happens when you drag anything but an image
-        file.
+        就会消失；只要你拖拽的不是一个图片文件，绝对任何事都不会发生。
     </p>
     <h3>
-        Wrap up the Drag
+    	结束拖拽
     </h3>
     <p>
         Now, on to the final step for this section: You have to accept the drag,
