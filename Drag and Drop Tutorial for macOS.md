@@ -286,7 +286,7 @@
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> setup<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        Replace it with this:
+    	将其替换为：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> acceptableTypes<span style="color: #002200;">:</span> Set&lt;String&gt; <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span>NSURLPboardType<span style="color: #002200;">]</span> <span style="color: #002200;">}</span>
 &nbsp;
@@ -294,22 +294,22 @@
   register<span style="color: #002200;">(</span>forDraggedTypes<span style="color: #002200;">:</span> <span style="color: #a61390;">Array</span><span style="color: #002200;">(</span>acceptableTypes<span style="color: #002200;">)</span><span style="color: #002200;">)</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This code defines a set with the supported types. In this case,
+    	这个代码定义了支持类型的集合。在这个case中，仅支持
         <em>
             URLs
         </em>
-        . Then, it calls
+        。然后，调用
         <code>
             register(forDraggedTypes:)
         </code>
-        to accept drags that contain those types.
+        来接受包含这些类型的拖拽。
     </p>
     <p>
-        Add the following code into
+    	添加下列的代码到
         <code>
             DestinationView
         </code>
-        to analyze the dragging session data:
+        中来分析拖拽session的数据：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
 <span style="color: #a61390;">let</span> filteringOptions <span style="color: #002200;">=</span> <span style="color: #002200;">[</span>NSPasteboardURLReadingContentsConformToTypesKey<span style="color: #002200;">:</span><span style="color: #400080;">NSImage</span>.imageTypes<span style="color: #002200;">(</span><span style="color: #002200;">)</span><span style="color: #002200;">]</span>
@@ -329,7 +329,7 @@
 &nbsp;
 <span style="color: #002200;">}</span></pre>
     <p>
-        You’ve done a few things in here:
+    	你在这里做了几件事：
     </p>
     <ol>
         <li>
