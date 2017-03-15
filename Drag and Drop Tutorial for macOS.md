@@ -249,8 +249,7 @@
         协议来创建拖拽的目的地。
     </p>
     <p>
-        This diagram shows the anatomy of a dragging session from the point of
-        view of a dragging destination.
+    	这个图表从拖拽destination的角度，展示了对于拖拽session的剖析。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/06/dragging-session.png"
         sl-processed="1">
@@ -261,138 +260,39 @@
         </a>
     </p>
     <p>
-        There are a few steps involved in creating the destination:
+    	创建destination包含以下几个步骤：
     </p>
     <ol>
         <li>
-            When building the view, you have to declare the types that it should receive
-            from any dragging session.
+        	当构建view的时候，你必须声明从任何的拖拽session中可以接受的类型。
         </li>
         <li>
-            When a dragging image enters the view, you need to implement logic to
-            allow the view to decide whether to use the data as well as let the dragging
-            session know its decision.
+        	当一个拖拽的图片进入这个view的时候，你需要去实现决定这个view是否接受这种数据类型的逻辑，并让拖拽session知道这个决定。
         </li>
         <li>
-            When the dragging image lands on the view, you use data from the dragging
-            pasteboard to show it on your view.
+        	当拖拽的图片“着陆”（lands on）在这个view上时，你会使用从拖拽粘贴板而来的数据，去展示它在你的view上。
         </li>
     </ol>
     <p>
-        Time to get down with some codeness!
+    	是时候来撸一些代码了！
     </p>
     <p>
-        Select
+    	在项目的navigator中选择
         <em>
             DestinationView.swift
         </em>
-        in the project navigator and locate the following method:
+        并找到方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362721">
-                    <td class="code" id="p136272code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            setup
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> setup<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         Replace it with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362722">
-                    <td class="code" id="p136272code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            acceptableTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Set&lt;String&gt;
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            NSURLPboardType
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            setup
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            register
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forDraggedTypes
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                Array
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            acceptableTypes
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> acceptableTypes<span style="color: #002200;">:</span> Set&lt;String&gt; <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span>NSURLPboardType<span style="color: #002200;">]</span> <span style="color: #002200;">}</span>
+&nbsp;
+<span style="color: #a61390;">func</span> setup<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+  register<span style="color: #002200;">(</span>forDraggedTypes<span style="color: #002200;">:</span> <span style="color: #a61390;">Array</span><span style="color: #002200;">(</span>acceptableTypes<span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+<span style="color: #002200;">}</span></pre>
     <p>
         This code defines a set with the supported types. In this case,
         <em>
@@ -411,161 +311,23 @@
         </code>
         to analyze the dragging session data:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1362723">
-                    <td class="code" id="p136272code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            filteringOptions
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            NSPasteboardURLReadingContentsConformToTypesKey
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSImage
-                            </span>
-                            .imageTypes
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            shouldAllowDrag
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ draggingInfo
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSDraggingInfo
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            &gt;
-                            <span style="color: #a61390;">
-                                Bool
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            canAccept
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            pasteBoard
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            draggingInfo.draggingPasteboard
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            pasteBoard.canReadObject
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forClasses
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #400080;">
-                                NSURL
-                            </span>
-                            .
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            , options
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            filteringOptions
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            canAccept
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            canAccept &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
+<span style="color: #a61390;">let</span> filteringOptions <span style="color: #002200;">=</span> <span style="color: #002200;">[</span>NSPasteboardURLReadingContentsConformToTypesKey<span style="color: #002200;">:</span><span style="color: #400080;">NSImage</span>.imageTypes<span style="color: #002200;">(</span><span style="color: #002200;">)</span><span style="color: #002200;">]</span>
+&nbsp;
+<span style="color: #a61390;">func</span> shouldAllowDrag<span style="color: #002200;">(</span>_ draggingInfo<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
+&nbsp;
+  <span style="color: #a61390;">var</span> canAccept <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//2.</span>
+  <span style="color: #a61390;">let</span> pasteBoard <span style="color: #002200;">=</span> draggingInfo.draggingPasteboard<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+&nbsp;
+  <span style="color: #11740a; font-style: italic;">//3.</span>
+  <span style="color: #a61390;">if</span> pasteBoard.canReadObject<span style="color: #002200;">(</span>forClasses<span style="color: #002200;">:</span> <span style="color: #002200;">[</span><span style="color: #400080;">NSURL</span>.<span style="color: #a61390;">self</span><span style="color: #002200;">]</span>, options<span style="color: #002200;">:</span> filteringOptions<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    canAccept <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+  <span style="color: #002200;">}</span>
+  <span style="color: #a61390;">return</span> canAccept
+&nbsp;
+<span style="color: #002200;">}</span></pre>
     <p>
         You’ve done a few things in here:
     </p>
