@@ -69,10 +69,10 @@
     	遇见这个项目App
     </h3>
     <p>
-    	很多孩子喜欢玩贴纸，并使用它们制成很酷的拼图，因此你将构建一个app来实现这个体验。你可以将图片拖拽到一个表面上，然后你通过添加闪光灯（sparkle）和独角兽（unicorn）到这个view上，来提高它的档次（kick things up a few notches）。
+    	很多孩子喜欢玩贴纸，并使用它们制成很酷的拼图，因此你将构建一个app来实现这个体验。你可以将图片拖拽到一个表面上，然后你通过添加星星（sparkle）和独角兽（unicorn）到这个view上，来提高它的档次（kick things up a few notches）。
     </p>
     <p>
-    	毕竟，怎么可能会不喜欢闪光灯和独角兽？:]
+    	毕竟，怎么可能会不喜欢星星和独角兽？:]
     </p>
     <p>
     	保持你的集中注意力在目标上 - 构建拖拽和投掷的支持 - 起始的项目已完成了你需要的view。全部你需要做的就是了解拖拽和投掷的机制。
@@ -154,7 +154,7 @@
             </em>
             ：带有
             <i>
-                闪光灯
+                星星
             </i>
             label的view - 你要将它转为另一种类型的拖拽的资源
         </li>
@@ -781,7 +781,7 @@
         你已经玩转了接受这一头的，但是发送这一头的呢？
     </p>
     <p>
-        在这一部分，你将学到怎样通过让那些独角兽和闪光灯自由地活动，并在适当的环境中给用户的图像带来快乐，让你的app充满能量（supercharge your app）。
+        在这一部分，你将学到怎样通过让那些独角兽和星星自由地活动，并在适当的环境中给用户的图像带来快乐，让你的app充满能量（supercharge your app）。
     </p>
     <p>
         所有的拖动source都必须遵循
@@ -1165,15 +1165,14 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         好多的独角兽！
     </p>
     <h2>
-        Dragging Custom Types
+        拖拽定制类型
     </h2>
     <p>
-        Unicorns are pretty fabulous, but what good are they without magical sparkles?
-        Strangely, there’s no standard
+        独角兽是相当棒的（fabulous），但没有星星怎么能好？奇怪的是，没有相应于星星的
         <em>
             Cocoa
         </em>
-        data type for sparkles. I bet you know what comes next. :]
+        数据类型。我打赌你已经知道接下来要做什么了。:]
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/06/sparkle.jpg"
@@ -1182,50 +1181,49 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     <div class="note">
         <p>
             <em>
-                Note
+                注意：
             </em>
-            : In the last section you supplied a standard data type. You can explore
-            the types for standard data
+            在上一部分，提供了你一个标准的数据类型。你可以在
             <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSPasteboard_Class/index.html#//apple_ref/doc/constant_group/Types_for_Standard_Data_OS_X_v10.6_and_later_"
             target="_blank" title="in the API reference" sl-processed="1">
-                in the API reference
+                API参考
             </a>
-            .
+            中探索标准数据的类型。
         </p>
     </div>
     <p>
-        In this section you’ll invent your own data type.
+        在这一部分，你将发明你自己的数据类型。
     </p>
     <p>
-        These are the tasks on your to-do list:
+        在你的to-do列表中有下列任务：
     </p>
     <ol>
         <li>
-            Create a new dragging source with your custom type.
+            用你定制的类型创建一个新的拖拽source。
         </li>
         <li>
-            Update the dragging destination to recognize that type.
+            更新拖拽destination来识别这个类型。
         </li>
         <li>
-            Update the view controller to react to that type.
+            更新view controller来相应这个类型。
         </li>
     </ol>
     <h3>
-        Create the Dragging Source
+        创建拖拽Source
     </h3>
     <p>
-        Open
+        打开
         <em>
             AppActionSourceView.swift
         </em>
-        . It’s mostly empty except for this important definition:
+        。除了这个重要的定义，它几乎是空的：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">enum</span> SparkleDrag <span style="color: #002200;">{</span>
   <span style="color: #a61390;">static</span> <span style="color: #a61390;">let</span> type <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"com.razeware.StickerDrag.AppAction"</span>
   <span style="color: #a61390;">static</span> <span style="color: #a61390;">let</span> action <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"make sparkles"</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This defines your custom dragging type and action identifier.
+        这定义了你定制的拖拽类型，和动作的id。
     </p>
     <p>
         Dragging source types must be
