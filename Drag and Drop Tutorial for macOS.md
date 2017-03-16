@@ -1234,19 +1234,18 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         。这些是描述数据类型的反向编码的名称路径。
     </p>
     <p>
-        For example, if you print out the value of
+        例如，如果你将
         <code>
             kUTTypeTIFF
         </code>
-        you’ll see that it is the string
+        的值打印出来，你将看到它的值就是字符串
         <em>
             public.tiff
         </em>
-        .
+        。
     </p>
     <p>
-        To avoid a collision with an existing type, you can define the identifier
-        like this:
+        为了避免和已存在的类型的冲突，你可以定义id像这样：
         <em>
             bundle identifier
         </em>
@@ -1254,34 +1253,33 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         <em>
             AppAction
         </em>
-        . It is an arbitrary value, but you keep it under the private namespace
-        of the application to minimize the risk of using an existing name.
+        。这是一个任意的值，但你可以保持它在应用的私有命名空间下，来最小化使用了已存在名称的危险。
     </p>
     <p>
-        If you attempt to construct a
-        <code>
-            NSPasteboardItem
-        </code>
-        with a type that isn’t
+        如果你尝试用一个不是
         <em>
             UTI
         </em>
-        , the operation will fail.
+        的类型构建
+        <code>
+            NSPasteboardItem
+        </code>
+        ，和这个操作将会失败。
     </p>
     <p>
-        Now you need to make
+        现在你需要让
         <code>
             AppActionSourceView
         </code>
-        adopt
+        遵循
         <code>
             NSDraggingSource
         </code>
-        . Open
+        协议。打开
         <em>
             AppActionSourceView.swift
         </em>
-        and add the following extension:
+        并添加下列的extension：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// MARK: - NSDraggingSource</span>
 extension AppActionSourceView<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingSource</span> <span style="color: #002200;">{</span>
