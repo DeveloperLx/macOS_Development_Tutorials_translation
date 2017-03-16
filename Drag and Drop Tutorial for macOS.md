@@ -870,18 +870,18 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         这里。
     </p>
     <p>
-        In other cases, it may be appropriate to start in the
+        在其它case中，它启动在
         <code>
             mouseDragged(with:)
         </code>
-        event.
+        事件中启动可能会更恰当。
     </p>
     <p>
-        Add this method inside the
+        在
         <code>
             ImageSourceView
         </code>
-        class implementation:
+        类的实现中添加下列方法：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> mouseDown<span style="color: #002200;">(</span>with theEvent<span style="color: #002200;">:</span> <span style="color: #400080;">NSEvent</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   <span style="color: #11740a; font-style: italic;">//1.</span>
@@ -896,54 +896,50 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
   beginDraggingSession<span style="color: #002200;">(</span>with<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>draggingItem<span style="color: #002200;">]</span>, event<span style="color: #002200;">:</span> theEvent, source<span style="color: #002200;">:</span> <span style="color: #a61390;">self</span><span style="color: #002200;">)</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        Things get rolling when the system calls
+        当你点击一个view时，系统调用
         <code>
             mouseDown(with:)
         </code>
-        when you click on a view. The base implementation does nothing, eliminating
-        the need to call super. The code in the implementation does all of this:
+        ，事件开始“滚动”（rolling）。基类的实现中没有做任何事，因此无需再去调用。在实现中的代码做了全部的事：
     </p>
     <ol>
         <li>
-            Creates an
+            创建一个
             <code>
                 NSPasteboardItem
             </code>
-            and sets this class as its data provider. A
+            ，并设定这个类作为它的数据提供者。
             <code>
                 NSPasteboardItem
             </code>
-            is the box that carries the info about the item being dragged. The
+            是一个“箱子”，可以“运载”有关被拖拽的项目的信息。
             <code>
                 NSPasteboardItemDataProvider
             </code>
-            provides data upon request. In this case you’ll supply
+            根据请求提供数据。在这个case中你将提供
             <em>
                 TIFF
             </em>
-            data, which is the standard way to carry images around in Cocoa.
+            数据，这是在Cocoa中运载图片的标准形式。
         </li>
         <li>
-            Creates a
+            创建一个
             <code>
                 NSDraggingItem
             </code>
-            and assigns the pasteboard item to it. A dragging item exists to provide
-            the drag image and carry one pasteboard item, but you don’t keep a reference
-            to the item because of its limited lifespan. If needed, the dragging session
-            will recreate this object.
+            并将粘贴板的项目（item）赋给它。存在拖拽项目（item）来提供拖拽的图片，并运载一个粘贴板项目（item），但由于它有限的寿命，你不能保留对这个项目（item）的引用。如果需要的话，拖拽session会重新创建这个对象。
             <code>
                 snapshot()
             </code>
-            is one of the helper methods mentioned earlier. It creates an
-            <code>
-                NSImage
-            </code>
-            of an
+            是前面提到的助手方法之一。它创建一个
             <code>
                 NSView
             </code>
-            .
+            的
+            <code>
+                NSImage
+            </code>
+            。
         </li>
         <li>
             Starts the dragging session. Here you trigger the dragging image to start
