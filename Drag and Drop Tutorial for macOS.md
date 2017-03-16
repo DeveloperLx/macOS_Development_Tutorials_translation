@@ -69,11 +69,10 @@
     	遇见这个项目App
     </h3>
     <p>
-    	很多孩子喜欢玩贴纸，并使用它们制成很酷的拼图，因此你将构建一个app来实现这个体验。
-        你可以将图片拖拽到一个表面上，然后你通过添加星星（sparkle）和角（unicorn）到这个view上，来提高它的档次（kick things up a few notches）。
+    	很多孩子喜欢玩贴纸，并使用它们制成很酷的拼图，因此你将构建一个app来实现这个体验。你可以将图片拖拽到一个表面上，然后你通过添加闪光灯（sparkle）和独角兽（unicorn）到这个view上，来提高它的档次（kick things up a few notches）。
     </p>
     <p>
-    	毕竟，怎么可能会不喜欢星星和角？:]
+    	毕竟，怎么可能会不喜欢闪光灯和独角兽？:]
     </p>
     <p>
     	保持你的集中注意力在目标上 - 构建拖拽和投掷的支持 - 起始的项目已完成了你需要的view。全部你需要做的就是了解拖拽和投掷的机制。
@@ -147,7 +146,7 @@
             <em>
                 ImageSourceView.swift
             </em>
-            ：在底部带有角的图片的view，你要将它转为拖拽的资源
+            ：在底部带有独角兽的图片的view，你要将它转为拖拽的资源
         </li>
         <li>
             <em>
@@ -155,7 +154,7 @@
             </em>
             ：带有
             <i>
-                星星
+                闪光灯
             </i>
             label的view - 你要将它转为另一种类型的拖拽的资源
         </li>
@@ -760,12 +759,10 @@
         sizes="(max-width: 568px) 100vw, 568px">
     </p>
     <p>
-        Look at that board of images just waiting to be made fearlessly fanciful.
+        看看那张图板，等待大胆的幻想~~
     </p>
     <p>
-        You’re at about the halfway point and have already explored how to make
-        any view a dragging destination and how to compel it to accept a standard
-        dragging type — in this case, an image URL.
+        你大约已走了一半的路，探索过怎样使如何一个view变为拖拽的destination，以及怎样使它接受一个标准类型 - 在这个case中，是图片的URL。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/Screen-Shot-2016-07-09-at-2.35.20-PM.png"
@@ -778,25 +775,20 @@
         </a>
     </p>
     <h2>
-        Creating a Dragging Source
+        创建拖拽Source
     </h2>
     <p>
-        You’ve played around with the receiving end, but how about the giving
-        end?
+        你已经玩转了接受这一头的，但是发送这一头的呢？
     </p>
     <p>
-        In this section, you’ll learn how to supercharge your app with the ability
-        to be the source by letting those unicorns and sparkles break free and
-        bring glee to the users’ images in the right circumstances.
+        在这一部分，你将学到怎样通过让那些独角兽和闪光灯自由地活动，并在适当的环境中给用户的图像带来快乐，让你的app充满能量（supercharge your app）。
     </p>
     <p>
-        All dragging sources must conform to the
+        所有的拖动source都必须遵循
         <code>
             NSDraggingSource
         </code>
-        protocol. This MVP (most valuable player) takes the task of placing data
-        (or a promise for that data) for one or more types on the dragging pasteboard.
-        It also supplies a dragging image to represent the data.
+        协议。这个MVP（最重要的玩家）承担了将一个或多个类型的数据（或数据的“承诺”（promise））放置到拖拽板上的任务。它还提供一个拖拽图片来展示数据。
     </p>
     <p>
         When the image finally lands on its target, the destination unarchives
