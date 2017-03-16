@@ -1335,12 +1335,10 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
 &nbsp;
 <span style="color: #002200;">}</span></pre>
     <p>
-        What did you do in there?
+        在这里你做了什么？
     </p>
     <p>
-        You constructed a pasteboard item and placed the data directly inside
-        it for your custom type. In this case, the data is a custom action identifier
-        that the receiving view may use to make a decision.
+        你构建了一个粘贴板项目（item），并为你定制的类型，直接将数据放到它内部。在这个case中的数据是一个接收的view可以用来做决定的定制动作的id。
     </p>
     <p>
         You can see how this differs from
