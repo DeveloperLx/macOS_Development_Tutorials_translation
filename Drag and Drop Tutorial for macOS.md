@@ -1031,38 +1031,39 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
   canAccept <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
 <span style="color: #002200;">}</span></pre>
     <p>
+        这里你检查了
         Here you’re checking if the
         <code>
             nonURLTypes
         </code>
-        set contains any of the types received from the pasteboard, and if that’s
-        the case, accepts the drag operation. Since you added a TIFF type to that
-        set, the view accepts TIFF data from the pasteboard.
+        集合是否包含了任何从粘贴板接受到的类型，如果是的话，接受拖拽的操作。从你添加了一个TIFF类型到这个集合，这个view就接受从粘贴板而来的TIFF数据。
     </p>
     <h3>
-        Unarchive the Image Data
+        解档图片数据
     </h3>
     <p>
-        Lastly, update
+        最后，更新
         <code>
             performDragOperation(_:)
         </code>
-        to unarchive the image data from the pasteboard. This bit is really easy.
+        来解档从粘贴板来的图片数据。这相当得容易。
     </p>
     <p>
+        Cocoa想让你使用粘贴板，并提供了一个
         Cocoa wants you to use pasteboards and provides an
         <code>
             NSImage
         </code>
+        的带有
         initializer that takes
         <code>
             NSPasteboard
         </code>
-        as a parameter. You’ll find more of these convenience methods in
+        参数的构造方法。当你开始探索更多关于拖拽和投掷的内容后，你将在
         <em>
             Cocoa
         </em>
-        when you start exploring drag and drop more.
+        中发现更多的这些便利方法。
     </p>
     <p>
         Locate
