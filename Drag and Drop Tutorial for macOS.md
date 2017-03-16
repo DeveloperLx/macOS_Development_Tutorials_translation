@@ -1132,23 +1132,21 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <ol>
         <li>
-            If the desired data type is
+            如果期望的数据类型是
             <code>
                 kUTTypeTIFF
             </code>
-            , you load an image named
+            ，你就加载一个名为
             <em>
                 unicorn
             </em>
-            .
+            的图片。
         </li>
         <li>
-            Use one of the supplied helpers to tint the image with a random color.
-            After all, colorful unicorns are more festive than a smattering of all-black
-            unicorns. :]
+            使用提供的助手方法之一，来一任意的颜色给图片染色。毕竟，带颜色的独角兽比几个（a smattering of）全黑的独角兽更喜庆（festive）。:]
         </li>
         <li>
-            Transform the image into TIFF data and place it on the pasteboard.
+            将图片转为TIFF数据，并将其放置到粘贴板上。
         </li>
     </ol>
     <p>
