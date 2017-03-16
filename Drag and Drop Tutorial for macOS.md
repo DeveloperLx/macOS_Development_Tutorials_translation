@@ -1296,34 +1296,33 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This code block differs from
+        这个代码块和
         <code>
             ImageSourceView
         </code>
-        because you’ll place private data on the pasteboard that has no meaning
-        outside the app. That’s why you’re using the
+        不同，因为你将放置私人的数据到粘贴板上，它们在app的外部是没有意义的。这就是为什么当鼠标被拖拽到你的应用之外时，你使用
         <code>
             context
         </code>
-        parameter to return a
+        参数来返回
         <code>
             NSDragOperation()
         </code>
-        when the mouse is dragged outside your application.
+        。
     </p>
     <p>
-        You’re already familiar with the next step. You need to override the
+        你早已熟悉了下一步。你需要覆盖
         <code>
             mouseDown(with:)
         </code>
-        event to start a dragging session with a pasteboard item.
+        事件来用一个粘贴板项目（item）启动一个拖拽session。
     </p>
     <p>
-        Add the following code into the
+        添加下列的代码到
         <code>
             AppActionSourceView
         </code>
-        class implementation:
+        类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> mouseDown<span style="color: #002200;">(</span>with theEvent<span style="color: #002200;">:</span> <span style="color: #400080;">NSEvent</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
 &nbsp;
