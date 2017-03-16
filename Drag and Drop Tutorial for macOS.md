@@ -643,33 +643,33 @@
         使用DestinationView的数据
     </h2>
     <p>
-        Next up you’ll use the data that
+    	接下来你将使用
         <code>
             DestinationView
         </code>
-        provides in its delegate.
+        在它的delegate中使用的数据。
     </p>
     <p>
-        Open
+    	打开
         <em>
             StickerBoardViewController.swift
         </em>
-        and introduce yourself to the class that is the delegate of
+        并将其指定为
         <code>
             DestinationView
         </code>
-        .
+        的delegate。
     </p>
     <p>
-        To use it properly, you need to implement the
+    	为了恰当地使用它，你需要实现
         <code>
-            DestinationViewDelegate
+            DestinationViewDelegate协议
         </code>
-        method that places the images on the target layer. Find
+        的方法，将图片放到目标的层上。找到
         <code>
             processImage(_:center:)
         </code>
-        and replace it with this.
+        并用下列的代码替换它。
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processImage<span style="color: #002200;">(</span>_ image<span style="color: #002200;">:</span> <span style="color: #400080;">NSImage</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
 &nbsp;
@@ -690,37 +690,34 @@
 &nbsp;
 <span style="color: #002200;">}</span></pre>
     <p>
-        This code does the following tricks:
+    	这个代码玩了下列的招（tricks）：
     </p>
     <ol>
         <li>
-            It hides the
+        	将
             <i>
                 Drag Images Here
             </i>
-            label.
+            label隐藏。
         </li>
         <li>
-            It figures out the maximum size for the dropped image while holding the
-            aspect ratio constant.
+        	为投掷的图片，算出其保持长宽比的情况下，最大的尺寸。
         </li>
         <li>
-            It constructs a subview with that size, centers it on the drop point and
-            adds it to the view hierarchy.
+        	使用这个尺寸构建了一个subview，将它的中心定位在投掷点上，并将其添加到view的图层上。
         </li>
         <li>
-            It randomly rotates the view a little bit for a bit of funkiness.
+        	随机地旋转这个view一点角度，让它看起来更好。
         </li>
     </ol>
     <p>
-        With all that in place, you’re ready to implement the method so it deals
-        with the image URLs that get dragged into the view.
+    	到这里，你已经准备好了去实现处理投掷到这个view的图片的URL的方法。
         <br>
-        Replace
+        使用下列代码替换
         <code>
             processImageURLs(_:center:)
         </code>
-        method with this:
+        方法：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processImageURLs<span style="color: #002200;">(</span>_ urls<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>URL<span style="color: #002200;">]</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   <span style="color: #a61390;">for</span> <span style="color: #002200;">(</span>index,url<span style="color: #002200;">)</span> <span style="color: #a61390;">in</span> urls.enumerated<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -740,24 +737,21 @@
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        What you’re doing here is:
+    	你在这里做的是：
     </p>
     <ol>
         <li>
-            Creating an image with the contents from the URLs.
+        	使用URL的内容中创建图片。
         </li>
         <li>
-            If there is more than one image, this offsets the images’ centers a bit
-            to create a layered, randomized effect.
+        	如果这里有超过一张的图片，就将图片的中心偏移一些，来创建分层的，随机的效果。
         </li>
         <li>
-            Pass the image and center point to the previous method so it can add the
-            image to the view.
+        	将图片和中心点传递到上一个方法，让它可以添加图片到view上。
         </li>
     </ol>
     <p>
-        Now build and run then drag an image file (or several) to the app window.
-        Drop it!
+    	现在build并执行，然后拖拽一个（或几个）图片到app的window上，投掷它！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/06/window-demo-1-568x500.png"
