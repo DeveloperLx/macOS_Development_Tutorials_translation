@@ -791,42 +791,39 @@
         协议。这个MVP（最重要的玩家）承担了将一个或多个类型的数据（或数据的“承诺”（promise））放置到拖拽板上的任务。它还提供一个拖拽图片来展示数据。
     </p>
     <p>
-        When the image finally lands on its target, the destination unarchives
-        the data from the pasteboard. Alternatively, the dragging source can fulfil
-        the promise of providing the data.
+        当这个图片最终着陆在它的目标时，这个destination就从粘贴板中解档数据。或者是，拖拽source就可以实现提供数据的承诺。
     </p>
     <p>
-        You’ll need to supply the data of two different types: a standard
+        你需要提供两种不同类型的数据：一个标准的
         <em>
             Cocoa
         </em>
-        type (an image) and custom type that you create.
+        类型（一个image）和你创建的定制类型。
     </p>
     <h3>
-        Supplying a Standard Dragging Type
+        提供标准的拖动类型
     </h3>
     <p>
-        The dragging source will be
+        拖拽source将是
         <code>
             ImageSourceView
         </code>
-        — the class of the view that has the unicorn. Your objective is simple:
-        get that unicorn onto your collage.
+        - 包含独角兽的view的类。你的目的很简单：把这个独角兽弄到你的拼图（collage）上。
     </p>
     <p>
-        The class needs to adopt the necessary protocols
+        这个类需要遵循必须的协议
         <code>
             NSDraggingSource
         </code>
-        and
+        和
         <code>
             NSPasteboardItemDataProvider
         </code>
-        , so open
+        ，因此打开
         <em>
             ImageSourceView.swift
         </em>
-        and add the following extensions:
+        并添加下列的extension：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// MARK: - NSDraggingSource</span>
 extension ImageSourceView<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingSource</span> <span style="color: #002200;">{</span>
@@ -845,35 +842,32 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
 <span style="color: #002200;">}</span></pre>
     <ol>
         <li>
-            This method is required by
+            这个方法是
             <code>
                 NSDraggingSource
             </code>
-            . It tells the dragging session what sort of operation you’re attempting
-            when the user drags from the view. In this case it’s a generic operation.
+            协议要求的。它告诉拖拽session你在尝试的操作类型，当用户从这个view中拖拽时。在这个case中，它是一个泛型的操作。
         </li>
         <li>
-            This implements the mandatory
+            这实现了强制的
             <code>
                 NSPasteboardItemDataProvider
             </code>
-            method. More on this soon — for now it’s just a stub.
+            方法。后面还有更多的东西 - 现在的只是一点点的根。
         </li>
     </ol>
     <h3>
-        Start a Dragging Session
+        开始一个拖拽session
     </h3>
     <p>
-        In a real world project, the best moment to initiate a dragging session
-        depends on your UI.
+        在真实世界的项目中，启动一个拖拽session的最佳时机取决于你的UI。
     </p>
     <p>
-        With the project app, this particular view you’re working in exists for
-        the sole purpose of dragging, so you’ll start the drag on
+        在这个项目app中，这个你工作所在的特定的view，是为了拖拽的单独的目标存在的，因此你将启动拖拽在
         <code>
             mouseDown(with:)
         </code>
-        .
+        这里。
     </p>
     <p>
         In other cases, it may be appropriate to start in the
