@@ -1032,7 +1032,6 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
 <span style="color: #002200;">}</span></pre>
     <p>
         这里你检查了
-        Here you’re checking if the
         <code>
             nonURLTypes
         </code>
@@ -1050,12 +1049,10 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <p>
         Cocoa想让你使用粘贴板，并提供了一个
-        Cocoa wants you to use pasteboards and provides an
         <code>
             NSImage
         </code>
         的带有
-        initializer that takes
         <code>
             NSPasteboard
         </code>
@@ -1066,15 +1063,15 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         中发现更多的这些便利方法。
     </p>
     <p>
-        Locate
+        找到
         <code>
             performDragOperation(_:)
         </code>
-        , and add the following code at the end, just above the return sentence
+        ，在最后添加下列的代码，就在return语句
         <code>
             return false
         </code>
-        :
+        的上面：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>pasteboard<span style="color: #002200;">:</span> pasteBoard<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   delegate?.processImage<span style="color: #002200;">(</span>image, center<span style="color: #002200;">:</span> point<span style="color: #002200;">)</span>
