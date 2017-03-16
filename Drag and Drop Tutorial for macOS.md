@@ -98,7 +98,7 @@
         srcset="https://koenig-media.raywenderlich.com/uploads/2016/06/project-display.png 288w, https://koenig-media.raywenderlich.com/uploads/2016/06/project-display-213x320.png 213w"
         sizes="(max-width: 288px) 100vw, 288px">
         <br>
-        在这个教程中，你会编辑四个指定的文件，它们在两个地方：
+        在这个教程中，你会编辑四个指定的文件，它们在两个位置上：
         <em>
             Dragging Destinations
         </em>
