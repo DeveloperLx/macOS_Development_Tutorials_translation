@@ -1093,33 +1093,31 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </a>
     </p>
     <p>
-        You’ll notice that now you get a green
+        你将注意到，现在你的指针上带有了一个绿色的
         <em>
             +
         </em>
-        on your cursor.
+        。
     </p>
     <p>
-        The destination view accepts the image data, but the image still slides
-        back when you drop. Hmmm. What’s missing here?
+        destination view接受图片数据，但是当你投掷的时候，图片仍然滑到了后面。啊啊啊啊啊啊啊...这里缺少了什么？
     </p>
     <h3>
-        Show me the Image Data!
+        向我展示图片数据！
     </h3>
     <p>
-        You need to get the dragging source to supply the image data — in other
-        words: fulfil its promise.
+        你需要获得拖拽source来提供图片数据 - 换句话说：“履行它的承诺”。
     </p>
     <p>
-        Open
+        打开
         <em>
             ImageSourceView.swift
         </em>
-        and replace the contents of
+        并用下列代码替换
         <code>
             pasteboard(_:item:provideDataForType:)
         </code>
-        with this:
+        的内容：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
 <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> pasteboard <span style="color: #002200;">=</span> pasteboard, type <span style="color: #002200;">==</span> <span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span>, <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span><span style="color: #bf1d1a;">"unicorn"</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1130,7 +1128,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
   pasteboard.setData<span style="color: #002200;">(</span>tiffdata, forType<span style="color: #002200;">:</span>type<span style="color: #002200;">)</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        In this method, the following things are happening:
+        在这个方法中，发生了下面的事情：
     </p>
     <ol>
         <li>
