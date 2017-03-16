@@ -1078,11 +1078,10 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
   <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This extracts an image from the pasteboard and passes it to the delegate
-        for processing.
+        这从粘贴板中抽取一张图片，并传递给delegate来处理。
     </p>
     <p>
-        Build and run, and then drag that unicorn onto the sticker view.
+        build并执行，然后拖拽独角兽到sticker view上面。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/06/buildrun-drag-unicorn-plus.png"
