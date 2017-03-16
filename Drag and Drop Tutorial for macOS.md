@@ -942,12 +942,11 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
             。
         </li>
         <li>
-            Starts the dragging session. Here you trigger the dragging image to start
-            following your mouse until you drop it.
+            开始拖拽session。这里你触发拖拽图片，来跟随你的鼠标，直到你投掷它。
         </li>
     </ol>
     <p>
-        Build and run. Try to drag the unicorn onto the top view.
+        build并执行。尝试拖拽独角兽到顶部的view。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/06/buildrun-drag-unicorn.png"
@@ -959,76 +958,74 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </a>
     </p>
     <p>
-        An image of the view follows your mouse, but it slides back on mouse up
-        because
+        这个view的一个图片跟随你的鼠标，但它滑到了你鼠标的后面，因为
         <code>
             DestinationView
         </code>
-        doesn’t accept TIFF data.
+        不接受TIFF数据。
     </p>
     <h3>
-        Take the TIFF
+        拿TIFF
     </h3>
     <p>
-        In order to accept this data, you need to:
+        为了接受这个数据，你需要：
     </p>
     <ol>
         <li>
-            Update the registered types in
+            在
             <code>
                 setup()
             </code>
-            to accept TIFF data
+            中更新注册的类型来接受TIFF数据
         </li>
         <li>
-            Update
+            更新
             <code>
                 shouldAllowDrag()
             </code>
-            to accept the TIFF type
+            来接受TIFF类型
         </li>
         <li>
-            Update
+            更新
             <code>
                 performDragOperation(_:)
             </code>
-            to take the image data from the pasteboard
+            来从粘贴板中拿到图片
         </li>
     </ol>
     <p>
-        Open
+        打开
         <em>
             DestinationView.swift
         </em>
-        .
+        。
     </p>
     <p>
-        Replace the following line:
+        替换下面这行：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> acceptableTypes<span style="color: #002200;">:</span> Set&lt;String&gt; <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span>NSURLPboardType<span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
     <p>
-        With this:
+        为：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span><span style="color: #002200;">]</span> <span style="color: #002200;">}</span>
 <span style="color: #a61390;">var</span> acceptableTypes<span style="color: #002200;">:</span> Set&lt;String&gt; <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> nonURLTypes.union<span style="color: #002200;">(</span><span style="color: #002200;">[</span>NSURLPboardType<span style="color: #002200;">]</span><span style="color: #002200;">)</span> <span style="color: #002200;">}</span></pre>
     <p>
-        You’ve just registered the TIFF type like you did for URLs and created
-        a subset to use next.
+        你刚刚注册了TIFF类型，就像你为URL做的，并创建一个子集来下次使用。
     </p>
     <p>
-        Next, go to
+        接下来，来到
         <code>
             shouldAllowDrag(:_)
         </code>
-        , and add find the
+        ，并添加发现
         <code>
             return canAccept
         </code>
-        method. Enter the following just above the
+        。输入下列代码在
         <code>
             return
         </code>
-        statement:
+        语句之前：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> types <span style="color: #002200;">=</span> pasteBoard.types, nonURLTypes.intersection<span style="color: #002200;">(</span>types<span style="color: #002200;">)</span>.<span style="color: #a61390;">count</span> &gt; <span style="color: #2400d9;">0</span> <span style="color: #002200;">{</span>
   canAccept <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
