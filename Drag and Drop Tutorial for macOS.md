@@ -1150,8 +1150,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </li>
     </ol>
     <p>
-        Build and run, and drag the unicorn onto the sticker view. It’ll drop
-        and place a colored unicorn on the view. Great!
+        build并运行，拖拽独角兽的图片到sticker view上。它将投掷带颜色的独角兽到view上。赞！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/midway.png"
@@ -1163,7 +1162,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </a>
     </p>
     <p>
-        So.many.unicorns!
+        好多的独角兽！
     </p>
     <h2>
         Dragging Custom Types
