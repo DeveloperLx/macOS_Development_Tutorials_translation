@@ -1226,12 +1226,12 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         这定义了你定制的拖拽类型，和动作的id。
     </p>
     <p>
-        Dragging source types must be
+        拖拽source的types必须是
         <a href="https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_intro/understand_utis_intro.html"
         target="_blank" title="Uniform Type Identifiers" sl-processed="1">
             Uniform Type Identifiers
         </a>
-        . These are reverse-coded name paths that describe a data type.
+        。这些是描述数据类型的反向编码的名称路径。
     </p>
     <p>
         For example, if you print out the value of
