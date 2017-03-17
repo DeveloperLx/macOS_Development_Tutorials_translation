@@ -1472,37 +1472,36 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
     </p>
     <ol>
         <li>
-            Only responds to the known sparkle action
+        	仅响应已知的动作
         </li>
         <li>
-            Loads a star image from the bundle
+        	从bundle中载入一个星的图片
         </li>
         <li>
-            Makes some copies of the star image and…
+        	制作一些这个星的图片的拷贝，并...
         </li>
         <ol>
             <li>
-                Generates some random numbers to alter the star position.
+            	生成一些随机的数字来改变星的位置。
             </li>
             <li>
-                Creates an
+            	创建一个
                 <code>
                     NSImageView
                 </code>
-                and sets its frame.
+                并设置它的frame。
             </li>
             <li>
-                Gives the image a random color — unless you’re going for a David Bowie
-                tribute, black stars are a bit gothic.
+            	这个图片设定一个随机的颜色 - 除非你要向David Bowie致敬（tribute），黑色的星总是有些野蛮。
+            	（译者注：David Bowie是英国著名的摇滚音乐家，2016年去世，《Blackstar》是其遗作，在59届格莱美奖中获五项大奖）
             </li>
             <li>
-                Places the image on the view.
+            	放置图片到这个view上。
             </li>
         </ol>
     </ol>
     <p>
-        Build and run. Now you can drag from the sparkles view onto the sticker
-        view to add a spray of stars to your view.
+    	build并运行。现在你可以拖拽星星的view到sticker view上了，来添加“一阵”（a spray of）星星到你的view上。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/06/final-361x500.png"
@@ -1511,7 +1510,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         sizes="(max-width: 361px) 100vw, 361px">
     </p>
     <h2>
-        Where to go From Here?
+    	从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
