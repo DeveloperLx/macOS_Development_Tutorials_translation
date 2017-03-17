@@ -1,0 +1,2700 @@
+#### [原文地址](https://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+
+<div class="content-wrapper">
+    <p>
+        <img class="alignright size-full wp-image-111951" src="https://koenig-media.raywenderlich.com/uploads/2015/08/Windows250x250.png"
+        alt="Windows250x250" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/Windows250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/08/Windows250x250-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/08/Windows250x250-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/08/Windows250x250-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/08/Windows250x250-128x128.png 128w"
+        sizes="(max-width: 250px) 100vw, 250px">
+    </p>
+    <p>
+        Windows are the “containers” for all the UI associated with all OS X apps.
+        They define the area on the screen that the app is currently responsible
+        for, and allow users to interact using a well-understood multi-tasking
+        paradigm. OS X apps fall into one of the following categories:
+    </p>
+    <ul>
+        <li>
+            <em>
+                Single-window utility
+            </em>
+            like Calculator
+        </li>
+        <li>
+            <em>
+                Single-window library-style “shoebox”
+            </em>
+            like Photos
+        </li>
+        <li>
+            <em>
+                Multi-window document-based
+            </em>
+            like TextEdit
+        </li>
+    </ul>
+    <p>
+        Regardless of which category an app falls into, nearly every OS X app
+        makes use of
+        <em>
+            MVC
+        </em>
+        (Model-View-Controller), a core design pattern.
+    </p>
+    <p>
+        In Cocoa, a window is an instance of the
+        <code>
+            NSWindow
+        </code>
+        class, and the associated controller object is an instance of the
+        <code>
+            NSWindowController
+        </code>
+        class. In a well-designed app, you typically see a one-to-one relationship
+        between a window and its controller. The model layer varies according to
+        your app type and design.
+    </p>
+    <p>
+        In this windows and window controllers in OS X tutorial, you’ll create
+        <em>
+            BabyScript
+        </em>
+        , a multi-window document-based app inspired by TextEdit. In the process,
+        you’ll learn about:
+    </p>
+    <ul>
+        <li>
+            Windows and window controllers
+        </li>
+        <li>
+            The document architecture
+        </li>
+        <li>
+            NSTextView
+        </li>
+        <li>
+            Modal windows
+        </li>
+        <li>
+            The menu bar and menu items
+        </li>
+    </ul>
+    <h2>
+        Prerequisites
+    </h2>
+    <p>
+        This tutorial is aimed at beginners. Having said that, it requires basic
+        knowledge of the following topics:
+    </p>
+    <ul>
+        <li>
+            Swift
+        </li>
+        <li>
+            Xcode, and in particular, storyboards
+        </li>
+        <li>
+            Creating a simple Mac (OS X) app
+        </li>
+    </ul>
+    <p>
+        If you’re not familiar with any of the above, you might want to brush
+        up with some other tutorials on this site:
+    </p>
+    <ul>
+        <li>
+            <a title=" Swift Language Tutorials " href="http://www.raywenderlich.com/category/swift"
+            target="_blank" sl-processed="1">
+                Swift Language Tutorials
+            </a>
+        </li>
+        <li>
+            <a title=" Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode "
+            href="http://www.raywenderlich.com/?p=110170" target="_blank" sl-processed="1">
+                Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode
+            </a>
+        </li>
+        <li>
+            <a title=" Mac OS X Development Tutorial for Beginners Part 2: OS X App Anatomy "
+            href="http://www.raywenderlich.com/?p=110267" target="_blank" sl-processed="1">
+                Mac OS X Development Tutorial for Beginners Part 2: OS X App Anatomy
+            </a>
+        </li>
+        <li>
+            <a title=" Mac OS X Development Tutorial for Beginners Part 3: Your First OS X App "
+            href="http://www.raywenderlich.com/?p=110269" target="_blank" sl-processed="1">
+                Mac OS X Development Tutorial for Beginners Part 3: Your First OS X App
+            </a>
+        </li>
+    </ul>
+    <h2>
+        Getting Started
+    </h2>
+    <p>
+        Launch
+        <em>
+            Xcode
+        </em>
+        , and choose
+        <em>
+            File / New / Project…
+        </em>
+        . Select
+        <em>
+            OS X / Application / Cocoa Application
+        </em>
+        , and click
+        <em>
+            Next
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/1-CocoaApp.png"
+        sl-processed="1">
+            <img class="aligncenter wp-image-112376 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/1-CocoaApp-448x320.png"
+            alt="1-CocoaApp" width="448" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/1-CocoaApp-448x320.png 448w, https://koenig-media.raywenderlich.com/uploads/2015/08/1-CocoaApp-700x500.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/1-CocoaApp.png 734w"
+            sizes="(max-width: 448px) 100vw, 448px">
+        </a>
+    </p>
+    <p>
+        In the next screen, fill out the fields as indicated below, but enter
+        your own name (or superhero alias) instead of mine.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/2-XcodeTemplate.png"
+        sl-processed="1">
+            <img class="aligncenter wp-image-112377 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/2-XcodeTemplate-450x320.png"
+            alt="2-XcodeTemplate" width="450" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/2-XcodeTemplate-450x320.png 450w, https://koenig-media.raywenderlich.com/uploads/2015/08/2-XcodeTemplate-700x497.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/2-XcodeTemplate.png 732w"
+            sizes="(max-width: 450px) 100vw, 450px">
+        </a>
+    </p>
+    <p>
+        Click
+        <em>
+            Next
+        </em>
+        and save your project.
+    </p>
+    <p>
+        Build and run, and you will see:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112378" src="https://koenig-media.raywenderlich.com/uploads/2015/08/3-FirstWindow.png"
+        alt="3-FirstWindow" width="480" height="292">
+    </p>
+    <p>
+        To open more documents, select
+        <em>
+            File / New
+        </em>
+        . All the documents are positioned in the
+        <i>
+            same place
+        </i>
+        , so you’ll only see the top document when you click and drag them around.
+        It’s not a desirable effect, so add fixing this to your to-do list, but
+        don’t dive in yet.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/4-Open-Many.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112519" src="https://koenig-media.raywenderlich.com/uploads/2015/08/4-Open-Many-700x287.png"
+            alt="4-Open-Many" width="700" height="287" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/4-Open-Many-700x287.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/4-Open-Many-480x197.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/4-Open-Many.png 940w"
+            sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+    </p>
+    <p>
+        You can also use the
+        <em>
+            Windows
+        </em>
+        menu to bring windows to the front.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/5-Bring-ToFront.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112520" src="https://koenig-media.raywenderlich.com/uploads/2015/08/5-Bring-ToFront-700x292.png"
+            alt="5-Bring-ToFront" width="700" height="292" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/5-Bring-ToFront-700x292.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/5-Bring-ToFront-480x200.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/5-Bring-ToFront.png 930w"
+            sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+    </p>
+    <h2>
+        Documents: Under the Hood
+    </h2>
+    <p>
+        Now you’ve seen it in action, let’s take a few minutes to see how it works.
+    </p>
+    <h3>
+        Document Architecture
+    </h3>
+    <p>
+        A document is a container for data in memory that you can view in a window.
+        Eventually, it can be written to or read from a disk or iCloud. Programmatically
+        speaking, a document is an instance of the
+        <code>
+            NSDocument
+        </code>
+        class that acts as the controller for the data objects—aka model—associated
+        with the document.
+    </p>
+    <p>
+        The other two major classes in the document architecture are
+        <code>
+            NSWindowcontroller
+        </code>
+        and
+        <code>
+            NSDocumentController
+        </code>
+        . These are the roles of each primary class:
+    </p>
+    <ul>
+        <li>
+            <code>
+                NSDocument
+            </code>
+            : Creates, presents and stores document data
+        </li>
+        <li>
+            <code>
+                NSWindowController
+            </code>
+            : Manages a window in which a document is displayed
+        </li>
+        <li>
+            <code>
+                NSDocumentController
+            </code>
+            : Manages all of the document objects in the app
+        </li>
+    </ul>
+    <p>
+        Visuals are nice too, so here’s a chart that shows how the classes work
+        together:
+        <br>
+        <img class="aligncenter size-full wp-image-112108" src="https://koenig-media.raywenderlich.com/uploads/2015/08/DocArchitecture.png"
+        alt="DocArchitecture" width="576" height="281" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/DocArchitecture.png 576w, https://koenig-media.raywenderlich.com/uploads/2015/08/DocArchitecture-480x234.png 480w"
+        sizes="(max-width: 576px) 100vw, 576px">
+    </p>
+    <h3>
+        Disabling Document Saving and Opening
+    </h3>
+    <p>
+        The document architecture also provides the saving/opening mechanism for
+        documents.
+    </p>
+    <p>
+        In
+        <em>
+            Document.swift
+        </em>
+        , you’ll find the empty implementation of
+        <code>
+            dataOfType
+        </code>
+        , for writing, and
+        <code>
+            readFromData
+        </code>
+        for reading. Saving and opening documents is outside the scope of this
+        tutorial, so you’ll make some changes to prevent confusing behavior.
+    </p>
+    <p>
+        In
+        <em>
+            Document.swift
+        </em>
+        ,
+        <i>
+            remove
+        </i>
+        <code>
+            autosavesInPlace
+        </code>
+        :
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119471">
+                    <td class="code" id="p111947code1">
+                        <pre class="swift" style="font-family:monospace;">
+                            <span style="color: #a61390;">
+                                override
+                            </span>
+                            <span style="color: #a61390;">
+                                class
+                            </span>
+                            <span style="color: #a61390;">
+                                func
+                            </span>
+                            autosavesInPlace
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                -&amp;
+                            </span>
+                            gt;
+                            <span style="color: #a61390;">
+                                Bool
+                            </span>
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            <span style="color: #a61390;">
+                                return
+                            </span>
+                            <span style="color: #a61390;">
+                                true
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        Now you’ll disable all menu items related to opening and saving, but before
+        you do, notice that all the functionality you would expect is already there.
+        For example, select
+        <em>
+            File / Open
+        </em>
+        and the finder dialog box, including controls, sidebar, toolbar etc.,
+        is there:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/OpenDialog.png"
+        sl-processed="1">
+            <img class="aligncenter wp-image-112527 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/OpenDialog-480x309.png"
+            alt="OpenDialog" width="480" height="309" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/OpenDialog-480x309.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/OpenDialog-700x451.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/OpenDialog.png 712w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
+    <p>
+        When it has no action defined, a menu item is rendered useless. The same
+        disabling effect happens when there is no object in the responder chain
+        that responds to the selector associated with the action.
+    </p>
+    <p>
+        Hence, you’ll disconnect actions that are defined for the menu items you
+        need to disable.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/no-saving-for-you.jpg"
+        sl-processed="1">
+            <img class="aligncenter size-full wp-image-113579" src="https://koenig-media.raywenderlich.com/uploads/2015/08/no-saving-for-you.jpg"
+            alt="no-saving-for-you" width="300" height="295" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/no-saving-for-you.jpg 300w, https://koenig-media.raywenderlich.com/uploads/2015/08/no-saving-for-you-32x32.jpg 32w, https://koenig-media.raywenderlich.com/uploads/2015/08/no-saving-for-you-64x64.jpg 64w"
+            sizes="(max-width: 300px) 100vw, 300px">
+        </a>
+    </p>
+    <p>
+        In the storyboard, select
+        <em>
+            File / Open
+        </em>
+        in
+        <em>
+            Main Menu
+        </em>
+        in the
+        <em>
+            Application Scene
+        </em>
+        .
+    </p>
+    <p>
+        Select the
+        <em>
+            Connections Inspector
+        </em>
+        and click
+        <em>
+            Open
+        </em>
+        . As you can see, it connects to the first responder via the
+        <code>
+            openDocument
+        </code>
+        selector, aka the first object to respond to this selector in the responder
+        chain. Delete this connection by clicking on the
+        <em>
+            x
+        </em>
+        as shown below:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/TargetAction.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112525" src="https://koenig-media.raywenderlich.com/uploads/2015/08/TargetAction-700x427.png"
+            alt="TargetAction" width="700" height="427" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/TargetAction-700x427.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/TargetAction-480x293.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/TargetAction.png 751w"
+            sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+    </p>
+    <p>
+        Repeat this step for
+        <em>
+            Save
+        </em>
+        ,
+        <em>
+            Save As
+        </em>
+        and
+        <em>
+            Revert to Saved
+        </em>
+        .
+    </p>
+    <p>
+        Build and Run. Toggle the
+        <em>
+            Open
+        </em>
+        menu and check that it looks like this:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112528" src="https://koenig-media.raywenderlich.com/uploads/2015/08/7-OpenMenu.png"
+        alt="7-OpenMenu" width="178" height="225">
+    </p>
+    <h2>
+        Window Position
+    </h2>
+    <p>
+        When you run BabyScript, the window opens near the left edge, but somewhat
+        below the center of the screen.
+    </p>
+    <p>
+        Why does it choose this location?
+    </p>
+    <p>
+        Go to the storyboard, and in the
+        <em>
+            outline view
+        </em>
+        select
+        <em>
+            Window
+        </em>
+        , and then select the
+        <em>
+            Size Inspector
+        </em>
+        . Run BabyScript – or bring it to the front – and you should see the following
+        screen:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/5-WindowSizeInspector.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112379" src="https://koenig-media.raywenderlich.com/uploads/2015/08/5-WindowSizeInspector-625x500.png"
+            alt="5-WindowSizeInspector" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/5-WindowSizeInspector-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/5-WindowSizeInspector-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/5-WindowSizeInspector.png 1280w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <p>
+        Entering numeric values for the
+        <i>
+            X
+        </i>
+        and
+        <i>
+            Y
+        </i>
+        under
+        <em>
+            Initial Position
+        </em>
+        is one way to set the window’s position. You can also set it graphically
+        by dragging the gray rectangle just below.
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112397" src="https://koenig-media.raywenderlich.com/uploads/2015/08/6-QuartzCoordinates.png"
+        alt="6-QuartzCoordinates" width="658" height="447" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/6-QuartzCoordinates.png 658w, https://koenig-media.raywenderlich.com/uploads/2015/08/6-QuartzCoordinates-471x320.png 471w"
+        sizes="(max-width: 658px) 100vw, 658px">
+    </p>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : The origin of a visual object (window, view, control, etc.) in Cocoa
+            is the
+            <i>
+                lower-left
+            </i>
+            corner. Values increase as you go up and to the right in the coordinate
+            system.
+        </p>
+        <p>
+            In contrast, many graphic environments, especially with iOS, the origin
+            is in the
+            <i>
+                upper
+            </i>
+            -left, and values increase going down and to the right.
+        </p>
+    </div>
+    <p>
+        Suppose that the desired opening position for your window is 200 points
+        offset horizontally and vertically from the top-left. You can set this
+        with Xcode in the window’s
+        <em>
+            Size Inspector
+        </em>
+        or do it programmatically.
+    </p>
+    <h3>
+        Set the Window’s Position with Interface Builder
+    </h3>
+    <p>
+        It’s a safe bet that users will launch BabyScript on various screen sizes.
+        Since your app doesn’t have a crystal ball to see what screen size it will
+        open on at compile time, Xcode uses a virtual screen size and uses a concept
+        similar to Auto Layout to determine the window position at run time.
+    </p>
+    <p>
+        To set the position, you’ll work with the
+        <em>
+            X
+        </em>
+        and
+        <em>
+            Y
+        </em>
+        values under
+        <em>
+            Initial Position
+        </em>
+        and the two drop-down menus.
+    </p>
+    <p>
+        Go to
+        <em>
+            Initial Position
+        </em>
+        to set window’s opening position in terms of screen coordinates. Enter
+        200 for both
+        <em>
+            X
+        </em>
+        and
+        <em>
+            Y
+        </em>
+        and select
+        <em>
+            Fixed from Left
+        </em>
+        and
+        <em>
+            Fixed from Bottom
+        </em>
+        in the upper and lower drop-downs, respectively. This sets the window’s
+        origin at 200 points offset in both the x and y directions.
+    </p>
+    <p>
+        <img class="aligncenter wp-image-119246 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/09/set_initial_position-241x500.png"
+        alt="" width="241" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/set_initial_position-241x500.png 241w, https://koenig-media.raywenderlich.com/uploads/2015/09/set_initial_position-154x320.png 154w, https://koenig-media.raywenderlich.com/uploads/2015/09/set_initial_position.png 512w"
+        sizes="(max-width: 241px) 100vw, 241px">
+    </p>
+    <p>
+        Build, run and you should see:
+    </p>
+    <p>
+        <img class="aligncenter wp-image-119247 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/09/demonstrating_position-452x320.png"
+        alt="" width="452" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/demonstrating_position-452x320.png 452w, https://koenig-media.raywenderlich.com/uploads/2015/09/demonstrating_position-700x495.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/demonstrating_position.png 1564w"
+        sizes="(max-width: 452px) 100vw, 452px">
+    </p>
+    <p>
+        Follow these steps to pin the window to the upper-left corner:
+    </p>
+    <ol>
+        <li>
+            Drag the gray rectangle in the preview to the top-left of the virtual
+            screen – this changes the initial position.
+        </li>
+        <li>
+            Enter 200 for
+            <em>
+                X
+            </em>
+            and for
+            <em>
+                Y
+            </em>
+            , enter the maximum value minus 200, in this case 557.
+        </li>
+        <li>
+            Select
+            <em>
+                Fixed from Top
+            </em>
+            in the lower drop-down.
+        </li>
+    </ol>
+    <p>
+        The right side of the image below also shows what you should enter and
+        where:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/Window757557.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-113030" src="https://koenig-media.raywenderlich.com/uploads/2015/08/Window757557-581x500.png"
+            alt="Window757557" width="581" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/Window757557-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/08/Window757557-372x320.png 372w, https://koenig-media.raywenderlich.com/uploads/2015/08/Window757557.png 646w"
+            sizes="(max-width: 581px) 100vw, 581px">
+        </a>
+    </p>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : OS X remembers window positions between app launches. In order to see
+            the changes you made, you need to actually close the app window – not just
+            rebuild and run.
+        </p>
+    </div>
+    <p>
+        Close the window(s), and then build and run.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112575" src="https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode-625x500.png"
+            alt="10-Window200x200Xcode" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode.png 1280w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <h3>
+        Set the Window’s Position Programmatically
+    </h3>
+    <p>
+        Now you’ll accomplish the same task you did with Interface Builder, but
+        this time you’ll do it programmatically.
+    </p>
+    <p>
+        The reason to take the “hard way” is two-fold. First, you’ll walk away
+        with a better understanding of
+        <code>
+            NSWindowController
+        </code>
+        . Second, it’s a more flexible and straightforward approach.
+    </p>
+    <p>
+        At run time, the app will perform the final positioning of the&nbsp;window
+        once it knows the screen size.
+    </p>
+    <p>
+        In the
+        <em>
+            Project Navigator
+        </em>
+        select the
+        <em>
+            BabyScript
+        </em>
+        group, then select
+        <em>
+            File / New / File..
+        </em>
+        . From the dialog that pops up, select
+        <em>
+            OS X / Source / Cocoa Class
+        </em>
+        and click
+        <em>
+            Next.
+        </em>
+    </p>
+    <p>
+        Create a new class called
+        <code>
+            WindowController
+        </code>
+        &nbsp;and make it a subclass of
+        <code>
+            NSWindowController
+        </code>
+        . The checkbox for
+        <em>
+            XIB
+        </em>
+        should be unchecked, and the
+        <em>
+            Language
+        </em>
+        should be
+        <em>
+            Swift
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/11-WindowController.png"
+        sl-processed="1">
+            <img class="aligncenter wp-image-112585 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/11-WindowController-451x320.png"
+            alt="11-WindowController" width="451" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/11-WindowController-451x320.png 451w, https://koenig-media.raywenderlich.com/uploads/2015/08/11-WindowController-700x497.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/11-WindowController.png 731w"
+            sizes="(max-width: 451px) 100vw, 451px">
+        </a>
+    </p>
+    <p>
+        Choose a location to save the new file. Once done, you’ll see a new file
+        named
+        <em>
+            WindowController.swift
+        </em>
+        appear in the group
+        <em>
+            BabyScript
+        </em>
+        .
+    </p>
+    <p>
+        Go to the storyboard, and in
+        <em>
+            Outline View
+        </em>
+        select
+        <em>
+            Window Controller
+        </em>
+        from the
+        <em>
+            Window Controller Scene
+        </em>
+        . Choose the
+        <em>
+            Identity Inspector
+        </em>
+        , and from the
+        <em>
+            Class
+        </em>
+        drop-down select
+        <code>
+            WindowController
+        </code>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/12-WindowController-2.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112598" src="https://koenig-media.raywenderlich.com/uploads/2015/08/12-WindowController-2-700x218.png"
+            alt="12-WindowController-2" width="700" height="218" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/12-WindowController-2-700x218.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/12-WindowController-2-480x149.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/12-WindowController-2.png 1275w"
+            sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+    </p>
+    <p>
+        When
+        <code>
+            windowDidLoad
+        </code>
+        is called the window will have completed&nbsp;loading from the storyboard,
+        so any configuration you do will override the settings in the storyboard.
+    </p>
+    <p>
+        Open
+        <em>
+            WindowController.swift
+        </em>
+        and replace
+        <code>
+            windowDidLoad
+        </code>
+        with the following:
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119472">
+                    <td class="code" id="p111947code2">
+                        <pre class="swift" style="font-family:monospace;">
+                            <span style="color: #a61390;">
+                                override
+                            </span>
+                            <span style="color: #a61390;">
+                                func
+                            </span>
+                            windowDidLoad
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            <span style="color: #a61390;">
+                                super
+                            </span>
+                            .windowDidLoad
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #a61390;">
+                                if
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            window
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            window, screen
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            window.screen
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            offsetFromLeftOfScreen
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                CGFloat
+                            </span>
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #2400d9;">
+                                20
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            offsetFromTopOfScreen
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                CGFloat
+                            </span>
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #2400d9;">
+                                20
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            screenRect
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            screen.visibleFrame
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            newOriginY
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            CGRectGetMaxY
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            screenRect
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                -
+                            </span>
+                            window.frame.height
+                            <span style="color: #002200;">
+                                -
+                            </span>
+                            offsetFromTopOfScreen window.setFrameOrigin
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #400080;">
+                                NSPoint
+                            </span>
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            x
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            offsetFromLeftOfScreen, y
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            newOriginY
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        This logic positions the window’s top-left corner 20 points offset in
+        both the x and y directions from the top-left of the screen.
+    </p>
+    <p>
+        As you can see,
+        <code>
+            NSWindowController
+        </code>
+        has a
+        <code>
+            window
+        </code>
+        property and
+        <code>
+            NSWindow
+        </code>
+        has a
+        <code>
+            screen
+        </code>
+        property. You use these two properties to access the geometry of the window
+        and the screen.
+    </p>
+    <p>
+        After ascertaining the height of the screen, your window’s frame is subtracted
+        along with the desired offset. Remember the Y value increases as you move
+        upwards on the screen.
+    </p>
+    <p>
+        <code>
+            visibleFrame
+        </code>
+        excludes the areas taken by the dock and menu bar. If you don’t take this
+        into account, you might end up with the dock obscuring part of your window.
+    </p>
+    <p>
+        When you enable dock and menu hiding,&nbsp;
+        <code>
+            visibleFrame
+        </code>
+        &nbsp;may still be smaller than&nbsp;
+        <code>
+            frame
+        </code>
+        , because the system retains a small boundary area to detect when to show
+        the dock.
+    </p>
+    <p>
+        Build and run. The window should sit 20 points in each direction from
+        the screen’s top-left corner.
+    </p>
+    <h2>
+        Cascading Windows
+    </h2>
+    <p>
+        To further improve your windows’ position, you’ll introduce
+        <em>
+            Cascading Windows
+        </em>
+        , meaning an arrangement of windows that overlap one another while leaving
+        the title bar for each window visible.
+    </p>
+    <p>
+        Add the following below the definition of
+        <code>
+            WindowController
+        </code>
+        in
+        <em>
+            WindowController.swift
+        </em>
+        :
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119473">
+                    <td class="code" id="p111947code3">
+                        <pre class="swift" style="font-family:monospace;">
+                            required
+                            <span style="color: #a61390;">
+                                init
+                            </span>
+                            ?
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            coder
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                NSCoder
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            <span style="color: #a61390;">
+                                super
+                            </span>
+                            .
+                            <span style="color: #a61390;">
+                                init
+                            </span>
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            coder
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            coder
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            shouldCascadeWindows
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #a61390;">
+                                true
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        You’re setting the
+        <code>
+            shouldCascadeWindows
+        </code>
+        property of
+        <code>
+            NSWindowController
+        </code>
+        to
+        <code>
+            true
+        </code>
+        by overriding the
+        <code>
+            required init
+        </code>
+        method of
+        <code>
+            NSWindowController
+        </code>
+        .
+    </p>
+    <p>
+        Build and run the app, and then open five windows. Your screen should
+        look a little bit more friendly:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112641" src="https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows-625x500.png"
+            alt="13-CascadingWindows" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows.png 1280w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <h2>
+        Make BabyScript a Mini Word Processor
+    </h2>
+    <p>
+        Now comes the most exiting part of this tutorial. With just
+        <i>
+            two
+        </i>
+        little lines of code and the addition of an
+        <code>
+            NSTextView
+        </code>
+        control to your window’s
+        <code>
+            contentView
+        </code>
+        , you can add functionality that will blow your mind!
+    </p>
+    <h3>
+        The Content View
+    </h3>
+    <p>
+        Upon creation, a window automatically creates two views: an opaque frame
+        view with a border, title bar, etc., and a transparent content view accessible
+        via the window’s
+        <code>
+            contentView
+        </code>
+        property.
+    </p>
+    <p>
+        The content view is the root of the view hierarchy of a window, and you
+        can replace the default with a custom view. Note that to position the content
+        view, you must use the
+        <code>
+            setContentView
+        </code>
+        method of
+        <code>
+            NSWindow
+        </code>
+        &nbsp;— you can’t position it with the standard
+        <code>
+            setFrame
+        </code>
+        method of
+        <code>
+            NSView
+        </code>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/ContentView.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112651" src="https://koenig-media.raywenderlich.com/uploads/2015/08/ContentView-440x500.png"
+            alt="ContentView" width="440" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/ContentView-440x500.png 440w, https://koenig-media.raywenderlich.com/uploads/2015/08/ContentView-282x320.png 282w, https://koenig-media.raywenderlich.com/uploads/2015/08/ContentView.png 758w"
+            sizes="(max-width: 440px) 100vw, 440px">
+        </a>
+    </p>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : If you’re an iOS developer, please note that in Cocoa,
+            <code>
+                NSWindow
+            </code>
+            is
+            <i>
+                NOT
+            </i>
+            a subclass of
+            <code>
+                NSView
+            </code>
+            . In
+            <em>
+                iOS
+            </em>
+            ,
+            <code>
+                UIWindow
+            </code>
+            is a special subclass, of
+            <code>
+                UIView
+            </code>
+            .
+            <code>
+                UIWindow
+            </code>
+            itself is the root of the view hierarchy, and it’s simply playing the
+            role of the content view.
+        </p>
+    </div>
+    <h3>
+        Add the Text View
+    </h3>
+    <p>
+        <i>
+            Remove
+        </i>
+        the text field that says “Your document contents here” from the
+        <code>
+            contentView
+        </code>
+        in the storyboard, by selecting it and pressing
+        <em>
+            delete
+        </em>
+        .
+    </p>
+    <p>
+        To create the new
+        <code>
+            NSTextField
+        </code>
+        that will form the main part of your UI follow these instructions:
+    </p>
+    <ol>
+        <li>
+            In the storyboard, open the&nbsp;
+            <em>
+                Object Library
+            </em>
+            .
+        </li>
+        <li>
+            Search for&nbsp;
+            <em>
+                nstextview
+            </em>
+            .
+        </li>
+        <li>
+            Drag
+            <em>
+                Text View
+            </em>
+            and drop it on the content view.
+        </li>
+        <li>
+            Resize the text view so its inset is 20 points on each side from the content
+            view.
+        </li>
+        <li>
+            In the
+            <em>
+                Outline View
+            </em>
+            , select
+            <em>
+                Bordered Scroll View
+            </em>
+            . Note that the text view is nested in the
+            <em>
+                Clip View
+            </em>
+            , which is nested inside a scroll view.
+        </li>
+        <li>
+            Select the
+            <em>
+                Size Inspector
+            </em>
+            . Enter 20 for
+            <em>
+                X
+            </em>
+            and
+            <em>
+                Y
+            </em>
+            , 440 for
+            <em>
+                Width
+            </em>
+            and 230 for
+            <em>
+                Height
+            </em>
+        </li>
+    </ol>
+    <p>
+        <img class="aligncenter size-large wp-image-112655" src="https://koenig-media.raywenderlich.com/uploads/2015/08/15-TextViewCreation-625x500.png"
+        alt="15-TextViewCreation" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/15-TextViewCreation-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/15-TextViewCreation-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/15-TextViewCreation.png 1280w"
+        sizes="(max-width: 625px) 100vw, 625px">
+    </p>
+    <p>
+        Build and run — you should see the following:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112657" src="https://koenig-media.raywenderlich.com/uploads/2015/08/16-EmptyText.png"
+        alt="16-EmptyText" width="480" height="292">
+    </p>
+    <p>
+        Look at that friendly, blinking text insertion point inviting you to enter
+        your text! Start your manifesto, or just keep it simple with “Hello World”,
+        and then select the text. Copy it with
+        <em>
+            File / Copy
+        </em>
+        or
+        <em>
+            command – C
+        </em>
+        , and then paste several times, just to get a feeling for the app.
+    </p>
+    <p>
+        Explore the
+        <em>
+            Edit
+        </em>
+        and
+        <em>
+            Format
+        </em>
+        menu to get the idea what’s available. You might have noticed that the
+        <em>
+            Font / Show Fonts
+        </em>
+        is disabled. You’re going to enable it now.
+    </p>
+    <h3>
+        Enable the Font Panel
+    </h3>
+    <p>
+        In the storyboard, go to the main menu, click on the
+        <em>
+            Format
+        </em>
+        menu, then on
+        <em>
+            Font
+        </em>
+        , then follow with a click on
+        <em>
+            Show Fonts
+        </em>
+        .
+    </p>
+    <p>
+        Go to the
+        <em>
+            Connections Inspector
+        </em>
+        and you’ll see that no actions are defined for this menu item. This explains
+        why the menu item is disabled, but what do you connect it to?
+    </p>
+    <p>
+        Apparently, the action is already defined in the code imported indirectly
+        by Xcode, you just need to make the connection.
+    </p>
+    <p>
+        Right-click
+        <em>
+            Show Fonts
+        </em>
+        and drag it to the
+        <em>
+            First Responder
+        </em>
+        in the
+        <em>
+            Application Scene
+        </em>
+        , and then release the mouse. A small window with a scrollable list of
+        all the actions defined will pop up. Look for and select
+        <code>
+            orderFrontFontPanel
+        </code>
+        . You can also start typing it to find it more quickly.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/17-ConnectFontPanel.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112658" src="https://koenig-media.raywenderlich.com/uploads/2015/08/17-ConnectFontPanel-625x500.png"
+            alt="17-ConnectFontPanel" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/17-ConnectFontPanel-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/17-ConnectFontPanel-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/17-ConnectFontPanel.png 1280w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <p>
+        Now, take a look at the
+        <em>
+            Connections Inspector
+        </em>
+        with
+        <em>
+            Show Fonts
+        </em>
+        selected. You’ll see the menu is now connected to
+        <code>
+            orderFrontFontPanel
+        </code>
+        of the first object in the responder chain that responds to this selector.
+    </p>
+    <p>
+        Build and run the app, then enter some text and select it. Choose
+        <em>
+            Format / Font / Show Fonts
+        </em>
+        to open the fonts panel. Play with the vertical slider on the right side
+        of the font panel, and observe how the text size changes in real time.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/18-FontPanel.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112660" src="https://koenig-media.raywenderlich.com/uploads/2015/08/18-FontPanel-647x500.png"
+            alt="18-FontPanel" width="647" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/18-FontPanel-647x500.png 647w, https://koenig-media.raywenderlich.com/uploads/2015/08/18-FontPanel-414x320.png 414w, https://koenig-media.raywenderlich.com/uploads/2015/08/18-FontPanel.png 838w"
+            sizes="(max-width: 647px) 100vw, 647px">
+        </a>
+    </p>
+    <p>
+        Wait, but you didn’t enter yet a single line of code regarding the text
+        view, yet you have the power to change the size. You’re amazing!
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/word-processing-like-a-boss-e1441874078350.jpg"
+        sl-processed="1">
+            <img class="aligncenter size-full wp-image-113580" src="https://koenig-media.raywenderlich.com/uploads/2015/08/word-processing-like-a-boss-e1441874078350.jpg"
+            alt="Word Processing...Like A Boss" width="330" height="304">
+        </a>
+    </p>
+    <h3>
+        Initialize the Text View with Rich Text
+    </h3>
+    <p>
+        To see the full power of the app, download some formatted text from
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/BabyScript.rtf"
+        sl-processed="1">
+            here
+        </a>
+        , and use it as the initial text for the text view.
+    </p>
+    <p>
+        Open it with TextEdit, select all and copy it to the clipboard. Go to
+        the storyboard, select the Text View, then
+        <strong>
+            Attributes Inspector
+        </strong>
+        and paste the text into the
+        <em>
+            Text Storage
+        </em>
+        field.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/20-RichText.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112671" src="https://koenig-media.raywenderlich.com/uploads/2015/08/20-RichText-625x500.png"
+            alt="20-RichText" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/20-RichText-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/20-RichText-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/20-RichText.png 1280w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <p>
+        Build and run, and you should see:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112672" src="https://koenig-media.raywenderlich.com/uploads/2015/08/21-EditMe.png"
+        alt="21-EditMe" width="480" height="292">
+    </p>
+    <h3>
+        Use Auto Layout
+    </h3>
+    <p>
+        You do have the ability to scroll text that doesn’t fit the current window,
+        but try to resize the window.
+    </p>
+    <p>
+        Oops! The text view does not resize with the window.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/TextNoGrow.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112801" src="https://koenig-media.raywenderlich.com/uploads/2015/08/TextNoGrow-697x500.png"
+            alt="TextNoGrow" width="697" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/TextNoGrow-697x500.png 697w, https://koenig-media.raywenderlich.com/uploads/2015/08/TextNoGrow-446x320.png 446w, https://koenig-media.raywenderlich.com/uploads/2015/08/TextNoGrow.png 767w"
+            sizes="(max-width: 697px) 100vw, 697px">
+        </a>
+    </p>
+    <p>
+        It’s a simple fix with
+        <em>
+            Auto Layout
+        </em>
+        .
+    </p>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : Auto Layout assists both you in both Cocoa and iOS with your app’s UI.
+            It creates a set of rules that define the geometric relationship between
+            the elements, and you define these relationships in terms of constraints.
+        </p>
+        <p>
+            With Auto Layout, you create a dynamic interface that responds appropriately
+            to changes in screen size, window size, device orientation and localization.
+        </p>
+        <p>
+            There’s more to it than that, but for the sake of this tutorial, all you
+            need to do is follow the few simple steps below — you can learn more about
+            Auto Layout later. Here are a couple of good tutorials to check out: Beginning
+            Auto Layout Tutorial in iOS 7,
+            <a href="http://www.raywenderlich.com/50317/beginning-auto-layout-tutorial-in-ios-7-part-1"
+            target="_blank" sl-processed="1">
+                Part 1
+            </a>
+            and
+            <a href="http://www.raywenderlich.com/50317/beginning-auto-layout-tutorial-in-ios-7-part-1"
+            target="_blank" sl-processed="1">
+                Part 2
+            </a>
+            .
+        </p>
+    </div>
+    <p>
+        In the storyboard’s
+        <em>
+            Outline View
+        </em>
+        , select
+        <em>
+            Bordered Scroll View
+        </em>
+        , and click on the
+        <em>
+            Pin
+        </em>
+        button at the bottom-right of the canvas.
+    </p>
+    <p>
+        Click on each of the four little red bar constraints; the broken faded
+        red will turn to solid red. Click at the bottom on the button that reads
+        <em>
+            Add 4 Constraints
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/PinTextView.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112682" src="https://koenig-media.raywenderlich.com/uploads/2015/08/PinTextView-700x456.png"
+            alt="PinTextView" width="700" height="456" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/PinTextView-700x456.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/PinTextView-480x312.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/PinTextView.png 882w"
+            sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+    </p>
+    <p>
+        Build and run, and watch how both the window and text view resize together:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112673" src="https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed-607x500.png"
+            alt="22-AutoLayoutFixed" width="607" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed-607x500.png 607w, https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed-388x320.png 388w, https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed.png 671w"
+            sizes="(max-width: 607px) 100vw, 607px">
+        </a>
+    </p>
+    <h3>
+        Show the Ruler by Default
+    </h3>
+    <p>
+        To show the ruler automatically when a window opens, you’ll need an
+        <code>
+            IBOutlet
+        </code>
+        in the code. Select
+        <em>
+            Format / Text / Show Ruler
+        </em>
+        from the menus. In
+        <em>
+            ViewController.swift
+        </em>
+        , add one line into the
+        <code>
+            viewDidLoad
+        </code>
+        method
+        <code>
+            toggleRuler
+        </code>
+        , and add an
+        <em>
+            IBOutlet
+        </em>
+        above the method as shown below:
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119474">
+                    <td class="code" id="p111947code4">
+                        <pre class="swift" style="font-family:monospace;">
+                            @IBOutlet
+                            <span style="color: #a61390;">
+                                var
+                            </span>
+                            text
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                NSTextView
+                            </span>
+                            <span style="color: #002200;">
+                                !
+                            </span>
+                            &nbsp;
+                            <span style="color: #a61390;">
+                                override
+                            </span>
+                            <span style="color: #a61390;">
+                                func
+                            </span>
+                            viewDidLoad
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            <span style="color: #a61390;">
+                                super
+                            </span>
+                            .viewDidLoad
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            text.toggleRuler
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #a61390;">
+                                nil
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        Now you’ll connect the text view to the view controller in the storyboard.
+    </p>
+    <p>
+        In the storyboard, right-click on the
+        <code>
+            ViewController
+        </code>
+        , hold and drag into the text view until it highlights, and then release
+        the mouse. A small window with the list of
+        <em>
+            Outlets
+        </em>
+        will show itself. Select the
+        <code>
+            text
+        </code>
+        outlet:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112688" src="https://koenig-media.raywenderlich.com/uploads/2015/08/23-TextConnect.png"
+        alt="23-TextConnect" width="550" height="410" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/23-TextConnect.png 550w, https://koenig-media.raywenderlich.com/uploads/2015/08/23-TextConnect-429x320.png 429w"
+        sizes="(max-width: 550px) 100vw, 550px">
+    </p>
+    <p>
+        Build and run, and now the window by default shows the ruler by default:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112689" src="https://koenig-media.raywenderlich.com/uploads/2015/08/RulerShowing.png"
+        alt="RulerShowing" width="480" height="292">
+    </p>
+    <p>
+        So just as I promised, with two lines of code and the storyboard, you
+        have created a mini word processor – Chapeau, Apple!
+    </p>
+    <h2>
+        Modal Windows
+    </h2>
+    <div class="inline-video-ad" id="sub-banner-inline">
+        <div class="inline-video-ad-wrapper">
+            <a href="https://videos.raywenderlich.com/courses" sl-processed="1">
+                <div class="col-wrapper">
+                    <div class="col">
+                        <img src="https://cdn3.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png"
+                        alt="yeti holding videos">
+                    </div>
+                    <div class="col large-col">
+                        <span>
+                            Want to learn even faster? Save time with our
+                            <span>
+                                video courses
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <p>
+        You can make a window run in a modal fashion. The window still uses the
+        app’s normal event loop, but input is restricted to the modal window.
+    </p>
+    <p>
+        There are two ways to utilize a modal window. You’ll call the
+        <code>
+            runModalForWindow
+        </code>
+        method of
+        <code>
+            NSApplication
+        </code>
+        . This approach monopolizes events for the specified window until it is
+        gets a request to stop, which you can invoke by
+        <code>
+            stopModal
+        </code>
+        ,
+        <code>
+            abortModal
+        </code>
+        or
+        <code>
+            stopModalWithCode
+        </code>
+        .
+    </p>
+    <p>
+        For this case, you’ll use
+        <code>
+            stopModal
+        </code>
+        . The other way, called a
+        <em>
+            modal session
+        </em>
+        , is not covered by this tutorial.
+    </p>
+    <h3>
+        Add a Word Count Window
+    </h3>
+    <p>
+        You’ll add a modal window that counts words and paragraphs in the active
+        window. It has to be modal because it’s associated with a specific window
+        and a specific state.
+    </p>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        From the
+        <em>
+            Object Library
+        </em>
+        , drag a new
+        <em>
+            window controller
+        </em>
+        to the canvas. This creates two new scenes: a
+        <em>
+            window controller scene
+        </em>
+        and a
+        <em>
+            view controller scene
+        </em>
+        :
+    </p>
+    <p>
+        <img class="aligncenter size-large wp-image-112710" src="https://koenig-media.raywenderlich.com/uploads/2015/08/NewScenes-625x500.png"
+        alt="NewScenes" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/NewScenes-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/NewScenes-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/NewScenes.png 1280w"
+        sizes="(max-width: 625px) 100vw, 625px">
+    </p>
+    <p>
+        Select
+        <em>
+            Window
+        </em>
+        from the new
+        <em>
+            window controller scene
+        </em>
+        and use the
+        <em>
+            Size Inspector
+        </em>
+        to set its width to 300 and height to 150. Select
+        <em>
+            View
+        </em>
+        from the new
+        <em>
+            view controller scene
+        </em>
+        and resize it to match the window:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountReduced.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112720" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountReduced-625x500.png"
+            alt="WordCountReduced" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountReduced-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountReduced-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountReduced.png 1280w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <p>
+        Since Word Count is a modal, having the close, minimize and resize buttons
+        in its title bar would be bizarre, and a violation of
+        <em>
+            HIG
+        </em>
+        (Apple’s Human Interface Guidelines).
+    </p>
+    <p>
+        For the
+        <em>
+            Close
+        </em>
+        button, it would also introduce a serious bug because clicking the button
+        will close the window, but won’t call
+        <code>
+            stopModal
+        </code>
+        . So, the app will forever stay in a “modal state”.
+    </p>
+    <h3>
+        Removing Buttons from a Modal
+    </h3>
+    <p>
+        In the storyboard, select the
+        <em>
+            Word Count
+        </em>
+        window and choose
+        <em>
+            Attributes Inspector
+        </em>
+        . Uncheck
+        <em>
+            Close
+        </em>
+        ,
+        <em>
+            Minimize
+        </em>
+        and
+        <em>
+            Resize
+        </em>
+        . Also change the
+        <em>
+            Title
+        </em>
+        to
+        <em>
+            Word Count
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountAppearance.png"
+        sl-processed="1">
+            <img class="aligncenter size-full wp-image-113032" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountAppearance.png"
+            alt="WordCountAppearance" width="259" height="335" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountAppearance.png 259w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountAppearance-247x320.png 247w"
+            sizes="(max-width: 259px) 100vw, 259px">
+        </a>
+    </p>
+    <p>
+        Now you’ll add four label controls and a push button from the Object Library
+        to the
+        <code>
+            contentView
+        </code>
+        of the Word Count window.
+    </p>
+    <p>
+        Select the
+        <em>
+            Attributes Inspector
+        </em>
+        . Change the labels’ titles to
+        <em>
+            Word Count
+        </em>
+        ,
+        <em>
+            Paragraph Count
+        </em>
+        ,
+        <em>
+            0
+        </em>
+        and
+        <em>
+            0
+        </em>
+        respectively. Also change the
+        <em>
+            alignment
+        </em>
+        for the two 0 labels to right justified. Change the push button title
+        to
+        <em>
+            OK
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFields.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112748" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFields-544x500.png"
+            alt="WordCountFields" width="544" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFields-544x500.png 544w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFields-348x320.png 348w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFields.png 704w"
+            sizes="(max-width: 544px) 100vw, 544px">
+        </a>
+    </p>
+    <p>
+        Next on the list is creating a subclass for the Window Count ViewController.
+        Select
+        <em>
+            File / New / File..
+        </em>
+        , choose
+        <em>
+            OS X / Source / Cocoa Class
+        </em>
+        . In the
+        <em>
+            Choose Options
+        </em>
+        dialog, enter
+        <code>
+            WordCountViewController
+        </code>
+        in the
+        <em>
+            Class
+        </em>
+        field and
+        <code>
+            NSViewController
+        </code>
+        in the
+        <em>
+            Subclass of
+        </em>
+        field.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountViewController.png"
+        sl-processed="1">
+            <img class="aligncenter wp-image-112751 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountViewController-480x320.png"
+            alt="WordCountViewController" width="480" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountViewController-480x320.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountViewController-700x468.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountViewController.png 729w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
+    <p>
+        Click
+        <em>
+            Next
+        </em>
+        and create the new file. Confirm that
+        <em>
+            WordCountWindowControll.swift
+        </em>
+        is now in the project navigator.
+    </p>
+    <p>
+        Go to the storyboard. Select the proxy icon for the view controller in
+        the
+        <em>
+            view controller scene
+        </em>
+        for word count. Open the
+        <em>
+            Identity Inspector
+        </em>
+        , and select
+        <code>
+            WordCountViewController
+        </code>
+        from the
+        <em>
+            Class
+        </em>
+        drop-down. Note how the name on the canvas and the
+        <em>
+            Outline View
+        </em>
+        changed from the generic name to
+        <em>
+            Word Count View Controller
+        </em>
+        .
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112758" src="https://koenig-media.raywenderlich.com/uploads/2015/08/SetWCViewController.png"
+        alt="SetWCViewController" width="604" height="649" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/SetWCViewController.png 604w, https://koenig-media.raywenderlich.com/uploads/2015/08/SetWCViewController-298x320.png 298w, https://koenig-media.raywenderlich.com/uploads/2015/08/SetWCViewController-465x500.png 465w"
+        sizes="(max-width: 604px) 100vw, 604px">
+    </p>
+    <h3>
+        Create the Count Labels
+    </h3>
+    <p>
+        Now you’ll create outlets for the two labels that show the count values
+        — the two 0 labels. Under the class definition for
+        <em>
+            WordCountViewController.swift
+        </em>
+        , add the following:
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119475">
+                    <td class="code" id="p111947code5">
+                        <pre class="swift" style="font-family:monospace;">
+                            @IBOutlet weak
+                            <span style="color: #a61390;">
+                                var
+                            </span>
+                            wordCount
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                NSTextField
+                            </span>
+                            <span style="color: #002200;">
+                                !
+                            </span>
+                            @IBOutlet weak
+                            <span style="color: #a61390;">
+                                var
+                            </span>
+                            paragraphCount
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                NSTextField
+                            </span>
+                            <span style="color: #002200;">
+                                !
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        In the storyboard, right-click on the proxy icon for the
+        <em>
+            word count view controller
+        </em>
+        , drag over the top-most 0 label and release when the control highlights.
+        From the
+        <em>
+            Outlets
+        </em>
+        list that pops up, select
+        <code>
+            wordCount
+        </code>
+        .
+    </p>
+    <p>
+        Repeat the same for the lower 0 label, but this time select
+        <code>
+            paragraphCount
+        </code>
+        . Check for each of the labels in the
+        <em>
+            Connections Inspector
+        </em>
+        that the
+        <em>
+            Outlets
+        </em>
+        are connected like this:
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112772" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountConnected.png"
+        alt="WordCountConnected" width="602" height="468" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountConnected.png 602w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountConnected-412x320.png 412w"
+        sizes="(max-width: 602px) 100vw, 602px">
+    </p>
+    <p>
+        In a few moments, you’ll add code to programmatically load the word count
+        window controller. This requires that it have a
+        <em>
+            storyboard ID
+        </em>
+        . Select the
+        <em>
+            window controller
+        </em>
+        of the
+        <em>
+            word count window
+        </em>
+        from the storyboard. Select the
+        <em>
+            Identity Inspector
+        </em>
+        , and in
+        <em>
+            Storyboard ID
+        </em>
+        enter
+        <em>
+            Word Count Window Controller
+        </em>
+        :
+    </p>
+    <p>
+        <img class="aligncenter size-full wp-image-112791" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WCControllerStoryboardId.png"
+        alt="WCControllerStoryboardId" width="578" height="342" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WCControllerStoryboardId.png 578w, https://koenig-media.raywenderlich.com/uploads/2015/08/WCControllerStoryboardId-480x284.png 480w"
+        sizes="(max-width: 578px) 100vw, 578px">
+    </p>
+    <h3>
+        Show Me the Modal
+    </h3>
+    <p>
+        Now for the basic logic to show the modal window. In the document window’s
+        view controller, find and select
+        <em>
+            ViewController.swift
+        </em>
+        add the code below under
+        <code>
+            viewDidLoad
+        </code>
+        :
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119476">
+                    <td class="code" id="p111947code6">
+                        <pre class="swift" style="font-family:monospace;">
+                            @IBAction
+                            <span style="color: #a61390;">
+                                func
+                            </span>
+                            showWordCountWindow
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            sender
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #a61390;">
+                                AnyObject
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            &nbsp;
+                            <span style="color: #11740a; font-style: italic;">
+                                // 1
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            storyboard
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            NSStoryboard
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            name
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #bf1d1a;">
+                                "Main"
+                            </span>
+                            , bundle
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #a61390;">
+                                nil
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            wordCountWindowController
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            storyboard.instantiateControllerWithIdentifier
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #bf1d1a;">
+                                "Word Count Window Controller"
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #a61390;">
+                                as
+                            </span>
+                            <span style="color: #002200;">
+                                !
+                            </span>
+                            <span style="color: #400080;">
+                                NSWindowController
+                            </span>
+                            &nbsp;
+                            <span style="color: #a61390;">
+                                if
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            wordCountWindow
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            wordCountWindowController.window, textStorage
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            text.textStorage
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            &nbsp;
+                            <span style="color: #11740a; font-style: italic;">
+                                // 2
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            wordCountViewController
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            wordCountWindow.contentViewController
+                            <span style="color: #a61390;">
+                                as
+                            </span>
+                            <span style="color: #002200;">
+                                !
+                            </span>
+                            WordCountViewController wordCountViewController.wordCount.stringValue
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #bf1d1a;">
+                                "
+                                <span style="color: #2400d9;">
+                                    \(
+                                </span>
+                                textStorage.words.count)"
+                            </span>
+                            wordCountViewController.paragraphCount.stringValue
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #bf1d1a;">
+                                "
+                                <span style="color: #2400d9;">
+                                    \(
+                                </span>
+                                textStorage.paragraphs.count)"
+                            </span>
+                            &nbsp;
+                            <span style="color: #11740a; font-style: italic;">
+                                // 3
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            application
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #400080;">
+                                NSApplication
+                            </span>
+                            .sharedApplication
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            application.runModalForWindow
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            wordCountWindow
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        Take it step-by-step:
+    </p>
+    <ol>
+        <li>
+            Instantiate the word count window controller, using the storyboard ID
+            you specified before.
+        </li>
+        <li>
+            Set the values retrieved from the text view in the word count window count
+            outlets
+        </li>
+        <li>
+            Show the word count window modally
+        </li>
+    </ol>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : In step two, you passed data between two view controllers. This is similar
+            to what you’d usually do in a
+            <code>
+                prepareForSegue
+            </code>
+            method when a segue is involved in the transition. Since showing a modal
+            window is done directly with a call to
+            <code>
+                runModalForWindow
+            </code>
+            and there’s no segue involved, you pass the data just before the call.
+        </p>
+    </div>
+    <h3>
+        Go Away, Modal
+    </h3>
+    <p>
+        Now you’ll add code to dismiss the word count window. In
+        <em>
+            WordCountViewController.swift
+        </em>
+        , add the following method below the
+        <code>
+            paragraphCount
+        </code>
+        outlet:
+    </p>
+    <div class="wp_codebox">
+        <table>
+            <tbody>
+                <tr id="p1119477">
+                    <td class="code" id="p111947code7">
+                        <pre class="swift" style="font-family:monospace;">
+                            @IBAction
+                            <span style="color: #a61390;">
+                                func
+                            </span>
+                            dismissWordCountWindow
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            sender
+                            <span style="color: #002200;">
+                                :
+                            </span>
+                            <span style="color: #400080;">
+                                NSButton
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                {
+                            </span>
+                            <span style="color: #a61390;">
+                                let
+                            </span>
+                            application
+                            <span style="color: #002200;">
+                                =
+                            </span>
+                            <span style="color: #400080;">
+                                NSApplication
+                            </span>
+                            .sharedApplication
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            application.stopModal
+                            <span style="color: #002200;">
+                                (
+                            </span>
+                            <span style="color: #002200;">
+                                )
+                            </span>
+                            <span style="color: #002200;">
+                                }
+                            </span>
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        This is an
+        <em>
+            IBAction
+        </em>
+        that should be invoked when the user clicks
+        <em>
+            OK
+        </em>
+        on the
+        <em>
+            word count window
+        </em>
+        .
+    </p>
+    <p>
+        Go to the storyboard, right-click on
+        <em>
+            OK
+        </em>
+        , then hold and drag to the proxy icon of the
+        <em>
+            word count view controller
+        </em>
+        . Release the mouse and select
+        <code>
+            dismissWordCountWindow:
+        </code>
+        from the presented list:
+    </p>
+    <p>
+        <img class="alignnone size-full wp-image-112794" src="https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectOK.png"
+        alt="ConnectOK" width="360" height="314">
+    </p>
+    <h3>
+        Add UI to Invoke It
+    </h3>
+    <p>
+        The only thing left to present the window is adding the UI to invoke it.
+        Go to the storyboard, and in the
+        <em>
+            Main Menu
+        </em>
+        click
+        <em>
+            Edit
+        </em>
+        . From the
+        <em>
+            Object Library
+        </em>
+        , drag a
+        <em>
+            Menu Item
+        </em>
+        to the bottom of the
+        <em>
+            Edit
+        </em>
+        menu. Select the
+        <em>
+            Attributes Inspector
+        </em>
+        and set the title to
+        <em>
+            Word Count
+        </em>
+        .
+    </p>
+    <p>
+        <img class="alignnone size-full wp-image-112795" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WCMenu.png"
+        alt="WCMenu" width="626" height="847" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WCMenu.png 626w, https://koenig-media.raywenderlich.com/uploads/2015/08/WCMenu-237x320.png 237w, https://koenig-media.raywenderlich.com/uploads/2015/08/WCMenu-370x500.png 370w"
+        sizes="(max-width: 626px) 100vw, 626px">
+    </p>
+    <p>
+        Take a moment to create a keyboard shortcut by entering
+        <em>
+            command – K
+        </em>
+        as the
+        <em>
+            key equivalent
+        </em>
+        .
+    </p>
+    <p>
+        Now you’ll connect the new menu item to the
+        <code>
+            showWordCountWindow
+        </code>
+        method in
+        <em>
+            ViewController.swift
+        </em>
+        .
+    </p>
+    <p>
+        Go to the storyboard, right-click on the
+        <em>
+            Word Count
+        </em>
+        menu item, hold and drag over
+        <em>
+            First Responder
+        </em>
+        in the
+        <em>
+            application scene
+        </em>
+        . Select
+        <code>
+            showWordCountWindow
+        </code>
+        from the list.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectWCMenuItem.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-112796" src="https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectWCMenuItem-625x500.png"
+            alt="ConnectWCMenuItem" width="625" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectWCMenuItem-625x500.png 625w, https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectWCMenuItem-400x320.png 400w, https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectWCMenuItem.png 710w"
+            sizes="(max-width: 625px) 100vw, 625px">
+        </a>
+    </p>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : You might wonder why you connected the menu item to the first responder,
+            but not directly to
+            <code>
+                showWordCountWindow
+            </code>
+            . It’s because the document view’s main menu and view controller are in
+            different storyboard scenes, and as such, can’t be connected directly.
+        </p>
+    </div>
+    <p>
+        Build and run the app, select
+        <em>
+            Edit / Word Count
+        </em>
+        , and voila, the word count window presents itself.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFinal.png"
+        sl-processed="1">
+            <img class="aligncenter size-large wp-image-113033" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFinal-700x331.png"
+            alt="WordCountFinal" width="700" height="331" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFinal-700x331.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFinal-480x227.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFinal.png 1007w"
+            sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+    </p>
+    <p>
+        Click OK to dismiss the window.
+    </p>
+    <h3>
+        Where To Go From Here?
+    </h3>
+    <p>
+        Here is the
+        <a title="final project" href="https://koenig-media.raywenderlich.com/uploads/2015/08/BabyScript-Final-Project.zip"
+        sl-processed="1">
+            final version
+        </a>
+        of BabyScript.
+    </p>
+    <p>
+        You covered a lot of ground in this windows and window controllers for
+        OS X tutorial! But it’s just the tip of the iceberg as far as what you
+        can do with windows and window controllers.
+    </p>
+    <p>
+        You covered:
+    </p>
+    <ul>
+        <li>
+            The MVC design pattern in action
+        </li>
+        <li>
+            How to create a multi-window app
+        </li>
+        <li>
+            Typical app architecture for OS X apps
+        </li>
+        <li>
+            How to position and arrange windows with Interface Builder
+            <i>
+                and
+            </i>
+            programmatically
+        </li>
+        <li>
+            Using Auto Layout to resize a view with its window
+        </li>
+        <li>
+            Using modal windows to display additional information
+        </li>
+    </ul>
+    <p>
+        And more!
+    </p>
+    <p>
+        I strongly recommend that you explore the huge amount of documentation
+        provided by Apple in
+        <a href="https://developer.apple.com/library/prerelease/mac/navigation/"
+        target="_blank" sl-processed="1">
+            El Capitan’s Mac Developer Library
+        </a>
+        . In particular, reference the
+        <em>
+            Window Programming Guide
+        </em>
+        .
+    </p>
+    <p>
+        For better understanding of Cocoa app design and how it works with the
+        types of apps mentioned at the beginning, check out the
+        <a title="Mac App Programming Guide" href=" https://developer.apple.com/library/prerelease/mac/documentation/General/Conceptual/MOSXAppProgrammingGuide/CoreAppDesign/CoreAppDesign.html "
+        target="_blank" sl-processed="1">
+            Mac App Programming Guide
+        </a>
+        . This document also extends on the concept of multi-window document-based
+        apps, so you’ll find ideas to keep improving BabyScript there.
+    </p>
+    <p>
+        I look forward to hearing your ideas, experiences&nbsp;and any questions
+        you have in the forums below!
+    </p>
+</div>
