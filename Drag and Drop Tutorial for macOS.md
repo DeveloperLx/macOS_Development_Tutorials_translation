@@ -1341,63 +1341,57 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         你构建了一个粘贴板项目（item），并为你定制的类型，直接将数据放到它内部。在这个case中的数据是一个接收的view可以用来做决定的定制动作的id。
     </p>
     <p>
-        You can see how this differs from
+    	你可以看到这个和
         <code>
             ImageSourceView
         </code>
-        in one way. Instead of deferring data generation to the point when the
-        view accepts the drop with the
+        在某种程度上的不同之处。投掷的数据直接到了粘贴板上，而不是将数据的产生推迟到当view使用
         <code>
             NSPasteboardItemDataProvider
         </code>
-        protocol, the dragged data goes directly to the pasteboard.
+        协议接受了投掷时。
     </p>
     <p>
-        Why would you use the
+    	为什么你要用
         <code>
             NSPasteboardItemDataProvider
         </code>
-        protocol? Because you want things to move as fast as possible when you
-        start the drag session in
+        协议？因为你希望当你在
         <code>
             mouseDown(with:)
-        </code>
-        .
+        </code> 
+        中开始拖拽session时，东西能够移动得尽可能得快。
     </p>
     <p>
-        If the data you’re moving takes too long to construct on the pasteboard,
-        it’ll jam up the main thread and frustrate users with a perceptible delay
-        when they start dragging.
+    	如果你移动的数据花费了太长的时间在粘贴板上构建，它会阻塞（jam up）主线程，并在用户开始拖拽时，让他们感受到一个令人沮丧的可察觉的延迟。
     </p>
     <p>
-        In this case, you place a small string on the pasteboard so that it can
-        do it right away.
+    	在这个case重，你只是放置了一个小字符创到粘贴板上，以便它可以立即执行。
     </p>
     <h3>
-        Accept the New Type
+    	接受新的类型
     </h3>
     <p>
-        Next, you have to let the destination view accept this new type. By now,
-        you already know how to do it.
+    	下一步，你必须让destination view接受这个新的类型。现在，你早已知道了怎么可以做到。
     </p>
     <p>
-        Open
+        打开
         <em>
             DestinationView.swift
         </em>
-        and add
+        并添加
         <code>
             SparkleDrag.type
         </code>
-        to the registered types. Replace the following line:
+        到注册类型。替换下面这行：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span><span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
     <p>
-        With this:
+        为：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span>,SparkleDrag.type<span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
     <p>
-        Now SparkleDrags are acceptable!
+    	现在SparkleDrags就可以被接受了！
     </p>
     <p>
         <code>
