@@ -7,10 +7,7 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        Windows are the “containers” for all the UI associated with all OS X apps.
-        They define the area on the screen that the app is currently responsible
-        for, and allow users to interact using a well-understood multi-tasking
-        paradigm. OS X apps fall into one of the following categories:
+    	window是关联于全部OS X app的UI的“容器”。它们定义了你的app当前负责的屏幕的区域，用户可以使用容易理解的多任务范式（multi-tasking paradigm）来进行交互。OS X app总是落入如下种类中的一种：
     </p>
     <ul>
         <li>
