@@ -1522,10 +1522,11 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1533,71 +1534,63 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         </div>
     </div>
     <p>
-        Congratulations, you created a custom drag and drop interface in your
-        very own app!
+    	恭喜，你已经在你自己的app中创建了一个定制的拖放UI！
     </p>
     <p>
-        You can use the
+    	你可以使用
         <em>
             Save Image To Desktop
         </em>
-        button to save your image as a
+        按钮来保存你的图片作为一个
         <em>
             JPG
         </em>
-        with the name
+        ，名叫
         <em>
             StickerDrag
         </em>
-        . Maybe take it a step further and tweet it to the team
+        。或者更进一步，将它发送给
         <a href="https://twitter.com/rwenderlich" target="_blank" sl-processed="1">
             @rwenderlich
         </a>
-        .
+        的团队。
     </p>
     <p>
-        Here’s the source code for the
+    	这里是完整项目的
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/08/StickerDrag-Final_S3-b6.zip"
         sl-processed="1">
-            the completed project
+	        源码
         </a>
-        .
+        。
     </p>
     <p>
-        This drag and drop tutorial for macOS covered the basics of the Cocoa
-        drag and drop mechanism, including:
+    	这个macOS的拖放教程，覆盖了Cocoa拖放机制的基础，包括：
     </p>
     <ul>
         <li>
-            Creating a dragging destination and accepting several different types
-            of data
+        	创建一个拖拽destination并接受几种不同类型的数据
         </li>
         <li>
-            Using the dragging session lifecycle to provide user feedback of the drag
-            operation
+        	使用拖拽session的生命循环，来提供给用户拖拽操作的反馈
         </li>
         <li>
-            Decoding information from the pasteboard
+        	从粘贴板中解码信息
         </li>
         <li>
-            Creating a dragging source and providing deferred data
+        	创建一个拖拽source，并提供推迟的数据
         </li>
         <li>
-            Creating a dragging source that provides a custom data type
+        	创建一个提供指定数据类型的拖拽source
         </li>
     </ul>
     <p>
-        Now you have the knowledge and experience needed to support drag and drop
-        in any macOS app.
+    	现在你已经有了用来在任意mac app中支持拖放的知识和经验了。
     </p>
     <p>
-        There’s certainly more to learn.
+    	这里有更多要去学的。
     </p>
     <p>
-        You could study up on how to apply effects, such as changing the dragging
-        image during the drag or implementing an animated drop transition, or working
-        with promised files — Photos is one application that places promised data
-        on the dragging pasteboard.
+        You could study up on how to apply effects, such as changing the dragging image during the drag or implementing an animated drop transition, or working with promised files — Photos is one application that places promised data on the dragging pasteboard.
     </p>
     <p>
         Another interesting topic is how to use drag and drop with
