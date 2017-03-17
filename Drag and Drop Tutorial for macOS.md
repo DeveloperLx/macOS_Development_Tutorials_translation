@@ -1397,15 +1397,15 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         <code>
             performDragOperation(:_)
         </code>
-        needs a new
+        需要一个新的
         <code>
             else-if
         </code>
-        clause, so add this code at the end of the method just before
+        字句，因此添加下列的代码到这个方法的最后
         <code>
             return false
         </code>
-        :
+        之前：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> types <span style="color: #002200;">=</span> pasteBoard.types, types.<span style="color: #a61390;">contains</span><span style="color: #002200;">(</span>SparkleDrag.type<span style="color: #002200;">)</span>,
   <span style="color: #a61390;">let</span> action <span style="color: #002200;">=</span> pasteBoard.string<span style="color: #002200;">(</span>forType<span style="color: #002200;">:</span> SparkleDrag.type<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1413,29 +1413,28 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
   <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        This addition extracts the string from the pasteboard. If it corresponds
-        to your custom type, you pass the action back to the delegate.
+    	这就从粘贴板中抽取了字符串。如果它符合你定制的类型，你就将动作传回给delegate。
     </p>
     <p>
-        You’re almost done, you just need to update
+    	你已几乎完成，只需要更新
         <code>
             StickerBoardViewController
         </code>
-        to deal with the action instruction.
+        来处理动作指令。
     </p>
     <h3>
-        Handle the Action Instruction
+    	处理动作指令
     </h3>
     <p>
-        Open
+        打开
         <em>
             StickerBoardViewController.swift
         </em>
-        and replace
+        并替换
         <code>
             processAction(_:center:)
         </code>
-        with this:
+        为：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processAction<span style="color: #002200;">(</span>_ action<span style="color: #002200;">:</span> <span style="color: #a61390;">String</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   <span style="color: #11740a; font-style: italic;">//1.</span>
@@ -1469,7 +1468,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
   <span style="color: #002200;">}</span>
 <span style="color: #002200;">}</span></pre>
     <p>
-        The above code does the following:
+    	以上代码做了下列的事：
     </p>
     <ol>
         <li>
