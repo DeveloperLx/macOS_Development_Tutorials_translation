@@ -9,11 +9,11 @@
         srcset="https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2016/08/DragandDrop-feature-128x128.png 128w"
         sizes="(max-width: 250px) 100vw, 250px">
         <p class="wp-caption-text">
-        	学习全部关于macOS拖拽（drag）和投掷（drop）的东西！
+        	学习全部关于macOS拖拽（drag）和投放（drop）的东西！
         </p>
     </div>
     <p>
-    	自从Mac发明开始，拖拽和投掷就是用户交互的一部分。典型的（quintessential）例子就是Finder，你可以拖拽文件来进行排列组织，或将它们投掷到垃圾桶中。
+    	自从Mac发明开始，拖拽和投放就是用户交互的一部分。典型的（quintessential）例子就是Finder，你可以拖拽文件来进行排列组织，或将它们投放到垃圾桶中。
     </p>
     <p>
     	有趣的东西不至于此。
@@ -22,10 +22,10 @@
     	你可以从相册拖拽你最近的日落全景到你的Message，或从Dock上的Downloads中将一个文件拖拽到邮箱中。你已经get到这个点了对么？它非常得酷，并且是macOS体验的不可分割的一部分（an integral part）。
     </p>
     <p>
-    	拖拽和投掷从它开始已经走过了一条很长的路，现在你已几乎可以拖拽任何东西到任何地方。尝试一下，你会高兴地惊奇于这个动作和你最喜欢的app支持的类型。
+    	拖拽和投放从它开始已经走过了一条很长的路，现在你已几乎可以拖拽任何东西到任何地方。尝试一下，你会高兴地惊奇于这个动作和你最喜欢的app支持的类型。
     </p>
     <p>
-    	在这个macOS的拖拽和投掷的教程中，你将了解到怎样添加支持到你自己的app中，这样用户就可以在你的app中获得完整的Mac的体验。
+    	在这个macOS的拖拽和投放的教程中，你将了解到怎样添加支持到你自己的app中，这样用户就可以在你的app中获得完整的Mac的体验。
     </p>
     <p>
     	这一路，你将学到怎样去：
@@ -36,7 +36,7 @@
         	<code>
          		NSView
             </code>
-        	的子类中实现核心的拖拽及投掷动作
+        	的子类中实现核心的拖拽及投放动作
         </li>
         <li>
 	       	接受从其它应用丢过来的数据
@@ -75,14 +75,14 @@
     	毕竟，怎么可能会不喜欢星星和独角兽？:]
     </p>
     <p>
-    	保持你的集中注意力在目标上 - 构建拖拽和投掷的支持 - 起始的项目已完成了你需要的view。全部你需要做的就是了解拖拽和投掷的机制。
+    	保持你的集中注意力在目标上 - 构建拖拽和投放的支持 - 起始的项目已完成了你需要的view。全部你需要做的就是了解拖拽和投放的机制。
     </p>
     <p>
     	在项目窗口中有三个部分：
     </p>
     <ul>
         <li>
-        	贴纸view：你将拖拽和投掷其它东西的地方
+        	贴纸view：你将拖拽和投放其它东西的地方
         </li>
         <li>
         	你将转变成两个不同的拖拽资源的小view
@@ -166,7 +166,7 @@
     	粘贴板和拖拽session
     </h2>
     <p>
-    	拖拽和投掷包含一个
+    	拖拽和投放包含一个
         <em>
         	源（source）
         </em>
@@ -181,7 +181,7 @@
         <code>
             NSDraggingSource
         </code>
-        协议。然后投掷它到一个destination中，它则必须实现
+        协议。然后投放它到一个destination中，它则必须实现
         <code>
             NSDraggingDestination
         </code>
@@ -222,7 +222,7 @@
         	选择一些数据 - 通常一个图片和URL - 来表示放置在拖拽粘贴板上的信息。
         </li>
         <li>
-        	你将图片投掷到一个destination上，他会选择拒绝还是接受它，并采取一些动作 - 例如，移动文件到另一个目录下。
+        	你将图片投放到一个destination上，他会选择拒绝还是接受它，并采取一些动作 - 例如，移动文件到另一个目录下。
         </li>
         <li>
             <em>
@@ -437,7 +437,7 @@
     	处理退出
     </h3>
     <p>
-    	进入view的东西同时也有可能退出，所以app需要处理当一个拖拽session没有投掷就退出了你的view时的情况。添加下列的代码：
+    	进入view的东西同时也有可能退出，所以app需要处理当一个拖拽session没有投放就退出了你的view时的情况。添加下列的代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draggingExited<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span>?<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   isReceivingDrag <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
@@ -624,7 +624,7 @@
             <em>
                 注意
             </em>
-            ：感觉更好了？如果你要做一个带动画的投掷序列，
+            ：感觉更好了？如果你要做一个带动画的投放序列，
             <code>
                 performDragOperation(:_)
             </code>
@@ -700,17 +700,17 @@
             label隐藏。
         </li>
         <li>
-        	为投掷的图片，算出其保持长宽比的情况下，最大的尺寸。
+        	为投放的图片，算出其保持长宽比的情况下，最大的尺寸。
         </li>
         <li>
-        	使用这个尺寸构建了一个subview，将它的中心定位在投掷点上，并将其添加到view的图层上。
+        	使用这个尺寸构建了一个subview，将它的中心定位在投放点上，并将其添加到view的图层上。
         </li>
         <li>
         	随机地旋转这个view一点角度，让它看起来更好。
         </li>
     </ol>
     <p>
-    	到这里，你已经准备好了去实现处理投掷到这个view的图片的URL的方法。
+    	到这里，你已经准备好了去实现处理投放到这个view的图片的URL的方法。
         <br>
         使用下列代码替换
         <code>
@@ -750,7 +750,7 @@
         </li>
     </ol>
     <p>
-    	现在build并执行，然后拖拽一个（或几个）图片到app的window上，投掷它！
+    	现在build并执行，然后拖拽一个（或几个）图片到app的window上，投放它！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/06/window-demo-1-568x500.png"
@@ -942,7 +942,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
             。
         </li>
         <li>
-            开始拖拽session。这里你触发拖拽图片，来跟随你的鼠标，直到你投掷它。
+            开始拖拽session。这里你触发拖拽图片，来跟随你的鼠标，直到你投放它。
         </li>
     </ol>
     <p>
@@ -1056,7 +1056,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         <code>
             NSPasteboard
         </code>
-        参数的构造方法。当你开始探索更多关于拖拽和投掷的内容后，你将在
+        参数的构造方法。当你开始探索更多关于拖拽和投放的内容后，你将在
         <em>
             Cocoa
         </em>
@@ -1100,7 +1100,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         。
     </p>
     <p>
-        destination view接受图片数据，但是当你投掷的时候，图片仍然滑到了后面。啊啊啊啊啊啊啊...这里缺少了什么？
+        destination view接受图片数据，但是当你投放的时候，图片仍然滑到了后面。啊啊啊啊啊啊啊...这里缺少了什么？
     </p>
     <h3>
         向我展示图片数据！
@@ -1150,7 +1150,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </li>
     </ol>
     <p>
-        build并运行，拖拽独角兽的图片到sticker view上。它将投掷带颜色的独角兽到view上。赞！
+        build并运行，拖拽独角兽的图片到sticker view上。它将投放带颜色的独角兽到view上。赞！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/midway.png"
@@ -1345,11 +1345,11 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         <code>
             ImageSourceView
         </code>
-        在某种程度上的不同之处。投掷的数据直接到了粘贴板上，而不是将数据的产生推迟到当view使用
+        在某种程度上的不同之处。投放的数据直接到了粘贴板上，而不是将数据的产生推迟到当view使用
         <code>
             NSPasteboardItemDataProvider
         </code>
-        协议接受了投掷时。
+        协议接受了投放时。
     </p>
     <p>
     	为什么你要用
@@ -1590,56 +1590,51 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
     	这里有更多要去学的。
     </p>
     <p>
-        You could study up on how to apply effects, such as changing the dragging image during the drag or implementing an animated drop transition, or working with promised files — Photos is one application that places promised data on the dragging pasteboard.
+    	你可以学习 例如在拖拽期间改变拖拽的图片，或实现一个动画的投放过渡效果，或使用承诺的文件 - Photos是一个应用程序，可将承诺的数据放在拖拽粘贴板上。
     </p>
     <p>
-        Another interesting topic is how to use drag and drop with
+    	另一个有趣的话题是怎么在
         <code>
             NSTableView
         </code>
-        and
+        和
         <code>
             NSOutlineView
         </code>
-        , which work in slightly different ways. Learn about it from the following
-        resources:
+        中使用拖放，它们的工作方式略有不同。可以在以下的资源中进行了解：
     </p>
     <ul>
         <li>
-            Apple’s
+            苹果的
             <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/DragandDrop/DragandDrop.html"
             target="_blank" title="Drag and Drop Programming Topics" sl-processed="1">
-                Drag and Drop Programming Topics
+            	拖拽编程话题
             </a>
         </li>
         <li>
-            Apple’s
+	        苹果的
             <a href="https://developer.apple.com/library/mac/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16"
             target="_blank" title="Sandboxing and Security Scoped Data" sl-processed="1">
-                Sandboxing and Security Scoped Data
+            	沙盒和安全范围内的数据
             </a>
-            , where you’ll find information about how dragging and dropping files
-            works if an application is sandboxed.
+            ，在这里你将找到，有关如果应用在沙盒中，如何让拖拽生效。
         </li>
         <li>
+        	示例代码（用OC写的）：
             <a href="https://developer.apple.com/library/mac/samplecode/CocoaDragAndDrop/Introduction/Intro.html"
             target="_blank" title="CocoaDragAndDrop" sl-processed="1">
                 CocoaDragAndDrop
-            </a>
-            sample code (in Objective-C)
+            </a>            
         </li>
         <li>
+        	示例代码（用OC写的）：
             <a href="https://developer.apple.com/library/prerelease/content/samplecode/DragNDropOutlineView/Introduction/Intro.html"
             target="_blank" title="DragNDropOutlineView" sl-processed="1">
                 DragNDropOutlineView
             </a>
-            sample code (in Objective-C)
         </li>
     </ul>
     <p>
-        If you have any questions or comments about this drag and drop tutorial
-        for macOS, please join the discussion below! And remember, sometimes life
-        is a dragging experience, but everything’s better with unicorns and sparkles.
-        :]
+    	如果你有任何关于这个macOS的拖放教程的问题或意见，请加入下面的讨论！记住，有时候生活是拖拽的体验，但每件事遇到独角兽和星星都会变得更好。:]
     </p>
 </div>
