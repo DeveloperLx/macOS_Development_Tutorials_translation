@@ -267,82 +267,37 @@
         文档的建构也提供了文档的保存和打开机制。
     </p>
     <p>
-        In
+        在
         <em>
             Document.swift
         </em>
-        , you’ll find the empty implementation of
+        中，你会发现实现为空的
         <code>
             dataOfType
         </code>
-        , for writing, and
+        ，它是为了写入的，还有
         <code>
             readFromData
         </code>
-        for reading. Saving and opening documents is outside the scope of this
-        tutorial, so you’ll make some changes to prevent confusing behavior.
+        ，是为了读出的。保存和打开文档是在这个教程的范围之外的，因此你要做出一些变化来避免令人困惑的行为的出现。
     </p>
     <p>
-        In
+        在
         <em>
             Document.swift
         </em>
-        ,
+        中，
         <i>
-            remove
+            移除
         </i>
         <code>
             autosavesInPlace
         </code>
-        :
+        ：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119471">
-                    <td class="code" id="p111947code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                class
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            autosavesInPlace
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -&amp;
-                            </span>
-                            gt;
-                            <span style="color: #a61390;">
-                                Bool
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  <span style="color: #a61390;">override</span> <span style="color: #a61390;">class</span> <span style="color: #a61390;">func</span> autosavesInPlace<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">-&amp;</span>gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
+  <span style="color: #002200;">}</span></pre>
     <p>
         Now you’ll disable all menu items related to opening and saving, but before
         you do, notice that all the functionality you would expect is already there.
