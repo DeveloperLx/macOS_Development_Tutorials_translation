@@ -65,62 +65,60 @@
             NSTextView
         </li>
         <li>
-            Modal windows
+            模型window
         </li>
         <li>
             菜单栏和菜单项
         </li>
     </ul>
     <h2>
-        Prerequisites
+        预备知识
     </h2>
     <p>
-        This tutorial is aimed at beginners. Having said that, it requires basic
-        knowledge of the following topics:
+        这篇教程是面向新手的。话虽如此，它要求下列的基础知识：
     </p>
     <ul>
         <li>
             Swift
         </li>
         <li>
-            Xcode, and in particular, storyboards
+            Xcode，特别的，storyboards
         </li>
         <li>
-            Creating a simple Mac (OS X) app
+            创建一个简答的 Mac (OS X) app
         </li>
     </ul>
     <p>
-        If you’re not familiar with any of the above, you might want to brush
-        up with some other tutorials on this site:
+        如果你对上面的任意一项都不熟悉，你可能要复习（brush up）一些这个网站上的其它教程：
     </p>
     <ul>
         <li>
             <a title=" Swift Language Tutorials " href="http://www.raywenderlich.com/category/swift"
             target="_blank" sl-processed="1">
-                Swift Language Tutorials
+                Swift语言教程
             </a>
         </li>
         <li>
-            <a title=" Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode "
-            href="http://www.raywenderlich.com/?p=110170" target="_blank" sl-processed="1">
-                Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode
+            <a title="macOS X 初学者开发教程 第一部分 Xcode介绍"
+            href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md" target="_blank" sl-processed="1">
+                macOS X 初学者开发教程 第一部分 Xcode介绍
             </a>
         </li>
         <li>
-            <a title=" Mac OS X Development Tutorial for Beginners Part 2: OS X App Anatomy "
-            href="http://www.raywenderlich.com/?p=110267" target="_blank" sl-processed="1">
-                Mac OS X Development Tutorial for Beginners Part 2: OS X App Anatomy
+            <a title="macOS X 初学者开发教程 第二部分 OS X App剖析"
+            href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md" target="_blank" sl-processed="1">
+                macOS X 初学者开发教程 第二部分 OS X App剖析
             </a>
         </li>
         <li>
-            <a title=" Mac OS X Development Tutorial for Beginners Part 3: Your First OS X App "
-            href="http://www.raywenderlich.com/?p=110269" target="_blank" sl-processed="1">
-                Mac OS X Development Tutorial for Beginners Part 3: Your First OS X App
+            <a title="macOS X 初学者开发教程 第三部分 你的第一个OS X App"
+            href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md" target="_blank" sl-processed="1">
+                macOS X 初学者开发教程 第三部分 你的第一个OS X App
             </a>
         </li>
     </ul>
     <h2>
-        Getting Started
+        开始吧！
     </h2>
     <p>
         Launch
