@@ -121,23 +121,23 @@
         开始吧！
     </h2>
     <p>
-        Launch
+        运行
         <em>
             Xcode
         </em>
-        , and choose
+        ，并选择
         <em>
             File / New / Project…
         </em>
-        . Select
+        。选择
         <em>
             OS X / Application / Cocoa Application
         </em>
-        , and click
+        ，然后点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/1-CocoaApp.png"
@@ -148,8 +148,7 @@
         </a>
     </p>
     <p>
-        In the next screen, fill out the fields as indicated below, but enter
-        your own name (or superhero alias) instead of mine.
+        在下一屏，填写如下所示的字段，但输入你自己的名字（或超级英雄的别名），而不要像我一样。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/2-XcodeTemplate.png"
@@ -160,31 +159,29 @@
         </a>
     </p>
     <p>
-        Click
+        点击
         <em>
             Next
         </em>
-        and save your project.
+        并保存你的项目。
     </p>
     <p>
-        Build and run, and you will see:
+        build并运行，你将看到：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112378" src="https://koenig-media.raywenderlich.com/uploads/2015/08/3-FirstWindow.png"
         alt="3-FirstWindow" width="480" height="292">
     </p>
     <p>
-        To open more documents, select
+        为了打开更多的文档，选择
         <em>
             File / New
         </em>
-        . All the documents are positioned in the
+        。全部的文档都位于
         <i>
-            same place
+            同一位置
         </i>
-        , so you’ll only see the top document when you click and drag them around.
-        It’s not a desirable effect, so add fixing this to your to-do list, but
-        don’t dive in yet.
+        ，因此你只有在点击和拖拽他们时，才会看到顶部的文档。这不是理想的效果，所以把它添加到你的to-do列表中，但先不要钻进去。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/4-Open-Many.png"
@@ -195,11 +192,11 @@
         </a>
     </p>
     <p>
-        You can also use the
+        也是可以使用
         <em>
             Windows
         </em>
-        menu to bring windows to the front.
+        菜单来讲window带到前台。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/5-Bring-ToFront.png"
@@ -210,34 +207,31 @@
         </a>
     </p>
     <h2>
-        Documents: Under the Hood
+        文档：在Hood之下
     </h2>
     <p>
-        Now you’ve seen it in action, let’s take a few minutes to see how it works.
+        现在你已经看到了它在行动，让我们花几分钟来看看它的工作原理。
     </p>
     <h3>
-        Document Architecture
+        文档结构
     </h3>
     <p>
-        A document is a container for data in memory that you can view in a window.
-        Eventually, it can be written to or read from a disk or iCloud. Programmatically
-        speaking, a document is an instance of the
+        文档是在内存中的数据的容器，你可以在window中查看它。最终，它可以从磁盘或iCould中写入和读出。从程序上讲，文档是一个
         <code>
             NSDocument
         </code>
-        class that acts as the controller for the data objects—aka model—associated
-        with the document.
+        类的实例，充当数据对象的控制器 - 也就是说 - 相应于文档的模型。
     </p>
     <p>
-        The other two major classes in the document architecture are
+        在文档架构中的其它的两个主要的类是
         <code>
             NSWindowcontroller
         </code>
-        and
+        和
         <code>
             NSDocumentController
         </code>
-        . These are the roles of each primary class:
+        。这些是它们的角色：
     </p>
     <ul>
         <li>
