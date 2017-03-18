@@ -238,35 +238,33 @@
             <code>
                 NSDocument
             </code>
-            : Creates, presents and stores document data
+            ：穿件，展示及保存文档数据
         </li>
         <li>
             <code>
                 NSWindowController
             </code>
-            : Manages a window in which a document is displayed
+            ：管理展示文档的那个window
         </li>
         <li>
             <code>
                 NSDocumentController
             </code>
-            : Manages all of the document objects in the app
+            ：管理app中全部的文档对象
         </li>
     </ul>
     <p>
-        Visuals are nice too, so here’s a chart that shows how the classes work
-        together:
+        还是可视化比较好，所以这里有一个表，来展示这些类如何在一起工作：
         <br>
         <img class="aligncenter size-full wp-image-112108" src="https://koenig-media.raywenderlich.com/uploads/2015/08/DocArchitecture.png"
         alt="DocArchitecture" width="576" height="281" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/DocArchitecture.png 576w, https://koenig-media.raywenderlich.com/uploads/2015/08/DocArchitecture-480x234.png 480w"
         sizes="(max-width: 576px) 100vw, 576px">
     </p>
     <h3>
-        Disabling Document Saving and Opening
+        禁用文档的保存和打开
     </h3>
     <p>
-        The document architecture also provides the saving/opening mechanism for
-        documents.
+        文档的建构也提供了文档的保存和打开机制。
     </p>
     <p>
         In
