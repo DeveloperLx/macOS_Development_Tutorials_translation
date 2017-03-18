@@ -7,63 +7,59 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-    	window是关联于全部OS X app的UI的“容器”。它们定义了你的app当前负责的屏幕的区域，用户可以使用容易理解的多任务范式（multi-tasking paradigm）来进行交互。OS X app总是落入如下种类中的一种：
+    	window是相应于全部OS X app的UI的“容器”。它们定义了你的app当前负责的屏幕的区域，用户可以使用容易理解的多任务范式（multi-tasking paradigm）来进行交互。OS X app总是落入如下种类中的一种：
     </p>
     <ul>
         <li>
             <em>
-                Single-window utility
+                单窗口的工具
             </em>
-            like Calculator
+            ，就像计算器
         </li>
         <li>
             <em>
-                Single-window library-style “shoebox”
+                单窗口，库风格的“鞋盒
             </em>
-            like Photos
+            ，就像Photos
         </li>
         <li>
             <em>
-                Multi-window document-based
+                多窗口基于文档的
             </em>
-            like TextEdit
+            ，就像TextEdit
         </li>
     </ul>
     <p>
-        Regardless of which category an app falls into, nearly every OS X app
-        makes use of
+        不管是哪种类型的app，几乎每种OS X app都利用了
         <em>
             MVC
         </em>
-        (Model-View-Controller), a core design pattern.
+        (Model-View-Controller)，一种核心的设计模式。
     </p>
     <p>
-        In Cocoa, a window is an instance of the
+        在Cocoa中，window是
         <code>
             NSWindow
         </code>
-        class, and the associated controller object is an instance of the
+        类的一个实例，相应的控制器对象则是
         <code>
             NSWindowController
         </code>
-        class. In a well-designed app, you typically see a one-to-one relationship
-        between a window and its controller. The model layer varies according to
-        your app type and design.
+        类的实例。在一个有着很好设计的app中，你通常（typically）都会使用一对一关系的window和它的controller。这个模型层会根据你app类型和设计各有不同。
     </p>
     <p>
-        In this windows and window controllers in OS X tutorial, you’ll create
+        在这个OS X教程中的window和window controller，你将创建
         <em>
             BabyScript
         </em>
-        , a multi-window document-based app inspired by TextEdit. In the process,
-        you’ll learn about:
+        ，一个多窗口的基于文档的app，它的灵感来自于TextEdit。在这个过程中，你将学到：
     </p>
     <ul>
         <li>
-            Windows and window controllers
+            Window 和 window controller
         </li>
         <li>
-            The document architecture
+            文档的架构
         </li>
         <li>
             NSTextView
@@ -72,7 +68,7 @@
             Modal windows
         </li>
         <li>
-            The menu bar and menu items
+            菜单栏和菜单项
         </li>
     </ul>
     <h2>
