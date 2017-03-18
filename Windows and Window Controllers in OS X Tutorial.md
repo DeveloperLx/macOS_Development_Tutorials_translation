@@ -299,14 +299,11 @@
     <span style="color: #a61390;">return</span> <span style="color: #a61390;">true</span>
   <span style="color: #002200;">}</span></pre>
     <p>
-        Now you’ll disable all menu items related to opening and saving, but before
-        you do, notice that all the functionality you would expect is already there.
-        For example, select
+        现在你将禁掉全部关于打开和保存的菜单项，但是在你行动之前，注意到全部你所期望的功能早已在这里了。例如，选择
         <em>
             File / Open
         </em>
-        and the finder dialog box, including controls, sidebar, toolbar etc.,
-        is there:
+        并find的对话框，包括控制器，侧边栏，工具栏等等已经都在这里了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/OpenDialog.png"
