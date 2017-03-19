@@ -587,68 +587,66 @@
         </a>
     </p>
     <h3>
-        Set the Window’s Position Programmatically
+        编程设置window的位置
     </h3>
     <p>
-        Now you’ll accomplish the same task you did with Interface Builder, but
-        this time you’ll do it programmatically.
+        现在你要完成和刚刚在Interface Builder中所完成的一样的工作，但这一你要通过编程来完成。
     </p>
     <p>
-        The reason to take the “hard way” is two-fold. First, you’ll walk away
-        with a better understanding of
+        采取“硬的方式”（hard way）的原因有两个。第一，你可以对
         <code>
             NSWindowController
         </code>
-        . Second, it’s a more flexible and straightforward approach.
+        有一个更好的理解。第二，它是一种更灵活和很直接的方式。
     </p>
     <p>
-        At run time, the app will perform the final positioning of the&nbsp;window
-        once it knows the screen size.
+        在运行时，app将在得知屏幕尺寸之后执行窗口最终的位置。
     </p>
     <p>
-        In the
+        在
         <em>
             Project Navigator
         </em>
-        select the
+        中选择
         <em>
             BabyScript
         </em>
-        group, then select
+        组，然后选择
         <em>
             File / New / File..
         </em>
-        . From the dialog that pops up, select
+        。从弹出的对话框中，选择
         <em>
             OS X / Source / Cocoa Class
         </em>
-        and click
+        并点击
         <em>
             Next.
         </em>
+        。
     </p>
     <p>
-        Create a new class called
+        创建一个名叫
         <code>
             WindowController
         </code>
-        &nbsp;and make it a subclass of
+        的新的类，让它作为
         <code>
             NSWindowController
         </code>
-        . The checkbox for
+        的子类。不要勾选
         <em>
             XIB
         </em>
-        should be unchecked, and the
+        ，将
         <em>
             Language
         </em>
-        should be
+        设为
         <em>
             Swift
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/11-WindowController.png"
@@ -659,43 +657,42 @@
         </a>
     </p>
     <p>
-        Choose a location to save the new file. Once done, you’ll see a new file
-        named
+        选择一个位置来保存新的未见。之后，你会看到一个新的名叫
         <em>
             WindowController.swift
         </em>
-        appear in the group
+        的文件出现在了
         <em>
             BabyScript
         </em>
-        .
+        组中。
     </p>
     <p>
-        Go to the storyboard, and in
+        找到storyboard，在
         <em>
             Outline View
         </em>
-        select
-        <em>
-            Window Controller
-        </em>
-        from the
+        中从
         <em>
             Window Controller Scene
         </em>
-        . Choose the
+        选择
+        <em>
+            Window Controller
+        </em>
+        。选择
         <em>
             Identity Inspector
         </em>
-        , and from the
+        ，再从
         <em>
             Class
         </em>
-        drop-down select
+        下拉菜单中选择
         <code>
             WindowController
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/12-WindowController-2.png"
@@ -706,173 +703,34 @@
         </a>
     </p>
     <p>
-        When
+        当
         <code>
             windowDidLoad
         </code>
-        is called the window will have completed&nbsp;loading from the storyboard,
-        so any configuration you do will override the settings in the storyboard.
+        方法被调用时，这个window就完成了从storyboard加载的过程，因此这是你的任何配置都会覆盖在storyboard中的设置。
     </p>
     <p>
-        Open
+        打开
         <em>
             WindowController.swift
         </em>
-        and replace
+        并用下列代码替换
         <code>
             windowDidLoad
         </code>
-        with the following:
+        方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119472">
-                    <td class="code" id="p111947code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            windowDidLoad
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                super
-                            </span>
-                            .windowDidLoad
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            window
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            window, screen
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            window.screen
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            offsetFromLeftOfScreen
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                CGFloat
-                            </span>
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #2400d9;">
-                                20
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            offsetFromTopOfScreen
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                CGFloat
-                            </span>
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #2400d9;">
-                                20
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            screenRect
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            screen.visibleFrame
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            newOriginY
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            CGRectGetMaxY
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            screenRect
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            window.frame.height
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            offsetFromTopOfScreen window.setFrameOrigin
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #400080;">
-                                NSPoint
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            x
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            offsetFromLeftOfScreen, y
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            newOriginY
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  <span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> windowDidLoad<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">super</span>.windowDidLoad<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> window <span style="color: #002200;">=</span> window, screen <span style="color: #002200;">=</span> window.screen <span style="color: #002200;">{</span>
+      <span style="color: #a61390;">let</span> offsetFromLeftOfScreen<span style="color: #002200;">:</span> <span style="color: #400080;">CGFloat</span> <span style="color: #002200;">=</span> <span style="color: #2400d9;">20</span>
+      <span style="color: #a61390;">let</span> offsetFromTopOfScreen<span style="color: #002200;">:</span> <span style="color: #400080;">CGFloat</span> <span style="color: #002200;">=</span> <span style="color: #2400d9;">20</span>
+      <span style="color: #a61390;">let</span> screenRect <span style="color: #002200;">=</span> screen.visibleFrame
+      <span style="color: #a61390;">let</span> newOriginY <span style="color: #002200;">=</span> CGRectGetMaxY<span style="color: #002200;">(</span>screenRect<span style="color: #002200;">)</span> <span style="color: #002200;">-</span> window.frame.height
+        <span style="color: #002200;">-</span> offsetFromTopOfScreen
+      window.setFrameOrigin<span style="color: #002200;">(</span><span style="color: #400080;">NSPoint</span><span style="color: #002200;">(</span>x<span style="color: #002200;">:</span> offsetFromLeftOfScreen, y<span style="color: #002200;">:</span> newOriginY<span style="color: #002200;">)</span><span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span>
+  <span style="color: #002200;">}</span></pre>
     <p>
         This logic positions the window’s top-left corner 20 points offset in
         both the x and y directions from the top-left of the screen.
