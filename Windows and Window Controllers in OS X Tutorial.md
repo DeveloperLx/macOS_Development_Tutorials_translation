@@ -1824,36 +1824,35 @@
         添加UI来调用它
     </h3>
     <p>
-        The only thing left to present the window is adding the UI to invoke it.
-        Go to the storyboard, and in the
+        剩下的要来展示window的唯一一件事，就是添加UI并去调用它了。找到storyboard，在
         <em>
             Main Menu
         </em>
-        click
+        中点击
         <em>
             Edit
         </em>
-        . From the
+        。从
         <em>
             Object Library
         </em>
-        , drag a
+        中拖出一个
         <em>
             Menu Item
         </em>
-        to the bottom of the
+        到
         <em>
             Edit
         </em>
-        menu. Select the
+        菜单的底部。选择
         <em>
             Attributes Inspector
         </em>
-        and set the title to
+        并设置title为
         <em>
             Word Count
         </em>
-        .
+        。
     </p>
     <p>
         <img class="alignnone size-full wp-image-112795" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WCMenu.png"
@@ -1861,45 +1860,45 @@
         sizes="(max-width: 626px) 100vw, 626px">
     </p>
     <p>
-        Take a moment to create a keyboard shortcut by entering
+        花几分钟来通过输入
         <em>
             command – K
         </em>
-        as the
+        创建一个快捷键，作为
         <em>
             key equivalent
         </em>
-        .
+        。
     </p>
     <p>
-        Now you’ll connect the new menu item to the
-        <code>
-            showWordCountWindow
-        </code>
-        method in
+        现在你将在
         <em>
             ViewController.swift
         </em>
-        .
-    </p>
-    <p>
-        Go to the storyboard, right-click on the
-        <em>
-            Word Count
-        </em>
-        menu item, hold and drag over
-        <em>
-            First Responder
-        </em>
-        in the
-        <em>
-            application scene
-        </em>
-        . Select
+        中连接新的菜单项到
         <code>
             showWordCountWindow
         </code>
-        from the list.
+        方法上。        
+    </p>
+    <p>
+        找到storyboard，右击
+        <em>
+            Word Count
+        </em>
+        菜单项，拖拽到
+        <em>
+            application scene
+        </em>
+        的
+        <em>
+            First Responder
+        </em>
+        上。从列表中选择
+        <code>
+            showWordCountWindow
+        </code>
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectWCMenuItem.png"
@@ -1912,23 +1911,21 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You might wonder why you connected the menu item to the first responder,
-            but not directly to
+            ：你可能会奇怪为什么你要连接菜单项到first responder，而不是直接到
             <code>
                 showWordCountWindow
             </code>
-            . It’s because the document view’s main menu and view controller are in
-            different storyboard scenes, and as such, can’t be connected directly.
+            这里。这是因为文档view的主菜单和view controller是在不同的storyboard的scene中，因此，不能直接连接。
         </p>
     </div>
     <p>
-        Build and run the app, select
+        build并运行app，选择
         <em>
             Edit / Word Count
         </em>
-        , and voila, the word count window presents itself.
+        ，瞧（voila），字数统计window展示了它自己。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFinal.png"
@@ -1939,53 +1936,51 @@
         </a>
     </p>
     <p>
-        Click OK to dismiss the window.
+        单击OK关闭window。
     </p>
     <h3>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h3>
     <p>
-        Here is the
+        这里是BabyScript的
         <a title="final project" href="https://koenig-media.raywenderlich.com/uploads/2015/08/BabyScript-Final-Project.zip"
         sl-processed="1">
-            final version
+            最终版本
         </a>
-        of BabyScript.
+        。
     </p>
     <p>
-        You covered a lot of ground in this windows and window controllers for
-        OS X tutorial! But it’s just the tip of the iceberg as far as what you
-        can do with windows and window controllers.
+        在这个OS X的window和window controller教程中，你已经覆盖了很多基本的内容！但它对于你可以利用window和window controller做的事来说，只是冰山的一角。
     </p>
     <p>
-        You covered:
+        你已经覆盖了：
     </p>
     <ul>
         <li>
-            The MVC design pattern in action
+            动作的MVC设计模式
         </li>
         <li>
-            How to create a multi-window app
+            怎样创建一个多window的app
         </li>
         <li>
-            Typical app architecture for OS X apps
+            OS X app的典型app架构
         </li>
         <li>
-            How to position and arrange windows with Interface Builder
+            怎样使用Interface Builder
             <i>
-                and
+                和
             </i>
-            programmatically
+            编程方式来定位和排列window
         </li>
         <li>
-            Using Auto Layout to resize a view with its window
+            使用自动布局来来根据window调整view的大小
         </li>
         <li>
-            Using modal windows to display additional information
+            使用模态window来展示附加的信息
         </li>
     </ul>
     <p>
-        And more!
+        还有更多！
     </p>
     <p>
         I strongly recommend that you explore the huge amount of documentation
@@ -2009,9 +2004,5 @@
         </a>
         . This document also extends on the concept of multi-window document-based
         apps, so you’ll find ideas to keep improving BabyScript there.
-    </p>
-    <p>
-        I look forward to hearing your ideas, experiences&nbsp;and any questions
-        you have in the forums below!
     </p>
 </div>
