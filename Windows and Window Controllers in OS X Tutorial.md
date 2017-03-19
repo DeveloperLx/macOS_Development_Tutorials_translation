@@ -477,25 +477,22 @@
         使用Interface Builder来设置window的位置
     </h3>
     <p>
-        It’s a safe bet that users will launch BabyScript on various screen sizes.
-        Since your app doesn’t have a crystal ball to see what screen size it will
-        open on at compile time, Xcode uses a virtual screen size and uses a concept
-        similar to Auto Layout to determine the window position at run time.
+        基本可以打赌，用户会在各种尺寸的屏幕上运行BabyScript。由于你的app没有一个水晶球，能在编译时看到它将打开在一个怎样的屏幕尺寸上，因此Xcode使用了一个虚拟的屏幕尺寸，和一个类似于自动布局的概念，来在运行时决定window的位置。
     </p>
     <p>
-        To set the position, you’ll work with the
-        <em>
-            X
-        </em>
-        and
-        <em>
-            Y
-        </em>
-        values under
+        为了设置这个位置，你将用到
         <em>
             Initial Position
         </em>
-        and the two drop-down menus.
+        下的两个值
+        <em>
+            X
+        </em>
+        、
+        <em>
+            Y
+        </em>
+        ，和两个下拉式（drop-down）菜单。
     </p>
     <p>
         Go to
