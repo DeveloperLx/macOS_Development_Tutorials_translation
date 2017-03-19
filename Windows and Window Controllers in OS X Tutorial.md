@@ -1640,35 +1640,34 @@
     <pre class="swift" style="font-family:monospace;">  @IBOutlet weak <span style="color: #a61390;">var</span> wordCount<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
   @IBOutlet weak <span style="color: #a61390;">var</span> paragraphCount<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
     <p>
-        In the storyboard, right-click on the proxy icon for the
+        在storyboard中，右击
         <em>
             word count view controller
         </em>
-        , drag over the top-most 0 label and release when the control highlights.
-        From the
+        的proxy图标，拖拽到0 label，并当它高亮时释放鼠标。从弹出的
         <em>
             Outlets
         </em>
-        list that pops up, select
+        列表中，选择
         <code>
             wordCount
         </code>
-        .
+        。
     </p>
     <p>
-        Repeat the same for the lower 0 label, but this time select
+        为下面那个0 label重复同样的操作，但是这次选择
         <code>
             paragraphCount
         </code>
-        . Check for each of the labels in the
+        。查看
         <em>
             Connections Inspector
         </em>
-        that the
+        中的每一个label，让它们的
         <em>
             Outlets
         </em>
-        are connected like this:
+        都像下面这么连接：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112772" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountConnected.png"
