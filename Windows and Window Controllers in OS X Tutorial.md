@@ -495,29 +495,27 @@
         ，和两个下拉式（drop-down）菜单。
     </p>
     <p>
-        Go to
+        找到
         <em>
             Initial Position
         </em>
-        to set window’s opening position in terms of screen coordinates. Enter
-        200 for both
+        ，依据屏幕坐标系来设置window的打开位置。给
         <em>
             X
         </em>
-        and
+        和
         <em>
             Y
         </em>
-        and select
+        都输入200，并在下拉式菜单中选择
         <em>
             Fixed from Left
         </em>
-        and
+        和
         <em>
             Fixed from Bottom
         </em>
-        in the upper and lower drop-downs, respectively. This sets the window’s
-        origin at 200 points offset in both the x and y directions.
+        。这就设置了window在x和y的方向上都是200个点的偏移。
     </p>
     <p>
         <img class="aligncenter wp-image-119246 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/09/set_initial_position-241x500.png"
@@ -525,7 +523,7 @@
         sizes="(max-width: 241px) 100vw, 241px">
     </p>
     <p>
-        Build, run and you should see:
+        build并运行，你应当看到：
     </p>
     <p>
         <img class="aligncenter wp-image-119247 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/09/demonstrating_position-452x320.png"
