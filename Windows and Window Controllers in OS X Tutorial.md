@@ -1269,34 +1269,34 @@
         </a>
     </p>
     <h3>
-        Show the Ruler by Default
+        默认地展示尺子
     </h3>
     <p>
-        To show the ruler automatically when a window opens, you’ll need an
+        为了在window打开时自动地展示尺子，你需要在代码中有一个
         <code>
             IBOutlet
         </code>
-        in the code. Select
+        。从菜单中选择
         <em>
             Format / Text / Show Ruler
         </em>
-        from the menus. In
+        。在
         <em>
             ViewController.swift
         </em>
-        , add one line into the
-        <code>
-            viewDidLoad
-        </code>
-        method
+        中，添加一行代码方法
         <code>
             toggleRuler
         </code>
-        , and add an
+        到
+        <code>
+            viewDidLoad
+        </code>
+        中，并添加一个
         <em>
             IBOutlet
         </em>
-        above the method as shown below:
+        在这个方法之上，就像下面这样：
     </p>
     <div class="wp_codebox">
         <table>
