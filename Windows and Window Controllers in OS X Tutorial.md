@@ -1305,23 +1305,22 @@
     text.toggleRuler<span style="color: #002200;">(</span><span style="color: #a61390;">nil</span><span style="color: #002200;">)</span>
   <span style="color: #002200;">}</span></pre>
     <p>
-        Now you’ll connect the text view to the view controller in the storyboard.
+        现在你将在storyboard中，连接text view到view controller上。
     </p>
     <p>
-        In the storyboard, right-click on the
+        在storyboard中，右击
         <code>
             ViewController
         </code>
-        , hold and drag into the text view until it highlights, and then release
-        the mouse. A small window with the list of
+        ，不放手并拖拽到text view直到它变得高亮，然后放开鼠标。你将会看到一个带有
         <em>
             Outlets
         </em>
-        will show itself. Select the
+        列表的小的window。选择
         <code>
             text
         </code>
-        outlet:
+        的outlet：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112688" src="https://koenig-media.raywenderlich.com/uploads/2015/08/23-TextConnect.png"
@@ -1329,15 +1328,14 @@
         sizes="(max-width: 550px) 100vw, 550px">
     </p>
     <p>
-        Build and run, and now the window by default shows the ruler by default:
+        build并运行，现在这个window就会默认id展示尺子：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112689" src="https://koenig-media.raywenderlich.com/uploads/2015/08/RulerShowing.png"
         alt="RulerShowing" width="480" height="292">
     </p>
     <p>
-        So just as I promised, with two lines of code and the storyboard, you
-        have created a mini word processor – Chapeau, Apple!
+        就像我承诺的，仅靠两行代码和storyboard，你就创建了一个小的迷你文字处理器 - 致敬（Chapeau），苹果！
     </p>
     <h2>
         Modal Windows
