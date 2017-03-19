@@ -314,13 +314,10 @@
         </a>
     </p>
     <p>
-        When it has no action defined, a menu item is rendered useless. The same
-        disabling effect happens when there is no object in the responder chain
-        that responds to the selector associated with the action.
+        一个菜单项，当没有定义动作时是无用的。相同的禁用的效果同样也发生在，当响应者链中没有相应的能够响应那个动作selector的对象时。
     </p>
     <p>
-        Hence, you’ll disconnect actions that are defined for the menu items you
-        need to disable.
+        因此，你将断开需要禁用的，为菜单项定义的动作。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/no-saving-for-you.jpg"
@@ -331,19 +328,19 @@
         </a>
     </p>
     <p>
-        In the storyboard, select
-        <em>
-            File / Open
-        </em>
-        in
+        在storyboard中，在
         <em>
             Main Menu
         </em>
-        in the
+        的
         <em>
             Application Scene
         </em>
-        .
+        ，选择
+        <em>
+            File / Open
+        </em>
+        。
     </p>
     <p>
         Select the
