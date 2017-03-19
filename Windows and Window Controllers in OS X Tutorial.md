@@ -1408,27 +1408,27 @@
         sizes="(max-width: 625px) 100vw, 625px">
     </p>
     <p>
-        Select
-        <em>
-            Window
-        </em>
-        from the new
+        从新的
         <em>
             window controller scene
         </em>
-        and use the
+        中选择
+        <em>
+            Window
+        </em>
+        ，并使用
         <em>
             Size Inspector
         </em>
-        to set its width to 300 and height to 150. Select
-        <em>
-            View
-        </em>
-        from the new
+        来设定它的宽为300，高为150。从新的
         <em>
             view controller scene
         </em>
-        and resize it to match the window:
+        中选择
+        <em>
+            View
+        </em>
+        并调整它的大小来匹配这个window：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountReduced.png"
@@ -1439,58 +1439,56 @@
         </a>
     </p>
     <p>
-        Since Word Count is a modal, having the close, minimize and resize buttons
-        in its title bar would be bizarre, and a violation of
+        由于字数统计是模态的，它的标题栏上如果有关闭、最小化和重新调整大小的按钮就会显得很奇怪，并违反了
         <em>
             HIG
         </em>
-        (Apple’s Human Interface Guidelines).
+        （苹果的人机交互指南）。
     </p>
     <p>
-        For the
+        对于
         <em>
-            Close
+            关闭
         </em>
-        button, it would also introduce a serious bug because clicking the button
-        will close the window, but won’t call
+        按钮，它还会引入一个严重的bug，因为点击它就会关闭window，但没有调用
         <code>
             stopModal
         </code>
-        . So, the app will forever stay in a “modal state”.
+        。这样，这个app就会永远停留在“模态状态”下。
     </p>
     <h3>
-        Removing Buttons from a Modal
+        从模态中删除按钮
     </h3>
     <p>
-        In the storyboard, select the
+        在storyboard中，选择
         <em>
             Word Count
         </em>
-        window and choose
+        window并选择
         <em>
             Attributes Inspector
         </em>
-        . Uncheck
+        。取消勾选
         <em>
             Close
         </em>
-        ,
+        ，
         <em>
             Minimize
         </em>
-        and
+        和
         <em>
             Resize
         </em>
-        . Also change the
+        。同时改变
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Word Count
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountAppearance.png"
@@ -1501,44 +1499,42 @@
         </a>
     </p>
     <p>
-        Now you’ll add four label controls and a push button from the Object Library
-        to the
+        现在，你将从Object Library中添加四个label控件和一个push button到Word Count window的
         <code>
             contentView
         </code>
-        of the Word Count window.
+        上。
     </p>
     <p>
-        Select the
+        选择
         <em>
             Attributes Inspector
         </em>
-        . Change the labels’ titles to
+        。相应地改变Title为
         <em>
             Word Count
         </em>
-        ,
+        ，
         <em>
             Paragraph Count
         </em>
-        ,
+        ，
         <em>
             0
         </em>
-        and
+        和
         <em>
             0
         </em>
-        respectively. Also change the
+        。同时两个0的label的
         <em>
             alignment
         </em>
-        for the two 0 labels to right justified. Change the push button title
-        to
+        为右对齐。将push button的Title改为
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountFields.png"
