@@ -832,55 +832,51 @@
         </a>
     </p>
     <h2>
-        Make BabyScript a Mini Word Processor
+        将BabyScript制成一个迷你的文字处理器
     </h2>
     <p>
-        Now comes the most exiting part of this tutorial. With just
+        现在到了这个教程最令人兴奋的部分。只需
         <i>
-            two
+            两
         </i>
-        little lines of code and the addition of an
+        行代码并添加一个
         <code>
             NSTextView
         </code>
-        control to your window’s
+        的控制到你window的
         <code>
             contentView
         </code>
-        , you can add functionality that will blow your mind!
+        上，你将添加激动人心（blow your mind）的功能！
     </p>
     <h3>
         The Content View
     </h3>
     <p>
-        Upon creation, a window automatically creates two views: an opaque frame
-        view with a border, title bar, etc., and a transparent content view accessible
-        via the window’s
+        一个window在创建时，自动地创建了两个view：一个不透明的带有边界、标题栏等的框架view，和一个通过window的
         <code>
             contentView
         </code>
-        property.
+        property访问的透明content view。
     </p>
     <p>
-        The content view is the root of the view hierarchy of a window, and you
-        can replace the default with a custom view. Note that to position the content
-        view, you must use the
-        <code>
-            setContentView
-        </code>
-        method of
+        content view是一个window的view图层的根，你可以用一个定制的view来替换这个默认的。注意，你必须使用
         <code>
             NSWindow
         </code>
-        &nbsp;— you can’t position it with the standard
+        的
         <code>
-            setFrame
+            setContentView
         </code>
-        method of
+        方法来定位content view - 你不可用用标准的
         <code>
             NSView
         </code>
-        .
+        的
+        <code>
+            setFrame
+        </code>
+        方法来定位它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/ContentView.png"
@@ -893,38 +889,35 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you’re an iOS developer, please note that in Cocoa,
+            ：如果你是一个iOS的开发者，请注意在Cocoa中，
             <code>
                 NSWindow
             </code>
-            is
             <i>
-                NOT
+                不是
             </i>
-            a subclass of
             <code>
                 NSView
             </code>
-            . In
+            的子类！在
             <em>
                 iOS
             </em>
-            ,
+            中，
             <code>
                 UIWindow
             </code>
-            is a special subclass, of
+            是
             <code>
                 UIView
             </code>
-            .
+            的一个特殊的子类。
             <code>
                 UIWindow
             </code>
-            itself is the root of the view hierarchy, and it’s simply playing the
-            role of the content view.
+            它自己是view图层的根，就由它来扮演content view的角色。
         </p>
     </div>
     <h3>
