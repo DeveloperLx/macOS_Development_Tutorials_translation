@@ -868,7 +868,7 @@
         <code>
             setContentView
         </code>
-        方法来定位content view - 你不可用用标准的
+        方法来定位content view - 你不可以用标准的
         <code>
             NSView
         </code>
@@ -921,91 +921,92 @@
         </p>
     </div>
     <h3>
-        Add the Text View
+        添加Text View
     </h3>
     <p>
-        <i>
-            Remove
-        </i>
-        the text field that says “Your document contents here” from the
+        在storyboard的
         <code>
             contentView
         </code>
-        in the storyboard, by selecting it and pressing
+        中，通过选择并按
         <em>
             delete
         </em>
-        .
+        键，
+        <i>
+            移除
+        </i>
+        那个说“Your document contents here”的text field。
     </p>
     <p>
-        To create the new
+        为了创建将要构成你的UI的主要部分的新的
         <code>
             NSTextField
         </code>
-        that will form the main part of your UI follow these instructions:
+        ，跟随下列的说明：
     </p>
     <ol>
         <li>
-            In the storyboard, open the&nbsp;
+            在storyboard中，打开
             <em>
                 Object Library
             </em>
-            .
+            。
         </li>
         <li>
-            Search for&nbsp;
+            搜索
             <em>
                 nstextview
             </em>
-            .
+            。
         </li>
         <li>
-            Drag
+            拖动
             <em>
                 Text View
             </em>
-            and drop it on the content view.
+            并将其放到content view上。
         </li>
         <li>
-            Resize the text view so its inset is 20 points on each side from the content
-            view.
+            调整text view的尺寸，让它的每边都距离content view相应边20个点。
         </li>
         <li>
-            In the
+            在
             <em>
                 Outline View
             </em>
-            , select
+            中，选择
             <em>
                 Bordered Scroll View
             </em>
-            . Note that the text view is nested in the
+            。注意到text view是被嵌入到了
             <em>
                 Clip View
             </em>
-            , which is nested inside a scroll view.
+            中，Clip View则被嵌入到了一个scroll view中。
         </li>
         <li>
-            Select the
+            选择
             <em>
                 Size Inspector
             </em>
-            . Enter 20 for
+            。输入
             <em>
                 X
             </em>
-            and
+            和
             <em>
                 Y
             </em>
-            , 440 for
+            均为20，
             <em>
                 Width
             </em>
-            and 230 for
+            为440，
             <em>
                 Height
             </em>
+            为230。
         </li>
     </ol>
     <p>
