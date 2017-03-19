@@ -732,140 +732,75 @@
     <span style="color: #002200;">}</span>
   <span style="color: #002200;">}</span></pre>
     <p>
-        This logic positions the window’s top-left corner 20 points offset in
-        both the x and y directions from the top-left of the screen.
+        这个逻辑将window的位置定位在了其左上角距离屏幕左上角的位置上。
     </p>
     <p>
-        As you can see,
+        正如你看到的，
         <code>
             NSWindowController
         </code>
-        has a
+        有一个
         <code>
             window
         </code>
-        property and
+        property，而
         <code>
             NSWindow
         </code>
-        has a
+        一个
         <code>
             screen
         </code>
-        property. You use these two properties to access the geometry of the window
-        and the screen.
+        property。你可以使用这两个property来访问window和屏幕的几何信息（geometry）。
     </p>
     <p>
-        After ascertaining the height of the screen, your window’s frame is subtracted
-        along with the desired offset. Remember the Y value increases as you move
-        upwards on the screen.
+        在确定了（ascertaining）屏幕的高度之后 ，你的window的frame就被减去了期望的偏移。记住Y的值是随着你在屏幕中向上移而增大的。
     </p>
     <p>
         <code>
             visibleFrame
         </code>
-        excludes the areas taken by the dock and menu bar. If you don’t take this
-        into account, you might end up with the dock obscuring part of your window.
+        排除了被dock和菜单栏占用的区域。如果你不把这个纳入考量，你可能最终会让dock模糊掉了你的window的一部分。
     </p>
     <p>
-        When you enable dock and menu hiding,&nbsp;
+        当你隐藏了dock和菜单的时候，
         <code>
             visibleFrame
         </code>
-        &nbsp;may still be smaller than&nbsp;
+        可能仍然会比
         <code>
             frame
         </code>
-        , because the system retains a small boundary area to detect when to show
-        the dock.
+        小，因为系统会持有了一个小的边界区域来当展示dock时进行检测。
     </p>
     <p>
-        Build and run. The window should sit 20 points in each direction from
-        the screen’s top-left corner.
+        build并运行，这个window应该被设定为，距离屏幕左上角的每个方向都是20个点的位置上。
     </p>
     <h2>
-        Cascading Windows
+        Cascading window
     </h2>
     <p>
-        To further improve your windows’ position, you’ll introduce
+        为了进一步提升你的window的位置，你将采用
         <em>
             Cascading Windows
         </em>
-        , meaning an arrangement of windows that overlap one another while leaving
-        the title bar for each window visible.
+        ，意思是整理多个互相重叠的window的排列，让每个window的标题栏可以被看到。
     </p>
     <p>
-        Add the following below the definition of
-        <code>
-            WindowController
-        </code>
-        in
+        在
         <em>
             WindowController.swift
         </em>
-        :
+        中，
+        <code>
+            WindowController
+        </code>
+        定义下面添加下列代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119473">
-                    <td class="code" id="p111947code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            required
-                            <span style="color: #a61390;">
-                                init
-                            </span>
-                            ?
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            coder
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSCoder
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                super
-                            </span>
-                            .
-                            <span style="color: #a61390;">
-                                init
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            coder
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            coder
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            shouldCascadeWindows
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  required <span style="color: #a61390;">init</span>?<span style="color: #002200;">(</span>coder<span style="color: #002200;">:</span> <span style="color: #400080;">NSCoder</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">super</span>.<span style="color: #a61390;">init</span><span style="color: #002200;">(</span>coder<span style="color: #002200;">:</span> coder<span style="color: #002200;">)</span>
+    shouldCascadeWindows <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
+  <span style="color: #002200;">}</span></pre>
     <p>
         You’re setting the
         <code>
