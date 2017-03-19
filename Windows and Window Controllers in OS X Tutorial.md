@@ -1983,26 +1983,23 @@
         还有更多！
     </p>
     <p>
-        I strongly recommend that you explore the huge amount of documentation
-        provided by Apple in
+        我强烈地建议你探索苹果在
         <a href="https://developer.apple.com/library/prerelease/mac/navigation/"
         target="_blank" sl-processed="1">
-            El Capitan’s Mac Developer Library
+            El Capitan’s Mac 开发者库
         </a>
-        . In particular, reference the
+        中提供的的大量文档。特别的，参考
         <em>
-            Window Programming Guide
+            Window编程指南
         </em>
         .
     </p>
     <p>
-        For better understanding of Cocoa app design and how it works with the
-        types of apps mentioned at the beginning, check out the
+        为了更好地理解Cocoa app的设计，以及如何使用文档开头提到的app的类型，请查看
         <a title="Mac App Programming Guide" href=" https://developer.apple.com/library/prerelease/mac/documentation/General/Conceptual/MOSXAppProgrammingGuide/CoreAppDesign/CoreAppDesign.html "
         target="_blank" sl-processed="1">
-            Mac App Programming Guide
+            Mac App编程指南
         </a>
-        . This document also extends on the concept of multi-window document-based
-        apps, so you’ll find ideas to keep improving BabyScript there.
+        。这个文档还扩展了基于多窗口文档的应用程序的概念，你会在这里找到改善BabyScript的idea。
     </p>
 </div>
