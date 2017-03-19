@@ -1,4 +1,4 @@
-# OS X Stack Views：NSStackView
+# macOS教程：NSOutlineView
 
 #### [原文地址](https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
