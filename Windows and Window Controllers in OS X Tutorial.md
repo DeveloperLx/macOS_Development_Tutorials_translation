@@ -1022,82 +1022,77 @@
         alt="16-EmptyText" width="480" height="292">
     </p>
     <p>
-        Look at that friendly, blinking text insertion point inviting you to enter
-        your text! Start your manifesto, or just keep it simple with “Hello World”,
-        and then select the text. Copy it with
+        看起来那么友好，闪烁的文字插入点邀请你输入你的文本！开始你的宣言（manifesto），或仅仅让它保持简单的“Hello World”，然后选择文本。用
         <em>
             File / Copy
         </em>
-        or
+        或
         <em>
             command – C
         </em>
-        , and then paste several times, just to get a feeling for the app.
+        来拷贝它，然后粘贴几次，感受这个app！
     </p>
     <p>
-        Explore the
+        探索
         <em>
             Edit
         </em>
-        and
+        和
         <em>
             Format
         </em>
-        menu to get the idea what’s available. You might have noticed that the
+        菜单来获得有用的idea。你可能会注意到
         <em>
             Font / Show Fonts
         </em>
-        is disabled. You’re going to enable it now.
+        是被禁用的。现在你就来打开它！
     </p>
     <h3>
-        Enable the Font Panel
+        启用字体面板
     </h3>
     <p>
-        In the storyboard, go to the main menu, click on the
+        在故事版中，找到主菜单，点击
         <em>
             Format
         </em>
-        menu, then on
+        菜单，然后是
         <em>
             Font
         </em>
-        , then follow with a click on
+        ，然后点击
         <em>
             Show Fonts
         </em>
-        .
+        。
     </p>
     <p>
-        Go to the
+        找到
         <em>
             Connections Inspector
         </em>
-        and you’ll see that no actions are defined for this menu item. This explains
-        why the menu item is disabled, but what do you connect it to?
+        ，你会发现这个菜单项中没有动作被定义。这就解释了为何菜单项被禁用了，但是你该将它连接到何处？
     </p>
     <p>
-        Apparently, the action is already defined in the code imported indirectly
-        by Xcode, you just need to make the connection.
+        显然，这个动作早已被定义在了Xcode没有直接导入的代码中，你只是需要连接一下。
     </p>
     <p>
-        Right-click
+        右击
         <em>
             Show Fonts
         </em>
-        and drag it to the
-        <em>
-            First Responder
-        </em>
-        in the
+        并将其拖动到
         <em>
             Application Scene
         </em>
-        , and then release the mouse. A small window with a scrollable list of
-        all the actions defined will pop up. Look for and select
+        的
+        <em>
+            First Responder
+        </em>
+        上，然后释放鼠标。一个带有全部动作的小型的可滚动的列表window就会弹出。找到并选择
         <code>
             orderFrontFontPanel
         </code>
-        . You can also start typing it to find it more quickly.
+        。你也可以输入这个名称以便更快地找到它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/17-ConnectFontPanel.png"
