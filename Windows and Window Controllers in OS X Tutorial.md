@@ -1675,32 +1675,31 @@
         sizes="(max-width: 602px) 100vw, 602px">
     </p>
     <p>
-        In a few moments, you’ll add code to programmatically load the word count
-        window controller. This requires that it have a
+        很快，你就会添加代码来加载count window controller。这要求它有一个
         <em>
             storyboard ID
         </em>
-        . Select the
-        <em>
-            window controller
-        </em>
-        of the
+        。从storyboard的
         <em>
             word count window
         </em>
-        from the storyboard. Select the
+        中选择
+        <em>
+            window controller
+        </em>
+        。选择
         <em>
             Identity Inspector
         </em>
-        , and in
+        ，在
         <em>
             Storyboard ID
         </em>
-        enter
+        中输入
         <em>
             Word Count Window Controller
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112791" src="https://koenig-media.raywenderlich.com/uploads/2015/08/WCControllerStoryboardId.png"
@@ -1708,19 +1707,18 @@
         sizes="(max-width: 578px) 100vw, 578px">
     </p>
     <h3>
-        Show Me the Modal
+        展示给我模态
     </h3>
     <p>
-        Now for the basic logic to show the modal window. In the document window’s
-        view controller, find and select
+        现在到了展示模态window的基本逻辑了。在文档window的view controller中，找到并选择
         <em>
             ViewController.swift
         </em>
-        add the code below under
+        ，在
         <code>
             viewDidLoad
         </code>
-        :
+        下面添加如下代码：
     </p>
     <pre class="swift" style="font-family:monospace;">  @IBAction <span style="color: #a61390;">func</span> showWordCountWindow<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
 &nbsp;
@@ -1741,93 +1739,89 @@
     <span style="color: #002200;">}</span>
   <span style="color: #002200;">}</span></pre>
     <p>
-        Take it step-by-step:
+        一步一步来看：
     </p>
     <ol>
         <li>
-            Instantiate the word count window controller, using the storyboard ID
-            you specified before.
+            使用你之前指定的storyboard ID初始化word count window controller。
         </li>
         <li>
-            Set the values retrieved from the text view in the word count window count
-            outlets
+            设置检索自text view的相应的值到字数统计window中
         </li>
         <li>
-            Show the word count window modally
+            模态地展示字数统计window
         </li>
     </ol>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : In step two, you passed data between two view controllers. This is similar
-            to what you’d usually do in a
+            ：在第二步，你在两个view controller间传递了数据。这就类似于当transition涉及到一个segue时，你经常在
             <code>
                 prepareForSegue
             </code>
-            method when a segue is involved in the transition. Since showing a modal
-            window is done directly with a call to
+            中做的一样。由于展示模态window是直接通过调用
             <code>
                 runModalForWindow
             </code>
-            and there’s no segue involved, you pass the data just before the call.
+            完成的，没有涉及到segue，你只需在调用之前传递数据。
         </p>
     </div>
     <h3>
-        Go Away, Modal
+        走开，模态
     </h3>
     <p>
-        Now you’ll add code to dismiss the word count window. In
+        现在你将添加代码来让字符统计window消失。在
         <em>
             WordCountViewController.swift
         </em>
-        , add the following method below the
+        中，添加下列代码到
         <code>
             paragraphCount
         </code>
-        outlet:
+        outlet的下边：
     </p>
     <pre class="swift" style="font-family:monospace;">  @IBAction <span style="color: #a61390;">func</span> dismissWordCountWindow<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSButton</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
     <span style="color: #a61390;">let</span> application <span style="color: #002200;">=</span> <span style="color: #400080;">NSApplication</span>.sharedApplication<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
     application.stopModal<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
   <span style="color: #002200;">}</span></pre>
     <p>
-        This is an
+        这是当用户点击
+        <em>
+            字符统计window
+        </em>
+        中的
+        <em>
+            OK
+        </em>
+        时，应当被调用的
         <em>
             IBAction
         </em>
-        that should be invoked when the user clicks
-        <em>
-            OK
-        </em>
-        on the
-        <em>
-            word count window
-        </em>
-        .
+        。
     </p>
     <p>
-        Go to the storyboard, right-click on
+        找到storyboard，右击
         <em>
             OK
         </em>
-        , then hold and drag to the proxy icon of the
+        ，并拖动带
         <em>
             word count view controller
         </em>
-        . Release the mouse and select
+        的proxy图标上。释放鼠标并在出现的列表中选择
         <code>
             dismissWordCountWindow:
         </code>
-        from the presented list:
+        ：
     </p>
     <p>
         <img class="alignnone size-full wp-image-112794" src="https://koenig-media.raywenderlich.com/uploads/2015/08/ConnectOK.png"
         alt="ConnectOK" width="360" height="314">
     </p>
     <h3>
-        Add UI to Invoke It
+        添加UI来调用它
     </h3>
     <p>
         The only thing left to present the window is adding the UI to invoke it.
