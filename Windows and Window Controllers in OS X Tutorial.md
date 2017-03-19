@@ -1103,27 +1103,26 @@
         </a>
     </p>
     <p>
-        Now, take a look at the
-        <em>
-            Connections Inspector
-        </em>
-        with
+        现在，选择
         <em>
             Show Fonts
         </em>
-        selected. You’ll see the menu is now connected to
+        来看一下
+        <em>
+            Connections Inspector
+        </em>
+        。你会看到，现在这个菜单已经被连接到了在响应者链中响应 
         <code>
             orderFrontFontPanel
         </code>
-        of the first object in the responder chain that responds to this selector.
+        这个selector的第一响应者。
     </p>
     <p>
-        Build and run the app, then enter some text and select it. Choose
+        build并运行app，然后输入一些文本并选择它。选择
         <em>
             Format / Font / Show Fonts
         </em>
-        to open the fonts panel. Play with the vertical slider on the right side
-        of the font panel, and observe how the text size changes in real time.
+        来打开字体面板。调整（Play with）字体面板右侧的垂直的滑动条，观察文本的大小如何实时地变化。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/18-FontPanel.png"
@@ -1134,8 +1133,7 @@
         </a>
     </p>
     <p>
-        Wait, but you didn’t enter yet a single line of code regarding the text
-        view, yet you have the power to change the size. You’re amazing!
+        等等，你甚至都没有输入一行关于text view的代码，它就有了改变文本大小的能力。你太棒了！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/word-processing-like-a-boss-e1441874078350.jpg"
@@ -1145,7 +1143,7 @@
         </a>
     </p>
     <h3>
-        Initialize the Text View with Rich Text
+        使用富文本（Rich Text）来初始化text view
     </h3>
     <p>
         To see the full power of the app, download some formatted text from
