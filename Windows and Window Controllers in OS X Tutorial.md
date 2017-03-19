@@ -1631,53 +1631,14 @@
         创建统计Label
     </h3>
     <p>
-        Now you’ll create outlets for the two labels that show the count values
-        — the two 0 labels. Under the class definition for
+        现在你可以为两个label创建outlet了，让它们来展示统计的值 - 就是那两个0 label。在
         <em>
             WordCountViewController.swift
         </em>
-        , add the following:
+        中的类的定义下，添加下列代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119475">
-                    <td class="code" id="p111947code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            wordCount
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet weak
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            paragraphCount
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  @IBOutlet weak <span style="color: #a61390;">var</span> wordCount<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span>
+  @IBOutlet weak <span style="color: #a61390;">var</span> paragraphCount<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
     <p>
         In the storyboard, right-click on the proxy icon for the
         <em>
@@ -1762,191 +1723,24 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119476">
-                    <td class="code" id="p111947code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            showWordCountWindow
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                AnyObject
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 1
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            storyboard
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            NSStoryboard
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            name
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "Main"
-                            </span>
-                            , bundle
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                nil
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            wordCountWindowController
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            storyboard.instantiateControllerWithIdentifier
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "Word Count Window Controller"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                as
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            <span style="color: #400080;">
-                                NSWindowController
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            wordCountWindow
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            wordCountWindowController.window, textStorage
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            text.textStorage
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 2
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            wordCountViewController
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            wordCountWindow.contentViewController
-                            <span style="color: #a61390;">
-                                as
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            WordCountViewController wordCountViewController.wordCount.stringValue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                textStorage.words.count)"
-                            </span>
-                            wordCountViewController.paragraphCount.stringValue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                textStorage.paragraphs.count)"
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                // 3
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            application
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSApplication
-                            </span>
-                            .sharedApplication
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            application.runModalForWindow
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            wordCountWindow
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  @IBAction <span style="color: #a61390;">func</span> showWordCountWindow<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+&nbsp;
+    <span style="color: #11740a; font-style: italic;">// 1</span>
+    <span style="color: #a61390;">let</span> storyboard <span style="color: #002200;">=</span> NSStoryboard<span style="color: #002200;">(</span>name<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"Main"</span>, bundle<span style="color: #002200;">:</span> <span style="color: #a61390;">nil</span><span style="color: #002200;">)</span>
+    <span style="color: #a61390;">let</span> wordCountWindowController <span style="color: #002200;">=</span> storyboard.instantiateControllerWithIdentifier<span style="color: #002200;">(</span><span style="color: #bf1d1a;">"Word Count Window Controller"</span><span style="color: #002200;">)</span> <span style="color: #a61390;">as</span><span style="color: #002200;">!</span> <span style="color: #400080;">NSWindowController</span>
+&nbsp;
+    <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> wordCountWindow <span style="color: #002200;">=</span> wordCountWindowController.window, textStorage <span style="color: #002200;">=</span> text.textStorage <span style="color: #002200;">{</span>
+&nbsp;
+      <span style="color: #11740a; font-style: italic;">// 2</span>
+      <span style="color: #a61390;">let</span> wordCountViewController <span style="color: #002200;">=</span> wordCountWindow.contentViewController <span style="color: #a61390;">as</span><span style="color: #002200;">!</span> WordCountViewController
+      wordCountViewController.wordCount.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"<span style="color: #2400d9;">\(</span>textStorage.words.count)"</span>
+      wordCountViewController.paragraphCount.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"<span style="color: #2400d9;">\(</span>textStorage.paragraphs.count)"</span>
+&nbsp;
+      <span style="color: #11740a; font-style: italic;">// 3</span>
+      <span style="color: #a61390;">let</span> application <span style="color: #002200;">=</span> <span style="color: #400080;">NSApplication</span>.sharedApplication<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+      application.runModalForWindow<span style="color: #002200;">(</span>wordCountWindow<span style="color: #002200;">)</span>
+    <span style="color: #002200;">}</span>
+  <span style="color: #002200;">}</span></pre>
     <p>
         Take it step-by-step:
     </p>
@@ -1995,66 +1789,10 @@
         </code>
         outlet:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119477">
-                    <td class="code" id="p111947code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            dismissWordCountWindow
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            sender
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSButton
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            application
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSApplication
-                            </span>
-                            .sharedApplication
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            application.stopModal
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  @IBAction <span style="color: #a61390;">func</span> dismissWordCountWindow<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSButton</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">let</span> application <span style="color: #002200;">=</span> <span style="color: #400080;">NSApplication</span>.sharedApplication<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    application.stopModal<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+  <span style="color: #002200;">}</span></pre>
     <p>
         This is an
         <em>
