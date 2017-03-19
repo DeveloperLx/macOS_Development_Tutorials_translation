@@ -531,35 +531,33 @@
         sizes="(max-width: 452px) 100vw, 452px">
     </p>
     <p>
-        Follow these steps to pin the window to the upper-left corner:
+        跟随下面的步骤来让window定位到左上角：
     </p>
     <ol>
         <li>
-            Drag the gray rectangle in the preview to the top-left of the virtual
-            screen – this changes the initial position.
+            在预览图中拖拽灰色的矩形到虚拟屏幕的左上角 - 这就改变了初始的位置。
         </li>
         <li>
-            Enter 200 for
+            在
             <em>
                 X
             </em>
-            and for
+            处输入200，在
             <em>
                 Y
             </em>
-            , enter the maximum value minus 200, in this case 557.
+            这里，输入最大的值“负200”，在这个case中就是557.
         </li>
         <li>
-            Select
+            在底部的下拉菜单中选择
             <em>
                 Fixed from Top
             </em>
-            in the lower drop-down.
+            。
         </li>
     </ol>
     <p>
-        The right side of the image below also shows what you should enter and
-        where:
+        下面右侧的图片展示了你应该输入的地方和值：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/Window757557.png"
@@ -572,15 +570,13 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : OS X remembers window positions between app launches. In order to see
-            the changes you made, you need to actually close the app window – not just
-            rebuild and run.
+            ：OS X在每次启动时会记忆window的位置。为了查看你做的变化，你需要确保关掉了app的window - 而不仅仅是重新build并运行。
         </p>
     </div>
     <p>
-        Close the window(s), and then build and run.
+        关掉所有的窗口，然后build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode.png"
