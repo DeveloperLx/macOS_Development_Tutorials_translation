@@ -467,16 +467,14 @@
         </p>
     </div>
     <p>
-        Suppose that the desired opening position for your window is 200 points
-        offset horizontally and vertically from the top-left. You can set this
-        with Xcode in the window’s
+        假设你期望你的window打开的位置，是从左上角水平和垂直偏移200个点。你可以用Xcode在window中的
         <em>
             Size Inspector
         </em>
-        or do it programmatically.
+        来设置它，或依靠编程来实现。
     </p>
     <h3>
-        Set the Window’s Position with Interface Builder
+        使用Interface Builder来设置window的位置
     </h3>
     <p>
         It’s a safe bet that users will launch BabyScript on various screen sizes.
