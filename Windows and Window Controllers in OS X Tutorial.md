@@ -1146,24 +1146,23 @@
         使用富文本（Rich Text）来初始化text view
     </h3>
     <p>
-        To see the full power of the app, download some formatted text from
+        为了看到这个app全部的能力，请从
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/BabyScript.rtf"
         sl-processed="1">
-            here
+            这里
         </a>
-        , and use it as the initial text for the text view.
+        下载一些格式化的文本，并使用它作为这个text view的初始化文本。
     </p>
     <p>
-        Open it with TextEdit, select all and copy it to the clipboard. Go to
-        the storyboard, select the Text View, then
+        使用TextEdit打开它，全选并拷贝到剪贴板中。找到storyboard，选择Text View，然后
         <strong>
             Attributes Inspector
         </strong>
-        and paste the text into the
+        ，然后将文本粘贴到
         <em>
             Text Storage
         </em>
-        field.
+        中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/20-RichText.png"
@@ -1174,21 +1173,20 @@
         </a>
     </p>
     <p>
-        Build and run, and you should see:
+        build并运行，你应该会看到：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112672" src="https://koenig-media.raywenderlich.com/uploads/2015/08/21-EditMe.png"
         alt="21-EditMe" width="480" height="292">
     </p>
     <h3>
-        Use Auto Layout
+        使用自动布局
     </h3>
     <p>
-        You do have the ability to scroll text that doesn’t fit the current window,
-        but try to resize the window.
+        你确实可以滚动不适合当前window大小的文本，但尝试一下改变window的尺寸吧。
     </p>
     <p>
-        Oops! The text view does not resize with the window.
+        哎呀！text view不能随着window尺寸的改变而改变。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/TextNoGrow.png"
@@ -1199,64 +1197,57 @@
         </a>
     </p>
     <p>
-        It’s a simple fix with
+        使用
         <em>
-            Auto Layout
+            自动布局
         </em>
-        .
+        ，这是一个非常简单的修复。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : Auto Layout assists both you in both Cocoa and iOS with your app’s UI.
-            It creates a set of rules that define the geometric relationship between
-            the elements, and you define these relationships in terms of constraints.
+            ：自动布局在你的Cocoa和iOS app的UI中都可以使用。它创建了一套规则来定义元素之间的几何关系，而你以约束的形式来定义这些关系。
         </p>
         <p>
-            With Auto Layout, you create a dynamic interface that responds appropriately
-            to changes in screen size, window size, device orientation and localization.
+            使用自动布局，你可以创建一个动态的界面，以恰当地相应屏幕大小、window大小、设备方向和本地化的变化。
         </p>
         <p>
-            There’s more to it than that, but for the sake of this tutorial, all you
-            need to do is follow the few simple steps below — you can learn more about
-            Auto Layout later. Here are a couple of good tutorials to check out: Beginning
-            Auto Layout Tutorial in iOS 7,
+            关于自动布局还有更多的内容，但为了本教程的缘故，所有你需要做的只是跟随下面的步骤 - 你可以在之后学习更多关于Auto Layout的内容。这里有一些很好的教程供查看：在iOS 7中开始自动布局教程，
             <a href="http://www.raywenderlich.com/50317/beginning-auto-layout-tutorial-in-ios-7-part-1"
             target="_blank" sl-processed="1">
-                Part 1
+                第一部分
             </a>
-            and
+            和
             <a href="http://www.raywenderlich.com/50317/beginning-auto-layout-tutorial-in-ios-7-part-1"
             target="_blank" sl-processed="1">
-                Part 2
+                第二部分
             </a>
-            .
+            。
         </p>
     </div>
     <p>
-        In the storyboard’s
+        在storyboard的
         <em>
             Outline View
         </em>
-        , select
+        中，选择
         <em>
             Bordered Scroll View
         </em>
-        , and click on the
+        ，点击画布右下角的
         <em>
             Pin
         </em>
-        button at the bottom-right of the canvas.
+        按钮。
     </p>
     <p>
-        Click on each of the four little red bar constraints; the broken faded
-        red will turn to solid red. Click at the bottom on the button that reads
+        分别点击四个小红色的条的约束；那个“破碎的凋谢的红色”就会转变成“实的红色”。点击底部的叫做
         <em>
             Add 4 Constraints
         </em>
-        .
+        的按钮。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/PinTextView.png"
@@ -1267,7 +1258,7 @@
         </a>
     </p>
     <p>
-        Build and run, and watch how both the window and text view resize together:
+        build并运行，观察window和text view怎样一起改变大小：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed.png"
