@@ -1015,7 +1015,7 @@
         sizes="(max-width: 625px) 100vw, 625px">
     </p>
     <p>
-        Build and run — you should see the following:
+        build并运行 - 你应该看到如下这样：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112657" src="https://koenig-media.raywenderlich.com/uploads/2015/08/16-EmptyText.png"
