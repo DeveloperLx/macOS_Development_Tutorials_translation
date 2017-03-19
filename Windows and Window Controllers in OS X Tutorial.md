@@ -1545,36 +1545,35 @@
         </a>
     </p>
     <p>
-        Next on the list is creating a subclass for the Window Count ViewController.
-        Select
+        接下来为Window Count ViewController创建一个子类。选择
         <em>
             File / New / File..
         </em>
-        , choose
+        ，选择
         <em>
             OS X / Source / Cocoa Class
         </em>
-        . In the
+        。在
         <em>
             Choose Options
         </em>
-        dialog, enter
-        <code>
-            WordCountViewController
-        </code>
-        in the
+        的对话框中，在
         <em>
             Class
         </em>
-        field and
+        后输入
         <code>
-            NSViewController
+            WordCountViewController
         </code>
-        in the
+        ，而在
         <em>
             Subclass of
         </em>
-        field.
+        后输入
+        <code>
+            NSViewController
+        </code>
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/WordCountViewController.png"
@@ -1585,43 +1584,43 @@
         </a>
     </p>
     <p>
-        Click
+        点击
         <em>
             Next
         </em>
-        and create the new file. Confirm that
+        创建新的文件。确认
         <em>
             WordCountWindowControll.swift
         </em>
-        is now in the project navigator.
+        现在已经在project navigator中了。
     </p>
     <p>
-        Go to the storyboard. Select the proxy icon for the view controller in
-        the
+        找到storyboard. 为文字计数在
         <em>
             view controller scene
         </em>
-        for word count. Open the
+        的view controller中选择proxy图标。打开        
         <em>
             Identity Inspector
         </em>
-        , and select
-        <code>
-            WordCountViewController
-        </code>
-        from the
+        , 从
         <em>
             Class
         </em>
-        drop-down. Note how the name on the canvas and the
+        的下拉菜单中选择
+        <code>
+            WordCountViewController
+        </code>
+        。
+        注意在画板和
         <em>
             Outline View
         </em>
-        changed from the generic name to
+        上的名字是如何从通用的改变成
         <em>
             Word Count View Controller
         </em>
-        .
+        的。
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112758" src="https://koenig-media.raywenderlich.com/uploads/2015/08/SetWCViewController.png"
@@ -1629,7 +1628,7 @@
         sizes="(max-width: 604px) 100vw, 604px">
     </p>
     <h3>
-        Create the Count Labels
+        创建统计Label
     </h3>
     <p>
         Now you’ll create outlets for the two labels that show the count values
