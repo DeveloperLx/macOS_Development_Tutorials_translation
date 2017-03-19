@@ -802,31 +802,26 @@
     shouldCascadeWindows <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>
   <span style="color: #002200;">}</span></pre>
     <p>
-        You’re setting the
-        <code>
-            shouldCascadeWindows
-        </code>
-        property of
+        通过覆盖
         <code>
             NSWindowController
         </code>
-        to
-        <code>
-            true
-        </code>
-        by overriding the
+        的
         <code>
             required init
         </code>
-        method of
+        方法，你将
         <code>
             NSWindowController
         </code>
-        .
+        的
+        <code>
+            shouldCascadeWindows
+        </code>
+        property设置为true。
     </p>
     <p>
-        Build and run the app, and then open five windows. Your screen should
-        look a little bit more friendly:
+        build并运行app，然后打开5个window。你的屏幕看起来应该就更友好些了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows.png"
