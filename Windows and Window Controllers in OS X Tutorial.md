@@ -1338,96 +1338,69 @@
         就像我承诺的，仅靠两行代码和storyboard，你就创建了一个小的迷你文字处理器 - 致敬（Chapeau），苹果！
     </p>
     <h2>
-        Modal Windows
+        模态Window
     </h2>
-    <div class="inline-video-ad" id="sub-banner-inline">
-        <div class="inline-video-ad-wrapper">
-            <a href="https://videos.raywenderlich.com/courses" sl-processed="1">
-                <div class="col-wrapper">
-                    <div class="col">
-                        <img src="https://cdn3.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png"
-                        alt="yeti holding videos">
-                    </div>
-                    <div class="col large-col">
-                        <span>
-                            Want to learn even faster? Save time with our
-                            <span>
-                                video courses
-                            </span>
-                        </span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
     <p>
-        You can make a window run in a modal fashion. The window still uses the
-        app’s normal event loop, but input is restricted to the modal window.
+        你可以让window运行在模态方式下。这个window仍然使用app的标准时间循环，但输入仅限于模态window。
     </p>
     <p>
-        There are two ways to utilize a modal window. You’ll call the
-        <code>
-            runModalForWindow
-        </code>
-        method of
+        有两种方式来利用模态窗口。你可以调用
         <code>
             NSApplication
         </code>
-        . This approach monopolizes events for the specified window until it is
-        gets a request to stop, which you can invoke by
+        的方法
+        <code>
+            runModalForWindow
+        </code>
+        。这种方式为指定的窗口垄断（monopolizes）了事件，直到它得到了一个你可以通过
         <code>
             stopModal
         </code>
-        ,
+        、
         <code>
             abortModal
         </code>
-        or
+        或
         <code>
             stopModalWithCode
         </code>
-        .
+        来调用的请求才停止。
     </p>
     <p>
-        For this case, you’ll use
+        对于这个case，你将使用
         <code>
             stopModal
         </code>
-        . The other way, called a
+        。另一种方式被称作
         <em>
-            modal session
+            模态session
         </em>
-        , is not covered by this tutorial.
+        ，不会包含在本教程中。
     </p>
     <h3>
-        Add a Word Count Window
+        添加一个字符统计window
     </h3>
     <p>
-        You’ll add a modal window that counts words and paragraphs in the active
-        window. It has to be modal because it’s associated with a specific window
-        and a specific state.
+        你可以添加一个模态窗口来在活动的window中统计字数和段落数。由于会关联于一个指定的窗口和指定的状态，它必须是模态的。
     </p>
     <p>
-        &nbsp;
-    </p>
-    <p>
-        From the
+        从
         <em>
             Object Library
         </em>
-        , drag a new
+        中，拖拽一个新的
         <em>
             window controller
         </em>
-        to the canvas. This creates two new scenes: a
+        到画布上。它创建了两个新的场景：一个
         <em>
             window controller scene
         </em>
-        and a
+        和一个
         <em>
             view controller scene
         </em>
-        :
+        ：
     </p>
     <p>
         <img class="aligncenter size-large wp-image-112710" src="https://koenig-media.raywenderlich.com/uploads/2015/08/NewScenes-625x500.png"
