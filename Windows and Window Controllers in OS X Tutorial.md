@@ -1298,72 +1298,12 @@
         </em>
         在这个方法之上，就像下面这样：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1119474">
-                    <td class="code" id="p111947code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            text
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextView
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                override
-                            </span>
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            viewDidLoad
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                super
-                            </span>
-                            .viewDidLoad
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            text.toggleRuler
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                nil
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">  @IBOutlet <span style="color: #a61390;">var</span> text<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextView</span><span style="color: #002200;">!</span>
+&nbsp;
+  <span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> viewDidLoad<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
+    <span style="color: #a61390;">super</span>.viewDidLoad<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
+    text.toggleRuler<span style="color: #002200;">(</span><span style="color: #a61390;">nil</span><span style="color: #002200;">)</span>
+  <span style="color: #002200;">}</span></pre>
     <p>
         Now you’ll connect the text view to the view controller in the storyboard.
     </p>
