@@ -343,24 +343,23 @@
         。
     </p>
     <p>
-        Select the
+        选择
         <em>
             Connections Inspector
         </em>
-        and click
+        并点击
         <em>
             Open
         </em>
-        . As you can see, it connects to the first responder via the
+        。正如你看到的，它通过
         <code>
             openDocument
         </code>
-        selector, aka the first object to respond to this selector in the responder
-        chain. Delete this connection by clicking on the
+        selector连接到了第一响应者，也就是在响应者链中，第一个响应这个selector的对象。就像下面这样，通过点击 
         <em>
             x
         </em>
-        as shown below:
+        来删除这个连接：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/TargetAction.png"
@@ -371,56 +370,54 @@
         </a>
     </p>
     <p>
-        Repeat this step for
+        对
         <em>
             Save
         </em>
-        ,
+        ，
         <em>
             Save As
         </em>
-        and
+        和
         <em>
             Revert to Saved
         </em>
-        .
+        重复该步骤。
     </p>
     <p>
-        Build and Run. Toggle the
+        build并运行，切换到
         <em>
             Open
         </em>
-        menu and check that it looks like this:
+        菜单，并检查它是否看起来像下面这样：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112528" src="https://koenig-media.raywenderlich.com/uploads/2015/08/7-OpenMenu.png"
         alt="7-OpenMenu" width="178" height="225">
     </p>
     <h2>
-        Window Position
+        Window的位置
     </h2>
     <p>
-        When you run BabyScript, the window opens near the left edge, but somewhat
-        below the center of the screen.
+        当你运行BabyScript的时候，window会在靠近左边，但稍低于屏幕中心的的位置打开。
     </p>
     <p>
-        Why does it choose this location?
+        为何它选择了这个位置？
     </p>
     <p>
-        Go to the storyboard, and in the
+        找到storyboard，在
         <em>
             outline view
         </em>
-        select
+        中选择
         <em>
             Window
         </em>
-        , and then select the
+        ，然后选择
         <em>
             Size Inspector
         </em>
-        . Run BabyScript – or bring it to the front – and you should see the following
-        screen:
+        。运行BabyScript - 或将它带到前面 - 你现在看到的屏幕应该是下面这样的：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/5-WindowSizeInspector.png"
@@ -431,20 +428,19 @@
         </a>
     </p>
     <p>
-        Entering numeric values for the
-        <i>
-            X
-        </i>
-        and
-        <i>
-            Y
-        </i>
-        under
+        在
         <em>
             Initial Position
         </em>
-        is one way to set the window’s position. You can also set it graphically
-        by dragging the gray rectangle just below.
+        下输入
+        <i>
+            X
+        </i>
+        和
+        <i>
+            Y
+        </i>
+        的数值。这是设置window的位置的一种方法。你也可以通过拖动下面灰色的矩形直观地（graphically）设置它。
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112397" src="https://koenig-media.raywenderlich.com/uploads/2015/08/6-QuartzCoordinates.png"
@@ -454,23 +450,20 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : The origin of a visual object (window, view, control, etc.) in Cocoa
-            is the
+            ：在Cocoa中，一个可见对象(window, view, control等)的原点位于
             <i>
-                lower-left
+                左下
             </i>
-            corner. Values increase as you go up and to the right in the coordinate
-            system.
+            角。在向上和向右的方向上，坐标值会增加。
         </p>
         <p>
-            In contrast, many graphic environments, especially with iOS, the origin
-            is in the
+            相反地，在很多图形环境下，尤其是iOS，其原点是位于
             <i>
-                upper
+                上
             </i>
-            -left, and values increase going down and to the right.
+            左角的，则在向下和向右的方向上，坐标值会增加。
         </p>
     </div>
     <p>
