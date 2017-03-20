@@ -155,66 +155,61 @@
         </a>
     </p>
     <p>
-        You’ll see a set of four buttons in the top toolbar:
+        你将在顶部的工具栏中看到四个按钮：
         <em>
             Record
         </em>
-        ,
+        ，
         <em>
             Stop
         </em>
-        ,
+        ，
         <em>
             Run
         </em>
-        , and
+        ，和
         <em>
             Compile
         </em>
-        . Compile checks that your scripting is syntactically correct, and Run
-        does pretty much what what you’d expect.
+        。Compile检查你的脚本是语法正确的，而Run做的大致就是你所期望的。
     </p>
     <p>
-        At the bottom of the window, you’ll see three icons which switch between
-        views.
+        而在window的底部，你会看到三个图标，用来在view之间切换。
         <em>
             Description
         </em>
-        lets you add some information about your script, while
+        让你添加一些关于你的脚本的信息，而
         <em>
             Result
         </em>
-        shows the final result of running a script. The most useful option is
-        the third button:
+        则展示了你运行一个脚本最后的结果。最有用的选项则是第三个按钮：
         <em>
             Log
         </em>
-        .
+        。
     </p>
     <p>
-        The Log offers a further four options:
+        而Log还提供了四个选项：
         <em>
             Result
         </em>
-        ,
+        ，
         <em>
             Messages
         </em>
-        ,
+        ，
         <em>
             Events
         </em>
-        and
+        和
         <em>
             Replies
         </em>
-        . Replies is the most informative, as it shows a log of every command
-        and the return value of that command. When testing any scripts, I highly
-        recommend the
+        。Replies是信息量最大的，因为它展示了每个命令和命令返回的值。当测试任何脚本的时候，我强烈推荐
         <em>
             Log in Replies
         </em>
-        mode.
+        模式。
     </p>
     <div class="note">
         <p>
