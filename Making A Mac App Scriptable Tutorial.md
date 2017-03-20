@@ -6,9 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update 9/21/16:
+                16年9月21日更新：
             </em>
-            This tutorial has been updated for Xcode 8 and Swift 3.
+            这个教程已更新至Xcode 8及Swift 3。
         </p>
     </div>
     <p>
@@ -18,29 +18,24 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        As an app developer, it’s near impossible to think of
+        作为一个app开发者，几乎是不可能想到人们
         <i>
-            all
+            所有的
         </i>
-        the ways people will want to use your app. Wouldn’t it be cool to let
-        your users create scripts to customize your app to their own personal needs?
+        使用你app的方法的。如果能让你的用户创建脚本，来定制你的app去满足他们个人化的需求，难道不是很酷？
     </p>
     <p>
-        With Applescript and Javascript for Automation (JXA), you can! In this
-        making a Mac app scriptable tutorial you will discover how to add scripting
-        capabilities to a sample application. You’ll start by learning how to control
-        existing apps with scripting, and then extend a sample app to allow custom
-        script actions.
+        使用Applescript和Javascript来自动化（JXA），你可以！在这个让mac app可脚本化的教程中，你将了解到，怎样添加脚本的处理的能力到示例应用上。你将从了解怎样使用脚本控制存在的app开始，然后扩展一个app去允许定制脚本行为。
     </p>
     <h2>
-        Getting Started
+        开始吧
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/ScriptableTasks-Starter2.zip">
-            sample project
+            示例工程
         </a>
-        , open it in Xcode and build and run to see how it looks:
+        ，在Xcode中打开它，build并运行，查看它的样子：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Scriptable-Tasks-app.png">
@@ -51,27 +46,23 @@
         </a>
     </p>
     <p>
-        The app shows a list of tasks with due dates in the next few days and
-        the tags associated with each task. It uses an outline view to group the
-        tasks by due date.
+        这个app展示了一个带有到期日的，在接下来几天的任务的列表，还有关联到每个任务的标签。它使用一个outline view来根据到期日给任务分租。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Want to know more about outline views? Check out the
-        <a href="https://www.raywenderlich.com/123463/nsoutlineview-os-x-tutorial">
-            NSOutlineView on OS X Tutorial
+        想要了解更多关于outline view的事？在这个文章中查看
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/NSOutlineView%20on%20macOS%20Tutorial.md">
+            OS X的教程NSOutlineView
         </a>
-        on this site.
+        。
     </div>
     <p>
-        You might have noticed that you can’t add, edit, or delete any tasks.
-        That’s by design – these actions will be handled by your user automation
-        scripts.
+        你可能注意到，你不能添加，编辑，或删除任务。这是由设计决定的 - 这些动作将通过你的用户的自动化脚本来处理。
     </p>
     <p>
-        Take a a look at the files in the project:
+        看一下项目中的文件：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/ScriptableTasksProject.png">
@@ -83,83 +74,77 @@
     </p>
     <ul>
         <li>
-            There are 2 model class files:
+            有两个模型类的文件：
             <em>
                 Task.swift
             </em>
-            and
+            和
             <em>
                 Tag.swift
             </em>
-            . These are the classes that you will be scripting.
+            。这是你将要编写的类。
         </li>
         <li>
-            The
             <em>
                 ViewController
             </em>
-            group handles the display and watches for changes in the data.
+            这组处理展示和观察数据的变化。
         </li>
         <li>
-            The
             <em>
                 Data
             </em>
-            group has a file with the sample tasks and a
+            组有一个带有示例任务的文件，还有一个
             <em>
                 DataProvider
             </em>
-            that reads those tasks and handles any edits that arrive.
+            来读取那些任务，并处理到达的任何修改。
         </li>
         <li>
-            The
+            这个
             <em>
                 AppDelegate
             </em>
-            uses a
+            使用一个
             <code>
                 DataProvider
             </code>
-            object to keep a record of the app’s tasks.
+            对象来持有一个app任务的记录。
         </li>
         <li>
-            The
             <em>
                 ScriptableTasks.sdef
             </em>
-            file is a crucial file…which you will explore in detail later.
+            是一个重要的文件...你将要在之后详细地探索。
         </li>
     </ul>
     <p>
-        There are sample scripts for this tutorial as well;
+        本教程还有一些示例脚本；
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/SampleScripts2.zip">
-            download them here
+            从这里下载
         </a>
-        . There are two folders in this package: one for AppleScript and one for
-        JavaScript. Since this tutorial isn’t focused on how to write scripts,
-        you’ll be using each of the downloaded scripts to test the functionality
-        that you’ll add to
+        。在这个包中有两个目录：一个用于AppleScript，另一个用于JavaScript。由于这个教程的重点不在于写脚本，你将使用每一个下载到的脚本来测试你将添加到
         <em>
             Scriptable Tasks
         </em>
-        .
+        中的功能。
     </p>
     <p>
-        Enough with the talk – time to move on to the scripting! :]
+        说得已经足够了 - 是时候移步到脚本这里了！:]
     </p>
     <h2>
-        Using the Script Editor
+        使用脚本编辑器
     </h2>
     <p>
-        Open up the
-        <em>
-            Script Editor app
-        </em>
-        , found in
+        打开
         <em>
             Applications/Utilities
         </em>
-        , and open a new document:
+        中的
+        <em>
+            Script Editor app
+        </em>
+        ，并打开一个新的文档：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/ScriptEditor.png">

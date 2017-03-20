@@ -1,4 +1,4 @@
-# 绑定在macOS上的Cocoa
+# macOS上的Cocoa Bindings
 
 #### [原文地址](https://www.raywenderlich.com/141297/cocoa-bindings-macos) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
@@ -6,14 +6,13 @@
     <div class="note">
         <p>
             <em>
-                Update note:
+                更新笔记：
             </em>
-            This Cocoa Bindings on macOS tutorial has been updated to Xcode 8 and
-            Swift 3 by Andy Pereira. The
+            这个macOS的教程Cocoa Bindings，已由Andy Pereira更新到Xcode 8和 Swift 3的版本。
             <a href="https://www.raywenderlich.com/124490/cocoa-bindings-os-x-tutorial">
-                original
+                原教程
             </a>
-            tutorial was written by Jake Gundersen.
+            撰写自Jake Gundersen。
         </p>
     </div>
     <p>
@@ -23,40 +22,34 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        Cocoa bindings, or simply
+        Cocoa bindings，或简单的
         <em>
             bindings
         </em>
-        , free you up from having to spend hours writing
+        ，让你从花费大量时间书写
         <i>
-            glue code
+            粘合代码
         </i>
-        ; that is, creating links between the model and the view in the controller
-        when using the Model-View-Controller (MVC) pattern.
+        的过程中解放出来；那就是，当使用Model-View-Controller(MVC)模式时，在controller中，创建model和view的连接。
     </p>
     <p>
-        Cocoa bindings have a simple goal: write less code. You’ll discover as
-        you work through this that they do indeed live up to this objective.
+        Cocoa bindings有一个简单的目标：写更少的代码。你将发现，通过这么做，真的就可以达到这个目的。
     </p>
     <p>
-        In this Cocoa Bindings on macOS tutorial, you’ll create an app that displays
-        search results from the App Store via the iTunes API as you learn how to
-        use Cocoa bindings to do the following:
+        在这个macOS教程Cocoa Bindings中，你将创建一个app，来展示从App Store中通过iTunes API获取的搜索结果，以此你将学到如何使用Cocoa bindings来执行如下的操作：
     </p>
     <ul>
         <li>
-            Set the relationship within Interface Builder between a data model property
-            and a UI element, such as a label or a button
+            使用Interface Builder设立在数据模型property和UI元素之间的关系，例如一个label或一个button
         </li>
         <li>
-            Set up default values
+            设置默认值
         </li>
         <li>
-            Apply formatting, such as a currency or date format
+            执行格式化，例如货币或日期格式
         </li>
         <li>
-            Change the data structure, e.g. when converting a value into a representing
-            color
+            改变数据结构，例如将数值转化为颜色时
         </li>
     </ul>
     <p>
