@@ -214,43 +214,35 @@
     <div class="note">
         <p>
             <em>
+            	注意：
                 Note:
             </em>
-            If you ever open an AppleScript file and find it contains code like this:
+            如果你曾经打开过一个AppleScript文件，并发现它包含类似下面的代码：
             <code>
                 «class TaSk» whose «class TrFa» is false and «class CrDa»
             </code>
-            , click
+            ，点击
             <em>
                 Compile
             </em>
-            and it will be translated to readable AppleScript, provided you have the
-            target app installed.
+            ，它将转变为可读的AppleScript，前提是你已安装了目标的app。
         </p>
     </div>
     <p>
-        There are two scripting languages you’ll cover in this tutorial. The first
-        is AppleScript, introduced with Mac System 7 in 1991, which uses an English-like
-        syntax to make it usable by coders and non-coders alike.
+	    在这个教程中，你将cover到两种脚本语言。第一种是AppleScript，它是在1991年的Mac系统7是被引入的，使其可以被码农和非码农使用。
     </p>
     <p>
-        The second is JavaScript for Automation (JXA), introduced by OSX Yosemite,
-        which lets coders use the familiar JavaScript syntax to build their automation
-        tasks.
+    	第二种则是JavaScript for Automation (JXA)，它是在OSX Yosemite系统中被引用的，让码农可以使用它们熟悉的JavaScript语法来构建它们的自动化任务。
     </p>
     <p>
-        The scripts in this tutorial will be presented in both AppleScript and
-        JXA, so you’re free to wander down the path of whichever language you’d
-        like to explore. :]
+    	在本教程中的脚本将同时通过AppleScript和JXA来展现，因此你可以自由地沿着你想要探索那种语言去漫游。:]
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+            	注意：
             </em>
-            Throughout this tutorial, the scripting code snippets are presented in
-            AppleScript first, and immediately followed by the equivalent JavaScript
-            version.
+            在本教程中，脚本的代码片段将首先通过AppleScript来展示，之后则紧跟着等效的JavaScript的版本。
         </p>
     </div>
     <h3>
