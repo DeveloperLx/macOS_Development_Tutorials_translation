@@ -363,45 +363,42 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         让你的App可编写脚本
     </h2>
     <p>
-        The scripting definition file of your app defines what the app can do;
-        it’s a little like an API. This file lives in your app project and specifies
-        several things:
+        你的App的脚本定义文件定义了这个app可以做的事；这就有点像一个API。这个文件存在在你的app项目中，并指定了几件事情：
     </p>
     <ul>
         <li>
-            Standard scripting objects and commands, such as
+            标准的脚本对象和命令，例如
             <code>
                 window
             </code>
-            ,
+            ，
             <code>
                 make
             </code>
-            ,
+            ，
             <code>
                 delete
             </code>
-            ,
+            ，
             <code>
                 count
             </code>
-            ,
+            ，
             <code>
                 open
             </code>
-            and
+            和
             <code>
                 quit
             </code>
-            .
+            。
         </li>
         <li>
-            Your own scriptable objects, properties and custom commands.
+            你自己的可编写脚本的对象，属性和自定义命令。
         </li>
     </ul>
     <p>
-        In order to make classes in your app scriptable, there are a few changes
-        you’ll need to make to the app.
+        为了让你的app中的类可脚本化，你需要对其做出一些改变。
     </p>
     <p>
         First, the scripting interface uses Key-Value-Coding to get and set the
