@@ -246,39 +246,38 @@
         </p>
     </div>
     <h3>
-        Exploring App Scripting With TextEdit
+        使用TextEdit探索App脚本
     </h3>
     <p>
-        There’s a great little app already installed on your Mac that supports
-        scripting: TextEdit. In the
+        有一个很棒的小app早已安装到了你的Mac上：TextEdit，它支持脚本的撰写。在
         <em>
             Script Editor
         </em>
-        , select
+        中，选择
         <em>
             Window/Library
         </em>
-        and look for the
+        并找到
         <em>
             TextEdit
         </em>
-        entry. If it’s not there, click the
+        的入口。如果它不在这里，单击顶部的
         <em>
             Plus
         </em>
-        button at the top, navigate to your
+        按钮，找到你的
         <em>
             Applications
         </em>
-        folder and add
+        目录并添加
         <em>
             TextEdit
         </em>
-        . Then double-click the
+        。然后双击
         <em>
             TextEdit
         </em>
-        entry to open the TextEdit dictionary:
+        入口来打开TextEdit字典：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/TextEditDictionary.png">
