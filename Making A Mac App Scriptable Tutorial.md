@@ -288,117 +288,43 @@
         </a>
     </p>
     <p>
-        Every scriptable app has a dictionary, stored in a scripting definition
-        (SDEF) file. The dictionary tells you what objects the app has, what properties
-        the objects have and what commands the app responds to. In the above screen
-        shot, you can see that TextEdit has paragraphs, and paragraphs have color
-        and font properties. You will use this information to style some text.
+        每一个可编写脚本的app有一个字典，储存在脚本的定义文件（SDEF）中。这个字典告诉你这个app中包含哪些对象，这些对象中包含什么属性，这个app能响应什么命令。在上面的屏幕截图中，你可以看到TextEdit含有若干个段落，这些段落含有颜色和字体的特性。你将使用这些信息来风格化一些文本。
     </p>
     <p>
-        Open
-        <em>
-            1. TextEdit Write.scpt
-        </em>
-        from either the
+        从
         <em>
             AppleScript
         </em>
-        or the
+        或
         <em>
             JavaScript
         </em>
-        folder. Run the script; you’ll see TextEdit create and save a document.
+        目录中打开
+        <em>
+            1. TextEdit Write.scpt
+        </em>
+        目录。运行脚本；你将看到TextEdit创建并保存了一个文档。
     </p>
     <p>
-        You now have a new document, but it needs a bit of styling. Open
+        现在你有了一个新的文档，但它需要一点样式。打开
         <em>
             2. TextEdit Read Edit.scpt
         </em>
-        , run this script and you’ll see the document re-opened and styled as
-        per the script.
+        ，运行这个脚本，你将看到这个文档根据脚本再次打开并样式化。
     </p>
     <p>
-        Although delving into the actual script is beyond the scope of this tutorial,
-        feel free to read the scripts in detail to see how they act on the TextEdit
-        document.
+        尽管深入钻研实际的脚本超过了这个教程的范围，也请随意仔细阅读脚本，来查看它如何在TextEdit的文档上执行。
     </p>
     <p>
-        As mentioned in the introduction, all apps are scriptable to some extent.
-        To see this in action, ensure Scriptable Tasks is running. Next, open a
-        new script window in Script Editor and enter one of the following scripts,
-        depending on which language you’re using:
+        正如在介绍中提到的，所有的app在一定程度上都是可脚本化的。为了看到这个起作用，确保Scriptable的任务正在执行。下一步，在Script Editor中打开一个新的脚本window并输入下列脚本中的一个，取决于你正在使用的语言：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330071">
-                    <td class="code" id="p133007code1">
-                        <pre class="applescript" style="font-family:monospace;">
-                            <span style="color: #808080; font-style: italic;">
-                                -- AppleScript
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                            <span style="color: #0066ff;">
-                                application
-                            </span>
-                            <span style="color: #009900;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                to
-                            </span>
-                            <span style="color: #0066ff;">
-                                quit
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="applescript" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">-- AppleScript</span>
+<span style="color: #ff0033; font-weight: bold;">tell</span> <span style="color: #0066ff;">application</span> <span style="color: #009900;">"Scriptable Tasks"</span> <span style="color: #ff0033; font-weight: bold;">to</span> <span style="color: #0066ff;">quit</span></pre>
     <p>
-        or
+        或
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330072">
-                    <td class="code" id="p133007code2">
-                        <pre class="javascript" style="font-family:monospace;">
-                            <span style="color: #006600; font-style: italic;">
-                                // JavaScript
-                            </span>
-                            Application
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #3366CC;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            .
-                            <span style="color: #660066;">
-                                quit
-                            </span>
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// JavaScript</span>
+Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span>. <span style="color: #660066;">quit</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
         Click
         <em>
