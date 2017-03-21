@@ -326,82 +326,21 @@
     <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// JavaScript</span>
 Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span>. <span style="color: #660066;">quit</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
-        Click
+        点击
         <em>
             Run
         </em>
-        and Scriptable Tasks should quit. Change the script to the following and
-        click
+        ，应该可编写脚本的程序就退出了。改变脚本为下面的样子，并在此点击
         <em>
             Run
         </em>
-        again:
+        ：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330073">
-                    <td class="code" id="p133007code3">
-                        <pre class="applescript" style="font-family:monospace;">
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                            <span style="color: #0066ff;">
-                                application
-                            </span>
-                            <span style="color: #009900;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                to
-                            </span>
-                            <span style="color: #0066ff;">
-                                launch
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="applescript" style="font-family:monospace;"><span style="color: #ff0033; font-weight: bold;">tell</span> <span style="color: #0066ff;">application</span> <span style="color: #009900;">"Scriptable Tasks"</span> <span style="color: #ff0033; font-weight: bold;">to</span> <span style="color: #0066ff;">launch</span></pre>
     <p>
         or
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330074">
-                    <td class="code" id="p133007code4">
-                        <pre class="javascript" style="font-family:monospace;">
-                            Application
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #3366CC;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            .
-                            <span style="color: #660066;">
-                                launch
-                            </span>
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="javascript" style="font-family:monospace;">Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span>.<span style="color: #660066;">launch</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
         The app restarts, but doesn’t come to the foreground. To bring the app
         into focus, change
