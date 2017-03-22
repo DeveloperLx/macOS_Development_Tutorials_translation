@@ -401,23 +401,18 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         为了让你的app中的类可脚本化，你需要对其做出一些改变。
     </p>
     <p>
-        First, the scripting interface uses Key-Value-Coding to get and set the
-        properties of objects. In Objective-C, all objects conformed to the KVC
-        protocol automatically, but Swift objects don’t do so unless you make them
-        subclasses of
+        首先，脚本的接口使用Key-Value-Coding来get和set对象的property。在OC中，所有的对象都自动地遵守KVC协议，但Swift的对象并不是这样的，除非你使其成为
         <code>
             NSObject
         </code>
-        .
+        的子类。
     </p>
     <p>
-        Next, scriptable classes need an Objective-C name that the scripting interface
-        can recognize. To avoid namespace conflicts, Swift object names are mangled
-        to give a unique representation. By prefixing the class definitions with
+        接下来，可脚本的类需要一个脚本接口可以识别的OC的名字。为了避免命名空间的冲突，Swift对象的名称是很难以给出一个独立的表示的。通过使用
         <code>
             @objc(YourClassName)
         </code>
-        , you give them a name that can be used by the scripting engine.
+        来给类添加前缀，你就给了它们一个可以被脚本引擎使用的名称。
     </p>
     <p>
         Scriptable classes need object specifiers to help locate a particular
