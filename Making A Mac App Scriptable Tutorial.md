@@ -843,7 +843,6 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
             Script Editor
         </em>
         中，创建一个新的脚本文件，并设置这个编辑器展示
-        , make a new script file and set the editor to show
         <em>
             Log/Replies
         </em>
@@ -885,22 +884,19 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </a>
     </p>
     <p>
-        Try out a few more of the sample scripts you downloaded earlier. When
-        running the scripts, make sure you set the Script Editor to show
+        再尝试一些你之前下载的脚本。当运行脚本的时候，确保你将Script Editor设置为
         <em>
             Log/Replies
         </em>
-        so that you can see the results along the way.
+        这样你就能一路上看到结果。
     </p>
     <p>
-        Each script quits the app before running it again; this is to reset the
-        data after any edits so that the sample scripts work as expected. You wouldn’t
-        normally do this in your own scripts.
+        每个脚本在重写运行它之前退出这个app；这是为了在任何的编辑之后重置数据，这样示例脚本就如同期望一般地工作。你通常不会在你自己的脚本中执行此操作。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
             Script Editor can get very confused as you build updated versions of the
             app, because it tries to keep a version running at all times if you have
@@ -1001,24 +997,26 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     <p>
         Time to add a check here. Replace the function with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300715">
-                    <td class="code" id="p133007code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            mutating func insertNew(task: Task, at index: Int) -&gt; [Task] { // 1
-                            if taskExists(withTitle: task.title) { // 2 let command = NSScriptCommand.current()
-                            command?.scriptErrorNumber = errOSACantAssign command?.scriptErrorString
-                            = "Task with the title '\(task.title)' already exists" } else { // 3 if
-                            index &gt;= tasks.count { tasks.append(task) } else { tasks.insert(task,
-                            at: index) } &nbsp; postNotificationOfChanges() } &nbsp; return tasks }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">mutating func insertNew(task: Task, at index: Int) -&gt; [Task] {
+  // 1
+  if taskExists(withTitle: task.title) {
+    // 2
+    let command = NSScriptCommand.current()
+    command?.scriptErrorNumber = errOSACantAssign
+    command?.scriptErrorString = "Task with the title '\(task.title)' already exists"
+  } else {
+    // 3
+    if index &gt;= tasks.count {
+      tasks.append(task)
+    } else {
+      tasks.insert(task, at: index)
+    }
+&nbsp;
+    postNotificationOfChanges()
+  }
+&nbsp;
+  return tasks
+}</pre>
     <p>
         Here’s what each commented section does:
     </p>
@@ -1146,25 +1144,23 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
             Add the object specifier method:
         </li>
     </ul>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300716">
-                    <td class="code" id="p133007code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            override var objectSpecifier: NSScriptObjectSpecifier { // 1 guard let
-                            task = task else { return NSScriptObjectSpecifier() } &nbsp; // 2 guard
-                            let taskClassDescription = task.classDescription as? NSScriptClassDescription
-                            else { return NSScriptObjectSpecifier() } &nbsp; // 3 let taskSpecifier
-                            = task.objectSpecifier &nbsp; // 4 let specifier = NSUniqueIDSpecifier(containerClassDescription:
-                            taskClassDescription, containerSpecifier: taskSpecifier, key: "tags", uniqueID:
-                            id) return specifier }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">override var objectSpecifier: NSScriptObjectSpecifier {
+  // 1
+  guard let task = task else { return NSScriptObjectSpecifier() }
+&nbsp;
+  // 2
+  guard let taskClassDescription = task.classDescription as? NSScriptClassDescription else {
+    return NSScriptObjectSpecifier()
+  }
+&nbsp;
+  // 3
+  let taskSpecifier = task.objectSpecifier
+&nbsp;
+  // 4
+  let specifier = NSUniqueIDSpecifier(containerClassDescription: taskClassDescription,
+    containerSpecifier: taskSpecifier, key: "tags", uniqueID: id)
+  return specifier
+}</pre>
     <p>
         The above code is relatively straightforward:
     </p>
@@ -1190,220 +1186,17 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </code>
         comment:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300717">
-                    <td class="code" id="p133007code17">
-                        <pre class="xml" style="font-family:monospace;">
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;class
-                                </span>
-                                <span style="color: #000066;">
-                                    name
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "tag"
-                                </span>
-                                <span style="color: #000066;">
-                                    code
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "TaGg"
-                                </span>
-                                <span style="color: #000066;">
-                                    description
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "A tag"
-                                </span>
-                                <span style="color: #000066;">
-                                    inherits
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "item"
-                                </span>
-                                <span style="color: #000066;">
-                                    plural
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "tags"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;cocoa
-                                </span>
-                                <span style="color: #000066;">
-                                    class
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "Tag"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;property
-                                </span>
-                                <span style="color: #000066;">
-                                    name
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "id"
-                                </span>
-                                <span style="color: #000066;">
-                                    code
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "ID "
-                                </span>
-                                <span style="color: #000066;">
-                                    type
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "text"
-                                </span>
-                                <span style="color: #000066;">
-                                    access
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "r"
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000066;">
-                                    description
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "The unique identifier of the tag."
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;cocoa
-                                </span>
-                                <span style="color: #000066;">
-                                    key
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "uniqueID"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/property
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;property
-                                </span>
-                                <span style="color: #000066;">
-                                    name
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "name"
-                                </span>
-                                <span style="color: #000066;">
-                                    code
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "pnam"
-                                </span>
-                                <span style="color: #000066;">
-                                    type
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "text"
-                                </span>
-                                <span style="color: #000066;">
-                                    access
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "rw"
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000066;">
-                                    description
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "The name of the tag."
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;cocoa
-                                </span>
-                                <span style="color: #000066;">
-                                    key
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "name"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/property
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/class
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;class</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"tag"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"TaGg"</span> <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"A tag"</span> <span style="color: #000066;">inherits</span>=<span style="color: #ff0000;">"item"</span> <span style="color: #000066;">plural</span>=<span style="color: #ff0000;">"tags"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">"Tag"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;property</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"id"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"ID  "</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"text"</span> <span style="color: #000066;">access</span>=<span style="color: #ff0000;">"r"</span></span>
+<span style="color: #009900;">    <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"The unique identifier of the tag."</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">key</span>=<span style="color: #ff0000;">"uniqueID"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/property<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;property</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"name"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"pnam"</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"text"</span> <span style="color: #000066;">access</span>=<span style="color: #ff0000;">"rw"</span></span>
+<span style="color: #009900;">    <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"The name of the tag."</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">key</span>=<span style="color: #ff0000;">"name"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/property<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/class<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
         This is very similar to the data for the
         <code>
@@ -1433,63 +1226,9 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </code>
         comment:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300718">
-                    <td class="code" id="p133007code18">
-                        <pre class="xml" style="font-family:monospace;">
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;element
-                                </span>
-                                <span style="color: #000066;">
-                                    type
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "tag"
-                                </span>
-                                <span style="color: #000066;">
-                                    access
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "rw"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;cocoa
-                                </span>
-                                <span style="color: #000066;">
-                                    key
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "tags"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/element
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;element</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"tag"</span> <span style="color: #000066;">access</span>=<span style="color: #ff0000;">"rw"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">key</span>=<span style="color: #ff0000;">"tags"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/element<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
         Quit the app, then build and run the app again.
     </p>
@@ -1527,118 +1266,14 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     <p>
         Try one of the following scripts:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300719">
-                    <td class="code" id="p133007code19">
-                        <pre class="applescript" style="font-family:monospace;">
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                            <span style="color: #0066ff;">
-                                application
-                            </span>
-                            <span style="color: #009900;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                get
-                            </span>
-                            <span style="color: #ff0033;">
-                                the
-                            </span>
-                            <span style="color: #0066ff;">
-                                name
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                of
-                            </span>
-                            <span style="color: #ff0033;">
-                                every
-                            </span>
-                            tag
-                            <span style="color: #ff0033; font-weight: bold;">
-                                of
-                            </span>
-                            task
-                            <span style="color: #000000;">
-                                1
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                end
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="applescript" style="font-family:monospace;"><span style="color: #ff0033; font-weight: bold;">tell</span> <span style="color: #0066ff;">application</span> <span style="color: #009900;">"Scriptable Tasks"</span>
+  <span style="color: #ff0033; font-weight: bold;">get</span> <span style="color: #ff0033;">the</span> <span style="color: #0066ff;">name</span> <span style="color: #ff0033; font-weight: bold;">of</span> <span style="color: #ff0033;">every</span> tag <span style="color: #ff0033; font-weight: bold;">of</span> task <span style="color: #000000;">1</span>
+<span style="color: #ff0033; font-weight: bold;">end</span> <span style="color: #ff0033; font-weight: bold;">tell</span></pre>
     <p>
         or
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300720">
-                    <td class="code" id="p133007code20">
-                        <pre class="javascript" style="font-family:monospace;">
-                            app
-                            <span style="color: #339933;">
-                                =
-                            </span>
-                            Application
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #3366CC;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                            app.
-                            <span style="color: #660066;">
-                                tasks
-                            </span>
-                            <span style="color: #009900;">
-                                [
-                            </span>
-                            <span style="color: #CC0000;">
-                                0
-                            </span>
-                            <span style="color: #009900;">
-                                ]
-                            </span>
-                            .
-                            <span style="color: #660066;">
-                                tags
-                            </span>
-                            .
-                            <span style="color: #000066;">
-                                name
-                            </span>
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="javascript" style="font-family:monospace;">app <span style="color: #339933;">=</span> Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span>.<span style="color: #660066;">tags</span>.<span style="color: #000066;">name</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
         The app now lets you retrieve tags – but what about adding new ones?
     </p>
@@ -1666,23 +1301,18 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300721">
-                    <td class="code" id="p133007code21">
-                        <pre class="swift" style="font-family:monospace;">
-                            override func newScriptingObject(of objectClass: AnyClass, forValueForKey
-                            key: String, withContentsValue contentsValue: Any?, properties: [String:
-                            Any]) -&gt; Any? { &nbsp; let tag: Tag = super.newScriptingObject(of: objectClass,
-                            forValueForKey: key, withContentsValue: contentsValue, properties: properties)
-                            as! Tag tag.task = self &nbsp; return tag }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">override func newScriptingObject(of objectClass: AnyClass,
+                                 forValueForKey key: String,
+                                 withContentsValue contentsValue: Any?,
+                                 properties: [String: Any]) -&gt; Any? {
+&nbsp;
+  let tag: Tag = super.newScriptingObject(of: objectClass, forValueForKey: key,
+                                          withContentsValue: contentsValue,
+                                          properties: properties) as! Tag
+  tag.task = self
+&nbsp;
+  return tag
+}</pre>
     <p>
         This method is sent to the container of the new object, which why you
         put it into the
@@ -1722,42 +1352,8 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     <p>
         Consider the following script:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300722">
-                    <td class="code" id="p133007code22">
-                        <pre class="applescript" style="font-family:monospace;">
-                            mark
-                            <span style="color: #ff0033;">
-                                the
-                            </span>
-                            <span style="color: #ff0033;">
-                                first
-                            </span>
-                            task
-                            <span style="color: #ff0033;">
-                                as
-                            </span>
-                            <span style="color: #009900;">
-                                "done"
-                            </span>
-                            mark task
-                            <span style="color: #009900;">
-                                "Feed the cat"
-                            </span>
-                            <span style="color: #ff0033;">
-                                as
-                            </span>
-                            <span style="color: #009900;">
-                                "not done"
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="applescript" style="font-family:monospace;">mark <span style="color: #ff0033;">the</span> <span style="color: #ff0033;">first</span> task <span style="color: #ff0033;">as</span> <span style="color: #009900;">"done"</span>
+mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color: #ff0033;">as</span> <span style="color: #009900;">"not done"</span></pre>
     <p>
         I’m sure you’re already reaching for the SDEF file and you would be correct:
         the command has to be defined there first.
@@ -1783,129 +1379,12 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </em>
         comment:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300723">
-                    <td class="code" id="p133007code23">
-                        <pre class="xml" style="font-family:monospace;">
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;command
-                                </span>
-                                <span style="color: #000066;">
-                                    name
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "mark"
-                                </span>
-                                <span style="color: #000066;">
-                                    code
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "TaSktext"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;direct-parameter
-                                </span>
-                                <span style="color: #000066;">
-                                    description
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "One task"
-                                </span>
-                                <span style="color: #000066;">
-                                    type
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "task"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;parameter
-                                </span>
-                                <span style="color: #000066;">
-                                    name
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "as"
-                                </span>
-                                <span style="color: #000066;">
-                                    code
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "DFLG"
-                                </span>
-                                <span style="color: #000066;">
-                                    description
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "'done' or 'not done'"
-                                </span>
-                                <span style="color: #000066;">
-                                    type
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "text"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;cocoa
-                                </span>
-                                <span style="color: #000066;">
-                                    key
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "doneFlag"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/parameter
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/command
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;command</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"mark"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"TaSktext"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;direct-parameter</span> <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"One task"</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"task"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;parameter</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"as"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"DFLG"</span> <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"'done' or 'not done'"</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"text"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+    <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">key</span>=<span style="color: #ff0000;">"doneFlag"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/parameter<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/command<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
         “Wait a minute!” you say. “Earlier you said that codes had to be
         <i>
@@ -1932,56 +1411,9 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </em>
         comment, add the following code:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300724">
-                    <td class="code" id="p133007code24">
-                        <pre class="xml" style="font-family:monospace;">
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;responds-to
-                                </span>
-                                <span style="color: #000066;">
-                                    command
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "mark"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    &gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;cocoa
-                                </span>
-                                <span style="color: #000066;">
-                                    method
-                                </span>
-                                =
-                                <span style="color: #ff0000;">
-                                    "markAsDone:"
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/responds-to
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;responds-to</span> <span style="color: #000066;">command</span>=<span style="color: #ff0000;">"mark"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
+  <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">method</span>=<span style="color: #ff0000;">"markAsDone:"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/responds-to<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
         Now head back to
         <em>
@@ -1989,23 +1421,19 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </em>
         and add the following method:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300725">
-                    <td class="code" id="p133007code25">
-                        <pre class="swift" style="font-family:monospace;">
-                            func markAsDone(_ command: NSScriptCommand) { if let task = command.evaluatedReceivers
-                            as? Task, let doneFlag = command.evaluatedArguments?["doneFlag"] as? String
-                            { if self == task { if doneFlag == "done" { completed = true } else if
-                            doneFlag == "not done" { completed = false } // if doneFlag doesn't match
-                            either string, leave un-changed } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">func markAsDone(_ command: NSScriptCommand) {
+  if let task = command.evaluatedReceivers as? Task,
+    let doneFlag = command.evaluatedArguments?["doneFlag"] as? String {
+    if self == task {
+      if doneFlag == "done" {
+        completed = true
+      } else if doneFlag == "not done" {
+        completed = false
+      }
+      // if doneFlag doesn't match either string, leave un-changed
+    }
+  }
+}</pre>
     <p>
         The parameter to
         <code>
