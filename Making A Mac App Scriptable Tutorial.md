@@ -716,28 +716,26 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     </p>
     <pre class="swift" style="font-family:monospace;">@objc(Task) class Task: NSObject {</pre>
     <p>
-        Xcode will immediately complain that
+        Xcode会立刻抱怨说
         <code>
             init
         </code>
-        requires the
+        要求
         <code>
             override
         </code>
-        keyword, so let Fix-It do that. This is required as this class now has
-        a superclass:
+        关键字，所以让Fix-It来做吧。这是必需的，因为这个类现在有一个父类：
     </p>
     <pre class="swift" style="font-family:monospace;">override init() {</pre>
     <p>
         <em>
             Task.swift
         </em>
-        needs one more change: an object specifier. Insert the following method
-        into the
+        需要更多的修改：一个对象说明符。插入下列的方法到
         <code>
             Task
         </code>
-        class:
+        的类中：
     </p>
     <pre class="swift" style="font-family:monospace;">override var objectSpecifier: NSScriptObjectSpecifier {
   // 1
@@ -749,35 +747,32 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
   return specifier
 }</pre>
     <p>
-        Taking each numbered comment in turn:
+        以此来对每个编号评论：
     </p>
     <ol>
         <li>
-            Get a description of the app’s class since the app is the container for
-            tasks.
+            因为app是task的容器，获取app的类的描述。
         </li>
         <li>
-            Get a description of the task by id within the app. This is why the Task
-            class has an
+            通过id在app中获取任务的描述。这就是为什么Task类有一个
             <code>
                 id
             </code>
-            property – so that each task can be correctly specified.
+            的property - 这样每个任务就可以被正确地指定。
         </li>
     </ol>
     <p>
-        You’re finally ready to start scripting your app!
+        你终于可以开始脚本化你的app了！
     </p>
     <h2>
-        Scripting Your App
+        脚本化你的App
     </h2>
     <p>
         Before you start, make sure to quit any running instance of the app that
         Script Editor might have opened.
     </p>
     <p>
-        Build and run Scriptable Tasks; right-click on the icon in the Dock and
-        select
+        Build and run Scriptable Tasks; right-click on the icon in the Dock and select
         <em>
             Options/Show
         </em>
