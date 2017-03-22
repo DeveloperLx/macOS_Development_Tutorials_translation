@@ -650,22 +650,21 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </em>
     </p>
     <p>
-        如果你喜欢一源码的形式编辑Info.plist，你也可以添加下列的记录到主字典中：
+        如果你喜欢以源码的形式编辑Info.plist，你也可以添加下列的记录到主字典中：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>NSAppleScriptEnabled<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;true</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>OSAScriptingDefinition<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;string<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>ScriptableTasks.sdef<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/string<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        Now you have to modify the app delegate to handle requests that come via
-        script.
+        现在你必须修改app的delegate，来处理从脚本中传来的请求。
     </p>
     <p>
-        Open
+        打开
         <em>
             AppDelegate.swift
         </em>
-        file and add the following to the end of the file:
+        文件，并添加下列代码到文件的尾部：
     </p>
     <pre class="swift" style="font-family:monospace;">extension AppDelegate {
   // 1
@@ -683,52 +682,39 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
   }
 }</pre>
     <p>
-        Here’s what’s going on in the code above:
+        上面的代码执行了以下的事：
     </p>
     <ol>
         <li>
-            When a script asks for
+            当一个脚本请求
             <code>
                 tasks
             </code>
-            data, this method will confirm that the app delegate can handle it.
+            的数据时，这个方法将确认app的delegate可以处理它。
         </li>
         <li>
-            If a script tries to insert, edit or delete data, these methods will pass
-            those requests along to
+            如果一个脚本尝试插入，编辑或删除数据，这些方法将传递那些请求到
             <code>
                 dataProvider
             </code>
-            .
+            中。
         </li>
     </ol>
     <p>
-        To make the
+        为了使
         <code>
             Task
         </code>
-        model class available to the scripts, you have to do a bit more coding.
+        的model类对脚本可用，你必须在做一点coding。
     </p>
     <p>
-        Open
+        打开
         <em>
             Task.swift
         </em>
-        and change the class definition line to the following:
+        ，并将类的定义修改成下面的样子：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330078">
-                    <td class="code" id="p133007code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            @objc(Task) class Task: NSObject {
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">@objc(Task) class Task: NSObject {</pre>
     <p>
         Xcode will immediately complain that
         <code>
@@ -741,19 +727,7 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         keyword, so let Fix-It do that. This is required as this class now has
         a superclass:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330079">
-                    <td class="code" id="p133007code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            override init() {
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">override init() {</pre>
     <p>
         <em>
             Task.swift
@@ -765,23 +739,15 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300710">
-                    <td class="code" id="p133007code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            override var objectSpecifier: NSScriptObjectSpecifier { // 1 let appDescription
-                            = NSApplication.shared().classDescription as! NSScriptClassDescription
-                            &nbsp; // 2 let specifier = NSUniqueIDSpecifier(containerClassDescription:
-                            appDescription, containerSpecifier: nil, key: "tasks", uniqueID: id) return
-                            specifier }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">override var objectSpecifier: NSScriptObjectSpecifier {
+  // 1
+  let appDescription = NSApplication.shared().classDescription as! NSScriptClassDescription
+&nbsp;
+  // 2
+  let specifier = NSUniqueIDSpecifier(containerClassDescription: appDescription,
+                                      containerSpecifier: nil, key: "tasks", uniqueID: id)
+  return specifier
+}</pre>
     <p>
         Taking each numbered comment in turn:
     </p>
