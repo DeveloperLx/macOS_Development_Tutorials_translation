@@ -652,10 +652,10 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     <p>
         如果你喜欢一源码的形式编辑Info.plist，你也可以添加下列的记录到主字典中：
     </p>
-    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font>&lt;key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span><font><font> NSAppleScriptEnabled</font></font><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;/ key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;true </font></font></span><span style="color: #000000; font-weight: bold;"><font><font>/&gt; </font></font></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font>&lt;key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span><font><font> OSAScriptingDefinition</font></font><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;/ key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span>
-<span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;string </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span><font><font> ScriptableTasks.sdef</font></font><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;/ string </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span></pre>
+    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>NSAppleScriptEnabled<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;true</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>OSAScriptingDefinition<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/key<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;string<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>ScriptableTasks.sdef<span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/string<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
         Now you have to modify the app delegate to handle requests that come via
         script.
@@ -667,21 +667,21 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </em>
         file and add the following to the end of the file:
     </p>
-    <pre class="swift" style="font-family:monospace;"><font><font>扩展AppDelegate {</font></font><font></font><font><font>
-  // 1</font></font><font></font><font><font>
-  覆盖func应用程序（_ sender：NSApplication，delegateHandlesKey key：String） - &gt; Bool {</font></font><font></font><font><font>
-    返回键==“任务”</font></font><font></font><font><font>
-  }</font></font><font></font>
-&nbsp;<font></font><font><font>
-  // 2</font></font><font></font><font><font>
-  func insertObject（_ object：Task，inTasksAtIndex index：Int）{</font></font><font></font><font><font>
-    tasks = dataProvider.insertNew（task：object，at：index）</font></font><font></font><font><font>
-  }</font></font><font></font>
-&nbsp;<font></font><font><font>
-  func removeObjectFromTasksAtIndex（_ index：Int）{</font></font><font></font><font><font>
-    tasks = dataProvider.deleteTask（at：index）</font></font><font></font><font><font>
-  }</font></font><font></font><font><font>
-}</font></font></pre>
+    <pre class="swift" style="font-family:monospace;">extension AppDelegate {
+  // 1
+  override func application(_ sender: NSApplication, delegateHandlesKey key: String) -&gt; Bool {
+    return key == "tasks"
+  }
+&nbsp;
+  // 2
+  func insertObject(_ object: Task, inTasksAtIndex index: Int) {
+    tasks = dataProvider.insertNew(task: object, at: index)
+  }
+&nbsp;
+  func removeObjectFromTasksAtIndex(_ index: Int) {
+    tasks = dataProvider.deleteTask(at: index)
+  }
+}</pre>
     <p>
         Here’s what’s going on in the code above:
     </p>
