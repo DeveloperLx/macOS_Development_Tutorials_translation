@@ -820,214 +820,54 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </a>
     </p>
     <p>
-        You’ll see the Standard Suite and the Scriptable Tasks Suite. Click on
-        the
+        你将看到Standard Suite和Scriptable Tasks Suite。单击
         <em>
             Scriptable Tasks
         </em>
-        suite, and you will see what you put into the SDEF file. The application
-        contains tasks, and a task has four properties.
+        suite，你将看到你在SDEF文件中添加了什么。这个应用包含任务，一个任务包含四个property。
     </p>
     <p>
-        Change the scripting language in the dictionary to
-        <em>
-            JavaScript
-        </em>
-        using the
+        使用工具栏中的
         <em>
             Language
         </em>
-        popup in the toolbar. You will see the same information but with one important
-        change. The cases of classes and properties have changed. I have no idea
-        why this is, but it’s one of those “gotchas” you need to watch out for.
+        弹出菜单，来改变目录中的脚本语言为
+        <em>
+            JavaScript
+        </em>
+        。你将看到基本相同的信息，但有一个重要的变化。class和property的case发生了改变。我不清楚这是因为什么，但他是那些你需要注意的“陷阱（gotchas）”之一。
     </p>
     <p>
-        In
+        在
         <em>
             Script Editor
         </em>
+        中，创建一个新的脚本文件，并设置这个编辑器展示
         , make a new script file and set the editor to show
         <em>
             Log/Replies
         </em>
-        . Test either of the following scripts, making sure to select the appropriate
-        language in the language pop-up:
+        。测试下面的脚本之一，确保在语言的弹出菜单中选择恰当的语言：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300711">
-                    <td class="code" id="p133007code11">
-                        <pre class="applescript" style="font-family:monospace;">
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                            <span style="color: #0066ff;">
-                                application
-                            </span>
-                            <span style="color: #009900;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                get
-                            </span>
-                            <span style="color: #ff0033;">
-                                every
-                            </span>
-                            task
-                            <span style="color: #ff0033; font-weight: bold;">
-                                end
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="applescript" style="font-family:monospace;"><span style="color: #ff0033; font-weight: bold;">tell</span> <span style="color: #0066ff;">application</span> <span style="color: #009900;">"Scriptable Tasks"</span>
+  <span style="color: #ff0033; font-weight: bold;">get</span> <span style="color: #ff0033;">every</span> task
+<span style="color: #ff0033; font-weight: bold;">end</span> <span style="color: #ff0033; font-weight: bold;">tell</span></pre>
     <p>
-        or
+        或
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300712">
-                    <td class="code" id="p133007code12">
-                        <pre class="javascript" style="font-family:monospace;">
-                            app
-                            <span style="color: #339933;">
-                                =
-                            </span>
-                            Application
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #3366CC;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                            app.
-                            <span style="color: #660066;">
-                                tasks
-                            </span>
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="javascript" style="font-family:monospace;">app <span style="color: #339933;">=</span> Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+app.<span style="color: #660066;">tasks</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
-        In the log, you will see a list of the tasks by ID. For more useful information,
-        edit the scripts as follows:
+        在log中，你将看到一个通过ID的task的列表。为了让信息更有用，编辑脚本就像下面这样：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300713">
-                    <td class="code" id="p133007code13">
-                        <pre class="applescript" style="font-family:monospace;">
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                            <span style="color: #0066ff;">
-                                application
-                            </span>
-                            <span style="color: #009900;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                get
-                            </span>
-                            <span style="color: #ff0033;">
-                                the
-                            </span>
-                            <span style="color: #0066ff;">
-                                name
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                of
-                            </span>
-                            <span style="color: #ff0033;">
-                                every
-                            </span>
-                            task
-                            <span style="color: #ff0033; font-weight: bold;">
-                                end
-                            </span>
-                            <span style="color: #ff0033; font-weight: bold;">
-                                tell
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="applescript" style="font-family:monospace;"><span style="color: #ff0033; font-weight: bold;">tell</span> <span style="color: #0066ff;">application</span> <span style="color: #009900;">"Scriptable Tasks"</span>
+  <span style="color: #ff0033; font-weight: bold;">get</span> <span style="color: #ff0033;">the</span> <span style="color: #0066ff;">name</span> <span style="color: #ff0033; font-weight: bold;">of</span> <span style="color: #ff0033;">every</span> task
+<span style="color: #ff0033; font-weight: bold;">end</span> <span style="color: #ff0033; font-weight: bold;">tell</span></pre>
     <p>
-        or
+        或
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13300714">
-                    <td class="code" id="p133007code14">
-                        <pre class="javascript" style="font-family:monospace;">
-                            app
-                            <span style="color: #339933;">
-                                =
-                            </span>
-                            Application
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #3366CC;">
-                                "Scriptable Tasks"
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                            app.
-                            <span style="color: #660066;">
-                                tasks
-                            </span>
-                            .
-                            <span style="color: #000066;">
-                                name
-                            </span>
-                            <span style="color: #009900;">
-                                (
-                            </span>
-                            <span style="color: #009900;">
-                                )
-                            </span>
-                            <span style="color: #339933;">
-                                ;
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="javascript" style="font-family:monospace;">app <span style="color: #339933;">=</span> Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">name</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/AppleScriptTasks.png">
             <img src="https://koenig-media.raywenderlich.com/uploads/2016/04/AppleScriptTasks-482x500.png"
