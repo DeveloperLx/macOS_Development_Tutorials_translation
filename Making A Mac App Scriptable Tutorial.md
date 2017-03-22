@@ -429,29 +429,27 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         文件。在Xcode中打开它并查看；它是XML格式的，带有指定的header，其中还有一个字典，里面是标准的套件。
     </p>
     <p>
+        这时一个有用的起点，你
         This is a useful starting point, and you
         <i>
-            could
+            可以
         </i>
-        copy and paste this XML into your own SDEF file. However, in the interest
-        of clean code, it’s not a good idea to leave your SDEF file full of commands
-        and objects that your app does not support. To this end, the sample project
-        contains a starter SDEF file with all unnecessary entries removed.
+        拷贝并粘贴这个XML到你自己的SDEF文件中。然而，从干净的代码的角度考量，让SDEF文件充满你的app不支持的命令和对象并不是一个好主意。因此，到了最后，这个示例工程应当只包含起始的SDEF文件移除了全部非必需记录的部分。
     </p>
     <p>
-        Close
+        关闭
         <em>
             CocoaStandard.sdef
         </em>
-        and open
+        并打开
         <em>
             ScriptableTasks.sdef
         </em>
-        . Add the following code near the end at the
+        。在靠近结尾 
         <code>
             Insert Scriptable Tasks suite here
         </code>
-        comment:
+        注释的这里添加下列代码：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #808080; font-style: italic;"><font><font>&lt;！ -  1  - &gt; </font></font></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font>&lt;suite </font></font></span> <span style="color: #000066;"><font><font>name</font></font></span><font><font> = </font></font><span style="color: #ff0000;"><font><font>“Scriptable Tasks Suite” </font></font></span> <span style="color: #000066;"><font><font>code</font></font></span><font><font> = </font></font><span style="color: #ff0000;"><font><font>“ScTa” </font></font></span> <span style="color: #000066;"><font><font>description</font></font></span><font><font> = </font></font><span style="color: #ff0000;"><font><font>“Scriptable Tasks suite”。</font></font></span><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span>
