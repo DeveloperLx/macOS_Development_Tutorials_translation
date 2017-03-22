@@ -768,51 +768,47 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         脚本化你的App
     </h2>
     <p>
-        Before you start, make sure to quit any running instance of the app that
-        Script Editor might have opened.
+        在你开始之前，确保退出任何这个app运行中的实例，它们可能是被Script Editor打开的。
     </p>
     <p>
-        Build and run Scriptable Tasks; right-click on the icon in the Dock and select
+        Build并运行Scriptable Task；右击Dock上的icon，并在Finder中选择
         <em>
             Options/Show
         </em>
-        in Finder. Quit the
+        。退出
         <em>
             Script Editor
         </em>
-        app and restart it to let it pick up the changes to your app.
+        app并重启，让它对你的app做出的改变生效。
     </p>
     <p>
-        Open the
+        打开
         <em>
             Library
         </em>
-        window, and drag the
-        <em>
-            Scriptable Tasks
-        </em>
-        app from the
+        的window，并从
         <em>
             Finder
         </em>
-        into the
-        <em>
-            Library
-        </em>
-        window.
-    </p>
-    <p>
-        If you get an error saying the app is not scriptable, try quitting Script
-        Editor and starting it again as it sometimes doesn’t register a freshly
-        built app. If it still fails to import, go back and double-check your changes
-        to the SDEF file.
-    </p>
-    <p>
-        Double-click
+        中拖拽
         <em>
             Scriptable Tasks
         </em>
-        in the Library to see the app’s dictionary:
+        到
+        <em>
+            Library
+        </em>
+        window中。
+    </p>
+    <p>
+        如果你收到了一个错误，说这个app是不可编写脚本的，尝试退出Script Editor并重启它，因为它有时没有注册一个新build的app。如果它仍然没能成功地导入，请返回并仔细检查你对SDEF文件进行的修改。
+    </p>
+    <p>
+        双击Library中的
+        <em>
+            Scriptable Tasks
+        </em>
+        来查看app的字典：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/ScriptableTasksDictionary1.png">
