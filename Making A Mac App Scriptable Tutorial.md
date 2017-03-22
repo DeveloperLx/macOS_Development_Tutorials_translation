@@ -497,242 +497,165 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
 &nbsp;
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/suite<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        This chunk of XML does a lot of work. Taking it bit by bit:
+        这个XML的代码块做了很多的工作。一步一步来看：
     </p>
     <ol>
         <li>
-            The outermost element is a
+            最外层的元素是
             <code>
                 suite
             </code>
-            , so your SDEF file now has two suites:
+            ，所以你的SDEF文件现在有两个suite：
             <em>
                 Standard Suite
             </em>
-            and
+            和
             <em>
                 Scriptable Tasks Suite
             </em>
-            . Everything in the SDEF file needs a four-character code. Apple codes
-            are nearly always in lower-case and you will use a few of them for specific
-            purposes. For your own suites, classes and properties, it’s best to use
-            a random mix of upper-case, lower-case and symbols to avoid conflicts.
+            。在SDEF文件中的每件事都需要一个四字符的code。苹果的code几乎总是小写的，你将使用其中的几个用于特定的目的。对于你自己的suite，class和property，则最好使用大写、小写和符号的随机混合来避免冲突。
         </li>
         <li>
-            The next section defines the application and must use the code
+            下一部分定义了应用，并必须使用code值
             <code>
                 "capp"
             </code>
-            . You must specify the class of the application; if you had subclassed
+            。你必须制定application的class；如果你子类化了
             <code>
                 NSApplication
             </code>
-            , you would use your subclass name here.
+            ，你就该在这里使用你子类的名称了。
         </li>
         <li>
-            The application contains
+            这个application包含
             <code>
-                elements
+                element
             </code>
-            . In this app, the elements are stored in an array called
+            。在这个app中，element被储存在app的delegate，一个叫做
             <code>
                 tasks
             </code>
-            in the app delegate. In scripting terms, elements are the objects that
-            the app or other objects can contain.
+            的数组中。在脚本术语中，element是app和其它对象可以包含的对象。
         </li>
         <li>
-            The last chunk defines the
+            最后的一个块定义了application包含的
             <code>
                 Task
             </code>
-            class that the application contains. The plural name for accessing multiples
-            is
+            class。访问多个的复数名称是
             <code>
                 tasks
             </code>
-            . The class in the app that backs this object type is
+            。在这个app中，支持这个对象类型的class是
             <code>
                 Task
             </code>
-            .
+            。
         </li>
         <li>
-            The first two properties are special. Look at their codes:
+            前两个property是特定的。请看它们的code：
             <code>
                 "ID "
             </code>
-            and
+            an和d
             <code>
                 "pnam"
             </code>
-            .
+            。
             <code>
                 "ID "
             </code>
-            (note the two spaces after the letters) identifies the unique identifier
-            of the object.
+            （注意字母之后的两个空格）指定了这个对象的唯一标识符。
             <code>
                 "pnam"
             </code>
-            specifies the
+            指定了这个对象的
             <code>
                 name
             </code>
-            property of the object. You can access objects directly using either of
-            these properties.
+            property。你可以使用它们中的任一个，来直接访问对象。
             <p>
                 <code>
                     "ID "
                 </code>
-                is read-only, as scripts should not change a unique identifier, but
+                是只读的，因为脚本不应该改变唯一标识符，但
                 <code>
                     "pnam"
                 </code>
-                is read-write. Both of these are text properties. The
+                是可读写的。它们都是text类型的property。
                 <code>
                     "pnam"
                 </code>
-                property maps to the
-                <code>
-                    title
-                </code>
-                property of the
+                property映射到了
                 <code>
                     Task
                 </code>
-                object.
+                对象的
+                <code>
+                    title
+                </code>
+                property。
             </p>
         </li>
         <li>
-            The remaining two properties are a number property for
+            还剩两个property，一个是number类型的property
             <code>
                 daysUntilDue
             </code>
-            and a Boolean for
+            ，另一个是Boolean类型的property
             <code>
                 completed
             </code>
-            . They use the same name in the object and the script, so you don’t need
-            to specify the
+            。它们可以在对象和脚本中使用相同的名称，因此你不需要指定
             <code>
                 cocoa key
             </code>
-            .
+            。
         </li>
         <li>
-            The “Insert…” comments are placeholders for when you need to add more
-            to this file.
+            “Insert…”的注释是为你需要添加更多内容到这个文件时的占位符。
         </li>
     </ol>
     <p>
-        Open
+        打开
         <em>
             Info.plist
         </em>
-        , right-click in the blank space below the entries and select
+        ，在记录下方的空白处右击，并选择
         <em>
             Add Row
         </em>
-        . Type an upper-case
+        。输入一个大写的
         <em>
             S
         </em>
-        and the list of suggestions will scroll to
+        ，将建议的列别滚动到
         <em>
             Scriptable
         </em>
-        . Select it and change the setting to
+        。选择它并将设置更改为
         <em>
             YES
         </em>
-        .
+        。
     </p>
     <p>
-        Repeat this process to select the next item down:
+        重复这个过程来选择下一项：
         <em>
             Scripting definition file name
         </em>
-        . Set this to the name of your SDEF file:
+        。设置它为你的SDEF文件的文件名：
         <em>
             ScriptableTasks.sdef
         </em>
     </p>
     <p>
-        If you prefer to edit the Info.plist as source code, you can alternatively
-        add the following entries inside the main dict:
+        如果你喜欢一源码的形式编辑Info.plist，你也可以添加下列的记录到主字典中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330076">
-                    <td class="code" id="p133007code6">
-                        <pre class="xml" style="font-family:monospace;">
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;key
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            NSAppleScriptEnabled
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/key
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;true
-                                </span>
-                                <span style="color: #000000; font-weight: bold;">
-                                    /&gt;
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;key
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            OSAScriptingDefinition
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/key
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;string
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                            ScriptableTasks.sdef
-                            <span style="color: #009900;">
-                                <span style="color: #000000; font-weight: bold;">
-                                    &lt;/string
-                                    <span style="color: #000000; font-weight: bold;">
-                                        &gt;
-                                    </span>
-                                </span>
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font>&lt;key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span><font><font> NSAppleScriptEnabled</font></font><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;/ key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;true </font></font></span><span style="color: #000000; font-weight: bold;"><font><font>/&gt; </font></font></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font>&lt;key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span><font><font> OSAScriptingDefinition</font></font><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;/ key </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span>
+<span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;string </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span><font><font> ScriptableTasks.sdef</font></font><span style="color: #009900;"><span style="color: #000000; font-weight: bold;"><font><font> &lt;/ string </font></font><span style="color: #000000; font-weight: bold;"><font><font>&gt;</font></font></span></span></span></pre>
     <p>
         Now you have to modify the app delegate to handle requests that come via
         script.
@@ -744,23 +667,21 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </em>
         file and add the following to the end of the file:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1330077">
-                    <td class="code" id="p133007code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension AppDelegate { // 1 override func application(_ sender: NSApplication,
-                            delegateHandlesKey key: String) -&gt; Bool { return key == "tasks" } &nbsp;
-                            // 2 func insertObject(_ object: Task, inTasksAtIndex index: Int) { tasks
-                            = dataProvider.insertNew(task: object, at: index) } &nbsp; func removeObjectFromTasksAtIndex(_
-                            index: Int) { tasks = dataProvider.deleteTask(at: index) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><font><font>扩展AppDelegate {</font></font><font></font><font><font>
+  // 1</font></font><font></font><font><font>
+  覆盖func应用程序（_ sender：NSApplication，delegateHandlesKey key：String） - &gt; Bool {</font></font><font></font><font><font>
+    返回键==“任务”</font></font><font></font><font><font>
+  }</font></font><font></font>
+&nbsp;<font></font><font><font>
+  // 2</font></font><font></font><font><font>
+  func insertObject（_ object：Task，inTasksAtIndex index：Int）{</font></font><font></font><font><font>
+    tasks = dataProvider.insertNew（task：object，at：index）</font></font><font></font><font><font>
+  }</font></font><font></font>
+&nbsp;<font></font><font><font>
+  func removeObjectFromTasksAtIndex（_ index：Int）{</font></font><font></font><font><font>
+    tasks = dataProvider.deleteTask（at：index）</font></font><font></font><font><font>
+  }</font></font><font></font><font><font>
+}</font></font></pre>
     <p>
         Here’s what’s going on in the code above:
     </p>
