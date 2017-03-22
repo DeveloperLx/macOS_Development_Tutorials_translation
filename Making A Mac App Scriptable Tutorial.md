@@ -415,24 +415,18 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         来给类添加前缀，你就给了它们一个可以被脚本引擎使用的名称。
     </p>
     <p>
-        Scriptable classes need object specifiers to help locate a particular
-        object within the application or parent object, and finally, the app delegate
-        must have access to the data store so it can return the application’s data
-        to the scripts.
+        可编写脚本的类，需要对象说明符协助在应用或父对象中定位一个特定的对象，最终，这个app的delegate必须能够访问的到储存数据的地方，这样它才能返回应用的数据到脚本中。
     </p>
     <p>
-        You don’t necessarily have to start your own scripting definition file
-        from scratch, as Apple provides a standard SDEF file that you can use.
-        Look in the
+        你并不必须从scratch来开始你自己的脚本定义文件，因为苹果提供了一个标注的SDEF文件供你使用。它就是
         <em>
             /System/Library/ScriptingDefinitions/
         </em>
-        directory for
+        目录中的
         <em>
             CocoaStandard.sdef
         </em>
-        . Open this file in Xcode and have a look; it’s XML with specific headers,
-        a dictionary and inside that, the Standard Suite.
+        文件。在Xcode中打开它并查看；它是XML格式的，带有指定的header，其中还有一个字典，里面是标准的套件。
     </p>
     <p>
         This is a useful starting point, and you
