@@ -898,104 +898,90 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
             <em>
                 注意：
             </em>
-            Script Editor can get very confused as you build updated versions of the
-            app, because it tries to keep a version running at all times if you have
-            an open script that is using the app. This often ends up as an older version
-            of the app, so before every build, quit the app.
+            Script Editor会在你build更新版本的app时感到非常困惑，因为如果你有一个打开的正在使用这个app的脚本，它会尝试一直保持其同一版本来运行。这通常会以app的老版本形式结束，因此在每次build之前，退出app。
         </p>
         <p>
-            If you see two copies of the Scriptable Tasks app running at any time,
-            or if there appears to be a script error in any of the samples, you can
-            be sure that Script Editor has glommed on to the wrong version of the app.
-            The easiest fix is to quit all copies of the app and quit Script Editor.
-            Clean the Xcode build (
+            任何时候，如果你看到两个副本的Scriptable Tasks的app正在运行，或在任何示例中出现了脚本的错误，你可以确定，这是Script Editor已跑在了错误版本的app上。最简单的修复就是退出所有副本的app，并退出Script Editor。Clean Xcode的build（
             <em>
                 Product/Clean
             </em>
-            ), then build and run again.
+            ），然后build并再次运行。
         </p>
         <p>
-            Restart Script Editor and when it opens the script, click
+            重新启动Script Editor，当它打开脚本的时候，单击
             <em>
                 Compile
             </em>
-            and then click
+            ，然后单击
             <em>
                 Run
             </em>
-            . And if THAT doesn’t work, delete Derived Data for the app in
+            。如果失败了的话，请在
             <em>
                 ~/Library/Developer/Xcode/DerivedData
             </em>
-            .
+            里删除app中的Derived Data。
         </p>
     </div>
     <p>
-        Try out the next two sample scripts:
+        尝试下面的两个示例脚本：
     </p>
     <p>
         <em>
-            3. Get Tasks.scpt
+            3. 获取Tasks.scpt
         </em>
     </p>
     <p>
-        This script retrieves the number of tasks and the names of tasks using
-        various filters. Make note of the following:
+        这个脚本使用各种过滤器检索任务的数量和任务的名称。记下下列事项：
     </p>
     <ul>
         <li>
-            JavaScript counts from 0, AppleScript counts from 1.
+            JavaScript从0开始计数，而AppleScript从1开始计数。
         </li>
         <li>
-            Text searches are case-insensitive.
+            文本搜索是不区分大小写的。
         </li>
     </ul>
     <p>
         <em>
-            4. Add Edit Tasks.scpt
+            4. 添加编辑Tasks.scpt
         </em>
     </p>
     <p>
-        This script adds new tasks, toggles the
+        这个脚本添加了新的任务，在第一个任务上切换了
         <code>
             completed
         </code>
-        flag on the first task, and tries to create a task with the same name
-        as another.
+        的标记，并尝试创建另一个相同名称的任务。
     </p>
     <p>
-        Hmmm… creating a task with the same name worked! Now you have two “Feed
-        the cat” tasks. The cat will be thrilled, but for the purposes of this
-        app, task names should be unique. Trying to add a task with a name that
-        is already in use should have produced an error.
+        嗯...创建一个同名的任务work了！现在你有了两个”喂猫“的任务。猫会很激动，但对于这个app的目的，任务的名称应当是唯一的。尝试添加一个名称早已存在的任务可能产生一个错误。
     </p>
     <p>
-        Back in
+        回到
         <em>
             Xcode
         </em>
-        , look in
+        ，查看
         <em>
             AppDelegate.swift
         </em>
-        and you can see that when the script wants to insert an object, the app
-        delegate passes that call to its
+        ，你会看到当脚本想要插入一个对象时，app的delegate会将这个调用床底给
         <code>
             dataProvider
         </code>
-        . In
+        。在
         <em>
             DataProvider.swift
         </em>
-        , look at
+        中，查看
         <code>
             insertNew(task:at:)
         </code>
-        , which inserts an existing task into the array or appends a new task
-        to the end.
+        ，它将一个存在的任务插入到数组中，或添加了一个新的任务到结尾。
     </p>
     <p>
-        Time to add a check here. Replace the function with the following:
+        到了在这里添加一次检查的时候了。用下列的代码来替换这个方法：
     </p>
     <pre class="swift" style="font-family:monospace;">mutating func insertNew(task: Task, at index: Int) -&gt; [Task] {
   // 1
@@ -1018,64 +1004,61 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
   return tasks
 }</pre>
     <p>
-        Here’s what each commented section does:
+        这里是每条评论处所做的事：
     </p>
     <ol>
         <li>
-            Use an existing function to check if a task with this name already exists.
+            使用现有的函数来检查是否这个名称的任务早已存在。
         </li>
         <li>
-            If the name is
+            如果这个名称
             <i>
-                not
+                不是
             </i>
-            unique:
+            唯一的：
             <ul>
                 <li>
-                    Get a reference to the scripting command that called this function.
+                    获取对调用这个函数的脚本命令的引用。
                 </li>
                 <li>
-                    Set the command’s
+                    查看命令的
                     <code>
                         errorNumber
                     </code>
-                    and
+                    和
                     <code>
                         errorString
                     </code>
-                    properties;
+                    property；
                     <code>
                         errOSACantAssign
                     </code>
-                    is one of the standard AppleScript error codes. These will be sent back
-                    to the calling script.
+                    是AppleScript的标准错误码之一。这些将被发送回调用的脚本。
                 </li>
             </ul>
         </li>
         <li>
-            If the name
+            如果这个名称是
             <i>
-                is
+                是
             </i>
-            unique:
+            唯一的：
             <ul>
                 <li>
-                    Process the task as before.
+                    像之前一样地处理任务。
                 </li>
                 <li>
-                    Post a notification of data changes. The ViewController will see this
-                    and update the display.
+                    发送数据变化的通知。ViewController会看到这个并更新展示。
                 </li>
             </ul>
         </li>
     </ol>
     <p>
-        Quit the app if running, then build and run your app. Run the
+        如果app正在运行，退出，然后build并运行你的app。再次运行
         <em>
-            4. Add Edit Tasks
+            4. 添加Edit Tasks
         </em>
-        scripts again. This time you should get an error dialog and no duplicate
-        tasks will be created. Sorry about that, cat…
+        脚本。这次你应当会得到一个错误的对话框，而不是创建副本的任务。对不起，猫...
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/04/hungry_cat.png"
@@ -1085,7 +1068,7 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     </p>
     <p>
         <em>
-            5. Delete Tasks.scpt
+            5. 删除Tasks.scpt
         </em>
     </p>
     <p>
