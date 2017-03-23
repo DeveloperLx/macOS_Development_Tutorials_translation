@@ -1072,59 +1072,55 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </em>
     </p>
     <p>
-        This script deletes a task, checks if a particular task exists and deletes
-        it if possible, and finally deletes all completed tasks.
+        这个脚步删除了一个任务，检查是否存在一个特定的任务，并删除它，最终删除全部完成的任务。
     </p>
     <h2>
-        Working With Nested Objects
+        使用嵌入的（Nested）对象
     </h2>
     <p>
-        In the sample app, the second column displays a list of tags assigned
-        to each task. So far, you have no way of working with them via scripts
-        – time to fix that!
+        在示例的app中，第二列展示了一个，分配给每项任务的标签的列表。到目前为止，你仍然没有办法通过脚本来使用它们 - 是时候来修复这个了！
     </p>
     <p>
-        Object specifiers can handle a hierarchy of objects. That’s what you have
-        here, with the application owning the tasks and each task owning its tags.
+        对象的说明符可以处理对象的层次结构。这是你在这里拥有的，而应用程序拥有着任务，并且任务拥有它的标签。
     </p>
     <p>
-        As with the
+        与
         <code>
             Task
         </code>
-        class, you need to make the
+        类一样，你需要使
         <code>
             Tag
         </code>
-        scriptable.
+        脚本化。
     </p>
     <p>
-        Open
+        打开
         <em>
             Tag.swift
         </em>
-        and make the following changes:
+        ，并作出下面的变化：
     </p>
     <ul>
         <li>
-            Change the class definition line to
+            将类的定义这行修改为：
             <code>
                 @objc(Tag) class Tag: NSObject {
             </code>
         </li>
         <li>
-            Add the
+            添加
             <code>
                 override
             </code>
-            keyword to
+            关键字到
             <code>
                 init
             </code>
-            .
+            上。
         </li>
         <li>
-            Add the object specifier method:
+            添加对象说明符的方法：
         </li>
     </ul>
     <pre class="swift" style="font-family:monospace;">override var objectSpecifier: NSScriptObjectSpecifier {
@@ -1145,29 +1141,28 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
   return specifier
 }</pre>
     <p>
-        The above code is relatively straightforward:
+        上面的代码相对是比较简单的：
     </p>
     <ol>
         <li>
-            Check that the tag has an assigned task.
+            检查标签是否具有分配的任务。
         </li>
         <li>
-            Check that the task has a class description of the correct class.
+            检查任务是否具有正确的类的类描述。
         </li>
         <li>
-            Get the object specifier for the parent task.
+            获取父任务的对象说明符。
         </li>
         <li>
-            Construct the object specifier for the tag contained inside the task and
-            return it.
+            为包含在任务中的标签，构建对象说明符，并返回。
         </li>
     </ol>
     <p>
-        Add the following to the SDEF file at the
+        在评论 
         <code>
             Insert tag class here
         </code>
-        comment:
+        处，添加下列的代码到SDEF文件中：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;class</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"tag"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"TaGg"</span> <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"A tag"</span> <span style="color: #000066;">inherits</span>=<span style="color: #ff0000;">"item"</span> <span style="color: #000066;">plural</span>=<span style="color: #ff0000;">"tags"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">class</span>=<span style="color: #ff0000;">"Tag"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
