@@ -1402,32 +1402,29 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
   }
 }</pre>
     <p>
-        The parameter to
         <code>
             markAsDone(_:)
         </code>
-        is an
+        的参数是
         <code>
             NSScriptCommand
         </code>
-        which has two properties of interest:
+        类型的，它含有两个有用的property：
         <code>
             evaluatedReceivers
         </code>
-        and
+        和
         <code>
             evaluatedArguments
         </code>
-        . From them, you try to get the task and the string parameter and use
-        them to adjust the task accordingly.
+        。从它们这里，你会尝试获取任务和字符创的参数，并使用它们来调整相应的任务。
     </p>
     <p>
-        Quit and build and run your app again. Check the dictionary in the Script
-        Editor, and delete and re-import it if the
+        退出，再次build并运行你的app。在Script Editor中查看字典，如果
         <code>
             mark
         </code>
-        command is not showing:
+        命令未显示，请删除并重新导入它：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/ScriptableTasksDictionary3.png">
@@ -1439,33 +1436,32 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
         </a>
     </p>
     <p>
-        You should now be able to run the
+        现在，你应该可以运行
         <em>
             7. Custom Command.scpt
         </em>
-        scripts and see your new command in operation.
+        脚本，并看到你的新的脚本正在执行中了。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Swift 3 changed the way the commands are sent to the objects. AppleScript
-        still works as expected, but the
+        Swift 3改变了命令发送到对象中的方式。AppleScript仍会按照预期一般地工作，但
         <code>
             mark
         </code>
-        command does not work in JavaScript. I have added manual toggling of the
+        命令在JavaScript中却失效了。我已经添加了
         <code>
             completed
         </code>
-        property to the JavaScript version of
+        property的手动切换到JavaScript版本的
         <em>
             7. Custom Command.scpt
         </em>
-        but left the original there too. Hopefully it will work after an update.
+        中，但也在这里留下了原来的版本。希望它可以在Swift更新之后生效。
     </div>
     <h2>
-        Where to Go From Here?
+        从这儿去哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1477,10 +1473,11 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1488,11 +1485,11 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
         </div>
     </div>
     <p>
-        You can download the final version of the
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/ScriptableTasks-Final2.zip">
-            sample project here
+            这里
         </a>
-        .
+        下载最终版本的示例项目。
     </p>
     <p>
         There wasn’t room to cover inter-app communication in this making a mac
