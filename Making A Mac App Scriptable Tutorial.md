@@ -1492,31 +1492,28 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
         下载最终版本的示例项目。
     </p>
     <p>
-        There wasn’t room to cover inter-app communication in this making a mac
-        app scriptable tutorial, but to see how to work between apps, check out
+        在这个mac app的可脚本化的教程中，没有覆盖到app间的通信。对于如何在app之间工作，请访问
         <em>
             8. Inter-App Communication.scpt
         </em>
-        for some examples. This script gathers a list of incomplete tasks due
-        today and tomorrow, inserts them into a new TextEdit file, styles the text
-        and saves the file.
+        来查看一些例子。这个例子收集了今天和明天未完成的任务，并将它们插入到了一个新的TextEdit文件，样式化文本并保存文件。
     </p>
     <p>
-        For more information about scriptable apps, the official Apple docs on
+        对于可执行脚本app的更多信息，苹果官方的文档在这里
         <a href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/Concepts/scriptable_apps.html">
             Scriptable Applications
         </a>
-        are a good start, as is Apple’s
+        ，它是一个很好的开始，苹果的
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ScriptableCocoaApplications/SApps_about_apps/SAppsAboutApps.html#//apple_ref/doc/uid/TP40001976">
             Overview of Cocoa Support for Scriptable Applications
         </a>
-        .
+        也是这样。
     </p>
     <p>
-        Interested in learning more about JXA? Check out the
+        感兴趣于了解更多的JXA？请访问
         <a href="https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/Introduction.html">
             Introduction to JavaScript for Automation Release Notes
         </a>
-        .
+        。
     </p>
 </div>
