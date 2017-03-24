@@ -1176,39 +1176,39 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/property<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/class<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        This is very similar to the data for the
+        它和
         <code>
             Task
         </code>
-        class, but a tag only has two exposed properties:
+        class的数据非常相似，但一个标签只有两个暴露的property：
         <code>
             id
         </code>
-        and
+        和
         <code>
             name
         </code>
-        .
+        。
     </p>
     <p>
-        Now the
+        现在必须要对
         <code>
             Task
         </code>
-        section has to be edited to indicate that it contains tag elements.
+        部分进行一下编辑，来指出它包含着tag元素了。
     </p>
     <p>
-        Add the following code to the Task class XML, at the
+        添加下列的代码到Task类的XML中，在
         <code>
             Insert element of tags here
         </code>
-        comment:
+        的注释处：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;element</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"tag"</span> <span style="color: #000066;">access</span>=<span style="color: #ff0000;">"rw"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">key</span>=<span style="color: #ff0000;">"tags"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/element<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        Quit the app, then build and run the app again.
+        退出app，然后再次build并运行app。
     </p>
     <p>
         Go back to the
