@@ -1315,43 +1315,37 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
         添加定制的命令
     </h2>
     <p>
-        There is one more step you can take when making an app scriptable: adding
-        custom commands. In earlier scripts, you toggled the
+        当制作一个app脚本时，你还可以采取一步：添加定制的命令。在之前的脚本中，你直接切换了任务的
         <code>
             completed
         </code>
-        flag of a task directly. But wouldn’t it be better – and safer – if scripts
-        didn’t change the property directly, but instead used a command to do this?
+        标记。但难道不应该更好一些 - 更安全一些么？能否可以使用一个命令来完成，而不是直接改变property？
     </p>
     <p>
-        Consider the following script:
+        考虑下列的脚本：
     </p>
     <pre class="applescript" style="font-family:monospace;">mark <span style="color: #ff0033;">the</span> <span style="color: #ff0033;">first</span> task <span style="color: #ff0033;">as</span> <span style="color: #009900;">"done"</span>
 mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color: #ff0033;">as</span> <span style="color: #009900;">"not done"</span></pre>
     <p>
-        I’m sure you’re already reaching for the SDEF file and you would be correct:
-        the command has to be defined there first.
+        我相信你已达到了SDEF文件，你完成的是正确的：这个命令必须首先被定义。
     </p>
     <p>
-        There are two steps that need to happen here:
+        这里需要两个步骤：
     </p>
     <ol>
         <li>
-            Tell the application that this command exists and what its parameters
-            will be.
+            告诉应用这个命令存在，和它的参数是什么。
         </li>
         <li>
-            Tell the Task class that it responds to the command and what method to
-            call to implement it.
+            告诉Task类它响应命令，以及要调用的方法来实现它。
         </li>
     </ol>
     <p>
-        Inside the Scriptable Tasks suite, but outside any class, add the following
-        at the
+        在Scriptable Tasks suite中，所有的类之外，在
         <em>
             Insert command here
         </em>
-        comment:
+        注释中，添加下列的代码：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;command</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"mark"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"TaSktext"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;direct-parameter</span> <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"One task"</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"task"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
@@ -1360,40 +1354,39 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/parameter<span style="color: #000000; font-weight: bold;">&gt;</span></span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/command<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        “Wait a minute!” you say. “Earlier you said that codes had to be
+        “等一下！“你说。“之前你说code必须是
         <i>
-            four
+            四个
         </i>
-        characters, and now I have one with eight? What’s going on here?”
+        字符，但现在我有了一个八个字符的？这里发生了什么？”
     </p>
     <p>
-        When defining a method, you provide a two part code. This one combines
-        the codes or types of the parameters – in this case a
+        当定义一个方法的时候，你提供一个两个部分的code。它组合了参数的code或类型 - 在这个case中是一个
         <code>
             Task
         </code>
-        object with some text.
+        对象和一些文本。
     </p>
     <p>
-        Inside the
+        在
         <code>
             Task
         </code>
-        class definition, at the
+        类的定义中，
         <em>
             Insert responds-to command here
         </em>
-        comment, add the following code:
+        的注释处，添加下列代码：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;responds-to</span> <span style="color: #000066;">command</span>=<span style="color: #ff0000;">"mark"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">method</span>=<span style="color: #ff0000;">"markAsDone:"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/responds-to<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        Now head back to
+        现在返回
         <em>
             Task.swift
         </em>
-        and add the following method:
+        并添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;">func markAsDone(_ command: NSScriptCommand) {
   if let task = command.evaluatedReceivers as? Task,
