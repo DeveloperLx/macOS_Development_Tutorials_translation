@@ -1211,26 +1211,26 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         退出app，然后再次build并运行app。
     </p>
     <p>
-        Go back to the
+        返回
         <em>
             Script Editor
         </em>
-        ; if the
+        ；如果
         <em>
             Scriptable Tasks dictionary
         </em>
-        is open, close and re-open it. See if it contains information about tags.
+        已打开，就关闭并重新打开它。观察它是否包含关于标签的信息。
     </p>
     <p>
-        If not, remove the
-        <em>
-            Scriptable Tasks
-        </em>
-        entry from the
+        如果不存在，就从
         <em>
             Library
         </em>
-        and add it again by dragging the app into the window:
+        中移除
+        <em>
+            Scriptable Tasks
+        </em>
+        记录并在此添加，通过将app拖拽到window中：        
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/ScriptableTasksDictionary2.png">
@@ -1242,42 +1242,40 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </a>
     </p>
     <p>
-        Try one of the following scripts:
+        尝试下列脚本中的一个：
     </p>
     <pre class="applescript" style="font-family:monospace;"><span style="color: #ff0033; font-weight: bold;">tell</span> <span style="color: #0066ff;">application</span> <span style="color: #009900;">"Scriptable Tasks"</span>
   <span style="color: #ff0033; font-weight: bold;">get</span> <span style="color: #ff0033;">the</span> <span style="color: #0066ff;">name</span> <span style="color: #ff0033; font-weight: bold;">of</span> <span style="color: #ff0033;">every</span> tag <span style="color: #ff0033; font-weight: bold;">of</span> task <span style="color: #000000;">1</span>
 <span style="color: #ff0033; font-weight: bold;">end</span> <span style="color: #ff0033; font-weight: bold;">tell</span></pre>
     <p>
-        or
+        或
     </p>
     <pre class="javascript" style="font-family:monospace;">app <span style="color: #339933;">=</span> Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
 app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span>.<span style="color: #660066;">tags</span>.<span style="color: #000066;">name</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
-        The app now lets you retrieve tags – but what about adding new ones?
+        现在你可以在app中检索tag了 - 但添加一些新的怎么样？
     </p>
     <p>
-        You may have noticed in
+        你可能会注意到在
         <em>
             Tag.swift
         </em>
-        that each
+        中，每个
         <code>
             Tag
         </code>
-        object has a weak reference to its owning task. That helps create the
-        links when getting the object specifier, so this task property must be
-        set when assigning a new tag to a task.
+        都有一个弱引用指向它自己的任务。当获取了对象说明符后，它可以帮助创建连接，因此当分配一个熄灯tag到任务中时，任务的property必须被设置。
     </p>
     <p>
-        Open
+        打开
         <em>
             Task.swift
         </em>
-        and add the following method to the
+        并添加下列的方法到
         <code>
             Task
         </code>
-        class:
+        的类中：
     </p>
     <pre class="swift" style="font-family:monospace;">override func newScriptingObject(of objectClass: AnyClass,
                                  forValueForKey key: String,
@@ -1292,31 +1290,29 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
   return tag
 }</pre>
     <p>
-        This method is sent to the container of the new object, which why you
-        put it into the
+        为什么你将它放到 
         <code>
             Task
         </code>
-        class and not the
+        类而不是
         <code>
             Tag
         </code>
-        class. The call is passed to
+        类中，是因为这个方法被发送到了新对象的容器中。这个调用被传递到了
         <code>
-            super
+            父类
         </code>
-        to get the new tag, and then the task property is assigned.
+        中来获取新的标签，然后这个task的property就被赋值了。
     </p>
     <p>
-        Quit and build and run your app. Now run the sample script
+        退出，build并运行你的app。现在运行示例的脚本
         <em>
             6. Tasks With Tags.scpt
         </em>
-        which lists tag names, lists the tasks with a specified tag, and deletes
-        and create tags.
+        ，它列出标签的名称，通过指定的标签列出任务，并可以删除和创建tag。
     </p>
     <h2>
-        Adding Custom Commands
+        添加定制的命令
     </h2>
     <p>
         There is one more step you can take when making an app scriptable: adding
