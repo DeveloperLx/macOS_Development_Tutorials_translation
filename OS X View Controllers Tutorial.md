@@ -647,16 +647,14 @@
         </a>
     </p>
     <p>
-        It’s time to use the superpowers of auto layout to make this view look
-        great.
+        是时候使用自动布局的超能力，来让这个view看起来更好了。
     </p>
     <p>
-        Select the image view and click the
+        选择这个image view并单击底部的
         <em>
             Add New Constraints
         </em>
-        button on the bottom. Add constraints for top and trailing with the standard
-        value, and constraints for width and height with a value of 180.
+        按钮。使用standard value来添加top和trailing的约束，将width和height的约束的值设置为180.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView.png"
@@ -668,8 +666,7 @@
         </a>
     </p>
     <p>
-        Select the top label and add bottom, top, leading, and trailing constraints
-        using the standard value.
+        选择顶部的label，使用standard value来添加bottom，top，leading和trailing约束。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinTopLabel.png"
@@ -681,8 +678,7 @@
         </a>
     </p>
     <p>
-        Select the label below and add constraints for trailing and leading using
-        the standard value.
+        选择下面的label，并使用standard value来添加trailing和leading约束。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinMiddleLabel.png"
@@ -694,10 +690,7 @@
         </a>
     </p>
     <p>
-        Widen the last label so it goes under the image, then add constraints
-        for leading, trailing and bottom, using the standard value. For the top
-        constraint, make sure that the image view is selected (so that the top
-        is aligned to the image view), and use the standard value.
+        扩宽最后一个label，让它到达image的底部，然后使用standard value添加leading，trailing和bottom的约束。对于top约束，确保这个image被选中（以便它的顶部可以和image view对齐），然后使用standard value添加。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel.png"
@@ -709,11 +702,11 @@
         </a>
     </p>
     <p>
-        Select the view and click on the
+        选择这个view，并在底部的栏中单击
         <em>
             Update Frames
         </em>
-        button in the bottom bar. Your view should look like this:
+        按钮。你的view现在看起来应该是这样子的：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedConstraints.png"
@@ -725,8 +718,7 @@
         </a>
     </p>
     <p>
-        After all your hard work on the interface, it’s finally time to see the
-        result, so build and run.
+        毕竟你努力工作在界面上，现在是最终的时间来查看结果了，build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview.png"
@@ -738,12 +730,10 @@
         </a>
     </p>
     <p>
-        Click on the tabs and see how the tab view controller shows the appropriate
-        view controller. It works right out of the box and without a single line
-        of code!
+        单击tab，并查看tab view controller是怎样展示恰当的view controller的。在没有一行代码的情况下，它已正确地运行。
     </p>
     <h2>
-        Add Some Code
+        添加一些代码
     </h2>
     <p>
         It’s time to get your hands dirty adding some code to show the products
