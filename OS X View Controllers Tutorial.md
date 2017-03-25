@@ -429,30 +429,26 @@
         Tab View Controller
     </h2>
     <p>
-        Now we’ll add the view controller used to display the product info: a
+        现在你已经添加了用来展示产品信息的view controller：
         <em>
             Tab View Controller
         </em>
-        . A
+        。
         <em>
             Tab View Controller
         </em>
-        is a view controller subclass (
+        是
         <code>
             NSTabViewController
         </code>
-        ); its view contains a tab view with two or more items and a container
-        view. Behind every tab is another view controller whose content&nbsp;is
-        used to fill the container view. Every time a new tab is selected, the
-        Tab View Controller replaces the content with the view of the associated
-        view controller.
+        的子类；它包含一个带有两个或更多的项目的tab view和一个container view。在每个tab的背后是另一个view controller，它的内容被用来填充container view。每次当一个新的tab被选择时，这个Tab View Controller就用相应的view controller替换了它的内容。
     </p>
     <p>
-        Select a
+        选择
         <em>
             Tab View Controller
         </em>
-        and drag it on on the canvas.
+        并将其拖拽到画布上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/drag-tabcontroller.png"
