@@ -354,45 +354,42 @@
         </a>
     </p>
     <p>
-        Now you’ll&nbsp;create an action that will be called when the button selection
-        changes. Open the
+        现在你将创建一个动作，它将在这个按钮的选择发生变化时被调用。打开
         <em>
             Assistant Editor
         </em>
-        (you can also use the keyboard shortcut
+        （你也可以使用快捷键
         <em>
             Command-Option-Return
         </em>
-        ) and make sure that
+        ），并确定
         <em>
             ViewController.swift
         </em>
-        is open.
-        <em>
-            Control-drag
-        </em>
-        from the
+        已打开。从
         <em>
             pop-up button
         </em>
-        into
+        <em>
+            拖拽
+        </em>
+        到
         <em>
             ViewController.swift
         </em>
-        and add an Action Connection. In the pop-up view, make sure the connection
-        is an
+        中来添加一个Action连接。在弹出的视图中，确认connection是
         <em>
             Action
         </em>
-        , the name is
+        ，Name为
         <em>
             valueChanged
         </em>
-        , and the type is
+        ，Type为
         <em>
             NSPopUpButton
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupActionDrag.png"
@@ -410,18 +407,15 @@
         sizes="(max-width: 511px) 100vw, 511px">
     </p>
     <p>
-        On the canvas, there is a new view controller connected to the container
-        view with an
+        在画布中，现在有了一个新的view controller通过
         <i>
             embed segue
         </i>
-        . Your app will use a custom view controller, so you can delete the auto-generated
-        one: select the view controller associated with the container view and
-        press
+        被连接到了container view上。你的app将使用一个定制的view controller，因此你可以删除自动生成的那个：选择相应于container view的那个view controller并按
         <em>
             delete
         </em>
-        .
+        键。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/delete-viewcontroller.png"
@@ -432,7 +426,7 @@
         </a>
     </p>
     <h2>
-        Tab View Controllers
+        Tab View Controller
     </h2>
     <p>
         Now we’ll add the view controller used to display the product info: a
