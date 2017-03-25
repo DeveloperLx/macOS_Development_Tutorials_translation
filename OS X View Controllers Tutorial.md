@@ -12,111 +12,73 @@
         </p>
     </div>
     <p>
-        When writing any code, it’s important to get clear separation of concerns
-        — functionality should be split out into appropriate smaller classes. This
-        helps keep code maintainable and easy to understand. Apple has designed
-        the frameworks available on macOS around the Model-View-Controller design
-        pattern, and as such has provided various controller objects&nbsp;that
-        are responsible for managing the UI.
+        在撰写任意代码的时候，对关注点做出清晰的分割是非常重要的 - 功能应当被分为恰当的较小的类。这可以让代码易于维护且容易理解。苹果在macOS上，围绕Model-View-Controller模式设计了可用的框架，并提供了各种各样的负责管理UI的controller对象。
     </p>
     <p>
-        View controllers are responsible for hooking up the model layer to the
-        view layer, and have an incredibly important role in the architecture of
-        your macOS app.
+        View controller负责连结model层到view层，在你的macOS app的架构中扮演了难以置信的重要的角色。
     </p>
     <p>
-        In this macOS view controllers tutorial you’ll discover the wide range
-        of functionality that is baked into vanilla view controllers, along with
-        learning how you can create your own view controller subclasses to build
-        up your app in an easy-to-understand manner. You’ll see how the life cycle
-        methods allow you to hook into important events for the UI of your app,
-        together with how view controllers compare with window controllers.
+        在这个macOS view controller的教程中，你将看到广泛的功能被“烘焙”成了“香草味”的view controller，并学习怎样创建你自己的view controller的子类，来以容易被理解的方式构建你的app。你将了解到生命周期的方法，如何hook到你的app的重要的事件，还有关于view controller和window controller之间的比较。
     </p>
     <p>
-        To follow this tutorial you’ll need the most recent version of macOS and
-        Xcode installed on your mac. There’s no starter project — you’ll build
-        a great app from scratch! You might like to read Gabriel Miro’s excellent
-        <a href="http://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial"
+        为了跟进这个教程，你需要安装最新版本的macOS和Xcode。这次没有起始项目 - 你将从0开始构建一个很赞的项目！在着手这个view controller教程之前，你可以首先阅读一下Gabriel Miro的
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Windows%20and%20Window%20Controllers%20in%20OS%20X%20Tutorial.md"
         sl-processed="1">
-            tutorial on windows and window controllers
+            window和window controller的教程
         </a>
-        before embarking upon this view controllers tutorial, but it’s not a requirement.
+        ，但这不是必须的。
     </p>
     <p>
-        Enough introduction — let’s kick off with some theory!
+        开场白足够了 - 让我们从一些理论开始吧！
     </p>
     <h2>
-        Introducing View Controllers
+        介绍View Controller
     </h2>
     <p>
-        A view controller is responsible for managing a view and its subviews.
-        In
+        view controller是用来负责管理一个view和它的子view的。在
         <em>
             macOS
         </em>
-        , view controllers are implemented as subclasses of
+        中，view controller是由
         <code>
             NSViewController
         </code>
-        .
+        的子类实现的。
     </p>
     <p>
-        View controllers have been around for a while (Apple introduced them with
-        OS X 10.5), but before OS X 10.10 they weren’t part of the responder chain.
-        That means, for example, that if you had a button on a view controller’s
-        view, the controller would not receive its events. After OS X 10.10, however,
-        view controllers became very useful as building blocks for more complex
-        user interfaces.
+        View controller已经存在有一定的时间了（苹果是在OS X 10.5时引入的这个），但在OS X 10.10之前，它并不在相应者链中的一部分。这就意味着，例如，如果你的view controller的view上有一个button，这个view controller是无法接受到它的事件的。然而，在OS X 10.10之后，view controller作为负责的用户界面的构建块，已变得非常有用。
     </p>
     <p>
-        View controllers allow you to split the content of your window into&nbsp;logical
-        units. The view controllers take care of those smaller units, while the
-        window controller handles&nbsp;window-specific tasks like resizing or closing
-        the window. This makes your code way easier to organize.
+        View controller使你将window的内容切分为逻辑的单元。view controller来照顾那些更小的单元，就如同window controller，处理类似改变大小或关闭window之类的指定的任务。这就让你的代码变得更容易组织。
     </p>
     <p>
-        Another benefit is that view controllers are easy to reuse in other applications.
-        If a File Browser with a hierarchical view on the left is controlled by
-        a single view controller, you can use it in another application that needs
-        a similar view. That’s time and energy saved, which you can now devote
-        to drinking beer!
+        另一个好处是view controller是比较容易在其它应用中重用的。如果在一个文件浏览器中，左侧带有一个被单独的view controller控制的层级的视图，你就可以将它用到另一个需要类似的view的应用中。你就可以用省下的时间和精力去喝啤酒了！
     </p>
     <h3>
-        Window Controller or View Controller?
+        Window Controller或View Controller？
     </h3>
     <p>
-        You may be wondering when to use only a window controller, and when to
-        implement view controllers.
+        你可能想要知道，什么时候该使用仅仅一个window controller，什么时候又该去实现多个的view controller。
     </p>
     <p>
-        Prior to&nbsp;OS X 10.10 Yosemite,
+        在OS X 10.10 Yosemite之前，
         <code>
             NSViewController
         </code>
-        &nbsp;was not a very useful class. It did not provide any of the view
-        controller functionality you could expect — for instance, that found in&nbsp;
+        并不是一个非常有用的类。它没有提供任何你所期待的view controller的功能 - 例如，可以在
         <code>
             UIViewController
         </code>
-        .
+        中找到的。
     </p>
     <p>
-        With the changes introduced since, like the view life cycle and the inclusion
-        of the view controllers in the responder chain to receive events from its
-        view, Apple is promoting the Model View Controller (MVC) pattern in the
-        same way it’s currently doing with iOS Development. You should use view
-        controllers to handle all the functionality of your views and subviews
-        and the user interaction. Use window controllers to implement the functionality
-        associated to the application windows, like setting up the root view controller,
-        resizing, repositioning, setting the title, etc.
+        由于引入的变化，诸如view的生命周期，以及view controller被包含到响应者链中来接收从它的view中而来的事件，苹果正在推进它正在iOS开发中实习的Model View Controller（MVC）模式。你应当使用view controller来处理你的view、子view以及用户界面的全部的功能。使用window controller来实现相应于应用window的功能，例如设置根view controller，调整大小，改变位置，设置title等。
     </p>
     <p>
-        This approach will help in building a complex user interface by dividing
-        the different parts of the UI into several view controllers and using them
-        like building blocks to form the complete user interface.
+        这个教程，将通过将UI的不同部分为几个view controller来构建负责的用户界面，并使用它们，如构建的块来组成完整的用户界面。
     </p>
     <h2>
-        View Controllers in Action
+        View Controller的动作
     </h2>
     <p>
         In this tutorial, you’ll write an application called
