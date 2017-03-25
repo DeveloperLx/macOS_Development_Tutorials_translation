@@ -566,23 +566,23 @@
         </a>
     </p>
     <p>
-        Return to
+        返回
         <em>
             Main.storyboard
         </em>
-        and select
+        并选择
         <em>
             Overview Scene
         </em>
-        . Click the blue circle on the view and change the class to
-        <em>
-            OverviewController
-        </em>
-        in the
+        。单击view上的蓝色的圈，并将右侧的
         <em>
             Identity Inspector
         </em>
-        on the right.
+        中的class更改为
+        <em>
+            OverviewController
+        </em>
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/OverviewVC.png"
@@ -593,54 +593,49 @@
         </a>
     </p>
     <p>
-        Drag three
+        拖拽三个
         <em>
-            labels
+            label
         </em>
-        onto the
+        到
         <em>
-            OverviewController’s
+            OverviewController
         </em>
-        view. Place the labels on the top left side of the view, one below each
-        other. Add an
+        的view上。将这些label放到这个view顶部的左边，一个在另一个下面地摆放。添加一个
         <em>
             image view
         </em>
-        on the top right corner of the view.
+        到这个view的右上角。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            By default, the image view has no borders and can be a bit difficult to
-            find in the view. To help during the layout process, you can set an image.
-            With the image view selected, open the
+            默认情况下，image view是没有边界的，要在view中找到它会有点困难。为了方便布局，你可以设置一个图片。选中image view，打开
             <em>
                 Attributes Inspector
             </em>
-            and select
-            <em>
-                2d_games
-            </em>
-            in the
+            并在
             <em>
                 Image
             </em>
-            field. This image will be replaced in runtime with the proper product
-            image in the tutorial code
+            这里选择
+            <em>
+                2d_games
+            </em>
+            。这个图片在教程的代码中，在运行时，将被合适的产品图片所替换。
         </p>
     </div>
     <p>
-        Select the top label. In the
+        选择顶部的label。在
         <em>
             Attributes Inspector
         </em>
-        , change the font to System Bold and the size to 19. You will need to
-        resize the label now to see all the text.
+        中，改变font为System Bold及size为19。现在你需要调整label的大小，来看到全部的文本。
     </p>
     <p>
-        The view should now look like this:
+        这个view现在看起来应该是这样的：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedUI.png"
