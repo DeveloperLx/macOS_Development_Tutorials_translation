@@ -5,27 +5,27 @@
 <div class="content-wrapper">
     <div id="attachment_119460" style="width: 260px" class="wp-caption alignright">
         <img class="wp-image-119460 size-full" src="https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3.png"
-        alt="" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-128x128.png 128w"
+        alt="macOS view controllers tutorial" width="250" height="250" srcset="https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/10/featured_image3-128x128.png 128w"
         sizes="(max-width: 250px) 100vw, 250px">
         <p class="wp-caption-text">
-            Learn how to control the UI with this OS X View Controllers Tutorial!
+            使用这个macOS View Controller的教程，来学习怎样控制UI！
         </p>
     </div>
     <p>
         When writing any code, it’s important to get clear separation of concerns
         — functionality should be split out into appropriate smaller classes. This
         helps keep code maintainable and easy to understand. Apple has designed
-        the frameworks available on OS X around the Model-View-Controller design
+        the frameworks available on macOS around the Model-View-Controller design
         pattern, and as such has provided various controller objects&nbsp;that
         are responsible for managing the UI.
     </p>
     <p>
         View controllers are responsible for hooking up the model layer to the
         view layer, and have an incredibly important role in the architecture of
-        your OS X app.
+        your macOS app.
     </p>
     <p>
-        In this OS X view controllers tutorial you’ll discover the wide range
+        In this macOS view controllers tutorial you’ll discover the wide range
         of functionality that is baked into vanilla view controllers, along with
         learning how you can create your own view controller subclasses to build
         up your app in an easy-to-understand manner. You’ll see how the life cycle
@@ -33,7 +33,7 @@
         together with how view controllers compare with window controllers.
     </p>
     <p>
-        To follow this tutorial you’ll need the most recent version of OS X and
+        To follow this tutorial you’ll need the most recent version of macOS and
         Xcode installed on your mac. There’s no starter project — you’ll build
         a great app from scratch! You might like to read Gabriel Miro’s excellent
         <a href="http://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial"
@@ -52,7 +52,7 @@
         A view controller is responsible for managing a view and its subviews.
         In
         <em>
-            OS X
+            macOS
         </em>
         , view controllers are implemented as subclasses of
         <code>
@@ -132,7 +132,7 @@
     <p>
         Open Xcode and choose to create a new Xcode project, and select
         <em>
-            OS X \ Application \ Cocoa Application
+            macOS/Application/Cocoa Application
         </em>
         from the templates menu. Click
         <em>
@@ -141,11 +141,12 @@
         .
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/SelectTemplate.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/SelectTemplate.png"
         sl-processed="1">
-            <img class="size-medium wp-image-112816 aligncenter" src="https://koenig-media.raywenderlich.com/uploads/2015/08/SelectTemplate-450x320.png"
-            alt="SelectTemplate" width="450" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/SelectTemplate-450x320.png 450w, https://koenig-media.raywenderlich.com/uploads/2015/08/SelectTemplate-700x498.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/SelectTemplate.png 731w"
-            sizes="(max-width: 450px) 100vw, 450px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/SelectTemplate-449x320.png"
+            alt="" width="449" height="320" class="aligncenter size-medium wp-image-155677"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/SelectTemplate-449x320.png 449w, https://koenig-media.raywenderlich.com/uploads/2017/02/SelectTemplate-650x463.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/SelectTemplate.png 1462w"
+            sizes="(max-width: 449px) 100vw, 449px">
         </a>
     </p>
     <p>
@@ -169,16 +170,17 @@
         and save your project.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/TemplateSettings.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/TemplateSettings.png"
         sl-processed="1">
-            <img class="size-medium wp-image-112817 aligncenter" src="https://koenig-media.raywenderlich.com/uploads/2015/08/TemplateSettings-453x320.png"
-            alt="TemplateSettings" width="453" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/TemplateSettings-453x320.png 453w, https://koenig-media.raywenderlich.com/uploads/2015/08/TemplateSettings-700x495.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/TemplateSettings.png 733w"
-            sizes="(max-width: 453px) 100vw, 453px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/TemplateSettings-452x320.png"
+            alt="" width="452" height="320" class="aligncenter size-medium wp-image-155678"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/TemplateSettings-452x320.png 452w, https://koenig-media.raywenderlich.com/uploads/2017/02/TemplateSettings-650x460.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/TemplateSettings.png 1462w"
+            sizes="(max-width: 452px) 100vw, 452px">
         </a>
     </p>
     <p>
         Download the project
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/resources.zip"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/resources2.zip"
         sl-processed="1">
             resources
         </a>
@@ -211,11 +213,12 @@
         and drop the downloaded images into the column containing the app icon.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/AddAssets.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/AddAssets.png"
         sl-processed="1">
-            <img class="aligncenter wp-image-112818 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/08/AddAssets-e1445809411833-700x277.png"
-            alt="AddAssets" width="700" height="277" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/AddAssets-e1445809411833-700x277.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/AddAssets-e1445809411833-480x190.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/AddAssets-e1445809411833.png 1058w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/AddAssets-480x277.png"
+            alt="" width="480" height="277" class="aligncenter size-medium wp-image-155680"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/AddAssets-480x277.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/AddAssets-650x375.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/AddAssets.png 1022w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
@@ -238,11 +241,12 @@
         is checked.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/AddProductsPlist.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/AddProductsPlist.png"
         sl-processed="1">
-            <img class="aligncenter wp-image-112820 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/08/AddProductsPlist-e1445809498824-700x322.png"
-            alt="AddProductsPlist" width="700" height="322" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/AddProductsPlist-e1445809498824-700x322.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/AddProductsPlist-e1445809498824-480x220.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/AddProductsPlist-e1445809498824.png 1069w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/AddProductsPlist-480x220.png"
+            alt="" width="480" height="220" class="aligncenter size-medium wp-image-155681"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/AddProductsPlist-480x220.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/AddProductsPlist-650x298.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
@@ -290,10 +294,10 @@
     </p>
     <p>
         Set its position using auto layout. The pop-up button should occupy the
-        full width of the view and stay pinned to the top, so select the pop-up
-        button and click the
+        full width of the view and stay pinned to the top, so with the pop-up selected,
+        click the
         <em>
-            Pin
+            Add New Constraints
         </em>
         button located in the bottom bar.
     </p>
@@ -303,14 +307,19 @@
         <em>
             Use Standard Value
         </em>
-        . Repeat for the top and leading constraints.
+        . Repeat for the top and leading constraints and click
+        <em>
+            Add 3 Constraints
+        </em>
+        .
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/AddPopupButton.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinPopupButton.png"
         sl-processed="1">
-            <img class="size-medium wp-image-112823 aligncenter" src="https://koenig-media.raywenderlich.com/uploads/2015/08/AddPopupButton-480x235.png"
-            alt="AddPopupButton" width="480" height="235" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/AddPopupButton-480x235.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/08/AddPopupButton-700x343.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/08/AddPopupButton.png 785w"
-            sizes="(max-width: 480px) 100vw, 480px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinPopupButton-424x320.png"
+            alt="" width="424" height="320" class="aligncenter size-medium wp-image-155682"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinPopupButton-424x320.png 424w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinPopupButton-650x490.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinPopupButton.png 1554w"
+            sizes="(max-width: 424px) 100vw, 424px">
         </a>
     </p>
     <p>
@@ -334,14 +343,13 @@
         <em>
             container view
         </em>
-        is a placeholder for another view that is not available in Interface Builder
-        or is provided by another View Controller.
+        is a placeholder for another view and comes with its own View Controller.
     </p>
     <p>
         Now we’ll set up the auto layout constraints for this view. Select the
         container view and click on the
         <em>
-            Pin
+            Add New Constraints
         </em>
         button. Add
         <em>
@@ -365,32 +373,26 @@
         </em>
         . Click the
         <em>
-            Add 4 constraints
+            Add 4 Constraints
         </em>
         button.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/container-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinContainer.png"
         sl-processed="1">
-            <img class="aligncenter size-full wp-image-113613" src="https://koenig-media.raywenderlich.com/uploads/2015/09/container-constraints.png"
-            alt="container-constraints" width="647" height="454" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/container-constraints.png 647w, https://koenig-media.raywenderlich.com/uploads/2015/09/container-constraints-456x320.png 456w"
-            sizes="(max-width: 647px) 100vw, 647px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinContainer-458x320.png"
+            alt="" width="458" height="320" class="aligncenter size-medium wp-image-155684"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinContainer-458x320.png 458w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinContainer-650x455.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinContainer.png 1330w"
+            sizes="(max-width: 458px) 100vw, 458px">
         </a>
     </p>
     <p>
         Select the view of your view controller and click the
         <em>
-            Resolve Auto Layout Issues
+            Update Frames
         </em>
-        button to the right of the
-        <em>
-            Pin
-        </em>
-        button. Select
-        <em>
-            All Views in Controller/Update Frames
-        </em>
-        . Your view should look like this:
+        button at the left of row of constraints buttons. Your view should look
+        like this:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/FinishedVC.png"
@@ -408,7 +410,7 @@
         </em>
         (you can also use the keyboard shortcut
         <em>
-            [alt] + [cmd] + [Enter]
+            Command-Option-Return
         </em>
         ) and make sure that
         <em>
@@ -442,24 +444,23 @@
         .
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-drag.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupActionDrag.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113648" src="https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-drag-700x394.png"
-            alt="popup.action-drag" width="700" height="394" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-drag-700x394.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-drag-480x270.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-drag-266x151.png 266w, https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-drag.png 923w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupActionDrag-480x300.png"
+            alt="" width="480" height="300" class="aligncenter size-medium wp-image-155706"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupActionDrag-480x300.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/PopupActionDrag-650x406.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-nuevo.png"
-        sl-processed="1">
-            <img class="aligncenter size-full wp-image-113614" src="https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-nuevo.png"
-            alt="popup.action-nuevo" width="603" height="403" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-nuevo.png 603w, https://koenig-media.raywenderlich.com/uploads/2015/09/popup.action-nuevo-480x320.png 480w"
-            sizes="(max-width: 603px) 100vw, 603px">
-        </a>
+        <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupButtonAction2.png"
+        alt="" width="511" height="247" class="aligncenter size-full wp-image-155924"
+        srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupButtonAction2.png 511w, https://koenig-media.raywenderlich.com/uploads/2017/02/PopupButtonAction2-480x232.png 480w"
+        sizes="(max-width: 511px) 100vw, 511px">
     </p>
     <p>
-        On the canvas, the view controller is connected to the container view
-        with an
+        On the canvas, there is a new view controller connected to the container
+        view with an
         <i>
             embed segue
         </i>
@@ -571,11 +572,8 @@
         Build and run the app.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/tabview-empty.png"
-        sl-processed="1">
-            <img class="aligncenter size-full wp-image-113620" src="https://koenig-media.raywenderlich.com/uploads/2015/09/tabview-empty.png"
-            alt="tabview-empty" width="480" height="292">
-        </a>
+        <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/tabview-empty2.png"
+        alt="" width="480" height="287" class="aligncenter size-full wp-image-155926">
     </p>
     <p>
         Now the tab view controller is shown, and you can select between the two
@@ -587,16 +585,20 @@
         Overview View Controller
     </h2>
     <p>
-        Next up you need to create the
+        Next up you need to create the view controller for the
+        <em>
+            Overview
+        </em>
+        tab.
     </p>
     <p>
         Go to
         <em>
-            File\New\File…
+            File/New/File…
         </em>
         , choose the
         <em>
-            OS X\Source\Cocoa Class
+            macOS/Source/Cocoa Class
         </em>
         , and click
         <em>
@@ -684,7 +686,7 @@
             </em>
             and select
             <em>
-                games
+                2d_games
             </em>
             in the
             <em>
@@ -699,17 +701,19 @@
         <em>
             Attributes Inspector
         </em>
-        , change the font to System Bold and the size to 19.
+        , change the font to System Bold and the size to 19. You will need to
+        resize the label now to see all the text.
     </p>
     <p>
         The view should now look like this:
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/overview-finished-ui.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedUI.png"
         sl-processed="1">
-            <img class="aligncenter size-full wp-image-113650" src="https://koenig-media.raywenderlich.com/uploads/2015/09/overview-finished-ui.png"
-            alt="overview-finished-ui" width="459" height="340" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/overview-finished-ui.png 459w, https://koenig-media.raywenderlich.com/uploads/2015/09/overview-finished-ui-432x320.png 432w"
-            sizes="(max-width: 459px) 100vw, 459px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedUI-432x320.png"
+            alt="" width="432" height="320" class="aligncenter size-medium wp-image-155686"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedUI-432x320.png 432w, https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedUI-650x481.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedUI.png 908w"
+            sizes="(max-width: 432px) 100vw, 432px">
         </a>
     </p>
     <p>
@@ -719,17 +723,18 @@
     <p>
         Select the image view and click the
         <em>
-            Pin
+            Add New Constraints
         </em>
         button on the bottom. Add constraints for top and trailing with the standard
         value, and constraints for width and height with a value of 180.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/image-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113624" src="https://koenig-media.raywenderlich.com/uploads/2015/09/image-constraints-700x377.png"
-            alt="image-constraints" width="700" height="377" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/image-constraints-700x377.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/image-constraints-480x259.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/image-constraints.png 766w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-325x320.png"
+            alt="" width="325" height="320" class="aligncenter size-medium wp-image-155687"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-325x320.png 325w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-508x500.png 508w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinImageView.png 1274w"
+            sizes="(max-width: 325px) 100vw, 325px">
         </a>
     </p>
     <p>
@@ -737,11 +742,12 @@
         using the standard value.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/toplabel-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinTopLabel.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113625" src="https://koenig-media.raywenderlich.com/uploads/2015/09/toplabel-constraints-700x331.png"
-            alt="toplabel-constraints" width="700" height="331" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/toplabel-constraints-700x331.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/toplabel-constraints-480x227.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/toplabel-constraints.png 957w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinTopLabel-480x300.png"
+            alt="" width="480" height="300" class="aligncenter size-medium wp-image-155688"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinTopLabel-480x300.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinTopLabel-650x406.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinTopLabel.png 1316w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
@@ -749,52 +755,43 @@
         the standard value.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/middlelabel-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinMiddleLabel.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113626" src="https://koenig-media.raywenderlich.com/uploads/2015/09/middlelabel-constraints-700x370.png"
-            alt="middlelabel-constraints" width="700" height="370" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/middlelabel-constraints-700x370.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/middlelabel-constraints-480x254.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/middlelabel-constraints.png 778w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinMiddleLabel-480x284.png"
+            alt="" width="480" height="284" class="aligncenter size-medium wp-image-155689"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinMiddleLabel-480x284.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinMiddleLabel-650x385.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinMiddleLabel.png 1314w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
-        Repeat for the last label, adding constraints for leading, trailing and
-        bottom, using the standard value. For the top constraint, make sure that
-        the image view is selected (so that the top is aligned to the image view
-        instead of the super view), and use the standard value.
+        Widen the last label so it goes under the image, then add constraints
+        for leading, trailing and bottom, using the standard value. For the top
+        constraint, make sure that the image view is selected (so that the top
+        is aligned to the image view), and use the standard value.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/bottomlabel-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113627" src="https://koenig-media.raywenderlich.com/uploads/2015/09/bottomlabel-constraints-700x336.png"
-            alt="bottomlabel-constraints" width="700" height="336" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/bottomlabel-constraints-700x336.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/bottomlabel-constraints-480x230.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/bottomlabel-constraints.png 854w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel-480x273.png"
+            alt="" width="480" height="273" class="aligncenter size-medium wp-image-155690"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel-480x273.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel-650x370.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel-266x151.png 266w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinBottomLabel.png 1458w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
-    <div class="note">
-        <p>
-            <em>
-                Note:
-            </em>
-            If you can’t see the image view in the selection menu, you may need to
-            make the label wider, so that the end of the label is under the image view.
-        </p>
-    </div>
     <p>
-        Click on the
+        Select the view and click on the
         <em>
-            Resolve Auto Layout
+            Update Frames
         </em>
-        button in the bottom bar and select
-        <em>
-            All Views in Controller/Update Frames
-        </em>
-        . Your view should look like this:
+        button in the bottom bar. Your view should look like this:
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/overview-after-layout.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedConstraints.png"
         sl-processed="1">
-            <img class="aligncenter size-full wp-image-113628" src="https://koenig-media.raywenderlich.com/uploads/2015/09/overview-after-layout.png"
-            alt="overview-after-layout" width="457" height="293">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedConstraints-480x298.png"
+            alt="" width="480" height="298" class="aligncenter size-medium wp-image-155691"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedConstraints-480x298.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedConstraints-650x403.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewFinishedConstraints.png 916w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
@@ -802,11 +799,12 @@
         result, so build and run.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/build-run-overview1.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview.png"
         sl-processed="1">
-            <img class="aligncenter size-full wp-image-113651" src="https://koenig-media.raywenderlich.com/uploads/2015/09/build-run-overview1.png"
-            alt="build-run-overview" width="480" height="335" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/build-run-overview1.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/build-run-overview1-459x320.png 459w"
-            sizes="(max-width: 480px) 100vw, 480px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview-424x320.png"
+            alt="" width="424" height="320" class="aligncenter size-medium wp-image-155692"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview-424x320.png 424w, https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview-650x491.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview.png 1184w"
+            sizes="(max-width: 424px) 100vw, 424px">
         </a>
     </p>
     <p>
@@ -854,11 +852,12 @@
         .
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/title-outlet.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/TitleOutlet.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113630" src="https://koenig-media.raywenderlich.com/uploads/2015/09/title-outlet-700x335.png"
-            alt="title-outlet" width="700" height="335" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/title-outlet-700x335.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/title-outlet-480x230.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/title-outlet.png 889w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/TitleOutlet-480x232.png"
+            alt="" width="480" height="232" class="aligncenter size-medium wp-image-155693"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/TitleOutlet-480x232.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/TitleOutlet-650x314.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/TitleOutlet.png 1214w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
@@ -916,11 +915,55 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128111">
-                    <td class="code" id="p112811code1">
+                <tr id="p1538441">
+                    <td class="code" id="p153844code1">
                         <pre class="swift" style="font-family:monospace;">
-                            //1 let numberformatter = NSNumberFormatter() //2 var selectedProduct:
-                            Product? { didSet { updateUI() } }
+                            <span style="color: #008312;">
+                                //1
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            numberFormatter = NumberFormatter
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: #008312;">
+                                //2
+                            </span>
+                            <span style="color: #B833A1;">
+                                var
+                            </span>
+                            selectedProduct
+                            <span style="color: black;">
+                                :
+                            </span>
+                            Product?
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                didSet
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            updateUI
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -933,11 +976,11 @@
     <ol>
         <li>
             <code>
-                numberformatter
+                numberFormatter
             </code>
             is an
             <code>
-                NSNumberFormatter
+                NumberFormatter
             </code>
             object used to show the value of the price, formatted as currency.
         </li>
@@ -951,7 +994,7 @@
             </code>
             is executed, and with it
             <code>
-                updateUI()
+                updateUI
             </code>
             .
         </li>
@@ -970,13 +1013,109 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128112">
-                    <td class="code" id="p112811code2">
+                <tr id="p1538442">
+                    <td class="code" id="p153844code2">
                         <pre class="swift" style="font-family:monospace;">
-                            private func updateUI() { //1 if viewLoaded { //2 if let product = selectedProduct
-                            { productImageView.image = product.image titleLabel.stringValue = product.title
-                            priceLabel.stringValue = numberformatter.stringFromNumber(product.price)!
-                            descriptionLabel.stringValue = product.descriptionText } } }
+                            <span style="color: #B833A1;">
+                                private
+                            </span>
+                            <span style="color: #B833A1;">
+                                func
+                            </span>
+                            updateUI
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #008312;">
+                                //1
+                            </span>
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            isViewLoaded
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #008312;">
+                                //2
+                            </span>
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            product = selectedProduct
+                            <span style="color: black;">
+                                {
+                            </span>
+                            productImageView.
+                            <span style="color: #508187;">
+                                image
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                image
+                            </span>
+                            titleLabel.
+                            <span style="color: #508187;">
+                                stringValue
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                title
+                            </span>
+                            priceLabel.
+                            <span style="color: #508187;">
+                                stringValue
+                            </span>
+                            = numberFormatter.
+                            <span style="color: #508187;">
+                                string
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            from
+                            <span style="color: black;">
+                                :
+                            </span>
+                            product.
+                            <span style="color: #508187;">
+                                price
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                ??
+                            </span>
+                            <span style="color: #C41A16;">
+                                "n/a"
+                            </span>
+                            descriptionLabel.
+                            <span style="color: #508187;">
+                                stringValue
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                descriptionText
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -987,7 +1126,7 @@
         <li>
             Checks to see if the view is loaded.
             <code>
-                viewLoaded
+                isViewLoaded
             </code>
             is a property of
             <code>
@@ -1007,7 +1146,7 @@
     </ol>
     <p>
         This method is already called when the product changes, but also needs
-        to called as the view is ready to be displayed.
+        to be called as the view is ready to be displayed.
     </p>
     <h2>
         View Controller Life Cycle
@@ -1034,15 +1173,15 @@
     <ol>
         <li>
             <code>
-                viewDidLoad()
+                viewDidLoad
             </code>
             is called once the view is fully loaded and can be used to do one-time
-            initializations like the configuration of a number formatter, register
-            for notifications, or API calls that only need to be done once.
+            initializations like the configuration of a number formatter, registering
+            for notifications, or calls to API that only need to be done once.
         </li>
         <li>
             <code>
-                viewWillAppear()
+                viewWillAppear
             </code>
             is called every time the view is about to appear on screen. In our application,
             it is called every time you select the Overview tab. This is a good point
@@ -1050,7 +1189,7 @@
         </li>
         <li>
             <code>
-                viewDidAppear()
+                viewDidAppear
             </code>
             is called after the view appears on screen. Here you can start some fancy
             animations.
@@ -1067,39 +1206,32 @@
     <ol>
         <li>
             <code>
-                updateViewConstraints()
+                updateViewConstraints
             </code>
             is called every time the layout changes, like when the window is resized.
         </li>
         <li>
             <code>
-                viewWillLayout()
+                viewWillLayout
             </code>
             is called before the
             <code>
-                layout()
+                layout
             </code>
             method of a view controller’s view is called. For example, you can use
             this method to adjust constraints.
         </li>
         <li>
             <code>
-                viewDidLayout()
+                viewDidLayout
             </code>
             is called after
             <code>
-                layout()
+                layout
             </code>
             is called.
         </li>
     </ol>
-    <p>
-        In all three methods, you must call the&nbsp;
-        <em>
-            super
-        </em>
-        implementation at some point.
-    </p>
     <h3>
         Termination
     </h3>
@@ -1109,18 +1241,18 @@
     <ol>
         <li>
             <code>
-                viewWillDisappear()
+                viewWillDisappear
             </code>
             is called before the view disappears. Here you can stop your fancy animations
             you started in
             <code>
-                viewDidAppear()
+                viewDidAppear
             </code>
             .
         </li>
         <li>
             <code>
-                viewDidDisappear()
+                viewDidDisappear
             </code>
             is called after the view is no longer on the screen. Here you can discard&nbsp;everything
             you no longer need. For example, you could invalidate a timer you used
@@ -1128,7 +1260,11 @@
         </li>
     </ol>
     <p>
-        &nbsp;
+        In all these methods, you should call the&nbsp;
+        <em>
+            super
+        </em>
+        implementation at some point.
     </p>
     <h3>
         Life cycle in practice
@@ -1156,13 +1292,13 @@
                         Solution Inside
                     </th>
                     <th class="easySpoilerTitleB" style="text-align:right;vertical-align:middle;font-size:100%; white-space:nowrap;">
-                        <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv5a5c8001&quot;); return false;"
+                        <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv3a5b8001&quot;); return false;"
                         class="easySpoilerButtonOther" style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px; padding: 4px; "
                         align="right" sl-processed="1">
                             Select
                         </a>
-                        <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv5a5c8001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
-                        id="spoilerDiv5a5c8001_action" class="easySpoilerButton" value="Show" align="right"
+                        <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv3a5b8001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
+                        id="spoilerDiv3a5b8001_action" class="easySpoilerButton" value="Show" align="right"
                         style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px 5px; padding: 4px;"
                         sl-processed="1">
                             Show
@@ -1171,23 +1307,23 @@
                 </tr>
                 <tr>
                     <td class="easySpoilerRow" colspan="2" style="">
-                        <div id="spoilerDiv5a5c8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
+                        <div id="spoilerDiv3a5b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
                             <br>
                             There are two possible methods:
                             <code>
-                                viewWillAppear()
+                                viewWillAppear
                             </code>
                             and
                             <code>
-                                viewDidAppear()
+                                viewDidAppear
                             </code>
                             . The best solution is to use
                             <code>
-                                viewWillAppear()
+                                viewWillAppear
                             </code>
                             so that the user sees the updated UI at the moment the view appears. Using
                             <code>
-                                viewDidAppear()
+                                viewDidAppear
                             </code>
                             means that a user would see the UI appear first showing old data before
                             updating.
@@ -1218,9 +1354,6 @@
     <p>
     </p>
     <p>
-        &nbsp;
-    </p>
-    <p>
         Open
         <em>
             OverviewController.swift
@@ -1230,10 +1363,48 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128113">
-                    <td class="code" id="p112811code3">
+                <tr id="p1538443">
+                    <td class="code" id="p153844code3">
                         <pre class="swift" style="font-family:monospace;">
-                            override func viewWillAppear() { updateUI() }
+                            <span style="color: #B833A1;">
+                                override
+                            </span>
+                            <span style="color: #B833A1;">
+                                func
+                            </span>
+                            viewWillAppear
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                super
+                            </span>
+                            .
+                            <span style="color: #508187;">
+                                viewWillAppear
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            updateUI
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -1252,7 +1423,7 @@
         your needs. You’ll configure it to format numbers as currency values; since
         you only need to do this once, a good place is the method
         <code>
-            viewDidLoad()
+            viewDidLoad
         </code>
         .
     </p>
@@ -1263,17 +1434,24 @@
         </code>
         add this code inside&nbsp;
         <code>
-            viewDidLoad()
+            viewDidLoad
         </code>
         :
     </p>
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128114">
-                    <td class="code" id="p112811code4">
+                <tr id="p1538444">
+                    <td class="code" id="p153844code4">
                         <pre class="swift" style="font-family:monospace;">
-                            numberformatter.numberStyle = .CurrencyStyle
+                            numberFormatter.
+                            <span style="color: #508187;">
+                                numberStyle
+                            </span>
+                            = .
+                            <span style="color: #508187;">
+                                currency
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -1294,7 +1472,7 @@
         <em>
             ViewController.swift
         </em>
-        and add a these properties inside the
+        and add these properties inside the
         <em>
             ViewController
         </em>
@@ -1303,10 +1481,37 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128115">
-                    <td class="code" id="p112811code5">
+                <tr id="p1538445">
+                    <td class="code" id="p153844code5">
                         <pre class="swift" style="font-family:monospace;">
-                            private var products = [Product]() var selectedProduct: Product!
+                            <span style="color: #B833A1;">
+                                private
+                            </span>
+                            <span style="color: #B833A1;">
+                                var
+                            </span>
+                            products =
+                            <span style="color: black;">
+                                [
+                            </span>
+                            Product
+                            <span style="color: black;">
+                                ]
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: #B833A1;">
+                                var
+                            </span>
+                            selectedProduct
+                            <span style="color: black;">
+                                :
+                            </span>
+                            Product?
                         </pre>
                     </td>
                 </tr>
@@ -1327,18 +1532,70 @@
     <p>
         Find
         <code>
-            viewDidLoad()
+            viewDidLoad
         </code>
         and add the following code inside:
     </p>
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128116">
-                    <td class="code" id="p112811code6">
+                <tr id="p1538446">
+                    <td class="code" id="p153844code6">
                         <pre class="swift" style="font-family:monospace;">
-                            if let filePath = NSBundle.mainBundle().pathForResource("Products", ofType:
-                            "plist") { products = Product.productsList(filePath) }
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            filePath = Bundle.
+                            <span style="color: #508187;">
+                                main
+                            </span>
+                            .
+                            <span style="color: #508187;">
+                                path
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            forResource
+                            <span style="color: black;">
+                                :
+                            </span>
+                            <span style="color: #C41A16;">
+                                "Products"
+                            </span>
+                            <span style="color: black;">
+                                ,
+                            </span>
+                            ofType
+                            <span style="color: black;">
+                                :
+                            </span>
+                            <span style="color: #C41A16;">
+                                "plist"
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            products = Product.
+                            <span style="color: #508187;">
+                                productsList
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            filePath
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -1392,11 +1649,12 @@
         .
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/popup-outlet.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupOutlet.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113631" src="https://koenig-media.raywenderlich.com/uploads/2015/09/popup-outlet-700x174.png"
-            alt="popup-outlet" width="700" height="174" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/popup-outlet-700x174.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/popup-outlet-480x120.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/popup-outlet.png 971w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupOutlet-480x117.png"
+            alt="" width="480" height="117" class="aligncenter size-medium wp-image-155694"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupOutlet-480x117.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/PopupOutlet-650x158.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
     <p>
@@ -1404,20 +1662,96 @@
         <em>
             ViewController.swift
         </em>
-        and add the following code to
+        and add the following code to the end of
         <code>
-            viewDidLoad()
+            viewDidLoad
         </code>
         :
     </p>
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128117">
-                    <td class="code" id="p112811code7">
+                <tr id="p1538447">
+                    <td class="code" id="p153844code7">
                         <pre class="swift" style="font-family:monospace;">
-                            //1 productsButton.removeAllItems() //2 for product in products { productsButton.addItemWithTitle(product.title)
-                            } //3 selectedProduct = products[0] productsButton.selectItemAtIndex(0)
+                            <span style="color: #008312;">
+                                //1
+                            </span>
+                            productsButton.
+                            <span style="color: #508187;">
+                                removeAllItems
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: #008312;">
+                                //2
+                            </span>
+                            <span style="color: #B833A1;">
+                                for
+                            </span>
+                            product
+                            <span style="color: #B833A1;">
+                                in
+                            </span>
+                            products
+                            <span style="color: black;">
+                                {
+                            </span>
+                            productsButton.
+                            <span style="color: #508187;">
+                                addItem
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            withTitle
+                            <span style="color: black;">
+                                :
+                            </span>
+                            product.
+                            <span style="color: #508187;">
+                                title
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: #008312;">
+                                //3
+                            </span>
+                            selectedProduct = products
+                            <span style="color: black;">
+                                [
+                            </span>
+                            <span style="color: #1C00CF;">
+                                0
+                            </span>
+                            <span style="color: black;">
+                                ]
+                            </span>
+                            productsButton.
+                            <span style="color: #508187;">
+                                selectItem
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            at
+                            <span style="color: black;">
+                                :
+                            </span>
+                            <span style="color: #1C00CF;">
+                                0
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -1444,18 +1778,84 @@
         The final piece in this puzzle&nbsp;is reacting to the pop-up button selection
         changes. Find
         <code>
-            valueChanged(_:)
+            valueChanged
         </code>
         and add the following lines:
     </p>
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128118">
-                    <td class="code" id="p112811code8">
+                <tr id="p1538448">
+                    <td class="code" id="p153844code8">
                         <pre class="swift" style="font-family:monospace;">
-                            if let bookTitle = sender.selectedItem?.title, let index = products.indexOf({$0.title
-                            == bookTitle}) { selectedProduct = products[index] }
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            bookTitle = sender.
+                            <span style="color: #508187;">
+                                selectedItem
+                            </span>
+                            ?.
+                            <span style="color: #508187;">
+                                title
+                            </span>
+                            <span style="color: black;">
+                                ,
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            index = products.
+                            <span style="color: #508187;">
+                                index
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: #B833A1;">
+                                where
+                            </span>
+                            <span style="color: black;">
+                                :
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            $
+                            <span style="color: #1C00CF;">
+                                0
+                            </span>
+                            .
+                            <span style="color: #508187;">
+                                title
+                            </span>
+                            <span style="color: black;">
+                                ==
+                            </span>
+                            bookTitle
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            selectedProduct = products
+                            <span style="color: black;">
+                                [
+                            </span>
+                            index
+                            <span style="color: black;">
+                                ]
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -1494,10 +1894,20 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p1128119">
-                    <td class="code" id="p112811code9">
+                <tr id="p1538449">
+                    <td class="code" id="p153844code9">
                         <pre class="swift" style="font-family:monospace;">
-                            private var overviewViewController: OverviewController!
+                            <span style="color: #B833A1;">
+                                private
+                            </span>
+                            <span style="color: #B833A1;">
+                                var
+                            </span>
+                            overviewViewController
+                            <span style="color: black;">
+                                :
+                            </span>
+                            OverviewController?
                         </pre>
                     </td>
                 </tr>
@@ -1511,7 +1921,7 @@
         </code>
         inside
         <code>
-            prepareForSegue(_:, sender:)
+            prepare(for:sender:)
         </code>
         , which is called by the system when the view controllers are embedded
         in the container view. Add the following method to the
@@ -1523,15 +1933,120 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p11281110">
-                    <td class="code" id="p112811code10">
+                <tr id="p15384410">
+                    <td class="code" id="p153844code10">
                         <pre class="swift" style="font-family:monospace;">
-                            override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?)
-                            { //1 let tabViewController = segue.destinationController as! NSTabViewController
-                            //2 for controller in tabViewController.childViewControllers { //3 if controller
-                            is OverviewController { overviewViewController = controller as! OverviewController
-                            overviewViewController.selectedProduct = selectedProduct } else { //More
-                            later } } }
+                            <span style="color: #B833A1;">
+                                override
+                            </span>
+                            <span style="color: #B833A1;">
+                                func
+                            </span>
+                            prepare
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: #B833A1;">
+                                for
+                            </span>
+                            segue
+                            <span style="color: black;">
+                                :
+                            </span>
+                            <span style="color: #6F41A7;">
+                                NSStoryboardSegue
+                            </span>
+                            <span style="color: black;">
+                                ,
+                            </span>
+                            sender
+                            <span style="color: black;">
+                                :
+                            </span>
+                            <span style="color: #6F41A7;">
+                                Any
+                            </span>
+                            ?
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            guard
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            tabViewController = segue.
+                            <span style="color: #508187;">
+                                destinationController
+                            </span>
+                            <span style="color: #B833A1;">
+                                as
+                            </span>
+                            ?
+                            <span style="color: #6F41A7;">
+                                NSTabViewController
+                            </span>
+                            <span style="color: #B833A1;">
+                                else
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                return
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            &nbsp;
+                            <span style="color: #B833A1;">
+                                for
+                            </span>
+                            controller
+                            <span style="color: #B833A1;">
+                                in
+                            </span>
+                            tabViewController.
+                            <span style="color: #508187;">
+                                childViewControllers
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            &nbsp;
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            controller = controller
+                            <span style="color: #B833A1;">
+                                as
+                            </span>
+                            ? OverviewController
+                            <span style="color: black;">
+                                {
+                            </span>
+                            overviewViewController = controller overviewViewController?.
+                            <span style="color: #508187;">
+                                selectedProduct
+                            </span>
+                            = selectedProduct
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: #008312;">
+                                // More later
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -1543,7 +2058,7 @@
     </p>
     <ol>
         <li>
-            Gets a reference to the Tab View controller.
+            Gets a reference to the Tab View controller if possible.
         </li>
         <li>
             Iterates over all its child view controllers.
@@ -1563,7 +2078,7 @@
     <p>
         Now add the following line in the method
         <code>
-            valueChanged(_:)
+            valueChanged
         </code>
         , inside the
         <em>
@@ -1574,10 +2089,14 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p11281111">
-                    <td class="code" id="p112811code11">
+                <tr id="p15384411">
+                    <td class="code" id="p153844code11">
                         <pre class="swift" style="font-family:monospace;">
-                            overviewViewController.selectedProduct = selectedProduct
+                            overviewViewController?.
+                            <span style="color: #508187;">
+                                selectedProduct
+                            </span>
+                            = selectedProduct
                         </pre>
                     </td>
                 </tr>
@@ -1588,24 +2107,28 @@
         Build and run to see how the UI updates when you select a different product.
     </p>
     <p>
-        <img class="aligncenter wp-image-119457 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/10/OverviewRun-700x304.png"
-        alt="" width="700" height="304" srcset="https://koenig-media.raywenderlich.com/uploads/2015/10/OverviewRun-700x304.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/10/OverviewRun-480x209.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/10/OverviewRun.png 854w"
-        sizes="(max-width: 700px) 100vw, 700px">
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewRun.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewRun-480x246.png"
+            alt="" width="480" height="246" class="aligncenter size-medium wp-image-155695"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewRun-480x246.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewRun-650x333.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
     </p>
     <h2>
         Detail View Controller
     </h2>
     <p>
-        Now we’ll create a view controller class for the Details tab.
+        Now you will create a view controller class for the Details tab.
     </p>
     <p>
         Go to
         <em>
-            File\New\File…
+            File/New/File…
         </em>
         , choose
         <em>
-            OS X\Source\Cocoa Class
+            macOS/Source/Cocoa Class
         </em>
         , and click
         <em>
@@ -1671,7 +2194,7 @@
         </code>
         to the detail view. Select it and click on the
         <em>
-            Pin
+            Add New Constraints
         </em>
         button to create its constraints. Set
         <em>
@@ -1693,14 +2216,19 @@
         <em>
             standard
         </em>
-        &nbsp;value.
+        &nbsp;value. As you did with the
+        <em>
+            OverviewController
+        </em>
+        , give it an image to make it easier to see.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-imageview-pin-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailImageView.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113637" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-imageview-pin-constraints-700x394.png"
-            alt="detail-imageview-pin-constraints" width="700" height="394" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-imageview-pin-constraints-700x394.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-imageview-pin-constraints-480x270.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-imageview-pin-constraints-266x151.png 266w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-imageview-pin-constraints.png 761w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailImageView-430x320.png"
+            alt="" width="430" height="320" class="aligncenter size-medium wp-image-155696"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailImageView-430x320.png 430w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailImageView-650x484.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailImageView.png 1278w"
+            sizes="(max-width: 430px) 100vw, 430px">
         </a>
     </p>
     <p>
@@ -1715,18 +2243,19 @@
         .
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-image-align-constraint.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/AlignImageView.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113638" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-image-align-constraint-700x399.png"
-            alt="detail-image-align-constraint" width="700" height="399" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-image-align-constraint-700x399.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-image-align-constraint-480x274.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-image-align-constraint-266x151.png 266w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-image-align-constraint.png 752w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/AlignImageView-421x320.png"
+            alt="" width="421" height="320" class="aligncenter size-medium wp-image-155697"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/AlignImageView-421x320.png 421w, https://koenig-media.raywenderlich.com/uploads/2017/02/AlignImageView-650x493.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/AlignImageView.png 1246w"
+            sizes="(max-width: 421px) 100vw, 421px">
         </a>
     </p>
     <p>
         Add a label below the image view. Change the font to bold and the size
         to 19, then click on the
         <em>
-            Pin
+            Add New Constraints
         </em>
         button to add constraints for
         <em>
@@ -1747,19 +2276,20 @@
         values.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-middlelabel-constraing.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailTitleLabel.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113639" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-middlelabel-constraing-700x425.png"
-            alt="detail-middlelabel-constraing" width="700" height="425" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-middlelabel-constraing-700x425.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-middlelabel-constraing-480x292.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-middlelabel-constraing.png 772w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailTitleLabel-434x320.png"
+            alt="" width="434" height="320" class="aligncenter size-medium wp-image-155698"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailTitleLabel-434x320.png 434w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailTitleLabel-650x480.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailTitleLabel.png 1290w"
+            sizes="(max-width: 434px) 100vw, 434px">
         </a>
     </p>
     <p>
         Add another label below the previous one. Select it, and click on the
         <em>
-            Pin
+            Add New Constraints
         </em>
-        button first to and add also constraints for
+        button first to add constraints for
         <em>
             top
         </em>
@@ -1778,17 +2308,18 @@
         &nbsp;values.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-bottom-label-constraint.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailBottomLabel.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113640" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-bottom-label-constraint-700x363.png"
-            alt="detail-bottom-label-constraint" width="700" height="363" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-bottom-label-constraint-700x363.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-bottom-label-constraint-480x249.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-bottom-label-constraint.png 761w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailBottomLabel-432x320.png"
+            alt="" width="432" height="320" class="aligncenter size-medium wp-image-155699"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailBottomLabel-432x320.png 432w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailBottomLabel-650x481.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailBottomLabel.png 1272w"
+            sizes="(max-width: 432px) 100vw, 432px">
         </a>
     </p>
     <p>
-        Drag an
+        Make the view taller, then drag a
         <em>
-            NSBox
+            Box
         </em>
         under the last label. Select it and add constraints for
         <em>
@@ -1813,11 +2344,12 @@
         values.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-box-constraints.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBox.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113641" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-box-constraints-700x413.png"
-            alt="detail-box-constraints" width="700" height="413" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-box-constraints-700x413.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-box-constraints-480x283.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-box-constraints.png 762w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBox-432x320.png"
+            alt="" width="432" height="320" class="aligncenter size-medium wp-image-155700"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBox-432x320.png 432w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinBox-650x482.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/02/PinBox.png 1274w"
+            sizes="(max-width: 432px) 100vw, 432px">
         </a>
     </p>
     <p>
@@ -1827,7 +2359,7 @@
         </em>
         and change the box font to
         <em>
-            bold
+            System Bold
         </em>
         and the size to
         <em>
@@ -1836,25 +2368,20 @@
         . Change the title to “Who is this Book For?”.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/NSBoxSettings.png"
-        sl-processed="1">
-            <img class="size-full wp-image-112840 aligncenter" src="https://koenig-media.raywenderlich.com/uploads/2015/08/NSBoxSettings.png"
-            alt="NSBoxSettings" width="257" height="246" srcset="https://koenig-media.raywenderlich.com/uploads/2015/08/NSBoxSettings.png 257w, https://koenig-media.raywenderlich.com/uploads/2015/08/NSBoxSettings-32x32.png 32w"
-            sizes="(max-width: 257px) 100vw, 257px">
-        </a>
+        <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxAttributes2.png"
+        alt="" width="516" height="338" class="aligncenter size-full wp-image-155931"
+        srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxAttributes2.png 516w, https://koenig-media.raywenderlich.com/uploads/2017/02/BoxAttributes2-480x314.png 480w"
+        sizes="(max-width: 516px) 100vw, 516px">
     </p>
     <p>
         An
         <code>
             NSBox
         </code>
-        is a nice way to group related UI elements and to give this group a name
-        you can see in
-        <i>
-            Xcode’s
-        </i>
+        is a nice way to group related UI elements and to them a name you can
+        see in Xcode’s
         <em>
-            Identity Inspector
+            Document Outline
         </em>
         .
     </p>
@@ -1865,7 +2392,7 @@
         </code>
         . Select the label and click on the
         <em>
-            Pin
+            Add New Constraints
         </em>
         button to add constraints for
         <em>
@@ -1890,22 +2417,24 @@
         value.
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail.label-inbox-constraint.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxLabel.png"
         sl-processed="1">
-            <img class="aligncenter size-large wp-image-113642" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail.label-inbox-constraint-700x424.png"
-            alt="detail.label-inbox-constraint" width="700" height="424" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail.label-inbox-constraint-700x424.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail.label-inbox-constraint-480x291.png 480w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail.label-inbox-constraint.png 771w"
-            sizes="(max-width: 700px) 100vw, 700px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxLabel-364x320.png"
+            alt="" width="364" height="320" class="aligncenter size-medium wp-image-155702"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxLabel-364x320.png 364w, https://koenig-media.raywenderlich.com/uploads/2017/02/BoxLabel-569x500.png 569w, https://koenig-media.raywenderlich.com/uploads/2017/02/BoxLabel.png 1232w"
+            sizes="(max-width: 364px) 100vw, 364px">
         </a>
     </p>
     <p>
         After updating the frames, the UI should look like this:
     </p>
     <p>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-finished-ui.png"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished.png"
         sl-processed="1">
-            <img class="aligncenter size-full wp-image-113643" src="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-finished-ui.png"
-            alt="detail-finished-ui" width="457" height="395" srcset="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-finished-ui.png 457w, https://koenig-media.raywenderlich.com/uploads/2015/09/detail-finished-ui-370x320.png 370w"
-            sizes="(max-width: 457px) 100vw, 457px">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished-374x320.png"
+            alt="" width="374" height="320" class="aligncenter size-medium wp-image-155703"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished-374x320.png 374w, https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished-585x500.png 585w, https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished.png 924w"
+            sizes="(max-width: 374px) 100vw, 374px">
         </a>
     </p>
     <p>
@@ -1915,7 +2444,7 @@
         </em>
         and make sure that
         <em>
-            DetailsViewController.swift
+            DetailViewController.swift
         </em>
         is open. Add four IBOutlets, giving them the following names:
     </p>
@@ -1956,15 +2485,161 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p11281112">
-                    <td class="code" id="p112811code12">
+                <tr id="p15384412">
+                    <td class="code" id="p153844code12">
                         <pre class="swift" style="font-family:monospace;">
-                            // 1 var selectedProduct: Product? { didSet { updateUI() } } // 2 override
-                            func viewWillAppear() { updateUI() } // 3 private func updateUI() { if
-                            viewLoaded { if let product = selectedProduct { productImageView.image
-                            = product.image titleLabel.stringValue = product.title descriptionLabel.stringValue
-                            = product.descriptionText audienceLabel.stringValue = product.audience
-                            } } }
+                            <span style="color: #008312;">
+                                // 1
+                            </span>
+                            <span style="color: #B833A1;">
+                                var
+                            </span>
+                            selectedProduct
+                            <span style="color: black;">
+                                :
+                            </span>
+                            Product?
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                didSet
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            updateUI
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: #008312;">
+                                // 2
+                            </span>
+                            <span style="color: #B833A1;">
+                                override
+                            </span>
+                            <span style="color: #B833A1;">
+                                func
+                            </span>
+                            viewWillAppear
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                super
+                            </span>
+                            .
+                            <span style="color: #508187;">
+                                viewWillAppear
+                            </span>
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            updateUI
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: #008312;">
+                                // 3
+                            </span>
+                            <span style="color: #B833A1;">
+                                private
+                            </span>
+                            <span style="color: #B833A1;">
+                                func
+                            </span>
+                            updateUI
+                            <span style="color: black;">
+                                (
+                            </span>
+                            <span style="color: black;">
+                                )
+                            </span>
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            isViewLoaded
+                            <span style="color: black;">
+                                {
+                            </span>
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            product = selectedProduct
+                            <span style="color: black;">
+                                {
+                            </span>
+                            productImageView.
+                            <span style="color: #508187;">
+                                image
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                image
+                            </span>
+                            titleLabel.
+                            <span style="color: #508187;">
+                                stringValue
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                title
+                            </span>
+                            descriptionLabel.
+                            <span style="color: #508187;">
+                                stringValue
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                descriptionText
+                            </span>
+                            audienceLabel.
+                            <span style="color: #508187;">
+                                stringValue
+                            </span>
+                            = product.
+                            <span style="color: #508187;">
+                                audience
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -2011,10 +2686,20 @@
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p11281113">
-                    <td class="code" id="p112811code13">
+                <tr id="p15384413">
+                    <td class="code" id="p153844code13">
                         <pre class="swift" style="font-family:monospace;">
-                            private var detailViewController: DetailViewController!
+                            <span style="color: #B833A1;">
+                                private
+                            </span>
+                            <span style="color: #B833A1;">
+                                var
+                            </span>
+                            detailViewController
+                            <span style="color: black;">
+                                :
+                            </span>
+                            DetailViewController?
                         </pre>
                     </td>
                 </tr>
@@ -2024,17 +2709,21 @@
     <p>
         Find
         <code>
-            valueChanged(_:)
+            valueChanged
         </code>
         and add the following inside:
     </p>
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p11281114">
-                    <td class="code" id="p112811code14">
+                <tr id="p15384414">
+                    <td class="code" id="p153844code14">
                         <pre class="swift" style="font-family:monospace;">
-                            detailViewController.selectedProduct = selectedProduct
+                            detailViewController?.
+                            <span style="color: #508187;">
+                                selectedProduct
+                            </span>
+                            = selectedProduct
                         </pre>
                     </td>
                 </tr>
@@ -2048,22 +2737,45 @@
     <p>
         The last change is inside
         <code>
-            prepareForSegue(_:, sender:)
+            prepare(for:sender:)
         </code>
         . Find the comment
         <code>
-            //More later
+            // More later
         </code>
         and replace with the following:
     </p>
     <div class="wp_codebox">
         <table>
             <tbody>
-                <tr id="p11281115">
-                    <td class="code" id="p112811code15">
+                <tr id="p15384415">
+                    <td class="code" id="p153844code15">
                         <pre class="swift" style="font-family:monospace;">
-                            detailViewController = controller as! DetailViewController detailViewController.selectedProduct
+                            <span style="color: #B833A1;">
+                                else
+                            </span>
+                            <span style="color: #B833A1;">
+                                if
+                            </span>
+                            <span style="color: #B833A1;">
+                                let
+                            </span>
+                            controller = controller
+                            <span style="color: #B833A1;">
+                                as
+                            </span>
+                            ? DetailViewController
+                            <span style="color: black;">
+                                {
+                            </span>
+                            detailViewController = controller detailViewController?.
+                            <span style="color: #508187;">
+                                selectedProduct
+                            </span>
                             = selectedProduct
+                            <span style="color: black;">
+                                }
+                            </span>
                         </pre>
                     </td>
                 </tr>
@@ -2081,9 +2793,13 @@
         Build and run, and enjoy your finished application!
     </p>
     <p>
-        <img class="aligncenter wp-image-119456 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/10/FinalRun-635x500.png"
-        alt="" width="635" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/10/FinalRun-635x500.png 635w, https://koenig-media.raywenderlich.com/uploads/2015/10/FinalRun-407x320.png 407w, https://koenig-media.raywenderlich.com/uploads/2015/10/FinalRun.png 700w"
-        sizes="(max-width: 635px) 100vw, 635px">
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun-480x257.png"
+            alt="" width="480" height="257" class="aligncenter size-medium wp-image-155704"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun-480x257.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun-650x348.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
     </p>
     <h2>
         Where to Go From Here
@@ -2110,31 +2826,31 @@
     </div>
     <p>
         You can download the final project
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/RWStore.zip"
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/RWStore_Final2.zip"
         sl-processed="1">
             here
         </a>
         .
     </p>
     <p>
-        In this OS X view controller tutorial you’ve learned the following:
+        In this macOS view controller tutorial you’ve learned the following:
     </p>
     <ul>
         <li>
-            What a view controller is and how it compares to a window controller
+            What a view controller is and how it compares to a window controller.
         </li>
         <li>
-            Creating a custom view controller subclass
+            How to create a custom view controller subclass.
         </li>
         <li>
-            How to connect elements in your view to a view controller
+            How to connect elements in your view to a view controller.
         </li>
         <li>
-            How to manipulate the view from the view controller
+            How to manipulate the view from the view controller.
         </li>
         <li>
             The lifecycle of&nbsp;a view controller, and how to hook into the different
-            events
+            events.
         </li>
     </ul>
     <p>
@@ -2148,7 +2864,7 @@
         .
     </p>
     <p>
-        If you’re not already read it, you should take a look at Gabriel Miro’s
+        If you’ve not already read it, you should take a look at Gabriel Miro’s
         excellent
         <a href="http://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial"
         sl-processed="1">
@@ -2158,7 +2874,7 @@
     </p>
     <p>
         View controllers are one of the most powerful and useful aspects of architecting
-        an OS X app, and there’s plenty more to learn. However, you’re now equipped
+        an macOS app, and there’s plenty more to learn. However, you’re now equipped
         with the knowledge to go out there and start playing around building apps
         — which you should do now!
     </p>
