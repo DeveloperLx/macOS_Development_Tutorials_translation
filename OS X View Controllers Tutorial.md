@@ -81,26 +81,26 @@
         View Controller的动作
     </h2>
     <p>
-        In this tutorial, you’ll write an application called
+        在这个教程中，你将要写一个叫做
         <em>
             RWStore
         </em>
-        that lets you select different books from
+        的应用，你可以在其中选择来自
         <a href="http://www.raywenderlich.com/store" sl-processed="1">
-            raywenderlich.com store.
+            raywenderlich.com store
         </a>
-        Let’s get started!
+        的不同的书。 让我们开始吧！
     </p>
     <p>
-        Open Xcode and choose to create a new Xcode project, and select
+        打开Xcode选择创建一个新的Xcode的项目，并从模板菜单中选择
         <em>
             macOS/Application/Cocoa Application
         </em>
-        from the templates menu. Click
+        。单击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/SelectTemplate.png"
@@ -112,24 +112,23 @@
         </a>
     </p>
     <p>
-        Name your project
+        为你的项目起名
         <em>
             RWStore
         </em>
-        . On the options screen, make sure that
+        。在选择这屏中，确保选择
         <em>
             Swift
         </em>
-        is selected as Language and the
+        语言，并勾选
         <em>
             Use Storyboards
         </em>
-        checkbox is checked. You don’t need Unit and UI Tests, so uncheck the
-        corresponding checkboxes. Click
+        选择框。你不需要Unit和UI Tests，因此取消相应的勾选框。单击
         <em>
             Next
         </em>
-        and save your project.
+        并保存你的项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/TemplateSettings.png"
@@ -141,38 +140,35 @@
         </a>
     </p>
     <p>
-        Download the project
+        下载项目
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/resources2.zip"
         sl-processed="1">
-            resources
+            资源
         </a>
-        . The zip file contains images for the books and a
+        。这个压缩文件包含书的图片，和一个
         <em>
             Products.plist
         </em>
-        file containing an array of dictionaries with the information for a product,
-        like the name, description, and price. You will also find a source code
-        file named
+        的文件，包含有产品信息的字典，例如名称、描述和价格。你也将找到一个名叫
         <em>
             Product.swift
         </em>
-        . This file contains the
+        的源码文件。这个文件包含了
         <em>
             Product
         </em>
-        class, that reads the product information from the plist file. You’re
-        going to add these to RWStore.
+        类，它会从那个plist文件中读取产品的信息。你将添加这些到RWStore中。
     </p>
     <p>
-        Select the
-        <em>
-            Assets.xcassets
-        </em>
-        folder in the
+        在
         <em>
             Project Navigator
         </em>
-        and drop the downloaded images into the column containing the app icon.
+        中选择
+        <em>
+            Assets.xcassets
+        </em>
+        目录，并拖拽下载的图片到包含有app icon的列中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/AddAssets.png"
@@ -184,23 +180,23 @@
         </a>
     </p>
     <p>
-        Drag and drop
+        将
         <em>
             Products.plist
         </em>
-        and
+        和
         <em>
             Product.swift
         </em>
-        into the
+        拖拽到左侧的
         <em>
             Project Navigator
         </em>
-        on the left. Make sure that
+        中。确保
         <em>
             Copy items if needed
         </em>
-        is checked.
+        已选中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/AddProductsPlist.png"
@@ -212,7 +208,7 @@
         </a>
     </p>
     <p>
-        Build and run the app. You should see the main window of your application.
+        build并运行app。你应会看到你的应用的主窗口。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/window-empty.png"
@@ -222,10 +218,10 @@
         </a>
     </p>
     <p>
-        It’s empty now, but don’t worry — this is just the starting point.
+        现在它是空的，但不要担心 - 这只是开始。
     </p>
     <h2>
-        Creating the User Interface
+        创建用户界面
     </h2>
     <p>
         Open
