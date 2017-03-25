@@ -459,12 +459,11 @@
         </a>
     </p>
     <p>
-        The tab controller is now on the storyboard, but it’s not used yet. Connect
-        it to the container view using an embed segue;
+        现在这个tab controller已经在storyboard上了，但到现在都没有用过。使用一个embed segue来将它连接到container view；从container view
         <em>
-            control-drag
+            拖拽
         </em>
-        from the container view to the Tab View Controller.
+        到Tab View Controller.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/control-drag-tabview.png"
@@ -475,11 +474,11 @@
         </a>
     </p>
     <p>
-        Select
+        在弹出的菜单中选择
         <em>
             embed
         </em>
-        in the menu that pops up.
+        。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/Embed.png"
         sl-processed="1">
@@ -489,17 +488,15 @@
         </a>
     </p>
     <p>
-        With this change, when the app runs the area of the container view is
-        replaced with the view of the Tab View Controller. Double-click on the
-        left tab of the Tab View and rename it
+        这样变化之后，当app运行container view时，container view的区域被替换为Tab View Controller的view。双击Tab View左侧的那个tab，并将它重命名为
         <em>
             Overview
         </em>
-        . Repeat to rename the right tab
+        。重复同样的操作，将右边的tab重命名为
         <em>
             Details
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/rename-tabs.png"
@@ -510,58 +507,55 @@
         </a>
     </p>
     <p>
-        Build and run the app.
+        build并运行app
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/tabview-empty2.png"
         alt="" width="480" height="287" class="aligncenter size-full wp-image-155926">
     </p>
     <p>
-        Now the tab view controller is shown, and you can select between the two
-        view controllers using the tabs. This isn’t noticeable yet because the
-        two views are exactly the same, but internally the tab view controller
-        is replacing them when you select a tab.
+        现在这个tab view controller已经展示出来了，你可以使用tab来在两个不同的view controller之间进行选择。但现在还不是显而易见的（noticeable），因为这两个view恰好是相同的，但当你选择了一个tab时，在内部tab view controller确实是将他们替换了的。
     </p>
     <h2>
-        Overview View Controller
+        Overview的View Controller
     </h2>
     <p>
-        Next up you need to create the view controller for the
+        接下来你需要为
         <em>
             Overview
         </em>
-        tab.
+        tab创建相应的view controller。
     </p>
     <p>
-        Go to
+        前往
         <em>
             File/New/File…
         </em>
-        , choose the
+        ，选择
         <em>
             macOS/Source/Cocoa Class
         </em>
-        , and click
+        ，并单击
         <em>
             Next
         </em>
-        . Name the class
+        。将类命名为
         <em>
             OverviewController
         </em>
-        , make it a subclass of
+        ，使其成为
         <em>
             NSViewController
         </em>
-        , and make sure
+        的子类，确保
         <em>
             Also Create XIB for user interface
         </em>
-        is not selected. Click
+        未被选中。单击
         <em>
             Next
         </em>
-        and save.
+        并保存。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/add-overview.png"
