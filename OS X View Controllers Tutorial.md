@@ -224,23 +224,23 @@
         创建用户界面
     </h2>
     <p>
-        Open
+        打开 
         <em>
             Main.storyboard
         </em>
-        , select
+        ，选择
         <em>
             View Controller Scene
         </em>
-        , and drag a
+        ，并拖拽一个
         <em>
             pop-up button
         </em>
-        into the view. You’ll use this
+        到view上。你将使用这个
         <em>
             pop-up button
         </em>
-        to display the list of products.
+        来展示产品的列表。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/add-popup.png"
@@ -251,25 +251,22 @@
         </a>
     </p>
     <p>
-        Set its position using auto layout. The pop-up button should occupy the
-        full width of the view and stay pinned to the top, so with the pop-up selected,
-        click the
+        使用自动布局来设置它的位置。这个pop-up button应当占据这个view全部的宽度，并贴近在顶部，因此选择这个pop-up，点击位于底部的
         <em>
             Add New Constraints
         </em>
-        button located in the bottom bar.
+        按钮。
     </p>
     <p>
-        In the pop-up that appears, select the trailing constraint and set its
-        value to
+        在出现的pop-up中，选择trailing约束并设置它的值为
         <em>
             Use Standard Value
         </em>
-        . Repeat for the top and leading constraints and click
+        。对top和leading约束重复同样的操作，并单击
         <em>
             Add 3 Constraints
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinPopupButton.png"
@@ -281,12 +278,11 @@
         </a>
     </p>
     <p>
-        To complete&nbsp;the UI, add a view to show the product details. Select
-        a
+        为了完成这个UI，添加一个view去展示产品的细节。选择
         <em>
             container view
         </em>
-        and drag it below the pop-up button.
+        并将它拖拽到pop-up按钮的底部。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/add-container.png"
@@ -297,43 +293,41 @@
         </a>
     </p>
     <p>
-        A
         <em>
             container view
         </em>
-        is a placeholder for another view and comes with its own View Controller.
+        是为了另外的view的占位符，并伴随着它自己的View Controller。
     </p>
     <p>
-        Now we’ll set up the auto layout constraints for this view. Select the
-        container view and click on the
+        现在来设置这个view的自动布局的约束。选择container view并单击
         <em>
             Add New Constraints
         </em>
-        button. Add
+        按钮。添加
         <em>
             top
         </em>
-        ,
+        ，
         <em>
             bottom
         </em>
-        ,
+        ，
         <em>
             trailing
         </em>
-        , and
+        和
         <em>
             leading
         </em>
-        constraints with a value of
+        约束，值为
         <em>
             0
         </em>
-        . Click the
+        。单击
         <em>
             Add 4 Constraints
         </em>
-        button.
+        按钮。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinContainer.png"
@@ -345,12 +339,11 @@
         </a>
     </p>
     <p>
-        Select the view of your view controller and click the
+        选择你view controller的view，并点击那几行约束按钮中的
         <em>
             Update Frames
         </em>
-        button at the left of row of constraints buttons. Your view should look
-        like this:
+        按钮。你的view应当看起来像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/FinishedVC.png"
