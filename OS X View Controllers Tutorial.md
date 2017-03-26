@@ -1273,29 +1273,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </code>
         implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538449">
-                    <td class="code" id="p153844code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                private
-                            </span>
-                            <span style="color: #B833A1;">
-                                var
-                            </span>
-                            overviewViewController
-                            <span style="color: black;">
-                                :
-                            </span>
-                            OverviewController?
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> overviewViewController<span style="color: black;">:</span> OverviewController?</pre>
     <p>
         You can get the instance of
         <code>
@@ -1312,129 +1290,19 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </code>
         implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p15384410">
-                    <td class="code" id="p153844code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                override
-                            </span>
-                            <span style="color: #B833A1;">
-                                func
-                            </span>
-                            prepare
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: #B833A1;">
-                                for
-                            </span>
-                            segue
-                            <span style="color: black;">
-                                :
-                            </span>
-                            <span style="color: #6F41A7;">
-                                NSStoryboardSegue
-                            </span>
-                            <span style="color: black;">
-                                ,
-                            </span>
-                            sender
-                            <span style="color: black;">
-                                :
-                            </span>
-                            <span style="color: #6F41A7;">
-                                Any
-                            </span>
-                            ?
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            guard
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            tabViewController = segue.
-                            <span style="color: #508187;">
-                                destinationController
-                            </span>
-                            <span style="color: #B833A1;">
-                                as
-                            </span>
-                            ?
-                            <span style="color: #6F41A7;">
-                                NSTabViewController
-                            </span>
-                            <span style="color: #B833A1;">
-                                else
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                return
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #B833A1;">
-                                for
-                            </span>
-                            controller
-                            <span style="color: #B833A1;">
-                                in
-                            </span>
-                            tabViewController.
-                            <span style="color: #508187;">
-                                childViewControllers
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            controller = controller
-                            <span style="color: #B833A1;">
-                                as
-                            </span>
-                            ? OverviewController
-                            <span style="color: black;">
-                                {
-                            </span>
-                            overviewViewController = controller overviewViewController?.
-                            <span style="color: #508187;">
-                                selectedProduct
-                            </span>
-                            = selectedProduct
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: #008312;">
-                                // More later
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">override</span> <span style="color: #B833A1;">func</span> prepare<span style="color: black;">(</span><span style="color: #B833A1;">for</span> segue<span style="color: black;">:</span> <span style="color: #6F41A7;">NSStoryboardSegue</span><span style="color: black;">,</span> sender<span style="color: black;">:</span> <span style="color: #6F41A7;">Any</span>?<span style="color: black;">)</span> <span style="color: black;">{</span>
+  guard <span style="color: #B833A1;">let</span> tabViewController = segue.<span style="color: #508187;">destinationController</span>
+    <span style="color: #B833A1;">as</span>? <span style="color: #6F41A7;">NSTabViewController</span> <span style="color: #B833A1;">else</span> <span style="color: black;">{</span> <span style="color: #B833A1;">return</span> <span style="color: black;">}</span>
+&nbsp;
+  <span style="color: #B833A1;">for</span> controller <span style="color: #B833A1;">in</span> tabViewController.<span style="color: #508187;">childViewControllers</span> <span style="color: black;">{</span>
+&nbsp;
+    <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> controller = controller <span style="color: #B833A1;">as</span>? OverviewController <span style="color: black;">{</span>
+      overviewViewController = controller
+      overviewViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct
+    <span style="color: black;">}</span>
+    <span style="color: #008312;">// More later</span>
+  <span style="color: black;">}</span>
+<span style="color: black;">}</span></pre>
     <p>
         This code does the following:
     </p>
@@ -1468,23 +1336,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </em>
         block.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p15384411">
-                    <td class="code" id="p153844code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            overviewViewController?.
-                            <span style="color: #508187;">
-                                selectedProduct
-                            </span>
-                            = selectedProduct
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">overviewViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
     <p>
         Build and run to see how the UI updates when you select a different product.
     </p>
