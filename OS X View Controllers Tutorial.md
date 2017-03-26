@@ -1245,50 +1245,46 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
   selectedProduct = products<span style="color: black;">[</span>index<span style="color: black;">]</span>     
 <span style="color: black;">}</span></pre>
     <p>
-        This code tries to get the selected book title and searches in the products
-        for the index of the title. With this index, it sets
+        这个代码尝试获取被选择的书的标题，并在产品中搜索这个标题的产品的的序号。使用这个序号，来设置
         <code>
             selectedProduct
         </code>
-        to the correct product.
+        为正确的产品。
     </p>
     <p>
-        Now you only need to inform
+        现在，你只需要在选择的产品发生变化时，通知
         <code>
             OverviewController
         </code>
-        &nbsp;when the selected product&nbsp;changes. For this you need a reference
-        to the
+        。为此你需要一个指向
         <code>
             OverviewController
         </code>
-        . You can get a reference within code, but first you have to add another
-        property to
+        的引用。你可以在代码中获取引用，但首先你必须添加另一个property到
         <em>
             ViewController.swift
         </em>
-        to hold that reference. Add the following code inside the
+        中来持有这个引用。添加下列的代码到
         <code>
             ViewController
         </code>
-        implementation:
+        的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> overviewViewController<span style="color: black;">:</span> OverviewController?</pre>
     <p>
-        You can get the instance of
-        <code>
-            OverviewController
-        </code>
-        inside
+        你可以在
         <code>
             prepare(for:sender:)
         </code>
-        , which is called by the system when the view controllers are embedded
-        in the container view. Add the following method to the
+        方法中获得
+        <code>
+            OverviewController
+        </code>
+        的实例，它会在当view controller被嵌入到container view时被调用。添加下列的方法到
         <code>
             ViewController
         </code>
-        implementation:
+        的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">override</span> <span style="color: #B833A1;">func</span> prepare<span style="color: black;">(</span><span style="color: #B833A1;">for</span> segue<span style="color: black;">:</span> <span style="color: #6F41A7;">NSStoryboardSegue</span><span style="color: black;">,</span> sender<span style="color: black;">:</span> <span style="color: #6F41A7;">Any</span>?<span style="color: black;">)</span> <span style="color: black;">{</span>
   guard <span style="color: #B833A1;">let</span> tabViewController = segue.<span style="color: #508187;">destinationController</span>
@@ -1304,41 +1300,41 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
   <span style="color: black;">}</span>
 <span style="color: black;">}</span></pre>
     <p>
-        This code does the following:
+        这个代码完成了下列的事：
     </p>
     <ol>
         <li>
-            Gets a reference to the Tab View controller if possible.
+            在可以做到的情况下，获取对Tab View controller的引用。
         </li>
         <li>
-            Iterates over all its child view controllers.
+            遍历它全部的子view controller。
         </li>
         <li>
-            Checks if the current child view controller is an instance of
+            检查当前的view controller是否是
             <code>
                 OverviewController
             </code>
-            , and if it is, sets its
+            的实例，如果是的话，设置它的
             <code>
                 selectedProduct
             </code>
-            property.
+            property。
         </li>
     </ol>
     <p>
-        Now add the following line in the method
+        现在，在
         <code>
             valueChanged
         </code>
-        , inside the
+        方法的
         <em>
             if let
         </em>
-        block.
+        代码块中添加下面这行代码。
     </p>
     <pre class="swift" style="font-family:monospace;">overviewViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
     <p>
-        Build and run to see how the UI updates when you select a different product.
+        build并运行，查看当你选择了一个不同的产品时，UI是怎么更新的。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewRun.png"
