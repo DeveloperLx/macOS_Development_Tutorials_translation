@@ -1103,149 +1103,47 @@
     </p>
     <pre class="swift" style="font-family:monospace;">numberFormatter.<span style="color: #508187;">numberStyle</span> = .<span style="color: #508187;">currency</span></pre>
     <p>
-        For the next step, the main view controller needs to react on product
-        selection and then inform the
+        下一步，主view controller需要响应产品的选择，然后通知给
         <code>
             OverviewController
         </code>
-        about this change. The best place for this is in the
+        这个变化。这个最好的地方是在
         <em>
             ViewController
         </em>
-        class, because this controller owns the pop-up button. Open
+        类中，因为这个controller控制着pop-up按钮。打开
         <em>
             ViewController.swift
         </em>
-        and add these properties inside the
+        ，并添加这些property到
         <em>
             ViewController
         </em>
-        class implementation:
+        类的实现中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538445">
-                    <td class="code" id="p153844code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                private
-                            </span>
-                            <span style="color: #B833A1;">
-                                var
-                            </span>
-                            products =
-                            <span style="color: black;">
-                                [
-                            </span>
-                            Product
-                            <span style="color: black;">
-                                ]
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: #B833A1;">
-                                var
-                            </span>
-                            selectedProduct
-                            <span style="color: black;">
-                                :
-                            </span>
-                            Product?
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> products = <span style="color: black;">[</span>Product<span style="color: black;">]</span><span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: #B833A1;">var</span> selectedProduct<span style="color: black;">:</span> Product?</pre>
     <p>
-        The first property,
+        第一个property
         <code>
             products
         </code>
-        , is an array used to keep a reference to all the products. The second,
+        ，是一个用来持有全部产品的引用的数组。第二个
         <code>
             selectedProduct
         </code>
-        , holds the product selected in the pop-up button.
+        ，则持有了被pop-up按钮选中的产品。
     </p>
     <p>
-        Find
+        找到
         <code>
             viewDidLoad
         </code>
-        and add the following code inside:
+        方法，并添加下列代码到里面：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538446">
-                    <td class="code" id="p153844code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            filePath = Bundle.
-                            <span style="color: #508187;">
-                                main
-                            </span>
-                            .
-                            <span style="color: #508187;">
-                                path
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            forResource
-                            <span style="color: black;">
-                                :
-                            </span>
-                            <span style="color: #C41A16;">
-                                "Products"
-                            </span>
-                            <span style="color: black;">
-                                ,
-                            </span>
-                            ofType
-                            <span style="color: black;">
-                                :
-                            </span>
-                            <span style="color: #C41A16;">
-                                "plist"
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            products = Product.
-                            <span style="color: #508187;">
-                                productsList
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            filePath
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> filePath = Bundle.<span style="color: #508187;">main</span>.<span style="color: #508187;">path</span><span style="color: black;">(</span>forResource<span style="color: black;">:</span> <span style="color: #C41A16;">"Products"</span><span style="color: black;">,</span> ofType<span style="color: black;">:</span> <span style="color: #C41A16;">"plist"</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+  products = Product.<span style="color: #508187;">productsList</span><span style="color: black;">(</span>filePath<span style="color: black;">)</span>
+<span style="color: black;">}</span></pre>
     <p>
         This loads the array of products from the plist file using the
         <code>
