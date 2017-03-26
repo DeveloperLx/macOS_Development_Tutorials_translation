@@ -1220,109 +1220,30 @@ productsButton.<span style="color: #508187;">removeAllItems</span><span style="c
 selectedProduct = products<span style="color: black;">[</span><span style="color: #1C00CF;">0</span><span style="color: black;">]</span>
 productsButton.<span style="color: #508187;">selectItem</span><span style="color: black;">(</span>at<span style="color: black;">:</span> <span style="color: #1C00CF;">0</span><span style="color: black;">)</span></pre>
     <p>
-        This piece of code does the following:
+        这些代码做了如下的事：
     </p>
     <ol>
         <li>
-            It removes all items in the pop-up button, getting rid of the Item1 and
-            Item2 entries.
+            移除了pop-up按钮中全部的项目，去除了Item1和Item2的记录。
         </li>
         <li>
-            It adds an item for every product, showing its title.
+            为每个产品添加了一个项目，展示它的标题。
         </li>
         <li>
-            It selects the first product and the first item of the pop-up button.
-            This makes sure that everything is consistent.
+            选择第一个产品和pop-up按钮中的第一个项目。确保了所有的事始终如一。
         </li>
     </ol>
     <p>
-        The final piece in this puzzle&nbsp;is reacting to the pop-up button selection
-        changes. Find
+        问题的最后一部分，是响应pop-up按钮选择的变化。找到
         <code>
             valueChanged
         </code>
-        and add the following lines:
+        并添加下列的行：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538448">
-                    <td class="code" id="p153844code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            bookTitle = sender.
-                            <span style="color: #508187;">
-                                selectedItem
-                            </span>
-                            ?.
-                            <span style="color: #508187;">
-                                title
-                            </span>
-                            <span style="color: black;">
-                                ,
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            index = products.
-                            <span style="color: #508187;">
-                                index
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: #B833A1;">
-                                where
-                            </span>
-                            <span style="color: black;">
-                                :
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            $
-                            <span style="color: #1C00CF;">
-                                0
-                            </span>
-                            .
-                            <span style="color: #508187;">
-                                title
-                            </span>
-                            <span style="color: black;">
-                                ==
-                            </span>
-                            bookTitle
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            selectedProduct = products
-                            <span style="color: black;">
-                                [
-                            </span>
-                            index
-                            <span style="color: black;">
-                                ]
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> bookTitle = sender.<span style="color: #508187;">selectedItem</span>?.<span style="color: #508187;">title</span><span style="color: black;">,</span>
+  <span style="color: #B833A1;">let</span> index = products.<span style="color: #508187;">index</span><span style="color: black;">(</span><span style="color: #B833A1;">where</span><span style="color: black;">:</span> <span style="color: black;">{</span>$<span style="color: #1C00CF;">0</span>.<span style="color: #508187;">title</span> <span style="color: black;">==</span> bookTitle<span style="color: black;">}</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+  selectedProduct = products<span style="color: black;">[</span>index<span style="color: black;">]</span>     
+<span style="color: black;">}</span></pre>
     <p>
         This code tries to get the selected book title and searches in the products
         for the index of the title. With this index, it sets
