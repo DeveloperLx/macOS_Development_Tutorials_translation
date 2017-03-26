@@ -1077,52 +1077,31 @@
   updateUI<span style="color: black;">(</span><span style="color: black;">)</span>
 <span style="color: black;">}</span></pre>
     <p>
-        This overrides the
+        它覆盖了
         <code>
             viewWillAppear
         </code>
-        to update the user interface before the view becomes visible.
+        方法，以在view可见之前更新用户的界面。
     </p>
     <p>
-        The number formatter currently uses default values, which doesn’t fit
-        your needs. You’ll configure it to format numbers as currency values; since
-        you only need to do this once, a good place is the method
+        数的formatter当前使用的是默认的值，这并不符合你的需求。你将配置它成为货币的值的格式；由于你只需要做一次，一个很好的地方就是在方法
         <code>
             viewDidLoad
         </code>
-        .
+        中。
     </p>
     <p>
-        In
+        在
         <code>
             OverviewController
         </code>
-        add this code inside&nbsp;
+        添加下列的代码到
         <code>
             viewDidLoad
         </code>
-        :
+        中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538444">
-                    <td class="code" id="p153844code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            numberFormatter.
-                            <span style="color: #508187;">
-                                numberStyle
-                            </span>
-                            = .
-                            <span style="color: #508187;">
-                                currency
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">numberFormatter.<span style="color: #508187;">numberStyle</span> = .<span style="color: #508187;">currency</span></pre>
     <p>
         For the next step, the main view controller needs to react on product
         selection and then inform the
