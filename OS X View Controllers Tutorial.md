@@ -1145,50 +1145,50 @@
   products = Product.<span style="color: #508187;">productsList</span><span style="color: black;">(</span>filePath<span style="color: black;">)</span>
 <span style="color: black;">}</span></pre>
     <p>
-        This loads the array of products from the plist file using the
+        它使用
         <code>
             Product
         </code>
-        class added at the beginning of the tutorial, and keeps it in the
+        类从plist文件中加载了产品的数组（Product类是在教程一开始时被添加的），并保存到了
         <code>
             products
         </code>
-        property. Now you can use this array to populate the pop-up button.
+        的propert中。现在你可以使用这个数组来填充pop-up按钮了。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        , select
+        ，选择
         <em>
             View Controller Scene
         </em>
-        , and switch to the
+        ，并切换到
         <em>
             Assistant Editor
         </em>
-        . Make sure
+        。确保选中
         <em>
             ViewController.swift
         </em>
-        is selected, and
+        ，从pop-up按钮
         <em>
-            Control-drag
+            拖拽
         </em>
-        from the pop-up button to
+        到
         <em>
             ViewController.swift
         </em>
-        to create an outlet named
+        来创建一个名为
         <em>
             productsButton
         </em>
-        . Make sure the type is
+        的outlet。确认type为
         <code>
             NSPopUpButton
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PopupOutlet.png"
@@ -1200,106 +1200,25 @@
         </a>
     </p>
     <p>
-        Return to
+        返回
         <em>
             ViewController.swift
         </em>
-        and add the following code to the end of
+        并添加下列的代码到
         <code>
             viewDidLoad
         </code>
-        :
+        方法的末尾：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538447">
-                    <td class="code" id="p153844code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #008312;">
-                                //1
-                            </span>
-                            productsButton.
-                            <span style="color: #508187;">
-                                removeAllItems
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: #008312;">
-                                //2
-                            </span>
-                            <span style="color: #B833A1;">
-                                for
-                            </span>
-                            product
-                            <span style="color: #B833A1;">
-                                in
-                            </span>
-                            products
-                            <span style="color: black;">
-                                {
-                            </span>
-                            productsButton.
-                            <span style="color: #508187;">
-                                addItem
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            withTitle
-                            <span style="color: black;">
-                                :
-                            </span>
-                            product.
-                            <span style="color: #508187;">
-                                title
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: #008312;">
-                                //3
-                            </span>
-                            selectedProduct = products
-                            <span style="color: black;">
-                                [
-                            </span>
-                            <span style="color: #1C00CF;">
-                                0
-                            </span>
-                            <span style="color: black;">
-                                ]
-                            </span>
-                            productsButton.
-                            <span style="color: #508187;">
-                                selectItem
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            at
-                            <span style="color: black;">
-                                :
-                            </span>
-                            <span style="color: #1C00CF;">
-                                0
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1</span>
+productsButton.<span style="color: #508187;">removeAllItems</span><span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: #008312;">//2</span>
+<span style="color: #B833A1;">for</span> product <span style="color: #B833A1;">in</span> products <span style="color: black;">{</span>
+  productsButton.<span style="color: #508187;">addItem</span><span style="color: black;">(</span>withTitle<span style="color: black;">:</span> product.<span style="color: #508187;">title</span><span style="color: black;">)</span>
+<span style="color: black;">}</span>
+<span style="color: #008312;">//3        </span>
+selectedProduct = products<span style="color: black;">[</span><span style="color: #1C00CF;">0</span><span style="color: black;">]</span>
+productsButton.<span style="color: #508187;">selectItem</span><span style="color: black;">(</span>at<span style="color: black;">:</span> <span style="color: #1C00CF;">0</span><span style="color: black;">)</span></pre>
     <p>
         This piece of code does the following:
     </p>
