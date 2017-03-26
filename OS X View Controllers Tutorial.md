@@ -736,40 +736,38 @@
         添加一些代码
     </h2>
     <p>
-        It’s time to get your hands dirty adding some code to show the products
-        details in the view. In order to refer to the labels and image view from
-        code you need to add an
+        是时候亲自动手，添加一些代码，来在这个view上展示产品的详细信息了。为了在代码中引用这些label和image view，你需要对它们的每一项添加
         <em>
             IBOutlet
         </em>
-        for each of them.
+        。
     </p>
     <p>
-        First, open the
+        首先，打开
         <em>
             Assistant Editor
         </em>
-        and make sure
+        ，确保选中
         <em>
             OverviewViewController.swift
         </em>
-        is selected.&nbsp;
+        。从顶部的label
         <em>
-            Control-drag
+            拖拽
         </em>
-        from the top label into
+        到
         <em>
             OverviewController.swift
         </em>
-        and add an outlet named
+        并添加一个名为
         <code>
             titleLabel
         </code>
-        . Ensure&nbsp;the type is
+        的outlet。确定其type为
         <em>
             NSTextField
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/TitleOutlet.png"
@@ -781,295 +779,139 @@
         </a>
     </p>
     <p>
-        Repeat the process with the other two labels and the image view to create
-        the rest of the outlets with the following names:
+        对另外的两个label和image view重复相同的操作，来使用下列的名称创建剩余的outlet：
     </p>
     <ol>
         <li>
+            中间的label：
             <code>
                 priceLabel
             </code>
-            for the label in the middle.
         </li>
         <li>
+            底部的label：
             <code>
                 descriptionLabel
             </code>
-            for the bottom label.
         </li>
         <li>
+            image view：
             <code>
                 productImageView
             </code>
-            for the image view.
         </li>
     </ol>
     <p>
-        Like most UI elements, labels and image views are built of multiple subviews,
-        so make sure that you have the correct view selected. You can see this
-        when you look at the class for the outlet: for the image view it must be
+        就像大多数的UI元素，label和image view是由多个子view构成的，所以，确保你选择的view是正确的。你可以查看outlet的class：对于image view，它必须是
         <em>
             NSImageView
         </em>
-        , not
+        ，而不是
         <em>
             NSImageCell
         </em>
-        . For the labels, it must be
+        。对于label，它必须是
         <em>
             NSTextField
         </em>
-        , not
+        ，而不是
         <em>
             NSTextFieldCell
         </em>
-        .
+        。
     </p>
     <p>
-        To show the product information in the overview tab, open
+        为了在overview的tab中展示产品信息，打开
         <em>
             OverviewController.swift
         </em>
-        and add the following code inside the class implementation:
+        ，并添加下列的代码到类的实现中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538441">
-                    <td class="code" id="p153844code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #008312;">
-                                //1
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            numberFormatter = NumberFormatter
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: #008312;">
-                                //2
-                            </span>
-                            <span style="color: #B833A1;">
-                                var
-                            </span>
-                            selectedProduct
-                            <span style="color: black;">
-                                :
-                            </span>
-                            Product?
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                didSet
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            updateUI
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1</span>
+<span style="color: #B833A1;">let</span> numberFormatter = NumberFormatter<span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: #008312;">//2    </span>
+<span style="color: #B833A1;">var</span> selectedProduct<span style="color: black;">:</span> Product? <span style="color: black;">{</span>
+  <span style="color: #B833A1;">didSet</span> <span style="color: black;">{</span>
+    updateUI<span style="color: black;">(</span><span style="color: black;">)</span>
+  <span style="color: black;">}</span>
+<span style="color: black;">}</span></pre>
     <p>
-        Taking this code bit-by-bit:
+        一步一步来看代码：
     </p>
     <ol>
         <li>
             <code>
                 numberFormatter
             </code>
-            is an
+            是一个
             <code>
                 NumberFormatter
             </code>
-            object used to show the value of the price, formatted as currency.
+            对象，用来展示加个的值，以货币的形式格式化。
         </li>
         <li>
             <code>
                 selectedProduct
             </code>
-            holds the currently selected product. Every time the value changes,
+            持有了当前选中的产品。每次当值发生变化时，
             <code>
                 didSet
             </code>
-            is executed, and with it
+            就被执行，也就是执行
             <code>
                 updateUI
             </code>
-            .
+            。
         </li>
     </ol>
     <p>
-        Now add the&nbsp;
+        现在添加
         <code>
             updateUI
         </code>
-        method to
+        方法到
         <em>
             OverviewController.swift
         </em>
-        .
+        中。
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538442">
-                    <td class="code" id="p153844code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                private
-                            </span>
-                            <span style="color: #B833A1;">
-                                func
-                            </span>
-                            updateUI
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #008312;">
-                                //1
-                            </span>
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            isViewLoaded
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #008312;">
-                                //2
-                            </span>
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            product = selectedProduct
-                            <span style="color: black;">
-                                {
-                            </span>
-                            productImageView.
-                            <span style="color: #508187;">
-                                image
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                image
-                            </span>
-                            titleLabel.
-                            <span style="color: #508187;">
-                                stringValue
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                title
-                            </span>
-                            priceLabel.
-                            <span style="color: #508187;">
-                                stringValue
-                            </span>
-                            = numberFormatter.
-                            <span style="color: #508187;">
-                                string
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            from
-                            <span style="color: black;">
-                                :
-                            </span>
-                            product.
-                            <span style="color: #508187;">
-                                price
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                ??
-                            </span>
-                            <span style="color: #C41A16;">
-                                "n/a"
-                            </span>
-                            descriptionLabel.
-                            <span style="color: #508187;">
-                                stringValue
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                descriptionText
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">func</span> updateUI<span style="color: black;">(</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+  <span style="color: #008312;">//1</span>
+  <span style="color: #B833A1;">if</span> isViewLoaded <span style="color: black;">{</span>
+    <span style="color: #008312;">//2</span>
+    <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> product = selectedProduct <span style="color: black;">{</span>
+      productImageView.<span style="color: #508187;">image</span> = product.<span style="color: #508187;">image</span>
+      titleLabel.<span style="color: #508187;">stringValue</span> = product.<span style="color: #508187;">title</span>
+      priceLabel.<span style="color: #508187;">stringValue</span> = numberFormatter.<span style="color: #508187;">string</span><span style="color: black;">(</span>from<span style="color: black;">:</span> product.<span style="color: #508187;">price</span><span style="color: black;">)</span> <span style="color: black;">??</span> <span style="color: #C41A16;">"n/a"</span>
+      descriptionLabel.<span style="color: #508187;">stringValue</span> = product.<span style="color: #508187;">descriptionText</span>
+    <span style="color: black;">}</span>
+  <span style="color: black;">}</span>
+<span style="color: black;">}</span></pre>
     <ol>
         <li>
-            Checks to see if the view is loaded.
+            检查这个view是否已加载。
             <code>
                 isViewLoaded
             </code>
-            is a property of
+            是
             <code>
                 NSViewController
             </code>
-            , and it’s true if the view is loaded into memory. If the view is loaded,
-            it’s safe to access all view-related properties, like the labels.
+            的一个property，当这个view已被加载到内存中时，它的值就变为true。当这个view被加载完毕后，访问全部的view相关的property，例如label，就都会是安全的了。
         </li>
         <li>
-            Unwraps
+            Unwrap
             <code>
                 selectedProduct
             </code>
-            to see if there is a product. After that, the labels and image are updated
-            to show the appropriate values.
+            ，来查看是否这里有一个产品。之后，label和image就被更新，来展示适当的值。
         </li>
     </ol>
     <p>
-        This method is already called when the product changes, but also needs
-        to be called as the view is ready to be displayed.
+        这个方法已在产品发生变化时被调用，但也需要在这个view准备要被展示时被调用。
     </p>
     <h2>
-        View Controller Life Cycle
+        View Controller的生命周期
     </h2>
     <p>
         Since view controllers are responsible for managing views, they expose
