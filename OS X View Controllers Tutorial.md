@@ -914,135 +914,116 @@
         View Controller的生命周期
     </h2>
     <p>
-        Since view controllers are responsible for managing views, they expose
-        methods that allow you to hook into events associated with the views. For
-        example&nbsp;the point at which the views have loaded from the storyboard,
-        or when the views are about to appear on the screen. This collection of
-        event-based methods are known as the
+        由于view controller是负责管理view的，因此它会暴露让你可以hook住相应的view的事件的方法。例如当这些view要从storyboard加载到屏幕上时，或这些view将要出现在屏幕上时。这些基于事件的方法的集合，被称作
         <em>
-            view controller life cycle
+            view controller生命周期
         </em>
-        .
+        。
     </p>
     <p>
-        The life cycle of a view controller can be divided into three major parts:
-        its creation, its lifetime, and finally its termination. Each part has
-        methods you can override to do additional work.
+        一个view controller的生命周期被分为三个主要的部分：创建，使用期（lifetime），还有终止。每个部分都有你可以重写，以添加额外工作的方法。
     </p>
     <h3>
-        Creation
+        创建
     </h3>
     <ol>
         <li>
             <code>
                 viewDidLoad
             </code>
-            is called once the view is fully loaded and can be used to do one-time
-            initializations like the configuration of a number formatter, registering
-            for notifications, or calls to API that only need to be done once.
+            会在这个view被全部加载时被调用，可以用来一次性地初始化例如，配置一个数的formatter，注册通知，或调用仅仅需要被执行一次的API。
         </li>
         <li>
             <code>
                 viewWillAppear
             </code>
-            is called every time the view is about to appear on screen. In our application,
-            it is called every time you select the Overview tab. This is a good point
-            to update your UI or to refresh your data model.
+            会在每次view将要展示在屏幕上时被调用。在我们的应用中，它会在每次你选择Overview的tab时被调用。这是一个更新你的UI或刷新你的数据模型的好时机。
         </li>
         <li>
             <code>
                 viewDidAppear
             </code>
-            is called after the view appears on screen. Here you can start some fancy
-            animations.
+            会在view被展示到屏幕上时被调用。在这里你可以启动一些花哨的（fancy）动画。
         </li>
     </ol>
     <h3>
-        Lifetime
+        使用期
     </h3>
     <p>
-        Once a view controller has been created, it then enters a period during
-        which it it handles user interactions. It has three methods specific to
-        this phase of its life:
+        一旦创建了一个view controller，它就进入了一个可以用来处理用户交互的时期。它有三个方法针对这个时期：
     </p>
     <ol>
         <li>
             <code>
                 updateViewConstraints
             </code>
-            is called every time the layout changes, like when the window is resized.
+            会在每次布局发生变化时被调用，例如window的大小被调整时。
         </li>
         <li>
             <code>
                 viewWillLayout
             </code>
-            is called before the
+            会在view controller的view的
             <code>
                 layout
             </code>
-            method of a view controller’s view is called. For example, you can use
-            this method to adjust constraints.
+            方法被调用前调用。例如，你可以使用这个方法来调整约束。
         </li>
         <li>
             <code>
                 viewDidLayout
             </code>
-            is called after
+            会在
             <code>
                 layout
             </code>
-            is called.
+            方法被调用之后调用。
         </li>
     </ol>
     <h3>
-        Termination
+        终止
     </h3>
     <p>
-        These are the counterpart methods to creation:
+        这些是对应的方法：
     </p>
     <ol>
         <li>
             <code>
                 viewWillDisappear
             </code>
-            is called before the view disappears. Here you can stop your fancy animations
-            you started in
+            会在view消失之前被调用。在这里你可以停止你在
             <code>
                 viewDidAppear
             </code>
-            .
+            启动的那些花哨的动画。
         </li>
         <li>
             <code>
                 viewDidDisappear
             </code>
-            is called after the view is no longer on the screen. Here you can discard&nbsp;everything
-            you no longer need. For example, you could invalidate a timer you used
-            to upate your data model on a periodic time base.
+            会在view不再在屏幕上时被调用。在这里你可以抛弃所有你不在需要的东西。例如，你可以废弃你用来周期性更新你的数据模型的定时器。
         </li>
     </ol>
     <p>
-        In all these methods, you should call the&nbsp;
+        在所有的这些方法中，你应当在某个时刻调用
         <em>
             super
         </em>
-        implementation at some point.
+        的实现。
     </p>
     <h3>
-        Life cycle in practice
+        实践什么循环
     </h3>
     <p>
-        Now that you know the most important things about a view controller’s
-        life cycle, it’s time for a short test!
+        既然你已了解了有关view controller的生命周期的最重要的事，是时候来做一个简短的测试了！
     </p>
     <p>
+        问题：每次当
         Question: Every time
         <em>
-            OverviewController’s
+            OverviewController
         </em>
-        view appears, you want to update the UI to take into account that a user
-        selected a product when the Details tab was selected. Which method would
-        be a good fit?
+        出现时，你想要更新UI，以便当Details的tab被选择时，顾及用户选择了一个产品。哪个方法会比较适合？
         <br>
     </p>
     <div class="easySpoilerWrapper" style="">
@@ -1051,20 +1032,7 @@
             <tbody>
                 <tr style="white-space:normal;">
                     <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
-                        Solution Inside
-                    </th>
-                    <th class="easySpoilerTitleB" style="text-align:right;vertical-align:middle;font-size:100%; white-space:nowrap;">
-                        <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv3a5b8001&quot;); return false;"
-                        class="easySpoilerButtonOther" style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px; padding: 4px; "
-                        align="right" sl-processed="1">
-                            Select
-                        </a>
-                        <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv3a5b8001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
-                        id="spoilerDiv3a5b8001_action" class="easySpoilerButton" value="Show" align="right"
-                        style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px 5px; padding: 4px;"
-                        sl-processed="1">
-                            Show
-                        </a>
+                        解决方法
                     </th>
                 </tr>
                 <tr>
