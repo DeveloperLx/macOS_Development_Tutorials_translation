@@ -1032,115 +1032,50 @@
             <tbody>
                 <tr style="white-space:normal;">
                     <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
-                        解决方法
+                        解决办法
                     </th>
                 </tr>
                 <tr>
                     <td class="easySpoilerRow" colspan="2" style="">
                         <div id="spoilerDiv3a5b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
                             <br>
-                            There are two possible methods:
+                            有两个可能的方法：
                             <code>
                                 viewWillAppear
                             </code>
-                            and
+                            和
                             <code>
                                 viewDidAppear
                             </code>
-                            . The best solution is to use
+                            。最好的解决方案是
                             <code>
                                 viewWillAppear
                             </code>
-                            so that the user sees the updated UI at the moment the view appears. Using
+                            ，这样用户就可以在view一出现时，来更新UI了。使用
                             <code>
                                 viewDidAppear
                             </code>
-                            means that a user would see the UI appear first showing old data before
-                            updating.
+                            会导致一个用户将在数据更新前，首先看到UI的出现。
                             <br>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div class="easySpoilerConclude" style="">
-            <table class="easySpoilerTable" border="0" style="text-align:center;"
-            frame="box" align="center" bgcolor="FFFFFF">
-                <tbody>
-                    <tr>
-                        <th class="easySpoilerEnd" style="width:100%;">
-                        </th>
-                        <td class="easySpoilerEnd" style="white-space:nowrap;" colspan="2">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="easySpoilerGroupWrapperLastRow" colspan="2" style="">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
     <p>
     </p>
     <p>
-        Open
+        打开
         <em>
             OverviewController.swift
         </em>
-        and add this code inside the class implementation:
+        并添加这个代码到类的实现中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1538443">
-                    <td class="code" id="p153844code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                override
-                            </span>
-                            <span style="color: #B833A1;">
-                                func
-                            </span>
-                            viewWillAppear
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                super
-                            </span>
-                            .
-                            <span style="color: #508187;">
-                                viewWillAppear
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            updateUI
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">override</span> <span style="color: #B833A1;">func</span> viewWillAppear<span style="color: black;">(</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+  <span style="color: #B833A1;">super</span>.<span style="color: #508187;">viewWillAppear</span><span style="color: black;">(</span><span style="color: black;">)</span>
+  updateUI<span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: black;">}</span></pre>
     <p>
         This overrides the
         <code>
