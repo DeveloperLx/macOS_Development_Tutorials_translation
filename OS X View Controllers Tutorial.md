@@ -1712,170 +1712,28 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </code>
         class implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p15384412">
-                    <td class="code" id="p153844code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #008312;">
-                                // 1
-                            </span>
-                            <span style="color: #B833A1;">
-                                var
-                            </span>
-                            selectedProduct
-                            <span style="color: black;">
-                                :
-                            </span>
-                            Product?
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                didSet
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            updateUI
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: #008312;">
-                                // 2
-                            </span>
-                            <span style="color: #B833A1;">
-                                override
-                            </span>
-                            <span style="color: #B833A1;">
-                                func
-                            </span>
-                            viewWillAppear
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                super
-                            </span>
-                            .
-                            <span style="color: #508187;">
-                                viewWillAppear
-                            </span>
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            updateUI
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: #008312;">
-                                // 3
-                            </span>
-                            <span style="color: #B833A1;">
-                                private
-                            </span>
-                            <span style="color: #B833A1;">
-                                func
-                            </span>
-                            updateUI
-                            <span style="color: black;">
-                                (
-                            </span>
-                            <span style="color: black;">
-                                )
-                            </span>
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            isViewLoaded
-                            <span style="color: black;">
-                                {
-                            </span>
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            product = selectedProduct
-                            <span style="color: black;">
-                                {
-                            </span>
-                            productImageView.
-                            <span style="color: #508187;">
-                                image
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                image
-                            </span>
-                            titleLabel.
-                            <span style="color: #508187;">
-                                stringValue
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                title
-                            </span>
-                            descriptionLabel.
-                            <span style="color: #508187;">
-                                stringValue
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                descriptionText
-                            </span>
-                            audienceLabel.
-                            <span style="color: #508187;">
-                                stringValue
-                            </span>
-                            = product.
-                            <span style="color: #508187;">
-                                audience
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">// 1</span>
+<span style="color: #B833A1;">var</span> selectedProduct<span style="color: black;">:</span> Product? <span style="color: black;">{</span>
+  <span style="color: #B833A1;">didSet</span> <span style="color: black;">{</span>
+    updateUI<span style="color: black;">(</span><span style="color: black;">)</span>
+  <span style="color: black;">}</span>
+<span style="color: black;">}</span>
+<span style="color: #008312;">// 2</span>
+<span style="color: #B833A1;">override</span> <span style="color: #B833A1;">func</span> viewWillAppear<span style="color: black;">(</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+  <span style="color: #B833A1;">super</span>.<span style="color: #508187;">viewWillAppear</span><span style="color: black;">(</span><span style="color: black;">)</span>
+  updateUI<span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: black;">}</span>
+<span style="color: #008312;">// 3</span>
+<span style="color: #B833A1;">private</span> <span style="color: #B833A1;">func</span> updateUI<span style="color: black;">(</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+  <span style="color: #B833A1;">if</span> isViewLoaded <span style="color: black;">{</span>
+    <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> product = selectedProduct <span style="color: black;">{</span>
+      productImageView.<span style="color: #508187;">image</span> = product.<span style="color: #508187;">image</span>
+      titleLabel.<span style="color: #508187;">stringValue</span> = product.<span style="color: #508187;">title</span>
+      descriptionLabel.<span style="color: #508187;">stringValue</span> = product.<span style="color: #508187;">descriptionText</span>
+      audienceLabel.<span style="color: #508187;">stringValue</span> = product.<span style="color: #508187;">audience</span>
+    <span style="color: black;">}</span>
+  <span style="color: black;">}</span>
+<span style="color: black;">}</span></pre>
     <p>
         You’re probably familiar with this code already, because it’s very similar
         to the Overview view controller implementation. This code:
@@ -1913,29 +1771,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </code>
         property, add the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p15384413">
-                    <td class="code" id="p153844code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                private
-                            </span>
-                            <span style="color: #B833A1;">
-                                var
-                            </span>
-                            detailViewController
-                            <span style="color: black;">
-                                :
-                            </span>
-                            DetailViewController?
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> detailViewController<span style="color: black;">:</span> DetailViewController?</pre>
     <p>
         Find
         <code>
@@ -1943,23 +1779,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </code>
         and add the following inside:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p15384414">
-                    <td class="code" id="p153844code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            detailViewController?.
-                            <span style="color: #508187;">
-                                selectedProduct
-                            </span>
-                            = selectedProduct
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
     <p>
         This updates the selected product property of the view controller when
         the pop-up selection changes.
@@ -1975,43 +1795,10 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </code>
         and replace with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p15384415">
-                    <td class="code" id="p153844code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #B833A1;">
-                                else
-                            </span>
-                            <span style="color: #B833A1;">
-                                if
-                            </span>
-                            <span style="color: #B833A1;">
-                                let
-                            </span>
-                            controller = controller
-                            <span style="color: #B833A1;">
-                                as
-                            </span>
-                            ? DetailViewController
-                            <span style="color: black;">
-                                {
-                            </span>
-                            detailViewController = controller detailViewController?.
-                            <span style="color: #508187;">
-                                selectedProduct
-                            </span>
-                            = selectedProduct
-                            <span style="color: black;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">else</span> <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> controller = controller <span style="color: #B833A1;">as</span>? DetailViewController <span style="color: black;">{</span>
+  detailViewController = controller
+  detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct
+<span style="color: black;">}</span></pre>
     <p>
         This updates the
         <code>
