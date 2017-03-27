@@ -1838,57 +1838,50 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </div>
     </div>
     <p>
-        You can download the final project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/RWStore_Final2.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终的项目。
     </p>
     <p>
-        In this macOS view controller tutorial you’ve learned the following:
+        在这个macOS view controller的教程中，你学到了下面的东西：
     </p>
     <ul>
         <li>
-            What a view controller is and how it compares to a window controller.
+            什么是view controller，以及它和window controller之间的比较。
         </li>
         <li>
-            How to create a custom view controller subclass.
+            怎样创建一个定制的view controller的子类。
         </li>
         <li>
-            How to connect elements in your view to a view controller.
+            怎讲将你的view中的元素，连接到view controller。
         </li>
         <li>
-            How to manipulate the view from the view controller.
+            怎样从view controller中操纵view。
         </li>
         <li>
-            The lifecycle of&nbsp;a view controller, and how to hook into the different
-            events.
+            view controller的生命周期，以及怎样hook到不同的事件中。
         </li>
     </ul>
     <p>
-        In addition to the functionality you’ve added to your custom view controller
-        subclasses, there are many built-in subclasses provided for you. To see
-        what built-in view controllers are available, take a look at the
+        除了你添加到定制的view controller的子类的功能，苹果还为你提供了很多內建的子类。为了查看有哪些可用的view controller，请查看
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/NSViewController_Class/index.html#//apple_ref/swift/cl/c:objc(cs)NSViewController"
         target="_blank" sl-processed="1">
-            documentation
+            文档
         </a>
-        .
+        。
     </p>
     <p>
-        If you’ve not already read it, you should take a look at Gabriel Miro’s
-        excellent
-        <a href="http://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial"
+        如果你还没有读过它，你应该看一下Gabriel Miro的杰出的
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Windows%20and%20Window%20Controllers%20in%20OS%20X%20Tutorial.md"
         sl-processed="1">
-            tutorial on windows and window controllers
+            window和window controller教程
         </a>
         .
     </p>
     <p>
-        View controllers are one of the most powerful and useful aspects of architecting
-        an macOS app, and there’s plenty more to learn. However, you’re now equipped
-        with the knowledge to go out there and start playing around building apps
-        — which you should do now!
+        View controller是构建一个macOS app的最有力和最有用的方面之一，有足够的更多的东西可以去学。然而，你已经具备了走出这里并玩转构建app的知识 - 这正是你现在应该做的！
     </p>
 </div>
