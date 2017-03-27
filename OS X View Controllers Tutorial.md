@@ -1747,67 +1747,62 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </li>
         <li>
             当view出现的时候（也就是当detail view的tab被选中时）更新UI。
-            Forces a UI update whenever the view appears (when the detail view tab
-            is selected).
         </li>
         <li>
-            Sets the product information (using
+            使用适当的outlet，来设置在label和image view上的产品信息（通过
             <code>
                 updateUI
             </code>
-            ) in the labels and image view using the appropriate outlets.
+            ）。
         </li>
     </ol>
     <p>
-        When the product selection changes, you need to change the selected product
-        in the detail view controller so that it updates the UI. Open
+        当产品的选择发生变化时，你需要在detail view controller中改变选择的产品，来更新它的UI。打开
         <em>
             ViewController.swift
         </em>
-        and add a property to hold a reference to the the detail view controller.
-        Just below the
+        并添加一个property来持有到detail view controller的引用。在
         <code>
             overviewViewController
         </code>
-        property, add the following:
+        property的下方，添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> detailViewController<span style="color: black;">:</span> DetailViewController?</pre>
     <p>
-        Find
+        找到
         <code>
             valueChanged
         </code>
-        and add the following inside:
+        ，并添加下列的代码到里面：
     </p>
     <pre class="swift" style="font-family:monospace;">detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
     <p>
-        This updates the selected product property of the view controller when
-        the pop-up selection changes.
+        这会在pop-up的选择发生变化时，更新view controller的selectedProduct的property。
     </p>
     <p>
-        The last change is inside
+        最后一个改变位于
         <code>
             prepare(for:sender:)
         </code>
-        . Find the comment
+        中。找到评论
         <code>
             // More later
         </code>
-        and replace with the following:
+        并用下列代码将其替换：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">else</span> <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> controller = controller <span style="color: #B833A1;">as</span>? DetailViewController <span style="color: black;">{</span>
   detailViewController = controller
   detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct
 <span style="color: black;">}</span></pre>
     <p>
-        This updates the
+        这会在detail view被嵌入时，更新
         <code>
             selectedProduct
         </code>
-        when the detail view is embedded.
+        。
     </p>
     <p>
-        Build and run, and enjoy your finished application!
+        build并运行，并enjoy你完成的应用！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun.png"
@@ -1819,7 +1814,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <h2>
-        Where to Go From Here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1831,10 +1826,11 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
