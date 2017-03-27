@@ -1653,7 +1653,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        After updating the frames, the UI should look like this:
+        更新frame之后，UI看起来应该像是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished.png"
@@ -1665,49 +1665,52 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        To create the outlets for those controls, open the
+        为了给那些控件创建outlet，打开
         <em>
             Assistant Editor
         </em>
-        and make sure that
+        ，并确保
         <em>
             DetailViewController.swift
         </em>
-        is open. Add four IBOutlets, giving them the following names:
+        已打开。添加四个IBOutlet，为他们命名如下：
     </p>
     <ol>
         <li>
+            NSImageView命名为
             <code>
                 productImageView
             </code>
-            for the NSImageView.
+            。
         </li>
         <li>
+            label名为
             <code>
                 titleLabel
             </code>
-            for the label with the bold font.
+            ，字体为粗体。
         </li>
         <li>
+            下面的label名为
             <code>
                 descriptionLabel
             </code>
-            for the label below.
+            。
         </li>
         <li>
+            NSBox中的label名为
             <code>
                 audienceLabel
             </code>
-            for the label in the NSBox.
+            。
         </li>
     </ol>
     <p>
-        With the outlets in place, add the implementation to show the product
-        detail. Add the following code to
+        通过恰当的outlet，添加实现来展示产品的细节。添加下列的代码到
         <code>
             DetailViewController
         </code>
-        class implementation:
+        类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">// 1</span>
 <span style="color: #B833A1;">var</span> selectedProduct<span style="color: black;">:</span> Product? <span style="color: black;">{</span>
