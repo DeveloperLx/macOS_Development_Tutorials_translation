@@ -1546,31 +1546,31 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Make the view taller, then drag a
+        使view变得更高，然后拖拽一个
         <em>
             Box
         </em>
-        under the last label. Select it and add constraints for
-        <em>
-            top
-        </em>
-        ,
-        <em>
-            leading
-        </em>
-        ,
-        <em>
-            trailing
-        </em>
-        and
-        <em>
-            bottom
-        </em>
-        , using
+        到上一个label的下面。选择它，并使用
         <em>
             standard
         </em>
-        values.
+        value添加
+        <em>
+            top
+        </em>
+        ，
+        <em>
+            leading
+        </em>
+        ，
+        <em>
+            trailing
+        </em>
+        和
+        <em>
+            bottom
+        </em>
+        约束。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinBox.png"
@@ -1582,19 +1582,19 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Open the
+        打开
         <em>
             Attributes Inspector
         </em>
-        and change the box font to
+        并将box的字体改变为
         <em>
             System Bold
         </em>
-        and the size to
+        ，size改变为
         <em>
             14
         </em>
-        . Change the title to “Who is this Book For?”.
+        。将title改变为“Who is this Book For?”。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxAttributes2.png"
@@ -1603,47 +1603,45 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         sizes="(max-width: 516px) 100vw, 516px">
     </p>
     <p>
-        An
         <code>
             NSBox
         </code>
-        is a nice way to group related UI elements and to them a name you can
-        see in Xcode’s
+        是一个很好的组织相关的UI元素的方式，给他们一个名字，你可以在Xcode的
         <em>
             Document Outline
         </em>
-        .
+        中看到它们。
     </p>
     <p>
-        To complete the UI, drag a label inside the content area of the
+        为了完成UI，拖拽一个label，到
         <code>
             NSBox
         </code>
-        . Select the label and click on the
+        的内容中。选择这个label并单击
         <em>
             Add New Constraints
         </em>
-        button to add constraints for
+        按钮来添加
         <em>
             top
         </em>
-        ,
+        ，
         <em>
             leading
         </em>
-        ,
+        ，
         <em>
             trailing
         </em>
-        , and
+        ，和
         <em>
             bottom
         </em>
-        , all using the
+        约束，全部使用
         <em>
             standard
         </em>
-        value.
+        value。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/BoxLabel.png"
