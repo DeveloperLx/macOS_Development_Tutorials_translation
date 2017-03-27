@@ -1735,18 +1735,18 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
   <span style="color: black;">}</span>
 <span style="color: black;">}</span></pre>
     <p>
-        You’re probably familiar with this code already, because it’s very similar
-        to the Overview view controller implementation. This code:
+        你可能早已熟悉这个代码，因为它和Overview view controller的实现非常相似。这个代码：
     </p>
     <ol>
         <li>
-            Defines a
+            定义了一个
             <code>
                 selectedProduct
             </code>
-            property and updates the UI whenever it changes.
+            property并在它发生变化时更新UI。
         </li>
         <li>
+            当view出现的时候（也就是当detail view的tab被选中时）更新UI。
             Forces a UI update whenever the view appears (when the detail view tab
             is selected).
         </li>
