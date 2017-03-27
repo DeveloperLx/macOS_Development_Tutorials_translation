@@ -1349,38 +1349,38 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         Detail View Controller
     </h2>
     <p>
-        Now you will create a view controller class for the Details tab.
+        现在你将为Details这个tab创建view controller。
     </p>
     <p>
-        Go to
+        前往
         <em>
             File/New/File…
         </em>
-        , choose
+        ，选择
         <em>
             macOS/Source/Cocoa Class
         </em>
-        , and click
+        ，单击
         <em>
             Next
         </em>
-        . Name the class
+        。将类命名为
         <em>
             DetailViewController
         </em>
-        , make it a subclass of
+        ，作为
         <em>
             NSViewController
         </em>
-        , and make sure
+        的子类，取消勾选
         <em>
             Also Create XIB for user interface
         </em>
-        is not selected. Click
+        。单击
         <em>
             Next
         </em>
-        and save.
+        并保存。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/create-detailviewcontroller.png"
@@ -1391,23 +1391,23 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and select
+        并选择
         <em>
             Details Scene
         </em>
-        . In the
+        。在
         <em>
             Identity Inspector
         </em>
-        change the class to
+        中将类改变为
         <code>
             DetailViewController
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/detail-vcname.png"
@@ -1418,39 +1418,39 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Add an
+        添加一个
         <code>
             image view
         </code>
-        to the detail view. Select it and click on the
+        到detail view上。选择它并单击
         <em>
             Add New Constraints
         </em>
-        button to create its constraints. Set
+        按钮来创建约束。设置
         <em>
             width
         </em>
-        and
+        和
         <em>
             height
         </em>
-        constraints to a value of
+        约束的值为
         <em>
             180
         </em>
-        , and a
+        ，top
         <em>
             top
         </em>
-        constraint to the
+        约束的值为
         <em>
             standard
         </em>
-        &nbsp;value. As you did with the
+        value。正如你在
         <em>
             OverviewController
         </em>
-        , give it an image to make it easier to see.
+        做的一样，给它一张图片来让它更容易被看到。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailImageView.png"
@@ -1462,15 +1462,15 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Click on the
+        单击底栏的
         <em>
             Align
         </em>
-        button in the bottom bar and add a constraint to center the view
+        按钮，并添加一个
         <em>
             Horizontally in the Container
         </em>
-        .
+        的约束来让view居中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/AlignImageView.png"
@@ -1482,28 +1482,27 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Add a label below the image view. Change the font to bold and the size
-        to 19, then click on the
+        在image view下面添加一个label。将字体改为bold，大小为19，然后单击
         <em>
             Add New Constraints
         </em>
-        button to add constraints for
-        <em>
-            top
-        </em>
-        ,
-        <em>
-            leading
-        </em>
-        , and
-        <em>
-            trailing
-        </em>
-        , using the
+        按钮来使用
         <em>
             standard
         </em>
-        values.
+        values添加
+        <em>
+            top
+        </em>
+        ，
+        <em>
+            leading
+        </em>
+        ，和
+        <em>
+            trailing
+        </em>
+        的约束。        
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailTitleLabel.png"
@@ -1515,27 +1514,27 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        Add another label below the previous one. Select it, and click on the
+        添加另一个label到之前的label下面。选择它，并单击
         <em>
             Add New Constraints
         </em>
-        button first to add constraints for
-        <em>
-            top
-        </em>
-        ,
-        <em>
-            leading
-        </em>
-        and
-        <em>
-            trailing
-        </em>
-        , using
+        按钮来使用
         <em>
             standard
         </em>
-        &nbsp;values.
+        values添加
+        <em>
+            top
+        </em>
+        ，
+        <em>
+            leading
+        </em>
+        和
+        <em>
+            trailing
+        </em>
+        的约束。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/PinDetailBottomLabel.png"
