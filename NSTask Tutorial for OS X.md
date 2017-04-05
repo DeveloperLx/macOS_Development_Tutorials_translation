@@ -73,7 +73,7 @@
                 注意：
             </em>
             这个教程假定你对Mac OS X开发和终端已有一些基本的熟悉度。如果你对于Mac编程是纯小白，请查看我们的
-            <a href="/?p=17811" sl-processed="1">
+            <a href="https://www.raywenderlich.com/17811/how-to-make-a-simple-mac-app-on-os-x-10-7-tutorial-part-13" sl-processed="1">
                 初学者Mac OS X开发教程系列
             </a>
             。
@@ -83,16 +83,15 @@
         入门
     </h2>
     <p>
-        To keep the focus squarely on NSTask, I’ve created a starter project for
-        you that contains a basic user interface.
+        为了把注意力直接集中在NSTask上，我已经为你创建了一个启动项目，它包含了基本的用户界面。
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/TasksProject-starter_s3.zip"
         sl-processed="1">
-            Download the project
+            下载这个项目
         </a>
-        , open it in Xcode, and build and run.
+        ，并在Xcode中打开，build并运行。
     </p>
     <p>
-        The starter app has one window, as shown:
+        这个启动的app有一个window，就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/initial_view-562x500.png"
@@ -101,14 +100,14 @@
         sizes="(max-width: 562px) 100vw, 562px">
     </p>
     <p>
-        This window has the title “TasksProject”. It has a simple GUI that will,
-        by invoking a shell script, let you build an iOS project, create an
+        这个window有一个标题“TasksProject”。它包含一个简单的GUI，它将通过调用shell脚本，来让你构建一个iOS项目，创建一个
         <code>
             ipa
         </code>
-        and observe what is happening.
+        并观察正在发生什么。
     </p>
     <h2>
+        创建你的第一个NSTask
         Creating Your First NSTask
     </h2>
     <p>
@@ -162,105 +161,13 @@
         . Take a look at the properties and methods under the comment “Window
         Outlets”:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250711">
-                    <td class="code" id="p125071code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //View Controller Outlets
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            outputText
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextView
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            spinner
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSProgressIndicator
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            projectPath
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPathControl
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            repoPath
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPathControl
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            buildButton
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSButton
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            targetName
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//View Controller Outlets</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> outputText<span style="color: black;">:</span><span style="color: #6F41A7;">NSTextView</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> spinner<span style="color: black;">:</span><span style="color: #6F41A7;">NSProgressIndicator</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> projectPath<span style="color: black;">:</span><span style="color: #6F41A7;">NSPathControl</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> repoPath<span style="color: black;">:</span><span style="color: #6F41A7;">NSPathControl</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> buildButton<span style="color: black;">:</span><span style="color: #6F41A7;">NSButton</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> targetName<span style="color: black;">:</span><span style="color: #6F41A7;">NSTextField</span><span style="color: black;">!</span></pre>
     <p>
         All of these properties correspond to the
         <em>
