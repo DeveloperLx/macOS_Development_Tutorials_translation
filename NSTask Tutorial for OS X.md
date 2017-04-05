@@ -388,78 +388,72 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
 &nbsp;
 <span style="color: black;">}</span></pre>
     <p>
-        Here’s a step-by-step explanation of the code above:
+        以下是对上述代码一步一步的解释：
     </p>
     <ol>
         <li>
             <code>
                 outputText
             </code>
-            is the large text box in the window; it will contain all the output from
-            the script that you will be running. If you run the script multiple times,
-            you’ll want to clear it out between each run, so this first line sets the
+            是window中的大文本框；它会包含所有来自你将要运行的脚本的输出。如果你运行这个脚本多次，你会想在每次运行前清空它，因此第一行会设置
             <code>
                 string
             </code>
-            property (contents of the text box) to an empty string.
+            property（text框的内容）为一个空字符串。
         </li>
         <li>
-            The
             <code>
                 projectURL
             </code>
-            and
+            和
             <code>
                 repositoryURL
             </code>
-            objects are
+            都是
             <code>
                 NSURL
             </code>
-            objects, and this gets the string representations of these objects in
-            order to pass them as arguments to your
+            的对象，为了将它们作为参数传你给你的
             <code>
                 NSTask
             </code>
-            .
+            ，代码获取了这些对象的字符串的表示。
         </li>
         <li>
-            By convention, the name of the folder and the name of the project file
-            are the same. Getting the
-            <code>
-                lastPathComponent
-            </code>
-            property of the project folder contained in
+            一般地，目录的名称和项目文件的名称是相同的。在包含于
             <code>
                 projectURL
             </code>
-            and adding an “.xcodeproj” extension gets the path to the project file.
+            的项目目录，获取
+            <code>
+                lastPathComponent
+            </code>
+            property，并添加一个“.xcodeproj”的扩展，来获取项目文件的路径。
         </li>
         <li>
-            Defines the subdirectory where your task will store intermediate build
-            files while it’s creating the
+            定义当创建
             <code>
                 ipa
             </code>
-            file as
+            文件作为
             <code>
                 build
             </code>
-            .
+            时，产生的中间的build文件，所将要保存在的子目录。
         </li>
         <li>
-            Stores the arguments in an array. This array will be passed to
+            将参数保存到一个数组中。这个数组将传递给
             <code>
                 NSTask
             </code>
-            to be used when launching the command line tools to build your
+            ，用来在运行命令行工具时，构建
             <code>
                 .ipa
             </code>
-            file.
+            文件。
         </li>
         <li>
-            Disables the “Build” button and starts a spinner animation.
+            禁用“Build”按钮，并启动一个spinner动画。
         </li>
     </ol>
     <p>
