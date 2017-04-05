@@ -356,214 +356,37 @@
         <code>
             startTask(_:)
         </code>
-        ：
+        中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250712">
-                    <td class="code" id="p125071code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            outputText.string
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                ""
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            projectURL
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectPath.url,
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            repositoryURL
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            repoPath.url
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            projectLocation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectURL.path
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            finalLocation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            repositoryURL.path &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            projectName
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectURL.lastPathComponent
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            xcodeProjectFile
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectLocation
-                            <span style="color: #002200;">
-                                +
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "/
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                projectName).xcodeproj"
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            buildLocation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectLocation
-                            <span style="color: #002200;">
-                                +
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "/build"
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //5.
-                            </span>
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            arguments
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            xcodeProjectFile
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            targetName.stringValue
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            buildLocation
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            projectName
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            finalLocation
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //6.
-                            </span>
-                            buildButton.isEnabled
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            spinner.startAnimation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
+outputText.<span style="color: #508187;">string</span> = <span style="color: #C41A16;">""</span>
+&nbsp;
+<span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> projectURL = projectPath.<span style="color: #508187;">url</span><span style="color: black;">,</span> <span style="color: #B833A1;">let</span> repositoryURL = repoPath.<span style="color: #508187;">url</span> <span style="color: black;">{</span>
+&nbsp;
+  <span style="color: #008312;">//2.</span>
+  <span style="color: #B833A1;">let</span> projectLocation = projectURL.<span style="color: #508187;">path</span>
+  <span style="color: #B833A1;">let</span> finalLocation = repositoryURL.<span style="color: #508187;">path</span>
+&nbsp;
+  <span style="color: #008312;">//3.</span>
+  <span style="color: #B833A1;">let</span> projectName = projectURL.<span style="color: #508187;">lastPathComponent</span>
+  <span style="color: #B833A1;">let</span> xcodeProjectFile = projectLocation <span style="color: black;">+</span> <span style="color: #C41A16;">"/<span style="color: #C41A16;">\(</span>projectName).xcodeproj"</span>
+&nbsp;
+  <span style="color: #008312;">//4.</span>
+  <span style="color: #B833A1;">let</span> buildLocation = projectLocation <span style="color: black;">+</span> <span style="color: #C41A16;">"/build"</span>
+&nbsp;
+  <span style="color: #008312;">//5.</span>
+  <span style="color: #B833A1;">var</span> arguments<span style="color: black;">:</span><span style="color: black;">[</span><span style="color: #6F41A7;">String</span><span style="color: black;">]</span> = <span style="color: black;">[</span><span style="color: black;">]</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>xcodeProjectFile<span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>targetName.<span style="color: #508187;">stringValue</span><span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>buildLocation<span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>projectName<span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>finalLocation<span style="color: black;">)</span>
+&nbsp;
+  <span style="color: #008312;">//6.</span>
+  buildButton.<span style="color: #508187;">isEnabled</span> = <span style="color: #B833A1;">false</span>
+  spinner.<span style="color: #508187;">startAnimation</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span><span style="color: black;">)</span>
+&nbsp;
+<span style="color: black;">}</span></pre>
     <p>
         Here’s a step-by-step explanation of the code above:
     </p>
