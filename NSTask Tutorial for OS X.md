@@ -108,58 +108,47 @@
     </p>
     <h2>
         创建你的第一个NSTask
-        Creating Your First NSTask
     </h2>
     <p>
-        The
         <code>
             NSTask
         </code>
-        example will be to build and package an iOS app into an
+        的示例，将通过
+        <code>
+            NSTask
+        </code>
+        在后台运行一些命令程序，来build并打包一个iOS app到
         <code>
             ipa
         </code>
-        file by using
+        文件。大多数基本的UI功能都已到位 - 你的工作的重点都在
         <code>
             NSTask
         </code>
-        to run some command line tools in the background. Most of the basic UI
-        functionality is in place — your job is do the heavy lifting with
-        <code>
-            NSTask
-        </code>
-        .
+        上。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            It’s recommended that you have an iOS Developer account with Apple, as
-            you’ll need the proper certificates and provisioning profile to create
-            an
+            建议你要有一个苹果iOS开发者的账号，因为你需要合适的证书和provisioning profile来创建一个
             <code>
                 ipa
             </code>
-            file that can be installed on one of your devices. Don’t worry if you
-            don’t, though, as you’ll be able to follow the entire tutorial even without
-            an account.
+            文件，它可以安装到你的一个设备上。如果你没有也不要担心，你同样可以在没有这个账号的情况下，follow整个教程。
         </p>
     </div>
     <p>
-        You are now going to work on the embedded View Controller titled “Tasks
-        View Controller”. The first section in the window asks the user to select
-        an Xcode project directory. To save time, rather than having to select
-        a directory manually every time you run this app while testing, you’ll
-        hard-code it to one of your own Xcode project directories.
+        现在你将在嵌入的，标题为“Tasks View Controller”的View Controller中工作。在这个window中的第一部分，会请求用户选择一个Xcode项目的目录。为了节省时间，你将硬编码为一个你自己的Xcode项目目录，而不是在每次测试运行你的app时，手动选择一个目录。
     </p>
     <p>
+        要这么做，回到Xcode并打开
         To do this, head back to Xcode and open
         <em>
             TasksViewController.swift
         </em>
-        . Take a look at the properties and methods under the comment “Window
-        Outlets”:
+        。看一下注释“Window Outlets“下的property和方法：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//View Controller Outlets</span>
 <span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> outputText<span style="color: black;">:</span><span style="color: #6F41A7;">NSTextView</span><span style="color: black;">!</span>
@@ -169,47 +158,46 @@
 <span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> buildButton<span style="color: black;">:</span><span style="color: #6F41A7;">NSButton</span><span style="color: black;">!</span>
 <span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> targetName<span style="color: black;">:</span><span style="color: #6F41A7;">NSTextField</span><span style="color: black;">!</span></pre>
     <p>
-        All of these properties correspond to the
+        所有的这些property都对应于
+        <em>
+            Main.storyboard
+        </em>
+        中的
         <em>
             Tasks View Controller Scene
         </em>
-        in
-        <em>
-            Main.storyboard
-        </em>
-        . Notice the
+        。注意
         <code>
             projectPath
         </code>
-        property — this is the one you want to change.
+        property — 这是你想要改变的那一个。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and click on the
+        并单击
         <em>
             Project Location
         </em>
-        item. You’ll find it 4 levels deep in the object hierarchy; it’s a child
-        of the
+        这项。你会发现在对象的层级上位于第四层；它是
         <em>
             Stack View
         </em>
-        . In the
+        的一个“孩子”。在
         <code>
             Attributes Inspector
         </code>
-        , under
+        中，
         <em>
             Path Control
         </em>
-        , find the
+        下，找到
         <em>
             Path
         </em>
-        element:
+        元素：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/set_path_1b-700x385.png"
@@ -218,20 +206,19 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Set
+        设置
         <em>
             Path
         </em>
-        to a directory on your machine that contains an iOS project. Make sure
-        you use the
+        为一个你的机器上包含iOS项目的目录。确保你使用的是项目的
         <i>
             parent
         </i>
-        directory of a project, not the
+        目录，而不是
         <code>
             .xcodeproj
         </code>
-        file itself.
+        文件它本身。
     </p>
     <div class="note">
         <p>
