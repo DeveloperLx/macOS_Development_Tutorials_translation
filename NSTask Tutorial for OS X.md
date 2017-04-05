@@ -485,7 +485,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         <i>
             看起来
         </i>
-        非常得忙碌，但你知道实际上，它现在是没有做任何事的。是时候去添加
+        非常得忙碌，但你知道现在实际上，它是没有做任何事的。是时候去添加
         <code>
             NSTask
         </code>
@@ -529,36 +529,35 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
 &nbsp;
 <span style="color: black;">}</span></pre>
     <p>
-        If you look at the method step-by-step, you’ll see that the code does
-        the following:
+        如果你一步步地看方法，你会看到代码做了下列的事情：
     </p>
     <ol>
         <li>
-            Sets
+            设置
             <code>
                 isRunning
             </code>
-            to
+            为
             <code>
                 true
             </code>
-            . This enables the
+            。这会允许
             <code>
                 Stop
             </code>
-            button, since it’s bound to the
-            <code>
-                TasksViewController
-            </code>
-            ‘s
-            <code>
-                isRunning
-            </code>
-            property via
+            按钮的使用，因为它通过
             <a href="/?p=21752" sl-processed="1">
                 Cocoa Bindings
             </a>
-            . You want this to happen on the main thread.
+            被绑定到了
+            <code>
+                TasksViewController
+            </code>
+            的
+            <code>
+                isRunning
+            </code>
+            property。你想要让这发生在主线程。
         </li>
         <li>
             Creates a
