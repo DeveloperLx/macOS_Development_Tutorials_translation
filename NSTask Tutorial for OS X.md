@@ -223,52 +223,50 @@
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            If you don’t have any iOS projects on your machine,
+            如果在你的你机器上没有任何的iOS项目，
             <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SuperDuperApp_s3.zip"
             sl-processed="1">
-                download a simple project here
+                就在这里下载一个简单的项目
             </a>
-            and unzip it to a location on your machine. Then set the
+            ，并将其解压到你机器上。然后使用前面的说明来设置你应用中的
             <code>
                 Path
             </code>
-            property in your application using the instructions above. For example,
-            if you unzip the package on your desktop, you would set
+            property。例如，如果你把这个包解压到了桌面上，你就应该设置 
             <code>
                 Path
             </code>
-            to
+            为
             <code>
                 <br>
                 /Users/YOUR_USERNAME_HERE/Desktop/SuperDuperApp
             </code>
-            .
+            。
         </p>
     </div>
     <p>
-        Now that you have a default source project path in your app to facilitate
-        testing, you will also need a default destination path. Open
+        既然你在app中，有了一个默认的源项目路径来协助测试，你也需要使用一个默认的目的地路径。打开
         <em>
             Main.storyboard
         </em>
-        and click on the
+        并单击
         <em>
             Build Repository
         </em>
-        item.
+        项。
     </p>
     <p>
-        In the Attributes Inspector, find
-        <em>
-            Path
-        </em>
-        item under
+        在Attributes Inspector，在
         <em>
             Path Control
         </em>
-        :
+        下找到
+        <em>
+            Path
+        </em>
+        项：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/set_path_2b-700x385.png"
@@ -277,27 +275,26 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Set the
+        将
         <em>
             Path
         </em>
-        entry to a directory on your machine that’s easy to find, like the Desktop.
-        This is where the
+        设置成一个容易在你的机器上被找到的目录，例如Desktop。它会是这个应用所创建的
         <code>
             .ipa
         </code>
-        file created by this application will be placed.
+        文件将要放置的地方。
     </p>
     <p>
-        There are two additional fields in the
+        这两个
         <code>
             Tasks View Controller Scene
         </code>
-        you need to know about: the
+        中额外的地方，你需要了解：
         <em>
             Target Name
         </em>
-        and an associated text field.
+        和一个关联的text field。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/initial_view_2-562x500.png"
@@ -310,32 +307,30 @@
             <em>
                 Target Name
             </em>
-            is designated for the name of the iOS
+            为你想要build的
             <code>
                 Target
             </code>
-            you want to build.
+            的名称。
         </li>
         <li>
-            The text area below Target Name will display output from the
+            在Target Name下展示的文本域，将在你的项目运行时，展示
             <code>
                 NSTask
             </code>
-            object in your project as it runs.
+            对象的输出。
         </li>
     </ol>
     <p>
-        Don’t know the target name of your iOS project? To find it, select your
-        project in Xcode’s project navigator and look under
-        <em>
-            TARGETS
-        </em>
-        in the
+        不知道你iOS项目target的名称？要找到它，在Xcode的project navigator中选择你的项目，并在
         <em>
             Info
         </em>
-        tab. The screenshot below shows where to find this for a sample project
-        called “SuperDuperApp”:
+        tab下查看
+        <em>
+            TARGETS
+        </em>
+        。下面的屏幕截图展示了，在哪里可以找到一个叫做“SuperDuperApp”的简单项目。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/target_name-700x429.png"
