@@ -339,12 +339,10 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Remember the target name — you’ll be entering it into the running app
-        later on.
+        记住target的名称 - 你将在后面当app运行时输入它。
     </p>
     <p>
-        Let’s start fleshing out the bits of code that will run when the “Build”
-        button is pressed.
+        让我们来填充（flesh out）当按下“Build”按钮时，将要运行的代码。
     </p>
     <h2>
         Preparing the Spinner
