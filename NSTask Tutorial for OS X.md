@@ -345,18 +345,18 @@
         让我们来填充（flesh out）当按下“Build”按钮时，将要运行的代码。
     </p>
     <h2>
-        Preparing the Spinner
+        准备Spinner
     </h2>
     <p>
-        Open
+        打开
         <em>
             TasksViewController.swift
         </em>
-        and add the following code to
+        并添加下列的代码到
         <code>
             startTask(_:)
         </code>
-        :
+        ：
     </p>
     <div class="wp_codebox">
         <table>
