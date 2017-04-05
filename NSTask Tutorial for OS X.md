@@ -457,26 +457,22 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </li>
     </ol>
     <p>
-        Why disable the “Build” button? The
+        为什么要禁用“Build”按钮？
         <code>
             NSTask
         </code>
-        will run each time the button is pressed, and as the app will be busy
-        for an amount of time while the
+        将在每次按下按钮时运行，因此app将在执行
         <code>
             NSTask
         </code>
-        does its work, the user could impatiently press it many times — each time
-        spawning a new build process. This action prevents the user from creating
-        button click events while the app is busy.
+        的时间内非常忙碌，用户会无耐心地多次点击它 - 每次都会产生一个新的build过程。这个动作避免了用户在app非常忙碌的时候创建按钮的点击事件。
     </p>
     <p>
-        Build and run your application, then hit the
+        Build并运行你的应用，然后点击
         <em>
             Build
         </em>
-        button. You should see the “Build” button disable and the spinner animation
-        start:
+        按钮。你应当看到“Build”按钮被禁用，并启动了spinner的动画：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/busy1-536x500.png"
@@ -485,194 +481,53 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         sizes="(max-width: 536px) 100vw, 536px">
     </p>
     <p>
-        Your app
+        你的app
         <i>
-            looks
+            看起来
         </i>
-        pretty busy, but you know right now it’s not really doing anything. Time
-        to add some
+        非常得忙碌，但你知道实际上，它现在是没有做任何事的。是时候去添加
         <code>
             NSTask
         </code>
-        magic.
+        的魔法了。
     </p>
     <h2>
-        Adding an NSTask to TasksProject
+        添加NSTask到TasksProject
     </h2>
     <p>
-        Open
+        打开
         <em>
             TasksViewController.swift
         </em>
-        and add the following method:
+        并添加下面的方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250713">
-                    <td class="code" id="p125071code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            runScript
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ arguments
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            isRunning
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            taskQueue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            DispatchQueue.global
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            qos
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            DispatchQoS.QoSClass.background
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            taskQueue.async
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //TESTING CODE
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            Thread.sleep
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forTimeInterval
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #2400d9;">
-                                2.0
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //5.
-                            </span>
-                            DispatchQueue.main.async
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            execute
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildButton.isEnabled
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .spinner.stopAnimation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .isRunning
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //TESTING CODE
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">func</span> runScript<span style="color: black;">(</span>_ arguments<span style="color: black;">:</span><span style="color: black;">[</span><span style="color: #6F41A7;">String</span><span style="color: black;">]</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+&nbsp;
+  <span style="color: #008312;">//1.</span>
+  isRunning = <span style="color: #B833A1;">true</span>
+&nbsp;
+  <span style="color: #008312;">//2.</span>
+  <span style="color: #B833A1;">let</span> taskQueue = DispatchQueue.<span style="color: #508187;">global</span><span style="color: black;">(</span>qos<span style="color: black;">:</span> DispatchQoS.<span style="color: #508187;">QoSClass</span>.<span style="color: #508187;">background</span><span style="color: black;">)</span>
+&nbsp;
+  <span style="color: #008312;">//3.</span>
+  taskQueue.<span style="color: #508187;">async</span> <span style="color: black;">{</span>
+&nbsp;
+   <span style="color: #008312;">//TESTING CODE</span>
+&nbsp;
+   <span style="color: #008312;">//4.</span>
+   Thread.<span style="color: #508187;">sleep</span><span style="color: black;">(</span>forTimeInterval<span style="color: black;">:</span> <span style="color: #1C00CF;">2.0</span><span style="color: black;">)</span>
+&nbsp;
+   <span style="color: #008312;">//5.  </span>
+	DispatchQueue.<span style="color: #508187;">main</span>.<span style="color: #508187;">async</span><span style="color: black;">(</span>execute<span style="color: black;">:</span> <span style="color: black;">{</span>
+	  <span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildButton</span>.<span style="color: #508187;">isEnabled</span> = <span style="color: #B833A1;">true</span>
+	  <span style="color: #B833A1;">self</span>.<span style="color: #508187;">spinner</span>.<span style="color: #508187;">stopAnimation</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span><span style="color: black;">)</span>
+	  <span style="color: #B833A1;">self</span>.<span style="color: #508187;">isRunning</span> = <span style="color: #B833A1;">false</span>
+	<span style="color: black;">}</span><span style="color: black;">)</span>
+&nbsp;
+	<span style="color: #008312;">//TESTING CODE</span>
+  <span style="color: black;">}</span>
+&nbsp;
+<span style="color: black;">}</span></pre>
     <p>
         If you look at the method step-by-step, you’ll see that the code does
         the following:
