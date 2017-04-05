@@ -13,92 +13,74 @@
             sizes="(max-width: 250px) 100vw, 250px">
         </a>
         <p class="wp-caption-text">
-            See a practical example of using NSTask!
+            查看一个使用NSTask的特别的例子！
         </p>
     </div>
     <div class="note">
         <em>
-            Update note:
+            更新笔记：
         </em>
-        This NSTask Tutorial for OS X has been updated to Swift by
+        这个OS X的NSTask教程，已由
         <a href="https://www.raywenderlich.com/u/warrenburton" sl-processed="1">
             Warren Burton
         </a>
-        . The original tutorial was written by
+        更新为Swift版的了。原教程是由
         <a href="https://www.raywenderlich.com/u/macandyp" sl-processed="1">
             Andy Pereira
         </a>
-        .
+        撰写的。
     </div>
     <p>
-        Your Mac has a fully-fledged version of UNIX as its operating system,
-        which means it has a massive amount of pre-installed command line utilities
-        and scripting languages. Swift, Perl, Python, Bash, Ruby, plus anything
-        you can install. Wouldn’t it be nice to use to that power to create awesome
-        apps?
+        你的Mac是由一个成熟版本的UNIX作为操作系统的，这意味着它含有大量预装的命令行工具和脚本语言。Swift、Perl、Python、Bash、Ruby以及任何你可以安装的。使用这个来创建awesome的app，难道不是很棒么？
     </p>
     <p>
         <code>
             NSTask
         </code>
-        allows you to execute another program on your machine as a subprocess
-        and monitor its execution state while your main program continues to run.
-        For example, you could run the
+        让你可以在你的机器上执行另一个程序，作为一个子进程，并在你的主程序运行的时候，监视它的执行状态。例如，你可以运行
         <code>
             ls
         </code>
-        command to display a directory listing — from right inside your app!
+        命令来展示一个目录的列表 - 就是从你的app中！
     </p>
     <p>
-        A good analogy for
+        一个
         <code>
             NSTask
         </code>
-        is a parent-child relationship. A parent can create a child and tell it
-        to do certain things, and (theoretically) the child must obey.
+        的很好的类比是父母和孩子的关系。一个父母可以创建一个孩子，并告诉它去做确定的事情，（理论上）孩子必须服从。
         <code>
             NSTask
         </code>
-        behaves in a similar fashion; you start a “child” program, give it instructions
-        and tell it where to report any output or errors. Better yet — it’s way
-        more obedient than your average toddler :]
+        表现为类似的方式；你启动一个“孩子”程序，给它指示，并告诉它在哪里报告任何的输出或错误。但会更好 - 它会比你一般的学步小孩更顺从 :]
     </p>
     <p>
-        A great use for
         <code>
             NSTask
         </code>
-        is to provide a front-end GUI to command line programs. Command line programs
-        are powerful, but they require you to remember exactly where they live
-        on your machine, how to call them and what options or arguments you can
-        provide to the program. Adding a GUI on the front end can provide the user
-        with a great deal of control — without having to be a command line guru!
+        的一个很棒的用途，是用来提供命令行程序的前端GUI。命令行的程序是很有用的，但它们要求你准确地记住。它们在你机器上的什么地方，怎么来调用它们，以及你可以为它们提供什么选项或参数。在前端添加一个GUI，可以提供给用户大量的控制能力 - 无需成为一个命令行的专家（gurn）！
     </p>
     <p>
-        This tutorial includes an
+        本教程包含一个
         <code>
             NSTask
         </code>
-        example that shows you how to execute a simple command program with arguments
-        and display its standard output as it runs in a text field. By the end,
-        you’ll be ready to use NSTasks in your own apps!
+        示例，它会展示给你如何执行一个简单的，带有参数的命名行程序，并在它允许时，展示它的标准输出到一个text field中。最后，你就可以在你的自己的app中使用NSTask了！
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This tutorial assumes you have some basic familiarity with Mac OS X development
-            and the Terminal. If you are completely new to programming for the Mac,
-            check out our
+            这个教程假定你对Mac OS X开发和终端已有一些基本的熟悉度。如果你对于Mac编程是纯小白，请查看我们的
             <a href="/?p=17811" sl-processed="1">
-                beginning Mac OS X development tutorial series
+                初学者Mac OS X开发教程系列
             </a>
-            .
+            。
         </p>
     </div>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         To keep the focus squarely on NSTask, I’ve created a starter project for
