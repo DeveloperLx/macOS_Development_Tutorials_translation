@@ -560,88 +560,65 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
             property。你想要让这发生在主线程。
         </li>
         <li>
-            Creates a
+            创建一个
             <code>
                 DispatchQueue
             </code>
-            to run the heavy lifting on a background thread.
+            来在后台的线程运行繁重的任务。
         </li>
         <li>
-            Uses
+            在
+            <code>
+                DispatchQueue
+            </code>
+            中使用
             <code>
                 async
             </code>
-            on the
-            <code>
-                DispatchQueue
-            </code>
-            The application will continue to process things like button clicks on
-            the main thread, but the
+            。应用将会在主线程继续处理例如按钮点击的时间，但
             <code>
                 NSTask
             </code>
-            will run on the background thread until it is complete.
+            将运行在后台线程直到它完成为止。
         </li>
         <li>
-            This is a temporary line of code that causes the current thread to sleep
-            for 2 seconds, simulating a long-running task.
+            这是一行临时的代码，让当前的线程睡眠2秒钟，来模拟一个长时间运行的task。
         </li>
         <li>
-            Once the job has finished, re-enables the
+            当完工时，重新启用
             <code>
                 Build
             </code>
-            button, stops the spinner animation, and sets
+            按钮，停止spinner动画，并设置
             <code>
                 isRunning
             </code>
-            to
+            为
             <code>
                 false
             </code>
-            which disables the “Stop” button. This needs to be done in the main thread,
-            as you are manipulating UI elements.
+            ，也就禁用了“Stop”按钮。这需要在主线程完成，因为你是在操纵UI元素。
         </li>
     </ol>
     <p>
-        Now that you have a method that will run your task in a separate thread,
-        you need to call it from somewhere in your app.
+        既然你已有了一个，可以运行你的task在单独的线程中的方法，你需要在你的app 中的某个地方调用它。
     </p>
     <p>
-        Still in
+        仍然在
         <em>
             TasksViewController.swift
         </em>
-        , add the following code to the end of
+        中，添加下列的代码到
         <code>
             startTask
         </code>
-        just after
+        的末尾，就在
         <code>
             spinner.startAnimation(self)
         </code>
-        :
+        的后面：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250714">
-                    <td class="code" id="p125071code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            runScript
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            arguments
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">runScript<span style="color: black;">(</span>arguments<span style="color: black;">)</span></pre>
     <p>
         This calls
         <code>
