@@ -938,11 +938,11 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
         sizes="(max-width: 647px) 100vw, 647px">
     </p>
     <p>
-        Open
+        打开
         <em>
             BuildScript.command
         </em>
-        and add the following commands at the end of the file:
+        ，并添加下列的命令到文件末尾：
     </p>
     <pre class="objc" style="font-family:monospace;">echo <span style="color: #bf1d1a;">"*********************************"</span>
 echo <span style="color: #bf1d1a;">"Build Started"</span>
