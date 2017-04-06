@@ -1128,7 +1128,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             <em>
                 注意：
             </em>
-            Shell脚本存在的时间就像计算机一样长，因此你可以在网上找到更多关于它的信息。例如一个简单（且相关）的开启的地方，可以访问苹果的
+            Shell脚本存在的时间，就如同计算机一样地长，因此你可以在网上找到更多关于它的信息。例如一个简单（且相关）的开启的地方，可以访问苹果的
             <a href="https://developer.apple.com/library/mac/#documentation/opensource/conceptual/shellscripting/Introduction/Introduction.html"
             alt="Apple Shell Scripting Primer" sl-processed="1">
                 Shell脚本入门
@@ -1137,62 +1137,50 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </p>
     </div>
     <p>
-        Now you’re ready to start calling your script from
+        现在你已经准备好从
         <code>
             NSTask
         </code>
-        , right?
+        去调用你的脚本了，对么？
     </p>
     <p>
-        Not quite. At this point, your script file doesn’t have
+        不完全是。此刻，你的脚本文件还没有
         <em>
-            execute
+            执行
         </em>
-        permissions. That is, you can read and write the file, but you can’t execute
-        it.
+        的权限。你可以读和写文件，但你并不能执行它。
     </p>
     <p>
-        This means if you build and run right now, your app will crash when you
-        hit the Build button. Try it if you like. It’s not a big deal while developing,
-        and you should see the exception “launch path not accessible” in your Xcode
-        console.
+        这意味着如果你现在build并运行，当你点击Build按钮时，app就会crash。如果你想，就可以尝试一下。这在开发时并没什么大不了，你会在你的Xcode控制台中看到“launch path not accessible”的异常。
     </p>
     <p>
-        To make it executable, navigate to your project directory in Terminal.
-        Terminal defaults to your Home directory, so if your project is in your
+        为了让它可执行，在终端中前往你的项目目录。终端默认位于你的家目录中，因此如果项目是在你的
         <code>
             Documents
         </code>
-        directory, you would type the command:
+        目录下，你应该输入命令：
     </p>
     <pre class="command" style="font-family:monospace;">cd Documents/TasksProject</pre>
     <p>
-        If your project is in another directory besides “Documents/TasksProject”,
-        you’ll need to enter the correct path to your project folder. To do this
-        quickly, click and drag your project folder from the Finder into Terminal.
-        The path to your project will magically appear in the Terminal window!
-        Now simply move your cursor to the front of that path, type
+        如果你的项目在除“Documents/TasksProject”目录的另一个目录下，你需要输入正确的项目目录的路径。为了快速地完成，从Finder中点击并拖拽项目目录到终端中。你项目的路径，将魔术般地出现在终端的窗口上！现在简单地将你的光标移动到路径的前边，输入
         <code>
             cd
         </code>
-        followed by a space, and hit enter.
+        ，后跟一个空格，并点击enter。
     </p>
     <p>
-        To make sure you’re in the right place, type the following command into
-        Terminal:
+        为了确保你位于正确的地方，输入下列的命令到终端上：
     </p>
     <pre class="command" style="font-family:monospace;">ls</pre>
     <p>
-        Check that
+        在生成的文件列表中，检查
         <code>
             BuildScript.command
         </code>
-        in the file listing produced. If you’re not in the right place, check
-        that you’ve correctly entered your project directory in Terminal.
+        。如果你并非位于正确的位置，检查你是否在终端中输入了正确的项目目录。
     </p>
     <p>
-        Once you’re assured that you’re in the correct directory, type the following
-        command into Terminal:
+        当确保你在正确的目录下之后，输入下列的命令到终端中：
     </p>
     <pre class="command" style="font-family:monospace;">chmod +x BuildScript.command</pre>
     <p>
