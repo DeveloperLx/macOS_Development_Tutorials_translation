@@ -1105,38 +1105,35 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/bash</span></pre>
     <p>
-        In scripts, any argument you pass in is accessed by a
+        在脚本中，任何你传递的参数，都是通过一个
         <code>
             $
         </code>
-        and a number.
+        和一个数字来访问的。
         <code>
             $0
         </code>
-        represents the name of the program you called, with all arguments after
-        that referenced by
+        代表你调用的程序的名称，后面跟着的参数依次通过
         <code>
             $1
         </code>
-        ,
+        ，
         <code>
             $2
         </code>
-        and so forth.
+        等等来进行引用。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Shell scripts have been around for about as long as computers, so you’ll
-            find more information than you’ll ever want to know about them on the Internet.
-            For a simple (and relevant) place to start, check out Apple’s
+            Shell脚本存在的时间就像计算机一样长，因此你可以在网上找到更多关于它的信息。例如一个简单（且相关）的开启的地方，可以访问苹果的
             <a href="https://developer.apple.com/library/mac/#documentation/opensource/conceptual/shellscripting/Introduction/Introduction.html"
             alt="Apple Shell Scripting Primer" sl-processed="1">
-                Shell Scripting Primer
+                Shell脚本入门
             </a>
-            .
+            。
         </p>
     </div>
     <p>
