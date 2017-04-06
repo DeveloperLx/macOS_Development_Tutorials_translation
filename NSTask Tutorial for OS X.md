@@ -871,40 +871,40 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
     </p>
     <pre class="swift" style="font-family:monospace;">Unable to locate BuildScript.<span style="color: #508187;">command</span></pre>
     <p>
-        This is the log from the guard statement at the start of the code you just added. Since you haven’t added the script yet, the
+        这是你刚刚添加到代码开头的guard语句中的日志。由于你至今尚未添加任何的脚本，于是就触发了
         <code>
             guard
         </code>
-        is triggered.
+        。
     </p>
     <p>
-        Looks like it’s time to write that script! :]
+        看起来到了写脚本的时候了！:]
     </p>
     <h2>
-        Writing a Build Shell Script
+        撰写一个Build Shell的脚本
     </h2>
     <p>
-        In Xcode, choose
+        在Xcode中，选择
         <em>
             File\New\File…
         </em>
-        and select the
-        <em>
-            Other
-        </em>
-        category under
+        ，并在
         <em>
             OS X
         </em>
-        . Choose
+        下选择
+        <em>
+            Other
+        </em>
+        的category。选择
         <em>
             Shell Script
         </em>
-        and hit
+        并点击
         <em>
             Next
         </em>
-        :
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/04/add-script-1-650x463.png"
