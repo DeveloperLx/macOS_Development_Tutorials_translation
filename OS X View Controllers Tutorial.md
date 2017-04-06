@@ -1653,7 +1653,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        After updating the frames, the UI should look like this:
+        更新frame之后，UI看起来应该像是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/DetailFinished.png"
@@ -1665,49 +1665,52 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <p>
-        To create the outlets for those controls, open the
+        为了给那些控件创建outlet，打开
         <em>
             Assistant Editor
         </em>
-        and make sure that
+        ，并确保
         <em>
             DetailViewController.swift
         </em>
-        is open. Add four IBOutlets, giving them the following names:
+        已打开。添加四个IBOutlet，为他们命名如下：
     </p>
     <ol>
         <li>
+            NSImageView命名为
             <code>
                 productImageView
             </code>
-            for the NSImageView.
+            。
         </li>
         <li>
+            label名为
             <code>
                 titleLabel
             </code>
-            for the label with the bold font.
+            ，字体为粗体。
         </li>
         <li>
+            下面的label名为
             <code>
                 descriptionLabel
             </code>
-            for the label below.
+            。
         </li>
         <li>
+            NSBox中的label名为
             <code>
                 audienceLabel
             </code>
-            for the label in the NSBox.
+            。
         </li>
     </ol>
     <p>
-        With the outlets in place, add the implementation to show the product
-        detail. Add the following code to
+        通过恰当的outlet，添加实现来展示产品的细节。添加下列的代码到
         <code>
             DetailViewController
         </code>
-        class implementation:
+        类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">// 1</span>
 <span style="color: #B833A1;">var</span> selectedProduct<span style="color: black;">:</span> Product? <span style="color: black;">{</span>
@@ -1732,79 +1735,74 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
   <span style="color: black;">}</span>
 <span style="color: black;">}</span></pre>
     <p>
-        You’re probably familiar with this code already, because it’s very similar
-        to the Overview view controller implementation. This code:
+        你可能早已熟悉这个代码，因为它和Overview view controller的实现非常相似。这个代码：
     </p>
     <ol>
         <li>
-            Defines a
+            定义了一个
             <code>
                 selectedProduct
             </code>
-            property and updates the UI whenever it changes.
+            property并在它发生变化时更新UI。
         </li>
         <li>
-            Forces a UI update whenever the view appears (when the detail view tab
-            is selected).
+            当view出现的时候（也就是当detail view的tab被选中时）更新UI。
         </li>
         <li>
-            Sets the product information (using
+            使用适当的outlet，来设置在label和image view上的产品信息（通过
             <code>
                 updateUI
             </code>
-            ) in the labels and image view using the appropriate outlets.
+            ）。
         </li>
     </ol>
     <p>
-        When the product selection changes, you need to change the selected product
-        in the detail view controller so that it updates the UI. Open
+        当产品的选择发生变化时，你需要在detail view controller中改变选择的产品，来更新它的UI。打开
         <em>
             ViewController.swift
         </em>
-        and add a property to hold a reference to the the detail view controller.
-        Just below the
+        并添加一个property来持有到detail view controller的引用。在
         <code>
             overviewViewController
         </code>
-        property, add the following:
+        property的下方，添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> detailViewController<span style="color: black;">:</span> DetailViewController?</pre>
     <p>
-        Find
+        找到
         <code>
             valueChanged
         </code>
-        and add the following inside:
+        ，并添加下列的代码到里面：
     </p>
     <pre class="swift" style="font-family:monospace;">detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
     <p>
-        This updates the selected product property of the view controller when
-        the pop-up selection changes.
+        这会在pop-up的选择发生变化时，更新view controller的selectedProduct的property。
     </p>
     <p>
-        The last change is inside
+        最后一个改变位于
         <code>
             prepare(for:sender:)
         </code>
-        . Find the comment
+        中。找到评论
         <code>
             // More later
         </code>
-        and replace with the following:
+        并用下列代码将其替换：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">else</span> <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> controller = controller <span style="color: #B833A1;">as</span>? DetailViewController <span style="color: black;">{</span>
   detailViewController = controller
   detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct
 <span style="color: black;">}</span></pre>
     <p>
-        This updates the
+        这会在detail view被嵌入时，更新
         <code>
             selectedProduct
         </code>
-        when the detail view is embedded.
+        。
     </p>
     <p>
-        Build and run, and enjoy your finished application!
+        build并运行，并enjoy你完成的应用！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun.png"
@@ -1816,7 +1814,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </a>
     </p>
     <h2>
-        Where to Go From Here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1828,10 +1826,11 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1839,57 +1838,50 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </div>
     </div>
     <p>
-        You can download the final project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/RWStore_Final2.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终的项目。
     </p>
     <p>
-        In this macOS view controller tutorial you’ve learned the following:
+        在这个macOS view controller的教程中，你学到了下面的东西：
     </p>
     <ul>
         <li>
-            What a view controller is and how it compares to a window controller.
+            什么是view controller，以及它和window controller之间的比较。
         </li>
         <li>
-            How to create a custom view controller subclass.
+            怎样创建一个定制的view controller的子类。
         </li>
         <li>
-            How to connect elements in your view to a view controller.
+            怎讲将你的view中的元素，连接到view controller。
         </li>
         <li>
-            How to manipulate the view from the view controller.
+            怎样从view controller中操纵view。
         </li>
         <li>
-            The lifecycle of&nbsp;a view controller, and how to hook into the different
-            events.
+            view controller的生命周期，以及怎样hook到不同的事件中。
         </li>
     </ul>
     <p>
-        In addition to the functionality you’ve added to your custom view controller
-        subclasses, there are many built-in subclasses provided for you. To see
-        what built-in view controllers are available, take a look at the
+        除了你添加到定制的view controller的子类的功能，苹果还为你提供了很多內建的子类。为了查看有哪些可用的view controller，请查看
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/NSViewController_Class/index.html#//apple_ref/swift/cl/c:objc(cs)NSViewController"
         target="_blank" sl-processed="1">
-            documentation
+            文档
         </a>
-        .
+        。
     </p>
     <p>
-        If you’ve not already read it, you should take a look at Gabriel Miro’s
-        excellent
-        <a href="http://www.raywenderlich.com/111947/windows-and-window-controllers-in-os-x-tutorial"
+        如果你还没有读过它，你应该看一下Gabriel Miro的杰出的
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Windows%20and%20Window%20Controllers%20in%20OS%20X%20Tutorial.md"
         sl-processed="1">
-            tutorial on windows and window controllers
+            window和window controller教程
         </a>
         .
     </p>
     <p>
-        View controllers are one of the most powerful and useful aspects of architecting
-        an macOS app, and there’s plenty more to learn. However, you’re now equipped
-        with the knowledge to go out there and start playing around building apps
-        — which you should do now!
+        View controller是构建一个macOS app的最有力和最有用的方面之一，有足够的更多的东西可以去学。然而，你已经具备了走出这里并玩转构建app的知识 - 这正是你现在应该做的！
     </p>
 </div>

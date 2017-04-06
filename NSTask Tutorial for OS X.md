@@ -13,104 +13,85 @@
             sizes="(max-width: 250px) 100vw, 250px">
         </a>
         <p class="wp-caption-text">
-            See a practical example of using NSTask!
+            查看一个使用NSTask的特别的例子！
         </p>
     </div>
     <div class="note">
         <em>
-            Update note:
+            更新笔记：
         </em>
-        This NSTask Tutorial for OS X has been updated to Swift by
+        这个OS X的NSTask教程，已由
         <a href="https://www.raywenderlich.com/u/warrenburton" sl-processed="1">
             Warren Burton
         </a>
-        . The original tutorial was written by
+        更新为Swift版的了。原教程是由
         <a href="https://www.raywenderlich.com/u/macandyp" sl-processed="1">
             Andy Pereira
         </a>
-        .
+        撰写的。
     </div>
     <p>
-        Your Mac has a fully-fledged version of UNIX as its operating system,
-        which means it has a massive amount of pre-installed command line utilities
-        and scripting languages. Swift, Perl, Python, Bash, Ruby, plus anything
-        you can install. Wouldn’t it be nice to use to that power to create awesome
-        apps?
+        你的Mac是由一个成熟版本的UNIX作为操作系统的，这意味着它含有大量预装的命令行工具和脚本语言。Swift、Perl、Python、Bash、Ruby以及任何你可以安装的。使用这个来创建awesome的app，难道不是很棒么？
     </p>
     <p>
         <code>
             NSTask
         </code>
-        allows you to execute another program on your machine as a subprocess
-        and monitor its execution state while your main program continues to run.
-        For example, you could run the
+        让你可以在你的机器上执行另一个程序，作为一个子进程，并在你的主程序运行的时候，监视它的执行状态。例如，你可以运行
         <code>
             ls
         </code>
-        command to display a directory listing — from right inside your app!
+        命令来展示一个目录的列表 - 就是从你的app中！
     </p>
     <p>
-        A good analogy for
+        一个
         <code>
             NSTask
         </code>
-        is a parent-child relationship. A parent can create a child and tell it
-        to do certain things, and (theoretically) the child must obey.
+        的很好的类比是父母和孩子的关系。一个父母可以创建一个孩子，并告诉它去做确定的事情，（理论上）孩子必须服从。
         <code>
             NSTask
         </code>
-        behaves in a similar fashion; you start a “child” program, give it instructions
-        and tell it where to report any output or errors. Better yet — it’s way
-        more obedient than your average toddler :]
+        表现为类似的方式；你启动一个“孩子”程序，给它指示，并告诉它在哪里报告任何的输出或错误。但会更好 - 它会比你一般的学步小孩更顺从 :]
     </p>
     <p>
-        A great use for
         <code>
             NSTask
         </code>
-        is to provide a front-end GUI to command line programs. Command line programs
-        are powerful, but they require you to remember exactly where they live
-        on your machine, how to call them and what options or arguments you can
-        provide to the program. Adding a GUI on the front end can provide the user
-        with a great deal of control — without having to be a command line guru!
+        的一个很棒的用途，是用来提供命令行程序的前端GUI。命令行的程序是很有用的，但它们要求你准确地记住。它们在你机器上的什么地方，怎么来调用它们，以及你可以为它们提供什么选项或参数。在前端添加一个GUI，可以提供给用户大量的控制能力 - 无需成为一个命令行的专家（gurn）！
     </p>
     <p>
-        This tutorial includes an
+        本教程包含一个
         <code>
             NSTask
         </code>
-        example that shows you how to execute a simple command program with arguments
-        and display its standard output as it runs in a text field. By the end,
-        you’ll be ready to use NSTasks in your own apps!
+        示例，它会展示给你如何执行一个简单的，带有参数的命名行程序，并在它允许时，展示它的标准输出到一个text field中。最后，你就可以在你的自己的app中使用NSTask了！
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This tutorial assumes you have some basic familiarity with Mac OS X development
-            and the Terminal. If you are completely new to programming for the Mac,
-            check out our
-            <a href="/?p=17811" sl-processed="1">
-                beginning Mac OS X development tutorial series
+            这个教程假定你对Mac OS X开发和终端已有一些基本的熟悉度。如果你对于Mac编程是纯小白，请查看我们的
+            <a href="https://www.raywenderlich.com/17811/how-to-make-a-simple-mac-app-on-os-x-10-7-tutorial-part-13" sl-processed="1">
+                初学者Mac OS X开发教程系列
             </a>
-            .
+            。
         </p>
     </div>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        To keep the focus squarely on NSTask, I’ve created a starter project for
-        you that contains a basic user interface.
+        为了把注意力直接集中在NSTask上，我已经为你创建了一个启动项目，它包含了基本的用户界面。
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/TasksProject-starter_s3.zip"
         sl-processed="1">
-            Download the project
+            下载这个项目
         </a>
-        , open it in Xcode, and build and run.
+        ，并在Xcode中打开，build并运行。
     </p>
     <p>
-        The starter app has one window, as shown:
+        这个启动的app有一个window，就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/initial_view-562x500.png"
@@ -119,208 +100,104 @@
         sizes="(max-width: 562px) 100vw, 562px">
     </p>
     <p>
-        This window has the title “TasksProject”. It has a simple GUI that will,
-        by invoking a shell script, let you build an iOS project, create an
+        这个window有一个标题“TasksProject”。它包含一个简单的GUI，它将通过调用shell脚本，来让你构建一个iOS项目，创建一个
         <code>
             ipa
         </code>
-        and observe what is happening.
+        并观察正在发生什么。
     </p>
     <h2>
-        Creating Your First NSTask
+        创建你的第一个NSTask
     </h2>
     <p>
-        The
         <code>
             NSTask
         </code>
-        example will be to build and package an iOS app into an
+        的示例，将通过
+        <code>
+            NSTask
+        </code>
+        在后台运行一些命令程序，来build并打包一个iOS app到
         <code>
             ipa
         </code>
-        file by using
+        文件。大多数基本的UI功能都已到位 - 你的工作的重点都在
         <code>
             NSTask
         </code>
-        to run some command line tools in the background. Most of the basic UI
-        functionality is in place — your job is do the heavy lifting with
-        <code>
-            NSTask
-        </code>
-        .
+        上。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            It’s recommended that you have an iOS Developer account with Apple, as
-            you’ll need the proper certificates and provisioning profile to create
-            an
+            建议你要有一个苹果iOS开发者的账号，因为你需要合适的证书和provisioning profile来创建一个
             <code>
                 ipa
             </code>
-            file that can be installed on one of your devices. Don’t worry if you
-            don’t, though, as you’ll be able to follow the entire tutorial even without
-            an account.
+            文件，它可以安装到你的一个设备上。如果你没有也不要担心，你同样可以在没有这个账号的情况下，follow整个教程。
         </p>
     </div>
     <p>
-        You are now going to work on the embedded View Controller titled “Tasks
-        View Controller”. The first section in the window asks the user to select
-        an Xcode project directory. To save time, rather than having to select
-        a directory manually every time you run this app while testing, you’ll
-        hard-code it to one of your own Xcode project directories.
+        现在你将在嵌入的，标题为“Tasks View Controller”的View Controller中工作。在这个window中的第一部分，会请求用户选择一个Xcode项目的目录。为了节省时间，你将硬编码为一个你自己的Xcode项目目录，而不是在每次测试运行你的app时，手动选择一个目录。
     </p>
     <p>
+        要这么做，回到Xcode并打开
         To do this, head back to Xcode and open
         <em>
             TasksViewController.swift
         </em>
-        . Take a look at the properties and methods under the comment “Window
-        Outlets”:
+        。看一下注释“Window Outlets“下的property和方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250711">
-                    <td class="code" id="p125071code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //View Controller Outlets
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            outputText
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextView
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            spinner
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSProgressIndicator
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            projectPath
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPathControl
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            repoPath
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSPathControl
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            buildButton
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSButton
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                            @IBOutlet
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            targetName
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSTextField
-                            </span>
-                            <span style="color: #002200;">
-                                !
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//View Controller Outlets</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> outputText<span style="color: black;">:</span><span style="color: #6F41A7;">NSTextView</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> spinner<span style="color: black;">:</span><span style="color: #6F41A7;">NSProgressIndicator</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> projectPath<span style="color: black;">:</span><span style="color: #6F41A7;">NSPathControl</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> repoPath<span style="color: black;">:</span><span style="color: #6F41A7;">NSPathControl</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> buildButton<span style="color: black;">:</span><span style="color: #6F41A7;">NSButton</span><span style="color: black;">!</span>
+<span style="color: #B833A1;">@IBOutlet</span> <span style="color: #B833A1;">var</span> targetName<span style="color: black;">:</span><span style="color: #6F41A7;">NSTextField</span><span style="color: black;">!</span></pre>
     <p>
-        All of these properties correspond to the
+        所有的这些property都对应于
+        <em>
+            Main.storyboard
+        </em>
+        中的
         <em>
             Tasks View Controller Scene
         </em>
-        in
-        <em>
-            Main.storyboard
-        </em>
-        . Notice the
+        。注意
         <code>
             projectPath
         </code>
-        property — this is the one you want to change.
+        property — 这是你想要改变的那一个。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and click on the
+        并单击
         <em>
             Project Location
         </em>
-        item. You’ll find it 4 levels deep in the object hierarchy; it’s a child
-        of the
+        这项。你会发现在对象的层级上位于第四层；它是
         <em>
             Stack View
         </em>
-        . In the
+        的一个“孩子”。在
         <code>
             Attributes Inspector
         </code>
-        , under
+        中，
         <em>
             Path Control
         </em>
-        , find the
+        下，找到
         <em>
             Path
         </em>
-        element:
+        元素：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/set_path_1b-700x385.png"
@@ -329,70 +206,67 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Set
+        设置
         <em>
             Path
         </em>
-        to a directory on your machine that contains an iOS project. Make sure
-        you use the
+        为一个你的机器上包含iOS项目的目录。确保你使用的是项目的
         <i>
             parent
         </i>
-        directory of a project, not the
+        目录，而不是
         <code>
             .xcodeproj
         </code>
-        file itself.
+        文件它本身。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            If you don’t have any iOS projects on your machine,
+            如果在你的你机器上没有任何的iOS项目，
             <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SuperDuperApp_s3.zip"
             sl-processed="1">
-                download a simple project here
+                就在这里下载一个简单的项目
             </a>
-            and unzip it to a location on your machine. Then set the
+            ，并将其解压到你机器上。然后使用前面的说明来设置你应用中的
             <code>
                 Path
             </code>
-            property in your application using the instructions above. For example,
-            if you unzip the package on your desktop, you would set
+            property。例如，如果你把这个包解压到了桌面上，你就应该设置 
             <code>
                 Path
             </code>
-            to
+            为
             <code>
                 <br>
                 /Users/YOUR_USERNAME_HERE/Desktop/SuperDuperApp
             </code>
-            .
+            。
         </p>
     </div>
     <p>
-        Now that you have a default source project path in your app to facilitate
-        testing, you will also need a default destination path. Open
+        既然你在app中，有了一个默认的源项目路径来协助测试，你也需要使用一个默认的目的地路径。打开
         <em>
             Main.storyboard
         </em>
-        and click on the
+        并单击
         <em>
             Build Repository
         </em>
-        item.
+        项。
     </p>
     <p>
-        In the Attributes Inspector, find
-        <em>
-            Path
-        </em>
-        item under
+        在Attributes Inspector，在
         <em>
             Path Control
         </em>
-        :
+        下找到
+        <em>
+            Path
+        </em>
+        项：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/set_path_2b-700x385.png"
@@ -401,27 +275,26 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Set the
+        将
         <em>
             Path
         </em>
-        entry to a directory on your machine that’s easy to find, like the Desktop.
-        This is where the
+        设置成一个容易在你的机器上被找到的目录，例如Desktop。它会是这个应用所创建的
         <code>
             .ipa
         </code>
-        file created by this application will be placed.
+        文件将要放置的地方。
     </p>
     <p>
-        There are two additional fields in the
+        这两个
         <code>
             Tasks View Controller Scene
         </code>
-        you need to know about: the
+        中额外的地方，你需要了解：
         <em>
             Target Name
         </em>
-        and an associated text field.
+        和一个关联的text field。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/initial_view_2-562x500.png"
@@ -434,32 +307,30 @@
             <em>
                 Target Name
             </em>
-            is designated for the name of the iOS
+            为你想要build的
             <code>
                 Target
             </code>
-            you want to build.
+            的名称。
         </li>
         <li>
-            The text area below Target Name will display output from the
+            在Target Name下展示的文本域，将在你的项目运行时，展示
             <code>
                 NSTask
             </code>
-            object in your project as it runs.
+            对象的输出。
         </li>
     </ol>
     <p>
-        Don’t know the target name of your iOS project? To find it, select your
-        project in Xcode’s project navigator and look under
-        <em>
-            TARGETS
-        </em>
-        in the
+        不知道你iOS项目target的名称？要找到它，在Xcode的project navigator中选择你的项目，并在
         <em>
             Info
         </em>
-        tab. The screenshot below shows where to find this for a sample project
-        called “SuperDuperApp”:
+        tab下查看
+        <em>
+            TARGETS
+        </em>
+        。下面的屏幕截图展示了，在哪里可以找到一个叫做“SuperDuperApp”的简单项目。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/target_name-700x429.png"
@@ -468,329 +339,140 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Remember the target name — you’ll be entering it into the running app
-        later on.
+        记住target的名称 - 你将在后面当app运行时输入它。
     </p>
     <p>
-        Let’s start fleshing out the bits of code that will run when the “Build”
-        button is pressed.
+        让我们来填充（flesh out）当按下“Build”按钮时，将要运行的代码。
     </p>
     <h2>
-        Preparing the Spinner
+        准备Spinner
     </h2>
     <p>
-        Open
+        打开
         <em>
             TasksViewController.swift
         </em>
-        and add the following code to
+        并添加下列的代码到
         <code>
             startTask(_:)
         </code>
-        :
+        中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250712">
-                    <td class="code" id="p125071code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            outputText.string
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                ""
-                            </span>
-                            &nbsp;
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            projectURL
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectPath.url,
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            repositoryURL
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            repoPath.url
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            projectLocation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectURL.path
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            finalLocation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            repositoryURL.path &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            projectName
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectURL.lastPathComponent
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            xcodeProjectFile
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectLocation
-                            <span style="color: #002200;">
-                                +
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "/
-                                <span style="color: #2400d9;">
-                                    \(
-                                </span>
-                                projectName).xcodeproj"
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            buildLocation
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            projectLocation
-                            <span style="color: #002200;">
-                                +
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "/build"
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //5.
-                            </span>
-                            <span style="color: #a61390;">
-                                var
-                            </span>
-                            arguments
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            xcodeProjectFile
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            targetName.stringValue
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            buildLocation
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            projectName
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            arguments.append
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            finalLocation
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //6.
-                            </span>
-                            buildButton.isEnabled
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            spinner.startAnimation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
+outputText.<span style="color: #508187;">string</span> = <span style="color: #C41A16;">""</span>
+&nbsp;
+<span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> projectURL = projectPath.<span style="color: #508187;">url</span><span style="color: black;">,</span> <span style="color: #B833A1;">let</span> repositoryURL = repoPath.<span style="color: #508187;">url</span> <span style="color: black;">{</span>
+&nbsp;
+  <span style="color: #008312;">//2.</span>
+  <span style="color: #B833A1;">let</span> projectLocation = projectURL.<span style="color: #508187;">path</span>
+  <span style="color: #B833A1;">let</span> finalLocation = repositoryURL.<span style="color: #508187;">path</span>
+&nbsp;
+  <span style="color: #008312;">//3.</span>
+  <span style="color: #B833A1;">let</span> projectName = projectURL.<span style="color: #508187;">lastPathComponent</span>
+  <span style="color: #B833A1;">let</span> xcodeProjectFile = projectLocation <span style="color: black;">+</span> <span style="color: #C41A16;">"/<span style="color: #C41A16;">\(</span>projectName).xcodeproj"</span>
+&nbsp;
+  <span style="color: #008312;">//4.</span>
+  <span style="color: #B833A1;">let</span> buildLocation = projectLocation <span style="color: black;">+</span> <span style="color: #C41A16;">"/build"</span>
+&nbsp;
+  <span style="color: #008312;">//5.</span>
+  <span style="color: #B833A1;">var</span> arguments<span style="color: black;">:</span><span style="color: black;">[</span><span style="color: #6F41A7;">String</span><span style="color: black;">]</span> = <span style="color: black;">[</span><span style="color: black;">]</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>xcodeProjectFile<span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>targetName.<span style="color: #508187;">stringValue</span><span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>buildLocation<span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>projectName<span style="color: black;">)</span>
+  arguments.<span style="color: #508187;">append</span><span style="color: black;">(</span>finalLocation<span style="color: black;">)</span>
+&nbsp;
+  <span style="color: #008312;">//6.</span>
+  buildButton.<span style="color: #508187;">isEnabled</span> = <span style="color: #B833A1;">false</span>
+  spinner.<span style="color: #508187;">startAnimation</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span><span style="color: black;">)</span>
+&nbsp;
+<span style="color: black;">}</span></pre>
     <p>
-        Here’s a step-by-step explanation of the code above:
+        以下是对上述代码一步一步的解释：
     </p>
     <ol>
         <li>
             <code>
                 outputText
             </code>
-            is the large text box in the window; it will contain all the output from
-            the script that you will be running. If you run the script multiple times,
-            you’ll want to clear it out between each run, so this first line sets the
+            是window中的大文本框；它会包含所有来自你将要运行的脚本的输出。如果你运行这个脚本多次，你会想在每次运行前清空它，因此第一行会设置
             <code>
                 string
             </code>
-            property (contents of the text box) to an empty string.
+            property（text框的内容）为一个空字符串。
         </li>
         <li>
-            The
             <code>
                 projectURL
             </code>
-            and
+            和
             <code>
                 repositoryURL
             </code>
-            objects are
+            都是
             <code>
                 NSURL
             </code>
-            objects, and this gets the string representations of these objects in
-            order to pass them as arguments to your
+            的对象，为了将它们作为参数传你给你的
             <code>
                 NSTask
             </code>
-            .
+            ，代码获取了这些对象的字符串的表示。
         </li>
         <li>
-            By convention, the name of the folder and the name of the project file
-            are the same. Getting the
-            <code>
-                lastPathComponent
-            </code>
-            property of the project folder contained in
+            一般地，目录的名称和项目文件的名称是相同的。在包含于
             <code>
                 projectURL
             </code>
-            and adding an “.xcodeproj” extension gets the path to the project file.
+            的项目目录，获取
+            <code>
+                lastPathComponent
+            </code>
+            property，并添加一个“.xcodeproj”的扩展，来获取项目文件的路径。
         </li>
         <li>
-            Defines the subdirectory where your task will store intermediate build
-            files while it’s creating the
+            定义当创建
             <code>
                 ipa
             </code>
-            file as
+            文件作为
             <code>
                 build
             </code>
-            .
+            时，产生的中间的build文件，所将要保存在的子目录。
         </li>
         <li>
-            Stores the arguments in an array. This array will be passed to
+            将参数保存到一个数组中。这个数组将传递给
             <code>
                 NSTask
             </code>
-            to be used when launching the command line tools to build your
+            ，用来在运行命令行工具时，构建
             <code>
                 .ipa
             </code>
-            file.
+            文件。
         </li>
         <li>
-            Disables the “Build” button and starts a spinner animation.
+            禁用“Build”按钮，并启动一个spinner动画。
         </li>
     </ol>
     <p>
-        Why disable the “Build” button? The
+        为什么要禁用“Build”按钮？
         <code>
             NSTask
         </code>
-        will run each time the button is pressed, and as the app will be busy
-        for an amount of time while the
+        将在每次按下按钮时运行，因此app将在执行
         <code>
             NSTask
         </code>
-        does its work, the user could impatiently press it many times — each time
-        spawning a new build process. This action prevents the user from creating
-        button click events while the app is busy.
+        的时间内非常忙碌，用户会无耐心地多次点击它 - 每次都会产生一个新的build过程。这个动作避免了用户在app非常忙碌的时候创建按钮的点击事件。
     </p>
     <p>
-        Build and run your application, then hit the
+        Build并运行你的应用，然后点击
         <em>
             Build
         </em>
-        button. You should see the “Build” button disable and the spinner animation
-        start:
+        按钮。你应当看到“Build”按钮被禁用，并启动了spinner的动画：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/busy1-536x500.png"
@@ -799,309 +481,144 @@
         sizes="(max-width: 536px) 100vw, 536px">
     </p>
     <p>
-        Your app
+        你的app
         <i>
-            looks
+            看起来
         </i>
-        pretty busy, but you know right now it’s not really doing anything. Time
-        to add some
+        非常得忙碌，但你知道现在实际上，它是没有做任何事的。是时候去添加
         <code>
             NSTask
         </code>
-        magic.
+        的魔法了。
     </p>
     <h2>
-        Adding an NSTask to TasksProject
+        添加NSTask到TasksProject
     </h2>
     <p>
-        Open
+        打开
         <em>
             TasksViewController.swift
         </em>
-        and add the following method:
+        并添加下面的方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250713">
-                    <td class="code" id="p125071code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            runScript
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ arguments
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                [
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                ]
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            isRunning
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            taskQueue
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            DispatchQueue.global
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            qos
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            DispatchQoS.QoSClass.background
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            taskQueue.async
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //TESTING CODE
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            Thread.sleep
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forTimeInterval
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #2400d9;">
-                                2.0
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //5.
-                            </span>
-                            DispatchQueue.main.async
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            execute
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildButton.isEnabled
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .spinner.stopAnimation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .isRunning
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //TESTING CODE
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">func</span> runScript<span style="color: black;">(</span>_ arguments<span style="color: black;">:</span><span style="color: black;">[</span><span style="color: #6F41A7;">String</span><span style="color: black;">]</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+&nbsp;
+  <span style="color: #008312;">//1.</span>
+  isRunning = <span style="color: #B833A1;">true</span>
+&nbsp;
+  <span style="color: #008312;">//2.</span>
+  <span style="color: #B833A1;">let</span> taskQueue = DispatchQueue.<span style="color: #508187;">global</span><span style="color: black;">(</span>qos<span style="color: black;">:</span> DispatchQoS.<span style="color: #508187;">QoSClass</span>.<span style="color: #508187;">background</span><span style="color: black;">)</span>
+&nbsp;
+  <span style="color: #008312;">//3.</span>
+  taskQueue.<span style="color: #508187;">async</span> <span style="color: black;">{</span>
+&nbsp;
+   <span style="color: #008312;">//TESTING CODE</span>
+&nbsp;
+   <span style="color: #008312;">//4.</span>
+   Thread.<span style="color: #508187;">sleep</span><span style="color: black;">(</span>forTimeInterval<span style="color: black;">:</span> <span style="color: #1C00CF;">2.0</span><span style="color: black;">)</span>
+&nbsp;
+   <span style="color: #008312;">//5.  </span>
+	DispatchQueue.<span style="color: #508187;">main</span>.<span style="color: #508187;">async</span><span style="color: black;">(</span>execute<span style="color: black;">:</span> <span style="color: black;">{</span>
+	  <span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildButton</span>.<span style="color: #508187;">isEnabled</span> = <span style="color: #B833A1;">true</span>
+	  <span style="color: #B833A1;">self</span>.<span style="color: #508187;">spinner</span>.<span style="color: #508187;">stopAnimation</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span><span style="color: black;">)</span>
+	  <span style="color: #B833A1;">self</span>.<span style="color: #508187;">isRunning</span> = <span style="color: #B833A1;">false</span>
+	<span style="color: black;">}</span><span style="color: black;">)</span>
+&nbsp;
+	<span style="color: #008312;">//TESTING CODE</span>
+  <span style="color: black;">}</span>
+&nbsp;
+<span style="color: black;">}</span></pre>
     <p>
-        If you look at the method step-by-step, you’ll see that the code does
-        the following:
+        如果你一步步地看方法，你会看到代码做了下列的事情：
     </p>
     <ol>
         <li>
-            Sets
+            设置
             <code>
                 isRunning
             </code>
-            to
+            为
             <code>
                 true
             </code>
-            . This enables the
+            。这会允许
             <code>
                 Stop
             </code>
-            button, since it’s bound to the
-            <code>
-                TasksViewController
-            </code>
-            ‘s
-            <code>
-                isRunning
-            </code>
-            property via
+            按钮的使用，因为它通过
             <a href="/?p=21752" sl-processed="1">
                 Cocoa Bindings
             </a>
-            . You want this to happen on the main thread.
-        </li>
-        <li>
-            Creates a
+            被绑定到了
             <code>
-                DispatchQueue
+                TasksViewController
             </code>
-            to run the heavy lifting on a background thread.
-        </li>
-        <li>
-            Uses
-            <code>
-                async
-            </code>
-            on the
-            <code>
-                DispatchQueue
-            </code>
-            The application will continue to process things like button clicks on
-            the main thread, but the
-            <code>
-                NSTask
-            </code>
-            will run on the background thread until it is complete.
-        </li>
-        <li>
-            This is a temporary line of code that causes the current thread to sleep
-            for 2 seconds, simulating a long-running task.
-        </li>
-        <li>
-            Once the job has finished, re-enables the
-            <code>
-                Build
-            </code>
-            button, stops the spinner animation, and sets
+            的
             <code>
                 isRunning
             </code>
-            to
+            property。你想要让这发生在主线程。
+        </li>
+        <li>
+            创建一个
+            <code>
+                DispatchQueue
+            </code>
+            来在后台的线程运行繁重的任务。
+        </li>
+        <li>
+            在
+            <code>
+                DispatchQueue
+            </code>
+            中使用
+            <code>
+                async
+            </code>
+            。应用将会在主线程继续处理例如按钮点击的时间，但
+            <code>
+                NSTask
+            </code>
+            将运行在后台线程直到它完成为止。
+        </li>
+        <li>
+            这是一行临时的代码，让当前的线程睡眠2秒钟，来模拟一个长时间运行的task。
+        </li>
+        <li>
+            当完工时，重新启用
+            <code>
+                Build
+            </code>
+            按钮，停止spinner动画，并设置
+            <code>
+                isRunning
+            </code>
+            为
             <code>
                 false
             </code>
-            which disables the “Stop” button. This needs to be done in the main thread,
-            as you are manipulating UI elements.
+            ，也就禁用了“Stop”按钮。这需要在主线程完成，因为你是在操纵UI元素。
         </li>
     </ol>
     <p>
-        Now that you have a method that will run your task in a separate thread,
-        you need to call it from somewhere in your app.
+        既然你已有了一个，可以运行你的task在单独的线程中的方法，你需要在你的app 中的某个地方调用它。
     </p>
     <p>
-        Still in
+        仍然在
         <em>
             TasksViewController.swift
         </em>
-        , add the following code to the end of
+        中，添加下列的代码到
         <code>
             startTask
         </code>
-        just after
+        的末尾，就在
         <code>
             spinner.startAnimation(self)
         </code>
-        :
+        的后面：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250714">
-                    <td class="code" id="p125071code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            runScript
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            arguments
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">runScript<span style="color: black;">(</span>arguments<span style="color: black;">)</span></pre>
     <p>
         This calls
         <code>
