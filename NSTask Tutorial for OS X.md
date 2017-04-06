@@ -857,21 +857,21 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
         </li>
     </ol>
     <p>
-        Build and run your project; you won’t notice that anything
+        Build并运行你的项目；你不会看到任何
         <i>
             looks
+            看起来
         </i>
+        不同的事，但点击
         different, but hit the
         <em>
             Build
         </em>
-        button and check the output console. You should see an error like the
-        following:
+        按钮并查看输出控制台。你会看到像下面这样的错误：
     </p>
     <pre class="swift" style="font-family:monospace;">Unable to locate BuildScript.<span style="color: #508187;">command</span></pre>
     <p>
-        This is the log from the guard statement at the start of the code you
-        just added. Since you haven’t added the script yet, the
+        This is the log from the guard statement at the start of the code you just added. Since you haven’t added the script yet, the
         <code>
             guard
         </code>
