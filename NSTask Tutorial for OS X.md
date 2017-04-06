@@ -620,7 +620,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
     </p>
     <pre class="swift" style="font-family:monospace;">runScript<span style="color: black;">(</span>arguments<span style="color: black;">)</span></pre>
     <p>
-        用你在
+        上面用你在
         <code>
             startTask
         </code>
@@ -732,211 +732,36 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </code>
         block with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250715">
-                    <td class="code" id="p125071code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            guard
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            path
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Bundle.main.path
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forResource
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "BuildScript"
-                            </span>
-                            ,ofType
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "command"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                else
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                print
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "Unable to locate BuildScript.command"
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                return
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Process
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask.launchPath
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            path
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask.arguments
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            arguments &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask.terminationHandler
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp; task
-                            <span style="color: #a61390;">
-                                in
-                            </span>
-                            DispatchQueue.main.async
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            execute
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildButton.isEnabled
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                true
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .spinner.stopAnimation
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .isRunning
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                false
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //TODO - Output Handling
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask.launch
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //5.
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask.waitUntilExit
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
+guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color: #508187;">main</span>.<span style="color: #508187;">path</span><span style="color: black;">(</span>forResource<span style="color: black;">:</span> <span style="color: #C41A16;">"BuildScript"</span><span style="color: black;">,</span>ofType<span style="color: black;">:</span><span style="color: #C41A16;">"command"</span><span style="color: black;">)</span> <span style="color: #B833A1;">else</span> <span style="color: black;">{</span>
+  <span style="color: #508187;">print</span><span style="color: black;">(</span><span style="color: #C41A16;">"Unable to locate BuildScript.command"</span><span style="color: black;">)</span>
+  <span style="color: #B833A1;">return</span>
+<span style="color: black;">}</span>
+&nbsp;
+<span style="color: #008312;">//2.</span>
+<span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span> = <span style="color: #6F41A7;">Process</span><span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span>.<span style="color: #508187;">launchPath</span> = path
+<span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span>.<span style="color: #508187;">arguments</span> = arguments
+&nbsp;
+<span style="color: #008312;">//3.</span>
+<span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span>.<span style="color: #508187;">terminationHandler</span> = <span style="color: black;">{</span>
+&nbsp;
+  task <span style="color: #B833A1;">in</span>
+  DispatchQueue.<span style="color: #508187;">main</span>.<span style="color: #508187;">async</span><span style="color: black;">(</span>execute<span style="color: black;">:</span> <span style="color: black;">{</span>
+    <span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildButton</span>.<span style="color: #508187;">isEnabled</span> = <span style="color: #B833A1;">true</span>
+    <span style="color: #B833A1;">self</span>.<span style="color: #508187;">spinner</span>.<span style="color: #508187;">stopAnimation</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span><span style="color: black;">)</span>
+    <span style="color: #B833A1;">self</span>.<span style="color: #508187;">isRunning</span> = <span style="color: #B833A1;">false</span>
+  <span style="color: black;">}</span><span style="color: black;">)</span>
+&nbsp;
+<span style="color: black;">}</span>
+&nbsp;
+<span style="color: #008312;">//TODO - Output Handling</span>
+&nbsp;
+<span style="color: #008312;">//4.</span>
+<span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span>.<span style="color: #508187;">launch</span><span style="color: black;">(</span><span style="color: black;">)</span>
+&nbsp;
+<span style="color: #008312;">//5.</span>
+<span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span>.<span style="color: #508187;">waitUntilExit</span><span style="color: black;">(</span><span style="color: black;">)</span></pre>
     <p>
         The above code:
     </p>
@@ -1054,19 +879,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         button and check the output console. You should see an error like the
         following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250716">
-                    <td class="code" id="p125071code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            Unable to locate BuildScript.command
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;">Unable to locate BuildScript.<span style="color: #508187;">command</span></pre>
     <p>
         This is the log from the guard statement at the start of the code you
         just added. Since you haven’t added the script yet, the
@@ -1142,118 +955,21 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </em>
         and add the following commands at the end of the file:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250717">
-                    <td class="code" id="p125071code7">
-                        <pre class="objc" style="font-family:monospace;">
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "*********************************"
-                            </span>
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "Build Started"
-                            </span>
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "*********************************"
-                            </span>
-                            &nbsp; echo
-                            <span style="color: #bf1d1a;">
-                                "*********************************"
-                            </span>
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "Beginning Build Process"
-                            </span>
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "*********************************"
-                            </span>
-                            &nbsp; xcodebuild
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            project
-                            <span style="color: #bf1d1a;">
-                                "${1}"
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            target
-                            <span style="color: #bf1d1a;">
-                                "${2}"
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            sdk iphoneos
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            verbose CONFIGURATION_BUILD_DIR
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "${3}"
-                            </span>
-                            &nbsp; echo
-                            <span style="color: #bf1d1a;">
-                                "*********************************"
-                            </span>
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "Creating IPA"
-                            </span>
-                            echo
-                            <span style="color: #bf1d1a;">
-                                "*********************************"
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                /
-                            </span>
-                            usr
-                            <span style="color: #002200;">
-                                /
-                            </span>
-                            bin
-                            <span style="color: #002200;">
-                                /
-                            </span>
-                            xcrun
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            verbose
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            sdk iphoneos PackageApplication
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            v
-                            <span style="color: #bf1d1a;">
-                                "${3}/${4}.app"
-                            </span>
-                            <span style="color: #002200;">
-                                -
-                            </span>
-                            o
-                            <span style="color: #bf1d1a;">
-                                "${5}/app.ipa"
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="objc" style="font-family:monospace;">echo <span style="color: #bf1d1a;">"*********************************"</span>
+echo <span style="color: #bf1d1a;">"Build Started"</span>
+echo <span style="color: #bf1d1a;">"*********************************"</span>
+&nbsp;
+echo <span style="color: #bf1d1a;">"*********************************"</span>
+echo <span style="color: #bf1d1a;">"Beginning Build Process"</span>
+echo <span style="color: #bf1d1a;">"*********************************"</span>
+&nbsp;
+xcodebuild <span style="color: #002200;">-</span>project <span style="color: #bf1d1a;">"${1}"</span> <span style="color: #002200;">-</span>target <span style="color: #bf1d1a;">"${2}"</span> <span style="color: #002200;">-</span>sdk iphoneos <span style="color: #002200;">-</span>verbose CONFIGURATION_BUILD_DIR<span style="color: #002200;">=</span><span style="color: #bf1d1a;">"${3}"</span>
+&nbsp;
+echo <span style="color: #bf1d1a;">"*********************************"</span>
+echo <span style="color: #bf1d1a;">"Creating IPA"</span>
+echo <span style="color: #bf1d1a;">"*********************************"</span>
+&nbsp;
+<span style="color: #002200;">/</span>usr<span style="color: #002200;">/</span>bin<span style="color: #002200;">/</span>xcrun <span style="color: #002200;">-</span>verbose <span style="color: #002200;">-</span>sdk iphoneos PackageApplication <span style="color: #002200;">-</span>v <span style="color: #bf1d1a;">"${3}/${4}.app"</span> <span style="color: #002200;">-</span>o <span style="color: #bf1d1a;">"${5}/app.ipa"</span></pre>
     <p>
         This is the entire build script that your
         <code>
@@ -1426,21 +1142,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         , you would change the first line to contain the full path to the appropriate
         shell executable, like so:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250719">
-                    <td class="code" id="p125071code9">
-                        <pre class="objc" style="font-family:monospace;">
-                            <span style="color: #6e371a;">
-                                #!/bin/bash
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/bash</span></pre>
     <p>
         In scripts, any argument you pass in is accessed by a
         <code>
@@ -1505,19 +1207,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </code>
         directory, you would type the command:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507110">
-                    <td class="code" id="p125071code10">
-                        <pre class="command" style="font-family:monospace;">
-                            cd Documents/TasksProject
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">cd Documents/TasksProject</pre>
     <p>
         If your project is in another directory besides “Documents/TasksProject”,
         you’ll need to enter the correct path to your project folder. To do this
@@ -1533,19 +1223,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         To make sure you’re in the right place, type the following command into
         Terminal:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507111">
-                    <td class="code" id="p125071code11">
-                        <pre class="command" style="font-family:monospace;">
-                            ls
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">ls</pre>
     <p>
         Check that
         <code>
@@ -1558,19 +1236,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         Once you’re assured that you’re in the correct directory, type the following
         command into Terminal:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507112">
-                    <td class="code" id="p125071code12">
-                        <pre class="command" style="font-family:monospace;">
-                            chmod +x BuildScript.command
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">chmod +x BuildScript.command</pre>
     <p>
         The
         <code>
@@ -1628,35 +1294,11 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         To see this in action, type the following command into Terminal and hit
         Enter:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507113">
-                    <td class="code" id="p125071code13">
-                        <pre class="command" style="font-family:monospace;">
-                            date
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">date</pre>
     <p>
         You should see a message produced that looks something like this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507114">
-                    <td class="code" id="p125071code14">
-                        <pre class="command" style="font-family:monospace;">
-                            Fri 19 Feb 2016 17:48:15 GMT
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">Fri 19 Feb 2016 17:48:15 GMT</pre>
     <p>
         <code>
             date
@@ -1723,19 +1365,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         To see a pipe in action, ensure the volume is turned up on your computer,
         then type the following command in Terminal:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507115">
-                    <td class="code" id="p125071code15">
-                        <pre class="command" style="font-family:monospace;">
-                            date | say
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">date | say</pre>
     <p>
         Hit enter and you should hear your computer telling you what time it is.
     </p>
@@ -1770,19 +1400,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         so if you would like to hear the date with an Australian accent, type the
         following command instead:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507116">
-                    <td class="code" id="p125071code16">
-                        <pre class="command" style="font-family:monospace;">
-                            date | say -v karen
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="command" style="font-family:monospace;">date | say -v karen</pre>
     <p>
         Its the date, mate!
     </p>
@@ -1833,32 +1451,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </code>
         with the following code:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507117">
-                    <td class="code" id="p125071code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .captureStandardOutputAndRouteToTextView
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .buildTask
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">self</span>.<span style="color: #508187;">captureStandardOutputAndRouteToTextView</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span><span style="color: black;">)</span></pre>
     <p>
         Next, add this function to
         <em>
@@ -1866,282 +1459,39 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </em>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507118">
-                    <td class="code" id="p125071code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                func
-                            </span>
-                            captureStandardOutputAndRouteToTextView
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            _ task
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            Process
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //1.
-                            </span>
-                            outputPipe
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            Pipe
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            task.standardOutput
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            outputPipe &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //2.
-                            </span>
-                            outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //3.
-                            </span>
-                            NotificationCenter.
-                            <span style="color: #a61390;">
-                                default
-                            </span>
-                            .addObserver
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            forName
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #400080;">
-                                NSNotification
-                            </span>
-                            .Name.NSFileHandleDataAvailable, object
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            outputPipe.fileHandleForReading , queue
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                nil
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            notification
-                            <span style="color: #a61390;">
-                                in
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //4.
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            output
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .outputPipe.fileHandleForReading.availableData
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            outputString
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            data
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            output, encoding
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #a61390;">
-                                String
-                            </span>
-                            .Encoding.utf8
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            ??
-                            <span style="color: #bf1d1a;">
-                                ""
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //5.
-                            </span>
-                            DispatchQueue.main.async
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            execute
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            previousOutput
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .outputText.string ??
-                            <span style="color: #bf1d1a;">
-                                ""
-                            </span>
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            nextOutput
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            previousOutput
-                            <span style="color: #002200;">
-                                +
-                            </span>
-                            <span style="color: #bf1d1a;">
-                                "
-                                <span style="color: #2400d9;">
-                                    \n
-                                </span>
-                                "
-                            </span>
-                            <span style="color: #002200;">
-                                +
-                            </span>
-                            outputString
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .outputText.string
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            nextOutput &nbsp;
-                            <span style="color: #a61390;">
-                                let
-                            </span>
-                            range
-                            <span style="color: #002200;">
-                                =
-                            </span>
-                            <span style="color: #400080;">
-                                NSRange
-                            </span>
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            location
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            nextOutput.characters.
-                            <span style="color: #a61390;">
-                                count
-                            </span>
-                            ,length
-                            <span style="color: #002200;">
-                                :
-                            </span>
-                            <span style="color: #2400d9;">
-                                0
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .outputText.scrollRangeToVisible
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            range
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            &nbsp;
-                            <span style="color: #11740a; font-style: italic;">
-                                //6.
-                            </span>
-                            <span style="color: #a61390;">
-                                self
-                            </span>
-                            .outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                            &nbsp;
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">func</span> captureStandardOutputAndRouteToTextView<span style="color: black;">(</span>_ task<span style="color: black;">:</span><span style="color: #6F41A7;">Process</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+&nbsp;
+  <span style="color: #008312;">//1.</span>
+  outputPipe = Pipe<span style="color: black;">(</span><span style="color: black;">)</span>
+  task.<span style="color: #508187;">standardOutput</span> = outputPipe
+&nbsp;
+  <span style="color: #008312;">//2.</span>
+  outputPipe.<span style="color: #508187;">fileHandleForReading</span>.<span style="color: #508187;">waitForDataInBackgroundAndNotify</span><span style="color: black;">(</span><span style="color: black;">)</span>
+&nbsp;
+  <span style="color: #008312;">//3.</span>
+  NotificationCenter.<span style="color: #B833A1;">default</span>.<span style="color: #508187;">addObserver</span><span style="color: black;">(</span>forName<span style="color: black;">:</span> <span style="color: #6F41A7;">NSNotification</span>.<span style="color: #508187;">Name</span>.<span style="color: #508187;">NSFileHandleDataAvailable</span><span style="color: black;">,</span> object<span style="color: black;">:</span> outputPipe.<span style="color: #508187;">fileHandleForReading</span> <span style="color: black;">,</span> queue<span style="color: black;">:</span> <span style="color: #B833A1;">nil</span><span style="color: black;">)</span> <span style="color: black;">{</span>
+    notification <span style="color: #B833A1;">in</span>
+&nbsp;
+    <span style="color: #008312;">//4.</span>
+    <span style="color: #B833A1;">let</span> output = <span style="color: #B833A1;">self</span>.<span style="color: #508187;">outputPipe</span>.<span style="color: #508187;">fileHandleForReading</span>.<span style="color: #508187;">availableData</span>
+    <span style="color: #B833A1;">let</span> outputString = <span style="color: #6F41A7;">String</span><span style="color: black;">(</span>data<span style="color: black;">:</span> output<span style="color: black;">,</span> encoding<span style="color: black;">:</span> <span style="color: #6F41A7;">String</span>.<span style="color: #508187;">Encoding</span>.<span style="color: #508187;">utf8</span><span style="color: black;">)</span> <span style="color: black;">??</span> <span style="color: #C41A16;">""</span>
+&nbsp;
+    <span style="color: #008312;">//5.</span>
+    DispatchQueue.<span style="color: #508187;">main</span>.<span style="color: #508187;">async</span><span style="color: black;">(</span>execute<span style="color: black;">:</span> <span style="color: black;">{</span>
+      <span style="color: #B833A1;">let</span> previousOutput = <span style="color: #B833A1;">self</span>.<span style="color: #508187;">outputText</span>.<span style="color: #508187;">string</span> <span style="color: black;">??</span> <span style="color: #C41A16;">""</span>
+      <span style="color: #B833A1;">let</span> nextOutput = previousOutput <span style="color: black;">+</span> <span style="color: #C41A16;">"<span style="color: #C41A16;">\n</span>"</span> <span style="color: black;">+</span> outputString
+      <span style="color: #B833A1;">self</span>.<span style="color: #508187;">outputText</span>.<span style="color: #508187;">string</span> = nextOutput
+&nbsp;
+      <span style="color: #B833A1;">let</span> range = NSRange<span style="color: black;">(</span>location<span style="color: black;">:</span>nextOutput.<span style="color: #508187;">characters</span>.<span style="color: #508187;">count</span><span style="color: black;">,</span>length<span style="color: black;">:</span><span style="color: #1C00CF;">0</span><span style="color: black;">)</span>
+      <span style="color: #B833A1;">self</span>.<span style="color: #508187;">outputText</span>.<span style="color: #508187;">scrollRangeToVisible</span><span style="color: black;">(</span>range<span style="color: black;">)</span>
+&nbsp;
+    <span style="color: black;">}</span><span style="color: black;">)</span>
+&nbsp;
+    <span style="color: #008312;">//6.</span>
+    <span style="color: #B833A1;">self</span>.<span style="color: #508187;">outputPipe</span>.<span style="color: #508187;">fileHandleForReading</span>.<span style="color: #508187;">waitForDataInBackgroundAndNotify</span><span style="color: black;">(</span><span style="color: black;">)</span>
+  <span style="color: black;">}</span>
+&nbsp;
+<span style="color: black;">}</span></pre>
     <p>
         This function collects the output from the external process and adds it
         to the GUI’s
@@ -2301,35 +1651,9 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
             stopTask(_:)
         </code>
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12507119">
-                    <td class="code" id="p125071code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            <span style="color: #a61390;">
-                                if
-                            </span>
-                            isRunning
-                            <span style="color: #002200;">
-                                {
-                            </span>
-                            buildTask.terminate
-                            <span style="color: #002200;">
-                                (
-                            </span>
-                            <span style="color: #002200;">
-                                )
-                            </span>
-                            <span style="color: #002200;">
-                                }
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> isRunning <span style="color: black;">{</span>
+  buildTask.<span style="color: #508187;">terminate</span><span style="color: black;">(</span><span style="color: black;">)</span>
+<span style="color: black;">}</span></pre>
     <p>
         The code above simply checks if the
         <code>
