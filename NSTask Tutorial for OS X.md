@@ -652,85 +652,80 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         sizes="(max-width: 536px) 100vw, 536px">
     </p>
     <p>
-        While the spinner is animating, you’ll still be able to interact with
-        the application. Try it yourself — for example, you should be able to type
-        in the
+        当spinner的动画正在进行时，你仍然可以和应用进行交互。自己试一下 - 例如，你应当可以在spinner活动的时候，在
         <em>
             Target Name
         </em>
-        field while the spinner is active.
+        框中进行输入。
     </p>
     <p>
-        After two seconds have elapsed, the spinner will disappear,
+        过了两秒之后，spinner将会消失，
         <em>
             Stop
         </em>
-        will become disabled and
+        按钮将会被禁用，
         <em>
             Build
         </em>
-        will become enabled.
+        按钮则会变为可用。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            If you have trouble interacting with the application before it’s done
-            sleeping, increase the number of seconds in your call to
+            如果你在应用完成睡眠之前，遇到了问题，请增加调用
             <code>
                 sleep(forTimeInterval:)
             </code>
-            .
+            时所传的秒数。
         </p>
     </div>
     <p>
-        Now that you’ve solved the UI responsiveness issues, you can finally implement
-        your call to NSTask.
+        既然你已经解决了UI响应的问题，你就可以最终实现你对NSTask的调用了。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Swift calls the
-            <code>
-                NSTask
-            </code>
-            class by the name
+            Swift使用
             <code>
                 Process
             </code>
-            because of the
+            这个名字来调用
+            <code>
+                NSTask
+            </code>
+            ，因为
             <em>
                 Foundation
             </em>
-            framework stripping of the
+            的framework在Swift 3中去掉了
             <em>
                 NS
             </em>
-            prefix in Swift 3. However you’ll read NSTask in this tutorial as thats
-            going to be the most useful search term if you want to learn more.
+            的前缀。然而，你在本教程中读到的会是NSTask，因为如果你想学到更多的话，它会成为最有用的搜索术语。
         </p>
     </div>
     <p>
-        In
+        在
         <em>
             TasksViewController.swift
         </em>
-        , find the lines in
+        中，找到
         <code>
             runScript
         </code>
-        that are bracketed by the comment
+        这行，被括号括起来的
         <code>
             //TESTING CODE
         </code>
-        . Replace that entire section of code inside the
+        注释这里。用下面的代码替换
         <code>
             taskQueue.async
         </code>
-        block with the following:
+        的括号中的全部内容：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
 guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color: #508187;">main</span>.<span style="color: #508187;">path</span><span style="color: black;">(</span>forResource<span style="color: black;">:</span> <span style="color: #C41A16;">"BuildScript"</span><span style="color: black;">,</span>ofType<span style="color: black;">:</span><span style="color: #C41A16;">"command"</span><span style="color: black;">)</span> <span style="color: #B833A1;">else</span> <span style="color: black;">{</span>
