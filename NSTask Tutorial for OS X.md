@@ -1219,103 +1219,96 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         使用输出
     </h2>
     <p>
-        Okay, you’re pretty well versed in passing arguments to command line programs,
-        but what about dealing with the output of these command line programs?
+        OK，你已经相当地熟练向命令行程序传递参数了，但对于处理命令行程序的输出呢？
     </p>
     <p>
-        To see this in action, type the following command into Terminal and hit
-        Enter:
+        为了实际地查看这个，输入下列命令到终端中，并点击Enter：
     </p>
     <pre class="command" style="font-family:monospace;">date</pre>
     <p>
-        You should see a message produced that looks something like this:
+        你应当看到生成的信息，就像这样：
     </p>
     <pre class="command" style="font-family:monospace;">Fri 19 Feb 2016 17:48:15 GMT</pre>
     <p>
         <code>
             date
         </code>
-        tells you the current date and time. Although it isn’t immediately obvious,
-        the results were sent back to you on a channel called
+        告诉你当前的日期和时间。尽管不是很明显，它的结果是被发送到了一个名叫
         <em>
             standard output
         </em>
-        .
+        的频道中。
     </p>
     <p>
-        Processes generally have three default channels for input and output:
+        进程通常有三个用来输入和输出的频道：
     </p>
     <ul>
         <li>
             <em>
                 standard input
             </em>
-            , which accepts input from the caller;
+            ，从调用者这里接受输入；
         </li>
         <li>
             <em>
                 standard output
             </em>
-            , which sends output from the process back to the caller; and
+            ，从进程中将输出发回到调用者这里；
         </li>
         <li>
             <em>
                 standard error
             </em>
-            , which sends errors from the process back to the caller.
+            ，从进程中将错误发回到调用者这里；
         </li>
     </ul>
     <p>
-        Pro tip: you’ll see these commonly abbreviated as
+        专业提示：你会看到这些通常被简写为
         <em>
             stdin
         </em>
-        ,
+        ，
         <em>
             stdout
         </em>
-        , and
+        ，和
         <em>
             stderr
         </em>
-        .
+        。
     </p>
     <p>
-        There is also a
+        还有一个
         <code>
             pipe
         </code>
-        that allows you to redirect the output of one process into the input of
-        another process. You’ll be creating a pipe to let your application see
-        the standard output from the process that
+        ，可以让你重定向输出到另一个进程的输入上。你将创建一个pipe来让你的应用看到
         <code>
             NSTask
         </code>
-        runs.
+        运行时，进程的标准输出。
     </p>
     <p>
-        To see a pipe in action, ensure the volume is turned up on your computer,
-        then type the following command in Terminal:
+        为了看到pipe在运转，确保你的电脑已打开了音量，然后在终端中输入下列命令：
     </p>
     <pre class="command" style="font-family:monospace;">date | say</pre>
     <p>
-        Hit enter and you should hear your computer telling you what time it is.
+        点击enter，你会听到你的电脑告诉了你时间。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            The pipe character “|” on your keyboard is usually located on the back
-            slash
+            你的键盘上的pipe字符“|”，通常位于
             <code>
                 \
             </code>
-            key, just above the
+            键这里，就在
             <code>
                 enter/return
             </code>
-            key.
+            键的上面。
         </p>
     </div>
     <p>
