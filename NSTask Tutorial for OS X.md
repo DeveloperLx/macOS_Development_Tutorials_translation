@@ -725,7 +725,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         <code>
             taskQueue.async
         </code>
-        的括号中的全部内容：
+        块中的全部内容：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
 guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color: #508187;">main</span>.<span style="color: #508187;">path</span><span style="color: black;">(</span>forResource<span style="color: black;">:</span> <span style="color: #C41A16;">"BuildScript"</span><span style="color: black;">,</span>ofType<span style="color: black;">:</span><span style="color: #C41A16;">"command"</span><span style="color: black;">)</span> <span style="color: #B833A1;">else</span> <span style="color: black;">{</span>
@@ -758,108 +758,102 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
 <span style="color: #008312;">//5.</span>
 <span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span>.<span style="color: #508187;">waitUntilExit</span><span style="color: black;">(</span><span style="color: black;">)</span></pre>
     <p>
-        The above code:
+        上面的代码：
     </p>
     <ol>
         <li>
-            Gets the path to a script named
+            获取了
             <code>
                 BuildScript.command
             </code>
-            , included in your application’s bundle. That script doesn’t exist right
-            now — you’ll be adding it shortly.
+            脚本的路径，它包含在你的应用的bundle中。这个脚本现在还不存在 - 你将在稍后添加它。
         </li>
         <li>
-            Creates a new
+            创建一个新的
             <code>
                 Process
             </code>
-            object and assigns it to the
+            对象，并把它赋给
             <code>
                 TasksViewController
             </code>
-            ‘s
+            的
             <code>
                 buildTask
             </code>
-            property. The
+            property。
             <code>
                 launchPath
             </code>
-            property is the path to the executable you want to run. Assigns the
+            property是你想要运行的可执行文件的路径。将
             <code>
                 BuildScript.command
             </code>
-            ‘s
+            的
             <code>
                 path
             </code>
-            to the
+            赋值给
             <code>
                 Process
             </code>
-            ‘s
+            的
             <code>
                 launchPath
             </code>
-            , then assigns the arguments that were passed to
+            ，然后将传递给
             <code>
                 runScript:
             </code>
-            to
+            的参数赋给
             <code>
                 Process
             </code>
-            ‘s
+            的
             <code>
                 arguments
             </code>
-            property.
+            property。
             <code>
                 Process
             </code>
-            will pass the arguments to the executable, as though you had typed them
-            into terminal.
+            将把参数传递给可执行文件，就像你在终端中输入它们一样。
         </li>
         <li>
             <code>
                 Process
             </code>
-            has a
+            有一个
             <code>
                 terminationHandler
             </code>
-            property that contains a block which is executed when the task is finished.
-            This updates the UI to reflect that finished status as you did before.
+            的property，它包含一个会在任务完成时被执行的block。它会更新UI来反映完成的状态，就像你之前做得一样。
         </li>
         <li>
-            In order to run the task and execute the script, calls
+            为了运行task并执行脚本，调用
+            <code>
+                Process
+            </code>
+            对象的
             <code>
                 launch
             </code>
-            on the
+            方法。这里同样有终止，打断，挂起或继续一个
             <code>
                 Process
             </code>
-            object. There are also methods to terminate, interrupt, suspend or resume
-            an
-            <code>
-                Process
-            </code>
-            .
+            的方法。
         </li>
         <li>
-            Calls
+            调用
             <code>
                 waitUntilExit
             </code>
-            , which tells the
+            ，它告诉
             <code>
                 Process
             </code>
-            object to block any further activity on the current thread until the task
-            is complete. Remember, this code is running on a background thread. Your
-            UI, which is running on the main thread, will still respond to user input.
+            对象block住当前线程的其它活动，直到这个task完成为止。记住，这个代码运行在后台的线程。你的UI，则运行在主线程，将始终响用户的输入。
         </li>
     </ol>
     <p>
