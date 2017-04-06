@@ -437,7 +437,7 @@
     	处理退出
     </h3>
     <p>
-    	进入view的东西同时也有可能退出，所以app需要处理当一个拖拽session没有投放就退出了你的view时的情况。添加下列的代码：
+    	进入view的东西同时也有可能退出，所以app需要处理当一个拖拽session没有投放，就退出了你的view时的情况。添加下列的代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draggingExited<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span>?<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
   isReceivingDrag <span style="color: #002200;">=</span> <span style="color: #a61390;">false</span>
