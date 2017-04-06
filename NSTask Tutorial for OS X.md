@@ -1075,37 +1075,33 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/sh</span></pre>
     <p>
-        Although it looks like a comment since it’s prefixed with
+        尽管它看起来像一条评论，因为那个前缀
         <code>
             #
         </code>
-        , this line tells the operating system to use a specific
+        。实际上这行是告诉操作系统，当执行脚本剩余的部分时，使用一个指定的
         <em>
             shell
         </em>
-        when executing the remainder of the script. It’s called a
+        。它被称作        
         <em>
             shebang
         </em>
-        . The shell is the interpreter that runs your commands, either in script
-        files or from a command line interface.
+        。这个shell就是运行你的命令的解释器，无论是在脚本文件或是从命令行的界面上。
     </p>
     <p>
-        There are many different shells available, but most of them adhere to
-        some variation of either Bourne shell syntax or C shell syntax. Your script
-        indicates that it should use
+        有大量不同的shell可以使用，但是它们中的大多数依附在变化的Bourne shell或C shell语法上。你的脚本指明了应当使用
         <em>
             sh
         </em>
-        , which is one of the shells included with OS X.
+        ，它是包含在OS X中的shell之一。
     </p>
     <p>
-        If you wanted to specify another shell to execute your script, like
+        如果你想要指定另一个shell来执行你的脚本，就像
         <code>
             bash
         </code>
-        , you would change the first line to contain the full path to the appropriate
-        shell executable, like so:
+        ，你就得将第一行改变为恰当的shell的可执行文件的全路径，就像：
     </p>
     <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/bash</span></pre>
     <p>
