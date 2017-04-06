@@ -1184,53 +1184,39 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <pre class="command" style="font-family:monospace;">chmod +x BuildScript.command</pre>
     <p>
-        The
         <code>
             chmod
         </code>
-        command changes the permissions of the script to allow it to be executed
-        by your
+        命令会改变脚本的权限，使它可以被你的
         <code>
             NSTask
         </code>
-        object. If you try to run your application without these permissions in
-        place, you’d see the same “Launch path not accessible” error as before.
-        You only need to do this once for each new script that you add to your
-        project.
+        对象执行。如果你尝试，在没有这些恰当权限的条件下，运行你的应用，你将看到“Launch path not accessible”的错误，就像之前一样。你只需要为每个你新添加到项目中的脚本执行一次该操作。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Using scripts like this is simple if you are developing for yourself or
-            shipping your app outside the Mac App Store (MAS), however when developing
-            for the MAS the sandbox rules that apply to your app are inherited by your
-            scripts and you’ll need to use more complex techniques to use command line
-            programs. These techniques are beyond the scope of this tutorial. See the
-            links at the end for more details.
+            如果你是为自己开发，或在Mac App Store（MAS）外运送你的app，像这样地使用脚本是很简单的。然而在为MAS开发时，应用到你的app的沙盒规则将由你的脚本继承，你需要使用更复杂的技术来使用命令行程序。这些技术超出了本教程的范围。关于更多的详情，请参考末尾的链接。
         </p>
     </div>
     <p>
-        Clean and run your project; the “clean” is necessary as Xcode won’t pick
-        up on the file’s permissions change, and therefore won’t copy it into the
-        build repository. Once the application opens up, type in the target name
-        of your test app, ensure the “Project Location” and “Build Repository”
-        values are set correctly, and finally hit
+        清理并运行你的项目；清理的操作是必须的，因为Xcode不能获得文件权限的变化，因此也就不能将它拷贝到build仓库中。当应用打开时，输入你的测试app的target的名称，确保“Project Location”和“Build Repository”的值被正确地设置，最后点击
         <em>
             Build
         </em>
-        .
+        。
     </p>
     <p>
-        When the spinner disappears, you should have a new
+        当spinner消失的时候，你应当在期望的位置上得到了一个新的
         <code>
             .ipa
         </code>
-        file in your desired location. Success!
+        文件。成功！
     </p>
     <h2>
-        Using Outputs
+        使用输出
     </h2>
     <p>
         Okay, you’re pretty well versed in passing arguments to command line programs,
