@@ -913,23 +913,23 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Name the file
+        将文件命名为
         <em>
             BuildScript.command
         </em>
-        . Before you hit
+        。在你点击
         <em>
             Create
         </em>
-        , be sure
-        <em>
-            TasksProject
-        </em>
-        is selected under
+        之前，确保
         <em>
             Targets
         </em>
-        , as shown below:
+        下的
+        <em>
+            TasksProject
+        </em>
+        已被选中，就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/target_choice-647x500.png"
