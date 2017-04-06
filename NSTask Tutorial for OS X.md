@@ -960,128 +960,118 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
 &nbsp;
 <span style="color: #002200;">/</span>usr<span style="color: #002200;">/</span>bin<span style="color: #002200;">/</span>xcrun <span style="color: #002200;">-</span>verbose <span style="color: #002200;">-</span>sdk iphoneos PackageApplication <span style="color: #002200;">-</span>v <span style="color: #bf1d1a;">"${3}/${4}.app"</span> <span style="color: #002200;">-</span>o <span style="color: #bf1d1a;">"${5}/app.ipa"</span></pre>
     <p>
-        This is the entire build script that your
+        这就是你的
         <code>
             NSTask
         </code>
-        calls.
+        将会调用的全部的build脚本。
     </p>
     <p>
-        The
+        你所看到的贯穿你的脚本的
         <code>
             echo
         </code>
-        commands that you see throughout your script will send whatever text is
-        passed to them to
+        命令，将把任何传给它的文本发送到
         <em>
-            standard output
+            标准输出
         </em>
-        , which you capture as part of the return values from your
+        中，你会捕获它作为你的
         <code>
             NSTask
         </code>
-        object and display in your
+        对象的一部分的返回值，并展示到你的
         <code>
             outputText
         </code>
-        field.
+        框中。
         <code>
             echo
         </code>
-        statments are handy statements to let you know what your script is doing,
-        since many commands don’t provide much, if any, output when run from the
-        command line.
+        语句可以方便地让你知道你的脚本正在做什么，因为很多命令在命令行运行时，并不会提供很多的输出。
     </p>
     <p>
-        You’ll notice that besides all of the
+        你会注意到，除了所有的
         <code>
             echo
         </code>
-        commands, there are two other commands:
+        命令外，还有两个命令：
         <code>
             xcodebuild
         </code>
-        , and
+        和
         <code>
             xcrun
         </code>
-        .
+        。
     </p>
     <p>
         <em>
             xcodebuild
         </em>
-        builds your application, creates an
+        build你的应用，创建一个
         <code>
             .app
         </code>
-        file, and places it in the subdirectory
+        文件，并将其放到子目录
         <em>
             /build
         </em>
-        . Recall that you created an argument that references this directory way
-        back in
+        中。回忆一下，你已在
         <code>
             startTask
         </code>
-        , since you needed a place for the intermediate build files to live during
-        the build and packaging process.
+        中创建过一个引用这个目录的参数，因为你需要一个在build和打包的时候，存放中间build文件的地方。
     </p>
     <p>
         <em>
             xcrun
         </em>
-        runs the developer tools from the command line. Here you use it to call
+        在命令行中运行开发者工具。这里你使用它来调用
         <code>
             PackageApplication
         </code>
-        , which packages the
+        ，它会把
         <code>
             .app
         </code>
-        file into an
+        文件打包成一个
         <code>
             .ipa
         </code>
-        file. By setting the
+        文件。通过设置
         <code>
             verbose
         </code>
-        flag, you’ll get a lot of details in the standard output, which you’ll
-        be able to view in your
+        标记，你将在标准输出中获取大量的细节信息，它们会展示在你的
         <code>
             outputText
         </code>
-        field.
+        框中。
     </p>
     <p>
-        In both the
+        在
         <code>
             xcodebuild
         </code>
-        and
+        和
         <code>
             xcrun
         </code>
-        commands, you’ll notice that all of the arguments are written
+        命令中，你会注意到所有的参数被写作了
         <code>
             “${1}”
         </code>
-        instead of
+        而不是
         <code>
             $1
         </code>
-        . This is because the paths to your projects may contain spaces. To handle
-        that condition, you must wrap your file paths in quotes in order to get
-        the right location. By putting the paths in quotes and curly braces, the
-        script will properly parse the full path, spaces and all.
+        。这是因为你的项目的路径可能包含空格。为了处理这种情况，得到正确的路径，你必须把你的文件路径用双引号引起来。通过双引号和花括号，脚本就会恰当地解析全路径，包含空格。
     </p>
     <p>
-        What about the other parts of the script, the parts that Xcode automatically
-        added for you? What do they mean?
+        这个脚本的其它地方，就是Xcode自动为你添加的那些呢？它们是什么意思？、
     </p>
     <p>
-        The first line of the script looks like this:
+        脚本的第一行如下所示：
     </p>
     <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/sh</span></pre>
     <p>
