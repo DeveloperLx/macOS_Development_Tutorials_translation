@@ -1083,21 +1083,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     <p>
         The first line of the script looks like this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1250718">
-                    <td class="code" id="p125071code8">
-                        <pre class="objc" style="font-family:monospace;">
-                            <span style="color: #6e371a;">
-                                #!/bin/sh
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/sh</span></pre>
     <p>
         Although it looks like a comment since it’s prefixed with
         <code>
