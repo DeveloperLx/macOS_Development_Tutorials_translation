@@ -620,30 +620,30 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
     </p>
     <pre class="swift" style="font-family:monospace;">runScript<span style="color: black;">(</span>arguments<span style="color: black;">)</span></pre>
     <p>
-        This calls
-        <code>
-            runScript
-        </code>
-        with the array of arguments you built in
+        用你在
         <code>
             startTask
         </code>
-        .
+        中构建的参数的数组，调用了
+        <code>
+            runScript
+        </code>
+        方法。
     </p>
     <p>
-        Build and run your application and hit the
+        Build并运行你的应用，点击
         <em>
             Build
         </em>
-        button. You’ll notice that the
+        按钮。你会注意到，
         <em>
             Build
         </em>
-        button will become disabled, the
+        按钮变成了不可用的状态，
         <code>
             Stop
         </code>
-        button will become enabled and the spinner will start animating:
+        按钮变成了可用的状态，spinner将开始动画：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/busy2-536x500.png"
