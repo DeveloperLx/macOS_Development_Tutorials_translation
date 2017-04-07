@@ -1420,105 +1420,102 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <ol>
         <li>
-            Creates an
+            创建了一个
             <code>
                 Pipe
             </code>
-            and attaches it to
+            并将它连接到
             <code>
                 buildTask
             </code>
-            ‘s standard output.
+            的标准输出上。
             <code>
                 Pipe
             </code>
-            is a class representing the same kind of pipe that you created in
+            代表了你在
             <code>
-                Terminal
+                终端
             </code>
-            . Anything that is written to
+            中创建的pipe的等效的类。任何写入到
             <code>
                 buildTask
             </code>
-            ‘s
+            的
             <code>
                 stdout
             </code>
-            will be provided to this
+            的内容，将被提供到
             <code>
                 Pipe
             </code>
-            object.
+            对象上。
         </li>
         <li>
             <code>
                 Pipe
             </code>
-            has two properties:
+            有两个property：
             <code>
                 fileHandleForReading
             </code>
-            and
+            和
             <code>
                 fileHandleForWriting
             </code>
-            . These are
+            ，它们都是
             <code>
                 NSFileHandle
             </code>
-            objects. Covering
+            对象。
             <code>
                 NSFileHandle
             </code>
-            is beyond the scope of this tutorial, but the
+            的相关知识已经超出了这个教程的范围，但
             <code>
                 fileHandleForReading
             </code>
-            is used to read the data in the pipe. You call
+            是用来在pipe中读取数据的。你可以调用它的
             <code>
                 waitForDataInBackgroundAndNotify
             </code>
-            on it to use a separate background thread to check for available data.
+            方法，来使用一个单独的后台线程来获取有用的数据。
         </li>
         <li>
-            Whenever data is available,
+            任何当数据可用的时候，
             <code>
                 waitForDataInBackgroundAndNotify
             </code>
-            notifies you by calling the block of code you register with
+            就会通过调用你注册在
             <code>
                 NSNotificationCenter
             </code>
-            to handle
+            中的代码块，来通知你处理
             <code>
                 NSFileHandleDataAvailableNotification
             </code>
-            .
+            。
         </li>
         <li>
-            Inside your notification handler, gets the data as an
+            在你的通知处理中，获取
             <code>
                 NSData
             </code>
-            object and converts it to a string.
+            对象形式的数据，并将它转变为一个字符串。
         </li>
         <li>
-            On the main thread, appends the string from the previous step to the end
-            of the text in
+            在主线程中，添加从上一步获取的字符串到
             <code>
                 outputText
             </code>
-            and scrolls the text area so that the user can see the latest output as
-            it arrives. This
+            文本的末尾，并将文本区域滚动到 用户可以看到刚刚给出的输出的地方。这个
             <i>
                 must
+                必须
             </i>
-            be on the main thread, like all UI and user interaction.
+            在主线程执行，就想所有的UI和用户交互一样。
         </li>
         <li>
-            Finally, repeats the call to wait for data in the background. This creates
-            a loop that will continually wait for available data, process that data,
-            wait for available data, and so on.
+            最后，再次调用在后台等待数据的方法。这就创造了一个循环，它将持续等待有用的数据，处理数据，再次等待有用的数据，等等。
         </li>
     </ol>
     <p>
