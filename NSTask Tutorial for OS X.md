@@ -1550,59 +1550,54 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         停止NSTask
     </h2>
     <p>
-        What happens if you start a build, then change your mind? What if it’s
-        taking too long, or something else seems to have gone wrong and it’s just
-        hanging there, making no progress? These are times when you’ll want to
-        be able to stop your background task. Fortunately, this is pretty easy
-        to do.
+        如果你开始了一个build，然后改变主意了，会发生什么？如果它花费了太长的时间，或一些其它的事看起来出错了，或只是在这儿挂起了，导致无法继续？这些都是你想要停下你的后台task的时刻。幸运的是，这些都很容易办到。
     </p>
     <p>
-        In
+        在
         <em>
             TasksViewController.swift
         </em>
-        , add the following code to
+        中，添加下列的代码到
         <code>
             stopTask(_:)
         </code>
+        中
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> isRunning <span style="color: black;">{</span>
   buildTask.<span style="color: #508187;">terminate</span><span style="color: black;">(</span><span style="color: black;">)</span>
 <span style="color: black;">}</span></pre>
     <p>
-        The code above simply checks if the
+        上面的代码检查了是否
         <code>
             NSTask
         </code>
-        is running, and if so, calls its
+        正在运行，如果是的话，调用
         <code>
             terminate
         </code>
-        method. This will stop the
+        方法。这将停止
         <code>
             NSTask
         </code>
-        in its tracks.
+        在它的执行中。
     </p>
     <p>
-        Build and run your app, ensure all fields are configured correctly and
-        hit the
+        Build并运行你的app，确保全部的field配置正确，并单击
         <em>
             Build
         </em>
-        button. Then hit the
+        按钮。然后在build完成前单击
         <em>
             Stop
         </em>
-        button before the build is complete. You’ll see that everything stops
-        and no new
+        按钮。你将看到每个事都停下了，且在你的输出目录下，没有创建新的
         <code>
             .ipa
         </code>
-        file is created in your output directory.
+        文件。
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1614,10 +1609,11 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1625,74 +1621,72 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </div>
     </div>
     <p>
-        Here is the finished
+        这里是从上面的教程中完成的
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/TasksProject-completed_s3.zip"
         sl-processed="1">
-            NSTask example project
+            NSTask示例项目
         </a>
-        from the above tutorial.
+        。
     </p>
     <p>
-        Congratulations, you’ve begun the process of becoming an
+        恭喜，你已经开始变成
         <code>
             NSTask
         </code>
-        ninja!
+        “忍者”（ninja）了！
     </p>
     <p>
-        In one short tutorial, you’ve learned:
+        在一篇简短的教程中，你学到了：
     </p>
     <ul>
         <li>
-            How to create
+            怎样创建带有参数和输出pipe的
             <code>
                 NSTasks
             </code>
-            with arguments and output pipes; and
+            ；以及
         </li>
         <li>
-            How to create a shell script and call it from your app!
+            怎样创建一个shell脚本，并从你的app中调用它！
         </li>
     </ul>
     <p>
-        To learn more about
+        要了解关于
         <code>
             NSTask
         </code>
-        , check out Apple’s official
+        的更多信息，请访问苹果的官方文档
         <a href="https://developer.apple.com/library/mac/#documentation/cocoa/Reference/Foundation/Classes/NSTask_Class/Reference/Reference.html"
         sl-processed="1">
-            NSTask Class Reference
+            NSTask类参考文档
         </a>
-        .
+        。
     </p>
     <p>
-        To learn about using command line programs in a sandboxed app see
+        为了了解在沙盒app中，使用命令行程序的相关内容，请参考
         <a href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/Introduction.html#//apple_ref/doc/uid/10000172i"
         sl-processed="1">
-            Daemons and Services Programming Guide
+            守护进程和服务的编程向导
         </a>
-        and
+        和
         <a href="https://developer.apple.com/library/mac/documentation/System/Reference/XPCServicesFW/index.html#//apple_ref/doc/uid/TP40010357"
         sl-processed="1">
-            XPC Services API Reference
+            XPC服务API参考文档
         </a>
-        .
+        。
     </p>
     <p>
-        This tutorial only dealt with working with stdout with NSTask, but you
-        can use
+        这个教程仅处理了NSTask的stdout，但你也可以同样地使用
         <a href="http://en.wikipedia.org/wiki/Standard_streams" sl-processed="1">
-            stdin and stderr
+            stdin和stderr
         </a>
-        as well! To practice your new skills, try working with these.
+        ！为了实践你的新技能，尝试使用它们。
     </p>
     <p>
-        I hope you enjoyed this
+        我希望你可以喜欢这个
         <code>
             NSTask
         </code>
-        tutorial and that you find it useful in your future Mac OS X apps. If
-        you have any questions or comments, please join the forum discussion below!
+        教程，你会发现它在你将来的Mac OS X app中是非常有用的。如果你有任何的问题或评论，请参与我们下面的讨论！
     </p>
 </div>
