@@ -1312,77 +1312,71 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </p>
     </div>
     <p>
-        Here’s what just happened: you created a pipe that takes the standard
-        output of
+        刚刚发生了：你创建了一个pipe，它将
         <code>
             date
         </code>
-        and redirects it into the standard input of
+        的标准输出重定向到了
         <code>
             say
         </code>
-        . You can also provide options to the commands that communicate with pipes,
-        so if you would like to hear the date with an Australian accent, type the
-        following command instead:
+        的标准输入中。你也可以向命令提供选项来和pipe交互，因此如果你想听到澳大利亚口音的日期，输入下面的命令来代替：
     </p>
     <pre class="command" style="font-family:monospace;">date | say -v karen</pre>
     <p>
-        Its the date, mate!
+        是的日期，宝贝！
     </p>
     <p>
-        You can construct some rather long chains of commands using pipes, redirecting
-        the stdout from one command into the stdin of another. Once you get comfortable
-        using stdin, stdout, and pipe redirects, you can do some really complicated
-        things from the command line using tools like pipes.
+        你可以使用pipe构建一些相当长的命令链，重定向一条命令的标准输出到另一条命令的标准输入中。一旦你适应了stdin，stdout，以及管道重定向，你就可以在命令行中，使用pipe这样的工具，做一些相当复杂的事情。
     </p>
     <p>
-        Now it’s time to implement a pipe in your app.
+        到了在你的app中实现管道的时候了。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
             <code>
                 NSPipe
             </code>
-            is a
+            是一个
             <em>
                 Foundation
             </em>
-            class that is called
+            中的类，它在Swift 3中被称为
             <code>
                 Pipe
             </code>
-            in Swift 3. Most documentation will refer to
+            。大多数文档将引用
             <code>
                 NSPipe
             </code>
-            .
+            。
         </p>
     </div>
     <p>
-        Open
+        打开
         <em>
             TasksViewController.swift
         </em>
-        and replace the comment that reads
-        <code>
-            // TODO: Output Handling
-        </code>
-        in
+        并在
         <code>
             runScript(_:)
         </code>
-        with the following code:
+        中将评论
+        <code>
+            // TODO: Output Handling
+        </code>
+        替换为下面的代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">self</span>.<span style="color: #508187;">captureStandardOutputAndRouteToTextView</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span><span style="color: black;">)</span></pre>
     <p>
-        Next, add this function to
+        现在，将这个方法添加到
         <em>
             TasksViewController.swift
         </em>
-        :
+        中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">func</span> captureStandardOutputAndRouteToTextView<span style="color: black;">(</span>_ task<span style="color: black;">:</span><span style="color: #6F41A7;">Process</span><span style="color: black;">)</span> <span style="color: black;">{</span>
 &nbsp;
