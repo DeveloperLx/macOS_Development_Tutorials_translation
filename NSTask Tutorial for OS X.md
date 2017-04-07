@@ -1412,12 +1412,11 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
 &nbsp;
 <span style="color: black;">}</span></pre>
     <p>
-        This function collects the output from the external process and adds it
-        to the GUI’s
+        这个函数从外部的进程中采集了输出，并将它添加到了GUI的
         <code>
             outputText
         </code>
-        field. It works as follows:
+        框中。它就像下面这样地工作：
     </p>
     <ol>
         <li>
@@ -1523,26 +1522,26 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </li>
     </ol>
     <p>
-        Build and run your application again; make sure the
+        再次Build并运行你的应用；确保
         <code>
             Project Location
         </code>
-        and
+        和
         <code>
             Build Repository
         </code>
-        fields are set correctly, type in your target’s name and click
+        是正确的，输入你的target的名称，并单击
         <em>
             Build
         </em>
-        .
+        。
     </p>
     <p>
-        You should see the output from the building process in your
+        你应当在
         <code>
             outputText
         </code>
-        field:
+        中看到来自build进程的输出：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/04/final-window-490x500.png"
@@ -1551,7 +1550,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         sizes="(max-width: 490px) 100vw, 490px">
     </p>
     <h2>
-        Stopping an NSTask
+        停止NSTask
     </h2>
     <p>
         What happens if you start a build, then change your mind? What if it’s
