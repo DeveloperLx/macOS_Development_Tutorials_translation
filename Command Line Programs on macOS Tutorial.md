@@ -6,9 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update 9/22/16:
+                2016年9月22日更新：
             </em>
-            This tutorial has been updated for Xcode 8 and Swift 3.
+            这个教程已更新到适应于Xcode 8和Swift 3。
         </p>
     </div>
     <p>
@@ -16,51 +16,39 @@
         alt="CommandLinePrograms-feature" width="250" height="250" class="alignright size-thumbnail wp-image-129951"
         srcset="https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2016/03/CommandLinePrograms-feature-128x128.png 128w"
         sizes="(max-width: 250px) 100vw, 250px">
-        Not so long ago, before the advent of graphical user interfaces, command-line
-        programs were the primary method for interacting with computers. Despite
-        the prevalence of GUIs, command-line programs still have an important role
-        in today’s computing world. Command-line programs such as
+        并非已过了很久，在图形用户界面出现之前，命令行程序是与电脑进行交互的主要方法。尽管GUI（图形用户界面）非常得流行，命令行程序仍然在当今的计算机世界中扮演了一个重要的角色。诸如
         <a href="http://www.imagemagick.org/script/command-line-processing.php"
         target="_blank" sl-processed="1">
             ImageMagick
         </a>
-        or
+        或
         <a href="https://www.ffmpeg.org/" target="_blank" sl-processed="1">
             ffmpeg
         </a>
-        are important in the server world. In fact, the majority of the servers
-        that form the Internet run only command-line programs.
+        的命令行程序在服务器的世界中都是非常重要的。事实上，构成英特网的大多服务器都是仅仅运行服务器程序。
     </p>
     <p>
-        Even Xcode uses command-line programs! When Xcode builds your project,
-        it calls
+        甚至，Xcode也是在使用命令行程序的！当Xcode build你的项目的时候，它会调用
         <em>
             <a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html"
             target="_blank" sl-processed="1">
                 xcodebuild
             </a>
         </em>
-        , which does the actual building. If the building process was baked-in
-        to the Xcode product, continuous integration solutions would be hard to
-        achieve — if not impossible!
+        ，它来进行事实上的build。如果build的过程被构建到了Xcode产品中，可持续集成的解决方案就很难被实现 - 甚至是不可能实现的！
     </p>
     <p>
-        In this command line programs on macOS tutorial you will write a command-line
-        utilty named
+        在这个macOS的命令行程序的命令行程序中，你将会编写一个名叫
         <em>
             Panagram
         </em>
-        . Depending on the options passed in, it will detect if a given input
-        is a palindrome or anagram. It can be started with arguments or run in
-        interactive mode without arguments.
+        的命令行工具。它将根据传入的选项，来检测给定的是否是回文或相同字母的异序词。它可以使用参数来启动，也可以在无参数的情况下以交互模式运行。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Swift seems like an odd choice for creating a command-line program, as
-        languages like C, Perl, Ruby or Java are a more traditional choice. But
-        there are some great reasons to choose Swift for your command-line needs:
+        Swift看起来似乎是创建命令行程序的奇怪选项，因为像C、Perl、Ruby或Java这样的语言才是更传统的选择。但有一些很棒的理由，让你可以选择Swift来实现你命令行的需求：
     </p>
     <ul>
         <li>
