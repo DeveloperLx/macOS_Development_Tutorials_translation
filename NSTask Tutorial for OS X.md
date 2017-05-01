@@ -858,11 +858,9 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
     <p>
         Build并运行你的项目；你不会看到任何
         <i>
-            looks
             看起来
         </i>
         不同的事，但点击
-        different, but hit the
         <em>
             Build
         </em>
