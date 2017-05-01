@@ -144,7 +144,6 @@
     </p>
     <p>
         要这么做，回到Xcode并打开
-        To do this, head back to Xcode and open
         <em>
             TasksViewController.swift
         </em>
