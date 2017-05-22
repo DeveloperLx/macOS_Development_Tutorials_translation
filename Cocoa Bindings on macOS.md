@@ -61,33 +61,30 @@
         </a>
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Although you won’t have to spend the next several of your hours coding,
-        there’s still a fair amount of work ahead in
-        <a href="http://www.raywenderlich.com/?s=Interface+Builder&amp;cof=FORID%3A10"
-        target="_blank" title="Interface Builder">
-            Interface Builder
-        </a>
-        using
+        尽管你并不必须花费下面的几个小时来进行编码，在使用
         <a href="http://www.raywenderlich.com/?s=Auto+Layout&amp;cof=FORID%3A10"
         target="_blank" title="Auto Layout">
             Auto Layout
         </a>
-        , so familiarity with both of these tools is a prerequisite.
+        来进行
+        <a href="http://www.raywenderlich.com/?s=Interface+Builder&amp;cof=FORID%3A10"
+        target="_blank" title="Interface Builder">
+            Interface Builder
+        </a>
+        前仍有相当数量的工作要做，因此熟悉这些工具是首要的条件。
     </p>
-    <p>
-        Download the starter project
+    <p>        
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/AppResearchBindings-Starter.zip"
         title="here">
-            here
+            在这里
         </a>
-        .
+        下载初始项目。
     </p>
     <p>
-        Build and run the project, and you’ll see it has a nice interface — but
-        no data.
+        Build并运行项目，你将看到它带有一个很好的界面 - 但是没有数据。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Screen-Shot-2016-01-31-at-6.01.30-PM-700x463.png"
@@ -96,123 +93,114 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You’ll also see there are a couple of files to help you along.
+        你也将看到有一些文件可以帮助你。
         <em>
             iTunesRequestManager.swift
         </em>
-        contains a struct with two static methods. The first sends a query to
-        the iTunes API and downloads a JSON payload that contains iOS apps results
-        for a provided search string, while the second is a helper method to download
-        an image asynchronously.
+        包含一个带有两个静态方法的结构体。第一个方法为提供的搜索字符串向iTunes的API发送查询，并下载包含iOS App结果的JSON；而第二个方法则是用来异步下载图片的助手方法。
     </p>
     <p>
-        The second file,
+        第二个文件，
         <em>
             iTunesResults.swift
         </em>
-        , defines a data model class that matches the data downloaded by the iTunes
-        search method.
+        ，定义了一个可以匹配从iTunes搜索方法下载到的数据的数据模型类。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : All variables in the
+            ：所有的在
             <code>
                 Result
             </code>
-            class are defined as
+            类中的变量都被定义为了
             <em>
                 dynamic
             </em>
-            . This is because bindings rely on key-value coding, and therefore require
-            the Objective-C runtime. Adding the
+            。这是因为bindings是依赖于键值编码的，因此要求了Objective-C的运行时特性。添加
             <code>
                 dynamic
             </code>
-            keyword guarantees that access to that property is always dynamically
-            dispatched using the Objective-C runtime.
+            关键字确保了访问那些属性总是通过使用Objective-C的运行时特性动态分配的。
         </p>
         <p>
-            The class inherits from
+            这个类是继承自
             <em>
                 NSObject
             </em>
-            ; this is also a requirement for bindings. You’ll discover why a little
-            later, when you add a variable to your view controller class.
+            的；这同样是由bindings所要求的。你将在之后了解到它的原因，当你添加一个变量到你的视图控制器的类中。
         </p>
     </div>
     <h2>
-        Searching via iTunes
+        通过iTunes搜索
     </h2>
     <p>
-        First, you’re going to retrieve search results via the iTunes API and
-        add them to an
-        <code>
-            NSArrayController.
-        </code>
-    </p>
-    <p>
-        Open
-        <em>
-            Main.storyboard
-        </em>
-        and look at the objects in the
-        <em>
-            View Controller Scene
-        </em>
-        . Note that objects on which you’ll set bindings all have the labels
-        <em>
-            ‘(Bind)’
-        </em>
-        .
-    </p>
-    <h3>
-        Setting Up an NSArrayController
-    </h3>
-    <p>
-        The
+        首先，你将通过iTunes的API获取搜索的结果，并将它们添加到一个
         <code>
             NSArrayController
         </code>
-        object manages the content of a
+        中。
+    </p>
+    <p>
+        打开
+        <em>
+            Main.storyboard
+        </em>
+        并查看
+        <em>
+            View Controller Scene
+        </em>
+        中的对象。注意到那些你将设置binding的对象，它们都包含
+        <em>
+            ‘(Bind)’
+        </em>
+        的标签。
+    </p>
+    <h3>
+        设置NSArrayController
+    </h3>
+    <p>
+        <code>
+            NSArrayController
+        </code>
+        的对象管理
         <code>
             NSTableView
         </code>
-        . This content often takes the form of an array of model objects.
+        的内容。这个内容通常表现为一个模型对象数据的形式。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            :
+            ：
             <code>
                 NSArrayController
             </code>
-            offers much more than a simple array, including managing object selection,
-            sorting and filtering. Cocoa Bindings make heavy use of this functionality.
+            提供的不仅仅是一个数组，还包括管理对象的选取、排序、和过滤。Cocoa Bindings会重度地使用这些功能。
         </p>
     </div>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Find an
-        <code>
-            NSArrayController
-        </code>
-        object in the
+        。并在
         <em>
             Object Library
         </em>
-        , and drag it into the list of objects under the
+        中找到
+        <code>
+            NSArrayController
+        </code>
+        对象，并把它拖拽到document outline中的
         <em>
             View Controller Scene
         </em>
-        grouping in the document outline:
+        组的对象列表的下面：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/add-array-controller-430x500.png"
@@ -221,27 +209,27 @@
         sizes="(max-width: 430px) 100vw, 430px">
     </p>
     <p>
-        Next, open the assistant editor and make sure
+        接下来，打开assistant editor，并确保你工作在文件
         <em>
             ViewController.swift
         </em>
-        is the file you’re working on. Control-drag from the
-        <em>
-            Array Controller
-        </em>
-        object in the
+        上。按住Control从
         <em>
             Storyboard
         </em>
-        to the
+        拖拽到
         <em>
             ViewController.swift
         </em>
-        source to add an outlet to it, and name it
+        中的
+        <em>
+            Array Controller
+        </em>
+        对象上，并将其命名为
         <em>
             searchResultsController
         </em>
-        :
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Screen-Shot-2016-01-31-at-6.39.36-PM-700x221.png"
@@ -250,34 +238,33 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h3>
-        Adding the Search Box and Button
+        添加搜索框和按钮
     </h3>
     <p>
-        Now you’re ready to use the search box and button to get a list of search
-        results and add them to the
+        现在你已准备好了使用搜索框和按钮来获取一个搜索结果的列表，并添加它们到
         <code>
             searchResultsController
         </code>
-        object.
+        的对象上。
     </p>
     <p>
-        Control-drag from the
+        按住Control，从storyboard中的
         <em>
             search button
         </em>
-        in the storyboard to the
+        拖拽到
         <em>
             ViewController.swift
         </em>
-        source to create an action method. Select to create an
+        的源码中来创建一个动作方法。选择来创建一个
         <em>
             Action
         </em>
-        connection and name it
+        的连接并命名为
         <em>
             searchClicked
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/addConnectionMethod.png">
@@ -288,30 +275,35 @@
         </a>
     </p>
     <p>
-        Now add the following code inside
+        现在，添加下面的代码到
         <code>
             searchClicked(:_)
         </code>
-        :
+        方法中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412971">
-                    <td class="code" id="p141297code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            //1 if (searchTextField.stringValue == "") { return } //2 guard let resultsNumber
-                            = Int(numberResultsComboBox.stringValue) else { return } //3 iTunesRequestManager.getSearchResults(searchTextField.stringValue,
-                            results: resultsNumber, langString: "en_us") { results, error in //4 let
-                            itunesResults = results.map { return Result(dictionary: $0) } &nbsp; //Deal
-                            with rank here later &nbsp; //5 DispatchQueue.main.async { //6 self.searchResultsController.content
-                            = itunesResults print(self.searchResultsController.content) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">if</span> (searchTextField.stringValue == <span class="hljs-string">""</span>) {
+  <span class="hljs-keyword">return</span>
+}
+<span class="hljs-comment">//2</span>
+<span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> resultsNumber = <span class="hljs-type">Int</span>(numberResultsComboBox.stringValue) <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+<span class="hljs-comment">//3</span>
+iTunesRequestManager.getSearchResults(searchTextField.stringValue,
+  results: resultsNumber,
+  langString: <span class="hljs-string">"en_us"</span>) { results, error <span class="hljs-keyword">in</span>
+    <span class="hljs-comment">//4</span>
+    <span class="hljs-keyword">let</span> itunesResults = results.<span class="hljs-built_in">map</span> { <span class="hljs-keyword">return</span> <span class="hljs-type">Result</span>(dictionary: $<span class="hljs-number">0</span>) }
+
+    <span class="hljs-comment">//Deal with rank here later  </span>
+
+    <span class="hljs-comment">//5</span>
+    <span class="hljs-type">DispatchQueue</span>.main.async {
+      <span class="hljs-comment">//6</span>
+      <span class="hljs-keyword">self</span>.searchResultsController.content = itunesResults
+      <span class="hljs-built_in">print</span>(<span class="hljs-keyword">self</span>.searchResultsController.content)
+  }
+}
+</pre>
     <p>
         Taking each line in turn:
     </p>
