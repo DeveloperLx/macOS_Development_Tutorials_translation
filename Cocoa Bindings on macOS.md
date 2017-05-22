@@ -1181,21 +1181,14 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </em>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412974">
-                    <td class="code" id="p141297code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            //1 func tableViewSelectionDidChange(_ notification: NSNotification) {
-                            //2 guard let result = searchResultsController.selectedObjects.first as?
-                            Result else { return } //3 result.loadIcon() }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">//1</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">_</span> notification: NSNotification)</span></span> {
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> result = searchResultsController.selectedObjects.first <span class="hljs-keyword">as</span>? <span class="hljs-type">Result</span> <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+  <span class="hljs-comment">//3</span>
+  result.loadIcon()
+}
+</pre>
     <p>
         Here’s the play-by-play:
     </p>
@@ -1409,19 +1402,8 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412975">
-                    <td class="code" id="p141297code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            result.loadScreenShots()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs">result.loadScreenShots()
+</pre>
     <p>
         This populates the screenshot images and creates the right number of views.
     </p>
@@ -1442,21 +1424,10 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </em>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412976">
-                    <td class="code" id="p141297code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            let itemPrototype = self.storyboard?.instantiateController(withIdentifier:
-                            "collectionViewItem") as! NSCollectionViewItem collectionView.itemPrototype
-                            = itemPrototype
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> itemPrototype = <span class="hljs-keyword">self</span>.storyboard?.instantiateController(withIdentifier:
+  <span class="hljs-string">"collectionViewItem"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">NSCollectionViewItem</span>
+collectionView.itemPrototype = itemPrototype
+</pre>
     <p>
         Now that the collection view knows how to create each item via the prototype,
         you need to provide the content for each item via a binding.
@@ -1547,19 +1518,8 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412977">
-                    <td class="code" id="p141297code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            dynamic var loading = false
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs cs"><span class="hljs-keyword">dynamic</span> <span class="hljs-keyword">var</span> loading = <span class="hljs-literal">false</span>
+</pre>
     <p>
         Loading requires two things in order to work correctly: the
         <code>
@@ -1583,19 +1543,8 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412978">
-                    <td class="code" id="p141297code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            loading = true
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript">loading = <span class="hljs-literal">true</span>
+</pre>
     <p>
         Locate the line in the same method that sets the
         <code>
@@ -1607,19 +1556,8 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </code>
         . Add the following code immediately before that line:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412979">
-                    <td class="code" id="p141297code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            self.loading = false
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-keyword">self</span>.loading = <span class="hljs-literal">false</span>
+</pre>
     <p>
         Next, open
         <em>
