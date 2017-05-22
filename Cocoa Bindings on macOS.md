@@ -392,22 +392,15 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </code>
         extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412972">
-                    <td class="code" id="p141297code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension ViewController: NSTextFieldDelegate { func control(_ control:
-                            NSControl, textView: NSTextView, doCommandBy commandSelector: Selector)
-                            -&gt; Bool { if commandSelector == #selector(insertNewline(_:)) { searchClicked(searchTextField)
-                            } return false } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTextFieldDelegate</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">control</span><span class="hljs-params">(<span class="hljs-number">_</span> control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <span class="hljs-keyword">if</span> commandSelector == #selector(insertNewline(<span class="hljs-number">_</span>:)) {
+      searchClicked(searchTextField)
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+}
+</pre>
     <p>
         This invokes
         <code>
