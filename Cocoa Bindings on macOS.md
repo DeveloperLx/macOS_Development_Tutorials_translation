@@ -289,11 +289,12 @@
 <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> resultsNumber = <span class="hljs-type">Int</span>(numberResultsComboBox.stringValue) <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
 <span class="hljs-comment">//3</span>
 iTunesRequestManager.getSearchResults(searchTextField.stringValue,
-  results: resultsNumber,
-  langString: <span class="hljs-string">"en_us"</span>) { results, error <span class="hljs-keyword">in</span>
+  results: resultsNumber, langString: <span class="hljs-string">"en_us"</span>) { 
+      results, error <span class="hljs-keyword">in</span>
     <span class="hljs-comment">//4</span>
     <span class="hljs-keyword">let</span> itunesResults = results.<span class="hljs-built_in">map</span> { 
-        <span class="hljs-keyword">return</span> <span class="hljs-type">Result</span>(dictionary: $<span class="hljs-number">0</span>) }
+        <span class="hljs-keyword">return</span> <span class="hljs-type">Result</span>(dictionary: $<span class="hljs-number">0</span>) 
+        }
     <span class="hljs-comment">//Deal with rank here later  </span>
     <span class="hljs-comment">//5</span>
     <span class="hljs-type">DispatchQueue</span>.main.async {
