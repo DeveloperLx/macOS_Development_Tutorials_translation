@@ -391,21 +391,19 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
 }
 </pre>
     <p>
-        This invokes
+        当用户在文本输入框中点击Enter时，就会调用
         <code>
             searchClicked(_:)
         </code>
-        when the user presses Enter in the text field, just as if you’d clicked
-        the search button. This simply makes it easier to run a quick search using
-        the keyboard.
+        ，就如同你点击搜索按钮一样。这使得使用键盘搜索更加得快速和容易。
     </p>
     <p>
+        Build并运行，输入
         Build and run, type
         <em>
             flappy
         </em>
-        into the search bar and press Enter or click the Search button. You should
-        see something like the following show up in the console:
+        到搜索栏中并点击Enter按钮或单击搜索按钮。你应该会在控制台中看到一些类似下面所示的内容：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/Screen-Shot-2016-08-30-at-12.04.46-PM-650x82.png"
