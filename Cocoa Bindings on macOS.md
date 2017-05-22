@@ -412,10 +412,10 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <h2>
-        Your First Bindings
+        你的第一个Bindings
     </h2>
     <p>
-        It’s time to get to the meat of this tutorial!
+        是时候来获取这个教程的精要了！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/allthethings1.jpg">
@@ -424,53 +424,53 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </a>
     </p>
     <p>
-        The first step is to bind the array controller to the table view.
+        第一步是将array controller绑定到table view上。
     </p>
     <p>
-        Open up
+        打开
         <em>
             Main.storyboard
         </em>
-        and select the table view titled
+        并选择标题为
         <em>
             Search Results Table View (Bind)
         </em>
-        . Open the
+        的列表。打开
         <em>
             Bindings Inspector
         </em>
-        : it’s the second-to-last-icon in the right pane, just before the
+        ：它是右侧窗格中的倒数第二个，就位于
         <em>
             View Effects Inspector
         </em>
-        .
+        之前。
     </p>
     <p>
-        Expand the
-        <em>
-            Content
-        </em>
-        option under the
+        展开
         <em>
             Table Contents
         </em>
-        heading. Check the box next to
+        头下的
+        <em>
+            Content
+        </em>
+        选项。勾选靠近        
         <em>
             ‘Bind to ‘
         </em>
-        and make sure
+        的选框并确保
         <em>
             Search Results Controller
         </em>
-        is displayed in the dropdown box. Finally, make sure the
+        展示在下拉菜单中。最后，确保
         <em>
             Controller Key
         </em>
-        is set to
+        被设置为
         <em>
             arrangedObjects
         </em>
-        , like so:
+        ，就像：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/TableViewBinding-170x320.png"
