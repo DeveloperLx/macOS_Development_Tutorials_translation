@@ -297,100 +297,88 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     <span class="hljs-comment">//5</span>
     <span class="hljs-type">DispatchQueue</span>.main.async {
     <span class="hljs-comment">//6</span>
-    <span class="hljs-keyword">self</span>.searchResultsController.content = itunesResults
-    <span class="hljs-built_in">print</span>(<span class="hljs-keyword">self</span>.searchResultsController.content)
-  }
+        <span class="hljs-keyword">self</span>.searchResultsController.content = itunesResults
+        <span class="hljs-built_in">print</span>(<span class="hljs-keyword">self</span>.searchResultsController.content)
+    }
 }
 </pre>
     <p>
-        Taking each line in turn:
+        回顾一下每行代码：
     </p>
     <ol>
         <li>
-            Check the text field; if it’s blank, don’t send that query to iTunes search
-            API.
+            检查文本输入框；如果它是空的，就不会发送查询到iTunes的搜索API。
         </li>
         <li>
-            Get the value in the dropdown. This number is passed to the API and controls
-            how many search results to return. There’s a number of preconfigured options
-            in the dropdown, but you can also type in other numbers — 200 is the maximum.
+            获取下拉菜单中的值。这个数字被传递给API，并控制返回多少个结果。在下拉菜单中有一些预先配置的选项，但你也可以输入其它的数字 - 200是最大的值。
         </li>
         <li>
-            Make a call to
+            调用
             <code>
                 getSearchResults(_:results:langString:completionHandler:)
             </code>
-            . This passes in the number of results from the combo box and the query
-            string you typed into the text field. It returns, via a completion handler,
-            either an array of
+            方法。它传递来自组合框的结果的数字，和你输入到文本输入框中的查询字符串。并通过完成的句柄，来返回一个
             <code>
                 Dictionary
             </code>
-            result objects or an
+            的数组的对象，或当完成查询的时候出现了问题时，返回一个
             <code>
                 NSError
             </code>
-            object if there’s a problem completing the query. Note that the method
-            already handles the JSON parsing.
+            的对象。
         </li>
         <li>
-            Here you use some Swift-style array mapping to pass the dictionary into
-            an initialization method that creates a
+            这里你使用了一些Swift风格的数组进行映射，来传递字典到初始化方法，来创建
             <code>
                 Result
             </code>
-            object. When done, the
+            对象。当完成后，
             <code>
                 itunesResults
             </code>
-            variable contains an array of
+            变量就包含了一个
             <code>
                 Result
             </code>
-            objects.
+            对象的数组。
         </li>
         <li>
-            Before you can set this new data on the
+            在你设置新的数据到
             <code>
                 searchResultsController
             </code>
-            , you need to make sure you’re on the main thread. Therefore you use
+            上前，你需要确保你正在主线程上。因此你使用
             <code>
                 DispatchQueue.main.async
             </code>
-            to get to the main queue. You haven’t set up any bindings, but once you
-            have, altering the content property on the
+            来获取主线程。你尚未设置任何bindings，但一旦你有了，变更            
             <code>
                 searchResultsController
             </code>
-            will update the
+            上的content property将更新
             <code>
                 NSTableView
             </code>
-            (and potentially other UI elements) on the current thread. Updating UI
-            on a background thread is always a no-no.
+            （以及潜在的其它的UI元素）在主线程上。在后台线程更新UI永远都是禁忌。
         </li>
         <li>
-            Finally you set the content property of the
+            最后，设置
             <code>
                 NSArrayController
             </code>
-            . The array controller has a number of different methods to add or remove
-            objects it manages. Each time you search, you want to clear out the previous
-            results and work with the results of the latest query. For now, print the
-            content of
+            中的content property。这个array controller有一些不同的方法来添加或删除它所管理的对象。每次当你搜索时，你想要清除之前的结果，并使用最新的查询的结果。此时，打印
             <code>
                 searchResultsController
             </code>
-            to the console to verify that everything works as planned.
+            的内容到控制台上，来验证每件事都如同计划中一般进行。
         </li>
     </ol>
     <p>
-        Now, add the following
+        现在，添加下列的
         <code>
             ViewController
         </code>
-        extension:
+        extension：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTextFieldDelegate</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">control</span><span class="hljs-params">(<span class="hljs-number">_</span> control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector)</span></span> -&gt; <span class="hljs-type">Bool</span> {
