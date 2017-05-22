@@ -603,20 +603,12 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </code>
         comment:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1412973">
-                    <td class="code" id="p141297code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            .enumerated() .map({ index, element -&gt; Result in element.rank = index
-                            + 1 return element })
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs kotlin">.enumerated()
+.map({ index, element -&gt; Result <span class="hljs-keyword">in</span>
+  element.rank = index + <span class="hljs-number">1</span>
+  <span class="hljs-keyword">return</span> element
+})
+</pre>
     <p>
         This code calls
         <code>
