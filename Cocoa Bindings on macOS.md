@@ -479,11 +479,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 170px) 100vw, 170px">
     </p>
     <p>
-        Build and run, and search for something you know will return a large number
-        of results. You’ll see at most five results, unless you changed the number
-        in the dropdown. Thanks to the bindings, the array controller automatically
-        represents its content in the table view. However, they all say “Table
-        View Cell”.
+        build并运行，并搜索一些你知道的事，将返回大量的结果。你会看到至少5个结果，除非你改变下拉菜单中的数字。由于bindings，这个array controller就自动地代表了table view中的内容。然后，他们都叫“Table View Cell”。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/arrayboundnotitlesintable-700x463.png"
@@ -492,88 +488,87 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You’re getting a bunch of duplicate hits because the text fields in the
-        cells have no idea which properties on the data model they should read.
+        你会得到一堆重复的匹配，因为cell中的text field不清楚它们应当读取在data model中哪个的property。
     </p>
     <h3>
-        Binding Text Fields to Their Properties
+        绑定Text Field到它们的Property
     </h3>
     <p>
-        Open up
+        打开
         <em>
             Main.storyboard
         </em>
-        and go to the
+        并前往
         <em>
             View Controller Scene
         </em>
-        . Expand the objects in the table view until you find the text field named
+        。展开table view中的对象知道你发现名为
         <em>
             Title TextField (Bind)
         </em>
-        . Select this object and open the
+        的文本输入框。选择这个对象并打开
         <em>
             Bindings Inspector
         </em>
-        .
+        。
     </p>
     <p>
-        Expand the
+        展开
         <em>
             Value
         </em>
-        option and bind to the
+        选项并绑定到
         <em>
             Table Cell View
         </em>
-        object. Ensure the
+        对象上。确保
         <em>
             Model Key Path
         </em>
-        is
+        为
         <em>
             objectValue.trackName
         </em>
-        .
+        。
     </p>
     <p>
         <code>
             objectValue
         </code>
-        is a property on the table cell view that gets set by the
+        是一个在table cell view上的property，它从
         <code>
             NSTableView
         </code>
-        on each cell view object from its binding to the table.
+        上的每个cell view对象的到table的binding中获取相应的值。
     </p>
     <p>
+        在这个case中，
         <code>
             objectValue
         </code>
-        is, in this case, equal to the
+        等于这行的
         <code>
             Result
         </code>
-        model object for that row.
+        模型对象。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/trackName.png"
         alt="trackName" width="248" height="215" class="aligncenter size-full wp-image-126070">
     </p>
     <p>
-        Repeat the above process for
-        <em>
-            Publisher TextField (Bind)
-        </em>
-        by binding the value of this element to
+        通过将其值绑定到
         <em>
             objectValue.artistName
         </em>
-        .
+        上，为
+        <em>
+            Publisher TextField (Bind)
+        </em>
+        重复上面的过程。
     </p>
     <p>
-        Build and run, and search again. This time, the title and publisher show
-        up:
+        Build并运行，然后再次搜索。这次，标题和publisher会展示如：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/title-and-publisher-700x463.png"
