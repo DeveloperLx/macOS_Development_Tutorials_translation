@@ -665,63 +665,59 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         选项绑定到UI的剩余的部分。
     </p>
     <h2>
-        Binding a Table View’s Selection
+        绑定Table View的选择
     </h2>
     <p>
-        Binding to a selection in a table involves two steps:
+        在table中绑定选择包含两步：
     </p>
     <ol>
         <li>
-            You first bind the
+            首先绑定
             <code>
                 NSArrayController
             </code>
-            to the table selection.
+            到table的选择上。
         </li>
         <li>
-            Then you can bind the properties of the
+            然后，你可以绑定NSArrayController中
             <code>
                 selection
             </code>
-            object in the
-            <cdoe>
-                NSArrayController to the individual labels and other properties.
-            </cdoe>
+            对象的property到各自的label和其它的property。
         </li>
     </ol>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Select the
+        。选择
         <em>
             Search Results Table View (Bind)
         </em>
-        and open the
+        并打开
         <em>
             Bindings Inspector
         </em>
-        .
+        。
     </p>
     <p>
-        Expand the
-        <em>
-            Selection Indexes
-        </em>
-        option in the
+        在
         <em>
             Table Content
         </em>
-        section. Check
+        区展开
         <em>
-            Bind to
+            Selection Indexes
         </em>
-        the
+        选项。查看
+        <em>
+            绑定到
+        </em>
         <em>
             Search Results Controller
         </em>
-        object.
+        对象。
     </p>
     <p>
         Enter
