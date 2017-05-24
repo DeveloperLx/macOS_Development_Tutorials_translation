@@ -26,30 +26,30 @@
         <em>
             bindings
         </em>
-        ，让你从花费大量时间书写
+        ，使你从花费大量时间撰写
         <i>
             粘合代码
         </i>
-        的过程中解放出来；那就是，当使用Model-View-Controller(MVC)模式时，在controller中，创建model和view的连接。
+        中解放出来；那就是，当使用Model-View-Controller(MVC)模式时，在controller中创建model和view之间的连接。
     </p>
     <p>
-        Cocoa bindings有一个简单的目标：写更少的代码。你将发现，通过这么做，真的就可以达到这个目的。
+        Cocoa bindings有一个简单的目标：写更少的代码。你会发现，真的可以通过这么做来达到这个目的。
     </p>
     <p>
-        在这个macOS教程Cocoa Bindings中，你将创建一个app，来展示从App Store中通过iTunes API获取的搜索结果，以此你将学到如何使用Cocoa bindings来执行如下的操作：
+        在这个macOS教程Cocoa Bindings中，你将创建一个app，来展示从App Store中通过iTunes API获取的搜索结果，借此你会学到如何使用Cocoa bindings来完成如下的事：
     </p>
     <ul>
         <li>
-            使用Interface Builder设立在数据模型property和UI元素之间的关系，例如一个label或一个button
+            在Interface Builder设置一个数据模型的property和一个UI元素（例如label或button）之间的关系
         </li>
         <li>
             设置默认值
         </li>
         <li>
-            执行格式化，例如货币或日期格式
+            应用格式化，例如货币或日期格式
         </li>
         <li>
-            改变数据结构，例如将数值转化为颜色时
+            改变数据结构，例如当转化数值为代表的相应颜色时
         </li>
     </ul>
     <p>
@@ -64,17 +64,17 @@
         入门
     </h2>
     <p>
-        尽管你并不必须花费下面的几个小时来进行编码，在使用
-        <a href="http://www.raywenderlich.com/?s=Auto+Layout&amp;cof=FORID%3A10"
-        target="_blank" title="Auto Layout">
-            Auto Layout
-        </a>
-        来进行
+        尽管你无须花费接下来的几个小时进行编码，这里仍然有相当的在
         <a href="http://www.raywenderlich.com/?s=Interface+Builder&amp;cof=FORID%3A10"
         target="_blank" title="Interface Builder">
             Interface Builder
         </a>
-        前仍有相当数量的工作要做，因此熟悉这些工具是首要的条件。
+        中使用
+        <a href="http://www.raywenderlich.com/?s=Auto+Layout&amp;cof=FORID%3A10"
+        target="_blank" title="Auto Layout">
+            Auto Layout
+        </a>
+        的工作，因此熟悉这些工具是首要的条件。
     </p>
     <p>        
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/AppResearchBindings-Starter.zip"
@@ -84,7 +84,7 @@
         下载初始项目。
     </p>
     <p>
-        Build并运行项目，你将看到它带有一个很好的界面 - 但是没有数据。
+        Build并运行项目，你将看到它有一个很棒的界面 - 但是没有数据。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Screen-Shot-2016-01-31-at-6.01.30-PM-700x463.png"
@@ -93,7 +93,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        你也将看到有一些文件可以帮助你。
+        你也会看到有一些文件是对你有帮助的。
         <em>
             iTunesRequestManager.swift
         </em>
@@ -111,15 +111,15 @@
             <em>
                 注意
             </em>
-            ：所有的在
+            ：所有在
             <code>
                 Result
             </code>
-            类中的变量都被定义为了
+            类中的变量都被定义为
             <em>
                 dynamic
             </em>
-            。这是因为bindings是依赖于键值编码的，因此要求了Objective-C的运行时特性。添加
+            型。这是因为bindings是依赖于键值编码的，因此要求了Objective-C的运行时特性。添加
             <code>
                 dynamic
             </code>
@@ -130,7 +130,7 @@
             <em>
                 NSObject
             </em>
-            的；这同样是由bindings所要求的。你将在之后了解到它的原因，当你添加一个变量到你的视图控制器的类中。
+            的；这同样是由bindings要求的。你将在后面当添加一个变量到你的视图控制器类中时，了解到它的原因。
         </p>
     </div>
     <h2>
@@ -152,11 +152,11 @@
         <em>
             View Controller Scene
         </em>
-        中的对象。注意到那些你将设置binding的对象，它们都包含
+        中的对象。注意到那些你将设置binding的对象，它们都包含标签
         <em>
             ‘(Bind)’
         </em>
-        的标签。
+        。
     </p>
     <h3>
         设置NSArrayController
@@ -165,11 +165,11 @@
         <code>
             NSArrayController
         </code>
-        的对象管理
+        对象管理
         <code>
             NSTableView
         </code>
-        的内容。这个内容通常表现为一个模型对象数据的形式。
+        的内容。这个内容通常表现为一个模型对象数组的形式。
     </p>
     <div class="note">
         <p>
@@ -245,10 +245,10 @@
         <code>
             searchResultsController
         </code>
-        的对象上。
+        对象上。
     </p>
     <p>
-        按住Control，从storyboard中的
+        按住Control，将storyboard中的
         <em>
             search button
         </em>
@@ -577,26 +577,24 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h3>
-        Adding in Rank
+        添加在Rank中
     </h3>
     <p>
-        How about that missing rank column? Rank isn’t set on the data model object
-        you get from iTunes. However, the order of the results from iTunes does
-        tell you the order in which they display on a device when searching iTunes.
+        对于缺失的rank列呢？Rank并不设置在你从iTunes获取的数据模型的对象上。然而，从iTunes得到的结果的顺序，确实告诉了你当搜索iTunes时展示在设备上的顺序。
     </p>
     <p>
-        With a little more work you can set the rank value.
+        只需再多做一点工作，你就可以设置排名的值了。
     </p>
     <p>
-        Add the following code in
+        在
         <code>
             ViewController
         </code>
-        under the
+        中
         <code>
             //Deal with rank here later
         </code>
-        comment:
+        评论的下面，添加下列的代码：
     </p>
     <pre lang="swift" class="hljs kotlin">.enumerated()
 .map({ index, element -&gt; Result <span class="hljs-keyword">in</span>
@@ -605,54 +603,53 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
 })
 </pre>
     <p>
-        This code calls
+        这个代码调用了
         <code>
             enumerated()
         </code>
-        in order to get the index and the object at the index. Then it calls
+        已获取序号和相应这个序号的对象。然后调用
         <code>
             map(:_)
         </code>
-        to set the rank value for each object and return an array with that result.
+        来为每个对象设置排名的值，并返回结果的数组。
     </p>
     <p>
-        Now, go back to
+        现在，回到
         <em>
             Main.storyboard
         </em>
-        , select
+        ，选择
         <em>
             Rank TextField (Bind)
         </em>
-        and open the
+        并打开
         <em>
             Bindings Inspector
         </em>
-        . In the
+        。在
         <em>
             Value
         </em>
-        section, bind to the
+        区，绑定到
         <em>
             Table Cell View
         </em>
-        . Make sure
+        。确保
         <em>
             Controller Key
         </em>
-        is empty, and set
+        是空的，并设置
         <em>
             Model Key Path
         </em>
-        to
+        为
         <code>
             objectValue.rank
         </code>
-        .
+        。
     </p>
     <p>
-        Build and run, and the app shows the rank in the first column of the table
-        view:
+        Build并运行，app会在table view的第一列中展示排名：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/ranktitlepublisher-700x463.png"
@@ -661,11 +658,11 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Now you need to bind the
+        现在，你需要将用户选择的
         <code>
             Result
         </code>
-        object selected by the user to the rest of the UI.
+        选项绑定到UI的剩余的部分。
     </p>
     <h2>
         Binding a Table View’s Selection
