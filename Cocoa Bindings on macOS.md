@@ -1186,7 +1186,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         绑定Image View
     </h3>
     <p>
-        Now that your code is in place, you’re ready to bind the image view.
+        你的代码已经ready了，就可以去绑定image view了。
     </p>
     <p>
         Head back to
