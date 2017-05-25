@@ -1101,45 +1101,41 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h2>
-        Binding Images
+        绑定图像
     </h2>
     <p>
-        The next step is to bind the image for the icon to the
+        下面一步是为icon绑定其图像到
         <em>
             Icon Image View
         </em>
-        . This is a little trickier because the JSON doesn’t contain the actual
-        image, but instead a URL for the image.
+        上。这个有一点trick，因为JSON并不包含事实上的图像，而是用一个图片的URL来代替。
     </p>
     <p>
         <code>
             Result
         </code>
-        includes a method to download the image file and make it available as
-        an
-        <code>
-            NSImage
-        </code>
-        on the
+        包含了一个方法来下载图片文件，并让它成为
         <code>
             artworkImage
         </code>
-        property.
+        property的可用
+        <code>
+            NSImage
+        </code>
+        对象。
     </p>
     <h3>
-        Just-in-Time Downloads
+        即时的下载
     </h3>
     <p>
-        You don’t want to download all the icons at once — just the one for the
-        current selection in the table. You’ll download a new icon whenever the
-        selection changes.
+        你并不想一次下载全部的图标 - 而是只需下载那个当前在table中选择的那个。你将在选择发生变化的时候下载一个新的icon。
     </p>
     <p>
-        Add the following method to
+        添加下列的方法到
         <em>
             ViewController
         </em>
-        :
+        中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">//1</span>
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">_</span> notification: NSNotification)</span></span> {
@@ -1150,7 +1146,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
 }
 </pre>
     <p>
-        Here’s the play-by-play:
+        这里是详情：
     </p>
     <ol>
         <li>
