@@ -720,68 +720,62 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         对象。
     </p>
     <p>
-        Enter
-        <em>
-            selectionIndexes
-        </em>
-        into the
+        在
         <em>
             Controller Key
         </em>
-        box. The table has a
+        框中输入
+        <em>
+            selectionIndexes
+        </em>
+        。这个table有一个
         <code>
             selectionIndexes
         </code>
-        property that contains a set of indexes that the user has selected in
-        the table.
+        property，它包含一个序号的集合，这些序号代表了用户在table中选择的内容。
     </p>
     <p>
-        In this case, I’ve set the table view to only allow a single selection.
-        You could work with more than one selection if your app requires it, similar
-        to how Finder lets you select multiple files.
+        在这个case中，我已设定了这个table view同时只能允许一行被选中。当然如果app需要的话，你可以允许同时选择多行，就如同Finder允许你同时选择多个文件。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/selectionIndexes.png"
         alt="selectionIndexes" width="248" height="262" class="aligncenter size-full wp-image-126073">
     </p>
     <p>
-        The
         <code>
             NSArrayController
         </code>
-        object has a
+        对象有一个
         <code>
             selection
         </code>
-        property that returns an array of objects. When you bind the
+        property，它会返回一个对象的数组。当你把table view的
         <code>
             selectionIndexes
         </code>
-        property from the table view to the array controller, the
+        property绑定到array controller时，array controller中的
         <code>
             selection
         </code>
-        property will be populated with the objects in the array controller that
-        correspond to the indexes selected in the table.
+        property就会被相应的在table中选择的序号构成的对象所填充。
     </p>
     <p>
-        The next step is to bind the labels and other UI elements to the selected
-        object.
+        下面一步是吧label和其它的UI元素绑定到选择的对象上。
     </p>
     <p>
-        Find and select the
+        找到并选择
         <em>
             App Name Label (Bind)
         </em>
-        . Bind its value to the
+        。将他的value绑定到
         <em>
             Search Results Controller
-        </em>
-        .
+        </em>  
+        上。
         <em>
             Controller Key
         </em>
-        should be
+        为
         <em>
             selection
         </em>
@@ -789,19 +783,18 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         <em>
             Model Key Path
         </em>
-        should be
+        为
         <em>
             trackName
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/mainTrackName.png"
         alt="mainTrackName" width="247" height="193" class="aligncenter size-full wp-image-126075">
     </p>
     <p>
-        Build and run, select any app in the table view and its title will appear
-        in the text field:
+        Build并运行，选择在table view中的任一app，它的title就会出现在文本输入框中：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Main-Title-700x463.png"
