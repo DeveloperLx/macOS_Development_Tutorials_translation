@@ -803,84 +803,81 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You’ve seen how easy it can be to get data from your model into your UI.
-        But what if the data needs to be formatted in some way, such as a currency
-        or as a date?
+        你以及看到了，从你的模型获取数据，再放入到UI中是多么得容易。不过，如果数据需要以某种方式进行一下格式化，例如货币或日期，该怎么做呢？
     </p>
     <p>
-        Luckily, there’s a built-in set of objects that make it easy to change
-        the way a specific piece of data is displayed in a label.
+        幸运的是，有一系列內建的对象，使得改变指定数据展示到label上的形式变得非常得容易。
     </p>
     <h2>
-        Formatting Bound Data
+        格式化被绑定的数据
     </h2>
     <p>
-        Find the label titled
+        找到title为
         <em>
             Price Label (Bind)
         </em>
-        . Bind it to the
+        的label。将它绑定到
         <em>
             Search Results Controller
         </em>
-        object, and ensure
+        对象上，并确保
         <em>
             Controller Key
         </em>
-        is
+        为
         <em>
             selection
         </em>
-        .
+        。
     </p>
     <p>
-        Set
+        设置
         <em>
             Model Key Path
         </em>
-        to
+        为
         <em>
             price
         </em>
-        . Next, find a
+        ，然后，在Object Library中找到
         <em>
             Number Formatter
         </em>
-        in the Object Library. Drag it to the
-        <code>
-            NSTextFieldCell
-        </code>
-        named
+        ，将它拖拽到名为
         <em>
             Label
         </em>
-        , just under the
+        的
+        <code>
+            NSTextFieldCell
+        </code>
+        上，就在
         <em>
             Price
         </em>
-        text field.
+        文本输入框的下面。
     </p>
     <p>
-        Finally, select the
+        最后，选择
         <em>
             Number Formatter
         </em>
-        , open the
+        ，打开
         <em>
             Attributes Inspector
         </em>
-        and change the
+        并改变
         <em>
             Style
         </em>
-        to
+        为
         <em>
             Currency
         </em>
-        .
+        。
     </p>
     <p>
-        When you’re done, your storyboard and inspector should look like the following:
+        当以上都完成后，你的storyboard和inspector应当看起来像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/currencyFormatter-1.png">
@@ -891,8 +888,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </a>
     </p>
     <p>
-        Build and run, select any app from the list and the currencies should
-        all display correctly:
+        Build并运行，从列表中选择任一app，现在货币应当全部展示的是正确的：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/priceformatted-700x463.png"
