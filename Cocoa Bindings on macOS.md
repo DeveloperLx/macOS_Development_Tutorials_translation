@@ -1153,41 +1153,38 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             <code>
                 tableViewSelectionDidChange(_:)
             </code>
-            fires every time the user selects a different row in the table.
+            会在用户每次table选择不同的行时被触发。
         </li>
         <li>
-            The array controller property
+            array controller的property
             <code>
                 selectedObjects
             </code>
-            returns an array containing all the objects for the indexes of the rows
-            selected in the table. In your case, the table will only permit a single
-            selection, so this array always contains a single object. You store the
-            object in the
+            返回了一个数组，它包含了全部的在table中选择的行的序号。在这个case中，这个table只允许单选行，因此这个数组总是只包含一个对象。你用
             <code>
                 result
             </code>
-            object.
+            对象的形式来储存它。
         </li>
         <li>
+            最后，你调用了
             Finally, you call
             <code>
                 loadIcon()
             </code>
-            . This method downloads the image on a background thread and then updates
-            the
+            。这个方法会在后台线程下载图像，然后下载完后在主线程更新
             <code>
                 Result
             </code>
-            objects
+            对象的
             <code>
                 artworkImage
             </code>
-            property when the image downloads on the main thread.
+            property。
         </li>
     </ol>
     <h3>
-        Binding the Image View
+        绑定Image View
     </h3>
     <p>
         Now that your code is in place, you’re ready to bind the image view.
