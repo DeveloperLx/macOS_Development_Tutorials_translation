@@ -908,73 +908,70 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </p>
     </div>
     <h3>
-        Formatting as Bytes
+        格式化为字节
     </h3>
     <p>
-        You’ll be using a
+        接下来你将使用
         <em>
             Byte Count Formatter
         </em>
-        next to show the file size.
+        来显示文件的大小。
     </p>
     <p>
-        Find and select
+        找到并选择
         <em>
             File Size Label (Bind)
         </em>
-        , open the
+        ，打开
         <em>
             Bindings Inspector
         </em>
-        and bind it to the
+        并绑定到
         <em>
             Search Results Controller
         </em>
-        . Set
+        上。设置
         <em>
             Controller Key
         </em>
-        to
+        为
         <em>
             selection
         </em>
-        and
+        以及
         <em>
             Model Key Path
         </em>
-        to
+        为
         <em>
             fileSizeInBytes
         </em>
-        .
+        。
     </p>
     <p>
-        Then find a
-        <em>
-            Byte Count Formatter
-        </em>
-        in the
+        然后在
         <em>
             Object Library
         </em>
-        and attach it to the
+        中找到
+        <em>
+            Byte Count Formatter
+        </em>
+        并附加到
         <em>
             NSTextFieldCell
         </em>
-        . There’s no need to configure anything here; the default settings on
-        a byte formatter will work just fine.
+        上。这里无需进行任何的配置，字节格式化器的默认设置就可以工作得很好。
     </p>
     <p>
-        You should see your byte count formatter in the document outline like
-        so:
+        你应当在document outline看到你的字节技术格式化器就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/byte-count-formatter.png"
         alt="byte count formatter" width="349" height="124" class="aligncenter size-full wp-image-126083">
     </p>
     <p>
-        Build and run, select an app in the list, and you’ll see file size using
-        the proper units, such as KB, MB, and GB:
+        Build并运行，在列表中选择一个app，你就会看到使用合适单位的文件的大小，例如KB，MB和GB：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/byte-count-final-700x463.png"
@@ -983,8 +980,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You’re quite used to binding things by now, so here’s a short list of
-        the remaining keys you need to bind:
+        你现在已经绑定了一些东西，所以这里有一个剩余的你需要去绑定的键的短表：
     </p>
     <ul>
         <li>
