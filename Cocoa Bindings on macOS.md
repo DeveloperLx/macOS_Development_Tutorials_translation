@@ -899,16 +899,12 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : Number formatters are very powerful. In addition to currencies, you
-            can also control how many digits follow a decimal point, percentages, or
-            have the number spelled out in words.
+            ：数字格式化器是非常强大的。除了货币外，你也可以控制小数点后有几位数字，或者用单词拼写出数字。
         </p>
         <p>
-            There are formatter objects for dates, byte counts and several other less-common
-            situations. If none of those suit your needs, you can even create your
-            own custom formatters.
+            已有的格式化器对象有日期，字节计数，和其它几个不太常见的情况。如果它们都满足不了你，你甚至可以定制你自己的格式化器。
         </p>
     </div>
     <h3>
