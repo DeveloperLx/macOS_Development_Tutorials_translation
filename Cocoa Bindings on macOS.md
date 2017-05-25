@@ -984,105 +984,104 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     </p>
     <ul>
         <li>
-            Bind the
+            绑定
             <em>
                 Artist Label (Bind)
             </em>
-            to
+            到
             <em>
                 artistName
             </em>
-            .
+            。
         </li>
         <li>
-            Bind the
+            绑定
             <em>
                 Publication Date (Bind)
             </em>
-            to
+            到
             <em>
                 releaseDate
             </em>
-            .
+            。
         </li>
         <li>
-            Add a
+            添加一个
             <em>
                 Date Formatter
             </em>
-            ; the default settings are fine.
+            ；默认的设置就很棒。
         </li>
         <li>
-            Bind the
+            绑定
             <em>
                 All Ratings Count (Bind)
             </em>
-            to
+            到
             <em>
                 userRatingCount
             </em>
-            .
+            。
         </li>
         <li>
-            Bind the
+            绑定
             <em>
                 All Ratings (Bind)
             </em>
-            to
+            到
             <em>
                 averageUserRating
             </em>
-            .
+            。
         </li>
         <li>
-            Bind the
+            绑定
             <em>
                 Genre Label (Bind)
             </em>
-            to
+            到
             <em>
                 primaryGenre
             </em>
-            .
+            。
         </li>
     </ul>
     <p>
-        All these labels should be bound to the
+        全部的这些label应当被绑定到
         <em>
             Search Results Controller
         </em>
-        and the
+        并设置
         <em>
             selection
         </em>
-        controller key.
+        的controller key。
     </p>
     <p>
-        For more precision in your UI, you can also bind the
+        为了让你的UI更加精确，你也可以绑定
         <em>
             Description Text View (Bind)
         </em>
-        , the
+        ，
         <em>
             Attributed String
         </em>
-        binding, to the
+        binding到
         <em>
             itemDescription
         </em>
-        Model Key Path. Make sure you bind the
+        Model Key Path上。确保你绑定的是
         <code>
             NSTextView
         </code>
-        , which is several levels down in the hierarchy,
+        ，它在层级中有一些深。
         <i>
-            not
+            并不是
         </i>
-        the
         <code>
             NSScrollView
         </code>
-        which is at the top.
+        ，它在顶层。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/selecttextView.png">
@@ -1093,7 +1092,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </a>
     </p>
     <p>
-        Build and run, and you’ll see most of the UI populate:
+        Build并运行，你会看到大部分的UI已被填充：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/mostly-populated-700x421.png"
