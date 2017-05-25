@@ -1168,7 +1168,6 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </li>
         <li>
             最后，你调用了
-            Finally, you call
             <code>
                 loadIcon()
             </code>
