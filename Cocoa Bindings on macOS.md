@@ -1189,70 +1189,68 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         你的代码已经ready了，就可以去绑定image view了。
     </p>
     <p>
-        Head back to
+        返回
         <em>
             Main.storyboard
         </em>
-        , select the
+        ，选择
         <em>
             Icon Image View (Bind)
         </em>
-        object and open the
+        对象并打开
         <em>
             Bindings Inspector
         </em>
-        .
+        。
     </p>
     <p>
-        Go to the
+        前往
         <em>
             Value
         </em>
-        section and bind to the
+        区并绑定到
         <em>
             Search Results Controller
         </em>
-        , set
+        上，设置
         <em>
             Controller Key
         </em>
-        to
+        为
         <em>
             selection
         </em>
-        and
+        ，以及
         <em>
             Model Key Path
         </em>
-        to
+        为
         <em>
             artworkImage
         </em>
-        .
+        。
     </p>
     <p>
-        Did you notice the
+        你是否注意到了
         <em>
             Value Path
         </em>
-        and a
+        和
         <em>
             Value URL
         </em>
-        sections? Both of these bindings are intended for local resources only.
-        You
+        这里？这些绑定都仅仅是为了本地化资源。你可以将
         <i>
             can
         </i>
-        connect them to a network resource, but that will block the UI thread
-        until the resource has finished downloading.
+        它们连接到网络资源上，但这样会阻塞UI线程，直到资源完成下载之后。
     </p>
     <p>
-        Build and run, search for
+        Build并运行，搜索
         <em>
             fruit
         </em>
-        and then select a row. You’ll see the icon image appear once it has downloaded:
+        ，然后选择一行。你就会在icon的图像下载完成时看到它。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/icon-populated-700x421.png"
@@ -1261,11 +1259,10 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        The collection view beneath the description text view is currently looking
-        a little bare. Time to populate that with some screenshots.
+        在description文本view下的collection view现在看起来有一点光秃秃的。是时候用一些画面来填充它了。
     </p>
     <h3>
-        Populating the Collection View
+        填充Collection View
     </h3>
     <p>
         First you’ll bind the collection view to the
