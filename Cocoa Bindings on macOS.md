@@ -1628,36 +1628,33 @@ collectionView.itemPrototype = itemPrototype
         添加更多的细节
     </h2>
     <p>
-        Cocoa Bindings can do more than what you’ve learned so far: you can bind
-        colors and fonts to labels, enable and disable controls, and even set different
-        values for labels depending on their state.
+        Cocoa Bindings可以做到的事，远远不止我们现在学到的这些：你可以绑定颜色和字体到label上，打开和禁用控件，甚至为label根据它们的状态设置不同的值。
     </p>
     <p>
-        Build and run your app, and you’ll notice that you see
+        Build并运行你的app，你会注意到在你全部的label之前，你会看到
         <em>
             No Selection
         </em>
-        on all your labels before. This isn’t very nice for a user to see when
-        they start your app.
+        。这点对于一个用户启动它们的app时并不是很好。
     </p>
     <p>
-        Find the label titled
+        找到标题为
         <em>
             Price Label (Bind)
         </em>
-        , and expand
+        的label，展开
         <em>
             Value
         </em>
-        . Under
+        。在
         <em>
             No Selection Placeholder
         </em>
-        , put
+        的下面，输入
         <code>
             --
         </code>
-        as shown below:
+        ，如同下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/Screen-Shot-2016-08-30-at-12.37.50-PM.png"
@@ -1666,41 +1663,41 @@ collectionView.itemPrototype = itemPrototype
         sizes="(max-width: 261px) 100vw, 261px">
     </p>
     <p>
-        Build and run your app, and you’ll see that the
+        Build并运行你的app，你会看到
         <em>
             Price
         </em>
-        label now has a nice placeholder value:
+        label现在有了一个很好的占位的值：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/Screen-Shot-2016-08-30-at-12.38.00-PM.png"
         alt="Screen Shot 2016-08-30 at 12.38.00 PM" width="212" height="191" class="alignnone size-large wp-image-142726">
     </p>
     <p>
-        Set all labels that say
+        设置全部的label的占位的值为
         <em>
             No Selection
         </em>
-        to have a placeholder of your choice.
+        。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you want the label to be blank, you can set the
+            ：如果你想让label为空，你可以设置
             <em>
                 No Selection Placeholder
             </em>
-            to a
+            为一个
             <em>
-                space
+                空格
             </em>
-            .
+            。
         </p>
     </div>
     <h2>
-        Where to Go From Here?
+        从这儿去哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
