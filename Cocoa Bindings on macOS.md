@@ -1445,53 +1445,53 @@ collectionView.itemPrototype = itemPrototype
         设立一个进度Spinner
     </h3>
     <p>
-        You can easily bind a progress spinner to a new property in the
+        你可以很轻松地绑定一个进度spinner到
         <code>
             ViewController
         </code>
-        . Add the following property to
+        中的一个新property上。添加下列的property到
         <code>
             ViewController
         </code>
-        :
+        ：
     </p>
     <pre lang="swift" class="hljs cs"><span class="hljs-keyword">dynamic</span> <span class="hljs-keyword">var</span> loading = <span class="hljs-literal">false</span>
 </pre>
     <p>
-        Loading requires two things in order to work correctly: the
+        为了正常工作，加载需要满足两件事：
         <code>
             dynamic
         </code>
-        keyword, and the parent class to be a subclass of
+        关键字，且其父类为
         <code>
             NSObject
         </code>
-        . Bindings relies on KVO (Key Value Observing), and a Swift class that
-        doesn’t inherit from NSObject wouldn’t be able to use KVO.
+        的子类。Bindings依赖于KVO，一个并非继承自NSObject的Swift的类无法使用KVO。
     </p>
     <p>
-        Add the following line of code inside
+        在
         <code>
             searchClicked(:_)
         </code>
-        , right before the line that executes the call to
+        中添加下列的代码，就在调用
         <code>
             getSearchResults(_:results:langString:completionHandler:)
         </code>
-        :
+        之前：
     </p>
     <pre lang="swift" class="hljs javascript">loading = <span class="hljs-literal">true</span>
 </pre>
     <p>
-        Locate the line in the same method that sets the
-        <code>
-            content
-        </code>
-        property on
+        在相同的方法中找到设置
+        on
         <code>
             searchResultsController
         </code>
-        . Add the following code immediately before that line:
+        的
+        <code>
+            content
+        </code>
+        property那行。就在那行前面添加下列的代码：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-keyword">self</span>.loading = <span class="hljs-literal">false</span>
 </pre>
