@@ -1496,120 +1496,118 @@ collectionView.itemPrototype = itemPrototype
     <pre lang="swift" class="hljs objectivec"><span class="hljs-keyword">self</span>.loading = <span class="hljs-literal">false</span>
 </pre>
     <p>
-        Next, open
+        接下来，打开
         <em>
             Main.storyboard
         </em>
-        and select
+        并选择
         <em>
             Search Progress Indicator (Bind)
         </em>
-        . You’re going to bind two properties of the progress spinner:
+        。你要去绑定进度spinner的两个property：
         <code>
             hidden
         </code>
-        and
+        和
         <code>
             animate
         </code>
-        .
+        。
     </p>
     <p>
-        First, expand the
+        首先，展开
         <em>
             Hidden
         </em>
-        group, and bind to the
+        组，并绑定到
         <em>
             View Controller
         </em>
-        .
+        。
         <em>
             Controller Key
         </em>
-        should be blank, and
+        置为空，而
         <em>
             Model Key Path
         </em>
-        should be
+        则为
         <em>
             self.loading
         </em>
-        .
+        。
     </p>
     <p>
-        In this case, you want
-        <code>
-            hidden
-        </code>
-        to be false when
+        在这个case中，你想要当
         <code>
             loading
         </code>
-        is
+        为
         <code>
             true
         </code>
-        , and vice versa. There’s an easy way to do that: use
+        是
+        <code>
+            hidden
+        </code>
+        置为false，反之亦然。有一个轻松的办法来做到这点：使用
         <code>
             NSValueTransformer
         </code>
-        to flip the value of the boolean.
+        去翻转bool的值。
     </p>
     <div class="note">
         <p>
             <code>
                 NSValueTransformer
             </code>
-            is a class that helps you convert the form or value of data when moving
-            between UI and data model.
+            是一个类，它可以当在UI和数据模型移动的时候，帮助你转换转换形式或数据的值。
         </p>
         <p>
-            You can subclass this object in order to do much more complex conversions,
-            you can learn more about NSValueTransformers in this tutorial:
+            为了实现更多复杂的转换，你可以子类化这个对象，你可以在这篇教程中学到更多关于NSValueTransformer的东西：
             <a href="http://www.raywenderlich.com/21752/how-to-use-cocoa-bindings-and-core-data-in-a-mac-app"
             target="_blank" title="How to Use Cocoa Bindings and Core Data in a Mac App">
-                How to Use Cocoa Bindings and Core Data in a Mac App
+                怎样在Mac App中使用Cocoa Bindings和Core Data
             </a>
             .
         </p>
     </div>
     <p>
-        Choose
-        <em>
-            NSNegateBoolean
-        </em>
-        from the
+        从
         <em>
             Value Transformer
         </em>
-        dropdown list.
+        的下拉列表中选择
+        <em>
+            NSNegateBoolean
+        </em>
+        。
     </p>
     <p>
-        Bind the
+        绑定
         <em>
             Animate
         </em>
-        value to the
+        的值到
         <em>
             View Controller
         </em>
-        object. Set
+        对象上。设置
         <em>
             Controller Key
         </em>
-        as blank, and set
+        为空，
         <em>
             Model Key Path
         </em>
-        as
+        为
         <em>
             self.loading
         </em>
-        .
+        。
     </p>
     <p>
-        This Boolean doesn’t need to be negated. The bindings look like this:
+        这个布尔值不需要取反。这个绑定看起来应该是这样子的：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Binding-animating.png"
@@ -1618,8 +1616,7 @@ collectionView.itemPrototype = itemPrototype
         sizes="(max-width: 248px) 100vw, 248px">
     </p>
     <p>
-        Build and run; search for something that will return a large number of
-        results so you have time to watch the spinner do its thing:
+        Build并运行；搜索一下，就会返回大量的结果，因此你就有时间去观察spinner来做它的事情了：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Spinner-animating-700x421.png"
@@ -1628,7 +1625,7 @@ collectionView.itemPrototype = itemPrototype
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h2>
-        Adding a Little More Detail
+        添加更多的细节
     </h2>
     <p>
         Cocoa Bindings can do more than what you’ve learned so far: you can bind
