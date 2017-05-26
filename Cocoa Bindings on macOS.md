@@ -1430,23 +1430,19 @@ collectionView.itemPrototype = itemPrototype
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Great work! There’s just a few more features of Cocoa Bindings to cover
-        before wrapping up.
+        God Job！在结束之前，只有几点Cocoa Bindings的特性需要做到了。
     </p>
     <h2>
-        Binding Other Properties
+        绑定其它的property
     </h2>
     <p>
-        Your UI could use a bit of feedback. Users don’t like to stare at static
-        screens when something is loading, and they’ll assume the worst when nothing
-        happens in response to a user action.
+        你的UI可以使用一些反馈。用户不喜欢在下载东西时一直盯着静态的屏幕，当对于用户的动作没有任何响应时，他们会认为那是发生了最糟糕的情况。
     </p>
     <p>
-        Instead of leaving a static screen, you’ll show a spinner to the user
-        while the image downloads.
+        接下来你会在当下载图像时，向用户展示一个spinner，代替只有一个静态的图像。
     </p>
     <h3>
-        Seting Up a Progress Spinner
+        设立一个进度Spinner
     </h3>
     <p>
         You can easily bind a progress spinner to a new property in the
