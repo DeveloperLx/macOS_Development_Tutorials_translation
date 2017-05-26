@@ -1265,171 +1265,163 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         填充Collection View
     </h3>
     <p>
-        First you’ll bind the collection view to the
+        首先你要将collection view绑定到
         <code>
             screenShots
         </code>
-        property and then ensure the
+        property上，并确保
         <code>
             screenShots
         </code>
-        array populated correctly.
+        数组被正确地填充。
     </p>
     <p>
-        Select the
+        选择
         <em>
             Screen Shot Collection View (Bind)
         </em>
-        . Open the
+        。打开
         <em>
             Bindings Inspector
         </em>
-        and expand the
+        并在
         <em>
             Content
         </em>
-        binding in the
+        组中展开
         <em>
             Content
         </em>
-        group.
+        binding。
     </p>
     <p>
-        Bind to the
+        绑定到
         <em>
             Search Results Controller
         </em>
-        , set
+        上，设置
         <em>
             Controller Key
         </em>
-        to
+        为
         <em>
             selection
         </em>
-        and
+        ，以及
         <em>
             Model Key Path
         </em>
-        to
+        为
         <em>
             screenShots
         </em>
-        .
+        。
     </p>
     <p>
-        The
         <code>
             screenShots
         </code>
-        array starts out empty.
+        数组开始是空的。
         <code>
             loadScreenShots()
         </code>
-        downloads the image files and populates the
-        <code>
-            screenShots
-        </code>
-        array with
+        方法会下载图片文件，并以
         <code>
             NSImage
         </code>
-        objects.
+        对象的形式填充到
+        <code>
+            screenShots
+        </code>
+        数组中。
     </p>
     <p>
-        Add the following line to
+        添加下面这行代码到
         <em>
             ViewController.swift
         </em>
-        , in
+        的
         <code>
             tableViewSelectionDidChange(_:)
         </code>
-        , right after
+        方法中，就在
         <code>
             result.loadIcon()
         </code>
-        :
+        的后面：
     </p>
     <pre lang="swift" class="hljs">result.loadScreenShots()
 </pre>
     <p>
-        This populates the screenshot images and creates the right number of views.
+        它填充了截图并创建了正确数量的view。
     </p>
     <p>
-        The next thing you need to do is set the right collection view item prototype.
-        Although the collection view item scene is present in the storyboard, it’s
-        not connected to the collection view. You’ll have to create this connection
-        in code.
+        下面你需要做的事，是设置正确的collection view项目的原型。尽管collection view项目的场景已经展示在了storyboard中，但却并未连接到collection view上。你必须在代码中创建这个连接。
     </p>
     <p>
-        Add the following code to the end of
-        <code>
-            viewDidLoad()
-        </code>
-        in
+        添加下面的代码到
         <em>
             ViewController.swift
         </em>
-        :
+        中的
+        <code>
+            viewDidLoad()
+        </code>
+        方法的末尾：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> itemPrototype = <span class="hljs-keyword">self</span>.storyboard?.instantiateController(withIdentifier:
   <span class="hljs-string">"collectionViewItem"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">NSCollectionViewItem</span>
 collectionView.itemPrototype = itemPrototype
 </pre>
     <p>
-        Now that the collection view knows how to create each item via the prototype,
-        you need to provide the content for each item via a binding.
+        既然collection view知道怎样通过原型来创建每个项目，你需要做的就是通过绑定来提供每个项目的内容。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and select
-        <em>
-            Screen Shot Image View (Bind)
-        </em>
-        inside the
+        并选择
         <em>
             Collection View Item Scene
         </em>
-        . You’ll find this floating next to the main view controller.
+        中的
+        <em>
+            Screen Shot Image View (Bind)
+        </em>
+        。你会发现这个浮点值挨着主视图控制器。
     </p>
     <p>
-        Bind the
+        绑定
         <em>
             Value
         </em>
-        option to the
+        选项到
         <em>
             Collection View Item
         </em>
-        object. The controller key should be blank, and
+        对象上。controller key应当是空的，而
         <em>
             Model Key Path
         </em>
-        should be
+        则应当是
         <em>
             representedObject
         </em>
-        .
+        。
     </p>
     <p>
-        The
         <code>
             representedObject
         </code>
-        property represents the object in the collection view array for that item;
-        in this case, it’s an
+        property代表了在collection view数组中相应的项目；在这个case中，它就是一个
         <code>
             NSImage
         </code>
-        object.
+        对象。
     </p>
     <p>
-        Build and run, and you’ll see see the screenshots appearing below the
-        description text:
+        Build并运行，你会看到图像出现在了描述文本的下面：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/screenshots-700x421.png"
