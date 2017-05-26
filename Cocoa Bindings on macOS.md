@@ -1709,10 +1709,11 @@ collectionView.itemPrototype = itemPrototype
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1720,48 +1721,42 @@ collectionView.itemPrototype = itemPrototype
         </div>
     </div>
     <p>
-        That’s the basics of Cocoa Bindings on macOS. You’ve seen how easy it
-        can be to connect data and UI.
+        这就是Cocoa Bindings在macOS上的基本内容。你已经看到了它是多么容易地让你连接数据和UI。
     </p>
     <p>
-        In this tutorial, you learned the following:
+        在这篇教程中，你学到了下面的事情：
     </p>
     <ol>
         <li>
-            How to use Interface Builder to quickly and easily bind objects to data.
+            怎样使用Interface Builder去快速而轻松地绑定对象到数据上。
         </li>
         <li>
-            How to keep models and views in sync with the user’s current selection.
+            怎样保持模型和视图和用户当前的选择同步。
         </li>
         <li>
-            How to use methods and bindings together to control behaviors and organize
-            data.
+            怎样使用方法和绑定一起控制表现，以及组织数据。
         </li>
         <li>
-            How to quickly build out UI features like progress spinners.
+            怎样快速地搭建类似进度spinner的UI特性。
         </li>
     </ol>
     <p>
-        You can download the final project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/AppResearchBindings-Final.zip"
         target="_blank" title="">
-            here
+            这里
         </a>
-        . Hopefully, you can save a lot of time (and code!) by adopting this technology.
+        下载最终的项目。希望你可以通过采用这个技术节省很多的时间（和代码！）。
     </p>
     <p>
-        Each binding has a lot of little settings and options, many of which you
-        didn’t explore in this tutorial. Check out
+        每个binding都有很多小的设置和选项，很多在这篇教程中并未提到。你可以访问苹果提供的
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/CocoaBindingsRef/Concepts/BindingsOptions.html"
         target="_blank" title="">
             this resource on Cocoa bindings
         </a>
-        provided by Apple. It covers a lot of the details about what the options
-        in the bindings windows do.
+        。它覆盖了很多关于bindings窗口的选项作用的细节。
     </p>
     <p>
-        I hope you enjoyed this Cocoa Bindings on macOS tutorial and picked up
-        some new techniques to use to accelerate your development process. You’ve
-        just opened up a whole new universe!
+        我希望你可以喜欢这个macOS的Cocoa Bindings教程，并获得一些新的技术去使用，来加速你的开发过程。你已经打开了一个全新的宇宙！
     </p>
 </div>
