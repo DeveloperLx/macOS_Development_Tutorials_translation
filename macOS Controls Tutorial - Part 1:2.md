@@ -955,27 +955,26 @@ singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count
         </a>
     </p>
     <h3>
-        Filling the Spaces — Adding Items To Pop Up Buttons
+        填充空格 - 添加项目到Pop Up Button上
     </h3>
     <p>
-        As you might expect, adding items to
+        正如你所期望的，添加项目到
         <code>
             NSPopUpButton
         </code>
-        is similar to adding items to
+        就类似于添加项目到
         <code>
             NSComboBox
         </code>
-        — except that
+        上 - 除了
         <code>
             NSPopUpButton
         </code>
-        doesn’t support using a data source for the content of the control.
+        不支持使用data source来为这个控件填充内容。
         <code>
             NSPopUpButton
         </code>
-        maintains an internal list of items and exposes several methods to manipulate
-        it:
+        持有着一个内部的项目的列表，并暴露了几个方法来操纵它：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Add an item to the list</span>
 myPopUpbutton.addItem(withTitle: <span class="hljs-string">"Pop up buttons rock"</span>)
@@ -993,12 +992,10 @@ myPopUpbutton.removeAllItems()
 myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
 </pre>
     <p>
-        Pretty straightforward, isn’t it? That’s the beauty of macOS controls
-        — there are a lot of similarities between them in terms of the methods
-        used to manipulate the controls.
+        相当得直截了当，不是么？这就是macOS控件的美 - 用来操纵控件的方法会有很多的相似之处。
     </p>
     <p>
-        Time to implement a pop up button in your app! :]
+        是时候在你的app中实现一个pop up button了！:]
     </p>
     <h2>
         The More the Merrier — A Plural Noun
@@ -1833,9 +1830,5 @@ myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
         , you’ll learn about more macOS controls, including sliders, date pickers,
         radio buttons, check boxes and image views — each of which will be added
         to your Mad Libs application in order to complete it.
-    </p>
-    <p>
-        In the meantime, if you have any questions or comments about what you’ve
-        done so far, join in the forum discussion below!
     </p>
 </div>
