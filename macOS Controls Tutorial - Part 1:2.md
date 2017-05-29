@@ -977,24 +977,21 @@ singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count
         maintains an internal list of items and exposes several methods to manipulate
         it:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492959">
-                    <td class="code" id="p149295code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Add an item to the list myPopUpbutton.addItem(withTitle: "Pop up buttons
-                            rock") &nbsp; // Add an array of items to the list myPopUpbutton.addItems(withTitles:
-                            ["Item 1", "Item 2", "Item 3"]) &nbsp; // Remove all items from the list
-                            myPopUpbutton.removeAllItems() &nbsp; // Get the index of the currently
-                            selected item let selectedIndex = myPopUpbutton.indexOfSelectedItem &nbsp;
-                            // Select an item at a specific index myPopUpbutton.selectItem(at: 1)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Add an item to the list</span>
+myPopUpbutton.addItem(withTitle: <span class="hljs-string">"Pop up buttons rock"</span>)
+
+<span class="hljs-comment">// Add an array of items to the list</span>
+myPopUpbutton.addItems(withTitles: [<span class="hljs-string">"Item 1"</span>, <span class="hljs-string">"Item 2"</span>, <span class="hljs-string">"Item 3"</span>])
+
+<span class="hljs-comment">// Remove all items from the list</span>
+myPopUpbutton.removeAllItems()
+
+<span class="hljs-comment">// Get the index of the currently selected item</span>
+<span class="hljs-keyword">let</span> selectedIndex = myPopUpbutton.indexOfSelectedItem
+
+<span class="hljs-comment">// Select an item at a specific index</span>
+myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
+</pre>
     <p>
         Pretty straightforward, isn’t it? That’s the beauty of macOS controls
         — there are a lot of similarities between them in terms of the methods
