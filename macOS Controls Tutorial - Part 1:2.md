@@ -600,90 +600,72 @@ pastTenseVerbTextField.stringValue = <span class="hljs-string">"ate"</span>
         </a>
     </p>
     <p>
-        Here, the user can select from a predefined list, or enter their own server
-        name, if they wish.
+        这里，用户可以从一个预定义的列表中进行选择，或输入他们自己的服务器名称，如果他们希望的话。
     </p>
     <p>
-        The macOS control responsible for this is
+        在macOS中负责这个的是
         <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSComboBox_Class/Reference/Reference.html"
         title="NSComboBox Class reference">
-            NSComboBox.
+            NSComboBox
         </a>
+        。
     </p>
     <p>
         <code>
             NSComboBox
         </code>
-        has two distinct components: the text field where you can type, and the
-        list of options which appear when the embedded button is clicked. You can
-        control the data in both parts separately.
+        有两个不同的成分：你可以进行输入的text field，还有当嵌入的按钮被点击时展示的选项的列表。你可以分别地控制两部分的数据。
     </p>
     <p>
-        To get or set the value in the text field, simply use the
+        要获取或设置text field中的值，只需使用前面提到的
         <code>
             stringValue
         </code>
-        property covered earlier. Hooray for keeping things simple and consistent!
-        :]
+        property。为保持事情简单一致喝彩吧！:]
     </p>
     <p>
-        Providing options for the list is a little more involved, but still relatively
-        straightforward. You can call methods directly on the control to add elements
-        in a manner similar to mutable
-        <code>
-            Array
-        </code>
-        , or you can use a data source — anyone with experience on iOS programming
-        and
-        <code>
-            UITableViewDataSource
-        </code>
-        will feel right at home!
+        为列表提供选项会有一点复杂，但仍是相对直接了当的。你可以直接调用控件上的方法来添加元素，就类似于可变数组一样，也可以使用data source - 任何有iOS编程经验的人都会感到非常舒适！
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+               注意：
             </em>
-            If you are not familiar with the concept of Data Sources, you can learn
-            about it in Apple’s
+            如果你并不熟悉Data Sources的相关概念，你可以在苹果的
             <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html"
             target="_blank">
-                Delegates and Data Sources
+                文档
             </a>
-            documentation.
+            中进行了解。
         </p>
     </div>
     <h3>
-        Method 1 – Calling Methods Directly On The Control
+        方法1 - 直接调用控件上的方法
     </h3>
     <p>
         <code>
             NSComboBox
         </code>
-        contains an internal list of items, and exposes several methods that allow
-        you to manipulate this list, as follows:
+        包含了一个内部的项目列表，并暴露了几个允许你操纵这个列表的方法，例如：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492954">
-                    <td class="code" id="p149295code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Add an object to the list myComboBox.addItem(withObjectValue: anObject)
-                            &nbsp; // Add an array of objects to the list myComboBox.addItems(withObjectValues:
-                            [objectOne, objectTwo, objectThree]) &nbsp; // Remove all objects from
-                            the list myComboBox.removeAllItems() &nbsp; // Remove an object from the
-                            list at a specific index myComboBox.removeItem(at: 2) &nbsp; // Get the
-                            index of the currently selected object let selectedIndex = myComboBox.indexOfSelectedItem
-                            &nbsp; // Select an object at a specific index myComboBox.selectItem(at:
-                            1)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Add an object to the list</span>
+myComboBox.addItem(withObjectValue: anObject)
+
+<span class="hljs-comment">// Add an array of objects to the list</span>
+myComboBox.addItems(withObjectValues: [objectOne, objectTwo, objectThree])
+
+<span class="hljs-comment">// Remove all objects from the list</span>
+myComboBox.removeAllItems()
+
+<span class="hljs-comment">// Remove an object from the list at a specific index</span>
+myComboBox.removeItem(at: <span class="hljs-number">2</span>)
+
+<span class="hljs-comment">// Get the index of the currently selected object</span>
+<span class="hljs-keyword">let</span> selectedIndex = myComboBox.indexOfSelectedItem
+
+<span class="hljs-comment">// Select an object at a specific index</span>
+myComboBox.selectItem(at: <span class="hljs-number">1</span>)
+</pre>
     <p>
         That’s relatively straightforward, but what if you don’t want your options
         hardcoded in the app — such as a dynamic list that is stored outside of
