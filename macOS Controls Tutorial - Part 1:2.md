@@ -361,66 +361,60 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
         梦想的域 - NSTextField
     </h2>
     <p>
-        One of the most common controls in any UI is a field that can be used
-        to display or edit text. The control responsible for this functionality
-        in macOS is
+        在任何UI中，最常用的控件之一，是一个能够用来展示或编辑文本的域。在macOS中负责这个功能的控件就是
         <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSTextField_Class/Reference/Reference.html"
         title="NSTextField Class Reference">
             NSTextField
         </a>
-        .
+        了。
     </p>
     <p>
         <code>
             NSTextField
         </code>
-        is used for both displaying and editing text. You’ll notice this differs
-        from iOS, where
+        是用来展示或编辑文本的。你会注意到它和iOS的差别：在iOS中，
         <code>
             UILabel
         </code>
-        is used to display fixed text, and
+        是用来展示固定的文本的，
         <code>
             UITextField
         </code>
-        for editable text. In macOS these controls are combined into one, and
-        its behavior changes according to the value of its
+        是用来编辑文本的。在macOS中它们被合二为一，它的行为会根据
         <code>
             isEditable
         </code>
-        property.
+        这个property的值变化而变化。
     </p>
     <p>
-        If you want a text field to be a label, you simply set its
+        如果你想要text field成为一个label，你可以设置它的
         <code>
             isEditable
         </code>
-        property to
+        property为
         <code>
             false
         </code>
-        . To make it behave like a text field — yup, you simply set
+        。要让它的行为像一个text field - 是的，你就可以设置
         <code>
             isEditable
         </code>
-        to
+        为
         <code>
             true
         </code>
-        ! You can change this property programmatically or from Interface Builder.
+        ！你可以从代码或从Interface Builder中改变这个property。
     </p>
     <p>
-        To make your coding life just a little easier, Interface Builder actually
-        provides several pre-configured macOS controls to display and edit text
-        which are all based on
+        为了让你编写代码更容易一些，Interface Builder事实上提供了几个预先配置好的 基于
         <code>
             NSTextField
         </code>
-        . These pre-configured macOS controls can be found in the
+        的macOS控件，来展示和编辑文本。这些可以在
         <em>
             Object Library
         </em>
-        :
+        中找到的预配置的macOS控件有：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/textfields-catalog.png">
