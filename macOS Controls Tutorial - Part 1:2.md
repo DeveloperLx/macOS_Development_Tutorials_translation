@@ -3,84 +3,62 @@
 #### [原文地址](https://www.raywenderlich.com/149295/macos-controls-tutorial-part-12) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
 <div class="content-wrapper">
-    <div id="attachment_153233" style="width: 260px" class="wp-caption alignright">
-        <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature.png">
-            <img src="https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-250x250.png"
-            alt="Get started with macOS controls!" width="250" height="250" class="size-thumbnail wp-image-153233"
-            srcset="https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-128x128.png 128w"
-            sizes="(max-width: 250px) 100vw, 250px">
-        </a>
-        <p class="wp-caption-text">
-            Get started with macOS controls!
-        </p>
-    </div>
     <p>
         <em>
-            Update Note:
+            更新日志：
         </em>
-        Updated for Xcode 8.2 / Swift 3 by Ernesto García.
+        已由Ernesto García更新至 Xcode 8.2 / Swift 3 版。
         <a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1">
-            Previous update
+            之前
         </a>
-        to Xcode 6.3 / Swift 1.2 by
+        由
         <a href="https://www.raywenderlich.com/u/skyrocketsw">
             Michael Briscoe
         </a>
-        .
+        更新至Xcode 6.3 / Swift 1.2。
         <a href="https://www.raywenderlich.com/27388/core-controls-in-mac-os-x-part-12">
             Original post
+            初始版本
         </a>
-        by
+        作者为
         <a href="http://www.raywenderlich.com/u/ernesto">
             Ernesto García
         </a>
-        .
+        。
     </p>
     <p>
-        If you’re an iOS developer and you’re interested in learning about Mac
-        development, you’re in luck – with your iOS skills, you’ll find it quite
-        easy to learn!
+        如果你是一个iOS开发者，并且你感兴趣学习Mac开发，你很幸运 - 由于你的iOS的技能，你会发现它非常易学！
     </p>
     <p>
-        Many of the Cocoa classes and design patterns you know and love like strings,
-        dictionaries and delegates have direct equivalents in Mac development.
-        You’ll feel right at home!
+        很多你了解并喜欢Cocoa的类和设计模式，例如字符型、字典和代理在Mac开发中都是直接提供的。你会感到非常舒服！
     </p>
     <p>
-        However, one big difference with macOS development are there are different
-        controls. Gone are
+        然而，一个和macOS开发很大的区别是它们存在不同的控件。消失的是
         <code>
             UIButton
         </code>
-        and
+        和
         <code>
             UITextField
         </code>
-        – instead there are similar (but slightly different) variants.
+        - 用来取代的是相似（但有轻微不同的）变量。
     </p>
     <p>
-        This tutorial will introduce you to some of the more common macOS controls
-        of the user interface — the foundation upon which most Mac apps are built.
-        You’ll learn about these controls, as well as the methods and properties
-        you’ll need to understand in order to get up and running as a developer!
-        :]
+        这篇教程将向你介绍一些用户交互中，更常用的macOS控件 - 它们是构建多数Mac app的基础。你将学习这些控件的方法和property，作为一个开发者，为了建造和运行起来，你需要去理解它们！:]
     </p>
     <p>
-        In this tutorial, you’ll be creating a simple Mac application like the
-        popular game
+        在这篇教程中，你会创建一个简单的Mac应用，就像流行的游戏
         <a href="http://en.wikipedia.org/wiki/Mad_Libs" title="Mad Libs" target="_blank">
             Mad Libs
         </a>
-        . Mad Libs is a word game where you can insert different words in a block
-        of text in order to create a story — which often has hilarious results!
+        。Mad Libs是一个单词游戏，你可以在一个文本块中，插入不同的单词，来创建一个故事 - 这常常会造成非常滑稽的结果！
     </p>
     <p>
-        Once you’ve completed both parts of this tutorial, you’ll have a fundamental
-        understanding of the following macOS controls:
+        一旦你完成了这篇教程中的两个部分，你就会拥有对下列macOS控件的基本的理解：
     </p>
     <ul>
         <li>
-            Labels and Text Fields
+            Labels和Text Fields
         </li>
         <li>
             Combo Boxes
@@ -112,48 +90,43 @@
     </ul>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Following this tutorial requires some knowledge of macOS development.
-        If this is the first time you’re developing for macOS, you may want to
-        go through our
+        学习本教程需要一些macOS开发的基础知识。如果这是你第一次开发macOS，你可以参考我们的
         <a href="https://www.raywenderlich.com/110170/mac-os-x-development-tutorial-for-beginners-part-1-intro-to-xcode"
         target="_blank">
-            macOS Development Tutorial for Beginners
+            macOS开发初学者教程
         </a>
-        series to learn the basics.
+        系列来学习基础。
     </div>
     <p>
-        The best way to learn any new programming platform is to dive right in
-        and get started — so without further ado, here’s your introduction to macOS
-        Controls! :]
+        学习任何新的编程平台的最好的方式就是钻入并入门 - 所以不要担心得太多，这里就是你学习macOS控件的向导！:]
     </p>
     <h2>
-        Getting Started with macOS Controls
+        macOS控件入门
     </h2>
     <p>
-        Open
+        打开
         <em>
             Xcode
         </em>
-        , and choose
+        ，并选择
         <em>
             File/New/Project
         </em>
-        . In the
+        。在
         <em>
             Choose a template
         </em>
-        dialog, select
+        对话框中，选择
         <em>
             macOS/Application/Cocoa
         </em>
-        , which is the template you use to create an app with a GUI on macOS.
-        Then click
+        ，它是你用来创建带有GUI的macOS app的模板。然后点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/macos-template.png">
@@ -164,20 +137,19 @@
         </a>
     </p>
     <p>
-        In the next screen, type
+        在下一屏中，输入
         <em>
             MadLibs
         </em>
-        as the product name, and enter a unique Organization name and identifier.
-        Make sure that
+        作为产品名称，然后输入唯一的组织名称和标识符。确保
         <em>
             Use Storyboards
         </em>
-        is checked and
+        被选中，选中
         <em>
             Swift
         </em>
-        is the selected language.
+        作为语言。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/macos-projectname.png">
@@ -188,46 +160,45 @@
         </a>
     </p>
     <p>
-        Click
+        单击
         <em>
             Next
         </em>
-        and choose the location where you’d like to save your new project. Click
+        并选择你想要保存你的新项目的位置。点击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        .
+        。
         <em>
             Xcode
         </em>
-        has created for you the basic skeleton of a macOS app: a Window controller
-        and a content View controller.
+        已为你创建了一个macOS app的基本的骨架：一个Window controller及一个content View controller。
     </p>
     <p>
-        Select the window in the
+        选择
         <em>
             Window Controller Scene
         </em>
-        and open the
+        中的window并打开
         <em>
             Attributes Inspector
         </em>
-        . Change the window
+        。将window的
         <em>
             Title
         </em>
-        to
+        改为
         <em>
             MadLibs
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/MadLibsWindowTitle.png">
@@ -238,13 +209,11 @@
         </a>
     </p>
     <p>
-        A macOS app usually has a resizable window and its content has to adapt
-        to the window size. The best tool for that is
+        macOS app通常会带有一个可以改变大小的窗口，因此它的内容就不得不适应于窗口的尺寸。对此最有用的工具就是
         <em>
-            Auto Layout
+            自动布局
         </em>
-        . To add Auto Layout to all the controls in this tutorial would create
-        a major distraction; we want you to focus strictly on the macOS controls.
+        。添加自动布局到这篇教程中全部控件 会造成很大的分神；我们想要你把注意力完全集中到macOS控件上。
     </p>
     <p>
         Accordingly, only the default autoresizing is applied, which means that

@@ -1752,7 +1752,7 @@ collectionView.itemPrototype = itemPrototype
         每个binding都有很多小的设置和选项，很多在这篇教程中并未提到。你可以访问苹果提供的
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/CocoaBindingsRef/Concepts/BindingsOptions.html"
         target="_blank" title="">
-            this resource on Cocoa bindings
+            Cocoa bindings选项
         </a>
         。它覆盖了很多关于bindings窗口的选项作用的细节。
     </p>
