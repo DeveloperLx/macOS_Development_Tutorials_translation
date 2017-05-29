@@ -510,15 +510,15 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
         </a>
     </p>
     <p>
-        In the popup window that appears, name the Outlet
+        在出现的下拉菜单中，将Outlet命名为
         <em>
             pastTenseVerbTextField
         </em>
-        , and click
+        ，并单击
         <em>
             Connect
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/textoutlet-popup.png">
@@ -527,61 +527,46 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
         </a>
     </p>
     <p>
-        And that’s it! You now have an
+        就是这样！现在你已经在你的view controller中拥有了一个
         <code>
             NSTextField
         </code>
-        property in your view controller that is connected to the text field in
-        the main window.
+        的property，并且它已经连接到了在主窗口的text field上。
     </p>
     <p>
-        You know, it would be great to display some default text when the app
-        launches to give an idea of what to put in the field. Since everyone loves
-        to eat, and food related Mad Libs are always the most entertaining, the
-        word
+        你知道，在app启动时显示一些默认的文本，来提示该往文本框中输入什么是非常棒的。由于每个人都喜欢吃，关于Mad Libs的实物总是最有趣的，
         <em>
             ate
         </em>
-        would be a tasty choice here.
+        这个词在这里就会成为一个很棒的选择。
     </p>
     <p>
-        A good place to put this is inside
+        放置这个的一个很好的地方就在
         <code>
             viewDidLoad()
         </code>
-        . Now, simply set the
+        中。现在设置你先前学过的
         <code>
             stringValue
         </code>
-        property you learned about earlier.
+        property。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following code to the end of
+        ，并添加下列的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        方法末尾：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492953">
-                    <td class="code" id="p149295code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Sets the default text for the pastTenseVerbTextField property pastTenseVerbTextField.stringValue
-                            = "ate"
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Sets the default text for the pastTenseVerbTextField property</span>
+pastTenseVerbTextField.stringValue = <span class="hljs-string">"ate"</span>
+</pre>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-textfield.png">
