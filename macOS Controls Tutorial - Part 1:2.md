@@ -425,57 +425,50 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
         </a>
     </p>
     <p>
-        So now that you’ve learned the basics about
+        现在你已经了解了有关
         <code>
             NSTextField
         </code>
-        , you can add it to your Mad Libs application! :]
+        的基础，你可以添加它到你爹Mad Libs应用中了！:]
     </p>
     <h2>
-        Living in the Past — A Past Tense Verb
+        生活在过去 - 过去时态的动词
     </h2>
     <p>
-        You will add various macOS controls to the MadLibs app, which will allow
-        you to blindly construct a funny sentence. Once you’ve finished, you will
-        combine all the different parts and display the result, hopefully with
-        some comedic value. The more creative the you are, the more fun they’ll
-        be!
+        你会添加各种macOS控件到MadLibs app上，让你可以“盲目地”构建一个有趣的句子。一旦你完成后，你就会把各部分连起来，并展示结果，很有可能就是一些喜剧的结果。你越有创造了，它们就会越有趣！
     </p>
     <p>
-        The first control you’ll add is a text field where you can enter a verb
-        to add it to the sentence, as well as a label that informs what the text
-        field is for.
+        你要添加的第一个控件是一个text field，可以在这里输入一个动词来添加到句子中。以及一个表示这个text field是为什么的label。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Locate the
-        <em>
-            Label
-        </em>
-        control in the
+        。定位到
         <em>
             Object Library
         </em>
-        and drag it onto the view in the
+        中的
+        <em>
+            Label
+        </em>
+        控件，并将其拖拽到
         <em>
             View Controller Scene
         </em>
-        . Double-click the label to edit the default text, and change it to
+        的view上。双击label来编辑默认的文本，并将其改为
         <em>
             Past Tense Verb:
         </em>
-        .
+        。
     </p>
     <p>
-        Next, locate the
+        接下来，找到
         <em>
             Text Field
         </em>
-        control and drag it onto the view, placing it to the right of the label,
-        like this:
+        控件并将它拖拽到view上，放置到label的右边，就像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/drag-label.png">
@@ -486,29 +479,27 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
         </a>
     </p>
     <p>
-        Now, you’ll create an outlet to the text field in the view controller.
-        While the
+        现在，你要在view controller中创建这个text field的outlet。打开
         <em>
             Main.storyboard
         </em>
-        is open, go to the
+        ，前往
         <em>
             Assistant editor
         </em>
-        . Make sure that
+        。确保
         <em>
             ViewController.swift
         </em>
-        is selected and
+        被选中，并从storyboard的text field中拖拽到
         <em>
-            Ctrl-Drag
+            按住Ctrl拖拽到
         </em>
-        from the text field in the storyboard into the pane containing
+        包含
         <em>
             ViewController.swift
         </em>
-        , and release the mouse just below the class definition to create a new
-        property:
+        的窗格中，然后在类定义的下面放开鼠标，来创建一个新的property：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/textoutlet-1.png">
