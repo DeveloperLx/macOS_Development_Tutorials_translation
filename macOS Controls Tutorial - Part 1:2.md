@@ -769,58 +769,55 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
         既然你已经掌握了combo box的基础，就马上到你的app中实现一个吧！:]
     </p>
     <h2>
-        一个Bar - 一个奇怪的名词
+        一个Bar - 一个名词
     </h2>
     <p>
-        In this section you’ll add a combo box to enter a singular noun. You can
-        either choose from the list or enter your own.
+        在这个部分，你将添加一个combo box来输入一个名词。你可以选择从列表中输入，或者自己来输入。
     </p>
     <p>
-        First, add a label that describes what the control is for.
+        首先，添加一个label来描述控件的目的。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Locate the
-        <em>
-            Label
-        </em>
-        control in the the
+        。找到
         <em>
             Object Library
         </em>
-        palette, and drag it onto the content view. Change its alignment to
+        面板中的
+        <em>
+            Label
+        </em>
+        控件，并拖拽它到content view上。改变它的alignment值为
         <em>
             Right
         </em>
-        and its title to
+        ，它的标题为
         <em>
             Singular Noun:
         </em>
-        .
+        。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Alternatively as a shortcut, hold down the
+            作为替代的捷径，按住
             <em>
                 Option
             </em>
-            key and drag an existing label to duplicate it. This is handy so you can
-            keep the same size and properties of an existing label.
+            键并拖拽一个存在的label来复制它。这么做是非常方便的，你可以保持和已存在label相同的尺寸和property值。
         </p>
     </div>
     <p>
-        Locate the
+        找到
         <em>
             Combo Box
         </em>
-        control and drag it onto the content view, placing it to the right of
-        the label.
+        控件并将它拖拽到content view上，将它放置到label的右边。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/addcombo.png">
@@ -831,32 +828,32 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
         </a>
     </p>
     <p>
-        Now you need to add an
+        现在你需要添加一个
         <code>
             NSComboBox
         </code>
-        outlet to the view controller. Use the same technique you used for the
-        text field: select the
+        outlet到view controller上。使用你在text field上相同的技术：选择
         <em>
             Assistant Editor
         </em>
-        (making sure
+        （确保
         <em>
             ViewController.swift
         </em>
-        is selected) and
+        已选中）并
         <em>
+            按住Ctrl拖拽
             Ctrl-Drag
         </em>
-        the combo box to the
+        combo box到
         <code>
             ViewController
         </code>
-        class just below the
+        类上，就在
         <code>
             NSTextField
         </code>
-        :
+        的下方：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/combo-outlet.png">
@@ -865,11 +862,11 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
             srcset="https://koenig-media.raywenderlich.com/uploads/2017/01/combo-outlet-650x382.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/01/combo-outlet-480x282.png 480w"
             sizes="(max-width: 650px) 100vw, 650px">
         </a>
-        In the popup window that appears, name the outlet
+        在出现的窗口中，命名outlet为
         <em>
             singularNounCombo
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/combo-outlet-2.png">
@@ -880,56 +877,33 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
         </a>
     </p>
     <p>
-        Now the
+        现在
         <code>
             NSComboBox
         </code>
-        property is connected to the combo box control. Next you are going to
-        add some data to populate the list.
+        property就被连接到了combo box控件上。接下来添加一些数据来填充这个列表。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add this code under the outlets:
+        并添加下面的代码到outlets的下方：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492957">
-                    <td class="code" id="p149295code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate let singularNouns = ["dog", "muppet", "ninja", "pirate", "dev"
-                            ]
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript">fileprivate <span class="hljs-keyword">let</span> singularNouns = [<span class="hljs-string">"dog"</span>, <span class="hljs-string">"muppet"</span>, <span class="hljs-string">"ninja"</span>, <span class="hljs-string">"pirate"</span>, <span class="hljs-string">"dev"</span> ]
+</pre>
     <p>
-        Now, add the following code at the end of
+        现在，添加下列的代码到
         <em>
             viewDidLoad()
         </em>
-        :
+        方法的尾部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492958">
-                    <td class="code" id="p149295code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Setup the combo box with singular nouns singularNounCombo.removeAllItems()
-                            singularNounCombo.addItems(withObjectValues: singularNouns) singularNounCombo.selectItem(at:
-                            singularNouns.count-1)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">// Setup the combo box with singular nouns</span>
+singularNounCombo.removeAllItems()
+singularNounCombo.addItems(withObjectValues: singularNouns)
+singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count</span>-<span class="hljs-number">1</span>)
+</pre>
     <p>
         The first line removes any items added by default. Next, it adds the names
         from
