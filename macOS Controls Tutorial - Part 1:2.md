@@ -577,24 +577,19 @@ pastTenseVerbTextField.stringValue = <span class="hljs-string">"ate"</span>
         </a>
     </p>
     <p>
-        Okay, that takes care of a single input with a default value. But what
-        if you want to provide a list of values to select from?
+        OK，它负责了一个默认值的输入。但如果你想要提供一个值得列表来方便选择呢？
     </p>
     <p>
-        Combo Boxes to the rescue!
+        Combo Boxes可以解救你！
     </p>
     <h2>
-        The Value Combo – NSComboBox
+        值的组合 - NSComboBox
     </h2>
     <p>
-        A combo box is interesting — and quite handy — as it allows the user to
-        choose one value from an array of options, as well as enter their own text.
+        combo box是非常得有趣且便利的 - 它让用户可以从一个选项的数组中选择一个值，就如同输入它们自己的文本一样。
     </p>
     <p>
-        It looks similar to a text field in which the user can type freely, but
-        it also contains a button that allows the user to display a list of selectable
-        items. You can find a solid example of this in macOS’s Date &amp; Time
-        preferences panel:
+        它看起来就类似于一个用户可以自由输入的text field，但还包含了一个让用户可以展示一个可选项目列表的按钮。你可以在macOS的“日期时间”偏好面板中找到一个示例：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/date-sshot.png">
