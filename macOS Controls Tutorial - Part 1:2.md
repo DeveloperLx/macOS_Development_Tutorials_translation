@@ -673,17 +673,13 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
         方法 2 - 使用Data Source
     </h3>
     <p>
-        When using a data source the combo box will query the data source for
-        the items it needs to display as well, as any necessary metadata, such
-        as the number of items in the list. To obtain this information, you’ll
-        need to implement the
+        当使用data source时，combo box会查询数据源，来查找需要展示的项目，以及任何必须的元数据，例如将要在列表中展示的数据的项目。为了获取这个信息，你需要在你的一个类中实现
         <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Protocols/NSComboBoxDataSource_Protocol/Reference/Reference.html"
         title="NSComboBoxDataSource Protocol Reference">
             NSComboBoxDataSource
         </a>
-        protocol in one of your classes, normally the View Controller hosting
-        the control. From there, it’s a two-step process to configure the combo
-        box to use the data source.
+        协议，通常是由View Controller来托管控件。从这里，需要两个步骤来配置combo
+        box使用数据源。
     </p>
     <p>
         First, set the control’s
