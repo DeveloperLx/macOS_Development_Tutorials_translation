@@ -262,89 +262,74 @@
         </a>
     </p>
     <p>
-        You’ve built a working application — without any coding at all. The window
-        is empty right now, but you’re going to fill it up with some macOS controls
-        and make it look great! :]
+        你已经构建了一个可工作的应用 - 没有一句代码。窗口现在是空的，但马上你就会用一些macOS的控件来填充它，让它看起来更棒！:]
     </p>
     <p>
-        Now that the basic framework has been laid down, you can move on to the
-        main focus of this tutorial — adding macOS controls to your app.
+        既然基本的框架已搭完，你就可以转移注意力到这篇教程的主题上了 - 添加macOS控件到你的app上。
     </p>
     <p>
-        Each of the remaining steps in this tutorial will focus on a single, different
-        control. You’ll learn the basics of each control and how to use each one
-        in the MadLibs app to try it out.
+        这篇教程中剩余的每一步骤都会聚焦在一个单独的、不同的控件上。你会了解到每个控件的基础，和如何在MadLibs app中使用它们来造出东西来。
     </p>
     <h2>
-        NSControl – The Building Block of MacOS Controls
+        NSControl – MacOS控件的构建模块
     </h2>
     <p>
         <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSControl_Class/Reference/Reference.html"
         title="NSControl" target="_blank">
             NSControl
         </a>
-        is the foundation upon which all other macOS controls are built.
+        是所有其它的macOS控件构建的基础。
         <code>
             NSControl
         </code>
-        provides three features which are pretty fundamental for user interface
-        elements: drawing on the screen, responding to user events, and sending
-        action messages.
+        提供了三个对于用户交互非常重要的特性：绘制到屏幕上，相应用户事件，发送动作消息。
     </p>
     <p>
-        As
         <code>
             NSControl
         </code>
-        is an abstract superclass, it’s entirely possible that you’ll never need
-        to use it directly within your own apps unless you want to create your
-        own custom macOS controls. All of the common controls are descendants of
+        是一个抽象的基类，非常有可能从不需要在你的app中直接使用它，除非你想要定制你自己的macOS控件。所有的常用控件都是
         <code>
             NSControl
         </code>
-        , and therefore inherit the properties and methods defined in that.
+        的子类，因此就继承了定义在NSControl中的property和方法。
     </p>
     <p>
-        The most common methods used for a control are getting and setting its
-        value, as well as enabling or disabling the control itself. Have a look
-        at the details behind these methods below:
+        一个control最常用的方法是获取和设置它的值，就像打开和禁用这个控件本身一样。下面来看一下这些方法背后的细节：
     </p>
     <h3>
-        Set the Value of macOS Controls
+        设置macOS控件的值
     </h3>
     <p>
-        If you need to display information you’ll usually change the control’s
-        value. Depending on your needs, the value can be a string, a number or
-        even an object. In most circumstances, you’ll use a value which matches
-        the type of information being displayed, but
+        如果你需要展示信息，通常就要改变控件的值。根据你的需要，这个值可能是一个字符串，一个数字，甚至是一个对象。在大多数环境下，你需要一个能够匹配被展示的信息的类型的值，但
         <code>
             NSControl
         </code>
-        allows you to go beyond this and set several different value types!
+        允许你超越这个，并设置几个不同类型的值！
     </p>
     <p>
-        The methods for getting and setting a control’s value are:
+        获取和设置一个控件的值的方法有：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492951">
-                    <td class="code" id="p149295code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            // getting &amp; setting a string let myString = myControl.stringValue
-                            myControl.stringValue = myString &nbsp; // getting &amp; setting an integer
-                            let myInteger = myControl.integerValue myControl.integerValue = myInteger
-                            &nbsp; // getting &amp; setting a float let myFloat = myControl.floatValue
-                            myControl.floatValue = myFloat &nbsp; // getting &amp; setting a double
-                            let myDouble = myControl.doubleValue myControl.doubleValue = myDouble &nbsp;
-                            // getting &amp; setting an object let myObject: Any? = myControl.objectValue
-                            myControl.objectValue = myObject
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// getting &amp; setting a string</span>
+<span class="hljs-keyword">let</span> myString = myControl.stringValue
+myControl.stringValue = myString
+
+<span class="hljs-comment">// getting &amp; setting an integer</span>
+<span class="hljs-keyword">let</span> myInteger = myControl.integerValue
+myControl.integerValue = myInteger
+
+<span class="hljs-comment">// getting &amp; setting a float</span>
+<span class="hljs-keyword">let</span> myFloat = myControl.floatValue
+myControl.floatValue = myFloat
+
+<span class="hljs-comment">// getting &amp; setting a double</span>
+<span class="hljs-keyword">let</span> myDouble = myControl.doubleValue
+myControl.doubleValue = myDouble
+
+<span class="hljs-comment">// getting &amp; setting an object</span>
+<span class="hljs-keyword">let</span> myObject: Any? = myControl.objectValue
+myControl.objectValue = myObject
+</pre>
     <p>
         You can see how the different setters and getters fit with the type-safety
         of Swift.
