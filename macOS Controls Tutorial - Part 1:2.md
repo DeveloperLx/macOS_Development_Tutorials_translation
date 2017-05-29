@@ -216,38 +216,31 @@
         。添加自动布局到这篇教程中全部控件 会造成很大的分神；我们想要你把注意力完全集中到macOS控件上。
     </p>
     <p>
-        Accordingly, only the default autoresizing is applied, which means that
-        all controls will maintain a fixed position and size, regardless of any
-        window resizing the user performs —&nbsp;including the possibility that
-        some of the controls fully or partially will be out of the window’s visible
-        rectangle.
+        因此，我们只会应用默认的autoresizing，它意味着全部的控件都会保持一个规定的位置和尺寸，无论窗口大小如何改变，用户的平台有何不同 —— 包括潜在的一些控件会全部或部分地超出窗口的课件范围。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            If you want to learn more about Auto Layout and how to use it in your
-            macOS apps, you can follow our
+            如果你想要了解更多关于自动布局，以及如何在你的macOS app中使用，你可以跟随我们的
             <a href="https://www.raywenderlich.com/110269/mac-os-x-development-tutorial-beginners-part-3-first-os-x-app"
             target="_blank">
-                macOS Development Tutorial for Beginners, Part 3
+                macOS开发初学者教程，第三部分
             </a>
-            .
+            。
         </p>
     </div>
     <p>
-        During the tutorial, you’ll need to add some macOS controls to this view,
-        and the default height may not be enough to fit them all. If you need to
-        resize it, drag down the bottom edge of the content view, or set the view’s
+        在这篇教程中，你需要为这个view添加一些macOS控件。默认的高度可能无法盛得下。如果你需要调整尺寸，向下拖拽content view的底部边缘，或在
+         <em>
+            Size Inspector
+        </em>
+        中设置view的
         <em>
             Height
         </em>
-        property in the
-        <em>
-            Size Inspector
-        </em>
-        .
+        property。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/drag-resize-1.png">
@@ -258,7 +251,7 @@
         </a>
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/empty-window.png">
