@@ -682,116 +682,94 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
         box使用数据源。
     </p>
     <p>
-        First, set the control’s
+        首先，设置控件的
         <code>
             usesDataSource
         </code>
-        property to
+        property为
         <code>
             true
         </code>
-        . Then set the control’s
+        。然后设置控件的
         <code>
             dataSource
         </code>
-        property, passing an instance of the class implementing the protocol;
-        when the class implementing the data source is the hosting View Controller
-        a good place for this setup is
+        property，传递一个实现了这个协议的类的实例；当实现data source的类是托管的view controller时，配置这个的很好的一个地方就是
         <code>
             viewDidLoad()
         </code>
-        , and then you set the
+        这里了，然后你就可以设置
         <code>
             dataSource
         </code>
-        property to
+        property为
         <code>
             self
         </code>
-        as shown below:
+        ，就像下面这样：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492955">
-                    <td class="code" id="p149295code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            class ViewController: NSViewController, NSComboBoxDataSource { ..... override
-                            func viewDidLoad() { super.viewDidLoad() myComboBox.usesDataSource = true
-                            myComboBox.dataSource = self } ..... }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSViewController</span>, <span class="hljs-title">NSComboBoxDataSource</span> </span>{
+.....
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">super</span>.viewDidLoad()
+    myComboBox.usesDataSource = <span class="hljs-literal">true</span>
+    myComboBox.dataSource = <span class="hljs-keyword">self</span>
+  }
+.....
+}
+</pre>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            The order of the instructions in the code above is important. An attempt
-            to set the
-            <code>
-                dataSource
-            </code>
-            property when
+            上面这些指令的顺序是非常重要的。尝试当
             <code>
                 useDataSource
             </code>
-            is
+            为
             <code>
-                false
+                false（这是默认的值）
             </code>
-            (which is the default) will fail and your data source will not be used.
+            时，设置
+            <code>
+                dataSource
+            </code>
+            property会导致失败，你的data source将不会被用到。
         </p>
     </div>
     <p>
-        In order to conform to the protocol, you’ll need to implement the following
-        two methods from the data source protocol:
+        为了遵守这个协议，你需要实现来自这个协议中的两个方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492956">
-                    <td class="code" id="p149295code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Returns the number of items that the data source manages for the combo
-                            box func numberOfItems(in comboBox: NSComboBox) -&gt; Int { // anArray
-                            is an Array variable containing the objects return anArray.count } &nbsp;
-                            // Returns the object that corresponds to the item at the specified index
-                            in the combo box func comboBox(_ comboBox: NSComboBox, objectValueForItemAt
-                            index: Int) -&gt; Any? { return anArray[index] }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">// Returns the number of items that the data source manages for the combo box</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">numberOfItems</span><span class="hljs-params">(<span class="hljs-keyword">in</span> comboBox: NSComboBox)</span></span> -&gt; <span class="hljs-type">Int</span> {
+  <span class="hljs-comment">// anArray is an Array variable containing the objects</span>
+  <span class="hljs-keyword">return</span> anArray.<span class="hljs-built_in">count</span>
+}
+    
+<span class="hljs-comment">// Returns the object that corresponds to the item at the specified index in the combo box</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">comboBox</span><span class="hljs-params">(<span class="hljs-number">_</span> comboBox: NSComboBox, objectValueForItemAt index: Int)</span></span> -&gt; <span class="hljs-type">Any</span>? {
+  <span class="hljs-keyword">return</span> anArray[index]
+}
+</pre>
     <p>
-        Finally, whenever your data source changes, to update the control, just
-        call
+        最后，无论什么时候你的数据源发生变化，为了更新这个控件，只需调用combo box上的
         <code>
             reloadData()
         </code>
-        on the combo box.
+        方法。
     </p>
     <h3>
-        Which Method To Use?
+        该使用哪个方法？
     </h3>
     <p>
-        If your list of items is relatively small and you don’t expect it to change
-        that often, adding items once to the internal list is probably the best
-        choice. But if your list of items is large or dynamic, it can often be
-        more efficient to handle it yourself using a data source. For this tutorial
-        you’ll be using method 1.
+        如果你的项目列表相对较小，并且你并不需要经常改变它，一次性地添加到内部列表中可能就是最佳的选择了。但如果你的项目列表很大，或者是动态的，使用data source来进行处理就会显得更有效率。在这篇教程中，我们将使用方法1。
     </p>
     <p>
-        Now that you’ve covered the fundamentals of the combo box, move on to
-        implement one in your app! :]
+        既然你已经掌握了combo box的基础，就马上到你的app中实现一个吧！:]
     </p>
     <h2>
-        The Singles Bar — A Singular Noun
+        一个Bar - 一个奇怪的名词
     </h2>
     <p>
         In this section you’ll add a combo box to enter a singular noun. You can
