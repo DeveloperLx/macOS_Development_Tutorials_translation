@@ -331,47 +331,34 @@ myControl.doubleValue = myDouble
 myControl.objectValue = myObject
 </pre>
     <p>
-        You can see how the different setters and getters fit with the type-safety
-        of Swift.
+        你可以看到不同的setter和getter是如何适应Swift的类型安全特性的。
     </p>
     <h3>
-        Enable &amp; Disable macOS Controls
+        启用和禁用macOS控件
     </h3>
     <p>
-        Enabling or disabling macOS controls based on the state of an app is a
-        very common UI task. When a control is disabled, it will not respond to
-        mouse and keyboard events, and will usually update its graphical representation
-        to provide some visual cues that it is disabled, such as drawing itself
-        in a lighter “greyed out” color.
+        基于一个app的状态启用或禁用macOS控件，是一个非常常见的UI任务。当一个控件被禁用时，它就不会响应鼠标或键盘的事件，并且通常会更新它的图形表示，来提供一些被禁用的视觉提示，例如用较轻的灰色来绘制本身。
     </p>
     <p>
-        The methods for enabling and disabling a control are:
+        启用和禁用的一个控件的方法有：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492952">
-                    <td class="code" id="p149295code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            // disable a control myControl.isEnabled = false &nbsp; // enable a control
-                            myControl.isEnabled = true &nbsp; // get a control's enabled state let
-                            isEnabled = myControl.isEnabled
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// disable a control</span>
+myControl.isEnabled = <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">// enable a control</span>
+myControl.isEnabled = <span class="hljs-literal">true</span>
+
+<span class="hljs-comment">// get a control's enabled state</span>
+<span class="hljs-keyword">let</span> isEnabled = myControl.isEnabled
+</pre>
     <p>
-        Okay, that seems pretty easy — and the great thing is that these methods
-        are common to all macOS controls. They’ll all work the same way for any
-        control you use in your UI.
+        OK，看起来相当得容易 - 很棒的事是这些方法对于所有的macOS空间都是通用的。对于任何你在你的UI中使用的控件来说，它们都以相同的方式工作。
     </p>
     <p>
-        Now it’s time to take a look at the more common macOS Controls.
+        现在是时候去看一看更通用的macOS控件了。
     </p>
     <h2>
-        Field of Dreams – NSTextField
+        梦想的域 - NSTextField
     </h2>
     <p>
         One of the most common controls in any UI is a field that can be used
