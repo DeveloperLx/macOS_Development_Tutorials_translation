@@ -905,19 +905,18 @@ singularNounCombo.addItems(withObjectValues: singularNouns)
 singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count</span>-<span class="hljs-number">1</span>)
 </pre>
     <p>
-        The first line removes any items added by default. Next, it adds the names
-        from
+        第一行代码移除了所有默认添加的项目。接下来，它使用
+         <code>
+            addItems()
+        </code>
+        方法添加来自
         <code>
             singularNouns
         </code>
-        to the combo box using
-        <code>
-            addItems()
-        </code>
-        . Then, it selects the last item of the list.
+        的名称到了combo box中。然后，它选择了列表中的最后一个项目。
     </p>
     <p>
-        Build and run the application to see your combo box in action!
+        Build并运行app来查看你的combo box的动作！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-combo.png">
@@ -928,32 +927,24 @@ singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count
         </a>
     </p>
     <p>
-        Great — it looks as though everything is working just right. If you click
-        on the combo box, you can then view and select any of the other items.
+        Great - 看起来似乎一切正常。如果你点击combo box，你就可以在接下来查看并选择任一其它的项目。
     </p>
     <p>
-        Now, what if you wanted to present a list of choices, but not allow you
-        to enter your own? Read on, there’s a control for that as well!
+        现在，如果你想要展示一个选择的列表，但不允许你自己输入，该怎么办呢？继续阅读，还有一个控件！
     </p>
     <h2>
-        Pop Goes the Weasel — NSPopupButton
+        砰!鼹鼠要跑掉啦 - NSPopupButton
     </h2>
     <p>
-        The pop up button allows the user to choose from an array of options,
-        but without giving the user the option of entering their own value in the
-        control. The macOS control responsible for this is
+        pop up button让用户可以从一个选项的列表中进行选择，但不允许用户在控件中输入它们自己的值。在macOS中负责这项工作的控件是
         <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSPopUpButton_Class/Reference/Reference.html"
         title="NSPopupButton Class Reference">
             NSPopupButton
         </a>
-        .
+        。
     </p>
     <p>
-        Pop up buttons are incredibly common in macOS, and you can find them in
-        almost every application — including the one that you’re using right now:
-        Xcode! :] You’re using the pop up button to set many of the properties
-        on the macOS controls you’re using in this tutorial, as in the screenshot
-        below:
+        Pop up button在macOS中非常常用，你可以在几乎每个应用中找到它们 - 包含你正在使用的这个：Xcode！:] 你正在使用pop up button来设置很多你在这篇教程中使用的macOS控件上的property，就像下面的截图中一样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/popup-example.png">
