@@ -667,12 +667,10 @@ myComboBox.removeItem(at: <span class="hljs-number">2</span>)
 myComboBox.selectItem(at: <span class="hljs-number">1</span>)
 </pre>
     <p>
-        That’s relatively straightforward, but what if you don’t want your options
-        hardcoded in the app — such as a dynamic list that is stored outside of
-        the app? That’s when using a datasource comes in really handy! :]
+        这个相对比较直接，但如果你不想在你的app中选择硬编码 - 例如一个储存在app外部的动态列表的话？这时候使用datasource就会显得相当便利！:]
     </p>
     <h3>
-        Method 2 – Using A Data Source
+        方法 2 - 使用Data Source
     </h3>
     <p>
         When using a data source the combo box will query the data source for
