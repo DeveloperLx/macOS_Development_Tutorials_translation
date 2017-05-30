@@ -1541,34 +1541,33 @@ myButton.image = theImage
 <span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(madLibSentence)</span>"</span>)
 </pre>
     <p>
-        This code gets the strings from the text field, the combo box, the popup
-        button and the text view and forms the Mad Lib sentence.
+        上面的代码从text field、combo box、popup button，以及text view获取了字符串，并构成了Mad Lib的句子。
     </p>
     <p>
-        Note that for the text view, the
+        注意text view
         <code>
             string
         </code>
-        property is actually an optional, so it could be
+        这个property事实上是可选的，因此它可以是
         <code>
             nil
         </code>
-        . To guard against that case, you’re using the nil coalescing operator
+        。要避免这种情况，你可以使用nil coalescing操作符
         <code>
             ??
         </code>
-        so if
+        因此如果
         <code>
             string
         </code>
-        is nil, you’ll get the empty string
+        是nil，你就会得到
         <code>
             ""
         </code>
-        instead.
+        来代替。
     </p>
     <p>
-        That’s all the code you need for now — build and run your app.
+        这就是到目前为止你所需的全部代码 - build并运行你的app。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/button-buildrun.png">
@@ -1578,29 +1577,26 @@ myButton.image = theImage
             sizes="(max-width: 458px) 100vw, 458px">
         </a>
         <br>
-        Every time you click the button, you should see a short and silly sentence
-        appear in Xcode’s console.
+        每次当你单击按钮的时候，你银弹看到一个又短又傻的句子出现在Xcode的控制台中。
     </p>
     <pre lang="bash" class="hljs">A dev ate tacos and said: Me coding Mac Apps!!!!
 </pre>
     <p>
-        That’s great, but how could you make it even funnier?
+        非常棒，但怎样可以让它变得更加有趣？
     </p>
     <p>
-        How about making your computer read the sentence? Steve Jobs made the
-        first Macintosh say hello to the world in its presentation. You can make
-        your computer talk too… Let’s get at it!
+        让你的电脑来阅读句子怎么样？Steve Jobs让第一台Macintosh在它的发布会上向世界说hello。你也可以让你的电脑说话...让我们来吧！
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add this code inside the
+        并添加下列的代码到
         <code>
             ViewController
         </code>
-        implementation:
+        的实现中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
 fileprivate <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">VoiceRate</span>: <span class="hljs-title">Int</span>  </span>{
@@ -1623,22 +1619,22 @@ fileprivate <span class="hljs-class"><span class="hljs-keyword">enum</span> <spa
 fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type">NSSpeechSynthesizer</span>()
 </pre>
     <p>
-        First, you declare an
+        首先，你声明了一个
         <code>
             enum
         </code>
-        to represent the voice rate. Then you create and instance of
+        来代表声速。然后你创建了一个
         <code>
             NSSpeechSynthesizer
         </code>
-        which is the class that will convert the text to speech.
+        的实例，它会将文本朗读出来。
     </p>
     <p>
-        Now, add this method inside the
+        现在，添加这个代码到
         <code>
             ViewController
         </code>
-        implementation:
+        的实现中：
     </p>
     <pre lang="swift" class="hljs swift">fileprivate <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">readSentence</span><span class="hljs-params">(<span class="hljs-number">_</span> sentence: String, rate: VoiceRate )</span></span> {
   synth.rate = rate.speed
@@ -1647,30 +1643,30 @@ fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type
 }
 </pre>
     <p>
-        This method starts the
+        该方法启动
         <code>
             synth
         </code>
-        object speaking a string at the determined speed.
+        对象来以被选中的速度朗读一个字符串。
     </p>
     <p>
-        Time to call it! Add this code at the end of
+        是时候来调用它了！添加下列代码到
         <code>
             goButtonClicked()
         </code>
-        to read the Mad Libs sentence:
+        方法的尾部来朗读Mad Libs的句子：
     </p>
     <pre lang="swift" class="hljs bash"><span class="hljs-built_in">read</span>Sentence(madLibSentence, rate: .normal)
 </pre>
     <p>
-        Build and run; click
+        Build并运行；点击
         <em>
             Go!
         </em>
-        and listen to your Mac saying your sentence out loud!
+        ，听你的Mac大声朗读出你的句子！
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1682,10 +1678,11 @@ fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1693,21 +1690,19 @@ fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type
         </div>
     </div>
     <p>
-        You can the
+        你可以下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/MadLibs-part1-final-1.zip">
-            download
+            最终的项目
         </a>
-        the final project containing all the source code from this tutorial up
-        to this point.
+        ，它包含了教程到目前为止所提到内容的全部的源码。
     </p>
     <p>
-        In the
+        在这个教程的
         <a href="https://www.raywenderlich.com/149297/macos-controls-tutorial-part-22"
         target="_blank" title="Core Controls in macOS: Part 2/2">
-            second part of this tutorial
+            第二部分
         </a>
-        , you’ll learn about more macOS controls, including sliders, date pickers,
-        radio buttons, check boxes and image views — each of which will be added
-        to your Mad Libs application in order to complete it.
+        ，你会了解到更多关于macOS控件的知识，包括sliders，date pickers，
+        radio buttons，check boxes以及image views - 每个控件都会添加到你的Mad Lib app上来完成它。
     </p>
 </div>
