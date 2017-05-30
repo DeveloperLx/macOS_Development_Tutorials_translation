@@ -1103,15 +1103,14 @@ pluralNounPopup.addItems(withTitles: pluralNouns)
 pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
 </pre>
     <p>
-        The first line removes any existing items from the pop up button. The
-        second line adds the array of nouns to the pop up button using
+        第一行代码移除了所有pop up button中已存的项目。第二行代码则使用
         <code>
             addItems()
         </code>
-        . Finally, it selects the first item in the list.
+        方法添加了名词的数组。最后，选中列表中的第一个项目。
     </p>
     <p>
-        Build and run the application to see the result:
+        Build并运行应用来查看结果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-popup.png">
@@ -1122,13 +1121,11 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
         </a>
     </p>
     <p>
-        Once the app has launched, note that the pop up button shows the initial
-        item,
+        当app启动时，注意到pop up button会展示初始的项目，
         <em>
             tacos
         </em>
-        , and if you click on the pop up button, you’ll see all the other items
-        in the list.
+        ，如果你点击pop up button你就会看到在列表中的其它项目。
     </p>
     <p>
         Okay, so you now have two macOS controls that allow the user to select
