@@ -1432,23 +1432,20 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         when you need to disable the button, or change its appearance. The following
         methods allow you to perform those actions:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929514">
-                    <td class="code" id="p149295code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            // disable a button myButton.isEnabled = false &nbsp; // enable a button
-                            myButton.isEnabled = true &nbsp; // getting &amp; setting a button's title
-                            let theTitle = myButton.title myButton.title = theTitle &nbsp; // getting
-                            &amp; setting a button's image let theImage = myButton.image myButton.image
-                            = theImage
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// disable a button</span>
+myButton.isEnabled = <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">// enable a button</span>
+myButton.isEnabled = <span class="hljs-literal">true</span>
+
+<span class="hljs-comment">// getting &amp; setting a button's title</span>
+<span class="hljs-keyword">let</span> theTitle = myButton.title
+myButton.title = theTitle
+
+<span class="hljs-comment">// getting &amp; setting a button's image</span>
+<span class="hljs-keyword">let</span> theImage = myButton.image
+myButton.image = theImage
+</pre>
     <p>
         Looks fairly simple — adding a button to your app in the next section
         should be a breeze.
@@ -1547,23 +1544,15 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929515">
-                    <td class="code" id="p149295code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            let pastTenseVerb = pastTenseVerbTextField.stringValue let singularNoun
-                            = singularNounCombo.stringValue let pluralNoun = pluralNouns[pluralNounPopup.indexOfSelectedItem]
-                            let phrase = phraseTextView.string ?? "" &nbsp; let madLibSentence = "A
-                            \(singularNoun) \(pastTenseVerb) \(pluralNoun) and said, \(phrase)!" &nbsp;
-                            print("\(madLibSentence)")
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> pastTenseVerb = pastTenseVerbTextField.stringValue
+<span class="hljs-keyword">let</span> singularNoun = singularNounCombo.stringValue
+<span class="hljs-keyword">let</span> pluralNoun = pluralNouns[pluralNounPopup.indexOfSelectedItem]
+<span class="hljs-keyword">let</span> phrase = phraseTextView.string ?? <span class="hljs-string">""</span>
+
+<span class="hljs-keyword">let</span> madLibSentence = <span class="hljs-string">"A <span class="hljs-subst">\(singularNoun)</span> <span class="hljs-subst">\(pastTenseVerb)</span> <span class="hljs-subst">\(pluralNoun)</span> and said, <span class="hljs-subst">\(phrase)</span>!"</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(madLibSentence)</span>"</span>)
+</pre>
     <p>
         This code gets the strings from the text field, the combo box, the popup
         button and the text view and forms the Mad Lib sentence.
@@ -1605,22 +1594,8 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         Every time you click the button, you should see a short and silly sentence
         appear in Xcode’s console.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929516">
-                    <td class="code" id="p149295code16">
-                        <pre class="bash" style="font-family:monospace;">
-                            A dev ate tacos and said: Me coding Mac Apps
-                            <span style="color: #000000; font-weight: bold;">
-                                !!!!
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="bash" class="hljs">A dev ate tacos and said: Me coding Mac Apps!!!!
+</pre>
     <p>
         That’s great, but how could you make it even funnier?
     </p>
@@ -1640,21 +1615,26 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         </code>
         implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929517">
-                    <td class="code" id="p149295code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 fileprivate enum VoiceRate: Int { case slow case normal case fast
-                            &nbsp; var speed: Float { switch self { case .slow: return 60 case .normal:
-                            return 175; case .fast: return 360; } } } //2 fileprivate let synth = NSSpeechSynthesizer()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
+fileprivate <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">VoiceRate</span>: <span class="hljs-title">Int</span>  </span>{
+  <span class="hljs-keyword">case</span> slow
+  <span class="hljs-keyword">case</span> normal
+  <span class="hljs-keyword">case</span> fast
+
+  <span class="hljs-keyword">var</span> speed: <span class="hljs-type">Float</span> {
+    <span class="hljs-keyword">switch</span> <span class="hljs-keyword">self</span> {
+    <span class="hljs-keyword">case</span> .slow:
+      <span class="hljs-keyword">return</span> <span class="hljs-number">60</span>
+    <span class="hljs-keyword">case</span> .normal:
+      <span class="hljs-keyword">return</span> <span class="hljs-number">175</span>;
+    <span class="hljs-keyword">case</span> .fast:
+      <span class="hljs-keyword">return</span> <span class="hljs-number">360</span>;
+    }
+  }
+}
+<span class="hljs-comment">//2</span>
+fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type">NSSpeechSynthesizer</span>()
+</pre>
     <p>
         First, you declare an
         <code>
@@ -1673,21 +1653,12 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         </code>
         implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929518">
-                    <td class="code" id="p149295code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate func readSentence(_ sentence: String, rate: VoiceRate ) {
-                            synth.rate = rate.speed synth.stopSpeaking() synth.startSpeaking(sentence)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift">fileprivate <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">readSentence</span><span class="hljs-params">(<span class="hljs-number">_</span> sentence: String, rate: VoiceRate )</span></span> {
+  synth.rate = rate.speed
+  synth.stopSpeaking()
+  synth.startSpeaking(sentence)
+}
+</pre>
     <p>
         This method starts the
         <code>
@@ -1702,19 +1673,8 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         </code>
         to read the Mad Libs sentence:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929519">
-                    <td class="code" id="p149295code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            readSentence(madLibSentence, rate: .normal)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs bash"><span class="hljs-built_in">read</span>Sentence(madLibSentence, rate: .normal)
+</pre>
     <p>
         Build and run; click
         <em>
