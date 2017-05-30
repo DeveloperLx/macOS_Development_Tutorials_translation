@@ -1214,43 +1214,39 @@ myTextView.textColor = NSColor.black
         </p>
     </div>
     <h2>
-        The Phrase that Pays – Adding a Text View
+        支付的短语 - 添加一个Text View
     </h2>
     <p>
-        Looks like you have everything you need in order to add a text view to
-        your Mad Libs application! This text view will allow the user to enter
-        a multi-word phrase that will be used in the final rendered Mad Lib.
+        看起来，你已经拥有了所有添加一个text view到你的Mad Libs app所需的知识！这个text view将允许用户输入一个多行的短语，用在最终渲染的Mad Lib上面。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and drag a label just below the
+        并拖拽一个label到
         <em>
             Plural Noun
         </em>
-        label (or duplicate an existing label, as mentioned earlier). Change its
-        alignment to
+        label（或复制一个已存在的label，就像之前提到的一样）的下面。将对齐方式改为
         <em>
             Right
         </em>
-        and its title to
+        ，标题设置为
         <em>
             Phrase:
         </em>
-        .
+        。
     </p>
     <p>
-        Next, locate the
+        接下来，找到
         <em>
             Text View
         </em>
-        control and drag it onto the window, placing it beside the label you just
-        created.
+        控件并把它拖到窗口上，放到你刚创建的label的旁边。
     </p>
     <p>
-        Your window should now look like this:
+        你的窗口现在看起来应该是这样的：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/add-textview.png">
@@ -1261,9 +1257,7 @@ myTextView.textColor = NSColor.black
         </a>
     </p>
     <p>
-        Now, if you try to resize the view and make it taller, you’ll notice something
-        quite particular. The text view moves along, and changes its position when
-        you resize the window.
+        现在，如果你尝试改变view的大小，并让它变得更高，你会注意到一些相当特别的事。text view会独自移动，在你改变窗口大小的时候改变它的位置。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/textview-error.png">
