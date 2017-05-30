@@ -1304,44 +1304,41 @@ myTextView.textColor = NSColor.black
         </a>
     </p>
     <p>
-        Now, the text view stays put and aligned with the label even if you resize
-        the window.
+        现在，即使你改变了窗口的大小，text view仍会保持它的位置和对齐方式。
     </p>
     <p>
-        Next, add an
+        下面，添加一个
         <code>
             NSTextView
         </code>
-        outlet to the view controller. Select the textview, open the
+        outlet到view controller上。选择textview，打开
         <em>
             Assistant editor
         </em>
-        and make sure
+        并确保
         <em>
             ViewController.swift
         </em>
-        is selected.
+        已选中。
         <em>
-            Ctrl-Drag
+            按住Ctrl拖拽
         </em>
-        from the text view to the
+        text view到
         <code>
             ViewController
         </code>
-        class under the existing outlets.
+        类中已存在的outlet的下面。
     </p>
     <div class="note">
         <p>
             <em>
-                Important:
+                重点：
             </em>
-            Text views are contained inside scroll views. It’s important you make
-            sure you’ve actually selected the text view before creating the outlet.
-            To do so, simply click three times on the text view or select it in the
+            Text view内部包含了Text view。在创建outlet前，确保你选中的是text view。要做到这个，只需在text view上单击三次，或在
             <em>
                 Document Outline
             </em>
-            .
+            中选中它。
         </p>
     </div>
     <p>
@@ -1353,15 +1350,15 @@ myTextView.textColor = NSColor.black
         </a>
     </p>
     <p>
-        In the popup window, make sure the type is
+        在弹出的窗口中，确定类型为
         <code>
             NSTextView
         </code>
-        , and name the outlet
+        ，并命名outlet为
         <em>
             phraseTextView
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/textview-outlet2.png">
@@ -1372,28 +1369,17 @@ myTextView.textColor = NSColor.black
         </a>
     </p>
     <p>
-        Now, add the following code to the end of
+        现在，添加下列的代码到
         <em>
             viewDidLoad()
         </em>
-        :
+        的尾部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929513">
-                    <td class="code" id="p149295code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Setup the default text to display in the text view phraseTextView.string
-                            = "Me coding Mac Apps!!!"
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs cs"><span class="hljs-comment">// Setup the default text to display in the text view</span>
+phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-string">"Me coding Mac Apps!!!"</span>
+</pre>
     <p>
-        Build and run the application to see the result:
+        Build并运行app，查看结果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/textview-result.png">
@@ -1404,10 +1390,10 @@ myTextView.textColor = NSColor.black
         </a>
     </p>
     <p>
-        Superb! The Mad Libs application is really starting to take shape now.
+        太棒了！Mad Libs app现在开始真正地成型了。
     </p>
     <h2>
-        Pushing Your Buttons — NSButton
+        推出你的按钮 - NSButton
     </h2>
     <p>
         Buttons are macOS controls designed to send a message to the app whenever
