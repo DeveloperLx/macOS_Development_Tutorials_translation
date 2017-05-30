@@ -1396,21 +1396,18 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
         推出你的按钮 - NSButton
     </h2>
     <p>
-        Buttons are macOS controls designed to send a message to the app whenever
-        they’re clicked.
+        Button是当用户点击它时，向app发送一个消息的macOS控件。
     </p>
     <p>
-        The control responsible for this on macOS is
+        在macOS中，负责这个的控件是
         <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSButton_Class/Reference/Reference.html"
         title="NSButton Class Reference">
             NSButton
         </a>
-        .
+        。
     </p>
     <p>
-        There are many different styles of buttons (you can view them in Interface
-        Builder’s Object Library). They all work in much the same way, the only
-        difference being their visual representation.
+        有很多不同风格的button（你可以在Interface Builder的Object Library中查看它们）。它们都以相同的方式工作，唯一的区别只是外观不同。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/button-catalog-1.png">
@@ -1419,18 +1416,14 @@ phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-stri
             srcset="https://koenig-media.raywenderlich.com/uploads/2016/12/button-catalog-1-476x500.png 476w, https://koenig-media.raywenderlich.com/uploads/2016/12/button-catalog-1-305x320.png 305w, https://koenig-media.raywenderlich.com/uploads/2016/12/button-catalog-1.png 1090w"
             sizes="(max-width: 476px) 100vw, 476px">
         </a>
-        You should use the style of button that best suits your application’s
-        design — refer to the
+        你应当使用最匹配你的应用设计风格的button - 引用自
         <a href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/OSXHIGuidelines/ControlsButtons.html#//apple_ref/doc/uid/20000957-CH48-SW1">
-            macOS Human Interface Guidelines
+            macOS人机交互指南
         </a>
-        for advice and guidance on best design practices for your app.
+        中，关于你的app的最佳设计实践的建议和指导。
     </p>
     <p>
-        Typically, when working with a button, you’ll simply need to associate
-        an action with the button and set its title. However, there may be times
-        when you need to disable the button, or change its appearance. The following
-        methods allow you to perform those actions:
+        一般地，当使用button的时候，你只需要关联一个动作到button上，并设置它的标题。然而，你可能需要禁用按钮，或改变它的外观。下面的方法让你可以执行这些操作：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// disable a button</span>
 myButton.isEnabled = <span class="hljs-literal">false</span>
@@ -1447,27 +1440,25 @@ myButton.title = theTitle
 myButton.image = theImage
 </pre>
     <p>
-        Looks fairly simple — adding a button to your app in the next section
-        should be a breeze.
+        看起来相当地简单 - 在下一部分添加一个按钮到你的app上应当是相当容易的。
     </p>
     <h2>
-        Buttoning Things Down — Adding a Button
+        按钮事务落定 - 添加一个Button
     </h2>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Find the
+        。在Object Library的面板中找到
         <em>
             Push Button
         </em>
-        in the Object Library palette and drag it onto the content view. Double-click
-        on it to change its title to
+        ，并将它拖拽到content view上。双击它来改变它的标题为
         <em>
             Go!
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/button-add.png">
@@ -1478,24 +1469,22 @@ myButton.image = theImage
         </a>
     </p>
     <p>
-        This time you don’t need to create an outlet for the button. However,
-        you do need to create an action and associate it with the button, so that
-        your app knows when the button has been clicked! :]
+        这次你不需要为button创建outlet。然而，你确实需要创建一个动作并将它关联到button上，这样你的app就知道button是何时被点击的了！:]
     </p>
     <p>
-        Open the
+        打开
         <em>
             Assistant Editor
         </em>
-        and
+        并
         <em>
-            Ctrl+Drag
+            按住Ctrl拖拽
         </em>
-        from the button to the
+        button到
         <code>
             ViewController
         </code>
-        implementation.
+        的实现中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/button-addaction.png">
@@ -1506,16 +1495,15 @@ myButton.image = theImage
         </a>
     </p>
     <p>
-        In the popup window that appears, make sure that the connection is set
-        to
+        在出现的窗口中，确保connection被设置为
         <em>
             Action
         </em>
-        . Name the action
+        。将action命名为
         <em>
             goButtonClicked
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/button-action-2.png">
@@ -1526,23 +1514,22 @@ myButton.image = theImage
         </a>
     </p>
     <p>
-        Whenever the user clicks on the button the action method
+        当用户点击按钮时，方法
         <code>
             goButtonClicked()
         </code>
-        will be called. For now you’ll add some debug code, just to make sure
-        everything’s working.
+        就会被调用。现在，你只是在这里添加一个debug代码，来确保一切工作正常。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following code inside
+        并添加下列的代码到
         <code>
             goButtonClicked()
         </code>
-        :
+        中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> pastTenseVerb = pastTenseVerbTextField.stringValue
 <span class="hljs-keyword">let</span> singularNoun = singularNounCombo.stringValue
