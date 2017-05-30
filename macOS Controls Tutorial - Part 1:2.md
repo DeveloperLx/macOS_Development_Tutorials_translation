@@ -1268,39 +1268,34 @@ myTextView.textColor = NSColor.black
         </a>
     </p>
     <p>
-        That’s because by default, Xcode adds Auto resizing constraints to the
-        text view, so that it repositions itself when its parent view is resized.
-        Since you want the text view to stay put, you’ll need to disable some of
-        those.
+        这是因为默认情况下，Xcode会为text view添加Auto resizing的约束，因此它会在父view的大小改变的时候改变它自身的位置。由于你想让text view的位置保证固定，你就需要禁用一些约束。
     </p>
     <p>
-        Select the
+        从Document Outline中选择
         <em>
             Bordered Scroll View – Text View
         </em>
-        from the Document Outline and go to the
+        并前往
         <em>
             Size Inspector
         </em>
-        .
+        。
     </p>
     <p>
+        在
         In the
         <em>
             AutoResizing
         </em>
-        section, you’ll see a rectangle which has four red lines connected to
-        the parent view. Each one of these red connectors represents an Auto resizing
-        constraint. You just need to click on the
+        部分，你会看到一个带有四条连接到父view的红线的矩形。每一个红色的“连接器”都代表了一个Auto resizing的约束。你只需要点击
         <em>
-            Right
+            右边
         </em>
-        and
+        和
         <em>
-            Bottom
+            下面
         </em>
-        red connectors to disable those, the solid red lines will turn to broken
-        lines with a faded red color as shown below:
+        的红色连接器来禁用它们，红色的实现就会变成带有褪色红色的虚线，就像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/add-autores.png">
