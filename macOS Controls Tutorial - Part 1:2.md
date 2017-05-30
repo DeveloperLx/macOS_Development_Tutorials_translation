@@ -992,46 +992,45 @@ myPopUpbutton.removeAllItems()
 myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
 </pre>
     <p>
-        相当得直截了当，不是么？这就是macOS控件的美 - 用来操纵控件的方法会有很多的相似之处。
+        相当的直截了当，不是么？这就是macOS控件的美 - 用来操纵控件的方法会有很多的相似之处。
     </p>
     <p>
         是时候在你的app中实现一个pop up button了！:]
     </p>
     <h2>
-        The More the Merrier — A Plural Noun
+        越多越愉快 - 复数的名词
     </h2>
     <p>
-        You’ll now add a pop up button to your Mad Libs application to choose
-        between different plural nouns to populate your comical sentence.
+        现在你将添加一个pop up button到你的Mad Libs app上，去选择不同的复数名词来填充你的滑稽的句子。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Drag a label just below the
+        。拖拽一个label到
         <em>
             Singular Noun
         </em>
-        label.
+        label的下面。
     </p>
     <p>
-        Change the alignment to
+        改变对齐方式为
         <em>
-            Right
+            靠右
         </em>
-        and the title to
+        ，title为
         <em>
             Plural Noun:
         </em>
-        . Next, locate the
+        。接下来，找到
         <em>
             Pop Up Button
         </em>
-        control and drag it onto the window, placing it to the right of the label.
+        控件并把它拖到窗口上，把它放到label的右边。
     </p>
     <p>
-        The content view should look like this:
+        这个content view应当看起来像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/add-popup.png">
@@ -1042,24 +1041,23 @@ myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
         </a>
     </p>
     <p>
-        Now you need to add an outlet to the popup button, which should be fairly
-        familiar by now: open the
+        现在你需要添加一个outlet到popup button上，现在你应该对此相当熟悉了：打开
         <em>
             Assistant editor
         </em>
-        , make sure
+        ，确认
         <em>
             ViewController.swift
         </em>
-        is selected, and then
+        已被选中，然后
         <em>
-            Ctrl-Drag
+            按住Ctrl拖拽
         </em>
-        the pop up button to the
+        pop up button到
         <code>
             ViewController
         </code>
-        class to create a new outlet:
+        类上来创建一个新的outlet：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/drag-popup.png">
@@ -1068,11 +1066,11 @@ myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
             srcset="https://koenig-media.raywenderlich.com/uploads/2017/01/drag-popup-650x424.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/01/drag-popup-480x313.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/01/drag-popup.png 1495w"
             sizes="(max-width: 650px) 100vw, 650px">
         </a>
-        In the popup window, name the outlet
+        在弹出的窗口中，将outlet命名为
         <em>
             pluralNounPopup
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/popup-outlet-2.png">
@@ -1081,50 +1079,29 @@ myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
         </a>
     </p>
     <p>
-        Now you just need some data to populate the control!
+        现在你只需要添加一些数据来填充控件了！
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add this property inside the class implementation.
+        并添加下面的property到类的实现中。
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929510">
-                    <td class="code" id="p149295code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate let pluralNouns = ["tacos", "rainbows", "iPhones", "gold coins"]
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript">fileprivate <span class="hljs-keyword">let</span> pluralNouns = [<span class="hljs-string">"tacos"</span>, <span class="hljs-string">"rainbows"</span>, <span class="hljs-string">"iPhones"</span>, <span class="hljs-string">"gold coins"</span>]
+</pre>
     <p>
-        Now, add the following code to the bottom of
+        现在，添加下面的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        的底部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929511">
-                    <td class="code" id="p149295code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Setup the pop up button with plural nouns pluralNounPopup.removeAllItems()
-                            pluralNounPopup.addItems(withTitles: pluralNouns) pluralNounPopup.selectItem(at:
-                            0)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Setup the pop up button with plural nouns</span>
+pluralNounPopup.removeAllItems()
+pluralNounPopup.addItems(withTitles: pluralNouns)
+pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
+</pre>
     <p>
         The first line removes any existing items from the pop up button. The
         second line adds the array of nouns to the pop up button using
