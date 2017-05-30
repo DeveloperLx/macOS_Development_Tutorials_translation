@@ -1125,39 +1125,34 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
         <em>
             tacos
         </em>
-        ，如果你点击pop up button你就会看到在列表中的其它项目。
+        ，如果你点击pop up button，你就会看到在列表中的其它项目。
     </p>
     <p>
-        Okay, so you now have two macOS controls that allow the user to select
-        from lists, as well as a control that allows the user to enter a single
-        line of text. But what if you need to type more than a few words in a text
-        field?
+        OK，现在你已经有了两个让用户可以从列表中进行选择的macOS控件，以及一个让用户可以输入单行文本的控件。但如果你需要在text field中输入不仅仅几个单词，该怎么办呢？
     </p>
     <p>
-        Read on to learn about text views!
+        继续阅读来学习text view！
     </p>
     <h2>
-        Text is Next – NSTextView
+        文本是下一个 - NSTextView
     </h2>
     <p>
-        Text views, unlike text fields, are usually the control of choice for
-        displaying rich text. Some implementations even allow for more advanced
-        features such as displaying inline images.
+        Text view和text field不同，通常是作为展示富文本的控件。它甚至会允许一些更高级的特性，诸如展示行内的图像。
     </p>
     <p>
-        The macOS Control responsible for this is
+        在macOS中，负责这个的控件是
         <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSTextView_Class/Reference/Reference.html"
         title="NSTextView Class Reference">
             NSTextView
         </a>
-        .
+        。
     </p>
     <p>
-        A great example of an application using all of what
+        一个全部使用由
         <code>
             NSTextView
         </code>
-        has to offer is TextEdit:
+        提供的特性的应用的例子就是TextEdit了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/textedit.png">
@@ -1171,63 +1166,51 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
         <code>
             NSTextView
         </code>
-        is so feature-rich that to cover everything would warrant a tutorial of
-        its own, so here you’ll just see a few of the basic features in order to
-        get you up and running! (Did you just breathe a sigh of relief?) :]
+        的特性非常的丰富，如果要覆盖所有的特性，可能就得单独得出一个对于它的教程。因此这里你只会看到一些能够让你的app运行起来的基本的特性。（你是不是松了一口气？）:]
     </p>
     <p>
-        Here are the basic methods you’ll need to work with text views:
+        这里有一些你需要在text views上使用的基本方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929512">
-                    <td class="code" id="p149295code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Get the text from a text view let text = myTextView.string &nbsp; //
-                            Set the text of a text view myTextView.string = "Text views rock too!"
-                            &nbsp; // Set the background color of a text view myTextView.backgroundColor
-                            = NSColor.white &nbsp; // Set the text color of a text view myTextView.textColor
-                            = NSColor.black
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs cs"><span class="hljs-comment">// Get the text from a text view</span>
+<span class="hljs-keyword">let</span> text = myTextView.<span class="hljs-keyword">string</span>
+
+<span class="hljs-comment">// Set the text of a text view</span>
+myTextView.<span class="hljs-keyword">string</span> = <span class="hljs-string">"Text views rock too!"</span>
+
+<span class="hljs-comment">// Set the background color of a text view</span>
+myTextView.backgroundColor = NSColor.white
+
+<span class="hljs-comment">// Set the text color of a text view</span>
+myTextView.textColor = NSColor.black
+</pre>
     <p>
-        Relatively simple — nothing too shocking here.
+        相对地简单 - 这里没有太让人震惊的事。
     </p>
     <p>
         <code>
             NSTextView
         </code>
-        also has built-in support for
+        也內建了对
         <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html"
         title="NSAttributedString Class Reference">
             NSAttributedString
         </a>
-        . If you pass an attributed string to a text view, the string will be
-        displayed correctly using all the appropriate attributes such as font,
-        font size, and font color.
+        的支持。如果你向text view传递了一个attributed string，这个string就会使用所有诸如字体，字体大小，字体颜色等恰当的属性正确地展示出来。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            An attributed string is a special type of string where you can tag subsets
-            of the string with different attributes – such as its font, its color,
-            whether its bolded, and so on. To learn all about attributed strings, check
-            out our
-            <a href="/?page_id=77092" target="_blank">
-                TextKit Tutorial
+            attributed string是特殊类型的string，你可以将string的子集标记为不同的属性 - 诸如字体，它的颜色，是否加粗，等等。要了解全部的attributed strings，请访问我们的
+            <a href="https://www.raywenderlich.com/77092/text-kit-tutorial-swift" target="_blank">
+                TextKit教程
             </a>
-            . It’s an iOS tutorial, but the information about
+            。这是一个iOS教程，但有关
             <code>
                 NSAttributedString
             </code>
-            applies to Mac development as well.
+            的信息也可以用到Mac开发上面。
         </p>
     </div>
     <h2>
