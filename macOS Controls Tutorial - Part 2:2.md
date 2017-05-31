@@ -260,31 +260,29 @@ mySlider.maxValue = theMaximumValue
         </a>
     </p>
     <p>
-        Repeat the above process with the slider, naming the outlet
+        对slider重复上面的过程，将outlet命名为
         <em>
             amountSlider
         </em>
-        .
+        。
     </p>
     <p>
-        Now you need to add an
+        现在你需要添加一个
         <em>
             action
         </em>
-        that will be called when the slider value changes. You already created
-        an action for your button in Part 1; adding an action is very much like
-        creating an outlet, so you’ll get a little more practice!
+        ，当slider的值发生变化的时候进行调用。你早已在第一部分中为你的button创建了action，因此你会获得更多的实践！
     </p>
-    <p>
-        Select the slider and
+    <p> 
+        选择slider并
         <em>
-            Ctrl-Drag
+            按住Ctrl拖拽
         </em>
-        to
+        到
         <em>
             ViewController.swift
         </em>
-        anywhere within the class definition:
+        中类定义中的任何地方：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/slider-action-drag.png">
@@ -295,15 +293,15 @@ mySlider.maxValue = theMaximumValue
         </a>
     </p>
     <p>
-        In the popup window, be sure to set the connection as an
+        在弹出的窗口中，确认设置connection为一个
         <em>
             action
         </em>
-        rather than a outlet. Name it
+        而不是一个outlet。将它命名为
         <em>
             sliderChanged
         </em>
-        , like so:
+        ，就像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/slider-action2.png">
@@ -314,66 +312,51 @@ mySlider.maxValue = theMaximumValue
         </a>
     </p>
     <p>
-        Now you need to update the label whenever the action is called.
+        现在你需要在action被调用时更新label。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following code inside
+        并添加下面的代码到
         <code>
             sliderChanged()
         </code>
-        :
+        中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492972">
-                    <td class="code" id="p149297code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            let amount = amountSlider.integerValue amountLabel.stringValue = "Amount:
-                            [\(amount)]"
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> amount = amountSlider.integerValue
+amountLabel.stringValue = <span class="hljs-string">"Amount: [<span class="hljs-subst">\(amount)</span>]"</span>
+</pre>
     <p>
-        A quick review of the code above shows that you first read the slider’s
-        current value. Then you set the value of the label to a string containing
-        the slider’s value. Please note, that although
+        快速回顾上面展示的代码，你第一次读取了slider当前的值，然后你label的值为一个包含slider的值的字符串。请注意，用户不能从UI中编辑
         <code>
             amountLabel
         </code>
-        cannot be edited by the user from the UI, it is still editable programmatically.
+        的值，但仍然可以通过编程的方式来编辑它。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This example uses
+            这个例子使用
             <code>
                 integerValue
             </code>
-            to get a nice round number, but if you need more precision you could use
-            either
+            获取了一个很好的整数，但如果你需要更加精确，你可以为你的slider使用
             <code>
                 floatValue
             </code>
-            or
+            或
             <code>
                 doubleValue
             </code>
-            for your slider.
+            的值。
         </p>
     </div>
     <p>
-        Build and run the app. Try moving the slider back and forth to see the
-        label update with the slider’s current value:
+        Build并运行app。尝试来回滑动slider，来查看label的值跟随slider当前的值变化而变化：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-slider.png">
@@ -384,49 +367,33 @@ mySlider.maxValue = theMaximumValue
         </a>
     </p>
     <p>
-        There’s one small problem. Did you notice it? The label doesn’t display
-        the correct value when the app first launches! While it’s not a big problem,
-        it makes the app look unfinished. It’s because the label is only updating
-        when the slider’s knob is moved.
+        有一个小问题。你注意到了么？当app第一次运行的时候，标签并不会展示正确的值！虽然这不是一个大问题，但看起来app并未完成。这是因为label仅会在slider的把手挪动的时候才会更新。
     </p>
     <p>
-        Fear not — it’s very easy to fix.
+        不要害怕 - 这很容易解决。
     </p>
     <p>
-        Add the following code to the end of
+        添加下列的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        尾部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492973">
-                    <td class="code" id="p149297code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Update the amount slider sliderChanged(self)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Update the amount slider</span>
+sliderChanged(<span class="hljs-keyword">self</span>)
+</pre>
     <p>
-        Now the app will call
+        现在app就会在启动时调用
         <code>
             sliderChanged()
         </code>
-        at launch, and that will update the label. Neat!
+        ，它就会更新label。Neat！
     </p>
     <p>
-        Build and run. The label now displays the correct value at first run,
-        which is a small touch, but is one of those “fit and finish” elements that
-        make your app look polished.
+        Build并运行。现在label就在一运行时展示正确的值，这是一个很小的接触，但这是“配合和完成”，让你的app看起来更优美的元素。
     </p>
     <p>
-        What about more complicated values, such as calendar dates? Yup, macOS
-        has those handled too! :]
+        更复杂的值，例如日历日期呢？是的，macOS也有那些处理了！:]
     </p>
     <h2>
         Hot Date Tonight — NSDatePicker
