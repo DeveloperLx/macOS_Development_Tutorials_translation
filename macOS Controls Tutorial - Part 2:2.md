@@ -3,63 +3,47 @@
 #### [原文地址](https://www.raywenderlich.com/149297/macos-controls-tutorial-part-22) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
 <div class="content-wrapper">
-    <div id="attachment_153233" style="width: 260px" class="wp-caption alignright">
-        <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature.png">
-            <img src="https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-250x250.png"
-            alt="Get started with macOS controls!" width="250" height="250" class="size-thumbnail wp-image-153233"
-            srcset="https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2017/01/CoreControls-feature-128x128.png 128w"
-            sizes="(max-width: 250px) 100vw, 250px">
-        </a>
-        <p class="wp-caption-text">
-            More macOS Controls!
-        </p>
-    </div>
     <p>
         <em>
-            Update Note:
+            更新日志：
         </em>
-        Updated for Xcode 8.2 / Swift 3 by Ernesto García.
+        已由Ernesto García更新至 Xcode 8.2 / Swift 3 版。
         <a href="https://www.raywenderlich.com/82046/introduction-to-os-x-tutorial-core-controls-and-swift-part-1">
-            Previous update
+            之前
         </a>
-        to Xcode 6.3 / Swift 1.2 by
+        由
         <a href="https://www.raywenderlich.com/u/skyrocketsw">
             Michael Briscoe
         </a>
-        .
+        更新至Xcode 6.3 / Swift 1.2。
         <a href="https://www.raywenderlich.com/27388/core-controls-in-mac-os-x-part-12">
-            Original post
+            初始版本
         </a>
-        by
+        作者为
         <a href="http://www.raywenderlich.com/u/ernesto">
             Ernesto García
         </a>
-        .
+        。
     </p>
     <p>
-        Welcome back to the second and final part of this macOS Controls tutorial
-        series!
+        欢迎回到macOS控件教程的系列的第二部分，也就是最后一部分。
     </p>
     <p>
-        In the
-        <a href="https://www.raywenderlich.com/149295/macos-controls-tutorial-part-12"
+        在
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20Controls%20Tutorial%20-%20Part%201:2.md"
         title="first part">
-            first part of this tutorial
+            这个教程的第一部分
         </a>
-        , you started building a Mad Libs style macOS application, where the user
-        enters various words and phrases to create a funny sentence.
+        ，你开始了构建一个Mad Lib风格的macOS app，在这里用户可以输入单词和短语来创建有趣的桔子。
     </p>
     <p>
-        Along the way, you learned about some of the core UI macOS controls —
-        namely, Text Fields, Combo Boxes, Pop Up Buttons, Push Buttons and Text
-        Views.
+        继续下去，你会学到一些核心的macOS UI控件 - 也就是Text Fields，Combo Boxes，Pop Up Buttons，Push Buttons和Text Views.
     </p>
     <h2>
-        More macOS Controls
+        更多macOS控件
     </h2>
     <p>
-        In this final part of the tutorial, you’ll finish off your application,
-        and learn how to use the following:
+        在这个教程中的最后一部分，你会完成你的app，并学会如何使用下面的控件：
     </p>
     <ul>
         <li>

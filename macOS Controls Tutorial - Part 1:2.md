@@ -17,7 +17,6 @@
         </a>
         更新至Xcode 6.3 / Swift 1.2。
         <a href="https://www.raywenderlich.com/27388/core-controls-in-mac-os-x-part-12">
-            Original post
             初始版本
         </a>
         作者为
