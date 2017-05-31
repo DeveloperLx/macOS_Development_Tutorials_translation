@@ -430,24 +430,18 @@ sliderChanged(<span class="hljs-keyword">self</span>)
         or time values that are permitted in your control. The properties to do
         this are set out below!
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492974">
-                    <td class="code" id="p149297code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            // getting &amp; setting the date/time value let myDate = myDatePicker.dateValue
-                            myDatePicker.dateValue = myDate &nbsp; // getting &amp; setting the minimum
-                            date of the range let theMinimumDate = myDatePicker.minDate myDatePicker.minDate
-                            = theMinimumDate &nbsp; // getting &amp; setting the maximum date of the
-                            range let theMaximumDate = myDatePicker.maxDate myDatePicker.maxDate =
-                            theMaximumDate
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// getting &amp; setting the date/time value</span>
+<span class="hljs-keyword">let</span> myDate = myDatePicker.dateValue
+myDatePicker.dateValue = myDate
+
+<span class="hljs-comment">// getting &amp; setting the minimum date of the range</span>
+<span class="hljs-keyword">let</span> theMinimumDate = myDatePicker.minDate
+myDatePicker.minDate = theMinimumDate
+
+<span class="hljs-comment">// getting &amp; setting the maximum date of the range</span>
+<span class="hljs-keyword">let</span> theMaximumDate = myDatePicker.maxDate
+myDatePicker.maxDate = theMaximumDate
+</pre>
     <p>
         Again — the controls have a very simple getter and setter style interface
         to update these values. Now it’s time (pardon the pun!) to put this control
