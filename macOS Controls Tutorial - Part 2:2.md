@@ -63,33 +63,26 @@
         </li>
     </ul>
     <p>
-        At the end of this two-part tutorial you’ll have a solid understanding
-        of macOS controls.
+        在这个两部分的教程的末尾，你会对macOS的控件有一个很好的理解。
     </p>
     <p>
-        This tutorial will pick up where you left off. If you don’t have it already,
+        这个教程将从你中断的地方再捡起来。如果你还没有之前的项目，这里是第一部分的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/MadLibs-part1-final-1.zip">
-            here’s the final project
+            最后的项目
         </a>
-        of the first part.
+        。
     </p>
     <p>
-        It’s time to get to work!
+        是时候开始工作了！
     </p>
     <h2>
-        Slipping and Sliding — NSSlider
+        滑动 - NSSlider
     </h2>
     <p>
-        A slider is a control that lets the user choose from a range of values.
-        A slider has a minimum and a maximum value, and by moving the control’s
-        knob, the user can choose a value between those two limits. Sliders can
-        be either linear or radial. What’s the difference between the two, you
-        ask?
+        slider是一个控件，让用户可以从一个范围中进行选择。slider有一个最小值和最大值，通过移动控件的“把手”，用户可以在两个限制中进行选择。slider可以是线性或径向的。你会问，两者间的区别是什么？
     </p>
     <p>
-        Linear sliders can be either vertical or horizontal, and they let you
-        choose a value by moving the knob along the track. A really great example
-        of linear sliders is in macOS’ Mouse preferences panel:
+        线性的slider可以是垂直的或水平的，他们让你可以通过沿着轨迹移动把手来选择一个值。关于线性slider的一个很好的例子，就是macOS中的鼠标偏好面板了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/slider-mouse.png">
@@ -98,11 +91,7 @@
         </a>
     </p>
     <p>
-        Radial sliders are a little different — they are displayed as a small
-        circle with a knob, which can be rotated a full 360 degrees. To select
-        a value, you click and drag the knob to the required position. You can
-        find a great example of radial sliders in Adobe Photoshop, where they’re
-        used to define the angle of a gradient, as such:
+        径向slider有一点的不同 - 它是一个小小的带有把手的圆心，它可以360度地进行旋转。你可以点击和拖拽把手到要求的位置来选择一个值。关于径向slider，你可以在Adobe Photoshop中来找到一个很棒的例子，它用来定义一个渐变的角度，就像下面这样：
     </p>
     <p>
         <a href="https://www.raywenderlich.com/slider-example-radial" rel="attachment wp-att-27039">
@@ -111,21 +100,19 @@
         </a>
     </p>
     <p>
-        The control responsible for this on macOS is an
+        在macOS中负责这个的控件是
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSSlider_Class/Reference/Reference.html"
         title="NSSlider Class Reference">
             NSSlider
         </a>
-        .
+        。
     </p>
     <p>
-        All three types of sliders (horizontal, vertical and radial) are in fact
-        the same control,
+        全部三种类型的slider（水平、垂直和径向）实际上都是一个控件
         <code>
             NSSlider
         </code>
-        . The only difference is how they’re displayed. Interface Builder has
-        an object in the Object Library for each of the three types, as shown below:
+        。唯一的区别只是它们的外表。Interface Builder对于每种类型的slider在Object Library中都有一个对象，如同下面展示的这样：
     </p>
     <p>
         <a href="http://www.raywenderlich.com/82047/introduction-to-os-x-tutorial-core-controls-and-swift-part-2/sliders-ib-2"
@@ -137,92 +124,84 @@
         </a>
     </p>
     <h3>
-        Slider Semantics
+        Slider语义
     </h3>
     <p>
-        There are two common tasks you’re likely to perform when working with
-        sliders: getting or setting the current value, and getting and setting
-        the high and low limits of the slider’s range. These properties are outlined
-        here:
+        当使用slider的时候，通常你会执行两个任务，获取或设置当前的值，以及获取和设置slider让位的最高值和最低值。这些property被展示如下：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492971">
-                    <td class="code" id="p149297code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            // getting &amp; setting an integer value let theInteger = mySlider.integerValue
-                            mySlider.integerValue = theInteger &nbsp; // getting &amp; setting a float
-                            value let theFloat = mySlider.floatValue mySlider.floatValue = theFloat
-                            &nbsp; // getting &amp; setting a double value let theDouble = mySlider.doubleValue
-                            mySlider.doubleValue = theDouble &nbsp; // getting &amp; setting the minimum
-                            value of the range let theMinimumValue = mySlider.minValue mySlider.minValue
-                            = theMinimumValue &nbsp; // getting &amp; setting the maximum value of
-                            the range let theMaximumValue = mySlider.maxValue mySlider.maxValue = theMaximumValue
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// getting &amp; setting an integer value</span>
+<span class="hljs-keyword">let</span> theInteger = mySlider.integerValue
+mySlider.integerValue = theInteger
+
+<span class="hljs-comment">// getting &amp; setting a float value</span>
+<span class="hljs-keyword">let</span> theFloat = mySlider.floatValue
+mySlider.floatValue = theFloat
+
+<span class="hljs-comment">// getting &amp; setting a double value</span>
+<span class="hljs-keyword">let</span> theDouble = mySlider.doubleValue
+mySlider.doubleValue = theDouble
+
+<span class="hljs-comment">// getting &amp; setting the minimum value of the range</span>
+<span class="hljs-keyword">let</span> theMinimumValue = mySlider.minValue
+mySlider.minValue = theMinimumValue
+
+<span class="hljs-comment">// getting &amp; setting the maximum value of the range</span>
+<span class="hljs-keyword">let</span> theMaximumValue = mySlider.maxValue
+mySlider.maxValue = theMaximumValue
+</pre>
     <p>
-        Again, nothing too surprising here — if you’ve learned anything by now,
-        it’s that implementing standard UI macOS controls is a fairly straightforward
-        exercise. Move on to the next section to include an
+        再一次，这里没有什么好奇怪的 - 如果你现在已学到了什么，它就是实现标准macOS控件的一个相当简单的练习。移步到下一部分，让你的app包含一个
         <code>
             NSSlider
         </code>
-        in your app!
+        ！
     </p>
     <h2>
-        Pick a Number, Any Number
+        选择一个数字，任何数字
     </h2>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Locate the
+        。在Object Library的面板中定位到
         <em>
             Label
         </em>
-        control In the Object Library palette and drag it onto the content view
-        below the Phrase label. Resize the window vertically and move the
+        控件，并将它拖拽到content view上Phrase label的下面。改变窗口的垂直方向的大小，并将
         <em>
             Go!
         </em>
-        button down if you need to make space for it.
+        按钮向下拖拽，如果你需要给它空间的话。
     </p>
     <p>
-        Double-click the control to edit its default text, and change it to
+        双击控件来编辑它的默认文本，改变为
         <em>
             Amount: [10]
         </em>
-        . Find the
+        。找到
         <em>
-            Horizontal Slider
+            水平Slider
         </em>
-        control and drag it onto the window, placing it to the right of the label.
+        控件并将它拖拽到窗口上，并将它放置到label的右边。
     </p>
     <p>
-        Click on the slider to select it. Open the
+        点击slider并选择它。打开
         <em>
             Attributes Inspector
         </em>
-        and set the Minimum value to 2, and the Maximum value to 10. Change the
-        Current value to 5. This will be the default value of the slider when the
-        user first runs the app.
+        并设置最小值为2，最大值为10。改变当前的值为5。这会作为当用户首次运行app时，slider的默认的值。
     </p>
     <p>
-        Make sure that
+        确保
         <em>
             Continuous
         </em>
-        is checked. This tells the slider to notify
+        已选中。这告诉slider来通知
         <em>
             any
         </em>
-        change in the slider’s value.
+        slider值的任何变化。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/slider-add-1.png">
@@ -233,32 +212,29 @@
         </a>
     </p>
     <p>
-        Now you need to create two outlets; one for the slider, and one for the
-        label. Wait, you may say — that’s a little different. Why are you adding
-        a property for the label?
+        现在你创建两个outlet；一个是slider的，另一个则是label。稍等，你可能会说 - 有一点的不同。为何要给label添加一个label？
     </p>
     <p>
-        That’s so you can update the label’s text to list the current amount whenever
-        the value of the slider is changed; hence why you set the
+        这是因为，这样就可以在slider的值发生变化的时候，更新label的文本来列出当前的数量；因此为何要给slider的
         <em>
             Continuous
         </em>
-        property on the slider. Aha! Makes sense now, doesn’t it?
+        property。哈哈，现在就有意义了吧，不是吗？
     </p>
     <p>
-        Open the Assistant editor and make sure
+        打开Assistant editor并确保
         <em>
             ViewController.swift
         </em>
-        is open.
+        已打开。
         <em>
-            Ctrl-Drag
+            按住Ctrl拖拽label
         </em>
-        from label to
+        到
         <em>
             ViewController.swift
         </em>
-        to create a new outlet.
+        上来创建一个新的outlet。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/slider-drag-1.png">
@@ -269,11 +245,11 @@
         </a>
     </p>
     <p>
-        In the popup screen, name the outlet
+        在弹出的屏幕中，将outlet命名为
         <em>
             amountLabel
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/amountlabel-drag2.png">
