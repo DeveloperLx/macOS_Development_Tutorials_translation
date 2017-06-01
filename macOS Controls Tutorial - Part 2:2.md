@@ -407,7 +407,7 @@ sliderChanged(<span class="hljs-keyword">self</span>)
         。
     </p>
     <p>
-        Date Picker可以以两种风格的样式来展示：文本的，它的日期和时间信息将会被展示到text field中；以及图形的，它的日期会以一个日历的形式展现，时间则以一个时钟的形式来展示。你可以在macOS的日期&时间偏好面板中找到全部风格的例子：就像下面截图中展示的这样：
+        Date Picker可以以两种风格的样式来展示：文本的，它的日期和时间信息将会被展示到text field中；以及图形的，它的日期会以一个日历的形式展现，时间则以一个时钟的形式来展现。你可以在macOS的日期&时间偏好面板中找到全部风格的例子：就像下面截图中展示的这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/date-macos.png">
@@ -433,12 +433,10 @@ myDatePicker.minDate = theMinimumDate
 myDatePicker.maxDate = theMaximumDate
 </pre>
     <p>
-        Again — the controls have a very simple getter and setter style interface
-        to update these values. Now it’s time (pardon the pun!) to put this control
-        to work.
+        再一次的 - 这个控件拥有非常简单的getter和setter风格的接口来更新这些值。现在是时候（原谅我的调皮！）把这个控件放到你的项目上了。
     </p>
     <h2>
-        I’m Late for a Very Important Date
+        我误了一个非常重要的日期
     </h2>
     <p>
         Following the usual procedure, add a new
