@@ -795,21 +795,15 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
     <p>
         Here’s how you can use it:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492979">
-                    <td class="code" id="p149297code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Set the state to On myCheckBox.state = NSOnState &nbsp; // Set the
-                            state to Off myCheckBox.state = NSOffState &nbsp; // Get the state of a
-                            check box let state = myCheckBox.state
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Set the state to On</span>
+myCheckBox.state = <span class="hljs-built_in">NSOnState</span>
+
+<span class="hljs-comment">// Set the state to Off</span>
+myCheckBox.state = <span class="hljs-built_in">NSOffState</span>
+
+<span class="hljs-comment">// Get the state of a check box</span>
+let state = myCheckBox.state
+</pre>
     <p>
         Super simple! Time to add a checkbox to your app.
     </p>
@@ -855,19 +849,9 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929710">
-                    <td class="code" id="p149297code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            // set check button state yellCheck.state = NSOffState
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// set check button state</span>
+yellCheck.state = <span class="hljs-built_in">NSOffState</span>
+</pre>
     <p>
         Build and run the application! You should see the check box, and it’s
         state should be unchecked. Click it to see it in action:
@@ -905,20 +889,13 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         It’s very easy to use. You just need to get or set the selected segment
         to find out the user’s selection.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929711">
-                    <td class="code" id="p149297code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            &nbsp; // Select the first segment segmentedControl.selectedSegment =
-                            0 &nbsp; // Get the selected segment let selected = segmentedControl.selectedSegment
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript">
+<span class="hljs-comment">// Select the first segment</span>
+segmentedControl.selectedSegment = <span class="hljs-number">0</span>
+
+<span class="hljs-comment">// Get the selected segment</span>
+<span class="hljs-keyword">let</span> selected = segmentedControl.selectedSegment
+</pre>
     <h2>
         Tuning the Voice – Adding Segmented Controls
     </h2>
@@ -986,20 +963,9 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929712">
-                    <td class="code" id="p149297code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Set the segmented control initial selection voiceSegmentedControl.selectedSegment
-                            = 1
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Set the segmented control initial selection</span>
+voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
+</pre>
     <p>
         As easy as it looks. Just set the
         <code>
@@ -1098,20 +1064,12 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         There are very few properties you need to interact with an Image View
         at runtime:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929713">
-                    <td class="code" id="p149297code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Get the image from an image view let myImage = myImageView.image &nbsp;
-                            // Set the image of an image view myImageView.image = myImage
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Get the image from an image view</span>
+<span class="hljs-keyword">let</span> myImage = myImageView.image
+
+<span class="hljs-comment">// Set the image of an image view</span>
+myImageView.image = myImage
+</pre>
     <p>
         At design time, you can configure the visual aspects: the border, scaling
         and alignment. Yes, these properties can be set in code as well, but it’s
@@ -1242,22 +1200,20 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         </em>
         and add the following property inside the class implementation:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929714">
-                    <td class="code" id="p149297code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate var selectedPlace: String { var place = "home" if rwDevConRadioButton.state
-                            == NSOnState { place = "RWDevCon" } else if threeSixtyRadioButton.state
-                            == NSOnState { place = "360iDev" } else if wwdcRadioButton.state == NSOnState
-                            { place = "WWDC" } return place }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript">fileprivate <span class="hljs-keyword">var</span> selectedPlace: <span class="hljs-built_in">String</span> {
+  <span class="hljs-keyword">var</span> place = <span class="hljs-string">"home"</span>
+  <span class="hljs-keyword">if</span> rwDevConRadioButton.state == NSOnState {
+    place = <span class="hljs-string">"RWDevCon"</span>
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> threeSixtyRadioButton.state == NSOnState {
+    place = <span class="hljs-string">"360iDev"</span>
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> wwdcRadioButton.state == NSOnState {
+    place = <span class="hljs-string">"WWDC"</span>
+  }
+  <span class="hljs-keyword">return</span> place
+}
+</pre>
     <p>
         This code adds a computed property that returns the name of the place
         based on which radio button is selected.
@@ -1269,30 +1225,44 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         </code>
         with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14929715">
-                    <td class="code" id="p149297code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 let pastTenseVerb = pastTenseVerbTextField.stringValue &nbsp; //
-                            2 let singularNoun = singularNounCombo.stringValue &nbsp; // 3 let amount
-                            = amountSlider.integerValue &nbsp; // 4 let pluralNoun = pluralNouns[pluralNounPopup.indexOfSelectedItem]
-                            &nbsp; // 5 let phrase = phraseTextView.string ?? "" &nbsp; // 6 let dateFormatter
-                            = DateFormatter() dateFormatter.dateStyle = .long let date = dateFormatter.string(from:
-                            datePicker.dateValue) &nbsp; // 7 var voice = "said" if yellCheck.state
-                            == NSOnState { voice = "yelled" } &nbsp; // 8 let sentence = "On \(date),
-                            at \(selectedPlace) a \(singularNoun) \(pastTenseVerb) \(amount) \(pluralNoun)
-                            and \(voice), \(phrase)" &nbsp; // 9 resultTextField.stringValue = sentence
-                            imageView.image = NSImage(named: "face") &nbsp; // 10 let selectedSegment
-                            = voiceSegmentedControl.selectedSegment let voiceRate = VoiceRate(rawValue:
-                            selectedSegment) ?? .normal readSentence(sentence, rate: voiceRate)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">let</span> pastTenseVerb = pastTenseVerbTextField.stringValue
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">let</span> singularNoun = singularNounCombo.stringValue
+    
+<span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">let</span> amount = amountSlider.integerValue
+    
+<span class="hljs-comment">// 4</span>
+<span class="hljs-keyword">let</span> pluralNoun = pluralNouns[pluralNounPopup.indexOfSelectedItem]
+    
+<span class="hljs-comment">// 5</span>
+<span class="hljs-keyword">let</span> phrase = phraseTextView.string ?? <span class="hljs-string">""</span>
+    
+<span class="hljs-comment">// 6</span>
+<span class="hljs-keyword">let</span> dateFormatter = <span class="hljs-type">DateFormatter</span>()
+dateFormatter.dateStyle = .long
+<span class="hljs-keyword">let</span> date = dateFormatter.string(from: datePicker.dateValue)
+    
+<span class="hljs-comment">// 7</span>
+<span class="hljs-keyword">var</span> voice = <span class="hljs-string">"said"</span>
+<span class="hljs-keyword">if</span> yellCheck.state == <span class="hljs-type">NSOnState</span> {
+  voice = <span class="hljs-string">"yelled"</span>
+}
+    
+<span class="hljs-comment">// 8</span>
+<span class="hljs-keyword">let</span> sentence = <span class="hljs-string">"On <span class="hljs-subst">\(date)</span>, at <span class="hljs-subst">\(selectedPlace)</span> a <span class="hljs-subst">\(singularNoun)</span> <span class="hljs-subst">\(pastTenseVerb)</span> <span class="hljs-subst">\(amount)</span> <span class="hljs-subst">\(pluralNoun)</span> and <span class="hljs-subst">\(voice)</span>, <span class="hljs-subst">\(phrase)</span>"</span>
+    
+<span class="hljs-comment">// 9</span>
+resultTextField.stringValue = sentence
+imageView.image = <span class="hljs-type">NSImage</span>(named: <span class="hljs-string">"face"</span>)
+
+<span class="hljs-comment">// 10</span>
+<span class="hljs-keyword">let</span> selectedSegment = voiceSegmentedControl.selectedSegment
+<span class="hljs-keyword">let</span> voiceRate = <span class="hljs-type">VoiceRate</span>(rawValue: selectedSegment) ?? .normal
+readSentence(sentence, rate: voiceRate)
+</pre>
     <p>
         That may seem like a lot of code, but it’s fairly straightforward when
         you break it down:
