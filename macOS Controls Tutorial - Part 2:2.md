@@ -439,28 +439,27 @@ myDatePicker.maxDate = theMaximumDate
         我误了一个非常重要的日期
     </h2>
     <p>
-        Following the usual procedure, add a new
+        跟着习惯的步骤，添加一个
         <em>
             Label
         </em>
-        to your window. Change its title to
+        到你的窗口上。将它的标题改为
         <em>
             Date:
         </em>
-        and its alignment to
+        ，对齐方式改为
         <em>
-            Right
+            向右
         </em>
-        . Find the
+        。在对象面板中找到
         <em>
             Date Picker
         </em>
-        control in the Object palette, and drag it onto the window, placing it
-        to the right of the label. Resize the window and move the
+        ，并把它拖拽到窗口上，将它放到label的右边。如果需要的话，改变窗口的大小，并将
         <em>
             Go!
         </em>
-        button down if needed:
+        按钮向下移动：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/add-datepicker.png">
@@ -471,46 +470,31 @@ myDatePicker.maxDate = theMaximumDate
         </a>
     </p>
     <p>
-        Create an outlet for the date picker, just as you’ve done for each of
-        the previous macOS controls. In the popup window, name the property
+        为date picker创建一个outlet，就在之前你完成的每个控件的outlet的下面。在弹出的窗口中，将property命名为
         <em>
             datePicker
         </em>
-        .
+        。
     </p>
     <p>
-        Just like the other macOS controls in your app, it’s nice to display a
-        default value to the user when they first run your application. Picking
-        today’s date as the default sounds like a good choice! :]
+        就像app中的其它控件一样，当运行你的app时，向用户展示一个默认的值会比较好。选取当前的日期作为默认值听起来是一个不错的选择！:]
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following code to the end of
+        并添加下面的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        方法的末尾：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492975">
-                    <td class="code" id="p149297code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Set the date picker to display the current date datePicker.dateValue
-                            = Date()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Set the date picker to display the current date</span>
+datePicker.dateValue = <span class="hljs-built_in">Date</span>()
+</pre>
     <p>
-        Build and run the app! You should see your shiny new date picker displaying
-        current date, like in the screenshot below:
+        Build并运行你app！你应该会看到你漂亮的新date picker正在展示当前的日期，就像下面截图中的一样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-datepicker.png">
