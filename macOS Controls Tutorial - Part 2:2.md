@@ -523,9 +523,7 @@ datePicker.dateValue = <span class="hljs-built_in">Date</span>()
         Radio buttons是以radio groups的形式组织起来的。
     </p>
     <p>
-        When you click a radio button in a group, it is selected and the system
-        automatically deselects the rest of the buttons within that group. You
-        only need to worry about getting and setting the proper values. How convenient!
+        当你点击了组中的一个按钮，它就会被选中，并且系统会自动将组中其余的按钮取消选择。你只需要考虑获取和设置合适的值。多么得方便！
     </p>
     <p>
         But how do you define a group? Quoting the documentation:
