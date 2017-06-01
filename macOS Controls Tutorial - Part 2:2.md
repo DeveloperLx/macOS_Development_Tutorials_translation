@@ -650,39 +650,38 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
 }
 </pre>
     <p>
-        That’s a typical action method which includes the
+        这是一个典型的动作方法，它包含一个
         <code>
             @IBAction
         </code>
-        annotation so that Interface Builder can find it and use it. Now, open
+        的标注，因此Interface Builder就可以找到并使用它。现在，打开
         <em>
             Main.storyBoard
         </em>
-        to assign this action to the radio buttons.
+        并指派这个动作给radio button。
     </p>
     <p>
-        Go to the
+        前往
         <em>
             Document Outline
         </em>
-        and
+        并
         <em>
-            Control-Click
+            按住Control单击
         </em>
-        (or right click) on the View Controller. Go to the
+        （或右击）View Controller。在弹出的窗口中，找到
         <em>
             Received Actions
         </em>
-        section in the popup window, and drag from the circle next to
+        区，并从靠近
         <code>
             radioButtonChanged:
         </code>
-        onto the
+        的圈拖拽到
         <em>
             RWDevCon
         </em>
-        radio button. With that simple action you’ve just assigned the action
-        to that radio button.
+        radio button的上面。只需简单的动作，你就将动作指派到了radio button的上面。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/radio-addaction.png">
@@ -693,8 +692,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Repeat the process to assign the same action to the other two radio buttons.
-        Your received actions section should look like this:
+        重复上述过程，将相同的动作指派到另外两个radio button上面。你的received action现在应当看起来就像是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/radio-actions-all.png">
@@ -705,7 +703,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Build and run:
+        Build并运行：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-radio.png">
@@ -716,48 +714,35 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Now the radio buttons are behaving like a group.
+        现在radio buttons就应该表现得像一个组了。
     </p>
     <p>
-        Now you’ll need to to make the
+        现在，你需要让
         <em>
             RWDevCon
         </em>
-        radio button the default when the app starts. You just need to set the
-        radio button state to On, and then the other buttons will be automatically
-        deselected.
+        radio button成为app启动时的默认项。你只需要设置radio button的state为On，然后其它的按钮就会被自动地取消选择。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        . Add the following code to the end of
+        。并添加下列的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        方法的尾部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492978">
-                    <td class="code" id="p149297code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Set the radio group's initial selection rwDevConRadioButton.state =
-                            NSOnState
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Set the radio group's initial selection</span>
+rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
+</pre>
     <p>
-        Build and run the application. You should see the
+        Build并运行app。你会看到在app启动时，
         <em>
             RWDevCon
         </em>
-        radio button selected when the app starts.
+        radio button已被选中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/radio-rwdev.png">
@@ -766,11 +751,10 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Radio buttons are one way to toggle values in your app, but there’s another
-        class of macOS controls that perform a similar function — check boxes!
+        Radio button是在你的app中切换值的一种方法，但还有着执行类似功能的一个另外的macOS控件 - check boxes！
     </p>
     <h2>
-        Ticking all the Boxes — Check Box Button
+        勾选全部的盒子 - Check Box Button
     </h2>
     <p>
         You typically use check boxes in an app to display the state of some boolean
