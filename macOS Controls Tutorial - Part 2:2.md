@@ -505,19 +505,13 @@ datePicker.dateValue = <span class="hljs-built_in">Date</span>()
         </a>
     </p>
     <h2>
-        Video Killed the Radio…Button
+        视频杀掉了音频...按钮
     </h2>
     <p>
-        Radio buttons are a special type of control that always appear in groups;
-        they are typically displayed as a list of options with selectable buttons
-        alongside. Their behavior is also somewhat unique; any button within the
-        group can be selected, but selecting one button will deselect all other
-        buttons in the group. Only a single button, within the same group, can
-        be selected at one time.
+        Radio buttons是一个特殊类型的控件，经常以组的形式出现；典型地，它们会展示为一个带有在一边的可选按钮的选项的列表。它们的表现在某种程度上时独一无二的；在组中的任意按钮都可以被选择，但只要选择了其中一个按钮，就会将组中其它按钮的选择都取消掉。在相同的组中，同时只有一个按钮可以被选中。
     </p>
     <p>
-        A good example of radio buttons that are used to present a set of options
-        is the iTunes Back Up options, as shown below:
+        关于radio buttons的一个展示一系列选项的很好的例子，就是iTunes的备份的选项，就像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2012/12/radio-example.png">
@@ -526,7 +520,7 @@ datePicker.dateValue = <span class="hljs-built_in">Date</span>()
         </a>
     </p>
     <p>
-        Radio buttons are organized in radio groups.
+        Radio buttons是以radio groups的形式组织起来的。
     </p>
     <p>
         When you click a radio button in a group, it is selected and the system
