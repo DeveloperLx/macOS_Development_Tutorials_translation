@@ -551,9 +551,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
 
 </pre>
     <p>
-        
-        Once again, a complicated control is reduced to some very simple methods.
-        Read on to see how to implement a radio button control in your app!
+        再一次地，一个复杂的控件被削减为一些非常简单的方法。继续阅读，来了解如何在你的app中实现一个radio button控件！
     </p>
     <h2>
         A Place to Call Home – Adding Radio Buttons
