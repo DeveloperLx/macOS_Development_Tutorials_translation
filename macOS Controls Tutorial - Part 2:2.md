@@ -526,40 +526,32 @@ datePicker.dateValue = <span class="hljs-built_in">Date</span>()
         当你点击了组中的一个按钮，它就会被选中，并且系统会自动将组中其余的按钮取消选择。你只需要考虑获取和设置合适的值。多么得方便！
     </p>
     <p>
-        But how do you define a group? Quoting the documentation:
+        但你该怎么定义一个组？引用文档中所说的：
     </p>
     <p>
         <i>
-            “Radio buttons automatically act as a group (selecting one button will
-            unselect all other related buttons) when they have the same superview and
-            -action method.”
+            “Radio buttons自动地作为了一个组（选择一个按钮将取消全部其它相关的按钮），当它们拥有相同的父view和动作方法。”
         </i>
-        .
     </p>
     <p>
-        So, all you need to do is add the radio buttons to a view, create an action,
-        and assign that action to all the buttons in the group.
+        因此，所有你需要做的就是添加radio buttons到一个view上，创建一个动作，并设计这个组中所有按钮的动作。
     </p>
     <p>
-        Then you just need to change the state of one button (On / Off) and the
-        system will take care of deselecting the others.
+        然后你只需要改变按钮的状态（On/Off），系统自己会管理取消选择其它的按钮。
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492976">
-                    <td class="code" id="p149297code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            // Select a radio button radioButton.state = NSOnState &nbsp; // Deselect
-                            a radio button radioButton.state = NSOffState &nbsp; // Check if a radio
-                            button is selected. let selected = (radioButton.state == NSOnState)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Select a radio button </span>
+radioButton.state = <span class="hljs-built_in">NSOnState</span>
+
+<span class="hljs-comment">// Deselect a radio button</span>
+radioButton.state = <span class="hljs-built_in">NSOffState</span>
+
+<span class="hljs-comment">// Check if a radio button is selected.</span>
+let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span>)
+
+</pre>
     <p>
+        
         Once again, a complicated control is reduced to some very simple methods.
         Read on to see how to implement a radio button control in your app!
     </p>
