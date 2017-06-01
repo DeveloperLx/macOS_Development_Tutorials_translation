@@ -554,37 +554,34 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         再一次地，一个复杂的控件被削减为一些非常简单的方法。继续阅读，来了解如何在你的app中实现一个radio button控件！
     </p>
     <h2>
-        A Place to Call Home – Adding Radio Buttons
+        呼叫家的地方 - 添加Radio Buttons
     </h2>
     <p>
-        Add a new
+        添加一个新的
         <em>
             Label
         </em>
-        to your app (you should be getting pretty comfortable with this by now!),
-        and change its title to
+        到你的app上（你现在应该对此感到非常舒服了！），并将它的标题改为
         <em>
             Place:
         </em>
-        . Locate the
+        。在Object Library面板中找到
         <em>
             Radio Button
         </em>
-        in the Object Library palette, and drag three onto the content view, just
-        beside the label. Double click on the radio buttons to change their titles
-        to:
+        ，并将它拖拽到content view上，就在label的旁边。双击radio buttons，来将他们的标题分别改为：
         <em>
             RWDevCon
         </em>
-        ,
+        ，
         <em>
             360iDev
         </em>
-        and
+        和
         <em>
             WWDC
         </em>
-        respectively.
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/radioadd.png">
