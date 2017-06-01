@@ -592,35 +592,34 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Now, you need to create a new outlet for every radio button — another
-        action you should be quite familiar with by now! Open the
+        现在，你需要为每个radio button创建一个新的outlet - 现在你应当相当熟悉另一个动作了！打开
         <em>
             Assistant Editor
         </em>
-        and
+        并
         <em>
-            Ctrl-Drag
+            按住Ctrl拖拽
         </em>
-        the first radio button into the
+        第一个radio button到
         <em>
             ViewController.swift
         </em>
-        source file, just below the existing properties. Name the outlet
+        的源文件中，就在已存在的property的下面。将outlet命名为
         <em>
             rwDevConRadioButton
         </em>
-        . Repeat the process for the other two radio buttons, naming the outlets
+        。对另外两个radio buttons重复同样的过程，将outlet分别命名为
         <em>
             threeSixtyRadioButton
         </em>
-        and
+        和
         <em>
             wwdcRadioButton
         </em>
-        respectively.
+        。
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-radio-error.png">
@@ -631,40 +630,25 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Click on the radio buttons, and you’ll immediately notice a problem. You
-        can select all of them. They’re not behaving as a group. Why? Because there
-        are two conditions for different radio buttons to act as a group: They
-        must have the same superview (which is the case), and they need to have
-        a common action. The second condition is not met in our app.
+        点击radio button，你会立刻注意到一个问题。你可以选择全部的radio button。它们并没有表现得像一个组。为什么？因为要让不同radio button成为一个组，需要有两个条件：它们必须拥有相同的父view（这是关键），他们需要有一个共同的动作。在我们的app中并不满足第二个条件。
     </p>
     <p>
-        To solve that, you need to create a common action for those buttons.
+        为了解决上述情况，你需要为这些按钮创建一个共同的动作。
     </p>
     <p>
-        You are already an expert creating actions using Interface Builder, right?
-        So, to learn an alternative way to do it, you’re going to create the action
-        in code and assign it to the radio buttons in Interface Builder.
+        你早已是个使用Interface Builder创建动作的专家了吧，对么？所以，我们来学习一种替代的方法，在代码中创建动作，并将其指派到Interface Builder的radio buttons上。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following code inside the class implementation:
+        并在类的实现中添加下列的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1492977">
-                    <td class="code" id="p149297code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction func radioButtonChanged(_ sender: AnyObject) { &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">radioButtonChanged</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: AnyObject)</span></span> {
+    
+}
+</pre>
     <p>
         That’s a typical action method which includes the
         <code>
