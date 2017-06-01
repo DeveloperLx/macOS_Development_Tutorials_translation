@@ -393,28 +393,21 @@ sliderChanged(<span class="hljs-keyword">self</span>)
         Build并运行。现在label就在一运行时展示正确的值，这是一个很小的接触，但这是“配合和完成”，让你的app看起来更优美的元素。
     </p>
     <p>
-        更复杂的值，例如日历日期呢？是的，macOS也有那些处理了！:]
+        更复杂的值，例如日历日期呢？是的，macOS也有那些的处理了！:]
     </p>
     <h2>
-        Hot Date Tonight — NSDatePicker
+        今夜的“热日期” - NSDatePicker
     </h2>
     <p>
-        Date Picker is a macOS control that display date and time values, as well
-        as providing a method for the user to edit those values. Date Pickers can
-        be configured to display a date, a time or both a date and time. The control
-        responsible for this on macOS is
+        Date Picker是一个展示日期和时间的macOS控件，提供了一个方法来让用户编辑这些值。Date Picker可以被指定来展示一个日期，一个时间或同时展示日期和时间。在macOS中负责这个的控件是
         <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSDatePicker_Class/Reference/Reference.html"
         title="NSDatePicker Class Reference">
             NSDatePicker
         </a>
-        .
+        。
     </p>
     <p>
-        Date Pickers can be displayed in one of two styles: textual, where the
-        date and time information is shown in text fields, and graphical, where
-        the date is represented by a calendar and the time by a clock. You can
-        find examples of all these styles in macOS’ Date &amp; Time preferences
-        panel, as in the screenshot below:
+        Date Picker可以以两种风格的样式来展示：文本的，它的日期和时间信息将会被展示到text field中；以及图形的，它的日期会以一个日历的形式展现，时间则以一个时钟的形式来展示。你可以在macOS的日期&时间偏好面板中找到全部风格的例子：就像下面截图中展示的这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/date-macos.png">
@@ -425,10 +418,7 @@ sliderChanged(<span class="hljs-keyword">self</span>)
         </a>
     </p>
     <p>
-        The most common tasks you’ll perform with a date picker are getting and
-        setting the date or time value, and setting the minimum and maximum date
-        or time values that are permitted in your control. The properties to do
-        this are set out below!
+        对于date picker，你最常见的要执行的任务就是获取和设置它的日期和时间了，已经设置在你的控件中所允许的最小和最大的日期/时间的值。用来实现这些的property已展示在下面！
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// getting &amp; setting the date/time value</span>
 <span class="hljs-keyword">let</span> myDate = myDatePicker.dateValue
