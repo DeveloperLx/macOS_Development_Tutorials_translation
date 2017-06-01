@@ -757,15 +757,13 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         勾选全部的盒子 - Check Box Button
     </h2>
     <p>
-        You typically use check boxes in an app to display the state of some boolean
-        value. That state tends to influence the app in some way such as enabling
-        or disabling a feature.
+        You typically use check boxes in an app to display the state of some boolean value. 
+        That state tends to influence the app in some way such as enabling or disabling a feature.
     </p>
     <p>
-        You will likely find check boxes where the user can enable or disable
-        a functionality. You can find them in almost every screen of the Settings
-        app. For instance, in the Energy Saver window you use them to enable or
-        disable the different energy options.
+        You will likely find check boxes where the user can enable or disable a functionality. 
+        You can find them in almost every screen of the Settings app. 
+        For instance, in the Energy Saver window you use them to enable or disable the different energy options.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/check-example.png">
@@ -776,9 +774,7 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         </a>
     </p>
     <p>
-        Working with check boxes is relatively easy; most of the time you’ll only
-        be concerned with getting and setting the state of the control. The state
-        of the check box can be one of these:
+        Working with check boxes is relatively easy; most of the time you’ll only be concerned with getting and setting the state of the control. The state of the check box can be one of these:
         <em>
             NSOnState
         </em>
@@ -819,8 +815,8 @@ let state = myCheckBox.state
         <em>
             Check Box Button
         </em>
-        in the Object Library and drag it onto the content view. Double-click
-        on it to change its title to
+        in the Object Library and drag it onto the content view. 
+        Double-click on it to change its title to
         <em>
             Yell!!
         </em>
@@ -853,8 +849,7 @@ let state = myCheckBox.state
 yellCheck.state = <span class="hljs-built_in">NSOffState</span>
 </pre>
     <p>
-        Build and run the application! You should see the check box, and it’s
-        state should be unchecked. Click it to see it in action:
+        Build and run the application! You should see the check box, and it’s state should be unchecked. Click it to see it in action:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-check.png">
@@ -873,9 +868,7 @@ yellCheck.state = <span class="hljs-built_in">NSOffState</span>
         target="_blank">
             NSSegmentedControl
         </a>
-        class , represents an alternative to radio buttons when you need to make
-        a selection from a number of options. You can see it in Xcode’s Attributes
-        Inspector:
+        class , represents an alternative to radio buttons when you need to make a selection from a number of options. You can see it in Xcode’s Attributes Inspector:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/segmented-alignment.png">
@@ -886,8 +879,7 @@ yellCheck.state = <span class="hljs-built_in">NSOffState</span>
         </a>
     </p>
     <p>
-        It’s very easy to use. You just need to get or set the selected segment
-        to find out the user’s selection.
+        It’s very easy to use. You just need to get or set the selected segment to find out the user’s selection.
     </p>
     <pre lang="swift" class="hljs javascript">
 <span class="hljs-comment">// Select the first segment</span>
@@ -904,8 +896,7 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
         <code>
             readSentence()
         </code>
-        had a parameter to control the voice speed (Normal, Fast, Slow). You’ll
-        use a segmented control to change the speed of the voice.
+        had a parameter to control the voice speed (Normal, Fast, Slow). You’ll use a segmented control to change the speed of the voice.
     </p>
     <p>
         Open
@@ -920,8 +911,7 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
         <em>
             Segmented Control
         </em>
-        and drag it onto the content view. You can double click on every segment
-        of the control to set its title. Change the titles to
+        and drag it onto the content view. You can double click on every segment of the control to set its title. Change the titles to
         <em>
             Slow
         </em>
@@ -952,8 +942,7 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
         <em>
             voiceSegmentedControl
         </em>
-        . Now, you want to select the Normal segment when the app starts, which
-        is the segment number 1 (segment numbers are zero based). Open
+        . Now, you want to select the Normal segment when the app starts, which is the segment number 1 (segment numbers are zero based). Open
         <em>
             ViewController.swift
         </em>
@@ -982,17 +971,13 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         </a>
     </p>
     <p>
-        Okay! You’ve finally added all the controls you need to create your funny
-        mad lib sentences. All you’re missing is a way to collect the value of
-        each control, combine those values into a sentence, and display it on-screen!
+        Okay! You’ve finally added all the controls you need to create your funny mad lib sentences. All you’re missing is a way to collect the value of each control, combine those values into a sentence, and display it on-screen!
     </p>
     <h2>
         Pulling it All Together
     </h2>
     <p>
-        You need two more controls to show the results: a label to display the
-        complete sentence, and an image view to display a picture, which should
-        liven up the user interface!
+        You need two more controls to show the results: a label to display the complete sentence, and an image view to display a picture, which should liven up the user interface!
     </p>
     <p>
         Open
@@ -1003,8 +988,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         <em>
             Wrapping Label
         </em>
-        in the Object Library palette and drag it onto the window, just below
-        the
+        in the Object Library palette and drag it onto the window, just below the
         <em>
             Go!!
         </em>
@@ -1012,12 +996,10 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         <em>
             Attributes Inspector
         </em>
-        to change the border of the label to Frame, which is the first of the
-        four buttons.
+        to change the border of the label to Frame, which is the first of the four buttons.
     </p>
     <p>
-        After that, remove the default text of the label by double-clicking it,
-        selecting the text and deleting it.
+        After that, remove the default text of the label by double-clicking it, selecting the text and deleting it.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/resulttext-add.png">
@@ -1028,8 +1010,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         </a>
     </p>
     <p>
-        Now you have to create an outlet to set the value of this new label to
-        contain your new hilarious sentence! As before,
+        Now you have to create an outlet to set the value of this new label to contain your new hilarious sentence! As before,
         <em>
             Ctrl-Drag
         </em>
@@ -1044,15 +1025,13 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         .
     </p>
     <p>
-        Leave this control as it is for now; you’ll write the code that populates
-        it in just a bit.
+        Leave this control as it is for now; you’ll write the code that populates it in just a bit.
     </p>
     <h2>
         Room with a View — NSImageView
     </h2>
     <p>
-        An Image View is a simple and easy to use control that — surprise! — displays
-        an image. Bet you didn’t expect that! :]
+        An Image View is a simple and easy to use control that — surprise! — displays an image. Bet you didn’t expect that! :]
     </p>
     <p>
         <a href="https://www.raywenderlich.com/obvious" rel="attachment wp-att-27048">
@@ -1071,9 +1050,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
 myImageView.image = myImage
 </pre>
     <p>
-        At design time, you can configure the visual aspects: the border, scaling
-        and alignment. Yes, these properties can be set in code as well, but it’s
-        far easier to set them in Interface Builder at design time, as below:
+        At design time, you can configure the visual aspects: the border, scaling and alignment. Yes, these properties can be set in code as well, but it’s far easier to set them in Interface Builder at design time, as below:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/imageview-props.png">
@@ -1095,8 +1072,7 @@ myImageView.image = myImage
         <em>
             Object Library
         </em>
-        and drag it onto view, to the left of the wrapping label. Feel free to
-        resize the app window if necessary.
+        and drag it onto view, to the left of the wrapping label. Feel free to resize the app window if necessary.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/imagewell-add.png">
@@ -1107,8 +1083,7 @@ myImageView.image = myImage
         </a>
     </p>
     <p>
-        Create a new outlet for the image view in the same way you’ve done for
-        all the previous controls:
+        Create a new outlet for the image view in the same way you’ve done for all the previous controls:
         <em>
             Ctrl-Drag
         </em>
@@ -1403,7 +1378,7 @@ readSentence(sentence, rate: voiceRate)
         button, and see what funny stories you can create! :]
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1415,10 +1390,11 @@ readSentence(sentence, rate: voiceRate)
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1426,11 +1402,11 @@ readSentence(sentence, rate: voiceRate)
         </div>
     </div>
     <p>
-        Here is the
+        这里是包含这篇教程中全部代码的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/MadLibs-part2-final-1.zip">
-            final project
+            最终项目
         </a>
-        containing all the code from this tutorial.
+        。
     </p>
     <p>
         In order to gain a deeper understanding of the controls provided by macOS,
