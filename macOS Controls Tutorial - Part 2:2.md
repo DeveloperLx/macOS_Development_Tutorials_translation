@@ -1043,7 +1043,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
 myImageView.image = myImage
 </pre>
     <p>
-        At design time, you can configure the visual aspects: the border, scaling and alignment. Yes, these properties can be set in code as well, but it’s far easier to set them in Interface Builder at design time, as below:
+        在设计的时候，你可以配置其外观：border, scaling和alignment。是的，这些property也可以在代码中进行设置，但在设计时在Interface Builder中设置它会更加容易，就像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/imageview-props.png">
@@ -1054,18 +1054,18 @@ myImageView.image = myImage
         </a>
     </p>
     <h2>
-        Just a Pretty Face – Populating the Image Well
+        只为一个漂亮的脸 - 填充图像的“井”
     </h2>
     <p>
-        Time to add an image view to your application! Find the
-        <em>
-            Image Well
-        </em>
-        in the
+        是时候添加一个image view到你的app上了！在
         <em>
             Object Library
         </em>
-        and drag it onto view, to the left of the wrapping label. Feel free to resize the app window if necessary.
+        中找到
+        <em>
+            Image Well
+        </em>
+        并拖拽到view上，放到wrapping label的左边。如果必须的话，放心地去调整app窗口的大小。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/imagewell-add.png">
