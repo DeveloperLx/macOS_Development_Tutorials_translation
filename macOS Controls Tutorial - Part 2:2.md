@@ -757,13 +757,10 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         勾选全部的盒子 - Check Box Button
     </h2>
     <p>
-        You typically use check boxes in an app to display the state of some boolean value. 
-        That state tends to influence the app in some way such as enabling or disabling a feature.
+        通常，你会在app中使用check box来展示一些布尔值的状态。这些状态常常会以某种方式影响app的一个特性的打开或关闭。
     </p>
     <p>
-        You will likely find check boxes where the user can enable or disable a functionality. 
-        You can find them in almost every screen of the Settings app. 
-        For instance, in the Energy Saver window you use them to enable or disable the different energy options.
+        你会在当用户打开或关闭一个功能的地方找到check box。你会在Settings app中几乎每一个屏幕中找到它。例如，在Energy Saver窗口中，你会使用check box来打开或关闭不同的选项。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/check-example.png">
@@ -774,22 +771,22 @@ rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
         </a>
     </p>
     <p>
-        Working with check boxes is relatively easy; most of the time you’ll only be concerned with getting and setting the state of the control. The state of the check box can be one of these:
+        使用check box相当容易；大多数情况下，你只需要关心获取和设置这个控件的状态。check box的状态可以是下列之一：
         <em>
             NSOnState
         </em>
-        (feature on everywhere),
+        （在所有地方打开特性），
         <em>
             NSOffState
         </em>
-        (feature off everywhere) and
+        （在所有地方关闭特性）以及
         <em>
             NSMixedState
         </em>
-        (feature on somewhere, but not everywhere).
+        （在部分地方打开特性，但并非全部）。
     </p>
     <p>
-        Here’s how you can use it:
+        这里是你使用它的方式：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Set the state to On</span>
 myCheckBox.state = <span class="hljs-built_in">NSOnState</span>
@@ -801,26 +798,25 @@ myCheckBox.state = <span class="hljs-built_in">NSOffState</span>
 let state = myCheckBox.state
 </pre>
     <p>
-        Super simple! Time to add a checkbox to your app.
+        超级得简单！是时候添加一个checkbox到你的app上。
     </p>
     <h2>
-        Check and Double Check – Adding Checkboxes
+        单击和双击 - 添加Checkboxes
     </h2>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Find the
+        。在Object Library中找到
         <em>
             Check Box Button
         </em>
-        in the Object Library and drag it onto the content view. 
-        Double-click on it to change its title to
+        并将它拖拽到content view上。双击它，并将标题改为
         <em>
             Yell!!
         </em>
-        as in the image below:
+        就像下面图中展示的这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/check-add.png">
@@ -831,25 +827,24 @@ let state = myCheckBox.state
         </a>
     </p>
     <p>
-        Now add an outlet for the check box and name it
+        现在，为check box添加一个outlet并将它命名为
         <em>
             yellCheck
         </em>
-        . You are now officially an expert creating outlets!
+        。你现在已经正式地成为一个创建outlet的专家了！
     </p>
     <p>
-        Now, you’ll make the check box default to the off state when the app launches.
-        To do that, add the following at the end of
+        现在，你会将check box在app启动时的默认值设为off。为了做到这点，添加下列的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        的尾部：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// set check button state</span>
 yellCheck.state = <span class="hljs-built_in">NSOffState</span>
 </pre>
     <p>
-        Build and run the application! You should see the check box, and it’s state should be unchecked. Click it to see it in action:
+        Build并运行你的app！你应当看到check box的状态是未勾选的。点击它来查看其行为：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-check.png">
