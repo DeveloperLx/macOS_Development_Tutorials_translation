@@ -886,39 +886,39 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
         调节声音 - 添加Segmented Controls
     </h2>
     <p>
+        如果你还记得，
         If you remember, the
         <code>
             readSentence()
         </code>
-        had a parameter to control the voice speed (Normal, Fast, Slow). 
-        You’ll use a segmented control to change the speed of the voice.
+        方法含有一个控制语速（Normal, Fast, Slow）的参数。你将使用一个segmented control来改变语速。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and add a Label to the content view. Change its title to
+        并添加一个label到content view上面。将它的标题改为
         <em>
             Voice Speed:
         </em>
-        . Locate a
+        。找到
         <em>
             Segmented Control
         </em>
-        and drag it onto the content view. You can double click on every segment of the control to set its title. Change the titles to
+        并将它拖拽到content view上面。你可以双击控件的每个segment来改变他的标题。将标题分别改为
         <em>
             Slow
         </em>
-        ,
+        ，
         <em>
             Normal
         </em>
-        and
+        以及
         <em>
             Fast
         </em>
-        respectively.
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/segmented-add-1.png">
