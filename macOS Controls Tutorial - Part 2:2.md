@@ -855,15 +855,15 @@ yellCheck.state = <span class="hljs-built_in">NSOffState</span>
         </a>
     </p>
     <h2>
-        Choices, Choices – NSSegmentedControl
+        选择，选择 - NSSegmentedControl
     </h2>
     <p>
-        A segmented control, represented by the
+        一个segmented control，是由
         <a href="https://developer.apple.com/reference/appkit/nssegmentedcontrol"
         target="_blank">
             NSSegmentedControl
         </a>
-        class , represents an alternative to radio buttons when you need to make a selection from a number of options. You can see it in Xcode’s Attributes Inspector:
+        类所代表的，它是当你需要从一些选项中做出一些选择时，对radio button的替代品。你可以在Xcode的Attributes Inspector中找到它：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/segmented-alignment.png">
@@ -874,7 +874,7 @@ yellCheck.state = <span class="hljs-built_in">NSOffState</span>
         </a>
     </p>
     <p>
-        It’s very easy to use. You just need to get or set the selected segment to find out the user’s selection.
+        它是非常容易被使用的。你只需要获取或设置被选择的segment来找出用户的选择。
     </p>
     <pre lang="swift" class="hljs javascript">
 <span class="hljs-comment">// Select the first segment</span>
@@ -884,14 +884,15 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
 <span class="hljs-keyword">let</span> selected = segmentedControl.selectedSegment
 </pre>
     <h2>
-        Tuning the Voice – Adding Segmented Controls
+        调节声音 - 添加Segmented Controls
     </h2>
     <p>
         If you remember, the
         <code>
             readSentence()
         </code>
-        had a parameter to control the voice speed (Normal, Fast, Slow). You’ll use a segmented control to change the speed of the voice.
+        had a parameter to control the voice speed (Normal, Fast, Slow). 
+        You’ll use a segmented control to change the speed of the voice.
     </p>
     <p>
         Open
