@@ -1327,7 +1327,7 @@ readSentence(sentence, rate: voiceRate)
         </li>
     </ol>
     <p>
-        That’s it! You’re done! Build and run the app, so you can construct some hilarious sentences for yourself!
+        就是这个！你已经完成了！Build并运行app，你已可以为自己构建一些欢闹的句子。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-final.png">
@@ -1338,14 +1338,14 @@ readSentence(sentence, rate: voiceRate)
         </a>
     </p>
     <p>
-        Congratulations — you’ve finished building the Mad Libs application, and have learned a ton about the most common macOS controls along the way.
+        祝贺 - 你已经完成了构建Mad Lib app，并沿途学习了大量关于最常用macOS控件的知识。
     </p>
     <p>
-        Feel free to play with the controls, select different values, type funny nouns or verbs and see the results each time you click the
+        随意玩弄控件，选择不同的值，输入有趣的名称或动词，每次点击
         <em>
             Go!
         </em>
-        button, and see what funny stories you can create! :]
+        按钮时来查看你创建了一个多么有趣的故事！:]
     </p>
     <h2>
         从这儿去向哪里？
