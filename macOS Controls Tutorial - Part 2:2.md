@@ -1379,22 +1379,18 @@ readSentence(sentence, rate: voiceRate)
         。
     </p>
     <p>
-        In order to gain a deeper understanding of the controls provided by macOS,
-        I recommend you have a read through the different programming guides available from Apple listed below, 
-        which contain a wealth of information about how to use the available controls.
+        为了获得对macOS控件的更深的理解，我推荐你去阅读下表列出的苹果编程指南，它们包含了大量的关于如何使用可用的控件的信息。
     </p>
     <p>
-        In particular, I highly recommend you read the
+        特别低，我强烈地推荐你阅读
         <a href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/OSXHIGuidelines/"
         title="macOS Human Interface Guidelines">
-            macOS Human Interface Guidelines
+            macOS人机交互指南
         </a>
-        . This guide explains the concepts and theories of user interfaces on macOS, and Apple’s expectations of how developers should use the controls and design their UI’s to provide a consistent and pleasurable experience. 
-        It’s essential reading for anyone intending to develop for the Mac platform, 
-        especially if they plan to distribute their applications via the Mac App Store.
+        。这篇指导解释了关于macOS用户交互的概念和理论，以及苹果对于开发人员如何使用控件和设计他们UI的期望，来提供一致和令人愉快的体验。任何想要为Mac平台进行开发的人都应当去阅读一下，尤其计划要通过Mac App Store发布它们的应用的时候。
     </p>
     <p>
-        Here are some useful links to reinforce or further explore the concepts you’ve learned in this tutorial:
+        这里有一些有用的链接来增强，或更进一步地探索你在这篇教程中学到的概念：
     </p>
     <ul>
         <li>
