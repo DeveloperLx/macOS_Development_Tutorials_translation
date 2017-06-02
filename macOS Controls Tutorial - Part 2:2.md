@@ -539,7 +539,6 @@ datePicker.dateValue = <span class="hljs-built_in">Date</span>()
     <p>
         然后你只需要改变按钮的状态（On/Off），系统自己会管理取消选择其它的按钮。
     </p>
-    
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Select a radio button </span>
 radioButton.state = <span class="hljs-built_in">NSOnState</span>
 
