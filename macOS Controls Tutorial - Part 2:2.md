@@ -1105,8 +1105,8 @@ myImageView.image = myImage
         </a>
     </p>
     <p>
-        Phew! Your user interface is finally finished — the only thing that’s
-        left to do is to create the code that will assemble your hilarious sentence
+        Phew! Your user interface is finally finished — 
+        the only thing that’s left to do is to create the code that will assemble your hilarious sentence
         and populate the image view that you added above!
     </p>
     <h2>
@@ -1120,13 +1120,12 @@ myImageView.image = myImage
         <em>
             Go!
         </em>
-        button, you’ll collect all the values from the different controls and
-        combine them to construct the full sentence, and then display that sentence
-        in the wrapping label you added previously.
+        button, you’ll collect all the values from the different controls and combine them to construct the full sentence,
+        and then display that sentence in the wrapping label you added previously.
     </p>
     <p>
-        Then, to spice up your all-text interface, you will display a picture
-        in the image view that you added in the last section.
+        Then, to spice up your all-text interface, 
+        you will display a picture in the image view that you added in the last section.
     </p>
     <p>
         Download the
@@ -1137,8 +1136,7 @@ myImageView.image = myImage
         <em>
             Download
         </em>
-        folder). If the downloaded zip file was not unzipped automatically, unzip
-        it to get the
+        folder). If the downloaded zip file was not unzipped automatically, unzip it to get the
         <em>
             face.png
         </em>
@@ -1161,8 +1159,8 @@ myImageView.image = myImage
         </a>
     </p>
     <p>
-        It’s finally time to add the core of the application — the code which
-        constructs the Mad Lib sentence!
+        It’s finally time to add the core of the application — 
+        the code which constructs the Mad Lib sentence!
     </p>
     <p>
         Open
@@ -1186,8 +1184,7 @@ myImageView.image = myImage
 }
 </pre>
     <p>
-        This code adds a computed property that returns the name of the place
-        based on which radio button is selected.
+        This code adds a computed property that returns the name of the place based on which radio button is selected.
     </p>
     <p>
         Now, replace all the code inside
@@ -1235,8 +1232,7 @@ imageView.image = <span class="hljs-type">NSImage</span>(named: <span class="hlj
 readSentence(sentence, rate: voiceRate)
 </pre>
     <p>
-        That may seem like a lot of code, but it’s fairly straightforward when
-        you break it down:
+        That may seem like a lot of code, but it’s fairly straightforward when you break it down:
     </p>
     <ol>
         <li>
@@ -1246,14 +1242,12 @@ readSentence(sentence, rate: voiceRate)
             </code>
         </li>
         <li>
-            In this section of code, you get the string from the combo box by calling
-            its
+            In this section of code, you get the string from the combo box by calling its
             <code>
                 stringValue
             </code>
-            property. You might ask why you don’t just look up the selected row, and
-            then retrieve the string associated with that row. Quite simply, it’s because
-            the user can enter their own text into the combo box. So use the
+            property. You might ask why you don’t just look up the selected row, and then retrieve the string associated with that row. 
+            Quite simply, it’s because the user can enter their own text into the combo box. So use the
             <code>
                 stringValue
             </code>
@@ -1264,8 +1258,7 @@ readSentence(sentence, rate: voiceRate)
             <code>
                 integerValue
             </code>
-            method. Remember that if you need more precision with this control, you
-            could also use
+            method. Remember that if you need more precision with this control, you could also use
             <code>
                 floatValue
             </code>
@@ -1276,8 +1269,7 @@ readSentence(sentence, rate: voiceRate)
             .
         </li>
         <li>
-            Here you get the plural noun, selected from the popup button. How is this
-            done? Look up the appropriate plural noun in your
+            Here you get the plural noun, selected from the popup button. How is this done? Look up the appropriate plural noun in your
             <code>
                 pluralNouns
             </code>
@@ -1288,13 +1280,11 @@ readSentence(sentence, rate: voiceRate)
             property.
         </li>
         <li>
-            Next up is the phrase the user typed. To acquire it, simply retrieve the
-            string value of our text view by getting its
+            Next up is the phrase the user typed. To acquire it, simply retrieve the string value of our text view by getting its
             <code>
                 string
             </code>
-            property. Again, you’re using nil coalescing since the property is an
-            optional and could be
+            property. Again, you’re using nil coalescing since the property is an optional and could be
             <code>
                 nil
             </code>
@@ -1305,8 +1295,7 @@ readSentence(sentence, rate: voiceRate)
             <code>
                 dateValue
             </code>
-            method. Then, convert the returned date to a human-readable string using
-            an
+            method. Then, convert the returned date to a human-readable string using an
             <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSDateFormatter_Class/Reference/Reference.html"
             title="NSDateFormatter">
                 NSDateFormatter
@@ -1329,29 +1318,23 @@ readSentence(sentence, rate: voiceRate)
             .
         </li>
         <li>
-            At this point, you’ve collected all the information you need to construct
-            the mad lib sentence! This is where the magic happens. The results constant
-            uses string interpolation, and the different values read from the controls
-            to build a string, based on the user’s input.
+            At this point, you’ve collected all the information you need to construct the mad lib sentence! This is where the magic happens. 
+            The results constant uses string interpolation, 
+            and the different values read from the controls to build a string, based on the user’s input.
         </li>
         <li>
-            Now you can display the results of all your hard work! First, display
-            the sentence in the results label by setting its
+            Now you can display the results of all your hard work! First, display the sentence in the results label by setting its
             <code>
                 stringValue
             </code>
-            property. Then, add some pizazz to the app by displaying an image to the
-            user, which is as easy as loading the image and setting the property of
-            the image view control.
+            property. Then, add some pizazz to the app by displaying an image to the user, which is as easy as loading the image and setting the property of the image view control.
         </li>
         <li>
-            And finally, say it out loud! Get the voice speed based on the currently
-            selected segment, and call the method that converts the text to speech
+            And finally, say it out loud! Get the voice speed based on the currently selected segment, and call the method that converts the text to speech
         </li>
     </ol>
     <p>
-        That’s it! You’re done! Build and run the app, so you can construct some
-        hilarious sentences for yourself!
+        That’s it! You’re done! Build and run the app, so you can construct some hilarious sentences for yourself!
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-final.png">
@@ -1362,12 +1345,10 @@ readSentence(sentence, rate: voiceRate)
         </a>
     </p>
     <p>
-        Congratulations — you’ve finished building the Mad Libs application, and
-        have learned a ton about the most common macOS controls along the way.
+        Congratulations — you’ve finished building the Mad Libs application, and have learned a ton about the most common macOS controls along the way.
     </p>
     <p>
-        Feel free to play with the controls, select different values, type funny
-        nouns or verbs and see the results each time you click the
+        Feel free to play with the controls, select different values, type funny nouns or verbs and see the results each time you click the
         <em>
             Go!
         </em>
@@ -1406,9 +1387,8 @@ readSentence(sentence, rate: voiceRate)
     </p>
     <p>
         In order to gain a deeper understanding of the controls provided by macOS,
-        I recommend you have a read through the different programming guides available
-        from Apple listed below, which contain a wealth of information about how
-        to use the available controls.
+        I recommend you have a read through the different programming guides available from Apple listed below, 
+        which contain a wealth of information about how to use the available controls.
     </p>
     <p>
         In particular, I highly recommend you read the
@@ -1416,16 +1396,12 @@ readSentence(sentence, rate: voiceRate)
         title="macOS Human Interface Guidelines">
             macOS Human Interface Guidelines
         </a>
-        . This guide explains the concepts and theories of user interfaces on
-        macOS, and Apple’s expectations of how developers should use the controls
-        and design their UI’s to provide a consistent and pleasurable experience.
-        It’s essential reading for anyone intending to develop for the Mac platform,
-        especially if they plan to distribute their applications via the Mac App
-        Store.
+        . This guide explains the concepts and theories of user interfaces on macOS, and Apple’s expectations of how developers should use the controls and design their UI’s to provide a consistent and pleasurable experience. 
+        It’s essential reading for anyone intending to develop for the Mac platform, 
+        especially if they plan to distribute their applications via the Mac App Store.
     </p>
     <p>
-        Here are some useful links to reinforce or further explore the concepts
-        you’ve learned in this tutorial:
+        Here are some useful links to reinforce or further explore the concepts you’ve learned in this tutorial:
     </p>
     <ul>
         <li>
