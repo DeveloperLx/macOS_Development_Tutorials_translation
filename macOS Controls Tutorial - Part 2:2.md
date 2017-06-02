@@ -887,7 +887,6 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
     </h2>
     <p>
         如果你还记得，
-        If you remember, the
         <code>
             readSentence()
         </code>
@@ -929,33 +928,33 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
         </a>
     </p>
     <p>
-        Create an outlet for that segmented control in
+        在
         <code>
             ViewController
         </code>
-        , and name it
+        中为segmented control创建一个outlet，并命名为
         <em>
             voiceSegmentedControl
         </em>
-        . Now, you want to select the Normal segment when the app starts, which is the segment number 1 (segment numbers are zero based). Open
+        。现在，你想要在app一启动时选择Normal segment，它对应的序号是1（segment的序号是从0开始计算的）。打开
         <em>
             ViewController.swift
         </em>
-        and add the following code to
+        并添加下面的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        ：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Set the segmented control initial selection</span>
 voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
 </pre>
     <p>
-        As easy as it looks. Just set the
+        就像它看起来一样得容易。只需将
         <code>
             selectedSegment
         </code>
-        property to 1. Build and run now and see how the Normal segment is selected.
+        的property设置为1。现在，Build并运行，查看Normal segment是否已选中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-selected.png">
@@ -966,13 +965,17 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         </a>
     </p>
     <p>
-        Okay! You’ve finally added all the controls you need to create your funny mad lib sentences. All you’re missing is a way to collect the value of each control, combine those values into a sentence, and display it on-screen!
+        Okay! You’ve finally added all the controls you need to create your funny mad lib sentences. 
+        All you’re missing is a way to collect the value of each control, combine those values into a sentence, and display it on-screen!
     </p>
     <h2>
         Pulling it All Together
     </h2>
     <p>
-        You need two more controls to show the results: a label to display the complete sentence, and an image view to display a picture, which should liven up the user interface!
+        You need two more controls to show the results: 
+        a label to display the complete sentence, 
+        and an image view to display a picture, 
+        which should liven up the user interface!
     </p>
     <p>
         Open
