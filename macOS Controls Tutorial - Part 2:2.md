@@ -965,39 +965,35 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         </a>
     </p>
     <p>
-        Okay! You’ve finally added all the controls you need to create your funny mad lib sentences. 
-        All you’re missing is a way to collect the value of each control, combine those values into a sentence, and display it on-screen!
+        OK！你已经添加了所有创建你有趣的mad lib句子所需的控件。你所缺少的只是收集每一个控件的值，并将它们连接成一个句子，并将它们展示到屏幕上！
     </p>
     <h2>
-        Pulling it All Together
+        全部拉到一起
     </h2>
     <p>
-        You need two more controls to show the results: 
-        a label to display the complete sentence, 
-        and an image view to display a picture, 
-        which should liven up the user interface!
+        你需要再来两个控件展示结果：一个label用来展示完整的句子，已经用来展示图片的image view，使用户的交互显得更加有生气！
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Find the
+        。在Object Library面板中找到
         <em>
             Wrapping Label
         </em>
-        in the Object Library palette and drag it onto the window, just below the
+        并将它拖拽到窗口上，就在
         <em>
             Go!!
         </em>
-        button. Make it look a little more attractive by using the
+        按钮的下方。通过
         <em>
             Attributes Inspector
         </em>
-        to change the border of the label to Frame, which is the first of the four buttons.
+        来让它看起来更漂亮：将border改为Frame，就是那四个按钮中的第一个。
     </p>
     <p>
-        After that, remove the default text of the label by double-clicking it, selecting the text and deleting it.
+        之后，双击label移除它的默认文本，选择文本并删除它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/resulttext-add.png">
@@ -1008,28 +1004,28 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         </a>
     </p>
     <p>
-        Now you have to create an outlet to set the value of this new label to contain your new hilarious sentence! As before,
+        现在你必须创建一个outlet以方便设置这个新的label的值，来容纳你的新的滑稽的桔子！就像之前一样，
         <em>
-            Ctrl-Drag
+            按着Ctrl拖拽
         </em>
-        the label to the
+        label到
         <em>
             ViewController.swift
         </em>
-        file and name the property
+        文件中并将property命名为
         <em>
             resultTextField
         </em>
-        .
+        。
     </p>
     <p>
-        Leave this control as it is for now; you’ll write the code that populates it in just a bit.
+        现在，离开这个控件，让它停留在现在的样子；你将在稍候编写一些代码来填充它。
     </p>
     <h2>
-        Room with a View — NSImageView
+        看到风景的房间 - NSImageView
     </h2>
     <p>
-        An Image View is a simple and easy to use control that — surprise! — displays an image. Bet you didn’t expect that! :]
+        Image View是一个非常简单易用的控件 - 惊喜！ - 展示一个图像。我敢打赌你都想不到是这样！:]
     </p>
     <p>
         <a href="https://www.raywenderlich.com/obvious" rel="attachment wp-att-27048">
@@ -1038,8 +1034,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         </a>
     </p>
     <p>
-        There are very few properties you need to interact with an Image View
-        at runtime:
+        在运行时，你需要和Image View的几个property进行交互：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Get the image from an image view</span>
 <span class="hljs-keyword">let</span> myImage = myImageView.image
