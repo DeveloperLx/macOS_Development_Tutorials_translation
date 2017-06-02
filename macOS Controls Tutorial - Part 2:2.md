@@ -1076,22 +1076,22 @@ myImageView.image = myImage
         </a>
     </p>
     <p>
-        Create a new outlet for the image view in the same way you’ve done for all the previous controls:
+        用和你之前创建其它控件相同的方法，为image view创建一个新的outlet：
         <em>
-            Ctrl-Drag
+            按着Ctrl拖拽
         </em>
-        the image view to the
+        image view到
         <em>
             ViewController.swift
         </em>
-        file, and in the popup window name the property
+        文件上，在弹出的窗口中将property命名为
         <em>
             imageView
         </em>
-        .
+        。
     </p>
     <p>
-        Build and run. Your app should now look like this:
+        Build并运行。你的app现在看起来应该是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-uifinished.png">
@@ -1102,50 +1102,47 @@ myImageView.image = myImage
         </a>
     </p>
     <p>
-        Phew! Your user interface is finally finished — 
-        the only thing that’s left to do is to create the code that will assemble your hilarious sentence
-        and populate the image view that you added above!
+        哇！你的UI已经最终完成了 - 剩余的唯一一件事就是撰写代码来组装欢闹的句子，并填充你上面添加的image view！
     </p>
     <h2>
-        Time To Make It Work
+        是时候让它工作起来了
     </h2>
     <p>
-        Now you need to construct the sentence based on those inputs.
+        现在你需要基于那些输出来组装句子。
     </p>
     <p>
+        当用户点击
         When the user clicks the
         <em>
             Go!
         </em>
-        button, you’ll collect all the values from the different controls and combine them to construct the full sentence,
-        and then display that sentence in the wrapping label you added previously.
+        按钮的时候，你会从不同的控件中收集全部的值，来组装成完整的句子，然后在你之前添加的wrapping label中展示出来。
     </p>
     <p>
-        Then, to spice up your all-text interface, 
-        you will display a picture in the image view that you added in the last section.
+        然后，为了装饰全文界面，你会在你上一部分添加的image view上展示一个图片。
     </p>
     <p>
-        Download the
-        <a href="http://www.raywenderlich.com/downloads/MadLibs_face.zip">
-            resources file
-        </a>
-        for this project (normally goes into your
+        为这个项目（正常地进入你的
         <em>
-            Download
+            下载
         </em>
-        folder). If the downloaded zip file was not unzipped automatically, unzip it to get the
+        目录）。下载
+        <a href="http://www.raywenderlich.com/downloads/MadLibs_face.zip">
+            资源文件
+        </a>
+        。如果下载到的zip文件没有自动解压，就解压它，得到
         <em>
             face.png
         </em>
-        image file. Select
-        <em>
-            Assets.xcassets
-        </em>
-        in the
+        图像文件。在
         <em>
             Project Navigator
         </em>
-        , and drag the image file into the assets list.
+        中选择
+        <em>
+            Assets.xcassets
+        </em>
+        ，并将图片文件拖拽到assets列表中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/assets.png">
@@ -1156,15 +1153,14 @@ myImageView.image = myImage
         </a>
     </p>
     <p>
-        It’s finally time to add the core of the application — 
-        the code which constructs the Mad Lib sentence!
+        现在是最终的时间来添加app的核心了 - 构建Mad Lib句子的代码！
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following property inside the class implementation:
+        并添加下列的property到类的实现中：
     </p>
     <pre lang="swift" class="hljs javascript">fileprivate <span class="hljs-keyword">var</span> selectedPlace: <span class="hljs-built_in">String</span> {
   <span class="hljs-keyword">var</span> place = <span class="hljs-string">"home"</span>
@@ -1181,14 +1177,14 @@ myImageView.image = myImage
 }
 </pre>
     <p>
-        This code adds a computed property that returns the name of the place based on which radio button is selected.
+        上面的代码添加了一个计算型的property，它会根据哪个radio button被选中返回place的名称。
     </p>
     <p>
-        Now, replace all the code inside
+        现在，用以下的代码替换
         <code>
             goButtonClicked()
         </code>
-        with this:
+        方法中的全部内容：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">let</span> pastTenseVerb = pastTenseVerbTextField.stringValue
@@ -1229,7 +1225,7 @@ imageView.image = <span class="hljs-type">NSImage</span>(named: <span class="hlj
 readSentence(sentence, rate: voiceRate)
 </pre>
     <p>
-        That may seem like a lot of code, but it’s fairly straightforward when you break it down:
+        看起来有好多的代码，但当你把它拆开一部分一部分看时，每部分都是相当明确的：
     </p>
     <ol>
         <li>
