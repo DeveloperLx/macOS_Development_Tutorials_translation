@@ -1229,101 +1229,99 @@ readSentence(sentence, rate: voiceRate)
     </p>
     <ol>
         <li>
-            Here you’re getting the text from
+            从
             <code>
                 pastTenseVerbTextField
             </code>
+            获取文本。
         </li>
         <li>
-            In this section of code, you get the string from the combo box by calling its
+            在这部分代码中，你通过 
             <code>
                 stringValue
             </code>
-            property. You might ask why you don’t just look up the selected row, and then retrieve the string associated with that row. 
-            Quite simply, it’s because the user can enter their own text into the combo box. So use the
+            property从combo box中或取字符串。你可能会问，为何不只在选中的行进行查阅，然后检索关联到这行的字符串。非常简单，这是因为用户可以输入它们自己的文本到combo box中，因此选择使用
             <code>
                 stringValue
             </code>
-            to get the current string, which could have been either selected or typed.
+            来获取当前的字符串，它既可以被选择，也可以被输入。
         </li>
         <li>
-            Next, read the slider’s current value using its
+            接下来，使用
             <code>
                 integerValue
             </code>
-            method. Remember that if you need more precision with this control, you could also use
+            方法读取slider当前的值。记住，如果你需要更精确的控件，你还可以使用
             <code>
                 floatValue
             </code>
-            or
+            或
             <code>
                 doubleValue
             </code>
-            .
+            。
         </li>
         <li>
-            Here you get the plural noun, selected from the popup button. How is this done? Look up the appropriate plural noun in your
+            这里，你从popup button中获取了复数名词。这如何做到？在你的
             <code>
                 pluralNouns
             </code>
-            array using array subscript syntax and getting the
+            数组中使用下标语法，找到恰当的复数名词，并获取其
             <code>
                 indexOfSelectedItem
             </code>
-            property.
+            property。
         </li>
         <li>
-            Next up is the phrase the user typed. To acquire it, simply retrieve the string value of our text view by getting its
+            接下来是用户输入的短语。要获取它，只需从
             <code>
                 string
             </code>
-            property. Again, you’re using nil coalescing since the property is an optional and could be
+            property中获取我们的text view的字符串的值。再一次，你使用了nil coalescing语法，因为这个property是可选的，它的值可能是
             <code>
                 nil
             </code>
-            .
+            。
         </li>
         <li>
-            To get the date, call the date picker’s
+            调用date picker的
             <code>
                 dateValue
             </code>
-            method. Then, convert the returned date to a human-readable string using an
+            方法获取日期。然后使用
             <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSDateFormatter_Class/Reference/Reference.html"
             title="NSDateFormatter">
                 NSDateFormatter
             </a>
-            .
+            将其妆花为一个人类可读的字符串。
         </li>
         <li>
-            Should you speak or shout? Simply get the checkbox state: if it’s
+            你应该说还是喊？只需获取checkbox的状态：如果它是
             <code>
                 NSOnState
             </code>
-            , assign
+            ，指派
             <em>
                 yelled
             </em>
-            to the string variable. Otherwise, leave it as the default
+            到字符串变量中。否则，让它使用默认的
             <em>
                 said
             </em>
-            .
+            。
         </li>
         <li>
-            At this point, you’ve collected all the information you need to construct the mad lib sentence! This is where the magic happens. 
-            The results constant uses string interpolation, 
-            and the different values read from the controls to build a string, based on the user’s input.
+            现在，你已经收集了所有你构建mad lib句子所需要的信息！这是神奇的事将发生的地方，基于用户的输出，从各种控件中的不同的值构建成了一个字符串。
         </li>
         <li>
-            Now you can display the results of all your hard work! First, display the sentence in the results label by setting its
+            现在你所有你努力工作所得出的结果了可以进行展示了！首先，通过设置results label的
             <code>
                 stringValue
             </code>
-            property. Then, add some pizazz to the app by displaying an image to the user, which is as easy as loading the image and setting the property of the image view control.
+            property来展示最终的句子。然后，通过向用户展示一副图像，来给app添加一些魅力，这和加载图像并设置image view控件的property一样得简单。
         </li>
         <li>
-            And finally, say it out loud! Get the voice speed based on the currently selected segment, and call the method that converts the text to speech
+            最后，大声地说出来吧！从当前被选择的segment获取语速，并调用将文本转换为朗读的方法。
         </li>
     </ol>
     <p>
