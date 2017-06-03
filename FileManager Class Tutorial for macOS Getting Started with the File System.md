@@ -12,47 +12,43 @@
         </p>
     </div>
     <p>
-        The file system in
+        在
         <em>
             macOS
         </em>
-        underlies every app — and the
+        中文件系统是每个app的基础 - 在
         <code>
             FileManager
         </code>
-        class has a lot to do with that. Your app is stored in the
+        类有很多来处理这个。你会在
         <em>
             Applications
         </em>
-        folder, users store documents in their
+        目录下储存app，在
         <em>
             Documents
         </em>
-        folder, and preferences and support files are stored in the users
+        目录下储存文档，在
         <em>
             Library
         </em>
-        folder.
+        目录下储存偏好和支持文件。
     </p>
     <p>
-        With files and data spread all over the filesystem, how can your app find
-        out about files and folders, work with file and folder paths, and even
-        read and write data to a file?
+        随着文件和数据在文件系统中传播，你的app该如何查找文件和目录，使用文件和目录的路径，甚至读取及写入数据到一个文件中？
     </p>
     <p>
-        The
+        那就要靠
         <code>
             FileManager
         </code>
-        class — that’s how!
+        类了！
     </p>
     <p>
-        In this tutorial, you’ll learn how to manage directory paths, work with
-        URLs, use common file and folder dialogs, display file and folder information,
-        and much more!
+        在这个教程中，你会学到如何管理目录路径，使用URL，使用通用的文件和目录对话框，展示文件和目录信息等等！
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         For this tutorial, you’ll start with a playground and move on to an app
