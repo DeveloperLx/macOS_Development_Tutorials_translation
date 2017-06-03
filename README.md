@@ -213,7 +213,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.raywenderlich.com/157986/filemanager-class-tutorial-macos-getting-started-file-system" sl-processed="1">
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/FileManager%20Class%20Tutorial%20for%20macOS%20Getting%20Started%20with%20the%20File%20System.md" sl-processed="1">
                     macOS FileManager类教程：文件系统入门
                 </a>
             </li>
