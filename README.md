@@ -212,6 +212,11 @@
                     在macOS中怎样使用NSTouchBar
                 </a>
             </li>
+            <li>
+                <a href="https://www.raywenderlich.com/157986/filemanager-class-tutorial-macos-getting-started-file-system" sl-processed="1">
+                    macOS FileManager类教程：文件系统入门
+                </a>
+            </li>
         </ul>
     </div>
 </div>
