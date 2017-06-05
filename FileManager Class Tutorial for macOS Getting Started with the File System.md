@@ -509,52 +509,28 @@ desktopUrl.path
     <p>
         添加下列的代码到你的playground中：
     </p>
-    <pre lang="swift" class="hljs cs">
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileManager = FileManager.
-        <span class="hljs-keyword">
-            default
-        </span>
-        fileManager.fileExists(atPath: playgroundUrl.path)
-        <span class="hljs-keyword">
-            let
-        </span>
-        missingFile = URL(fileURLWithPath:
-        <span class="hljs-string">
-            "this_file_does_not_exist.missing"
-        </span>
-        ) fileManager.fileExists(atPath: missingFile.path)
-    </pre>
+    <pre lang="swift" class="hljs cs"><span class="hljs-keyword">let</span> fileManager = FileManager.<span class="hljs-keyword">default</span>
+fileManager.fileExists(atPath: playgroundUrl.path)
+
+<span class="hljs-keyword">let</span> missingFile = URL(fileURLWithPath: <span class="hljs-string">"this_file_does_not_exist.missing"</span>)
+fileManager.fileExists(atPath: missingFile.path)
+</pre>
     <p>
-        Checking whether a folder exists is slightly more obscure, as you have
-        to check if the
+        检查一个目录是否存在稍微有一点难懂，因为你必须这个
         <code>
             URL
         </code>
-        points to a valid resource that is also a folder.
+        既是一个有效的资源，又是一个目录。
     </p>
     <p>
-        This requires what I consider a very un-Swifty mechanism of using an inout
-        Objective-C version of a Bool. Add the following:
+        这就要求我使用一个非常非Swift的机制 - OC版本的inout的Bool值。添加下列的代码：
     </p>
-    <pre lang="swift" class="hljs javascript">
-        <span class="hljs-keyword">
-            var
-        </span>
-        isDirectory: ObjCBool =
-        <span class="hljs-literal">
-            false
-        </span>
-        fileManager.fileExists(atPath: playgroundUrl.path,
-        <span class="hljs-attr">
-            isDirectory
-        </span>
-        : &amp;isDirectory) isDirectory.boolValue
-    </pre>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">var</span> isDirectory: ObjCBool = <span class="hljs-literal">false</span>
+fileManager.fileExists(atPath: playgroundUrl.path, <span class="hljs-attr">isDirectory</span>: &amp;isDirectory)
+isDirectory.boolValue
+</pre>
     <p>
-        Your playground should look something like this:
+        现在，你的playground看起来应当是下面的样子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/CheckForExistence3.png"
@@ -563,23 +539,22 @@ desktopUrl.path
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        A fully-annotated version of the
+        一个充满注释版本的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/04/Files.playground-1.zip"
         sl-processed="1">
             playground
         </a>
-        can be downloaded here.
+        可以到这里下载。
     </p>
     <p>
-        Now that you understand how to use
+        既然你已理解了如何使用
         <code>
             URL
         </code>
-        to identify files and folders, close the playground. It’s time to build
-        an app!
+        来区别文件和目录，关闭playground。是时候来构建app了！
     </p>
     <h2>
-        File Spy
+        文件间谍
     </h2>
     <p>
         In this part of the tutorial, you’re going to build the
