@@ -265,25 +265,25 @@
         了。
     </p>
     <p>
-        To do this, you’ll use the
+        要做到这个，你就要使用
         <code>
             FileManager
         </code>
-        class, which provides methods to handle most file-related actions in macOS.
+        类，它提供了在macOS中大多数的处理文件相关行为的方法。
     </p>
     <p>
-        The first task is to identify your
+        第一个任务就是识别你的
         <em>
             Home
         </em>
-        folder and replace
+        目录，并使用你自己的用户名来替换
         <em>
             sarah
         </em>
-        with your own user name.
+        。
     </p>
     <p>
-        Add the following line to your playground:
+        添加下列的代码到你的playground中：
     </p>
     <pre lang="swift" class="hljs cs">
         <span class="hljs-keyword">
@@ -299,27 +299,26 @@
         <code>
             default
         </code>
-        returns the
+        返回了
         <code>
             FileManager
         </code>
-        class singleton instance, and
+        类的单例实例，而
         <code>
             homeDirectoryForCurrentUser
         </code>
-        contains the
+        包含了当前用户的home目录的
         <code>
             URL
         </code>
-        for the home folder of the current user.
+        。
     </p>
     <p>
-        Now that you have a
+        现在你已经有了指向你的home目录的
         <code>
             URL
         </code>
-        pointing to your home folder, you can derive the path to the playground
-        by adding the following code:
+        ，你就可以通过添加下列的代码来获取指向playground的路径：
     </p>
     <pre lang="swift" class="hljs javascript">
         <span class="hljs-keyword">
@@ -335,42 +334,46 @@
         playgroundUrl = home.appendingPathComponent(playgroundPath)
     </pre>
     <p>
-        The results panel should show you the
+        现在结果面板就会展示在你的家目录下的
         <code>
             URL
         </code>
-        for your own home folder.
+        了。
     </p>
     <p>
-        Add these lines to the playground to query various
+        添加下列的代码到playground中，来查询各种
         <code>
             URL
         </code>
-        properties:
+        的property：
     </p>
     <pre lang="swift" class="hljs">
-        playgroundUrl.path playgroundUrl.absoluteString playgroundUrl.absoluteURL
-        playgroundUrl.baseURL playgroundUrl.pathComponents playgroundUrl.lastPathComponent
-        playgroundUrl.pathExtension playgroundUrl.isFileURL playgroundUrl.hasDirectoryPath
+        playgroundUrl.path 
+        playgroundUrl.absoluteString 
+        playgroundUrl.absoluteURL
+        playgroundUrl.baseURL 
+        playgroundUrl.pathComponents 
+        playgroundUrl.lastPathComponent
+        playgroundUrl.pathExtension 
+        playgroundUrl.isFileURL 
+        playgroundUrl.hasDirectoryPath
     </pre>
     <p>
-        The
         <code>
             pathComponents
         </code>
-        property is interesting, as it separates out all folder and file names
-        into an array. The
+        这个property非常有趣，它会将所有的目录和文件拆成一个数组。而
         <code>
             lastPathComponent
         </code>
-        and
+        和
         <code>
             pathExtension
         </code>
-        properties are both quite useful in practice.
+        property在实践中都相当地有用。
     </p>
     <p>
-        Here’s what you should have in your playground:
+        下面是你应该在你的playground中有的：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/URLcomponents3.png"
