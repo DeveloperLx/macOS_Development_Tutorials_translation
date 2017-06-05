@@ -554,7 +554,7 @@ isDirectory.boolValue
         来区别文件和目录，关闭playground。是时候来构建app了！
     </p>
     <h2>
-        文件间谍
+        文件s间谍
     </h2>
     <p>
         In this part of the tutorial, you’re going to build the
