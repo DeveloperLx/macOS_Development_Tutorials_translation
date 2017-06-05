@@ -446,22 +446,21 @@ fileUrl.path
 desktopUrl.path
 </pre>
     <p>
-        These methods return new
+        这些方法会返回新的
         <code>
             URLs
         </code>
-        , so chaining them into a sequence works well.
+        ，因此将它们连接到一个序列中效果会更好。
     </p>
     <p>
-        The three
+        这三个
         <code>
             appending
         </code>
-        methods could have been shortened to just one, but I’ve broken them out
-        here to make the individual steps clear to you.
+        方法实际上可以缩到一个方法中，但我在这里将它们拆分成了独立的步骤，以便清晰地展示给你。
     </p>
     <p>
-        Here’s what the playground should look like:
+        你的playground现在应当看起来像下面的样子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/AppendURL.png"
@@ -471,7 +470,7 @@ desktopUrl.path
     </p>
     <p>
         <em>
-            Checking for Files and Folders
+            查看文件和目录
         </em>
     </p>
     <p>
