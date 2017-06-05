@@ -416,25 +416,25 @@ urlForEditing.deleteLastPathComponent()
 urlForEditing.path
 </pre>
     <p>
-        Note how you show the
+        注意，每次你都会展示
         <code>
             path
         </code>
-        property each time so it’s easy to see what’s changed.
+        property，因此很容易就会看到改变了什么。
     </p>
     <p>
-        While those commands edited the
+        尽管这些命令恰当地编辑
         <code>
             URL
         </code>
-        in place, you can also create a new
+        ，你也可以从已存在的创建一个新的
         <code>
             URL
         </code>
-        from an existing one.
+        。
     </p>
     <p>
-        To see how to do this, insert the following commands into your playground:
+        为了了解如何操作，添加下列的命令到你的playground：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">let</span> fileUrl = home
     .appendingPathComponent(<span class="hljs-string">"Desktop"</span>)
