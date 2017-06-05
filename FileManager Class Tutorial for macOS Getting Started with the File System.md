@@ -382,52 +382,50 @@
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Note that the playground file has the property
+            property
             <code>
                 hasDirectoryPath
             </code>
-            set to
+            的值被设为了
             <coee>
                 true
             </coee>
-            . This marks the
+            。这标记了
             <code>
                 URL
             </code>
-            as representing a directory. But why is the playground file marked as
-            a directory?
+            是一个目录。但为何playground文件是被标记为一个目录？
         </p>
         <p>
-            That’s because
+            这是因为
             <em>
                 .playground
             </em>
-            files are folder bundles, just like
+            文件是“目录bundle”，就像
             <em>
                 .app
             </em>
-            files. Right-click on the playground file and select
+            文件一样。右击playground文件，并选择
             <em>
                 Show Package Contents
             </em>
-            to see what’s inside.
+            就可以查看它的内部了。
         </p>
     </div>
     <p>
-        The
         <code>
             URL
         </code>
-        class makes it easy to edit
+        类使得编辑
         <code>
             URLs
         </code>
-        .
+        非常得容易。
     </p>
     <p>
-        Add the following code to your playground:
+        添加下列的代码到你的playground中：
     </p>
     <pre lang="swift" class="hljs javascript">
         <span class="hljs-keyword">
