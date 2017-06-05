@@ -51,63 +51,59 @@
         入门
     </h2>
     <p>
-        For this tutorial, you’ll start with a playground and move on to an app
-        later once you’ve learned the basics.
+        在本教程中，你会从playground开始，然后在掌握基础之后，移步到app中。
     </p>
     <p>
         <em>
             macOS
         </em>
-        uses a hierarchical file system: files &amp; folders inside folders, inside
-        folders. This means that finding a particular file can be complicated.
-        Each file has its own address; the structure that defines this address
-        is named
+        使用了一个分层的文件系统：目录中的文件和目录，目录内部。这意味着找到一个指定的文件是非常复杂的。每个文件都有它自己的地址，定义地址的结构被称为
         <code>
             URL
         </code>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             Xcode
         </em>
-        and click
-        <em>
-            Get started with a playground
-        </em>
-        in the
+        并在
         <em>
             Welcome to Xcode
         </em>
-        window, or choose
+        窗口中单击
+        <em>
+            Get started with a playground
+        </em>
+        ，或依次选择
         <em>
             File/New/Playground…
         </em>
-        Set the name of the playground to
+        将playground的名称设为
         <em>
             Files
         </em>
-        , make sure the Platform is set to
+        ，确保平台被设置为
         <em>
             macOS
         </em>
-        and click
+        并单击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
-        Select your
+        选择你的
         <em>
             Desktop
         </em>
-        and click
+        并单击
         <em>
             Create
         </em>
-        to save the playground.
+        来保存playground。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/NewPlayground.png"
@@ -117,29 +113,27 @@
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        For this tutorial, the name of the playground must be
+        在这个教程中，playground的名称必须为
         <em>
             Files
         </em>
-        and it must be located on your
+        ，并且它必须位于你的
         <em>
             Desktop
         </em>
-        . If you gave it a different name or saved it somewhere else, please rename
-        it and move it before proceeding, or else the code below just won’t work!
+        目录下。如果你给它起了一个其它的名字，或把它保存到了其它地方，请在开始后续教程开始前纠正，否则下面的代码就会无法正常工作！
     </div>
     <p>
-        Once the starting playground is open, delete all the lines except for
+        打开开始的playground后，删除除
         <code>
             import Cocoa
         </code>
-        .
+        外全部行的代码。
     </p>
     <p>
-        Add the following line to your playground, but don’t worry about changing
-        the username for now:
+        添加下面的代码到你的playground中，但不要担心现在改变了用户名：
     </p>
     <pre lang="swift" class="hljs javascript">
         <span class="hljs-keyword">
@@ -154,42 +148,45 @@
         <code>
             completePath
         </code>
+        现在包含了这个playground文件的地址或路径。由于
         now contains the address, or path, of this playground file. Since
         <em>
             macOS
         </em>
-        is Unix-based, this is how
+        是基于Unix系统的，而
+        this is how
         <em>
             Unix
         </em>
-        (and all its variants) describe file paths. The first slash indicates
-        the root directory, which in this case is your startup disk. After that,
-        every slash delimits a new folder or file. So
+        （以及它的所有变体）就是这么描述文件路径的。第一条斜杠表示根目录，在这个case中是你的启动磁盘。之后，每个斜杠都界定除了一个新的目录或文件。因此，
+        (and all its variants) describe file paths. 
+        The first slash indicates the root directory, 
+        which in this case is your startup disk. 
+        After that, every slash delimits a new folder or file.
+        So
         <em>
             Files.playground
         </em>
-        is in the
-        <em>
-            Desktop
-        </em>
-        folder in the
-        <em>
-            sarah
-        </em>
-        folder in the
+        文件就位于启动驱动器的
         <em>
             Users
         </em>
-        folder on the startup drive.
+        目录下的
+        <em>
+            sarah
+        </em>
+        目录下的
+        <em>
+            Desktop
+        </em>
+        目录中。
     </p>
     <p>
-        While this string describes the full path to this file, it isn’t the best
-        way to handle addresses. Instead, you are going to convert the address
-        into a
+        尽管这个字符串描述了这个文件的全路径，但它并不是处理地址的最佳方式。相代替的，你会通过添加下列代码，将地址替换为一个
         <code>
             URL
         </code>
-        by adding:
+        ：
     </p>
     <pre lang="swift" class="hljs javascript">
         <span class="hljs-keyword">
@@ -198,7 +195,7 @@
         completeUrl = URL(fileURLWithPath: completePath)
     </pre>
     <p>
-        In the results panel of the playground, you now see:
+        现在，在playground的结果面板中，你会看到：
         <code>
             file:///Users/sarah/Desktop/Files.playground
         </code>
@@ -210,63 +207,62 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        “Wait a minute!” you cry. “I thought a
+        “稍等！”你喊道。“我以为
         <code>
             URL
         </code>
-        was a web address like
+        是一个像
         <code>
             https://www.raywenderlich.com
         </code>
-        , not a directory path!”
+        这样的网址，而不是目录的路径！”
     </p>
     <p>
-        Well, yes…and yes!
+        嗯，是的是的！
     </p>
     <p>
         <code>
             URL
         </code>
-        stands for
+        代表了
         <em>
             Uniform Resource Locator
         </em>
-        — which also can point to local files and folders. Instead of
+        - 它也可以指向本地的文件和目录。并非
         <code>
             https://
         </code>
-        , local file URLs start with
+        ，而是以
         <code>
             file://
         </code>
-        . In the results panel, it looks like there are 3 slashes, but that is
-        because the path itself starts with a slash.
+        开头来表示本地文件。在结果面板中，它看起来有3个斜杠，但这是因为这个路径本身就是以斜杠开头的。
     </p>
     <h3>
-        FileManager Class
+        FileManager类
     </h3>
     <p>
-        You’ve used a
+        你已经使用了一个
         <code>
-            String
+            字符串
         </code>
-        to specify a file path and converted it to a
-        <code>
-            URL
-        </code>
-        . But while this is a valid
+        来指定一个文件路径，并将它转换为一个
         <code>
             URL
         </code>
-        , it won’t work — unless your user name also happens to be
+        。但是，虽然它是一个有效的
+        <code>
+            URL
+        </code>
+        ，但却无法工作 - 除非你的用户名也恰好就是
         <em>
             sarah
         </em>
-        . Therefore, the next step is to create a
+        。因此，下面的一步就是来创建一个可以在任何人的电脑上work的
         <code>
             URL
         </code>
-        that works on anyone’s computer.
+        了。
     </p>
     <p>
         To do this, you’ll use the
