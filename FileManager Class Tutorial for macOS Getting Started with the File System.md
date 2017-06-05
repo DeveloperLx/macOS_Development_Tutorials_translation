@@ -135,15 +135,8 @@
     <p>
         添加下面的代码到你的playground中，但不要担心现在改变了用户名：
     </p>
-    <pre lang="swift" class="hljs javascript">
-        <span class="hljs-keyword">
-            let
-        </span>
-        completePath =
-        <span class="hljs-string">
-            "/Users/sarah/Desktop/Files.playground"
-        </span>
-    </pre>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-keyword"><font><font>let</font></font></span><font><font> completePath = </font></font><span class="hljs-string"><font><font>“/Users/sarah/Desktop/Files.playground”</font></font></span>
+</pre>
     <p>
         <code>
             completePath
@@ -188,12 +181,8 @@
         </code>
         ：
     </p>
-    <pre lang="swift" class="hljs javascript">
-        <span class="hljs-keyword">
-            let
-        </span>
-        completeUrl = URL(fileURLWithPath: completePath)
-    </pre>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">let</span> completeUrl = URL(fileURLWithPath: completePath)
+</pre>
     <p>
         现在，在playground的结果面板中，你会看到：
         <code>
@@ -285,16 +274,8 @@
     <p>
         添加下列的代码到你的playground中：
     </p>
-    <pre lang="swift" class="hljs cs">
-        <span class="hljs-keyword">
-            let
-        </span>
-        home = FileManager.
-        <span class="hljs-keyword">
-            default
-        </span>
-        .homeDirectoryForCurrentUser
-    </pre>
+    <pre lang="swift" class="hljs cs"><span class="hljs-keyword">let</span> home = FileManager.<span class="hljs-keyword">default</span>.homeDirectoryForCurrentUser
+</pre>
     <p>
         <code>
             default
@@ -320,19 +301,9 @@
         </code>
         ，你就可以通过添加下列的代码来获取指向playground的路径：
     </p>
-    <pre lang="swift" class="hljs javascript">
-        <span class="hljs-keyword">
-            let
-        </span>
-        playgroundPath =
-        <span class="hljs-string">
-            "Desktop/Files.playground"
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        playgroundUrl = home.appendingPathComponent(playgroundPath)
-    </pre>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">let</span> playgroundPath = <span class="hljs-string">"Desktop/Files.playground"</span>
+<span class="hljs-keyword">let</span> playgroundUrl = home.appendingPathComponent(playgroundPath)
+</pre>
     <p>
         现在结果面板就会展示在你的家目录下的
         <code>
@@ -347,17 +318,16 @@
         </code>
         的property：
     </p>
-    <pre lang="swift" class="hljs">
-        playgroundUrl.path 
-        playgroundUrl.absoluteString 
-        playgroundUrl.absoluteURL
-        playgroundUrl.baseURL 
-        playgroundUrl.pathComponents 
-        playgroundUrl.lastPathComponent
-        playgroundUrl.pathExtension 
-        playgroundUrl.isFileURL 
-        playgroundUrl.hasDirectoryPath
-    </pre>
+    <pre lang="swift" class="hljs">playgroundUrl.path
+playgroundUrl.absoluteString
+playgroundUrl.absoluteURL
+playgroundUrl.baseURL
+playgroundUrl.pathComponents
+playgroundUrl.lastPathComponent
+playgroundUrl.pathExtension
+playgroundUrl.isFileURL
+playgroundUrl.hasDirectoryPath
+</pre>
     <p>
         <code>
             pathComponents
@@ -427,25 +397,24 @@
     <p>
         添加下列的代码到你的playground中：
     </p>
-    <pre lang="swift" class="hljs javascript">
-        <span class="hljs-keyword">
-            var
-        </span>
-        urlForEditing = home urlForEditing.path urlForEditing.appendPathComponent(
-        <span class="hljs-string">
-            "Desktop"
-        </span>
-        ) urlForEditing.path urlForEditing.appendPathComponent(
-        <span class="hljs-string">
-            "Test file"
-        </span>
-        ) urlForEditing.path urlForEditing.appendPathExtension(
-        <span class="hljs-string">
-            "txt"
-        </span>
-        ) urlForEditing.path urlForEditing.deletePathExtension() urlForEditing.path
-        urlForEditing.deleteLastPathComponent() urlForEditing.path
-    </pre>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">var</span> urlForEditing = home
+urlForEditing.path
+
+urlForEditing.appendPathComponent(<span class="hljs-string">"Desktop"</span>)
+urlForEditing.path
+
+urlForEditing.appendPathComponent(<span class="hljs-string">"Test file"</span>)
+urlForEditing.path
+
+urlForEditing.appendPathExtension(<span class="hljs-string">"txt"</span>)
+urlForEditing.path
+
+urlForEditing.deletePathExtension()
+urlForEditing.path
+
+urlForEditing.deleteLastPathComponent()
+urlForEditing.path
+</pre>
     <p>
         Note how you show the
         <code>
@@ -467,28 +436,15 @@
     <p>
         To see how to do this, insert the following commands into your playground:
     </p>
-    <pre lang="swift" class="hljs javascript">
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileUrl = home .appendingPathComponent(
-        <span class="hljs-string">
-            "Desktop"
-        </span>
-        ) .appendingPathComponent(
-        <span class="hljs-string">
-            "Test file"
-        </span>
-        ) .appendingPathExtension(
-        <span class="hljs-string">
-            "txt"
-        </span>
-        ) fileUrl.path
-        <span class="hljs-keyword">
-            let
-        </span>
-        desktopUrl = fileUrl.deletingLastPathComponent() desktopUrl.path
-    </pre>
+    <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">let</span> fileUrl = home
+    .appendingPathComponent(<span class="hljs-string">"Desktop"</span>)
+    .appendingPathComponent(<span class="hljs-string">"Test file"</span>)
+    .appendingPathExtension(<span class="hljs-string">"txt"</span>)
+fileUrl.path
+
+<span class="hljs-keyword">let</span> desktopUrl = fileUrl.deletingLastPathComponent()
+desktopUrl.path
+</pre>
     <p>
         These methods return new
         <code>
