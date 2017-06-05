@@ -477,40 +477,37 @@ desktopUrl.path
         <code>
             NSString
         </code>
-        has a lot of file path manipulation methods, but Swift’s
+        中有很多处理文件路径的方法，但在Swift的结构体
         <code>
             String
         </code>
-        struct doesn’t. Instead, you should use
-        <code>
-            URLs
-        </code>
-        when working with file paths. Working with paths in this manner will become
-        even more important as Apple transitions to the new
+        中则不是。相反地，随着苹果向着
         <em>
             Apple File System (APFS)
         </em>
-        .
+        的转变，你应当使用
+        <code>
+            URLs
+        </code>
+        来处理文件路径。在这种方式下处理将会变得更重要，因为。
     </p>
     <p>
-        However, there is one case where you still have to use a string representation
-        of a file
+        然而，在下面这个情形下，你仍然需要一个字符串来代表文件
         <code>
             URL
         </code>
-        : checking to see if a file or folder exists. The best way to get a string
-        version of a
+        ：检查是否这个文件或目录存在。获取一个
         <code>
             URL
         </code>
-        is through the
+        的字符串版本的最近方式是通过
         <code>
             path
         </code>
-        property.
+        property。
     </p>
     <p>
-        Add the following code to your playground:
+        添加下列的代码到你的playground中：
     </p>
     <pre lang="swift" class="hljs cs">
         <span class="hljs-keyword">
