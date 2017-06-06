@@ -768,94 +768,92 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     </p>
     <ol>
         <li>
-            Get the
+            和之前一样，获取
             <code>
                 FileManager
             </code>
-            class singleton, just as before.
+            类的单例。
         </li>
         <li>
-            Since the
+            由于
             <code>
                 FileManager
             </code>
-            method can throw errors, you use a
+            的方法可能抛出错误，因此你要使用
             <code>
                 do...catch
             </code>
-            block.
+            代码块。
         </li>
         <li>
-            Try to find the contents of the folder
+            尝试找到目录
             <code>
                 contentsOfDirectory(atPath:)
             </code>
-            and return an array of file and folder names inside.
+            的内容，并返回内部文件和目录名称的数组。
         </li>
         <li>
-            Process the returned array using
+            使用
             <code>
                 map
             </code>
-            to convert each name into a complete
+            处理返回的数组，并将每个名称，用其父目录转换成一个完整的
             <code>
                 URL
             </code>
-            with its parent folder. Then return the array.
+            然后返回数组。
         </li>
         <li>
-            Return an empty array if
+            如果
             <code>
                 contentsOfDirectory(atPath:)
             </code>
-            throws an error.
+            抛出错误的话，返回一个空的数组。
         </li>
     </ol>
     <p>
-        The
         <code>
             selectedFolder
         </code>
-        property sets the
+        property将
         <code>
             filesList
         </code>
-        property to the contents of the selected folder, but since you use a table
-        view to show the contents, you need to define how to display each item.
+        property设置为被选择的目录的内容，但由于你使用了一个table view来展示内容，你就需要定义如何展示每个项目。
     </p>
     <p>
-        Scroll down to the
+        向下拖动到
         <code>
             NSTableViewDataSource
         </code>
-        extension. Note that
+        的extension。注意
         <code>
             numberOfRows
         </code>
-        already returns the number of
-        <code>
-            URLs
-        </code>
-        in the
+        早已返回了
         <code>
             filesList
         </code>
-        array. Now scroll to
+        数组中
+        <code>
+            URLs
+        </code>
+        的数量。现在滚动到        
         <code>
             NSTableViewDelegate
         </code>
-        and note that
+        ，并注意到
         <code>
             tableView(_:viewFor:row:)
         </code>
-        returns
+        返回的是
         <code>
             nil
         </code>
-        . You need to change that before anything will appear in the table.
+        。你需要在table中出现任何事之前改变这点。
     </p>
     <p>
-        Replace the method with:
+        使用下面的代码来替换这个方法：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-number">_</span> tableView: NSTableView, viewFor
   tableColumn: NSTableColumn?, row: Int)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
@@ -879,7 +877,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
 }
 </pre>
     <p>
-        Here’s what you do in this code:
+        你在代码中做的事有：
     </p>
     <ol>
         <li>
