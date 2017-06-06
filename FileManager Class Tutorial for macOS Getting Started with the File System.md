@@ -857,91 +857,27 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     <p>
         Replace the method with:
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                tableView
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSView
-        </span>
-        ? {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        item = filesList[row]
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileIcon =
-        <span class="hljs-type">
-            NSWorkspace
-        </span>
-        .shared().icon(forFile: item.path)
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        cell = tableView.make(withIdentifier:
-        <span class="hljs-string">
-            "FileCell"
-        </span>
-        , owner:
-        <span class="hljs-literal">
-            nil
-        </span>
-        )
-        <span class="hljs-keyword">
-            as
-        </span>
-        ?
-        <span class="hljs-type">
-            NSTableCellView
-        </span>
-        {
-        <span class="hljs-comment">
-            // 4
-        </span>
-        cell.textField?.stringValue = item.lastPathComponent cell.imageView?.image
-        = fileIcon
-        <span class="hljs-keyword">
-            return
-        </span>
-        cell }
-        <span class="hljs-comment">
-            // 5
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            nil
-        </span>
-        }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-number">_</span> tableView: NSTableView, viewFor
+  tableColumn: NSTableColumn?, row: Int)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> item = filesList[row]
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> fileIcon = <span class="hljs-type">NSWorkspace</span>.shared().icon(forFile: item.path)
+
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> cell = tableView.make(withIdentifier: <span class="hljs-string">"FileCell"</span>, owner: <span class="hljs-literal">nil</span>) 
+  	<span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span> {
+    <span class="hljs-comment">// 4</span>
+    cell.textField?.stringValue = item.lastPathComponent
+    cell.imageView?.image = fileIcon
+    <span class="hljs-keyword">return</span> cell
+  }
+
+  <span class="hljs-comment">// 5</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</pre>
     <p>
         Here’s what you do in this code:
     </p>
