@@ -881,53 +881,51 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     </p>
     <ol>
         <li>
-            Get the
+            获取匹配行序号的
             <code>
                 URL
             </code>
-            matching the row number.
+            。
         </li>
         <li>
-            Get the icon for this
+            获取这个
             <code>
                 URL
             </code>
-            .
+            的icon。
             <code>
                 NSWorkspace
             </code>
-            is another useful singleton; this method returns the Finder icon for any
+            是另一个非常有用的单例；这个方法对任何
             <code>
                 URL
             </code>
-            .
+            都返回的是Finder的icon。
         </li>
         <li>
-            Get a reference to the cell for this table. The
+            获取这个table中对于这个cell的引用。
             <em>
                 FileCell
             </em>
-            identifier was set in the
+            这个标识符是在
             <em>
                 Storyboard
             </em>
-            .
+            中被设置的。
         </li>
         <li>
-            If the cell exists, set its text field to show the file name and its image
-            view to show the file icon.
+            如果cell存在，就设置它的text field来展示文件名，设置它的image view来展示文件的icon。
         </li>
         <li>
-            If no cell exists, return
+            如果没有cell存在，返回
             <code>
                 nil
             </code>
-            .
+            。
         </li>
     </ol>
     <p>
-        Now build and run, select a folder and you should see a list of files
-        and folders appear — hurray!
+        现在build并运行，选择一个目录，你应当看到一个文件和目录的列表出现了 - 欢呼吧！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FolderContents.png"
@@ -936,24 +934,21 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        But clicking on a file or folder gives no useful information yet, so on
-        to the next step.
+        但点击一个文件或目录现在还没有给出有用的信息，因此继续下一步。
     </p>
     <h3>
-        Getting File Information
+        获取文件信息
     </h3>
     <p>
-        Open up the Finder and press
+        打开Finder并按
         <em>
-            Command-I
+            Command+I键
         </em>
-        to open a window with information about the file: creation date, modification
-        date, size, permissions and so on. All that information, and more, is available
-        to you through the
+        来打开一个关于文件信息的窗口：创建日期，修改日期，尺寸，权限等等。全部的这些信息，甚至更多，你都可以通过
         <code>
             FileManager
         </code>
-        class.
+        类来获取。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FinderFileInfo-1.png"
