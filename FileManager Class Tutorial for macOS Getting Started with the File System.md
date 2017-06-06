@@ -554,15 +554,14 @@ isDirectory.boolValue
         来区别文件和目录，关闭playground。是时候来构建app了！
     </p>
     <h2>
-        文件s间谍
+        文件间谍
     </h2>
     <p>
-        In this part of the tutorial, you’re going to build the
+        在教程的这一部分，你将要构建
         <em>
-            File Spy
+            文件间谍
         </em>
-        app, which lets you select a folder and view a listing of every file or
-        folder inside. Selecting any item will give you more details about it.
+        app，你可以用它选择一个目录来查看其内部的每个文件和目录。选择其中任一项目，就可以看到更多的详情。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FileInfo.png"
@@ -571,52 +570,50 @@ isDirectory.boolValue
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/04/FileSpy-Starter.zip"
         sl-processed="1">
-            starter app project
+            起始的app项目
         </a>
-        , open it in
+        ，在
         <em>
             Xcode
         </em>
-        and click the
+        中打开它并在toolbar单击
         <em>
             Play
         </em>
-        button in the toolbar, or press
+        按钮，或按
         <em>
-            Command-R
+            Command+R键
         </em>
-        to build and run. The UI is already set up, but you’ll need to add the
-        file management bits.
+        build并运行。它的UI已完成，但你需要添加文件管理位。
     </p>
     <p>
-        Your first task is to let the user select a folder and then list its contents.
-        You’ll add some code behind the
+        你第一个任务就是让用户选择一个目录，然后展示它的内容。你会在
         <em>
             Select Folder
         </em>
-        button and use the
+        按钮上添加一些代码，并使用
         <code>
             NSOpenPanel
         </code>
-        class to select a folder.
+        类来选择一个目录。
     </p>
     <p>
-        In
+        在
         <em>
             ViewController.swift
         </em>
-        , find
-        <code>
-            selectFolderClicked
-        </code>
-        in the
+        中的
         <em>
             Actions
         </em>
-        section and insert the following:
+        区，找到
+        <code>
+            selectFolderClicked
+        </code>
+        并插入下面的代码：
     </p>
     <pre lang="swift" class="hljs swift">
         <span class="hljs-comment">
