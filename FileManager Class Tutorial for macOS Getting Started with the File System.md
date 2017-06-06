@@ -638,69 +638,67 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     </p>
     <ol>
         <li>
-            Check that you can get a reference to the window, since that’s where the
+            检查你可否获取window的引用，因为它是
             <code>
                 NSOpenPanel
             </code>
-            will be displayed.
+            将要展示的地方。
         </li>
         <li>
-            Create a new
+            创建一个新的
             <code>
                 NSOpenPanel
             </code>
-            and set some properties to only permit a single selection which must be
-            a folder.
+            ，并设置一些property，使其值运行单选，且只能选择目录。
         </li>
         <li>
-            Display the
+            模态地在window中展示
             <code>
                 NSOpenPanel
             </code>
-            modally in the window and use a closure to wait for the result.
+            并使用一个闭包来等待结果。
         </li>
         <li>
-            If the result shows that the user clicked the
+            如果result表明用户点击了
             <em>
                 OK
             </em>
-            button (the displayed button will have a different label depending on
-            your locale), get the selected
+            按钮（实际看到的按钮上，将基于你的本地化带有不同的标签），获取被选择的
             <code>
                 URL
             </code>
-            and set a specific
+            并设置指定的
             <code>
                 ViewController
             </code>
-            property. For a quick temporary test, you print the selected
+            property。为了临时快速地测试，你会把选择的
             <code>
                 URL
             </code>
-            to the console. Ignore the warning on this line for now.
+            输入到控制台。现在忽略这行代码上的警告。
         </li>
     </ol>
     <p>
-        Build and run, click the
+        Build并运行，单击
         <em>
             Select Folder
         </em>
-        button and choose a folder. Confirm that the
+        按钮并选择一个目录。确认选择的目录的
         <code>
             URL
         </code>
-        for the selected folder prints in the console.
+        已打印到控制台上。
     </p>
     <p>
-        Click the button again to open the dialog,but this time click
+        再次单击按钮来打开对话框，但这次单击
         <em>
             Cancel
         </em>
-        . This will not print a selected
+        按钮。这时就不会打印
         <code>
             URL
         </code>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FolderSelected.png"
