@@ -615,88 +615,26 @@ isDirectory.boolValue
         </code>
         并插入下面的代码：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        window = view.window
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        panel =
-        <span class="hljs-type">
-            NSOpenPanel
-        </span>
-        () panel.canChooseFiles =
-        <span class="hljs-literal">
-            false
-        </span>
-        panel.canChooseDirectories =
-        <span class="hljs-literal">
-            true
-        </span>
-        panel.allowsMultipleSelection =
-        <span class="hljs-literal">
-            false
-        </span>
-        <span class="hljs-comment">
-            // 3
-        </span>
-        panel.beginSheetModal(
-        <span class="hljs-keyword">
-            for
-        </span>
-        : window) { (result)
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        result ==
-        <span class="hljs-type">
-            NSFileHandlingPanelOKButton
-        </span>
-        {
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            self
-        </span>
-        .selectedFolder = panel.urls[
-        <span class="hljs-number">
-            0
-        </span>
-        ]
-        <span class="hljs-built_in">
-            print
-        </span>
-        (
-        <span class="hljs-keyword">
-            self
-        </span>
-        .selectedFolder) } }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> window = view.window <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">let</span> panel = <span class="hljs-type">NSOpenPanel</span>()
+panel.canChooseFiles = <span class="hljs-literal">false</span>
+panel.canChooseDirectories = <span class="hljs-literal">true</span>
+panel.allowsMultipleSelection = <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">// 3</span>
+panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) <span class="hljs-keyword">in</span>
+  <span class="hljs-keyword">if</span> result == <span class="hljs-type">NSFileHandlingPanelOKButton</span> {
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-keyword">self</span>.selectedFolder = panel.urls[<span class="hljs-number">0</span>]
+    <span class="hljs-built_in">print</span>(<span class="hljs-keyword">self</span>.selectedFolder)
+  }
+}
+</pre>
     <p>
-        Here’s what’s going on in the code above:
+        上面的代码完成了：
     </p>
     <ol>
         <li>
