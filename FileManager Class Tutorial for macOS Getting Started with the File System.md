@@ -707,132 +707,64 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Quit the app and delete the temporary
+        退出app并删除临时的
         <code>
             print
         </code>
-        statement.
+        语句。
     </p>
     <h3>
-        Folder Contents
+        文件内容
     </h3>
     <p>
-        Now that you can select a folder, your next job is to find the contents
-        of that folder and display it.
+        既然你能够选择目录，那接下来你的工作就是找出这个目录的内容并展示出来。
     </p>
     <p>
-        The previous section of code populated a property named
+        上一部分的代码填充了一个名为
         <code>
             selectedFolder
         </code>
-        . Scroll to the top of the
+        的property。滚动到
         <code>
             ViewController
         </code>
-        definition and check out the
+        定义的顶部，并查看
         <code>
             selectedFolder
         </code>
-        property. It’s using a
+        的property。它使用了一个
         <code>
             didSet
         </code>
-        property observer to run code whenever its value is set.
+        的property观察者，它会在设置值的时候运行代码。
     </p>
     <p>
-        The key line here is the one that calls
+        这里的关键代码是调用
         <code>
             contentsOf(folder:)
         </code>
-        . Scroll down to the stub of this method, which is currently returning
-        an empty array. Replace the entire function with the following:
+        。滚动到这个方法这里，它当前返回了一个空的数组。用下面的代码来替换其中的内容：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                contentsOf
-            </span>
-            <span class="hljs-params">
-                (folder: URL)
-            </span>
-        </span>
-        -&gt; [
-        <span class="hljs-type">
-            URL
-        </span>
-        ] {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileManager =
-        <span class="hljs-type">
-            FileManager
-        </span>
-        .
-        <span class="hljs-keyword">
-            default
-        </span>
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            do
-        </span>
-        {
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        contents =
-        <span class="hljs-keyword">
-            try
-        </span>
-        fileManager.contentsOfDirectory(atPath: folder.path)
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        urls = contents.
-        <span class="hljs-built_in">
-            map
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        folder.appendingPathComponent($
-        <span class="hljs-number">
-            0
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            return
-        </span>
-        urls }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        {
-        <span class="hljs-comment">
-            // 5
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        [] } }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contentsOf</span><span class="hljs-params">(folder: URL)</span></span> -&gt; [<span class="hljs-type">URL</span>] {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> fileManager = <span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">do</span> {
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">let</span> contents = <span class="hljs-keyword">try</span> fileManager.contentsOfDirectory(atPath: folder.path)
+
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-keyword">let</span> urls = contents.<span class="hljs-built_in">map</span> { <span class="hljs-keyword">return</span> folder.appendingPathComponent($<span class="hljs-number">0</span>) }
+    <span class="hljs-keyword">return</span> urls
+  } <span class="hljs-keyword">catch</span> {
+    <span class="hljs-comment">// 5</span>
+    <span class="hljs-keyword">return</span> []
+  }
+}
+</pre>
     <p>
-        Stepping through what the code does:
+        一步步来看代码：
     </p>
     <ol>
         <li>
