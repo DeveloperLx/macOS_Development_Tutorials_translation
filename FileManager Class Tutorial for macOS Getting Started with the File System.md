@@ -957,196 +957,80 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         sizes="(max-width: 238px) 100vw, 238px">
     </p>
     <p>
-        Back in the app, still in
+        回到app，仍然在
         <em>
             ViewController.swift
         </em>
-        , look for
+        中，查找
         <code>
             tableViewSelectionDidChange
         </code>
-        . This sets the property of the
+        。设置
         <code>
             ViewController
         </code>
-        :
+        的property：
         <code>
             selectedItem
         </code>
-        .
+        。
     </p>
     <p>
-        Scroll back to the top and look at where
+        滚动回到顶部，并找到
         <code>
             selectedItem
         </code>
-        is defined. As with
+        被定义的地方。和
         <code>
             selectedFolder
         </code>
-        , a
+        一样，
         <code>
             didSet
         </code>
-        observer is watching for changes to this property. When the property changes,
-        and if the new value is not
+        观察者正在观察这个property的变化。当这个property改变时，如果新的值不为
         <code>
             nil
         </code>
-        , the observer calls
+        ，观察者就会调用
         <code>
             infoAbout(url:)
         </code>
-        . This is where you will retrieve the information for display.
+        。这里将是你检索的信息用来展示的地方。
     </p>
     <p>
-        Find
+        找到
         <code>
             infoAbout
         </code>
-        , which currently returns a boring static string, and replace it with
-        the following:
+        ，当前它会返回一个无聊的静态字符串，用下面的代码来替换它：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                infoAbout
-            </span>
-            <span class="hljs-params">
-                (url: URL)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            String
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileManager =
-        <span class="hljs-type">
-            FileManager
-        </span>
-        .
-        <span class="hljs-keyword">
-            default
-        </span>
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            do
-        </span>
-        {
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        attributes =
-        <span class="hljs-keyword">
-            try
-        </span>
-        fileManager.attributesOfItem(atPath: url.path)
-        <span class="hljs-keyword">
-            var
-        </span>
-        report: [
-        <span class="hljs-type">
-            String
-        </span>
-        ] = [
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(url.path)
-            </span>
-            "
-        </span>
-        ,
-        <span class="hljs-string">
-            ""
-        </span>
-        ]
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            for
-        </span>
-        (key, value)
-        <span class="hljs-keyword">
-            in
-        </span>
-        attributes {
-        <span class="hljs-comment">
-            // ignore NSFileExtendedAttributes as it is a messy dictionary
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        key.rawValue ==
-        <span class="hljs-string">
-            "NSFileExtendedAttributes"
-        </span>
-        {
-        <span class="hljs-keyword">
-            continue
-        </span>
-        } report.append(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(key.rawValue)
-            </span>
-            :\t
-            <span class="hljs-subst">
-                \(value)
-            </span>
-            "
-        </span>
-        ) }
-        <span class="hljs-comment">
-            // 5
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        report.joined(separator:
-        <span class="hljs-string">
-            "\n"
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        {
-        <span class="hljs-comment">
-            // 6
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-string">
-            "No information available for
-            <span class="hljs-subst">
-                \(url.path)
-            </span>
-            "
-        </span>
-        } }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">infoAbout</span><span class="hljs-params">(url: URL)</span></span> -&gt; <span class="hljs-type">String</span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> fileManager = <span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">do</span> {
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">let</span> attributes = <span class="hljs-keyword">try</span> fileManager.attributesOfItem(atPath: url.path)
+    <span class="hljs-keyword">var</span> report: [<span class="hljs-type">String</span>] = [<span class="hljs-string">"<span class="hljs-subst">\(url.path)</span>"</span>, <span class="hljs-string">""</span>]
+
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-keyword">for</span> (key, value) <span class="hljs-keyword">in</span> attributes {
+      <span class="hljs-comment">// ignore NSFileExtendedAttributes as it is a messy dictionary</span>
+      <span class="hljs-keyword">if</span> key.rawValue == <span class="hljs-string">"NSFileExtendedAttributes"</span> { <span class="hljs-keyword">continue</span> }
+      report.append(<span class="hljs-string">"<span class="hljs-subst">\(key.rawValue)</span>:\t <span class="hljs-subst">\(value)</span>"</span>)
+    }
+    <span class="hljs-comment">// 5</span>
+    <span class="hljs-keyword">return</span> report.joined(separator: <span class="hljs-string">"\n"</span>)
+  } <span class="hljs-keyword">catch</span> {
+    <span class="hljs-comment">// 6</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"No information available for <span class="hljs-subst">\(url.path)</span>"</span>
+  }
+}
+</pre>
     <p>
-        There are a few different things happening here, so take them one at a
-        time:
+        这里发生了一些不同的事，因此我们一次看一个：
     </p>
     <ol>
         <li>
