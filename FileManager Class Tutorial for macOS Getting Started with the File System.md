@@ -1098,147 +1098,106 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        You now get a lot of useful details about the file or folder. But there’s
-        still more you can do!
+        你现在已经获得了很多关于这个文件或目录有用的信息。但还有更多你可以做的事！
     </p>
     <h3>
-        More Features
+        更多特征
     </h3>
     <p>
-        The app is getting better, but it’s still missing a few things:
+        这个app正在变得更棒，但仍然缺少一些事情：
     </p>
     <ul>
         <li>
-            Clicking on
+            点击
             <em>
                 Show Invisible Files
             </em>
-            doesn’t change anything.
+            不会改变任何事。
         </li>
         <li>
-            Double-clicking on a folder should drill into its contents.
+            双击一个目录应当进入它的内容。
         </li>
         <li>
-            The
             <em>
                 Move Up
             </em>
-            button needs to move back up the folder hierarchy.
+            按钮需要向上移动目录的层次结构。
         </li>
         <li>
             <em>
                 Save Info
             </em>
-            should record the selected file’s details to a file.
+            应当可以把被选择文件的详情到一个文件中。
         </li>
     </ul>
     <p>
-        You’ll tackle these next.
+        接下来你就会出来这些事情。
     </p>
     <p>
         <em>
-            Handling Invisible Files
+            处理不可见的文件
         </em>
     </p>
     <p>
-        In Unix systems, files and folders whose name starts with a period are
-        invisible. You’ll add code to handle this case.
+        在Unix系统中，名称以一个句点开头文件和目录将会不可见。你会添加代码来处理这个情况。
     </p>
     <p>
-        Go to
+        前往
         <code>
             contentsOf(folder:)
         </code>
-        and replace the line containing
+        ，并用下列代码替换
         <code>
             map
         </code>
-        with the following:
+        这行：
     </p>
-    <pre lang="swift" class="hljs bash">
-        <span class="hljs-built_in">
-            let
-        </span>
-        urls = contents .filter {
-        <span class="hljs-built_in">
-            return
-        </span>
-        showInvisibles ?
-        <span class="hljs-literal">
-            true
-        </span>
-        :
-        <span class="hljs-variable">
-            $0
-        </span>
-        .characters.first !=
-        <span class="hljs-string">
-            "."
-        </span>
-        } .map {
-        <span class="hljs-built_in">
-            return
-        </span>
-        folder.appendingPathComponent(
-        <span class="hljs-variable">
-            $0
-        </span>
-        ) }
-    </pre>
+    <pre lang="swift" class="hljs bash"><span class="hljs-built_in">let</span> urls = contents
+  .filter { <span class="hljs-built_in">return</span> showInvisibles ? <span class="hljs-literal">true</span> : <span class="hljs-variable">$0</span>.characters.first != <span class="hljs-string">"."</span> }
+  .map { <span class="hljs-built_in">return</span> folder.appendingPathComponent(<span class="hljs-variable">$0</span>) }
+</pre>
     <p>
-        The above adds a
+        上面的代码添加了一个
         <code>
             filter
         </code>
-        that rejects hidden items if the
+        ，当
         <code>
             showInvisibles
         </code>
-        property is not
+        的property不为        
         <code>
             true
         </code>
-        . Otherwise the
+        时，就会拒绝隐藏的项目；否则
         <code>
             filter
         </code>
-        returns every item, including hidden items.
+        会返回所有的项目，包括因此的。
     </p>
     <p>
-        Find the
-        <code>
-            toggleShowInvisibles
-        </code>
-        method of
+        找到
         <code>
             ViewController
         </code>
-        and insert this into the function:
+        中的
+        <code>
+            toggleShowInvisibles
+        </code>
+        方法，并插入下列代码到函数中：
     </p>
-    <pre lang="swift" class="hljs objectivec">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        showInvisibles = (sender.state ==
-        <span class="hljs-built_in">
-            NSOnState
-        </span>
-        )
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        let selectedFolder = selectedFolder { filesList = contentsOf(folder: selectedFolder)
-        selectedItem =
-        <span class="hljs-literal">
-            nil
-        </span>
-        tableView.reloadData() }
-    </pre>
+    <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// 1</span>
+showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">if</span> let selectedFolder = selectedFolder {
+  filesList = contentsOf(folder: selectedFolder)
+  selectedItem = <span class="hljs-literal">nil</span>
+  tableView.reloadData()
+}
+</pre>
     <p>
-        Here is what this code does:
+        这些代码完成了：
     </p>
     <ol>
         <li>
