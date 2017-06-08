@@ -1033,64 +1033,63 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         这里发生了一些不同的事，因此我们一次看一个：
     </p>
     <ol>
-        <li>
-            As usual, get a reference to the
+        <li>    
+            按照惯例，获取一个
             <code>
                 FileManager
             </code>
-            shared instance.
+            单例的引用。
         </li>
         <li>
-            Use
+            使用
             <code>
                 do...catch
             </code>
-            to trap any errors.
+            来捕获任何的错误。
         </li>
         <li>
-            Use the
+            使用
             <em>
-                FileManager Class’
+                FileManager
             </em>
+            类的
             <code>
                 attributesOfItem(atPath:)
             </code>
-            method to try to get the file information. If this succeeds, it returns
-            a dictionary of type
+            方法来获取文件的信息。如果成功的话，它就会返回一个
             <code>
                 [FileAttributeKey: Any]
             </code>
+            类型的字典，
             <code>
                 FileAttributeKeys
             </code>
-            , which are members of a struct with a String
+            是一个带有字符串
             <code>
                 rawValue
             </code>
-            .
+            的结构体的成员。
         </li>
         <li>
-            Assemble the key names &amp; values into an array of tab-delimited strings.
-            Ignore the
+            将key的名称和value的值组装成一个tab分隔符字符创的数组。但会忽略掉
             <code>
                 NSFileExtendedAttributes
             </code>
-            key as it contains a messy dictionary that isn’t really useful.
+            键，因为它包含了一个复杂的但并不是确实有用的字段。
         </li>
         <li>
-            Join these array entries into a single string &amp; return it.
+            将整个数组组装成一个单独的字符串，返回它。
         </li>
         <li>
-            If the
+            如果
             <code>
                 try
             </code>
-            throws an error, return a default report.
+            语句抛出了错误，就返回一个默认的报告。
         </li>
     </ol>
     <p>
-        Build and run again, select a folder as before, then click on any file
-        or folder in the list:
+        Build并再次运行，就像之前一样选择一个目录，然后点击列表中的任一文件或目录：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FolderInfo.png"
