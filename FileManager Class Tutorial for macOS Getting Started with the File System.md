@@ -1201,51 +1201,50 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <ol>
         <li>
-            Sets the
+            根据sender的状态设置
             <code>
                 showInvisibles
             </code>
-            property based on the sender’s state. Since the sender is an
+            property。由于sender是
             <code>
                 NSButton
             </code>
-            , it has either
+            ，所以它的state不是
             <code>
                 NSOnState
             </code>
-            or
+            就是
             <code>
                 NSOffState
             </code>
-            . Because this is a checkbox button,
+            。由于它是一个checkbox按钮，
             <code>
                 NSOnState
             </code>
-            means checked.
+            就表示勾选。
         </li>
         <li>
-            If there is a currently
+            如果当前有
             <code>
                 selectedFolder
             </code>
-            , regenerate the
+            ，就重新生成
             <code>
                 filesList
             </code>
-            and update the UI.
+            并更新UI。
         </li>
     </ol>
     <p>
-        Build and run, select a folder and check and un-check the
+        Build并运行，选择一个目录，并勾选及取消
         <em>
             Show Invisible Files
         </em>
-        button. Depending on the folder you’re viewing, you may see files starting
-        with a period when
+        按钮。依赖于你正在观察的目录，你有可能会在当
         <em>
             Show Invisible Files
         </em>
-        is checked.
+        被勾选时，看到以一个圆点的文件。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/Invisibles.png"
@@ -1255,76 +1254,38 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <p>
         <em>
-            Handling Double-Clicking on a Folder
+            处理双击目录的情况
         </em>
     </p>
     <p>
-        In the storyboard, the table view has been assigned a
-        <code>
-            doubleAction
-        </code>
-        that calls
+        在storyboard中，table view已被分配了一个叫做
         <code>
             tableViewDoubleClicked
         </code>
-        . Find
+        的
+        <code>
+            双击动作
+        </code>
+        。找到
         <code>
             tableViewDoubleClicked
         </code>
-        and replace it with the following:
+        并用以下代码替换：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                tableViewDoubleClicked
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        tableView.selectedRow &lt;
-        <span class="hljs-number">
-            0
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        selectedItem = filesList[tableView.selectedRow]
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        selectedItem.hasDirectoryPath { selectedFolder = selectedItem } }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableViewDoubleClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">if</span> tableView.selectedRow &lt; <span class="hljs-number">0</span> { <span class="hljs-keyword">return</span> }
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> selectedItem = filesList[tableView.selectedRow]
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">if</span> selectedItem.hasDirectoryPath {
+    selectedFolder = selectedItem
+  }
+}
+</pre>
     <p>
-        Taking the above code comment-by-comment:
+        一步一步地回顾上面的代码：
     </p>
     <ol>
         <li>
