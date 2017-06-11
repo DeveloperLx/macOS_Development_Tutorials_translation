@@ -1363,13 +1363,11 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         就会像之前一样触发更新。
     </p>
     <p>
-        Build and run again; confirm that you can select a folder, double-click to move down into a sub-folder and click
+        Build并再次运行；确认你可以选择一个目录，双击并移动到一个子目录上，并点击
         <em>
             Move Up
         </em>
-        to go back up the folder hierarchy. 
-        You can move up even before double-clicking a folder, 
-        as long as you are not already at the root level.
+        来回到目录的层级中。只要你不在根目录上，你甚至可以在双击目录之前向上移动。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/MoveDownUp.gif"
@@ -1377,210 +1375,93 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        As you've seen, using property observers (
+        正如你看到的一样，property观察器（
         <code>
             didSet
         </code>
-        ) can be incredibly useful. All the code for updating the display is in
-        an observer, so no matter what method or UI element changes an observed
-        property, the update happens with no need to do anything else. Sweet!
+        ）非常得有用。用来更新界面的所有代码都在一个观察者中，因此无论是UI元素或方法来改变被观察的property，更新就发生了，无需做任何其它的事。Sweet！
     </div>
     <p>
         <em>
-            Saving Information
+            保存信息
         </em>
     </p>
     <p>
-        There are two main ways to save data: user-initiated saves and automatic
-        saves. For user-initiated saves, your app should prompt the user for a
-        location to save the data, then write the data to that location. For automatic
-        saves, the app has to figure out where to save the data.
+        保存数据主要有两个办法：用户发起的保存以及自动保存。对于用户发起的保存，你的app应答让用户选择一个保存数据的位置，来将数据写入到这个位置中。对于自动保存，app自己会决定保存数据的位置。
     </p>
     <p>
-        In this section, you are going to handle the case when the user clicks
-        the
+        在这一部分，你会处理当用户点击
         <em>
             Save Info
         </em>
-        button to initiate a save.
+        按钮来发起保存的case。
     </p>
     <p>
-        You used
+        你已使用
         <code>
             NSOpenPanel
         </code>
-        to prompt the user to select a folder. This time, you are going to use
+        来提示用户选择一个目录。这次，你会使用
         <code>
             NSSavePanel
         </code>
-        . Both
+        。
         <code>
             NSOpenPanel
         </code>
-        and
+        和
         <code>
             NSSavePanel
         </code>
-        are subclasses of
+        都是
         <code>
             NSPanel
         </code>
-        , so they have a lot in common.
+        的子类，因此它们有很多共同的地方。
     </p>
     <p>
-        Replace the empty
+        使用下列代码来替换空方法
         <code>
             saveInfoClicked
         </code>
-        method with the following:
+        ：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                saveInfoClicked
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        window = view.window
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        selectedItem = selectedItem
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        panel =
-        <span class="hljs-type">
-            NSSavePanel
-        </span>
-        ()
-        <span class="hljs-comment">
-            // 3
-        </span>
-        panel.directoryURL =
-        <span class="hljs-type">
-            FileManager
-        </span>
-        .
-        <span class="hljs-keyword">
-            default
-        </span>
-        .homeDirectoryForCurrentUser
-        <span class="hljs-comment">
-            // 4
-        </span>
-        panel.nameFieldStringValue = selectedItem .deletingPathExtension() .appendingPathExtension(
-        <span class="hljs-string">
-            "fs.txt"
-        </span>
-        ) .lastPathComponent
-        <span class="hljs-comment">
-            // 5
-        </span>
-        panel.beginSheetModal(
-        <span class="hljs-keyword">
-            for
-        </span>
-        : window) { (result)
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        result ==
-        <span class="hljs-type">
-            NSFileHandlingPanelOKButton
-        </span>
-        ,
-        <span class="hljs-keyword">
-            let
-        </span>
-        url = panel.url {
-        <span class="hljs-comment">
-            // 6
-        </span>
-        <span class="hljs-keyword">
-            do
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        infoAsText =
-        <span class="hljs-keyword">
-            self
-        </span>
-        .infoAbout(url: selectedItem)
-        <span class="hljs-keyword">
-            try
-        </span>
-        infoAsText.write(to: url, atomically:
-        <span class="hljs-literal">
-            true
-        </span>
-        , encoding: .utf8) }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        {
-        <span class="hljs-keyword">
-            self
-        </span>
-        .showErrorDialogIn(window: window, title:
-        <span class="hljs-string">
-            "Unable to save file"
-        </span>
-        , message: error.localizedDescription) } } } }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">saveInfoClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> window = view.window <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> selectedItem = selectedItem <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> panel = <span class="hljs-type">NSSavePanel</span>()
+  <span class="hljs-comment">// 3</span>
+  panel.directoryURL = <span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>.homeDirectoryForCurrentUser
+  <span class="hljs-comment">// 4</span>
+  panel.nameFieldStringValue = selectedItem
+    .deletingPathExtension()
+    .appendingPathExtension(<span class="hljs-string">"fs.txt"</span>)
+    .lastPathComponent
+
+  <span class="hljs-comment">// 5</span>
+  panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) <span class="hljs-keyword">in</span>
+    <span class="hljs-keyword">if</span> result == <span class="hljs-type">NSFileHandlingPanelOKButton</span>,
+      <span class="hljs-keyword">let</span> url = panel.url {
+      <span class="hljs-comment">// 6</span>
+      <span class="hljs-keyword">do</span> {
+        <span class="hljs-keyword">let</span> infoAsText = <span class="hljs-keyword">self</span>.infoAbout(url: selectedItem)
+        <span class="hljs-keyword">try</span> infoAsText.write(to: url, atomically: <span class="hljs-literal">true</span>, encoding: .utf8)
+      } <span class="hljs-keyword">catch</span> {
+        <span class="hljs-keyword">self</span>.showErrorDialogIn(window: window,
+                               title: <span class="hljs-string">"Unable to save file"</span>,
+                               message: error.localizedDescription)
+      }
+    }
+  }
+}
+</pre>
     <p>
-        Taking each numbered comment in turn:
+        依次来看每个被标号的注释：
     </p>
     <ol>
         <li>
@@ -2120,9 +2001,5 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     <p>
         You are now ready to begin incorporating the use of files and folders
         in your own apps.
-    </p>
-    <p>
-        If you have any questions or comments please join the forum discussion
-        below!
     </p>
 </div>
