@@ -1348,28 +1348,28 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
 }
 </pre>
     <p>
-        This first checks to see whether the
+        首先，检查
         <code>
             selectedFolder
         </code>
-        is the root folder. If so, you can’t go any higher. If not, use a
+        是否是根目录。如果是的话，你就不能做任何事，如果不是的话，就使用
         <code>
             URL
         </code>
-        method to strip the last segment off the URL. Editing
+        的方法来去掉URL的最后一部分。编辑
         <code>
             selectedFolder
         </code>
-        will trigger the update as before.
+        就会像之前一样触发更新。
     </p>
     <p>
-        Build and run again; confirm that you can select a folder, double-click
-        to move down into a sub-folder and click
+        Build and run again; confirm that you can select a folder, double-click to move down into a sub-folder and click
         <em>
             Move Up
         </em>
-        to go back up the folder hierarchy. You can move up even before double-clicking
-        a folder, as long as you are not already at the root level.
+        to go back up the folder hierarchy. 
+        You can move up even before double-clicking a folder, 
+        as long as you are not already at the root level.
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/MoveDownUp.gif"
