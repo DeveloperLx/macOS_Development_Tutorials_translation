@@ -1465,85 +1465,80 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <ol>
         <li>
-            Confirm that everything you need is available: a window for displaying
-            the panel and the
+            确认每样你需要的都存在：一个用来展示面板的窗口，已经你将要保存的
             <code>
                 URL
             </code>
-            whose info you are going to save.
+            。
         </li>
         <li>
-            Create an
+            创建一个
             <code>
                 NSSavePanel
             </code>
-            .
+            。
         </li>
         <li>
-            Set the
+            设置
             <code>
                 directoryURL
             </code>
-            property which dictates the initial folder shown in the panel.
+            property，它会指定展示在面板中的发起目录。
         </li>
         <li>
-            Set the
+            设置
             <code>
                 nameFieldStringValue
             </code>
-            property to supply a default name of the file.
+            property，来为文件设置一个默认的名称。            
         </li>
         <li>
-            Show the panel and wait in a closure for the user to finish.
+            展示面板，并在一个闭包中来等待用户完成。
         </li>
         <li>
-            If the user selects a valid path for the data file (a valid
+            如果用户选择了一个有效的数据文件的路径（一个有效的
             <code>
                 URL
             </code>
-            ) and clicks the
+            ）并点击
             <em>
                 OK
             </em>
-            button, get the file information and write it to the selected file. If
-            there is an error, show a dialog. Note that if the user clicks
+            按钮，获取文件信息并将它写入到被选择的文件中。如果出现错误，就展示一个对话框。注意如果用户在保持的对话框中点击
             <em>
                 Cancel
             </em>
-            on the save dialog, you simply ignore the operation.
+            ，你只需忽略操作。
         </li>
     </ol>
     <p>
         <code>
             write(to:atomically:encoding)
         </code>
-        is a String method that writes the string to the provided
+        是一个字符串的方法，它会将字符串写入到被提供的
         <code>
             URL
         </code>
-        . The
+        中。
         <code>
             atomically
         </code>
-        option means that the string will be written to a temporary file and then
-        renamed, ensuring that you won’t end up with a corrupt file — even if the
-        system crashes during the write. The encoding for the text in this file
-        is set to
+        选项意味着字符串将会写入到一个临时的文件中，并进行重命名，确保你不会在一个坏掉的文件上结束 - 即使系统在写入过程中崩溃了。在这个文件中，文本的编码方式被设置为
         <em>
             UTF8
         </em>
-        , which is a commonly used standard.
+        ，这是一个通用的标准。
     </p>
     <p>
-        Build and run, select a file or folder from the table and click
+        Build并运行，从列表中选择一个文件或目录，点击
         <em>
             Save Info
         </em>
-        . Select a save location, and click
+        。选择一个待保存的位置，并点击
         <em>
             Save
         </em>
-        . You will end up with a text file that looks similar to the following:
+        。你会以一个文本文件结束，看起来就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/SavedFile.png"
@@ -1553,228 +1548,110 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        One neat feature of using
+        使用
         <code>
             NSSavePanel
         </code>
-        is that if you try to overwrite a file that already exists, your app will
-        automatically display a confirmation dialog asking if you want to replace
-        that file.
+        的一个很好的特性，就是如果你尝试覆盖一个早已存在的文件，你的app会自动展示一个确认对话框，询问你是否想要替换文件。
     </div>
     <p>
-        That closes off the list of features for this app, but there is one more
-        feature I think would be a nice addition: recording the selected folder
-        and item so that when the app restarts, the last selected folder is re-displayed.
+        这已经闭环了app的特性列表，但这里还有一个很好的特性可以添加：当app重新启动时，记录被选择的目录和项目，将最后被选择的目录再展示出来。
     </p>
     <h3>
-        Saving App State
+        保存App的状态
     </h3>
     <p>
-        Normally, I would store app-state data in
+        通常，我会把app状态的数据保存到
         <code>
             UserDefaults
         </code>
-        , which is saved automatically for you in the
+        中，它会为你自动保存到
         <em>
             Preferences
         </em>
-        folder. But that doesn't allow you to do anything fancy with the file
-        system. Instead, you will save this data to a dedicated app folder inside
-        the
+        目录中。但不允许你对文件系统做任何事。相反，你会保存这个数据到
         <em>
             Application Support
         </em>
-        folder.
+        目录中的专用的app目录中。
     </p>
     <p>
-        Scroll down to the end of
+        滚动到
         <em>
             ViewController.swift
         </em>
-        and you’ll see an extension dedicated to saving and restoring the user's
-        selections.
+        的尾部，你会看到一个extension，专门用来保存和恢复用户的选择。
     </p>
     <p>
-        I’ve provided the functions that do the actual writing and reading. Writing
-        uses the same
+        我已经提供了用来进行实际的读写的方法。写入会使用和保存info file相同的
         <code>
             write(to:atomically:encoding)
         </code>
-        method used when saving the info file. Reading uses a
+        方法。读取则使用一个
         <code>
             String
         </code>
-        initializer to create a
+        构造器，从
+        <code>
+            URL
+        </code>
+        创建一个
         <code>
             String
         </code>
-        from a
-        <code>
-            URL
-        </code>
-        .
+        。
     </p>
     <p>
-        The really interesting thing here is how to decide where to save the data.
-        You’ll do that in
+        一个非常有趣的事是如何决定去哪里保存数据。你会在
         <code>
             urlForDataStorage
         </code>
-        , which is returning
+        来做这件事，它现在返回的是
         <code>
             nil
         </code>
-        at the moment.
+        。
     </p>
     <p>
-        Replace
+        使用下列的代码替换
         <code>
             urlForDataStorage
         </code>
-        with the following:
+        ：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                urlForDataStorage
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            URL
-        </span>
-        ? {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileManager =
-        <span class="hljs-type">
-            FileManager
-        </span>
-        .
-        <span class="hljs-keyword">
-            default
-        </span>
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        folder = fileManager.urls(
-        <span class="hljs-keyword">
-            for
-        </span>
-        : .applicationSupportDirectory,
-        <span class="hljs-keyword">
-            in
-        </span>
-        : .userDomainMask).first
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            nil
-        </span>
-        }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        appFolder = folder.appendingPathComponent(
-        <span class="hljs-string">
-            "FileSpy"
-        </span>
-        )
-        <span class="hljs-keyword">
-            var
-        </span>
-        isDirectory:
-        <span class="hljs-type">
-            ObjCBool
-        </span>
-        =
-        <span class="hljs-literal">
-            false
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        folderExists = fileManager.fileExists(atPath: appFolder.path, isDirectory:
-        &amp;isDirectory)
-        <span class="hljs-keyword">
-            if
-        </span>
-        !folderExists || !isDirectory.boolValue {
-        <span class="hljs-keyword">
-            do
-        </span>
-        {
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            try
-        </span>
-        fileManager.createDirectory(at: appFolder, withIntermediateDirectories:
-        <span class="hljs-literal">
-            true
-        </span>
-        , attributes:
-        <span class="hljs-literal">
-            nil
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            nil
-        </span>
-        } }
-        <span class="hljs-comment">
-            // 5
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        dataFileUrl = appFolder.appendingPathComponent(
-        <span class="hljs-string">
-            "StoredState.txt"
-        </span>
-        )
-        <span class="hljs-keyword">
-            return
-        </span>
-        dataFileUrl }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">urlForDataStorage</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">URL</span>? {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> fileManager = <span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> folder = fileManager.urls(<span class="hljs-keyword">for</span>: .applicationSupportDirectory,
+                                      <span class="hljs-keyword">in</span>: .userDomainMask).first <span class="hljs-keyword">else</span> {
+                                        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+  }
+
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">let</span> appFolder = folder.appendingPathComponent(<span class="hljs-string">"FileSpy"</span>)
+  <span class="hljs-keyword">var</span> isDirectory: <span class="hljs-type">ObjCBool</span> = <span class="hljs-literal">false</span>
+  <span class="hljs-keyword">let</span> folderExists = fileManager.fileExists(atPath: appFolder.path, 
+  			                    isDirectory: &amp;isDirectory)
+  <span class="hljs-keyword">if</span> !folderExists || !isDirectory.boolValue {
+    <span class="hljs-keyword">do</span> {
+      <span class="hljs-comment">// 4</span>
+      <span class="hljs-keyword">try</span> fileManager.createDirectory(at: appFolder,
+                                      withIntermediateDirectories: <span class="hljs-literal">true</span>,
+                                      attributes: <span class="hljs-literal">nil</span>)
+    } <span class="hljs-keyword">catch</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+    }
+  }
+
+  <span class="hljs-comment">// 5</span>
+  <span class="hljs-keyword">let</span> dataFileUrl = appFolder.appendingPathComponent(<span class="hljs-string">"StoredState.txt"</span>)
+  <span class="hljs-keyword">return</span> dataFileUrl
+}
+</pre>
     <p>
         What is all this code doing?
     </p>
