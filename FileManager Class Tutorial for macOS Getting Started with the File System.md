@@ -1289,98 +1289,64 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <ol>
         <li>
-            Check to see whether the double-click occurred on a populated row. Clicking
-            in a blank part of the table sets the
+            检查双击是否发生在一个已填充的行上。如果点击在table的空白的部分，就会将
             <code>
-                tableView's
+                tableView的
             </code>
-            selectedRow to -1.
+            selectedRow设置为-1。
         </li>
         <li>
-            Get the matching
-            <code>
-                URL
-            </code>
-            from
+            从
             <code>
                 filesList
             </code>
-            .
-        </li>
-        <li>
-            If the
+            中获取匹配的
             <code>
                 URL
             </code>
-            is a folder, set the
+            。
+        </li>
+        <li>
             <code>
-                ViewController's
+                URL
+            </code>
+            是一个目录，设置
+            <code>
+                ViewController的
             </code>
             <code>
                 selectedFolder
             </code>
-            property. Just like when you select a folder using the Select Folder button,
-            setting this property triggers the property observer to read the contents
-            of the folder and update the UI. If the
+            property。就像当你使用Select Folder按钮来选择一个目录一样，设置这个property就会触发property的观察者来读取目录的内容，并更新UI。如果
             <code>
                 URL
             </code>
-            is not a folder, nothing happens.
+            不是目录，则不执行任何事。
         </li>
     </ol>
     <p>
-        Build and run, select a folder containing other folders, and then double-click
-        a folder in the list to drill down into it.
+        Build并运行，选择一个包含其它目录的目录，然后双击这个列表中的目录进入它。
     </p>
     <p>
         <em>
-            Handle the Move Up Button
+            处理Move Up按钮
         </em>
     </p>
     <p>
-        Once you have implemented double-click to drill down, the next obvious
-        step is to move back up the tree.
+        一旦你实现了双击进入目录，接下来显然就应该是移回到“树”上了。
     </p>
     <p>
-        Find the empty
+        找到空的
         <code>
             moveUpClicked
         </code>
-        method and replace it with the following:
+        方法并用下列的代码来替换它：
     </p>
-    <pre lang="swift" class="hljs swift">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                moveUpClicked
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        selectedFolder?.path ==
-        <span class="hljs-string">
-            "/"
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        } selectedFolder = selectedFolder?.deletingLastPathComponent() }
-    </pre>
+    <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">moveUpClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-keyword">if</span> selectedFolder?.path == <span class="hljs-string">"/"</span> { <span class="hljs-keyword">return</span> }
+  selectedFolder = selectedFolder?.deletingLastPathComponent()
+}
+</pre>
     <p>
         This first checks to see whether the
         <code>
