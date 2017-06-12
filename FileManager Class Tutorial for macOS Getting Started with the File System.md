@@ -1796,80 +1796,78 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         </div>
     </div>
     <p>
-        You can download the
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/04/FileSpy-Final.zip"
         sl-processed="1">
-            final sample project
+            这里
         </a>
-        here.
+        下载最后的示例项目。
     </p>
     <p>
-        In this
+        在
         <code>
             FileManager
         </code>
-        class tutorial:
+        类的教程中：
     </p>
     <ol>
         <li>
-            You learned how
-            <code>
-                URLs
-            </code>
-            can represent local files and folders and can show many properties available
-            to you about a file or folder.
-        </li>
-        <li>
-            You learned how you can add and remove
-            <em>
-                path components
-            </em>
-            to a
+            你学到了
             <code>
                 URL
             </code>
-            .
+            如何表示本地的文件和目录，以及展示关于文件或目录的有用的属性。
         </li>
         <li>
-            You explored the
+            你学到了如何添加和删除一个
+            <code>
+                URL
+            </code>
+            中的
+            <em>
+                路径成分
+            </em>
+            。
+        </li>
+        <li>
+            你探究了
             <code>
                 FileManager
             </code>
-            class which gives you access properties like
+            类，如property
             <code>
                 homeDirectoryForCurrentUser
             </code>
-            , the
+            ，
             <code>
                 applicationSupportDirectory
             </code>
-            and even
+            ，甚至
             <code>
                 attributesOfItem
             </code>
-            with detailed information about a file or folder.
+            ，它包含了一个文件或目录的详细信息。
         </li>
         <li>
-            You learned how to save information to a file.
+            你学到了如何保持一个文件的相关信息。
         </li>
         <li>
-            You learned how to check if a file or folder exists.
+            你学到了如何查看一个文件或目录是否存在。
         </li>
     </ol>
     <p>
-        For more information, check out
+        有关更多的信息，请访问
         <a href="https://developer.apple.com/reference/foundation/filemanager"
         sl-processed="1">
-            Apple's FileManager API Reference Documentation
+            苹果FileManager API参考文档
         </a>
-        which shows many more of the available methods in the
+        ，你可以找到更多关于
         <code>
             FileManager
         </code>
-        class.
+        类中可用的方法。
     </p>
     <p>
-        You are now ready to begin incorporating the use of files and folders
-        in your own apps.
+        现在，你已经可以开始在你自己的app中应用关于文件和目录的知识了。
     </p>
 </div>
