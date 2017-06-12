@@ -1743,36 +1743,36 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        If you want to see the stored-state data file, hold down
+        如果你想查看存储状态的数据文件，就按住
         <em>
             Option
         </em>
-        while clicking on
+        键，然后点击
         <em>
-            Finder's Go
+            Finder的Go
         </em>
-        menu and select
+        菜单并选择
         <em>
             Library
         </em>
-        . In the new Finder window, open
+        。在新的Finder窗口中，打开
         <em>
             Application Support
         </em>
-        and look for the
+        并查找
         <em>
             FileSpy
         </em>
-        folder. You should see the
+        目录。你应该会看到带有你选择的目录和项目的
         <em>
             StoredState.txt
         </em>
-        file with your selected folder and item.
+        文件。
     </div>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1784,10 +1784,11 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
