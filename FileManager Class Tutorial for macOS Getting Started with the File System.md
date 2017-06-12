@@ -1653,60 +1653,55 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
 }
 </pre>
     <p>
-        What is all this code doing?
+        这些代码都做了些什么？
     </p>
     <ol>
         <li>
-            It’s your old friend
+            又是你的老朋友
             <code>
                 FileManager
             </code>
-            class to the rescue again. :]
+            。:]
         </li>
         <li>
-            The
             <code>
                 FileManager
             </code>
-            class has a method for returning a list of appropriate
+            有一个方法，可以返回对于指定用途的恰当的
             <code>
-                URLs
+                URL
             </code>
-            for specific uses. In this case, you are  looking for the
+            的列表。在这个case中，你会在用户当前的目录下查找
             <code>
                 applicationSupportDirectory
             </code>
-            in the current user's directory. It is unlikely to return more than one
-            URL, but you only want to take the first one. You can use this method with
-            different parameters to locate many different folders.
+            。这个基本上是不大可能返回超过一个的URL的，并且你只想获取第一个元素。你可以用不同的参数来调用这个方法，来找到更多不同的目录。
         </li>
         <li>
-            As you did in the playground, append a path component to create an app-specific
-            folder
+            就像你在playground中做的一样，添加一个路径成分来创建一个app指定目录的
             <code>
                 URL
             </code>
-            and check to see if it exists.
+            ，并检查它是否存在。
         </li>
         <li>
-            If the folder does not exist, try to create it and any intermediate folders
-            along the path, returning
+            如果这个目录不存在，尝试创建它，以及任何由路径决定的中间目录。如果创建失败的话，就返回
             <code>
                 nil
             </code>
-            if this fails.
+            。
         </li>
         <li>
-            Append another path component to create the full
+            添加另一个路径成分，来创建数据文件的完整的
             <code>
                 URL
             </code>
-            for the data file and return that.
+            ，并返回它。
         </li>
     </ol>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
         <code>
             .applicationSupportDirectory
