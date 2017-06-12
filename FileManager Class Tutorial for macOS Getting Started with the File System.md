@@ -1706,37 +1706,34 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         <code>
             .applicationSupportDirectory
         </code>
-        is a short way to say
+        是
         <code>
             FileManager.SearchPathDirectory.applicationSupportDirectory
         </code>
-        .
+        的一个简写的方式。
         <code>
             .userDomainMask
         </code>
-        refers to
+        则指向了
         <code>
             FileManager.SearchPathDomainMask.userDomainMask
         </code>
-        . While the shorthand is much easier to type and read, it is useful to
-        know where these come from, so you can find them in the documentation if
-        you ever need to look them up.
+        。虽然简写的方式会更容易输入和阅读，但完整的方式会更有用于了解这些来自于哪里，因此如果需要的话，你可以在文档中找到他们。
     </div>
     <p>
-        Build and run, select a folder, then click on a folder or file. Use the
+        Build并运行，选择一个目录，然后点击一个目录或文件。使用
         <em>
             Quit
         </em>
-        menu item or
+        菜单项或
         <em>
             Command-Q
         </em>
-        to close the app. Don’t quit via
+        来关闭app。不要通过
         <em>
             Xcode
         </em>
-        , or the lifecycle methods won’t trigger a save. Run the app again and
-        notice it opens up to the file or folder you were viewing when you quit.
+        来退出，否则生命循环的方法就不会触发保存的动作。再次运行app，可以注意到它自动打开了你上次退出时正在查看的文件或目录。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FileInfo.png"
