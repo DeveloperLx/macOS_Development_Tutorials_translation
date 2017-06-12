@@ -1672,7 +1672,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
             <code>
                 URLs
             </code>
-            for specific uses. In this case, you are looking for the
+            for specific uses. In this case, you are  looking for the
             <code>
                 applicationSupportDirectory
             </code>
