@@ -6,16 +6,15 @@
     <div class="note">
         <p>
             <em>
-                Update 9/25/16:
+                2016年9月25日更新：
             </em>
-            This tutorial has been updated for Xcode 8 and Swift 3.
+            本教程已更新至Xcode 8及Swift 3。
         </p>
         <p>
             <em>
-                Update note:
+                更新笔记：
             </em>
-            This tutorial has been updated to Swift by Hai Nguyen. The original tutorial
-            was written by Vincent Ngo.
+            本教程已由Hai Nguyen更新至Swift版。原教程是由Vincent Ngo所撰写的。
         </p>
     </div>
     <p>
@@ -23,13 +22,11 @@
         alt="NSScannerFeatureImage" width="250" height="250" class="alignright size-full wp-image-61878 bordered">
     </p>
     <p>
-        In these days of
+        在
         <i>
-            big data
+            大数据
         </i>
-        , data is stored in a multitude of formats, which poses a challenge to
-        anyone trying to consolidate and make sense of it. If you’re lucky, the
-        data will be in an organized, hierarchical format such as
+        时代，数据是以多种格式保存的，这就使得搞懂它变成了一项挑战。如果你很幸运，数据会是有组织的，层次的格式，就像
         <a href="http://www.json.org" sl-processed="1">
             JSON
         </a>
@@ -37,35 +34,30 @@
         <a href="https://en.wikipedia.org/wiki/XML" sl-processed="1">
             XML
         </a>
-        , or
+        ，
         <a href="https://en.wikipedia.org/wiki/Comma-separated_values" sl-processed="1">
             CSV
         </a>
-        . Otherwise, you might have to struggle with endless if/else cases. Either
-        way, manually extracting data is no fun.
+        这样。否则，你就可能会挣扎在无穷的if/case语句之间。另一方面，手动地抽取数据是非常无聊的。
     </p>
     <p>
-        Thankfully, Apple provides a set of tools that you can use to analyze
-        string data in any form, from natural to computer languages, such as
+        谢天谢地，苹果提供了一系列用来分析在任何形式下的字符串数据的工具，从自然的到电脑的语言，诸如
         <code>
             NSRegularExpression
         </code>
-        ,
+        ，
         <code>
             NSDataDetector
         </code>
-        or
+        或
         <code>
             Scanner
         </code>
-        . Each of them has its own advantages, but
+        。它们每种都有各自的有时，但
         <code>
             Scanner
         </code>
-        is by far the easiest to use yet powerful and flexible. In this tutorial,
-        you’ll learn how to extract information from email messages with its methods,
-        in order to build a macOS application that works like Apple Mail’s interface
-        as shown.
+        是到目前为止最容易使用的，不仅功能强大，而且非常灵活。在本教程中，你会学习如何使用它的方法从电子邮件的信息中抽取信息，来构建一个macOS应用，它工作起来就像下面苹果的Mail的界面这样。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Completed-Final-Screen-700x422.png"
@@ -74,57 +66,53 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Although you’ll be building an app for Mac,
+        尽管你是为Mac构建app，但
         <code>
             Scanner
         </code>
-        is also available on iOS. By the end of this tutorial, you will be ready
-        to parse text on either platform.
+        同样也可以用在iOS上。在这个教程的结尾，你将可以在任一平台上解析文本。
     </p>
     <p>
-        Before getting things started, let’s first see what
+        在开始之前，让我们来看一看
         <code>
             Scanner
         </code>
-        is capable of!
+        有哪些功能！
     </p>
     <h2>
-        Scanner Overview
+        Scanner概述
     </h2>
     <p>
         <code>
             Scanner
         </code>
-        ‘s main functionality is to retrieve and interpret substring and numeric
-        values.
+        的主要功能是检索和解释子字符串和数值。
     </p>
     <p>
-        For example,
+        例如，
         <code>
             Scanner
         </code>
-        can analyze a phone number and break it down into components like this:
+        可以分析一个电话号码，并将其拆分成像下面这样的几个部分：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287921">
-                    <td class="code" id="p128792code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1. let hyphen = CharacterSet(charactersIn: "-") &nbsp; // 2. let scanner
-                            = Scanner(string: "123-456-7890") scanner.charactersToBeSkipped = hyphen
-                            &nbsp; // 3. var areaCode, firstThreeDigits, lastFourDigits: NSString?
-                            &nbsp; scanner.scanUpToCharacters(from: hyphen, into: &amp;areaCode) //
-                            A scanner.scanUpToCharacters(from: hyphen, into: &amp;firstThreeDigits)
-                            // B scanner.scanUpToCharacters(from: hyphen, into: &amp;lastFourDigits)
-                            // C &nbsp; print(areaCode!, firstThreeDigits!, lastFourDigits!)// 123
-                            - area code // 456 - first three digits // 7890 - last four digits
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs cs"><span class="hljs-comment">// 1.</span>
+<span class="hljs-keyword">let</span> hyphen = CharacterSet(charactersIn: <span class="hljs-string">"-"</span>)
+
+<span class="hljs-comment">// 2.</span>
+<span class="hljs-keyword">let</span> scanner = Scanner(<span class="hljs-keyword">string</span>: <span class="hljs-string">"123-456-7890"</span>)
+scanner.charactersToBeSkipped = hyphen
+
+<span class="hljs-comment">// 3.</span>
+<span class="hljs-keyword">var</span> areaCode, firstThreeDigits, lastFourDigits: NSString?
+
+scanner.scanUpToCharacters(<span class="hljs-keyword">from</span>: hyphen, <span class="hljs-keyword">into</span>: &amp;areaCode)          <span class="hljs-comment">// A</span>
+scanner.scanUpToCharacters(<span class="hljs-keyword">from</span>: hyphen, <span class="hljs-keyword">into</span>: &amp;firstThreeDigits)  <span class="hljs-comment">// B</span>
+scanner.scanUpToCharacters(<span class="hljs-keyword">from</span>: hyphen, <span class="hljs-keyword">into</span>: &amp;lastFourDigits)    <span class="hljs-comment">// C</span>
+
+print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">// 123 - area code</span>
+<span class="hljs-comment">// 456 - first three digits</span>
+<span class="hljs-comment">// 7890 - last four digits</span>
+</pre>
     <p>
         Here’s what this code does:
     </p>
