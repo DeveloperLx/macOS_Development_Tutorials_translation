@@ -249,67 +249,64 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             <em>
                 DataSource.swift
             </em>
-            contains a pre-made structure that sets up the
+            包含一个预制的结构，它可以配置
             <em>
                 data source/delegate
             </em>
-            to populate a
+            来填充一个
             <em>
                 table view
             </em>
-            .
+            。
         </li>
         <li>
             <em>
                 PostCell.swift
             </em>
-            contains all the properties that you need to display each individual data
-            item.
+            包含所有你需要展示的每个独立数据项目的property。
         </li>
         <li>
             <em>
                 Support/Main.storyboard
             </em>
-            contains a
+            包含一个带有定制的cell的
             <em>
                 TableView
             </em>
-            with a custom cell on the left hand-side and a
+            ，位于左侧，以及在另一侧的
             <em>
                 TextView
             </em>
-            on the other.
+            。
         </li>
     </ul>
     <p>
-        You’ll be parsing the data of 49 sample files in
+        你将解析在
         <em>
             comp.sys.mac.hardware
         </em>
-        folder. Take a minute to browse though to see how it’s structured. You’ll
-        be collecting items like
+        中的49个样本文件中的数据。让我们来花一些时间来浏览它们的结构吧。你将会收集诸如
         <em>
             Name
         </em>
-        ,
+        ，
         <em>
             Email
         </em>
-        , and so on into a table so that they are easy to see at a glance.
+        等项目到一个table中，以便一眼把它们看懂。
     </p>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : The starter project uses table views to present the data, so if you’re
-        unfamiliar with table views, check out our
-        <a href="/?p=118835" sl-processed="1">
-            macOS NSTableView Tutorial
+        ：起始的项目使用了table view来展示数据，因此如果你不熟悉table view，请访问我们的
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20NSTableView%20Tutorial.md" sl-processed="1">
+            macOS NSTableView教程
         </a>
         .
     </div>
     <p>
-        Build and run the project to see it in action.
+        Build并运行项目来在实际中查看它。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Starter-Initial-Screen-683x500.png"
@@ -318,20 +315,17 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         sizes="(max-width: 683px) 100vw, 683px">
     </p>
     <p>
-        The table view currently displays placeholder labels with
+        table view当前使用
         <em>
             [Field]Value
         </em>
-        prefix. By the end of the tutorial, those will be replaced with parsed
-        data.
+        前缀展示占位的label。在这篇教程的最后，它们将会被解析过的数据来替换。
     </p>
     <h2>
-        Understanding the Structure of Raw Samples
+        理解原始样本的结构
     </h2>
     <p>
-        Before diving straight into parsing, it’s important to understand what
-        you’re trying to achieve. Below is one of the sample files, with the data
-        items you’ll be retrieving highlighted.
+        在深入解析之前，理解你要尝试实现什么结果是非常重要的。以下是样本文件中的一个，你将重点检索的数据项。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Data-Structure-Illustration-547x500.png"
@@ -340,7 +334,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         sizes="(max-width: 547px) 100vw, 547px">
     </p>
     <p>
-        In summary, these data items are:
+        总的来说，这些数据项目就是：
     </p>
     <ul>
         <li>
@@ -348,11 +342,9 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
                 <i>
                     From
                 </i>
-                field
+                域
             </em>
-            : this consists of the sender’s name and email. Parsing it can be tricky
-            since the name may come before the email or vice versa; it might even contain
-            one piece but not the other.
+            ：它包含了sender的名称和email。解析它是非常tricky的，因为名称可能会在email之前出现，反之亦然；它可能甚至只包含一个却不包含另一个。
         </li>
         <li>
             <em>
@@ -360,19 +352,19 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
                     Subject
                 </i>
             </em>
-            ,
+            ，
             <em>
                 <i>
                     Date
                 </i>
             </em>
-            ,
+            ，
             <em>
                 <i>
                     Organization
                 </i>
             </em>
-            and
+            和
             <em>
                 <i>
                     Lines
@@ -381,85 +373,83 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             <em>
                 fields
             </em>
-            : these have values separated by colons.
+            ：这些包含了由冒号分隔的值。
         </li>
         <li>
             <em>
                 <i>
                     Message
                 </i>
-                segment
+                部分
             </em>
-            : this can contain cost information and some of these following keywords:
+            ：包含了成本信息以及一些下面的关键字：
             <i>
                 apple
             </i>
-            ,
+            ，
             <i>
                 macs
             </i>
-            ,
+            ，
             <i>
                 software
             </i>
-            ,
+            ，
             <i>
                 keyboard
             </i>
-            ,
+            ，
             <i>
                 printer
             </i>
-            ,
+            ，
             <i>
                 video
             </i>
-            ,
+            ，
             <i>
                 monitor
             </i>
-            ,
+            ，
             <i>
                 laser
             </i>
-            ,
+            ，
             <i>
                 scanner
             </i>
-            ,
+            ，
             <i>
                 disks
             </i>
-            ,
+            ，
             <i>
                 cost
             </i>
-            ,
+            ，
             <i>
                 price
             </i>
-            ,
+            ，
             <i>
                 floppy
             </i>
-            ,
+            ，
             <i>
                 card
             </i>
-            , and
+            ，以及
             <i>
                 phone
             </i>
-            .
+            。
         </li>
     </ul>
     <p>
         <code>
             Scanner
         </code>
-        is awesome; however, working with it can feel a bit cumbersome and far
-        less “Swifty”, so you’ll convert the built-in methods like the one in the
-        phone number example above to ones that return optionals.
+        is awesome; however, working with it can feel a bit cumbersome and far less “Swifty”, so you’ll convert the built-in methods like the one in the phone number example above to ones that return optionals.
     </p>
     <p>
         Navigate to
