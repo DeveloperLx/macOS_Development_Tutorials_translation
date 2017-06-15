@@ -230,19 +230,19 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/EmailParser-starter-project.zip"
         sl-processed="1">
-            starter project
+            起始项目
         </a>
-        and extract the the contents of the ZIP file. Open
+        并提取出ZIP文件的内容。在Xcode中打开
         <em>
             EmailParser.xcodeproj
         </em>
-        in Xcode.
+        。
     </p>
     <p>
-        You’ll find the following:
+        你将发现下列的内容：
     </p>
     <ul>
         <li>
