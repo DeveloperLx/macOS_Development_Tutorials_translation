@@ -114,122 +114,120 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 <span class="hljs-comment">// 7890 - last four digits</span>
 </pre>
     <p>
-        Here’s what this code does:
+        以上代码做的事有：
     </p>
     <ol>
         <li>
-            Creates an instance of
+            创建的一个名为
+            <code>
+                hyphen
+            </code>
+            的
             <code>
                 CharacterSet
             </code>
-            named
-            <code>
-                hyphen
-            </code>
-            . This will be used as the separator between string components.
+            的实例。这将会作为字符串成分之间的分隔符。
         </li>
         <li>
-            Initializes a
+            初始化一个
             <code>
                 Scanner
             </code>
-            object and changes its
+            对象并改为
             <code>
                 charactersToBeSkipped
             </code>
-            default value (whitespace and linefeed) to
+            的默认值（空格和换行符）为
             <code>
                 hyphen
             </code>
-            , so the returning strings will NOT include any hyphens.
+            ，因此返回的字符串将不包含任何连字符。
         </li>
         <li>
             <code>
                 areaCode
             </code>
-            ,
+            ，
             <code>
                 firstThreeDigits
             </code>
-            and
+            和
             <code>
                 lastFourDigits
             </code>
-            will store parsed values that you get back from the scanner. Since you
-            cannot port
+            将会储存你从scanner返回的解析过的值。由于你无法将
             <em>
                 Swift
             </em>
-            native
+            本身的
             <code>
                 String
             </code>
-            directly to
+            直接作为
             <code>
                 AutoreleasingUnsafeMutablePointer
                 <nsstring?>
                 </nsstring?>
             </code>
-            , you have to declare these variables as optional
+            ，因此为了将他们传递给scanner的方法，你不得不将这些变量声明为可选的
             <code>
                 NSString
             </code>
-            objects in order to pass them into the scanner’s method.
+            对象。
             <ol>
                 <li>
-                    Scans up to the first
+                    扫描至第一个
                     <em>
                         –
                     </em>
-                    character and assigns the values in front of the hyphen character into
+                    字符并将连字符前的值分配到
                     <code>
                         areaCode
                     </code>
-                    .
+                    中。
                 </li>
                 <li>
-                    Continues scanning to the second
+                    继续扫描到第二个
                     <em>
                         –
                     </em>
-                    and grabs the next three digits into
+                    并抓取下面的三个数字到
                     <code>
                         firstThreeDigits
                     </code>
-                    . Before you invoke
+                    中。在调用
                     <code>
                         scanUpToCharactersFromSet(from:into:)
                     </code>
-                    , the scanner’s reading cursor was at the position of the first found
+                    之前，scanner的读取光标位于首次发现
                     <code>
                         -
                     </code>
-                    . With the hyphen ignored, you get the phone number’s second component.
+                    的位置。在忽略掉连字符之后，你就获得了电话号码的第二个成分。
                 </li>
                 <li>
-                    Finds the next
+                    寻找下一个
                     <code>
                         -
                     </code>
-                    . The scanner finishes the rest of the string and returns a successful
-                    status. With no hyphen left, it simply puts the remaining substring into
+                    。scanner结束了字符串的剩余部分，并返回一个成功的状态。之后就没有连字符了，scanner会将剩余的子字符串装到
                     <code>
                         lastFourDigits
                     </code>
-                    .
+                    中。
                 </li>
             </ol>
         </li>
     </ol>
     <p>
-        That’s all
+        这就是
         <code>
             Scanner
         </code>
-        does. It’s that easy! Now, it’s time to get your application started!
+        所作的全部的事。容易吧！现在，是时候来搞个app了！
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         Download the
