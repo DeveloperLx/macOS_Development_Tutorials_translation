@@ -449,61 +449,60 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         <code>
             Scanner
         </code>
-        is awesome; however, working with it can feel a bit cumbersome and far less “Swifty”, so you’ll convert the built-in methods like the one in the phone number example above to ones that return optionals.
+        是超赞的；然而，我们使用它的时候会感到有一些笨重，并且不那么的swift，因此你会转换內建的方法，就像上面那个电话号码的例子中一样，返回可选类型的值。
     </p>
     <p>
-        Navigate to
+        点击
         <em>
             File\New\File…
         </em>
-        (or simply press
+        （或只需按
         <em>
             Command+N
         </em>
-        ). Select
+        键）。选择
         <em>
             macOS &gt; Source &gt; Swift File
         </em>
-        and click
+        并单击
         <em>
             Next
         </em>
-        . Set the file’s name to
+        。设置文件的名称为
         <em>
             Scanner+.swift
         </em>
-        , then click
+        ，然后单击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             Scanner+.swift
         </em>
-        and add the following extension:
+        并添加下列的extension：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287922">
-                    <td class="code" id="p128792code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension Scanner { &nbsp; func scanUpToCharactersFrom(_ set: CharacterSet)
-                            -&gt; String? { var result: NSString? // 1. return scanUpToCharacters(from:
-                            set, into: &amp;result) ? (result as? String) : nil // 2. } &nbsp; func
-                            scanUpTo(_ string: String) -&gt; String? { var result: NSString? return
-                            self.scanUpTo(string, into: &amp;result) ? (result as? String) : nil }
-                            &nbsp; func scanDouble() -&gt; Double? { var double: Double = 0 return
-                            scanDouble(&amp;double) ? double : nil } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Scanner</span> </span>{
+  
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">scanUpToCharactersFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> <span class="hljs-keyword">set</span>: CharacterSet)</span></span> -&gt; <span class="hljs-type">String</span>? {
+    <span class="hljs-keyword">var</span> result: <span class="hljs-type">NSString</span>?                                                           <span class="hljs-comment">// 1.</span>
+    <span class="hljs-keyword">return</span> scanUpToCharacters(from: <span class="hljs-keyword">set</span>, into: &amp;result) ? (result <span class="hljs-keyword">as</span>? <span class="hljs-type">String</span>) : <span class="hljs-literal">nil</span> <span class="hljs-comment">// 2.</span>
+  }
+  
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">scanUpTo</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; <span class="hljs-type">String</span>? {
+    <span class="hljs-keyword">var</span> result: <span class="hljs-type">NSString</span>?
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.scanUpTo(string, into: &amp;result) ? (result <span class="hljs-keyword">as</span>? <span class="hljs-type">String</span>) : <span class="hljs-literal">nil</span>
+  }
+  
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">scanDouble</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Double</span>? {
+    <span class="hljs-keyword">var</span> double: <span class="hljs-type">Double</span> = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">return</span> scanDouble(&amp;double) ? double : <span class="hljs-literal">nil</span>
+  }
+}
+</pre>
     <p>
         These helper methods encapsulate some of the
         <code>
