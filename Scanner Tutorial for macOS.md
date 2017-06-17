@@ -1898,7 +1898,4 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             by Lorex Antiono (in Objective-C)
         </li>
     </ul>
-    <p>
-        If you have any questions or comments, please join the discussion below!
-    </p>
 </div>
