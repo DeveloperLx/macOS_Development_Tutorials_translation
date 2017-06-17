@@ -504,50 +504,49 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 }
 </pre>
     <p>
-        These helper methods encapsulate some of the
+        这些助手方法封装了一些你在这篇教程中用到的
         <code>
             Scanner
         </code>
-        methods you’ll use in this tutorial so that they return an optional
+        的方法，它们会返回
         <code>
             String
         </code>
-        . These three methods share the same structure:
+        的可选类型。这三个方法有着相同的结构：
     </p>
     <ol>
         <li>
-            Defines a
+            定义一个
             <code>
                 result
             </code>
-            variable to hold the value returned by the scanner.
+            变量来持有scanner返回的结果。
         </li>
         <li>
-            Uses a ternary operator to check whether the scan is successful. If it
-            is, converts
+            使用一个三元操作符来检查扫描是否成功。如果成功的话，将
             <code>
                 result
             </code>
-            to
+            转化为
             <code>
                 String
             </code>
-            and returns it; otherwise simply returns
+            并返回它；否则就返回
             <code>
                 nil
             </code>
-            .
+            。
         </li>
     </ol>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        You can do the same to other
+        就像上面这样，你可以用相同的方式来实现其它的
         <code>
             Scanner
         </code>
-        methods like you did above and save them to your arsenals:
+        方法，并将它们保存到你的武器库中：
         <p>
         </p>
         <ul>
