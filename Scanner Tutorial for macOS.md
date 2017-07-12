@@ -892,49 +892,48 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 }
 </pre>
     <p>
-        This extension defines a private helper method to find whether the string
-        matches a given pattern using regular expressions.
+        这个extension定义了一个私有的助手方法，来得出给到的字符串是否匹配给到的正则表达式。
     </p>
     <p>
-        It creates a
+        它用
         <code>
             NSPredicate
         </code>
-        object with a
+        操作符，使用正则表达式创建了一个
         <code>
-            MATCHES
+            NSPredicate
         </code>
-        operator using the regular expression pattern. Then it invokes
+        对象。然后调用
         <code>
             evaluate(with:)
         </code>
-        to check if the string matches the conditions of the pattern.
+        来检查字符串是否与之匹配。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        You can read more about
-        <code>
-            NSPredicate
-        </code>
-        in
+        你可以在
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSPredicate_Class/index.html"
         sl-processed="1">
             the official Apple documentation
         </a>
-        .
+        中读到更多的关于
+        <code>
+            NSPredicate
+        </code>
+        的内容。
     </div>
     <p>
-        Now add the following method inside the
+        现在添加下列的方法到
         <code>
             ParserEngine
         </code>
-        implementation, just after
+        实现的内部，就在
         <code>
             fieldsByExtractingFrom(_:)
         </code>
-        method:
+        方法之后：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fromInfoByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; (email: <span class="hljs-type">String</span>, sender: <span class="hljs-type">String</span>) {
   <span class="hljs-keyword">let</span> scanner = <span class="hljs-type">Scanner</span>(string: string)
