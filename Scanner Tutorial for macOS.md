@@ -301,7 +301,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20NSTableView%20Tutorial.md" sl-processed="1">
             macOS NSTableView教程
         </a>
-        .
+        。
     </div>
     <p>
         Build并运行项目来在实际中查看它。
@@ -323,7 +323,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         理解原始样本的结构
     </h2>
     <p>
-        在深入解析之前，理解你要尝试实现什么结果是非常重要的。以下是样本文件中的一个，你将重点检索的数据项。
+        在深入解析之前，理解你要实现的，是一个什么样的效果是非常重要的。以下是样本文件中的一个，你将重点检索的数据项。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Data-Structure-Illustration-547x500.png"
