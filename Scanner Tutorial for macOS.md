@@ -166,10 +166,8 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             直接作为
             <code>
                 AutoreleasingUnsafeMutablePointer
-                <nsstring?>
-                </nsstring?>
             </code>
-            ，因此为了将他们传递给scanner的方法，你不得不将这些变量声明为可选的
+            ，因此为了将他们传给scanner的方法，你不得不将这些变量声明为可选的
             <code>
                 NSString
             </code>
