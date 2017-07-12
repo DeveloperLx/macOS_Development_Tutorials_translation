@@ -655,61 +655,52 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         创建数据解析器
     </h2>
     <p>
-        Navigate to
+        找到
         <em>
             File\New\File…
         </em>
-        (or simply press
+        （或只需按下
         <em>
             Command+N
         </em>
-        ), select
+        键），选择
         <em>
             macOS &gt; Source &gt; Swift File
         </em>
-        and click
+        并点击
         <em>
             Next
         </em>
-        . Set the file’s name to
+        。设置文件的名称为
         <em>
             ParserEngine.swift
         </em>
-        , then click
+        ，然后点击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             ParserEngine.swift
         </em>
-        and create
+        并添加下列代码，创建
         <code>
             ParserEngine
         </code>
-        class by adding the following code:
+        类：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287924">
-                    <td class="code" id="p128792code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            final class ParserEngine { &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParserEngine</span> </span>{
+
+}
+</pre>
     <h3>
-        Extracting Metadata Fields
+        提取元数据字段
     </h3>
     <p>
-        Consider the following sample metadata segment:
+        考虑下列示例的元数据段：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Metadata-Segment-700x211.png"
@@ -718,12 +709,11 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Here’s where
+        这里是
         <code>
             Scanner
         </code>
-        comes in and separates the fields and their values. The image below gives
-        you a general visual representation of this structure.
+        进入并分割字段和它的值的地方。下面的图给出了你这个结构体的一般的视觉上的表示。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Field-Structure-Illustraion-700x75.png"
@@ -732,75 +722,81 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Open
+        打开
         <em>
             ParserEngine.swift
         </em>
-        and implement this code inside
+        并在
         <code>
             ParserEngine
         </code>
-        class:
+        类中添加下列的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287925">
-                    <td class="code" id="p128792code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1. typealias Fields = (sender: String, email: String, subject: String,
-                            date: String, organization: String, lines: Int) &nbsp; /// Returns a collection
-                            of predefined fields' extracted values func fieldsByExtractingFrom(_ string:
-                            String) -&gt; Fields { // 2. var (sender, email, subject, date, organization,
-                            lines) = ("", "", "", "", "", 0) &nbsp; // 3. let scanner = Scanner(string:
-                            string) scanner.charactersToBeSkipped = CharacterSet(charactersIn: " :\n")
-                            &nbsp; // 4. while !scanner.isAtEnd { // A let field = scanner.scanUpTo(":")
-                            ?? "" // B let info = scanner.scanUpTo("\n") ?? "" // C &nbsp; // D switch
-                            field { case "From": (email, sender) = fromInfoByExtractingFrom(info) //
-                            E case "Subject": subject = info case "Date": date = info case "Organization":
-                            organization = info case "Lines": lines = Int(info) ?? 0 default: break
-                            } } &nbsp; return (sender, email, subject, date, organization, lines) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1.</span>
+<span class="hljs-keyword">typealias</span> <span class="hljs-type">Fields</span> = (sender: <span class="hljs-type">String</span>, email: <span class="hljs-type">String</span>, subject: <span class="hljs-type">String</span>, date: <span class="hljs-type">String</span>, organization: <span class="hljs-type">String</span>, lines: <span class="hljs-type">Int</span>)
+
+<span class="hljs-comment">/// Returns a collection of predefined fields' extracted values</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fieldsByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; <span class="hljs-type">Fields</span> {
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-keyword">var</span> (sender, email, subject, date, organization, lines) = (<span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-number">0</span>)
+  
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-keyword">let</span> scanner = <span class="hljs-type">Scanner</span>(string: string)
+  scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">" :\n"</span>)
+  
+  <span class="hljs-comment">// 4.</span>
+  <span class="hljs-keyword">while</span> !scanner.isAtEnd {                  <span class="hljs-comment">// A</span>
+    <span class="hljs-keyword">let</span> field = scanner.scanUpTo(<span class="hljs-string">":"</span>) ?? <span class="hljs-string">""</span> <span class="hljs-comment">// B</span>
+    <span class="hljs-keyword">let</span> info = scanner.scanUpTo(<span class="hljs-string">"\n"</span>) ?? <span class="hljs-string">""</span> <span class="hljs-comment">// C</span>
+    
+    <span class="hljs-comment">// D</span>
+    <span class="hljs-keyword">switch</span> field {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"From"</span>: (email, sender) = fromInfoByExtractingFrom(info) <span class="hljs-comment">// E</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Subject"</span>: subject = info
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Date"</span>: date = info
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Organization"</span>: organization = info
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"Lines"</span>: lines = <span class="hljs-type">Int</span>(info) ?? <span class="hljs-number">0</span>
+    <span class="hljs-keyword">default</span>: <span class="hljs-keyword">break</span>
+    }
+  }
+  
+  <span class="hljs-keyword">return</span> (sender, email, subject, date, organization, lines)
+}
+</pre>
     <p>
-        Don’t panic! The
+        不要惊慌！
         <em>
             Xcode
         </em>
-        error of an unresolved identifier will go away right in the next section.
+        上的未解决的标识符的错误，将会在下一部分中消失。
     </p>
     <p>
-        Here’s what the above code does:
+        这里是以上代码所做的事：
     </p>
     <ol>
         <li>
-            Defines a
+            为解析到的字段的元组定义一个
             <code>
                 Fields
             </code>
-            type alias for the tuple of parsed fields.
+            类型的别名。
         </li>
         <li>
-            Creates variables that will hold the returning values.
+            创建用来持有返回值的变量
         </li>
         <li>
-            Initializes a
+            初始化一个
             <code>
                 Scanner
             </code>
-            instance and changes its
+            示例，并将它的
             <code>
                 charactersToBeSkipped
             </code>
-            property to also include a colon beside the default values – whitespace
-            and linefeed.
+            property改变为除了它的默认值（空格和换行符）外，还包含一个冒号。
         </li>
         <li>
-            Obtains values of all the wanted fields by repeating the process below:
+            通过重复下列的过程，获取全部想要的字段的值：
             <ol>
                 <li>
                     Uses
