@@ -14,7 +14,7 @@
             <em>
                 更新笔记：
             </em>
-            本教程已由Hai Nguyen更新至Swift版。原教程是由Vincent Ngo所撰写的。
+            本教程已由Hai Nguyen更新至Swift版。原教程由Vincent Ngo撰写。
         </p>
     </div>
     <p>
@@ -26,7 +26,7 @@
         <i>
             大数据
         </i>
-        时代，数据是以多种格式保存的，这就使得搞懂它变成了一项挑战。如果你很幸运，数据会是有组织的，层次的格式，就像
+        时代，数据是以多种格式保存的，这就使得处理它成为了一项挑战。如果你幸运的话，数据会是有组织和层次的格式，就像
         <a href="http://www.json.org" sl-processed="1">
             JSON
         </a>
@@ -38,7 +38,7 @@
         <a href="https://en.wikipedia.org/wiki/Comma-separated_values" sl-processed="1">
             CSV
         </a>
-        这样。否则，你就可能会挣扎在无穷的if/case语句之间。另一方面，手动地抽取数据是非常无聊的。
+        这样。否则，你就会挣扎在无尽的if/case语句之间。另一方面，手动地摘取数据也是非常无聊的。
     </p>
     <p>
         谢天谢地，苹果提供了一系列用来分析在任何形式下的字符串数据的工具，从自然的到电脑的语言，诸如
@@ -53,11 +53,11 @@
         <code>
             Scanner
         </code>
-        。它们每种都有各自的有时，但
+        。它们各自都有各自的优势，但到目前为止，
         <code>
             Scanner
         </code>
-        是到目前为止最容易使用的，不仅功能强大，而且非常灵活。在本教程中，你会学习如何使用它的方法从电子邮件的信息中抽取信息，来构建一个macOS应用，它工作起来就像下面苹果的Mail的界面这样。
+        是最容易使用的，不仅功能强大，而且非常灵活。在本教程中，你将会学习如何使用它，来从电子邮件的信息中抽取信息，去构建一个macOS应用。它工作起来，就像如下所示的苹果的Mail界面这样。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Completed-Final-Screen-700x422.png"
@@ -133,11 +133,11 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             <code>
                 Scanner
             </code>
-            对象并改为
+            对象，并将它的
             <code>
                 charactersToBeSkipped
             </code>
-            的默认值（空格和换行符）为
+            默认值（空格和换行符）修改为
             <code>
                 hyphen
             </code>
