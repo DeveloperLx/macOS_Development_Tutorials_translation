@@ -799,108 +799,98 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             通过重复下列的过程，获取全部想要的字段的值：
             <ol>
                 <li>
-                    Uses
+                    使用
                     <code>
                         while
                     </code>
-                    to loop through
+                    来循环访问
                     <code>
                         string
                     </code>
-                    ‘s content until it reaches the end.
+                    的内容，直到它的结尾处。
                 </li>
                 <li>
-                    Invokes one of the helper functions you created earlier to get
+                    调用你之前创建的工具方法之一，来获取
                     <code>
                         field
                     </code>
-                    ‘s title before
+                    位于
                     <code>
                         :
                     </code>
-                    .
+                    之前的标题。
                 </li>
                 <li>
-                    Continues scanning up to the end of the line where the linefeed character
+                    继续扫描至行尾
                     <code>
                         \n
                     </code>
-                    is located and assigns the result to
+                    处，并将结果赋值给
                     <code>
                         info
                     </code>
-                    .
+                    。
                 </li>
                 <li>
-                    Uses
+                    使用
                     <code>
                         switch
                     </code>
-                    to find the matching field and stores its
+                    来找到匹配的字段，并将它的
                     <code>
                         info
                     </code>
-                    property value into the proper variable.
+                    property的值储存到合适的变量中。                    
                 </li>
                 <li>
-                    Analyzes
-                    <i>
-                        From
-                    </i>
-                    field by calling
+                    调用
                     <code>
                         fromInfoByExtractingFrom(_:)
                     </code>
-                    . You’ll implement the method after this section.
+                    分析
+                    <i>
+                        From
+                    </i>
+                    字段。你将在这部分之后实现这个方法。
                 </li>
             </ol>
         </li>
     </ol>
     <p>
-        Remember the tricky part of
+        还记得
         <i>
             From
         </i>
-        field? Hang tight because you’re going to need help from regular expression
-        to overcome this challenge.
+        字段这个tricky的部分么？挺住，你将在正则表达式的帮助下克服这个挑战。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Regular expressions are a great tool to manipulate strings with patterns,
-        and this
-        <a href="/?p=30288" sl-processed="1">
-            NSRegularExpression Tutorial
+        正则表达式是处理模式字符串的好工具，这篇
+        <a href="https://www.raywenderlich.com/30288/nsregularexpression-tutorial-and-cheat-sheet" sl-processed="1">
+            NSRegularExpression教程
         </a>
-        gives a good overview of how to use them.
+        会给你一个很好的关于如何使用它的概览。
     </div>
     <p>
-        At the end of
+        在
         <em>
             ParserEngine.swift
         </em>
-        , add the following
+        的末尾，添加下列的
         <code>
             String
         </code>
-        extension:
+        的extension：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287926">
-                    <td class="code" id="p128792code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            private extension String { &nbsp; func isMatched(_ pattern: String) -&gt;
-                            Bool { return NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with:
-                            self) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
+  
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isMatched</span><span class="hljs-params">(<span class="hljs-number">_</span> pattern: String)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-type">NSPredicate</span>(format: <span class="hljs-string">"SELF MATCHES %@"</span>, pattern).evaluate(with: <span class="hljs-keyword">self</span>)
+  }
+}
+</pre>
     <p>
         This extension defines a private helper method to find whether the string
         matches a given pattern using regular expressions.
@@ -946,32 +936,46 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </code>
         method:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287927">
-                    <td class="code" id="p128792code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate func fromInfoByExtractingFrom(_ string: String) -&gt; (email:
-                            String, sender: String) { let scanner = Scanner(string: string) &nbsp;
-                            // 1. /* * ROGOSCHP@MAX.CC.Uregina.CA (Are we having Fun yet ???) * oelt0002@student.tc.umn.edu
-                            (Bret Oeltjen) * (iisi owner) * mbuntan@staff.tc.umn.edu () * barry.davis@hal9k.ann-arbor.mi.us
-                            (Barry Davis) */ if string.isMatched(".*[\\s]*\\({1}(.*)") { // A scanner.charactersToBeSkipped
-                            = CharacterSet(charactersIn: "() ") // B &nbsp; let email = scanner.scanUpTo("(")
-                            // C let sender = scanner.scanUpTo(")") // D &nbsp; return (email ?? "",
-                            sender ?? "") } &nbsp; // 2. /* * "Jonathan L. Hutchison" &lt;jh6r+@andrew.cmu.edu&gt;
-                            * &lt;BR4416A@auvm.american.edu&gt; * Thomas Kephart &lt;kephart@snowhite.eeap.cwru.edu&gt;
-                            * Alexander Samuel McDiarmid &lt;am2o+@andrew.cmu.edu&gt; */ if string.isMatched(".*[\\s]*&lt;{1}(.*)")
-                            { scanner.charactersToBeSkipped = CharacterSet(charactersIn: "&lt;&gt;
-                            ") &nbsp; let sender = scanner.scanUpTo("&lt;") let email = scanner.scanUpTo("&gt;")
-                            &nbsp; return (email ?? "", sender ?? "") } &nbsp; // 3. return ("unknown",
-                            string) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fromInfoByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; (email: <span class="hljs-type">String</span>, sender: <span class="hljs-type">String</span>) {
+  <span class="hljs-keyword">let</span> scanner = <span class="hljs-type">Scanner</span>(string: string)
+  
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-comment">/*
+   * ROGOSCHP@MAX.CC.Uregina.CA (Are we having Fun yet ???)
+   * oelt0002@student.tc.umn.edu (Bret Oeltjen)
+   * (iisi owner)
+   * mbuntan@staff.tc.umn.edu ()
+   * barry.davis@hal9k.ann-arbor.mi.us (Barry Davis)
+   */</span>
+  <span class="hljs-keyword">if</span> string.isMatched(<span class="hljs-string">".*[\\s]*\\({1}(.*)"</span>) { <span class="hljs-comment">// A</span>
+    scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"() "</span>) <span class="hljs-comment">// B</span>
+    
+    <span class="hljs-keyword">let</span> email = scanner.scanUpTo(<span class="hljs-string">"("</span>)  <span class="hljs-comment">// C</span>
+    <span class="hljs-keyword">let</span> sender = scanner.scanUpTo(<span class="hljs-string">")"</span>) <span class="hljs-comment">// D</span>
+    
+    <span class="hljs-keyword">return</span> (email ?? <span class="hljs-string">""</span>, sender ?? <span class="hljs-string">""</span>)
+  }
+  
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-comment">/*
+   * "Jonathan L. Hutchison" &lt;jh6r+@andrew.cmu.edu&gt;
+   * &lt;BR4416A@auvm.american.edu&gt;
+   * Thomas Kephart &lt;kephart@snowhite.eeap.cwru.edu&gt;
+   * Alexander Samuel McDiarmid &lt;am2o+@andrew.cmu.edu&gt;
+   */</span>
+  <span class="hljs-keyword">if</span> string.isMatched(<span class="hljs-string">".*[\\s]*&lt;{1}(.*)"</span>) {
+    scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"&lt;&gt; "</span>)
+    
+    <span class="hljs-keyword">let</span> sender = scanner.scanUpTo(<span class="hljs-string">"&lt;"</span>)
+    <span class="hljs-keyword">let</span> email = scanner.scanUpTo(<span class="hljs-string">"&gt;"</span>)
+    
+    <span class="hljs-keyword">return</span> (email ?? <span class="hljs-string">""</span>, sender ?? <span class="hljs-string">""</span>)
+  }
+  
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-keyword">return</span> (<span class="hljs-string">"unknown"</span>, string)
+}
+</pre>
     <p>
         After examining the 49 data sets, you end up with three cases to consider:
     </p>
