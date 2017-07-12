@@ -578,83 +578,81 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </ul>
     </div>
     <p>
-        Simple, right? Now go back to the main project and start parsing!
+        很简单，不是么？现在返回主项目并开始进行解析吧！
     </p>
     <h2>
-        Creating the Data Structure
+        创建数据结构
     </h2>
     <p>
-        Navigate to
+        找到
         <em>
             File\New\File…
         </em>
-        (or simply press
+        （或只需按下
         <em>
             Command+N
         </em>
-        ). Select
+        键）。选择
         <em>
             macOS &gt; Source &gt; Swift File
         </em>
-        and click
+        并单击
         <em>
             Next
         </em>
-        . Set the file’s name to
+        。设置文件的名称为
         <em>
             HardwarePost.swift
         </em>
-        , then click
+        ，然后单击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             HardwarePost.swift
         </em>
-        and add the following structure:
+        并添加下列的结构体：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287923">
-                    <td class="code" id="p128792code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            struct HardwarePost { // MARK: Properties &nbsp; // the fields' values
-                            once extracted placed in the properties let email: String let sender: String
-                            let subject: String let date: String let organization: String let numberOfLines:
-                            Int let message: String &nbsp; let costs: [Double] // cost related information
-                            let keywords: Set&lt;String&gt; // set of distinct keywords }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">HardwarePost</span> </span>{
+  <span class="hljs-comment">// MARK: Properties</span>
+  
+  <span class="hljs-comment">// the fields' values once extracted placed in the properties</span>
+  <span class="hljs-keyword">let</span> email: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> sender: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> subject: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> date: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> organization: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> numberOfLines: <span class="hljs-type">Int</span>
+  <span class="hljs-keyword">let</span> message: <span class="hljs-type">String</span>
+  
+  <span class="hljs-keyword">let</span> costs: [<span class="hljs-type">Double</span>]         <span class="hljs-comment">// cost related information</span>
+  <span class="hljs-keyword">let</span> keywords: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">String</span>&gt;   <span class="hljs-comment">// set of distinct keywords</span>
+}
+</pre>
     <p>
-        This code defines
+        以上代码定义了
         <code>
             HardwarePost
         </code>
-        structure that stores the parsed data. By default,
+        结构体，它可以用来储存解析到的数据。默认情况下，
         <em>
             Swift
         </em>
-        provides you a default constructor based on its properties, but you’ll
-        come back to this later to implement your own custom initializer.
+        基于结构体的property，向你提供了一个默认的构造方法，但你会在之后回到这里，来实现你自己的初始化方法。
     </p>
     <p>
-        Are you ready for parsing in action with
+        准备好用
         <code>
             Scanner
         </code>
-        ? Let’s do this.
+        解析数据了么？动手吧。
     </p>
     <h2>
-        Creating the Data Parser
+        创建数据解析器
     </h2>
     <p>
         Navigate to
