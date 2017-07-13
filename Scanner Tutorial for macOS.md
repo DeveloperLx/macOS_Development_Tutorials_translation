@@ -1101,76 +1101,74 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
         <code>
             NSDataDetector
         </code>
-        would be a better solution for known-data types like phone number, address,
-        and email. You can check out
+        对类似于电话号码，地址，邮箱这样的已知的数据类型来讲，是一个更好的解决方案。你可以访问
         <a href="https://www.cocoanetics.com/2014/06/e-mail-validation/" sl-processed="1">
-            this blog
+            这篇
         </a>
-        about email validation with
+        关于使用
         <code>
             NSDataDetector
         </code>
-        .
+        验证电子邮箱的博客。
     </div>
     <p>
-        You’ve been working with
+        你已经使用了
         <code>
             Scanner
         </code>
-        to analyze and retrieve information from a patterned string. In the next
-        two sections, you’ll learn how to parse unstructured data.
+        来分析和检索来自于模式字符串的信息。在接下来的两节中，你将了解到如何去解析非结构化的数据。
     </p>
     <h3>
-        Extracting Cost-Related Information
+        提取成本相关的信息
     </h3>
     <p>
-        A good example of parsing unstructured data is to determine whether the
-        email’s body contains cost-related information. To do this, you’ll use
+        解析非结构化数据的一个很好的例子，就是确定电子邮件的正文中是否包含成本相关的信息。为了实现这点，你将使用
         <code>
             Scanner
         </code>
-        to search for an occurrence of a dollar character:
+        来搜索一个美元字符：
         <em>
             $
         </em>
-        .
+        的出现。
     </p>
     <p>
-        Still working on
+        仍然在
         <em>
             ParserEngine.swift
         </em>
-        , add the following implementation inside
+        中，添加下列的实现到
         <code>
             ParserEngine
         </code>
-        class:
+        类中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287928">
-                    <td class="code" id="p128792code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            func costInfoByExtractingFrom(_ string: String) -&gt; [Double] { // 1.
-                            var results = [Double]() &nbsp; // 2. let dollar = CharacterSet(charactersIn:
-                            "$") &nbsp; // 3. let scanner = Scanner(string: string) scanner.charactersToBeSkipped
-                            = dollar &nbsp; // 4. while !scanner.isAtEnd &amp;&amp; scanner.scanUpToCharacters(from:
-                            dollar, into: nil) { results += [scanner.scanDouble()].flatMap { $0 } }
-                            &nbsp; return results }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">costInfoByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; [<span class="hljs-type">Double</span>] {
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">var</span> results = [<span class="hljs-type">Double</span>]()
+  
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-keyword">let</span> dollar = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"$"</span>)
+  
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-keyword">let</span> scanner = <span class="hljs-type">Scanner</span>(string: string)
+  scanner.charactersToBeSkipped = dollar
+  
+  <span class="hljs-comment">// 4.</span>
+  <span class="hljs-keyword">while</span> !scanner.isAtEnd &amp;&amp; scanner.scanUpToCharacters(from: dollar, into: <span class="hljs-literal">nil</span>) {
+    results += [scanner.scanDouble()].flatMap { $<span class="hljs-number">0</span> }
+  }
+  
+  <span class="hljs-keyword">return</span> results
+}
+</pre>
     <p>
-        The code is fairly straightforward:
+        这个代码相当地直接：
     </p>
     <ol>
         <li>
