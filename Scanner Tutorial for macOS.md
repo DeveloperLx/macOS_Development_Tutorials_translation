@@ -1237,71 +1237,75 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Add the following code at the end of
+        在
         <code>
             ParserEngine
         </code>
-        class:
+        类的尾部添加下列代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1287929">
-                    <td class="code" id="p128792code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1. let keywords: Set&lt;String&gt; = ["apple", "macs", "software",
-                            "keyboard", "printers", "printer", "video", "monitor", "laser", "scanner",
-                            "disks", "cost", "price", "floppy", "card", "phone"] &nbsp; /// Return
-                            a set of keywords extracted from func keywordsByExtractingFrom(_ string:
-                            String) -&gt; Set&lt;String&gt; { // 2. var results: Set&lt;String&gt;
-                            = [] &nbsp; // 3. let scanner = Scanner(string: string) &nbsp; // 4. while
-                            !scanner.isAtEnd, let word = scanner.scanUpTo(" ")?.lowercased() { if keywords.contains(word)
-                            { results.insert(word) } } &nbsp; return results }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1.</span>
+<span class="hljs-keyword">let</span> keywords: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">String</span>&gt; = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"macs"</span>, <span class="hljs-string">"software"</span>, <span class="hljs-string">"keyboard"</span>,
+                             <span class="hljs-string">"printers"</span>, <span class="hljs-string">"printer"</span>, <span class="hljs-string">"video"</span>, <span class="hljs-string">"monitor"</span>,
+                             <span class="hljs-string">"laser"</span>, <span class="hljs-string">"scanner"</span>, <span class="hljs-string">"disks"</span>, <span class="hljs-string">"cost"</span>, <span class="hljs-string">"price"</span>,
+                             <span class="hljs-string">"floppy"</span>, <span class="hljs-string">"card"</span>, <span class="hljs-string">"phone"</span>]
+
+<span class="hljs-comment">/// Return a set of keywords extracted from</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">keywordsByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; <span class="hljs-type">Set</span>&lt;<span class="hljs-type">String</span>&gt; {
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-keyword">var</span> results: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">String</span>&gt; = []
+  
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-keyword">let</span> scanner = <span class="hljs-type">Scanner</span>(string: string)
+  
+  <span class="hljs-comment">// 4.</span>
+  <span class="hljs-keyword">while</span> !scanner.isAtEnd, <span class="hljs-keyword">let</span> word = scanner.scanUpTo(<span class="hljs-string">" "</span>)?.lowercased()  {
+    <span class="hljs-keyword">if</span> keywords.<span class="hljs-built_in">contains</span>(word) {
+      results.insert(word)
+    }
+  }
+  
+  <span class="hljs-keyword">return</span> results
+}
+</pre>
     <p>
-        Here’s what this code does:
+        以上代码：
     </p>
     <ol>
         <li>
-            Defines the keywords set that you’ll match against.
+            定义了你将匹配的关键字的集合。
         </li>
         <li>
-            Creates a
-            <code>
-                Set
-            </code>
-            of
+            创建一个
             <code>
                 String
             </code>
-            to store the found keywords.
+            的
+            <code>
+                Set
+            </code>
+            来保存找到的关键字。
         </li>
         <li>
-            Initializes a
+            初始化一个
             <code>
                 Scanner
             </code>
-            instance. You’ll use the default
+            的实例。你将采用默认的
             <code>
                 charactersToBeSkipped
             </code>
-            , which are the whitespace and newline characters.
+            值，即空格和换行符。
         </li>
         <li>
-            For every word found, checks whether it’s one of the predefined
+            对于每个发现的单词，检查其是否是预定义的
             <code>
                 keywords
             </code>
-            . If it is, appends it into
+            之一。如果是的话，添加它到
             <code>
                 results
             </code>
-            .
+            中。
         </li>
     </ol>
     <p>
