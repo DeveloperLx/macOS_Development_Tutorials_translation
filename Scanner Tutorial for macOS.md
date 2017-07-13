@@ -1172,65 +1172,63 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </p>
     <ol>
         <li>
-            Defines an empty array to store the cost values.
+            定义一个空数组来保存费用的值。
         </li>
         <li>
-            Creates a
+            使用
+            <code>
+                $
+            </code>
+            字符创建一个
             <code>
                 CharacterSet
             </code>
-            object with a
-            <code>
-                $
-            </code>
-            character.
+            对象。
         </li>
         <li>
-            Initializes a
+            初始化一个
             <code>
                 Scanner
             </code>
-            instance and configures it to ignore the
+            实例，并配置它忽略
             <em>
                 $
             </em>
-            character.
+            字符。
         </li>
         <li>
-            Loops through
+            遍历
             <code>
                 string
             </code>
-            ‘s content and when a
+            的内容，当
             <code>
                 $
             </code>
-            is found, grabs the number after
+            字符被找到时，使用你的助手方法抓取
             <code>
                 $
             </code>
-            with your helper method and appends it to
+            字符后的数字，并将它添加到
             <code>
                 results
             </code>
-            array.
+            数组中。
         </li>
     </ol>
     <h3>
-        Parsing the Message
+        解析消息
     </h3>
     <p>
-        Another example of parsing unstructured data is finding keywords in a
-        given body of text. Your search strategy is to look at every word and check
-        it against a set of keywords to see if it matches. You’ll use the
+        解析非结构化数据的另一个例子，是在给到的文本内容中找到关键字。你的搜索策略，是查找每一个单词，并检查一组关键字，看它是否匹配。你将使用
         <em>
-            whitespace
+            空格
         </em>
-        and
+        和
         <em>
-            newline
+            换行符
         </em>
-        characters to take the words in the message as scanning.
+        来将消息中的单词进行扫描。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Keywords-Parser-Illustration-700x102.png"
