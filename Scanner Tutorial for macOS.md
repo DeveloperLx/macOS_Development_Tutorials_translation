@@ -1309,231 +1309,233 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
     </ol>
     <p>
-        There — you have all of the necessary methods to acquire the desired information.
-        Time to put them to good use and create
+        在这里，你已经有了获取所需信息的所有必须的方法。是时候投入实用，为49个数据文件创建
         <code>
             HardwarePost
         </code>
-        instances for the 49 data files.
+        实例。
     </p>
     <h2>
-        Connecting the Parser With Data Samples
+        使用数据样本连接解析器
     </h2>
     <p>
-        Open
+        打开
         <em>
             HardwarePost.swift
         </em>
-        and add this initializer into
+        并添加下面的初始化器到
         <code>
             HardWarePost
         </code>
-        structure:
+        结构体中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12879210">
-                    <td class="code" id="p128792code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            init(fromData data: Data) { // 1. let parser = ParserEngine() &nbsp; //
-                            2. let string = String(data: data, encoding: String.Encoding.utf8) ?? ""
-                            &nbsp; // 3. let scanner = Scanner(string: string) &nbsp; // 4. let metadata
-                            = scanner.scanUpTo("\n\n") ?? "" let (sender, email, subject, date, organization,
-                            lines) = parser.fieldsByExtractingFrom(metadata) &nbsp; // 5. self.sender
-                            = sender self.email = email self.subject = subject self.date = date self.organization
-                            = organization self.numberOfLines = lines &nbsp; // 6. let startIndex =
-                            string.characters.index(string.startIndex, offsetBy: scanner.scanLocation)
-                            // A let message = string[startIndex..&lt;string.endIndex] // B self.message
-                            = message.trimmingCharacters(in: .whitespacesAndNewlines ) // C &nbsp;
-                            // 7. costs = parser.costInfoByExtractingFrom(message) keywords = parser.keywordsByExtractingFrom(message)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <p>
-        Here’s how
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">init</span>(fromData data: <span class="hljs-type">Data</span>) {
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">let</span> parser = <span class="hljs-type">ParserEngine</span>()
+  
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-keyword">let</span> string = <span class="hljs-type">String</span>(data: data, encoding: <span class="hljs-type">String</span>.<span class="hljs-type">Encoding</span>.utf8) ?? <span class="hljs-string">""</span>
+  
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-keyword">let</span> scanner = <span class="hljs-type">Scanner</span>(string: string)
+  
+  <span class="hljs-comment">// 4.</span>
+  <span class="hljs-keyword">let</span> metadata = scanner.scanUpTo(<span class="hljs-string">"\n\n"</span>) ?? <span class="hljs-string">""</span>
+  <span class="hljs-keyword">let</span> (sender, email, subject, date, organization, lines) = parser.fieldsByExtractingFrom(metadata)
+  
+  <span class="hljs-comment">// 5.</span>
+  <span class="hljs-keyword">self</span>.sender = sender
+  <span class="hljs-keyword">self</span>.email = email
+  <span class="hljs-keyword">self</span>.subject = subject
+  <span class="hljs-keyword">self</span>.date = date
+  <span class="hljs-keyword">self</span>.organization = organization
+  <span class="hljs-keyword">self</span>.numberOfLines = lines
+  
+  <span class="hljs-comment">// 6.</span>
+  <span class="hljs-keyword">let</span> startIndex = string.characters.index(string.startIndex, offsetBy: scanner.scanLocation)                                               <span class="hljs-comment">// A</span>
+  <span class="hljs-keyword">let</span> message = string[startIndex..&lt;string.endIndex]                      <span class="hljs-comment">// B</span>
+  <span class="hljs-keyword">self</span>.message = message.trimmingCharacters(<span class="hljs-keyword">in</span>: .whitespacesAndNewlines ) <span class="hljs-comment">// C</span>
+  
+  <span class="hljs-comment">// 7.</span>
+  costs = parser.costInfoByExtractingFrom(message)
+  keywords = parser.keywordsByExtractingFrom(message)
+}
+</pre>
+    <p>        
         <code>
             HardwarePost
         </code>
-        initializes its properties:
+        如何初始化它的property：
     </p>
     <ol>
         <li>
-            Simply creates a
+            创建名为
+            <code>
+                parser
+            </code>
+            的
             <code>
                 ParserEngine
             </code>
-            object named
-            <code>
-                parser
-            </code>
-            .
+            对象。
         </li>
         <li>
-            Converts
+            将
             <code>
                 data
             </code>
-            into a
+            转化为
             <code>
                 String
             </code>
-            .
+            。
         </li>
         <li>
-            Initializes an instance of
+            初始化一个
             <code>
                 Scanner
             </code>
-            to parse the Metadata and Message segments, which are separated by “\n\n”.
+            的实例，来解析由“\n\n”分隔的元数据和消息段。
         </li>
         <li>
-            Scans up to the first
+            扫描到第一个
             <code>
                 \n\n
             </code>
-            to grab the metadata string, then invokes the
+            来抓取元数据的字符串，然后调用
             <code>
                 parser
             </code>
-            ‘s
+            的
             <code>
                 fieldsByExtractingFrom(_:)
             </code>
-            method to obtain all of the metadata fields.
+            方法，来获取全部的元数据字段。
         </li>
         <li>
-            Assigns the parsing results to the
+            将解析的结果赋值到
             <code>
                 HardwarePost
             </code>
-            properties.
+            的property中。
         </li>
         <li>
-            Prepares the message content:
+            准备消息内容：
             <ol>
                 <li>
-                    Gets the current reading cursor from
-                    <code>
-                        scanner
-                    </code>
-                    with
+                    使用
                     <code>
                         scanLocation
                     </code>
-                    and converts it to
+                    获取
+                    <code>
+                        scanner
+                    </code>
+                    当前的读取指针，并将它转化为 
                     <code>
                         String.CharacterView.Index
                     </code>
-                    , so you can substitute
+                    ，这样你就可以通过range来替代
                     <code>
                         string
                     </code>
-                    by range.
+                    。
                 </li>
                 <li>
-                    Assigns the remaining string that
+                    将
                     <code>
                         scanner
                     </code>
-                    has yet to read into the new
+                    剩余还未读取的字符串赋给新的
                     <code>
                         message
                     </code>
-                    variable.
+                    变量。
                 </li>
                 <li>
-                    Since
+                    由于
                     <code>
                         message
                     </code>
-                    value still contains
+                    的值仍然包含
                     <code>
                         \n\n
                     </code>
-                    where the
+                    ，也就是
                     <code>
                         scanner
                     </code>
-                    left off from the previous reading, you need to trim it and give the new
-                    value back to the
+                    从之前的读取停止的地方，你需要trim它，并将新的值给回到
                     <code>
                         HardwarePost
                     </code>
-                    instance’s
+                    实例的
                     <code>
                         message
                     </code>
-                    property.
+                    property中。
                 </li>
             </ol>
         </li>
         <li>
-            Invokes the
-            <code>
-                parser
-            </code>
-            ‘s methods with
+            用
             <code>
                 message
             </code>
-            to retrieve values for
+            调用
+            <code>
+                parser
+            </code>
+            的方法，来检索
             <code>
                 cost
             </code>
-            and
+            和
             <code>
                 keywords
             </code>
-            properties.
+            property的值。
         </li>
     </ol>
     <p>
-        At this point, you can create
+        现在，你就可以由文件的数据直接创建
         <code>
             HardwarePost
         </code>
-        instances directly from the files’ data. You are only few more steps from
-        displaying the final product!
+        实例。你距离展现出最后的产品已只剩几步之遥了！
     </p>
     <h2>
-        Displaying Parsed Data
+        展示被解析的数据
     </h2>
     <p>
-        Open
+        打开
         <em>
             PostCell.swift
         </em>
-        and add the following method inside the
+        并添加下列的方法到
         <code>
             PostCell
         </code>
-        class implementation:
+        类的实现中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12879211">
-                    <td class="code" id="p128792code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            func configure(_ post: HardwarePost) { &nbsp; senderLabel.stringValue
-                            = post.sender emailLabel.stringValue = post.email dateLabel.stringValue
-                            = post.date subjectLabel.stringValue = post.subject organizationLabel.stringValue
-                            = post.organization numberOfLinesLabel.stringValue = "\(post.numberOfLines)"
-                            &nbsp; // 1. costLabel.stringValue = post.costs.isEmpty ? "NO" : post.costs.map
-                            { "\($0)" }.lazy.joined(separator: "; ") &nbsp; // 2. keywordsLabel.stringValue
-                            = post.keywords.isEmpty ? "No keywords found" : post.keywords.joined(separator:
-                            "; ") }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">configure</span><span class="hljs-params">(<span class="hljs-number">_</span> post: HardwarePost)</span></span> {
+  
+  senderLabel.stringValue = post.sender
+  emailLabel.stringValue = post.email
+  dateLabel.stringValue = post.date
+  subjectLabel.stringValue = post.subject
+  organizationLabel.stringValue = post.organization
+  numberOfLinesLabel.stringValue = <span class="hljs-string">"<span class="hljs-subst">\(post.numberOfLines)</span>"</span>
+  
+  <span class="hljs-comment">// 1.</span>
+  costLabel.stringValue = post.costs.isEmpty ? <span class="hljs-string">"NO"</span> : 
+                                               post.costs.<span class="hljs-built_in">map</span> { <span class="hljs-string">"<span class="hljs-subst">\($<span class="hljs-number">0</span>)</span>"</span> }.<span class="hljs-built_in">lazy</span>.joined(separator: <span class="hljs-string">"; "</span>)
+  
+  <span class="hljs-comment">// 2.</span>
+  keywordsLabel.stringValue = post.keywords.isEmpty ? <span class="hljs-string">"No keywords found"</span> : 
+                                                      post.keywords.joined(separator: <span class="hljs-string">"; "</span>)
+}
+</pre>
     <p>
         This code assigns the post values to the cell labels.
         <code>
