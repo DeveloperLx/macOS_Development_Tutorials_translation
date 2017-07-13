@@ -948,10 +948,8 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
    */</span>
   <span class="hljs-keyword">if</span> string.isMatched(<span class="hljs-string">".*[\\s]*\\({1}(.*)"</span>) { <span class="hljs-comment">// A</span>
     scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"() "</span>) <span class="hljs-comment">// B</span>
-    
     <span class="hljs-keyword">let</span> email = scanner.scanUpTo(<span class="hljs-string">"("</span>)  <span class="hljs-comment">// C</span>
     <span class="hljs-keyword">let</span> sender = scanner.scanUpTo(<span class="hljs-string">")"</span>) <span class="hljs-comment">// D</span>
-    
     <span class="hljs-keyword">return</span> (email ?? <span class="hljs-string">""</span>, sender ?? <span class="hljs-string">""</span>)
   }
   
@@ -964,10 +962,8 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
    */</span>
   <span class="hljs-keyword">if</span> string.isMatched(<span class="hljs-string">".*[\\s]*&lt;{1}(.*)"</span>) {
     scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"&lt;&gt; "</span>)
-    
     <span class="hljs-keyword">let</span> sender = scanner.scanUpTo(<span class="hljs-string">"&lt;"</span>)
     <span class="hljs-keyword">let</span> email = scanner.scanUpTo(<span class="hljs-string">"&gt;"</span>)
-    
     <span class="hljs-keyword">return</span> (email ?? <span class="hljs-string">""</span>, sender ?? <span class="hljs-string">""</span>)
   }
   
