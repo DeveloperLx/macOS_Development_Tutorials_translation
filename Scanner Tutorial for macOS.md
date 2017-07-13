@@ -973,7 +973,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 }
 </pre>
     <p>
-        After examining the 49 data sets, you end up with three cases to consider:
+        在检查了49个数据集之后，最后考虑以下三种case：
     </p>
     <ul>
         <li>
@@ -987,86 +987,85 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             </em>
         </li>
         <li>
+            没有名称的
             <em>
                 email
             </em>
-            with no name
         </li>
     </ul>
     <p>
-        Here’s what the code does:
+        以上代码完成了：
     </p>
     <ol>
         <li>
-            Matches
-            <code>
-                string
-            </code>
-            with the first pattern –
+            用第一个模式 - 
             <i>
                 email (name)
             </i>
-            . If not, continues to the next case.
+            匹配
+            <code>
+                string
+            </code>
+            。如果不匹配的话，执行到下一个case。
             <ol>
                 <li>
-                    Looks for zero or more occurrences of any character –
                     <code>
                         .*
                     </code>
-                    , followed by zero or more occurrence of a space –
+                    可以用来查找零个或多个任意的字符，后跟零个或多个的空格 - 
                     <code>
                         [\\s]*
                     </code>
-                    , followed by one open parenthesis –
+                    ，后跟一个开发的括号 - 
                     <code>
                         \\({1}
                     </code>
-                    and finally zero or more occurrences of a string –
+                    ，最后则是一个或多个的字符串 - 
                     <code>
                         (.*)
                     </code>
-                    .
+                    。
                 </li>
                 <li>
-                    Sets the
+                    设置
                     <code>
                         Scanner
                     </code>
-                    object’s
+                    对象的
                     <code>
                         charactersToBeSkipped
                     </code>
-                    to include: “(“, “)” and whitespace.
+                    包含“(”,“)”和空格。
                 </li>
                 <li>
-                    Scans up to
+                    扫描到
                     <code>
                         (
                     </code>
-                    to get the
+                    来获取
                     <code>
                         email
                     </code>
-                    value.
+                    的值。
                 </li>
                 <li>
-                    Scans up to
+                    扫描到
                     <code>
                         )
                     </code>
-                    , which gives you the
+                    ，这会给到你
                     <code>
                         sender
                     </code>
-                    name. This extracts everything before
+                    的名称。这就提取了在
                     <code>
                         (
                     </code>
-                    and after
+                    和
                     <code>
                         )
                     </code>
-                    .
+                    之间的任何内容。
                 </li>
             </ol>
         </li>
@@ -1077,26 +1076,22 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             sizes="(max-width: 700px) 100vw, 700px">
         </p>
         <li>
-            Checks whether the given string matches the pattern –
+            检查给到的字符创是否匹配模式 -
             <i>
                 name &lt;email&gt;
             </i>
-            . The
+            。
             <i>
                 if
             </i>
-            body is practically the same as the first scenario, except that you deal
-            with angle brackets.
+            语句体和第一个场景中几乎是相同的，除了你对尖括号的处理。
         </li>
         <li>
-            Finally, if neither of the two patterns is matched, this is the case where
-            you only have an email. You’ll simply return the string for the email and
-            “unknown” for sender.
+            最终，如果两种模式都不匹配，那么就只有一份电子邮件。你只需返回email的字符串，sender则返回“unknown”。
         </li>
     </ol>
     <p>
-        At this point, you can build the project. The previous compile error is
-        gone.
+        现在，你可以build你的项目了。之前的编译错误消失了。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Starter-Initial-Screen-683x500.png"
