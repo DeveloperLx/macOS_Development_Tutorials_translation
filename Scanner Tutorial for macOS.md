@@ -940,12 +940,13 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
   
   <span class="hljs-comment">// 1.</span>
   <span class="hljs-comment">/*
-   * ROGOSCHP@MAX.CC.Uregina.CA (Are we having Fun yet ???)
-   * oelt0002@student.tc.umn.edu (Bret Oeltjen)
-   * (iisi owner)
-   * mbuntan@staff.tc.umn.edu ()
-   * barry.davis@hal9k.ann-arbor.mi.us (Barry Davis)
-   */</span>
+   \* ROGOSCHP@MAX.CC.Uregina.CA (Are we having Fun yet ???)
+   \* oelt0002@student.tc.umn.edu (Bret Oeltjen)
+   \* (iisi owner)
+   \* mbuntan@staff.tc.umn.edu ()
+   \* barry.davis@hal9k.ann-arbor.mi.us (Barry Davis)
+   \*/
+   </span>
   <span class="hljs-keyword">if</span> string.isMatched(<span class="hljs-string">".*[\\s]*\\({1}(.*)"</span>) { <span class="hljs-comment">// A</span>
     scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"() "</span>) <span class="hljs-comment">// B</span>
     <span class="hljs-keyword">let</span> email = scanner.scanUpTo(<span class="hljs-string">"("</span>)  <span class="hljs-comment">// C</span>
@@ -955,11 +956,11 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
   
   <span class="hljs-comment">// 2.</span>
   <span class="hljs-comment">/*
-   * "Jonathan L. Hutchison" &lt;jh6r+@andrew.cmu.edu&gt;
-   * &lt;BR4416A@auvm.american.edu&gt;
-   * Thomas Kephart &lt;kephart@snowhite.eeap.cwru.edu&gt;
-   * Alexander Samuel McDiarmid &lt;am2o+@andrew.cmu.edu&gt;
-   */</span>
+   \* "Jonathan L. Hutchison" &lt;jh6r+@andrew.cmu.edu&gt;
+   \* &lt;BR4416A@auvm.american.edu&gt;
+   \* Thomas Kephart &lt;kephart@snowhite.eeap.cwru.edu&gt;
+   \* Alexander Samuel McDiarmid &lt;am2o+@andrew.cmu.edu&gt;
+   \*/</span>
   <span class="hljs-keyword">if</span> string.isMatched(<span class="hljs-string">".*[\\s]*&lt;{1}(.*)"</span>) {
     scanner.charactersToBeSkipped = <span class="hljs-type">CharacterSet</span>(charactersIn: <span class="hljs-string">"&lt;&gt; "</span>)
     <span class="hljs-keyword">let</span> sender = scanner.scanUpTo(<span class="hljs-string">"&lt;"</span>)
