@@ -1505,7 +1505,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         实例。你距离展现出最后的产品已只剩几步之遥了！
     </p>
     <h2>
-        展示被解析的数据
+        展示解析出的数据
     </h2>
     <p>
         打开
@@ -1537,171 +1537,156 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 }
 </pre>
     <p>
-        This code assigns the post values to the cell labels.
+        上面的代码将post的值分配给了cell label。
         <code>
             costLabel
         </code>
-        and
+        和
         <code>
             keywordsLabel
         </code>
-        require special treatment because they can be empty. Here’s what happens:
+        需要特殊的处理，因为它们可以为空。这里是会发生的事：
     </p>
     <ol>
         <li>
-            If the
+            如果
             <code>
                 costs
             </code>
-            array is empty, it sets the
+            数组为空，就设置
             <code>
                 costLabel
             </code>
-            string value to
+            的string值为
             <em>
                 NO
             </em>
-            ; otherwise, it concatenates the cost values with “; ” as a separator.
+            ；否则，就用“;”这个操作符连接cost的值。
         </li>
         <li>
-            Similarly, sets
-            <code>
-                keywordsLabel
-            </code>
-            string value to
-            <code>
-                No words found
-            </code>
-            for an empty set of
+            类似的，当
             <code>
                 post.keywords
             </code>
-            .
+            是一个空集合时，设置
+            <code>
+                keywordsLabel
+            </code>
+            的string值为
+            <code>
+                No words found
+            </code>
+            。
         </li>
     </ol>
     <p>
-        You’re almost there! Open
+        你几乎已要搞定了！打开
         <em>
             DataSource.swift
         </em>
-        . Delete the
+        。删除
         <code>
             DataSource
         </code>
-        initializer
+        初始化器
         <code>
             init()
         </code>
-        and add the following code into the class:
+        并添加下列的代码到这个类中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12879212">
-                    <td class="code" id="p128792code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            let hardwarePosts: [HardwarePost] // 1. &nbsp; override init() { self.hardwarePosts
-                            = Bundle.main // 2. .urls(forResourcesWithExtension: nil, subdirectory:
-                            "comp.sys.mac.hardware")? // 3. .flatMap( { try? Data(contentsOf: $0) }).lazy
-                            // 4. .map(HardwarePost.init) ?? [] // 5. &nbsp; super.init() }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift">let hardwarePosts: [HardwarePost] // 1.
+
+override init() {
+  self.hardwarePosts = Bundle.main                                                // 2.
+    .urls(forResourcesWithExtension: nil, subdirectory: "comp.sys.mac.hardware")? // 3.
+    .flatMap( { try? Data(contentsOf: $0) }).lazy                                 // 4.                                                                    
+    .map(HardwarePost.init) ?? []                                                 // 5.
+  
+  super.init()
+}
+</pre>
     <p>
-        This is what the code does:
+        上述代码：
     </p>
     <ol>
         <li>
-            Stores the
+            储存
             <code>
                 HardwarePost
             </code>
-            instances.
+            实例。
         </li>
         <li>
-            Obtains a reference to the application’s main Bundle.
+            获取指向app主Bundle的引用。
         </li>
         <li>
-            Retrieves urls of the sample files inside the
+            检索在
             <em>
                 comp.sys.mac.hardware
             </em>
-            directory.
+            目录中的示例文件的url。
         </li>
         <li>
-            Lazily acquires an array of
+            通过使用
             <code>
                 Data
             </code>
-            instances by reading file contents with
+            的可是白初始化器和
+            <code>
+                flatMap(_:)
+            </code>
+            读取文件内容，惰性获取
             <code>
                 Data
             </code>
-            failable initializer and
+            实例的数组。使用
             <code>
                 flatMap(_:)
             </code>
-            . The idea of using
-            <code>
-                flatMap(_:)
-            </code>
-            is to get back a subarray containing only elements that are not
+            是要获取元素不为
             <code>
                 nil
             </code>
-            .
+            的子数组。
         </li>
         <li>
-            Finally, transforms the
+            最后，将
             <code>
                 Data
             </code>
-            results to a
+            的结果转换为
             <code>
                 HardwarePost
             </code>
-            object and assigns them to the
+            对象，并将它们赋给
             <code>
                 DataSource
             </code>
+            的
             <code>
                 hardwarePosts
             </code>
-            property.
+            property。
         </li>
     </ol>
     <p>
-        Now you need to set up the table view’s data source and delegate so that
-        your app can show your hard work.
+        现在你需要配置table view的data source和delegate，让app可以展示你的工作成果。
     </p>
     <p>
-        Open
+        打开
         <em>
             DataSource.swift
         </em>
-        . Find
+        。找到
         <code>
             numberOfRows(in:)
         </code>
-        and replace it with the following:
+        ，并使用下列代码来替换它：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12879213">
-                    <td class="code" id="p128792code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            func numberOfRows(in tableView: NSTableView) -&gt; Int { return hardwarePosts.count
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift">func numberOfRows(in tableView: NSTableView) -&gt; Int {
+    return hardwarePosts.count
+}
+</pre>
     <p>
         <code>
             numberOfRows(in:)
@@ -1720,19 +1705,13 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </code>
         with the code below:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12879214">
-                    <td class="code" id="p128792code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            cell.configure(hardwarePosts[row])
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift">func tableViewSelectionDidChange(_ notification: Notification) {
+  guard let tableView = notification.object as? NSTableView else {
+    return
+  }
+  textView.string = hardwarePosts[tableView.selectedRow].message
+}
+</pre>
     <p>
         The table view invokes its delegate
         <code>
