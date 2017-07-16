@@ -1691,19 +1691,18 @@ override init() {
         <code>
             numberOfRows(in:)
         </code>
-        is part of the table view’s data source protocol; it sets the number of
-        rows of the table view.
+        是table view的data source协议的一部分；它设置了table view的行数。
     </p>
     <p>
-        Next, find
+        接下来，找到
         <code>
             tableView(_:viewForTableColumn:row:)
         </code>
-        and replace the comment that says:
+        ，并使用下列代码替换注释
         <code>
             //TODO: Set up cell view
         </code>
-        with the code below:
+        ：
     </p>
     <pre lang="swift">func tableViewSelectionDidChange(_ notification: Notification) {
   guard let tableView = notification.object as? NSTableView else {
@@ -1713,57 +1712,46 @@ override init() {
 }
 </pre>
     <p>
-        The table view invokes its delegate
+        table view会调用代理方法
         <code>
             tableView(_:viewForTableColumn:row:)
         </code>
-        method to set up every individual cell. It gets a reference to the post
-        for that row and invokes
+        来设置每个cell。它为相应的行获取post的引用，并调用
         <code>
             PostCell
         </code>
-        ‘s
+        的
         <code>
             configure(_:)
         </code>
-        method to display the data.
+        方法来展示数据。
     </p>
     <p>
-        Now you need to show the post in the text view when you select a post
-        on the table view. Replace the initial implementation of
+        现在你需要当在table view中选择一个post时，在text view上展示它。使用下列代码替换
         <code>
             tableViewSelectionDidChange(_:)
         </code>
-        with the following:
+        的实现：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12879215">
-                    <td class="code" id="p128792code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            func tableViewSelectionDidChange(_ notification: Notification) { guard
-                            let tableView = notification.object as? NSTableView else { return } textView.string
-                            = hardwarePosts[tableView.selectedRow].message }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift">func tableViewSelectionDidChange(_ notification: Notification) {
+  guard let tableView = notification.object as? NSTableView else {
+    return
+  }
+  textView.string = hardwarePosts[tableView.selectedRow].message
+}
+</pre>
     <p>
         <code>
             tableViewSelectionDidChange(_:)
         </code>
-        is called when the table view’s selection has changed. When that happens,
-        this code gets the hardware post for the selected row and displays the
+        方法会在table view的选择发生变化时被调用。当调用发生时，这个代码就会获取选择的行的硬件post，并在text view中展示
         <code>
             message
         </code>
-        in the text view.
+        。
     </p>
     <p>
-        Build and run your project.
+        Build并运行你的项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/starter-final.png"
@@ -1775,12 +1763,10 @@ override init() {
         </a>
     </p>
     <p>
-        All of the parsed fields are now neatly displayed on the table. Select
-        a cell on the left, and you’ll see the corresponding message on the right.
-        Good Job!
+        所有被解析的字段现在都已经很好地展示在table上了。选择一个左侧的cell，你就会在右侧看到相应的信息。Good Job！
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
