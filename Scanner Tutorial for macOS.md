@@ -1704,12 +1704,7 @@ override init() {
         </code>
         ：
     </p>
-    <pre lang="swift">func tableViewSelectionDidChange(_ notification: Notification) {
-  guard let tableView = notification.object as? NSTableView else {
-    return
-  }
-  textView.string = hardwarePosts[tableView.selectedRow].message
-}
+    <pre lang="swift">cell.configure(hardwarePosts[row])
 </pre>
     <p>
         table view会调用代理方法
@@ -1790,67 +1785,66 @@ override init() {
         </div>
     </div>
     <p>
-        Here’s the source code for the
+        这里是完整项目的
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/EmailParser-final-project.zip"
         sl-processed="1">
-            completed project
+            源码
         </a>
+        。
         <br>
-        There is so much more you can do with the data you have parsed. You could
-        write a formatter that converts a
+        有很多你可以基于解析到的数据去做的事。你可以写一个格式转换器，将
         <code>
             HardwarePost
         </code>
-        object into JSON, XML, CSV or any other formats. With your new-found flexibility
-        to represent data in different forms, you can share your data across different
-        platforms.
+        对象转换为JSON，XML，CSV或其它格式。你可以通过新发现的灵活性，来以不同的格式展示数据，你可以在不同的平台上分享数据。
     </p>
     <p>
+        如果你感兴趣于学习计算机语言，已经它们是如何实现的，可以参加
         If you’re interested in the study of computer languages and how they are
         implemented, take a class in
         <i>
             comparative
         </i>
-        languages. Your course will likely cover formal languages and BNF grammars—all
-        important concepts in the design and implementation of parsers.
+        语言的课程。你的课程将可能覆盖正式的语言，和BNF（巴科斯-诺尔范式）语法的有关设计和实现解析器的重要的概念。
     </p>
     <p>
-        For more information on
+        有关
         <code>
             Scanner
         </code>
-        and other parsing theory, check out the following resources:
+        和其它解析理论的更多信息，请访问下列资源：
     </p>
     <ul>
         <li>
-            <a href="/?p=120442" sl-processed="1">
-                Swift Tutorial: Working with JSON
+            <a href="https://www.raywenderlich.com/150322/swift-json-tutorial-2" sl-processed="1">
+                Swift教程：使用JSON
             </a>
         </li>
         <li>
             <a href="https://developer.apple.com/library/mac/documentation/cocoa/reference/foundation/classes/NSScanner_Class/Reference/Reference.html"
             sl-processed="1">
-                Apple: Scanner Reference Guide
+                Apple：Scanner参考指南
             </a>
         </li>
         <li>
-            <a href="/?p=553" sl-processed="1">
-                XML Tutorial for iOS – How to choose the best XML parser for your iPhone-Project
+            <a href="https://www.raywenderlich.com/553/xml-tutorial-for-ios-how-to-choose-the-best-xml-parser-for-your-iphone-project" sl-processed="1">
+                iOS的XML教程 - 如果为你的iPhone项目选择最好的XML解析器
             </a>
-            (in Objective-C)
+            （Objective-C）
         </li>
         <li>
             <a href="http://www.cocoawithlove.com/2009/11/writing-parser-using-nsscanner-csv.html"
             sl-processed="1">
-                Writing a parser using NSScanner (a CSV parsing example)
+                使用NSScanner写一个解析器（一个CSV的解析例子）
             </a>
-            by Matt Gallagher (in Objective-C)
+            - Matt Gallagher（Objective-C）
         </li>
         <li>
             <a href="http://prezi.com/jlstnqcytmvz/ios-sharing-session/" sl-processed="1">
                 Short Presentation on NSScanner
+                NSScanner的简短介绍
             </a>
-            by Lorex Antiono (in Objective-C)
+            - Lorex Antiono（Objective-C）
         </li>
     </ul>
 </div>
