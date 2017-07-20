@@ -48,14 +48,11 @@
         </li>
     </ul>
     <p>
-        In this collection views in OS X tutorial, you’ll discover the joy of
-        arranging things in beautiful, flowing interfaces for the desktop. You’ll
-        close the gap on UX between mobile and desktop and enjoy greater control
-        over your apps by building
+        在这个OS X的collection view的教程中，你将会发现用漂亮流动的界面对桌面进行布局的乐趣。你将会关闭UX在移动和桌面之间的隔阂，并通过构建
         <em>
             SlidesMagic
         </em>
-        — your own grid-based image browsing app.
+        - 你自己的基于网格的图片浏览app，享受到对你的app更棒的控制。
     </p>
     <p>
         This tutorial assumes that you know the basics of writing OS X apps. If
