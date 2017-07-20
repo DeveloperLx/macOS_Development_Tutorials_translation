@@ -54,64 +54,58 @@
         </em>
         - 你自己的基于网格的图片浏览app，享受到对你的app更棒的控制。
     </p>
-    <p>
-        This tutorial assumes that you know the basics of writing OS X apps. If
-        you’re new to OS X you should take a look at the
+    <p> 
+        这篇教程假定你已了解编写OS X app的基本技能。如果你是一个OS X的新手，你可以先学习一下这里的
         <a href="http://www.raywenderlich.com/category/os-x" target="_blank" title="OS X tutorials">
-            OS X tutorials
+            OS X教程
         </a>
-        available here, and then come back to learn about collection views.
+        然后再回来学习collection view。
     </p>
     <p>
-        The show is about to start, so have a seat and get ready for your own
-        personal magic show by
+        表演马上要开始了！所以找一个座位，准备好你自己的有关
         <code>
             NSCollectionView
         </code>
-        .
+        的个人魔术表演。
     </p>
     <h2>
-        Behind the Scenes of Collection Views
+        在Collection View的场景之后
     </h2>
     <p>
-        The
         <code>
             NSCollectionView
         </code>
-        is the main view — the stage, if you will — where the magic show happens.
-        It displays visual items and contains these key components:
+        是主要的view - 也就是魔法将会发生的舞台。它展示了可见的项目，并包含了这些关键的成分：
     </p>
     <h3>
-        Layouts
+        布局
     </h3>
     <p>
         <code>
             NSCollectionViewLayout
         </code>
-        – New to this version, this lets you specify a layout by setting the collection
-        view’s
+        - 这个版本中的新内容，让你可以通过设置collection
+        view的 
         <code>
             collectionViewLayout
         </code>
-        . It’s an abstract class from which all concrete layout classes inherit.
+        来指定一个布局。它是一个抽象类，所有实际的布局的类都继承自它。
     </p>
     <p>
         <code>
             NSCollectionViewFlowLayout
         </code>
-        – Provides a flexible grid-like layout, and you can achieve your desired
-        results for most apps with it.
+        - 提供了一个灵活的网格布局，对于大多数的app，你都可以达到你所期望的结果。
     </p>
     <p>
         <code>
             NSCollectionViewGridLayout
         </code>
-        – Matches
+        - 匹配
         <code>
             NSCollectionView
         </code>
-        ‘s simple grid layout behavior pre OS X 10.11 but doesn’t support sections
-        and all the goodies that come with the new API.
+        的简单的OS X 10.11前的网格布局的行为，但不支持部分和所有新的API带来的好东西。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Layouts.png">
