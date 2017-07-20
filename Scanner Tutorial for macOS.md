@@ -1841,7 +1841,6 @@ override init() {
         </li>
         <li>
             <a href="http://prezi.com/jlstnqcytmvz/ios-sharing-session/" sl-processed="1">
-                Short Presentation on NSScanner
                 NSScanner的简短介绍
             </a>
             - Lorex Antiono（Objective-C）

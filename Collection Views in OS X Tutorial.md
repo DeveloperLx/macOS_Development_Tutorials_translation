@@ -10,49 +10,41 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        A collection view is a powerful mechanism for laying out an ordered set
-        of data items visually. It sounds boring when explained in technical terms,
-        so think of apps that do this: Finder and Photos; these apps let you tab
-        through files in a gallery (visual) layout.
+        collection view对可视化布局一系列有序的数据项目，是一个非常强有力的机制。用技术术语来进行解释会非常地无聊，因此考虑类似这些app：Finder和Photos；这些app让你在一个“画廊布局”下浏览文件。
     </p>
     <p>
-        When released with OS X 10.5,
+        在OS X 10.5发布时，
         <code>
             NSCollectionView
         </code>
-        offered a handy means of arranging a group of objects in a grid of identically
-        sized items displayed in a scrollable view.
+        提供了一个便利的手段，那就是在一个可滚动的view上，用网格式的相同尺寸的项目，来排列一组对象。
     </p>
     <p>
-        OS X 10.11, aka El Capitan, gave
-        <code>
-            NSCollectionView
-        </code>
-        a major overhaul inspired by
+        OS X 10.11，也就是El Capitan，受iOS中的
         <code>
             UICollectionView
         </code>
-        from iOS.
+        启发，对El Capitan进行了一次大修改。
     </p>
     <p>
-        Among other things, the new
+        除其它方面之外，新的
         <code>
             NSCollectionView
         </code>
-        API adds support for:
+        API添加了以下的支持：
     </p>
     <ul>
         <li>
-            Sections with optional headers/footers
+            带有可选的header/footer的section
         </li>
         <li>
-            Variable-size items
+            可变尺寸的项目
         </li>
         <li>
-            Customizable layouts
+            可定制的布局
         </li>
         <li>
-            Cell reuse
+            可重用的Cell
         </li>
     </ul>
     <p>
