@@ -117,22 +117,18 @@
     </p>
     <p>
         <em>
-            Sections and
+            Section和
         </em>
         <code>
             NSIndexPath
         </code>
-        – Allows for grouping of items into sections. The items form an ordered
-        list of sections, each containing an ordered list of items. Each item is
-        associated with an index that comprises of a pair of integers (section,
-        item) encapsulated in an
+        - 可以把项目分组成section。这些项目就构成了一个section的有序列表，每个section则包含一个有序的项目列表。每个项目都被关联到一个被封装到一个包含一堆整数（section,item）的
         <code>
             NSIndexPath
         </code>
-        instance.
+        的实例中。
         <i>
-            When grouping of items into sections isn’t required, you still have at
-            least one section (by default)
+            当需求并非是将项目分组到一个个section中时，默认你仍然含有至少一个section。
         </i>
         .
     </p>
@@ -145,7 +141,7 @@
         </a>
     </p>
     <h3>
-        The Collection View Items
+        Collection View的项目
     </h3>
     <p>
         Like many other
