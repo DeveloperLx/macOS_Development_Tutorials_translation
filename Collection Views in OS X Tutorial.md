@@ -675,95 +675,92 @@
         </a>
     </p>
     <p>
-        At this point, you have a black background and a layout. You’ve set the
-        stage for your magic show!
+        现在，你已经有了一个黑色的背景和布局。你已经为你的魔法show设置好了舞台！
     </p>
     <h2>
-        Loading Items in the Collection View
+        在Collection View中加载项目
     </h2>
     <p>
-        To load items, you need to call its
+        为了加载项目，你需要调用这个
         <code>
             reloadData()
         </code>
-        method, which causes the collection view to discard and redisplay any
-        currently visible items.
+        方法，它会让collection view重新展示当前可见的item。
     </p>
     <p>
-        You’d typically call this method when the model changes.
+        你通常会在model发生变化时调用这个方法。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add this code at the end of
+        并添加下列的代码到
         <code>
             loadDataForNewFolderWithUrl(_:)
         </code>
-        :
+        的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">collectionView.reloadData()
 </pre>
     <p>
-        This makes it so that selecting
+        这让它可以通过选择
         <em>
             File \ Open Another Folder…
         </em>
-        calls this method. it loads a new model then calls
+        来调用这个方法。它会加载一个新的model，然后调用
         <code>
             reloadData()
         </code>
-        .
+        。
     </p>
     <h2>
-        Creating a Collection View Item
+        创建一个Collection View的Item
     </h2>
     <p>
-        Just because you removed
+        由于你从storyboard移除
         <code>
             NSCollectionViewItem
         </code>
-        from the storyboard doesn’t mean you don’t need it. :] Here’s how to bring
-        it back the right way.
+        并不意味着你不需要它。:] 这里是如何将它带回来的正确方式。
     </p>
     <p>
-        Go to
+        前往
         <em>
             File \ New \ File…
         </em>
-        , select
+        ，选择
         <em>
             OS X \ Source \ Cocoa Class
         </em>
-        and click
+        并单击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
-        Set the
+        设置
         <em>
             Class
         </em>
-        field to
+        域为
         <em>
             CollectionViewItem
         </em>
-        , the
-        <em>
-            Subclass of
-        </em>
-        field to
+        ，它是
         <code>
             NSCollectionViewItem
         </code>
-        , and check
+        的
+        <em>
+            子类
+        </em>
+        ，并单击
         <em>
             Also create XIB for user interface
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/CreateColViewItems.png">
@@ -772,30 +769,30 @@
         </a>
     </p>
     <p>
-        Click
+        单击
         <em>
             Next
         </em>
-        , and in the save dialog, select
-        <em>
-            Controllers
-        </em>
-        from
+        ，在保存对话框中，从
         <em>
             Group
         </em>
-        and click
+        选择
+        <em>
+            Controllers
+        </em>
+        并单击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             CollectionViewItem.swift
         </em>
-        and replace the whole class with this:
+        并使用下列代码替换整个类：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CollectionViewItem</span>: <span class="hljs-title">NSCollectionViewItem</span> </span>{<font></font>
 <font></font>
@@ -822,100 +819,97 @@
 }<font></font>
 </pre>
     <p>
-        In here, you:
+        在，这里：
     </p>
     <ol>
         <li>
-            Define the
+            定义
             <code>
                 imageFile
             </code>
-            property that holds the model object to be presented in this item. When
-            set, its
+            property来持有将在这个item中展示的model对象。当设置的时候，它的
             <code>
                 didSet
             </code>
-            property observer sets the content of the item’s image and label.
+            property观察者就会设置item的图片和标签内容。
         </li>
         <li>
-            Change the background color to the item’s view.
+            改变item的view的背景颜色。
         </li>
     </ol>
     <h2>
-        Add Controls to the View
+        添加控件到view上
     </h2>
     <p>
-        The
+        在nib文件中的
         <em>
             View
         </em>
-        in the nib is the root view for a subtree of controls to be displayed
-        in the item. You’re going to add an image view and a label for the file
-        name.
+        ，是在item中展示的控件树的根view。你将会添加一个image view，和一个用来展示文件名的label。
     </p>
     <p>
-        Open
+        打开
         <em>
             CollectionViewItem.xib
         </em>
-        .
+        。
     </p>
     <p>
-        Add an
+        添加一个
         <code>
             NSImageView
         </code>
-        :
+        ：
     </p>
     <ol>
         <li>
-            From the
+            从
             <em>
                 Object Library
             </em>
-            , add an
+            中，添加一个
             <em>
                 Image View
             </em>
-            to
+            到
             <em>
                 View
             </em>
-            .
+            上。
         </li>
         <li>
-            Select and click
-            <em>
-                Pin
-            </em>
-            from the
+            选择并从
             <em>
                 Auto Layout
             </em>
-            toolbar to set its constraints.
+            的工具栏中单击
+            <em>
+                Pin
+            </em>
+            来设置它的约束。
         </li>
         <li>
-            Set the
+            设置
             <em>
                 top
             </em>
-            ,
+            ，
             <em>
                 leading
             </em>
-            and
+            和
             <em>
                 trailing
             </em>
-            constraints to 0, the
+            约束为0，
             <em>
                 bottom
             </em>
-            to 30 and click
+            为30并单击
             <em>
                 Add 4 Constraints
             </em>
-            .
+            。
             <p>
                 <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ImageAL1.png">
                     <img src="https://koenig-media.raywenderlich.com/uploads/2015/11/ImageAL1-700x410.png"
@@ -926,11 +920,11 @@
             </p>
         </li>
         <li>
-            To fix the Auto Layout issues, select
+            为了修复这个Auto Layout的问题，选择
             <em>
                 Editor \ Resolve Auto Layout Issues \ Update Frames
             </em>
-            .
+            。
         </li>
     </ol>
     <p>
@@ -942,23 +936,23 @@
         </a>
     </p>
     <p>
-        Add a label:
+        添加一个label：
     </p>
     <ol>
         <li>
-            From the
+            从
             <em>
                 Object Library
             </em>
-            , add a
+            中，添加一个
             <em>
                 Label
             </em>
-            below the
+            到
             <em>
                 Image View
             </em>
-            .
+            下面。
         </li>
         <p>
             <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/LabelInPlace.png">
@@ -969,31 +963,31 @@
             </a>
         </p>
         <li>
-            Click the
+            单击
             <em>
                 Pin
             </em>
-            button. Set the
+            按钮。设置
             <em>
                 top
             </em>
-            ,
+            ，
             <em>
                 bottom
             </em>
-            ,
+            ，
             <em>
                 trailing
             </em>
-            and
+            和
             <em>
                 leading
             </em>
-            constraints to 0, and then click
+            约束为0，然后单击
             <em>
                 Add 4 Constraints
             </em>
-            .
+            。
         </li>
         <p>
             <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-09-at-20.11.30.png">
@@ -1004,30 +998,30 @@
             </a>
         </p>
         <li>
-            Select
+            选择
             <em>
                 Editor \ Resolve Auto Layout Issues \ Update Frames
             </em>
-            to update its position.
+            来更新它的位置。
         </li>
     </ol>
     <p>
-        Select the
+        选择
         <em>
             Label
         </em>
-        , and in the
+        ，在
         <em>
             Attributes Inspector
         </em>
-        set the following attributes:
+        中设置下列的attribute：
     </p>
     <ol>
         <li>
             <em>
                 Alignment
             </em>
-            to
+            为
             <em>
                 center
             </em>
@@ -1036,7 +1030,7 @@
             <em>
                 Text Color
             </em>
-            to
+            为
             <em>
                 white
             </em>
@@ -1045,7 +1039,7 @@
             <em>
                 Line Break
             </em>
-            to
+            为
             <em>
                 Truncate Tail
             </em>
@@ -1060,53 +1054,52 @@
         </a>
     </p>
     <p>
-        Now you need to connect the controls to the
+        现在你需要连接控件到
         <code>
             imageView
         </code>
-        and the
+        和
         <code>
             textField
         </code>
-        outlets:
+        的outlets上：
     </p>
     <ol>
         <li>
-            Select
+            选择
             <em>
                 File’s Owner
             </em>
-            and show the
+            并展示
             <em>
                 Connections Inspector
             </em>
-            .
+            。
         </li>
         <li>
-            Next,
-            <em>
-                drag
-            </em>
-            from the button next
+            接下来，将靠近
             <em>
                 imageView
             </em>
-            to the
+            的按钮
+            <em>
+                拖拽到
+            </em>
             <em>
                 Image View
             </em>
-            control to connect them.
+            控件上，并连接它们。
         </li>
         <li>
-            In the same way, connect the
+            用相同的方式，连接
             <code>
                 textField
             </code>
-            outlet to
+            的outlet到
             <em>
                 Label
             </em>
-            .
+            上。
         </li>
     </ol>
     <p>
@@ -1118,7 +1111,7 @@
         </a>
     </p>
     <h2>
-        Add a Top Level CollectionViewItem to the Nib
+        添加一个顶层的CollectionViewItem到Nib上
     </h2>
     <p>
         The
@@ -1216,29 +1209,31 @@
         </em>
         and add the following extension at the end of the file:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204947">
-                    <td class="code" id="p120494code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension ViewController : NSCollectionViewDataSource { &nbsp; // 1 func
-                            numberOfSectionsInCollectionView(collectionView: NSCollectionView) -&gt;
-                            Int { return imageDirectoryLoader.numberOfSections } &nbsp; // 2 func collectionView(collectionView:
-                            NSCollectionView, numberOfItemsInSection section: Int) -&gt; Int { return
-                            imageDirectoryLoader.numberOfItemsInSection(section) } &nbsp; // 3 func
-                            collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath
-                            indexPath: NSIndexPath) -&gt; NSCollectionViewItem { &nbsp; // 4 let item
-                            = collectionView.makeItemWithIdentifier("CollectionViewItem", forIndexPath:
-                            indexPath) guard let collectionViewItem = item as? CollectionViewItem else
-                            {return item} &nbsp; // 5 let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
-                            collectionViewItem.imageFile = imageFile return item } &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDataSource</span> </span>{
+  
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">numberOfSectionsInCollectionView</span><span class="hljs-params">(collectionView: NSCollectionView)</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">return</span> imageDirectoryLoader.numberOfSections
+  }
+  
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, numberOfItemsInSection section: Int)</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">return</span> imageDirectoryLoader.numberOfItemsInSection(section)
+  }
+  
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSCollectionViewItem</span> {
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-keyword">let</span> item = collectionView.makeItemWithIdentifier(<span class="hljs-string">"CollectionViewItem"</span>, forIndexPath: indexPath)
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> collectionViewItem = item <span class="hljs-keyword">as</span>? <span class="hljs-type">CollectionViewItem</span> <span class="hljs-keyword">else</span> {<span class="hljs-keyword">return</span> item}
+    <span class="hljs-comment">// 5</span>
+    <span class="hljs-keyword">let</span> imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
+    collectionViewItem.imageFile = imageFile
+    <span class="hljs-keyword">return</span> item
+  }
+  
+}
+</pre>
     <ol>
         <li>
             This method provides the number of sections. When your app doesn’t support
@@ -1547,22 +1542,17 @@
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204948">
-                    <td class="code" id="p120494code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 @IBAction func showHideSections(sender: AnyObject) { // 2 let show
-                            = (sender as! NSButton).state imageDirectoryLoader.singleSectionMode =
-                            (show == NSOffState) imageDirectoryLoader.setupDataForUrls(nil) // 3 collectionView.reloadData()
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+<span class="hljs-comment">// 1</span>
+<span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">showHideSections</span><span class="hljs-params">(sender: AnyObject)</span></span> {
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> show = (sender <span class="hljs-keyword">as</span>! <span class="hljs-type">NSButton</span>).state
+  imageDirectoryLoader.singleSectionMode = (show == <span class="hljs-type">NSOffState</span>)
+  imageDirectoryLoader.setupDataForUrls(<span class="hljs-literal">nil</span>)
+  <span class="hljs-comment">// 3</span>
+  collectionView.reloadData()
+}
+</pre>
     <p>
         Section by section, here’s what you’re doing:
     </p>
@@ -1682,37 +1672,15 @@
     <p>
         Replace:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204949">
-                    <td class="code" id="p120494code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom:
-                            10.0, right: 20.0)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">left</span>: <span class="hljs-number">20.0</span>, bottom: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">right</span>: <span class="hljs-number">20.0</span>)
+</pre>
     <p>
         With this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049410">
-                    <td class="code" id="p120494code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            flowLayout.sectionInset = NSEdgeInsets(top: 30.0, left: 20.0, bottom:
-                            30.0, right: 20.0)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span class="hljs-number">30.0</span>, <span class="hljs-keyword">left</span>: <span class="hljs-number">20.0</span>, bottom: <span class="hljs-number">30.0</span>, <span class="hljs-keyword">right</span>: <span class="hljs-number">20.0</span>)
+</pre>
     <p>
         Here you set the bottom and top section insets to 30 to provide better
         visual separation between sections.
@@ -1940,23 +1908,17 @@
         </em>
         and replace the contents of the class with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049411">
-                    <td class="code" id="p120494code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 @IBOutlet weak var sectionTitle: NSTextField! @IBOutlet weak var
-                            imageCount: NSTextField! &nbsp; // 2 override func drawRect(dirtyRect:
-                            NSRect) { super.drawRect(dirtyRect) NSColor(calibratedWhite: 0.8 , alpha:
-                            0.8).set() NSRectFillUsingOperation(dirtyRect, NSCompositingOperation.CompositeSourceOver)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> sectionTitle: <span class="hljs-type">NSTextField</span>!
+<span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> imageCount: <span class="hljs-type">NSTextField</span>!
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">drawRect</span><span class="hljs-params">(dirtyRect: NSRect)</span></span> {
+  <span class="hljs-keyword">super</span>.drawRect(dirtyRect)
+  <span class="hljs-type">NSColor</span>(calibratedWhite: <span class="hljs-number">0.8</span> , alpha: <span class="hljs-number">0.8</span>).<span class="hljs-keyword">set</span>()
+  <span class="hljs-type">NSRectFillUsingOperation</span>(dirtyRect, <span class="hljs-type">NSCompositingOperation</span>.<span class="hljs-type">CompositeSourceOver</span>)
+}
+</pre>
     <p>
         In here, you’re:
     </p>
@@ -2071,25 +2033,17 @@
         </code>
         extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049412">
-                    <td class="code" id="p120494code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind
-                            kind: String, atIndexPath indexPath: NSIndexPath) -&gt; NSView { // 1 let
-                            view = collectionView.makeSupplementaryViewOfKind(NSCollectionElementKindSectionHeader,
-                            withIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView //
-                            2 view.sectionTitle.stringValue = "Section \(indexPath.section)" let numberOfItemsInSection
-                            = imageDirectoryLoader.numberOfItemsInSection(indexPath.section) view.imageCount.stringValue
-                            = "\(numberOfItemsInSection) image files" return view }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSView</span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> view = collectionView.makeSupplementaryViewOfKind(<span class="hljs-type">NSCollectionElementKindSectionHeader</span>, withIdentifier: <span class="hljs-string">"HeaderView"</span>, forIndexPath: indexPath) <span class="hljs-keyword">as</span>! <span class="hljs-type">HeaderView</span>
+  <span class="hljs-comment">// 2</span>
+  view.sectionTitle.stringValue = <span class="hljs-string">"Section <span class="hljs-subst">\(indexPath.section)</span>"</span>
+  <span class="hljs-keyword">let</span> numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+  view.imageCount.stringValue = <span class="hljs-string">"<span class="hljs-subst">\(numberOfItemsInSection)</span> image files"</span>
+  <span class="hljs-keyword">return</span> view
+}
+</pre>
     <p>
         The collection view calls this method when it needs the data source to
         provide a header for a section. The method:
@@ -2125,22 +2079,12 @@
         </code>
         extension.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049413">
-                    <td class="code" id="p120494code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension ViewController : NSCollectionViewDelegateFlowLayout { func collectionView(collectionView:
-                            NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout,
-                            referenceSizeForHeaderInSection section: Int) -&gt; NSSize { return imageDirectoryLoader.singleSectionMode
-                            ? NSZeroSize : NSSize(width: 1000, height: 40) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDelegateFlowLayout</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int)</span></span> -&gt; <span class="hljs-type">NSSize</span> {
+    <span class="hljs-keyword">return</span> imageDirectoryLoader.singleSectionMode ? <span class="hljs-type">NSZeroSize</span> : <span class="hljs-type">NSSize</span>(width: <span class="hljs-number">1000</span>, height: <span class="hljs-number">40</span>)
+  }
+}
+</pre>
     <p>
         The above method, although technically optional, is a must when you use
         headers because the flow layout delegate needs to provide the size of the
@@ -2290,19 +2234,11 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049414">
-                    <td class="code" id="p120494code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 view.layer?.borderWidth = 0.0 // 2 view.layer?.borderColor = NSColor.whiteColor().CGColor
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
+view.layer?.borderWidth = <span class="hljs-number">0.0</span>
+<span class="hljs-comment">// 2</span>
+view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<span class="hljs-type">CGColor</span>
+</pre>
     <ol>
         <li>
             Setting
@@ -2326,20 +2262,10 @@
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049415">
-                    <td class="code" id="p120494code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            func setHighlight(selected: Bool) { view.layer?.borderWidth = selected
-                            ? 5.0 : 0.0 }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setHighlight</span><span class="hljs-params">(selected: Bool)</span></span> {
+  view.layer?.borderWidth = selected ? <span class="hljs-number">5.0</span> : <span class="hljs-number">0.0</span>
+}
+</pre>
     <p>
         This method is called to add or remove highlighting.
     </p>
@@ -2351,27 +2277,32 @@
         </em>
         and add this extension at the end of the file:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049416">
-                    <td class="code" id="p120494code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension ViewController : NSCollectionViewDelegate { // 1 func collectionView(collectionView:
-                            NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set&lt;NSIndexPath&gt;)
-                            { // 2 guard let indexPath = indexPaths.first else { return } // 3 guard
-                            let item = collectionView.itemAtIndexPath(indexPath) else { return } (item
-                            as! CollectionViewItem).setHighlight(true) } &nbsp; // 4 func collectionView(collectionView:
-                            NSCollectionView, didDeselectItemsAtIndexPaths indexPaths: Set&lt;NSIndexPath&gt;)
-                            { guard let indexPath = indexPaths.first else { return } guard let item
-                            = collectionView.itemAtIndexPath(indexPath) else { return } (item as! CollectionViewItem).setHighlight(false)
-                            } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDelegate</span> </span>{
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> indexPath = indexPaths.first <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> item = collectionView.itemAtIndexPath(indexPath) <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span>
+    }
+    (item <span class="hljs-keyword">as</span>! <span class="hljs-type">CollectionViewItem</span>).setHighlight(<span class="hljs-literal">true</span>)
+  }
+
+  <span class="hljs-comment">// 4</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, didDeselectItemsAtIndexPaths indexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> indexPath = indexPaths.first <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> item = collectionView.itemAtIndexPath(indexPath) <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span>
+    }
+    (item <span class="hljs-keyword">as</span>! <span class="hljs-type">CollectionViewItem</span>).setHighlight(<span class="hljs-literal">false</span>)
+  }
+}
+</pre>
     <p>
         This implements the necessary
         <code>
@@ -2463,21 +2394,12 @@
         </code>
         statement:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12049417">
-                    <td class="code" id="p120494code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            if let selectedIndexPath = collectionView.selectionIndexPaths.first where
-                            selectedIndexPath == indexPath { collectionViewItem.setHighlight(true)
-                            } else { collectionViewItem.setHighlight(false) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> selectedIndexPath = collectionView.selectionIndexPaths.first <span class="hljs-keyword">where</span> selectedIndexPath == indexPath {
+  collectionViewItem.setHighlight(<span class="hljs-literal">true</span>)
+} <span class="hljs-keyword">else</span> {
+  collectionViewItem.setHighlight(<span class="hljs-literal">false</span>)
+}
+</pre>
     <p>
         This guarantees that selection and highlighting are in sync.
     </p>
