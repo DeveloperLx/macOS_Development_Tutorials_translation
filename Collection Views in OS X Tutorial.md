@@ -617,66 +617,54 @@
     </p>
     <ol>
         <li>
-            Creating an
+            创建一个
             <code>
                 NSCollectionViewFlowLayout
             </code>
-            and setting its attributes and the
+            并设置它的attribute，以及
+            <code>
+                NSCollectionView
+            </code>
+            的
             <code>
                 collectionViewLayout
             </code>
-            property of the
-            <code>
-                NSCollectionView
-            </code>
-            .
+            property。
         </li>
         <li>
-            For optimal performance,
+            为了优化性能，
             <code>
                 NSCollectionView
             </code>
-            is designed to be layer-backed. So, you’re setting an ancestor’s
+            被设计为基于layer的。因此，你要设置其
             <code>
                 wantsLayer
             </code>
-            property to
+            property为
             <code>
                 true
             </code>
-            .
+            。
         </li>
         <li>
-            Making an addition related to the layer that’s specific to
+            建立一个对于layer的特定于
             <em>
                 SlidesMagic
             </em>
-            , setting the collection view’s background color to black.
+            的额外的关联，设置collection view的北京颜色为黑色。
         </li>
     </ol>
     <p>
-        You need to call this method when the view is created, so add this to
-        the end of
+        你需要在view被创建时调用这个方法，因此添加下列的代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        的尾部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204944">
-                    <td class="code" id="p120494code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            configureCollectionView()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><font><font>configureCollectionView（）
+</font></font></pre>
     <p>
-        Build and run:
+        Build并运行：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/BlackView.png">
@@ -715,19 +703,8 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204945">
-                    <td class="code" id="p120494code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            collectionView.reloadData()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">collectionView.reloadData()
+</pre>
     <p>
         This makes it so that selecting
         <em>
@@ -820,25 +797,30 @@
         </em>
         and replace the whole class with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204946">
-                    <td class="code" id="p120494code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            class CollectionViewItem: NSCollectionViewItem { &nbsp; // 1 var imageFile:
-                            ImageFile? { didSet { guard viewLoaded else { return } if let imageFile
-                            = imageFile { imageView?.image = imageFile.thumbnail textField?.stringValue
-                            = imageFile.fileName } else { imageView?.image = nil textField?.stringValue
-                            = "" } } } &nbsp; // 2 override func viewDidLoad() { super.viewDidLoad()
-                            view.wantsLayer = true view.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
-                            } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CollectionViewItem</span>: <span class="hljs-title">NSCollectionViewItem</span> </span>{<font></font>
+<font></font>
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">var</span> imageFile: <span class="hljs-type">ImageFile</span>? {
+    <span class="hljs-keyword">didSet</span> {
+      <span class="hljs-keyword">guard</span> viewLoaded <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> imageFile = imageFile {<font></font>
+        imageView?.image = imageFile.thumbnail<font></font>
+        textField?.stringValue = imageFile.fileName<font></font>
+      } <span class="hljs-keyword">else</span> {<font></font>
+        imageView?.image = <span class="hljs-literal">nil</span>
+        textField?.stringValue = <span class="hljs-string">""</span><font></font>
+      }<font></font>
+    }<font></font>
+  }<font></font>
+  <font></font>
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">super</span>.viewDidLoad()<font></font>
+    view.wantsLayer = <span class="hljs-literal">true</span>
+    view.layer?.backgroundColor = <span class="hljs-type">NSColor</span>.lightGrayColor().<span class="hljs-type">CGColor</span><font></font>
+  }<font></font>
+}<font></font>
+</pre>
     <p>
         In here, you:
     </p>
