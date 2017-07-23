@@ -224,13 +224,10 @@
         <em>
             SlidesMagic
         </em>
-        the app you’re going to build is a simple image browser. It’s pretty cool,
-        but don’t get all excited and delete Photos from your Mac just yet.
+        你将要构建的app是一个图片浏览器。它相当得酷，但你不要太过兴奋把你的Mac中的照片都删掉了。
     </p>
     <p>
-        It retrieves all image files from a folder on the file system and displays
-        them and their names in an elegant collection view. It’s actually kind
-        of magical when you think about it! The finished app will look like this:
+        它会检索文件系统中的一个目录的所有图片文件，并展示它们及其名字到一个优雅的collection view上。当你想象它的时候，它其实是一种神奇的东西！完成的app看起来将会是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SlidesMagicSections1.png">
@@ -241,15 +238,16 @@
         </a>
     </p>
     <p>
+        在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/02/SlidesMagic-Starter.zip"
         rel="">
-            Download the starter project here
+            这里
         </a>
-        and open it in
+        下载起始项目，并在Xcode
         <em>
             Xcode
         </em>
-        . Build and run:
+        中打开它。Build并运行：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/empty-app.png">
