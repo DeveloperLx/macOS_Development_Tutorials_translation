@@ -443,57 +443,43 @@
     <p>
         如果你现在build，你会看到一个错误：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204941">
-                    <td class="code" id="p120494code1">
-                        <pre class="bash" style="font-family:monospace;">
-                            Main.storyboard: Unknown segue relationship: Prototype
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="bash" class="language-bash hljs">Main.storyboard: Unknown segue relationship: Prototype 
+</pre>
     <p>
-        Along with the collection view,
+        和collection view一起，
         <em>
             Xcode
         </em>
-        also added an
+        还添加了一个
         <code>
             NSCollectionViewItem
         </code>
-        , connected with a
+        ，且于一个
         <em>
             Prototype
         </em>
-        segue.
+        segue相连。
     </p>
     <p>
-        Therein you have the cause of your build error — it’s this type of segue
-        that’s causing the trouble. This is a vestige (or bug if you like…) of
-        the OS X 10.10 and earlier API model that prevents you from using collection
-        view items in storyboards.
+        这其中就有造成了你build错误的原因 - 这就是造成这种麻烦的segue的类型。这是一个OS X 10.10的遗产（或是一个bug如果你喜欢的话），早期的API model可以避免你在storyboard中使用collection view item。
     </p>
     <p>
-        The fix is to delete it and reincarnate it in a separate
+        修复的方法是删除它，并将它转化为一个独立的
         <em>
             xib
         </em>
-        file.
+        文件。
     </p>
     <p>
-        Select the
+        选择
         <em>
             Collection View Item
         </em>
-        and press
+        并按
         <em>
             Delete
         </em>
-        to, well, delete it.
+        键来删除它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/deleteItem.png">
@@ -504,22 +490,22 @@
         </a>
     </p>
     <p>
-        Now the build error is gone.
+        现在错误就消失了。
     </p>
     <p>
-        Resize the
+        调整
         <em>
             Bordered Scroll View
         </em>
-        so it takes up the whole area of the parent view. Then, select
+        的大小，让它可以占据整个父view的区域。然后，选择
         <em>
             Editor \ Resolve Auto Layout Issues \ Add Missing Constraints
         </em>
-        to add the
+        来添加
         <em>
             Auto Layout
         </em>
-        constraints.
+        约束。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/CollectionZeroConstraints.png">
@@ -530,66 +516,55 @@
         </a>
     </p>
     <p>
-        You need to add an outlet in
+        你需要在
         <em>
             ViewController
         </em>
-        to access the collection view. Open
+        添加一个outlet来连接collection view。打开
         <em>
             ViewController.swift
         </em>
-        and add the following inside the
+        并添加下列的代码到
         <code>
             ViewController
         </code>
-        class definition:
+        类的定义中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204942">
-                    <td class="code" id="p120494code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak var collectionView: NSCollectionView!
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> collectionView: <span class="hljs-type">NSCollectionView</span>!
+</pre>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        , and select the
-        <em>
-            View Controller
-        </em>
-        inside the
+        ，并选择
         <em>
             View Controller Scene
         </em>
-        .
+        中的
+        <em>
+            View Controller
+        </em>
+        。
     </p>
     <p>
-        Open the
+        打开
         <em>
             Connections Inspector
         </em>
-        and find the
-        <em>
-            collectionView
-        </em>
-        element within the
+        并在
         <em>
             Outlets
         </em>
-        section. Connect it to the collection view by
+        部分找到
         <em>
-            dragging
+            collectionView
         </em>
-        from the button next to it to the collection view control in the canvas.
+        元素。通过
+        <em>
+            拖拽
+        </em>
+        画布上靠近collection view控件的button到collection view来进行连接。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ConnectCollectionView.png">
@@ -600,50 +575,45 @@
         </a>
     </p>
     <h3>
-        Configure the Collection View Layout
+        配置Collection View的布局
     </h3>
     <p>
-        You’ve got options: You can set the initial layout and some of its attributes
-        in
+        你已获得了选项：你可以获取初始的布局，和一些
         <em>
             Interface Builder
         </em>
-        , or you can set them programmatically.
+        中的attribute，或者你可以用编程方式来设置它们。
     </p>
     <p>
-        For SlidesMagic, you’ll take the programmatic approach.
+        对于，你将采用编程的方式。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following method to
+        并添加下列的方法到
         <code>
             ViewController
         </code>
-        :
+        ：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1204943">
-                    <td class="code" id="p120494code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            private func configureCollectionView() { // 1 let flowLayout = NSCollectionViewFlowLayout()
-                            flowLayout.itemSize = NSSize(width: 160.0, height: 140.0) flowLayout.sectionInset
-                            = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0) flowLayout.minimumInteritemSpacing
-                            = 20.0 flowLayout.minimumLineSpacing = 20.0 collectionView.collectionViewLayout
-                            = flowLayout // 2 view.wantsLayer = true // 3 collectionView.layer?.backgroundColor
-                            = NSColor.blackColor().CGColor }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">configureCollectionView</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> flowLayout = <span class="hljs-type">NSCollectionViewFlowLayout</span>()
+  flowLayout.itemSize = <span class="hljs-type">NSSize</span>(width: <span class="hljs-number">160.0</span>, height: <span class="hljs-number">140.0</span>)
+  flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">left</span>: <span class="hljs-number">20.0</span>, bottom: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">right</span>: <span class="hljs-number">20.0</span>)
+  flowLayout.minimumInteritemSpacing = <span class="hljs-number">20.0</span>
+  flowLayout.minimumLineSpacing = <span class="hljs-number">20.0</span>
+  collectionView.collectionViewLayout = flowLayout
+  <span class="hljs-comment">// 2</span>
+  view.wantsLayer = <span class="hljs-literal">true</span>
+  <span class="hljs-comment">// 3</span>
+  collectionView.layer?.backgroundColor = <span class="hljs-type">NSColor</span>.blackColor().<span class="hljs-type">CGColor</span>
+}
+</pre>
     <p>
-        Here’s what you’re doing in this method:
+        以上代码完成了：
     </p>
     <ol>
         <li>
