@@ -258,23 +258,22 @@
         </a>
     </p>
     <p>
-        At this point, it appears to be an empty window, but it has hidden features
-        that will become the foundation of an image browser.
+        现在出现了一个空的窗口，但它包含隐藏的特性，它将会成为图片浏览器的基础。
     </p>
     <p>
-        When
+        当
         <em>
             SlidesMagic
         </em>
-        launches, it automatically loads all the images from the system’s
+        运行时，它会从系统的
         <em>
             Desktop Pictures
         </em>
-        folder. From
+        目录中自动地加载全部的图片。从
         <em>
             Xcode
         </em>
-        ‘s console log, you can see the file names.
+        的控制log中，你可以看到文件的名称。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/desktop-photos.png">
@@ -285,23 +284,21 @@
         </a>
     </p>
     <p>
-        That list in the console is an indicator that the model-loading logic
-        is in place. You can choose another folder by selecting the
+        在控制台中的这个列表是模型逻辑加载完毕的指示器。你可以通过选择
         <em>
             File \ Open Another Folder…
         </em>
-        menu.
+        菜单来选择另一个目录。
     </p>
     <h3>
-        Overview of the Starter Project code
+        Starter项目代码的概述
     </h3>
     <p>
-        The starter project provides functionality that is not directly related
-        to collection views but specific to
+        启动项目提供了并非和collocation view直接相关，但特定于
         <em>
             SlidesMagic
         </em>
-        .
+        的功能。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/CollectionProjectNav.png">
@@ -319,41 +316,39 @@
             <em>
                 ImageFile.swift
             </em>
-            : Encapsulates a single image file
+            ：封装了一个单独的图片文件
         </li>
         <li>
             <em>
                 ImageDirectoryLoader.swift
             </em>
-            : Helper class that loads image files from the disk
+            ：用来从磁盘中加载图片的助手类
         </li>
     </ul>
     <h3>
-        Controllers
+        Controller
     </h3>
     <p>
-        The application has two main controllers:
+        app有两个主要的controller：
     </p>
     <ul>
         <li>
             <em>
                 WindowController.swift
             </em>
-            –
+            -
             <code>
                 windowDidLoad()
             </code>
-            is responsible for the initial sizing of the window on the left half of
-            the screen. The
+            负责初始化屏幕左侧窗口的尺寸。
             <code>
                 openAnotherFolder
             </code>
-            method is invoked by
+            方法是由
             <em>
                 File \ Open Another Folder…
             </em>
-            menu item, and it presents a standard open dialog to choose a different
-            folder.
+            菜单项调用的，它代表一个标准的打开对话框来选择不同的目录。
         </li>
         <li>
             <em>
@@ -363,42 +358,42 @@
             <code>
                 viewDidLoad()
             </code>
-            opens the Desktop Pictures folder as the initial folder to browse, and
+            打开了桌面的图片目录作为待浏览的初始目录，而
             <code>
                 loadDataForNewFolderWithUrl()
             </code>
-            is used by
-            <code>
-                openAnotherFolder
-            </code>
-            from
+            是通过来自
             <code>
                 WindowController
             </code>
-            .
+            的
+            <code>
+                openAnotherFolder
+            </code>
+            使用的。
         </li>
     </ul>
     <h2>
-        Creating the Collection View
+        创建Collection View
     </h2>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        . Go to the
+        。找到
         <em>
             Object Library
         </em>
-        , and drag a
+        ，并拖拽一个
         <em>
             Collection View
         </em>
-        into the view of the
+        到
         <em>
             View Controller Scene
         </em>
-        .
+        的view上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/AddCollectionView.png">
@@ -410,44 +405,43 @@
     </p>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : You may have noticed
+        ：你可能会注意到
         <em>
             Interface Builder
         </em>
-        added three views instead of just one. That’s because the
+        添加了三个view而不是一个。那只是因为
         <em>
             Collection View
         </em>
-        is embedded inside a
+        被嵌入到了一个
         <em>
             Scroll View
         </em>
-        (which also has another subview called
+        中（它也同时含有另一个被叫做
         <em>
             Clip View
         </em>
-        ). When you’re instructed to select the
+        的子view）。当教程告知你选择
         <em>
             Collection View
         </em>
-        , make sure you’re
+        时，确保你选择
         <i>
-            not
+            不是
         </i>
-        selecting the
         <em>
             Scroll View
         </em>
-        or the
+        或
         <em>
             Clip View
         </em>
-        .
+        。
     </div>
     <p>
-        If you build now you’ll see an error:
+        如果你现在build，你会看到一个错误：
     </p>
     <div class="wp_codebox">
         <table>
