@@ -144,89 +144,81 @@
         Collection View的项目
     </h3>
     <p>
-        Like many other
+        就像很多其它的
         <em>
             Cocoa
         </em>
-        frameworks, items in the collection view follow the
+        框架一样，collection view的项目遵循
         <em>
             MVC
         </em>
-        design pattern.
+        设计模式。
     </p>
     <p>
         <em>
-            The Model and the View
+            Model和View
         </em>
-        – The items’ content comes from your model’s data objects. Each individual
-        object that becomes visible gets its own view in the larger collection
-        view. The structure of these individual views are defined in a separate
-        nib (file extension “.xib”).
+        - item的内容来自你的model的数据对象。每个单独的对象都从大的collection view中得到了它自己的view，进而变得可视化。这些单独的view的结构都被定义到了一个单独的nib文件中（扩展名为“.xib”）。
     </p>
     <p>
         <em>
-            The Controller
+            Controller
         </em>
-        – The nib mentioned above is owned by an instance of
+        - 上面提到的nib文件是由一个
         <em>
             NSCollectionViewItem
         </em>
-        , which is is a descendant of
+        的实例持有的，它是一个
         <code>
             NSViewController
         </code>
-        , or a subclass. It mediates the flow of information between the items’
-        views and model objects. Generally, you subclass
+        或其子类的节点。它协调了在item和model对象中的信息流。通常，你会继承
         <code>
             NSCollectionViewItem
         </code>
-        . When items are not of the same kind, you define a different subclass
-        and nib for each variant.
+        。当item并非相同的类型时，你就要为每种类型定义不同的子类和nib。
     </p>
     <h3>
-        Supplementary Views
+        Supplementary View
     </h3>
     <p>
-        To display extra information in the collection view that’s not part of
-        an individual item, you’d use supplementary views; some common implementations
-        of these are section headers and footers.
+        为了展示在collection view中不属于任一item的额外信息，你将使用supplementary view；对于这些一些共同的实现，就是section的header和footer了。
     </p>
     <h3>
-        The Collection View Data Source and Delegates
+        Collection View的Data Source和Delegate
     </h3>
     <ul>
         <li>
             <code>
                 NSCollectionViewDataSource
             </code>
-            – Introduced with the new API in
+            - 是在
             <em>
                 OS X 10.11
             </em>
-            , the populates the collection view with items and supplementary views.
+            引入的新API，它会使用item和supplementary填充collection view。
         </li>
         <li>
             <code>
                 NSCollectionViewDelegate
             </code>
-            – Handles events related to drag-and-drop, selection and highlighting.
+            - 处理有关拖拽，选择和高亮的事件。
         </li>
         <li>
             <code>
                 NSCollectionViewDelegateFlowLayout
             </code>
-            – Lets you customize a flow layout.
+            - 让你可以定制一个流式布局。
         </li>
     </ul>
     <div class="note">
         <em>
-            Note
+            注意：
         </em>
-        : You can populate a table view by using a data source or Cocoa Bindings.
-        This collection views in OS X tutorial covers the data source.
+        ：你可以使用data source或Cocoa Binding来填充table view。本collection views的OS X教程覆盖了data source。
     </div>
     <h2>
-        Introducing SlidesMagic
+        介绍SlidesMagic
     </h2>
     <p>
         <em>
