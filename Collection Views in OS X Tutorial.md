@@ -1291,49 +1291,49 @@
     </ol>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : The ability of the collection view to recycle unused collection view items provides a scalable solution for large collections. Items associated with model objects that aren’t visible are the objects that get recycled.
+        ：collection view复用item的能力，为支持大型的collection提供了可扩展的解决方案。那些关联到不可见的item的model对象，就是将会被引用到的对象。
     </div>
     <h3>
-        Set the Data Source
+        设置Data Source
     </h3>
     <p>
-        A collection view without data is like a magic act with no slight of hand — pointless and uninspiring. So, your next step is to define the data source; in this case it’s the view controller.
+        没有数据的collection view就像是一个“没有灵巧的手的魔法表演” - 毫无生趣。因此，下一步就是定义data source了。在本案中它就是view controller。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and select the collection view.
+        并选择collection view。
     </p>
     <p>
-        Open the
+        打开
         <em>
             Connections Inspector
         </em>
-        and locate
-        <em>
-            dataSource
-        </em>
-        in the
+        并在
         <em>
             Outlets
         </em>
-        section.
+        部分找到
         <em>
-            Drag
+            dataSource
         </em>
-        from the adjacent button to the
+        。
         <em>
-            View Controller
+            拖拽
         </em>
-        in
+        临近的按钮到
         <em>
             Document Outline View
         </em>
-        .
+        中的
+        <em>
+            View Controller
+        </em>
+        上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SetAsDataSource.png">
@@ -1344,7 +1344,7 @@
         </a>
     </p>
     <p>
-        Build and run.
+        Build并运行。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/OneSectionFinal.png">
             <img src="https://koenig-media.raywenderlich.com/uploads/2015/11/OneSectionFinal-409x500.png"
@@ -1354,98 +1354,93 @@
         </a>
     </p>
     <p>
-        Voila! It was worth all that work! Your collection view displays images
-        from the
+        看！对得起全部的工作！你的collection view展示了来自
         <em>
             Desktop Pictures
         </em>
-        folder!
+        目录中的图片！
     </p>
     <h3>
-        Troubleshooting
+        故障排除
     </h3>
     <p>
-        If you don’t see images, then something went wrong. You worked through
-        several steps, so you probably just missed something small.
+        如果你不能看到图片，然后某些事发生了错误。你已经通过了几个步骤，因此你只是犯了一些小错误。
     </p>
     <ol>
         <li>
-            Are all the connections in the
+            所有的
             <em>
                 Connections Inspector
             </em>
-            set as instructed?
+            是否已按照教程设置？
         </li>
         <li>
-            Did you set the
+            你是否设置了
             <code>
                 dataSource
             </code>
-            outlet?
+            outlet？
         </li>
         <li>
-            Did you use the right type for custom classes in the
+            你是否在
             <em>
                 Identity Inspector
             </em>
-            .
+            中使用了正确的定制的类。
         </li>
         <li>
-            Did you add the top level
+            你是否添加了顶层的
             <code>
                 NSCollectionViewItem
             </code>
-            object and change its type to
+            的对象，并将它的类型改变为
             <code>
                 CollectionViewItem
             </code>
-            ?
+            ？
         </li>
         <li>
-            Is the value for the
-            <code>
-                identifier
-            </code>
-            parameter in
+            在
             <code>
                 makeItemWithIdentifier
             </code>
-            identical to the nib name?
+            中
+            <code>
+                identifier
+            </code>
+            参数的值是否相等于nib的名称？
         </li>
     </ol>
     <h2>
-        Going Multi-Section
+        前往多section式
     </h2>
     <p>
-        MagicSlides is doing some serious magic now. But you’re going to improve
-        it by adding sections.
+        MagicSlides现在正在认真地表演魔法。但你还想通过添加一些section来提高它。
     </p>
     <p>
-        First, you need to add a check box at the bottom of the view so you can
-        toggle between single and multi-section.
+        首先，你需要在view的底部添加一个check box，让你可以在单section和多section之间切换。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        , and in the
+        ，并在
         <em>
             Document Outline
         </em>
-        view, select the scroll view’s bottom constraint. Open the
+        view中，选择scroll view的底部约束。打开
         <em>
             Size Inspector
         </em>
-        and change its
+        并将
         <em>
             Constant
         </em>
-        to 30.
+        改变为30。
     </p>
     <p>
-        This is how you move the collection view up to make room for the check
-        box.
+        这样你就将collection view向上移动了一些，并给check box留出了空间。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/change-constraint.png">
@@ -1456,35 +1451,35 @@
         </a>
     </p>
     <p>
-        Now, drag a
-        <em>
-            Check Box Button
-        </em>
-        from the
+        现在，从
         <em>
             Object Library
         </em>
-        into the space below the collection view. Select it, and in the
+        中拖拽一个
+        <em>
+            Check Box Button
+        </em>
+        到collection view的下方。选择它，并在
         <em>
             Attributes Inspector
         </em>
-        , set its
+        中，设置
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Show Sections
         </em>
-        , and its
+        ，
         <em>
             State
         </em>
-        to
+        为
         <em>
             Off
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ShowSections.png">
@@ -1495,18 +1490,18 @@
         </a>
     </p>
     <p>
-        Then, set its
-        <em>
-            Auto Layout
-        </em>
-        constraints by selecting the
+        然后，通过选择
         <em>
             Editor \ Resolve Auto Layout Issues \ Add Missing Constraints
         </em>
-        menu.
+        菜单项设置
+        <em>
+            Auto Layout
+        </em>
+        约束。
     </p>
     <p>
-        Build and run. It should look like this at the bottom:
+        Build并运行。它的底部应当看起来就像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ShowSectionsBottom.png">
@@ -1517,19 +1512,18 @@
         </a>
     </p>
     <p>
-        Now for a little UI. When you click the box, the application needs to
-        change the collection view’s appearance.
+        现在是一个小UI。当你单击box时，app需要改变collection view的外观。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following method at the end of the
+        并添加下列的方法到
         <code>
             ViewController
         </code>
-        class:
+        类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">  
 <span class="hljs-comment">// 1</span>
@@ -1543,71 +1537,68 @@
 }
 </pre>
     <p>
-        Section by section, here’s what you’re doing:
+        一部分一部分地说，这里是你所做的事：
     </p>
     <ol>
         <li>
-            Calling this method by toggling the state of the checkbox.
+            通过切换checkbox的状态来调用这个方法。
         </li>
         <li>
-            Accordingly, retrieving the state of the checkbox and setting data model
-            mode
+            相应地，检索checkbox的状态，并设置数据model的mode为
             <code>
                 singleSelectionMode
             </code>
-            , and then calling the model’s
+            ，然后调用model的
             <code>
                 setupDataForUrls(_:)
             </code>
-            method to rearrange the sections structure. The
+            方法来重新排列section的结构。传递
             <code>
                 nil
             </code>
-            value passed means you skip image loading — same images, different layout.
+            的值则意味着你跳过了图片的加载 - 相同的图片，不同的布局。
         </li>
     </ol>
     <p>
-        If you’re curious how images are distributed across sections, look up
-        <code>
-            sectionLengthArray
-        </code>
-        in
+        如果你好奇于图片是如何通过section进行分布，可查阅
         <code>
             ImageDirectoryLoader
         </code>
-        . The number of elements in this array sets the max number of sections,
-        and the element values set the number of items in each section.
+        中的
+        <code>
+            sectionLengthArray
+        </code>
+        。在这个数组中元素的数量，就被设定成了section的最大数量，元素的值则设定了在每一section中item的数量。
     </p>
     <p>
-        Now, open
+        现在，打开
         <em>
             Main.storyboard
         </em>
-        . In the
+        。在
         <em>
             Document Outline
         </em>
-        ,
+        中，
         <em>
-            Control-Drag
+            按住Control拖拽
         </em>
-        from the
         <em>
             Show Sections
         </em>
-        control over the
+        控件到
         <em>
             View Controller
         </em>
-        . In the black pop-up window click
+        上。在弹出的黑色菜单中，单击
         <em>
             showHideSections:
         </em>
-        to connect it. You can check if the connection was set properly in the
+        来连接它。你可以在
         <em>
             Connections Inspector
         </em>
-        .
+        中查看connection是否被正确地设置。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ConnectShowSections.png">
@@ -1618,7 +1609,7 @@
         </a>
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SectionsShowing.png">
@@ -1629,53 +1620,51 @@
         </a>
     </p>
     <p>
-        Check
+        查看
         <em>
             Show Sections
         </em>
-        and watch the layout change.
+        ，并观察布局的变化。
     </p>
     <p>
-        Because of the “black tail” in the second row, you see section 0 has seven
-        images, but section 1 has five and section 2 has 10 (look at
+        由于第二行中的“黑色尾巴”，你会看到在第0部分有7个图像，但第1部分有5个图像，第2个部分则有10个（请看
         <code>
             sectionLengthArray
         </code>
-        ). It’s not clear because the sections are rather cozy.
+        ）。这并不清楚，因为这些section相当得懵逼。
     </p>
     <p>
-        To fix this, open
+        要解决这个，打开
         <em>
             ViewController.swift
         </em>
-        and modify the layout’s
-        <code>
-            sectionInset
-        </code>
-        property in the
+        并在
         <code>
             configureCollectionView()
         </code>
-        function.
+        方法中修改布局的
+        <code>
+            sectionInset
+        </code>
+        property。
     </p>
     <p>
-        Replace:
-    </p>
-    <pre lang="swift" class="language-swift hljs">  
-flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">left</span>: <span class="hljs-number">20.0</span>, bottom: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">right</span>: <span class="hljs-number">20.0</span>)
-</pre>
-    <p>
-        With this:
+        用：
     </p>
     <pre lang="swift" class="language-swift hljs">  
 flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span class="hljs-number">30.0</span>, <span class="hljs-keyword">left</span>: <span class="hljs-number">20.0</span>, bottom: <span class="hljs-number">30.0</span>, <span class="hljs-keyword">right</span>: <span class="hljs-number">20.0</span>)
 </pre>
     <p>
-        Here you set the bottom and top section insets to 30 to provide better
-        visual separation between sections.
+        替换：
+    </p>
+    <pre lang="swift" class="language-swift hljs">  
+flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">left</span>: <span class="hljs-number">20.0</span>, bottom: <span class="hljs-number">10.0</span>, <span class="hljs-keyword">right</span>: <span class="hljs-number">20.0</span>)
+</pre>
+    <p>
+        在这里，你设置底部和顶部section的inset为30，以便提供更好的section之间的分隔。
     </p>
     <p>
-        Build and run.
+        Build并运行：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SectionInsets.png">
