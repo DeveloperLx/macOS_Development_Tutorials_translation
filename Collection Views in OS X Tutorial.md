@@ -1675,64 +1675,61 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        Check
+        查看
         <em>
             Show Sections
         </em>
-        , and note the additional spacing between sections.
+        ，注意到在section之间的额外的空间。
     </p>
     <h2>
-        Add Section Headers
+        添加Section Header
     </h2>
     <p>
-        The app is looking great so far, but more organization will make it even
-        better.
+        这个app到目前看起来都很棒，但更多的组织可以让它看起来更棒！
     </p>
     <p>
-        Another way to see section boundaries is adding a header or footer view.
-        To do this, you need a custom
+        让section的边界看得更清楚的另一种方式，是添加一个header或footer。为实现这点，你需要添加一个定制的
         <code>
             NSView
         </code>
-        class and will need to implement a data source method to provide the header
-        views to the table view.
+        类，以及实现一个data source的方法来提供header view到table view上。
     </p>
     <p>
-        To create the header view, select
+        为了创建header view，选择
         <em>
             File \ New \ File…
         </em>
-        . Select
+        。选择
         <em>
             OS X \ User Interface \ View
         </em>
-        and click
+        并单击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
-        Enter
+        输入
         <em>
             HeaderView.xib
         </em>
-        as the file name and for
+        作为文件名称，对于
         <em>
             Group
         </em>
-        select
+        则选择
         <em>
             Resources
         </em>
-        .
+        。
     </p>
     <p>
-        Click
+        单击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/HeaderView.png">
@@ -1743,95 +1740,95 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        Open
+        打开
         <em>
             HeaderView.xib
         </em>
-        and select the
+        并选择
         <em>
             Custom View
         </em>
-        . Open the
+        。打开
         <em>
             Size Inspector
         </em>
-        and change
+        ，并改变
         <em>
             Width
         </em>
-        to 500 and
+        为500以及
         <em>
             Height
         </em>
-        to 40.
+        为40。
     </p>
     <p>
-        Drag a label from the
+        从
         <em>
             Object Library
         </em>
-        to the left-hand side of
+        中拖拽一个label到
         <em>
             Custom View
         </em>
-        . Open the
+        的左侧。打开
         <em>
             Attributes Inspector
         </em>
-        and change
+        并改变
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Section Number
         </em>
-        and
+        ，以及
         <em>
             Font Size
         </em>
-        to
+        为
         <em>
             16
         </em>
-        .
+        。
     </p>
     <p>
-        Drag a second label to the right-hand side of
+        拖拽第二个label到
         <em>
             Custom View
         </em>
-        and change
+        的右边，并将
         <em>
             Title
         </em>
-        to
+        改为
         <em>
             Images Count
         </em>
-        and
+        ，
         <em>
             Text Alignment
         </em>
-        to
+        改为
         <em>
             Right
         </em>
-        .
+        。
     </p>
     <p>
-        Now, select the
+        现在，选择
         <em>
             Editor \ Resolve Auto Layout Issues \ Add Missing Constraints
         </em>
-        menu to add its
+        菜单来添加
         <em>
             Auto Layout
         </em>
-        constraints.
+        约束。
     </p>
     <p>
-        The header view should look like this:
+        header view应当看起来就像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/HeaderControls.png">
@@ -1842,49 +1839,48 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        With the interface ready for show time, the next task is to create a custom
-        view subclass for the header view.
+        随着界面已准备好显示时间，下一个任务就是为header view创建一个定制的view的子类。
     </p>
     <p>
-        Select
+        选择
         <em>
             File \ New \ File…
         </em>
-        to create a new file.
+        来创建一个新的文件。
     </p>
     <p>
-        Choose
+        选择
         <em>
             OS X \ Source \ Cocoa Class
         </em>
-        and name the class
+        并将类命名为
         <code>
             HeaderView
         </code>
-        , and then make it a subclass of
+        ，并让它成为
         <code>
             NSView
         </code>
-        . Click next, and for
+        的子类。单击下一步，对于
         <em>
             Group
         </em>
-        select
+        选择
         <em>
             Views
         </em>
-        . Click
+        。单击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             HeaderView.swift
         </em>
-        and replace the contents of the class with the following:
+        并使用下列代码替换类的内容：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> sectionTitle: <span class="hljs-type">NSTextField</span>!
@@ -1898,42 +1894,41 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
 }
 </pre>
     <p>
-        In here, you’re:
+        这里：
     </p>
     <ol>
         <li>
-            Setting up outlets you’ll use to connect to the labels in the nib.
+            设置你用来连接到nib上的label的outlet。
         </li>
         <li>
-            Drawing a gray background.
+            绘制一个灰色的背景。
         </li>
     </ol>
     <p>
-        With the framework in place, the next task is changing the nib file to
-        use this new class and connecting the outlets to the labels.
+        随着框架已到位，下一个任务就是改变nib文件去使用新的类，以及连接outlet到label上。
     </p>
     <p>
-        Open
+        打开
         <em>
             HeaderView.xib
         </em>
-        and select the
+        并选择
         <em>
             Custom View
         </em>
-        . Open the
+        。打开
         <em>
             Identity Inspector
         </em>
-        . Change the
+        。改变
         <em>
             Class
         </em>
-        to
+        为
         <em>
             HeaderView
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-09-at-22.50.57.png">
@@ -1944,42 +1939,40 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        In the
+        在
         <em>
             Document Outline
         </em>
-        view,
+        view中，
         <em>
-            Control-Click
+            按住Control单击
         </em>
-        on the
         <em>
             Header View
         </em>
-        . In the black pop-up window,
-        <em>
-            drag
-        </em>
-        from
+        。在弹出的黑色窗口中，将
         <em>
             imageCount
         </em>
-        to the
+        <em>
+            拖拽
+        </em>
+        到画布的
         <em>
             Images Count
         </em>
-        label on the canvas to connect the outlet.
+        label上来连接outlet。
     </p>
     <p>
-        Repeat the operation for the second label, dragging from
+        为第二个label执行重复的操作，将
         <em>
             sectionTitle
         </em>
-        to the
+        拖拽到画布的
         <em>
             Section Number
         </em>
-        label in the canvas.
+        label上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ConnectHeaderControls.png">
@@ -1990,26 +1983,25 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <h3>
-        Implement the Data Source and Delegate Methods
+        实现Data Source和Delegate方法
     </h3>
     <p>
-        Your header view is in place and ready to go, and you need to pass the
-        header views to the collection view to implement the
+        你的header view已准备就绪，你需要将它拖拽到collection view上来实现
         <code>
             collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)
         </code>
-        method.
+        方法。
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add the following method to the
+        并添加下列的方法到
         <code>
             NSCollectionViewDataSource
         </code>
-        extension:
+        到extension中：
     </p>
     <pre lang="swift" class="language-swift hljs">  
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSView</span> {
@@ -2023,39 +2015,38 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
 }
 </pre>
     <p>
-        The collection view calls this method when it needs the data source to
-        provide a header for a section. The method:
+        collection view会在它需要data source为某个section提供header时，调用这个方法。方法：
     </p>
     <ol>
         <li>
-            Calls
+            调用
             <code>
                 makeSupplementaryViewOfKind(_:withIdentifier:forIndexPath:)
             </code>
-            to instantiate a
-            <code>
-                HeaderView
-            </code>
-            object using the nib with a name equal to
+            方法来初始化一个
             <code>
                 withIdentifier
             </code>
-            .
+            参数和nib名称相同的
+            <code>
+                HeaderView
+            </code>
+            对象。
         </li>
         <li>
-            Sets the values for the labels.
+            给label设置值。
         </li>
     </ol>
     <p>
-        At the end of
+        在
         <em>
             ViewController.swift
         </em>
-        , add this
+        的尾部，添加下列的
         <code>
             NSCollectionViewDelegateFlowLayout
         </code>
-        extension.
+        extension。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDelegateFlowLayout</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int)</span></span> -&gt; <span class="hljs-type">NSSize</span> {
@@ -2064,19 +2055,14 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
 }
 </pre>
     <p>
-        The above method, although technically optional, is a must when you use
-        headers because the flow layout delegate needs to provide the size of the
-        header for every section.
+        The above method, although technically optional, is a must when you use headers because the flow layout delegate needs to provide the size of the header for every section.
     </p>
     <p>
-        When not implemented, the header won’t show because zero size is assumed.
-        Additionally, it ignores the specified width, effectively setting it to
-        the collection view’s width.
+        When not implemented, the header won’t show because zero size is assumed. 
+        Additionally, it ignores the specified width, effectively setting it to the collection view’s width.
     </p>
     <p>
-        In this case, the method returns a size of zero when the collection view
-        is in single section mode, and it returns 40 when in multiple sections
-        mode.
+        In this case, the method returns a size of zero when the collection view is in single section mode, and it returns 40 when in multiple sections mode.
     </p>
     <p>
         For the collection view to use
@@ -2154,8 +2140,8 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         Selection in Collection Views
     </h2>
     <p>
-        Collection views support both single and multiple selections. To show
-        an item as selected, you must highlight it.
+        Collection views support both single and multiple selections. 
+        To show an item as selected, you must highlight it.
     </p>
     <p>
         Before you can do that, you need to make the collection view selectable.
@@ -2191,8 +2177,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
             Selectable
         </em>
         enables single selection, meaning you can click an item to select it.
-        And when you choose a different item, it deselects the previous item and
-        selects item you just picked.
+        And when you choose a different item, it deselects the previous item and selects item you just picked.
     </p>
     <p>
         To show an item as selected, you’ll set a white border with
@@ -2248,8 +2233,8 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         This method is called to add or remove highlighting.
     </p>
     <p>
-        When the user selects an item in the collection view, you find out via
-        delegate methods. You’ll need to implement those methods, so open
+        When the user selects an item in the collection view, you find out via delegate methods. 
+        You’ll need to implement those methods, so open
         <em>
             ViewController.swift
         </em>
@@ -2297,8 +2282,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
             calls this method.
         </li>
         <li>
-            Here you get the selected item — since multiple selection is disabled,
-            it is always the first.
+            Here you get the selected item — since multiple selection is disabled, it is always the first.
         </li>
         <li>
             This retrieves an item by its index and highlights it.
@@ -2346,8 +2330,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         <code>
             NSCollectionViewItem
         </code>
-        instance is recycled, the data set must be refreshed with the data from
-        the new object. Your
+        instance is recycled, the data set must be refreshed with the data from the new object. Your
         <code>
             selected
         </code>
@@ -2393,8 +2376,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         </a>
     </p>
     <p>
-        Click an item and you’ll see highlighting. Choose a different image and
-        you’ll see fully functional highlighting. Poof! Magic!
+        Click an item and you’ll see highlighting. Choose a different image and you’ll see fully functional highlighting. Poof! Magic!
     </p>
     <h2>
         Where to go From Here
@@ -2431,12 +2413,9 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         .
     </p>
     <p>
-        In this collection views in OS X tutorial you went all the way from creating
-        your first ever collection view, through discovering the intricacies of
-        the data source API with sections, to handling selection with the delegate
-        protocol. However, although you covered a lot of ground, you’ve barely
-        explored the capabilities of collection views. For instance, you didn’t
-        look into any of these:
+        In this collection views in OS X tutorial you went all the way from creating your first ever collection view, through discovering the intricacies of the data source API with sections, to handling selection with the delegate protocol. 
+        However, although you covered a lot of ground, you’ve barely explored the capabilities of collection views. 
+        For instance, you didn’t look into any of these:
     </p>
     <ul>
         <li>
@@ -2466,16 +2445,14 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         </li>
     </ul>
     <p>
-        We will be covering some of these topics in upcoming OS X tutorials here
-        on
+        We will be covering some of these topics in upcoming OS X tutorials here on
         <a href="http://www.raywenderlich.com">
             raywenderlich.com
         </a>
         , so be sure to check back over the coming months.
     </p>
     <p>
-        Unfortunately, the documentation for collection views from Apple and other
-        sources is limited, but here are my suggestions:
+        Unfortunately, the documentation for collection views from Apple and other sources is limited, but here are my suggestions:
     </p>
     <ul>
         <li>
