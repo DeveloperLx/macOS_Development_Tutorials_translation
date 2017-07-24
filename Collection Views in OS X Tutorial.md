@@ -1114,60 +1114,59 @@
         添加一个顶层的CollectionViewItem到Nib上
     </h2>
     <p>
-        The
+        在nib文件中的
         <em>
             File’s Owner
         </em>
-        in the nib — of type
+        - 它的类型是
         <code>
             CollectionViewItem
         </code>
-        — is just a placeholder. You still need to instantiate it.
+        - 只是一个占位符。你仍然需要去实例化它。
     </p>
     <p>
         <code>
-            CollectionView's
+            CollectionView
         </code>
-        method
+        的方法
         <code>
             makeItemWithIdentifier(_:forIndexPath:)
         </code>
-        instantiates the collection view item, and it requires the nib to contain
-        a single top-level instance of either
+        会实例化collection view的item，它要求nib文件包含一个单独的顶层的
         <code>
             NSCollectionViewItem
         </code>
-        or a subclass thereof.
+        的实例或它的子类。
     </p>
     <p>
-        You need to make it appear.
+        你需要让它显示出来。
     </p>
     <p>
-        Drag a
-        <em>
-            Collection View Item
-        </em>
-        from the
+        从
         <em>
             Object Library
         </em>
-        and drop it into
+        中拖拽一个
+        <em>
+            Collection View Item
+        </em>
+        并将它放置到
         <em>
             Document Outline
         </em>
-        . Select it, and in the
+        中。选择它，并在
         <em>
             Identity Inspector
         </em>
-        , set its
+        中，设置它的
         <em>
             Class
         </em>
-        to
+        为
         <code>
             CollectionViewItem
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/TopLevelObject.png">
@@ -1178,36 +1177,35 @@
         </a>
     </p>
     <h2>
-        Populate the Collection View
+        填充Collection View
     </h2>
     <p>
-        You need to implement the data source methods so the view knows the answers
-        to these questions:
+        你需要实现data source的方法，让Collection View可以了解下列内容：
     </p>
     <ol>
         <li>
-            How many sections are in the collection?
+            在collection中有多少个section？
         </li>
         <li>
-            How many items are in each section?
+            在每个section中有多少个item？
         </li>
         <li>
-            Which item is associated with a specified index path?
+            哪个item和指定的索引路径相关联？
         </li>
     </ol>
     <p>
-        Meet your data source method:
+        满足你的data source方法：
         <code>
             NSCollectionViewDataSource
         </code>
-        protocol.
+        协议。
     </p>
     <p>
-        Put it into action now — open
+        现在进入实践 - 打开
         <em>
             ViewController.swift
         </em>
-        and add the following extension at the end of the file:
+        并添加下列的extension到文件的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDataSource</span> </span>{
   
