@@ -1234,81 +1234,72 @@
 </pre>
     <ol>
         <li>
-            This method provides the number of sections. When your app doesn’t support
-            sections, you can omit this method because a single section will be assumed.
-            When
+            这个方法提供了section的数量。当你的app不支持section的时候，你可以忽略这个方法，collection view就会只有一个section。当
             <em>
                 SlidesMagic
             </em>
-            launches, the model
+            启动的时候，model
             <code>
                 imageDirectoryLoader
             </code>
-            is set to return the value 1.
+            会被设置返回值为1。
         </li>
         <li>
-            This is one of two required methods for
+            这是
             <code>
                 NSCollectionViewDataSource
             </code>
-            . Here you return the number of items in the section specified by the
+            中的两个必须方法之一。在这里，你要返回由
             <code>
                 section
             </code>
-            parameter. Upon launch,
+            参数所指定的section中的item的数量。在启动的时候
             <em>
                 SlidesMagic
             </em>
-            has a single section, so you set the model to return the total number
-            of images in the folder.
+            有一个单独的section，因此你设置让model来返回目录中image的总数。
         </li>
         <li>
-            This is the second required method. It returns a collection view item
-            for a given
+            这是第二个必须的方法。它对于给定的
             <code>
                 indexPath
             </code>
-            .
+            ，返回一个collection view的item。
         </li>
         <li>
-            The collection view’s method
+            collection view的方法
             <code>
                 makeItemWithIdentifier(_:forIndexPath:)
             </code>
-            instantiates an item from a nib where its name equals the value of the
+            从nib文件中初始化了一个item，该nib文件的名称和
             <code>
                 identifier
             </code>
-            parameter. In this case, it’s
+            参数相同。在本例中，它是
             <code>
-                "CollectionViewItem"
+                “CollectionViewItem”
             </code>
-            . First, it attempts to reuse an unused item of the requested type, and
-            if nothing is available it creates a new one.
+            。首先，它尝试去复用一个要求类型的未使用的item，如果没有的话，它就会创建一个新的。
         </li>
         <li>
-            This code gets the model object for the given
+            此代码根据给定的
             <code>
                 NSIndexPath
             </code>
-            and sets the content of the image and the label.
+            得到相应的model对象，并设置图片和标签的内容。
         </li>
     </ol>
     <div class="note">
         <em>
             Note
         </em>
-        : The ability of the collection view to recycle unused collection view
-        items provides a scalable solution for large collections. Items associated
-        with model objects that aren’t visible are the objects that get recycled.
+        : The ability of the collection view to recycle unused collection view items provides a scalable solution for large collections. Items associated with model objects that aren’t visible are the objects that get recycled.
     </div>
     <h3>
         Set the Data Source
     </h3>
     <p>
-        A collection view without data is like a magic act with no slight of hand
-        — pointless and uninspiring. So, your next step is to define the data source;
-        in this case it’s the view controller.
+        A collection view without data is like a magic act with no slight of hand — pointless and uninspiring. So, your next step is to define the data source; in this case it’s the view controller.
     </p>
     <p>
         Open
