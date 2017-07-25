@@ -2200,33 +2200,33 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
 </pre>
     <ol>
         <li>
-            Setting
+            设定
             <code>
                 borderWidth
             </code>
-            to
+            为
             <code>
                 0.0
             </code>
-            initializes the item to show not selected
+            ，即将item初始化为未被选择的状态
         </li>
         <li>
-            Sets white for the color when selected
+            当item被选中时，设置为白色
         </li>
     </ol>
     <p>
-        Add the following method at the end of
+        添加下列的方法到
         <code>
             CollectionViewItem
         </code>
-        class:
+        类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setHighlight</span><span class="hljs-params">(selected: Bool)</span></span> {
   view.layer?.borderWidth = selected ? <span class="hljs-number">5.0</span> : <span class="hljs-number">0.0</span>
 }
 </pre>
     <p>
-        This method is called to add or remove highlighting.
+        这个方法是用来添加或移除高亮效果的。
     </p>
     <p>
         When the user selects an item in the collection view, you find out via delegate methods. 
