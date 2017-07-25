@@ -2385,68 +2385,68 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
             </a>
         </div>
     </div>
-    <p>
-        Download the final version of
+    <p>        
+        在
+        <a href="https://koenig-media.raywenderlich.com/uploads/2016/02/SlidesMagic-Final.zip"
+        rel="">
+            这里
+        </a>
+        可以下载到最终版本的
         <em>
             SlidesMagic
         </em>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2016/02/SlidesMagic-Final.zip"
-        rel="">
-            here
-        </a>
-        .
+        。
     </p>
     <p>
-        In this collection views in OS X tutorial you went all the way from creating your first ever collection view, through discovering the intricacies of the data source API with sections, to handling selection with the delegate protocol. 
-        However, although you covered a lot of ground, you’ve barely explored the capabilities of collection views. 
-        For instance, you didn’t look into any of these:
+        在这个OS X的collection view教程中，你从创建第一个collection view，到发掘了带有section的复杂的data sourc API，到使用代理协议来处理选择。然而，尽管你已了解了很多基础的内容，你仍然只是探索到了collection view能力的皮毛。例如，下面的内容你还并不了解：
     </p>
     <ul>
         <li>
-            “Data Source-less” collection views using Cocoa Bindings
+            使用Cocoa Bindings的“Data Source-less”的collection view
         </li>
         <li>
-            Different kind of items
+            不同类型的item
         </li>
         <li>
-            Adding and removing items
+            添加和删除item
         </li>
         <li>
-            Custom layouts
+            定制布局
         </li>
         <li>
-            Drag and drop
+            拖拽和放置
         </li>
         <li>
-            Animations
+            动画
         </li>
         <li>
-            Tweaking
+            调整
             <code>
                 NSCollectionViewFlowLayout
             </code>
-            (sticky headers, for example)
+            （例如，粘性的header）
         </li>
     </ul>
     <p>
-        We will be covering some of these topics in upcoming OS X tutorials here on
+        我们将会覆盖其中的一些话题在
         <a href="http://www.raywenderlich.com">
             raywenderlich.com
         </a>
-        , so be sure to check back over the coming months.
+        的即将到来的OS X教程中，因此，这几个月记得常来看看。
     </p>
     <p>
-        Unfortunately, the documentation for collection views from Apple and other sources is limited, but here are my suggestions:
+        有点不幸的是，来自苹果和其它来源的collection view的文档是非常有限的，但以下是我的建议：
     </p>
     <ul>
         <li>
