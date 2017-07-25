@@ -48,40 +48,33 @@
         入门
     </h2>
     <p>
-        Swift看起来似乎是创建命令行程序的奇怪选项，因为像C、Perl、Ruby或Java这样的语言才是更传统的选择。但有一些很棒的理由，让你可以选择Swift来实现你命令行的需求：
+        Swift看起来似乎是创建命令行程序的奇怪选项，因为像C、Perl、Ruby或Java这样的语言才是更传统的选择。但有一些很棒的理由，让你会选择Swift来实现你命令行的需求：
     </p>
     <ul>
         <li>
-            Swift can be used as an interpreted scripting language, as well as a compiled
-            language. This gives you the advantages of scripting languages, such as
-            zero compile times and ease of maintenance, along with the choice of compiling
-            your app to improve execution time or to bundle it for sale to the public.
+            Swift既可以被当做解释性的脚本语言来使用，也可以当做变异性语言来使用。这就带给了你描述性语言的优点，例如零编译时间，易于维护，以及可在编译你的app来提高执行时间或捆绑它以销售到公众之间进行选择。
         </li>
         <li>
-            You don’t need to switch languages. Many people say that a programmer
-            should learn one new language every year. This is not a bad idea, but if
-            you are already used to Swift and its standard library, you can reduce
-            the time investment by sticking with Swift.
+            你不需要切换语言。很多人说一个程序员应当每年学习一门语言。这当然并不是一个坏主意，但如果你早已使用Swift和它的标准库，你就可以通过继续使用Swift来减少时间的投入。
         </li>
     </ul>
     <p>
-        In this command line programs for macOS tutorial, you’ll create a classic
-        compiled project.
+        在这个macOS的命令行程序教程中，你将创建一个典型的编译项目。
     </p>
     <p>
-        Open Xcode and go to
+        打开Xcode并前往
         <em>
             File\New\Project
         </em>
-        . Find the macOS group, select
+        。找到macOS组，选择
         <em>
             Application\Command Line Tool
         </em>
-        and click
+        并单击
         <em>
             Next
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/05/Bildschirmfoto-2016-09-22-um-11.53.38.png"
@@ -93,27 +86,27 @@
         </a>
     </p>
     <p>
-        For
+        对
         <em>
             Product Name
         </em>
-        , enter
+        ，输入
         <em>
             Panagram
         </em>
-        . Make sure that
+        。确保
         <em>
             Language
         </em>
-        is set to
+        被设置为
         <em>
             Swift
         </em>
-        , then click
+        ，然后点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/Project_Settings.png"
@@ -125,20 +118,20 @@
         </a>
     </p>
     <p>
-        Choose a location on your disk to save your project and click
+        在你的磁盘上选择一个位置来保存你的项目，并单击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
         Many C-like languages have a
         <code>
             main
         </code>
-        function that serves as the entry point — i.e. the code that the operating
-        system will call when the program is executed. This means the program execution
-        starts with the first line of this function. Swift doesn’t have a
+        function that serves as the entry point — i.e. the code that the operating system will call when the program is executed. 
+        This means the program execution starts with the first line of this function. 
+        Swift doesn’t have a
         <code>
             main
         </code>
@@ -150,13 +143,13 @@
     </p>
     <p>
         When you run your project, the first line inside that file that isn’t
-        a method or class declaration is the first one to execute. It’s a good
-        idea to keep your
+        a method or class declaration is the first one to execute. 
+        It’s a good idea to keep your
         <em>
             main.swift
         </em>
-        file as clean as possible and put all your classes and structs in their
-        own files. This keeps things streamlined and helps you to understand the
+        file as clean as possible and put all your classes and structs in their own files. 
+        This keeps things streamlined and helps you to understand the
         <em>
             main execution path
         </em>
