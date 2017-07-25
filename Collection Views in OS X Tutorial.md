@@ -2055,60 +2055,59 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
 }
 </pre>
     <p>
-        The above method, although technically optional, is a must when you use headers because the flow layout delegate needs to provide the size of the header for every section.
+        以上的方法，在技术上也是可选的，但当你需要为每个section提供header的时候，你就必须使用它来为每个header提供尺寸的大小。
     </p>
     <p>
-        When not implemented, the header won’t show because zero size is assumed. 
-        Additionally, it ignores the specified width, effectively setting it to the collection view’s width.
+        如果你没有实现，header就不会展示出来，因为它的尺寸会被认为是0。此外，它还会忽略指定的宽度，而是将宽度设置为collection view的宽度。
     </p>
     <p>
-        In this case, the method returns a size of zero when the collection view is in single section mode, and it returns 40 when in multiple sections mode.
+        在本例中，这个方法会在collection view采取单个section模式时，返回尺寸为0；当collection view采取多section模式时，返回40。
     </p>
     <p>
-        For the collection view to use
+        为使collection view使用
         <code>
             NSCollectionViewDelegateFlowLayout
         </code>
-        , you must connect
+        ，你必须连接
         <code>
             ViewController
         </code>
-        to the
-        <code>
-            delegate
-        </code>
-        outlet of
+        到
         <code>
             NSCollectionView
         </code>
-        .
+        的outlet
+        <code>
+            delegate
+        </code>
+        上。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and select the collection view. Open the
+        并选择collection view。打开
         <em>
             Connections Inspector
         </em>
-        , and locate the
-        <em>
-            delegate
-        </em>
-        in the
+        ，并在
         <em>
             Outlets
         </em>
-        section.
+        部分中找到
         <em>
-            Drag
+            delegate
         </em>
-        from the button next to it to the view controller in the
+        。将靠近它的按钮
+        <em>
+            拖拽
+        </em>
+        到
         <em>
             Document Outline
         </em>
-        .
+        中的view controller。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ConnectTheDelegate.png">
@@ -2119,7 +2118,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/WithHeaders.png">
@@ -2130,38 +2129,36 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        Check
+        查看
         <em>
             Show Sections
         </em>
-        and watch your header neatly define sections.
+        ，并观察你的header已很好地区分了section。
     </p>
     <h2>
-        Selection in Collection Views
+        Collection View的选择操作
     </h2>
     <p>
-        Collection views support both single and multiple selections. 
-        To show an item as selected, you must highlight it.
+        Collection view支持单选和多选。为了表示item已被选取，你必须将它高亮一下。
     </p>
     <p>
-        Before you can do that, you need to make the collection view selectable.
-        Open the
+        在你行动之前，你必须让collection view变得可选。打开
         <em>
             Main.storyboard
         </em>
-        . Then, select the
+        。然后选择
         <em>
             Collection View
         </em>
-        and in the
+        ，并在
         <em>
             Attributes Inspector
         </em>
-        , check
+        中勾选
         <em>
             Selectable
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SelectionAttributes.png">
@@ -2172,30 +2169,29 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        Checking
+        勾选
         <em>
             Selectable
         </em>
-        enables single selection, meaning you can click an item to select it.
-        And when you choose a different item, it deselects the previous item and selects item you just picked.
+        就可以打开单选，也就是你可以单击一个item来选择它。并且当你选择另一个item时，之前选择的那个就会被取消。
     </p>
     <p>
-        To show an item as selected, you’ll set a white border with
+        为了展示一个item已被选择，为它设置一个白色的边框，并使用
         <code>
             borderWith
         </code>
-        set to 5.0. Non-selected items will get no special treatment.
+        将边框的粗细设定为5。未被选择的item则不会有特殊的处理。
     </p>
     <p>
-        Open
+        打开
         <em>
             CollectionViewItem.swift
         </em>
-        . Add the following at the end of
+        。添加下列代码到
         <code>
             viewDidLoad()
         </code>
-        :
+        方法的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
 view.layer?.borderWidth = <span class="hljs-number">0.0</span>
