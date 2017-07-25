@@ -2229,12 +2229,11 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         这个方法是用来添加或移除高亮效果的。
     </p>
     <p>
-        When the user selects an item in the collection view, you find out via delegate methods. 
-        You’ll need to implement those methods, so open
+        当用户在collection view中选择了一个item，你就会从它的代理方法得到响应。你需要实现这些方法，因此，打开
         <em>
             ViewController.swift
         </em>
-        and add this extension at the end of the file:
+        并添加下列的extension到文件的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDelegate</span> </span>{
   <span class="hljs-comment">// 1</span>
@@ -2263,93 +2262,92 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
 }
 </pre>
     <p>
-        This implements the necessary
+        这就实现了必须的
         <code>
             NSCollectionViewDelegate
         </code>
-        methods. Further detail:
+        方法。更多细节：
     </p>
     <ol>
         <li>
-            When you select an item,
+            当你选择了一个item，
             <code>
                 NSCollectionView
             </code>
-            calls this method.
+            就会调用这个方法。
         </li>
         <li>
-            Here you get the selected item — since multiple selection is disabled, it is always the first.
+            这里你获得了被选择的item - 由于多选是被禁用的，它总是第一个。
         </li>
         <li>
-            This retrieves an item by its index and highlights it.
+            通过序号来检索到item，并将它高亮。
         </li>
         <li>
-            The same as the previous method, but it’s called when an item is deselected.
+            就像上一个方法一样，但它是在item被取消选择是调用的。
         </li>
     </ol>
     <h3>
-        What Happens During Selection Stays in Selection
+        在选择期间时，发生了什么？
     </h3>
     <p>
-        When selected, an item is set in:
+        当被选择时，item就被设置了：
     </p>
     <ol>
         <li>
-            The
-            <code>
-                selectionIndexPaths
-            </code>
-            property of
+            加入
             <code>
                 NSCollectionView
             </code>
-            .
+            的property
+            <code>
+                selectionIndexPaths
+            </code>
+            。
         </li>
         <li>
-            The
-            <code>
-                selected
-            </code>
-            property of
             <code>
                 NSCollectionViewItem
             </code>
-            .
+            的property
+            <code>
+                selected
+            </code>
+            被设置为YES。
         </li>
     </ol>
     <p>
-        It’s
-        <i>
-            critical
-        </i>
-        to understand that when an
+        理解当
         <code>
             NSCollectionViewItem
         </code>
-        instance is recycled, the data set must be refreshed with the data from the new object. Your
+        的实例被循环使用时，它的数据必须被来自新的对象的数据刷新是非常
+        <i>
+            重要的
+        </i>
+        。你
+        <code>
+            NSCollectionViewItem
+        </code>
+        的property
         <code>
             selected
         </code>
-        property of
-        <code>
-            NSCollectionViewItem
-        </code>
-        is where you ensure this happens.
+        就是确保这点的地方。
     </p>
     <p>
-        Accordingly, in the
+        因此，在
         <code>
             NSCollectionViewDataSource
         </code>
-        extension you need to add the following inside
+        的extension中，你需要添加下列的代码到
         <code>
             collectionView(_:itemForRepresentedObjectAtIndexPath:)
         </code>
-        method, just before the
+        方法中，就在
         <code>
             return
         </code>
-        statement:
+        语句之前：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> selectedIndexPath = collectionView.selectionIndexPaths.first <span class="hljs-keyword">where</span> selectedIndexPath == indexPath {
   collectionViewItem.setHighlight(<span class="hljs-literal">true</span>)
@@ -2358,10 +2356,10 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
 }
 </pre>
     <p>
-        This guarantees that selection and highlighting are in sync.
+        这就确保了选择和高亮是同步的。
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ShowSelection.png">
@@ -2372,10 +2370,10 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         </a>
     </p>
     <p>
-        Click an item and you’ll see highlighting. Choose a different image and you’ll see fully functional highlighting. Poof! Magic!
+        点击一个item，你会看到高亮的效果。选择一个不同的图片，你就会看到完全的高亮功能。哇！真是魔术！
     </p>
     <h2>
-        Where to go From Here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
