@@ -125,54 +125,49 @@
         。
     </p>
     <p>
-        Many C-like languages have a
+        很多类C语言都有
         <code>
             main
         </code>
-        function that serves as the entry point — i.e. the code that the operating system will call when the program is executed. 
-        This means the program execution starts with the first line of this function. 
-        Swift doesn’t have a
+        函数作为程序的入口 - 也就是说，当程序被执行的时候，被操作系统调用的代码。这意味着程序会从这个方法的第一行处开始被执行。Swift并不包含一个
         <code>
             main
         </code>
-        function; instead, it has a
+        函数，而是只有一个
         <em>
-            main file
+            main文件
         </em>
-        .
+        。
     </p>
     <p>
-        When you run your project, the first line inside that file that isn’t
-        a method or class declaration is the first one to execute. 
-        It’s a good idea to keep your
+        当你运行你的项目的时候，在这个文件中的除方法和类声明之外的第一行代码将会被执行。让你的
         <em>
             main.swift
         </em>
-        file as clean as possible and put all your classes and structs in their own files. 
-        This keeps things streamlined and helps you to understand the
+        文件尽可能地保持整洁是一个非常好的习惯，你应当尽量保持类和结构体存放在它们自己相应的文件中。这可以使一切保持条理化，并帮助你理解
         <em>
             main execution path
         </em>
-        .
+        。
     </p>
     <p>
-        Press
+        按下
         <em>
             Cmd + N
         </em>
-        to create a new file. Under
+        键来创建一个新文件。在
         <em>
             macOS
         </em>
-        , select
+        下，选择
         <em>
             Source\Swift File
         </em>
-        and press
+        并按
         <em>
             Next
         </em>
-        :
+        键：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/05/Bildschirmfoto-2016-09-22-um-11.55.53.png"
@@ -184,19 +179,18 @@
         </a>
     </p>
     <p>
-        Save the file as
+        保持文件到
         <em>
             ConsoleIO.swift
         </em>
-        and open it. You’ll wrap all the input and output elements in a small,
-        handy class.
+        中并打开它。你将把所有的输入和输出元素放置到一个很小很方便的类中。
     </p>
     <p>
-        Add the following code to
+        添加下列的代码到
         <em>
             ConsoleIO.swift
         </em>
-        :
+        文件中：
     </p>
     <div class="wp_codebox">
         <table>
