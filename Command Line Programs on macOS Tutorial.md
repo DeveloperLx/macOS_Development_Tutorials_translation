@@ -289,22 +289,22 @@
 }
 </pre>
     <p>
-        Your next task is to change Panagram to use the two output streams.
+        你的下一个任务就是将Panagram改为使用两个输出流。
     </p>
     <p>
-        In
+        在
         <em>
             ConsoleIO.swift
         </em>
-        add the following enum at the top of the file, above the
+        中，添加下列的enum到文件的顶部，就在
         <code>
             ConsoleIO
         </code>
-        class implementation and below the
+        类的实现之上，
         <code>
             import
         </code>
-        line:
+        这行代码之下：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">OutputType</span> </span>{
   <span class="hljs-keyword">case</span> error
@@ -312,14 +312,14 @@
 }
 </pre>
     <p>
-        This defines the output stream to use when writing messages.
+        这就定义了当撰写信息时的输出流。
     </p>
     <p>
-        Next, add the following method to the
+        接下来，添加下列的方法到
         <code>
             ConsoleIO
         </code>
-        class (between the curly braces for the class implementation):
+        类中（就在类声明的花括号之中）：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">writeMessage</span><span class="hljs-params">(<span class="hljs-number">_</span> message: String, to: OutputType = .standard)</span></span> {
   <span class="hljs-keyword">switch</span> to {
@@ -331,46 +331,45 @@
 }
 </pre>
     <p>
-        This method has two parameters; the first is the actual message to print,
-        and the second is the destination. The second parameter defaults to
+        这个方法中含有两个参数；第一个就是实际要打印的信息，第二个则是要输出到的目的地。第二个参数默认为
         <code>
             .standard
         </code>
-        .
+        。
     </p>
     <p>
-        The code for the
+        对于
         <code>
             .standard
         </code>
-        option uses
+        选项的代码使用了
         <code>
             print
         </code>
-        , which by default writes to
+        ，它会默认地将信息写入到
         <code>
             stdout
         </code>
-        . The
+        中。而
         <code>
             .error
         </code>
-        case uses the C function
+        这里，则使用C函数
         <code>
             fputs
         </code>
-        to write to
+        写入到
         <code>
             stderr
         </code>
-        , which is a global variable and points to the standard error stream.
+        中，它是一个指向到标准错误流的全局变量。
     </p>
     <p>
-        Add the following code to the end of the
+        添加下列的代码到
         <code>
             ConsoleIO
         </code>
-        class:
+        类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printUsage</span><span class="hljs-params">()</span></span> {
 
@@ -386,46 +385,44 @@
 }
 </pre>
     <p>
-        This code defines the
+        这个代码定义了
         <code>
             printUsage()
         </code>
-        method that prints usage information to the console. Every time you run
-        a program, the path to the executable is implicitly passed as
+        方法，它可以将信息打印到控制台上。每次当你运行程序的时候，可执行程序的路径就会悄悄被传递到
         <code>
             argument[0]
         </code>
-        and accessible through the global
+        中，他可以通过全局的枚举
         <code>
             CommandLine
         </code>
-        enum.
+        访问到。
         <code>
             CommandLine
         </code>
-        is a small wrapper in the Swift Standard Library around the
+        是在Swift标准库中对于
         <code>
             argc
         </code>
-        and
+        和
         <code>
             argv
         </code>
-        arguments you may know from C-like languages.
+        参数（你可能已在类C语言中了解过的）的封装。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        It is common practice to print a usage statement to the console when the
-        user tries to start a command-line program with incorrect arguments.
+        通常的实践是，当用户尝试使用不正确的参数启动命令行程序时，就将使用说明打印到控制台中。
     </div>
     <p>
-        Create another new Swift file named
+        创建另一个名为
         <em>
             Panagram.swift
         </em>
-        (following the same steps as before) and add the following code to it:
+        的Swift文件（就和之前的步骤一样），并添加下列的代码到里面：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Panagram</span> </span>{
 
@@ -438,62 +435,52 @@
 }
 </pre>
     <p>
-        This defines a
+        这就定义了带有一个方法的一个
         <code>
             Panagram
         </code>
-        class that has one method. The class will handle the program logic, with
+        类。这个类会用来处理程序逻辑，而
         <code>
             staticMode()
         </code>
-        representing non-interactive mode — i.e. when you provide all data through
-        command line arguments. For now, it simply prints the usage information.
+        则代表了非交互的模式 - 也就是说，当你通过命令行参数提供所有的数据的时候。现在，它只是把用法的信息打印了出来。
     </p>
     <p>
-        Now, open
+        现在，打开
         <em>
             main.swift
         </em>
-        and replace the
+        并使用下列的代码替换
         <code>
             print
         </code>
-        statement with the following code:
+        语句：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            let
-        </span>
-        panagram =
-        <span class="hljs-type">
-            Panagram
-        </span>
-        () panagram.staticMode()
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> panagram = <span class="hljs-type">Panagram</span>()
+panagram.staticMode()
+</pre>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        As explained above, for
+        就像上面所提到的，
         <em>
             main.swift
         </em>
-        these are the first lines of code that will be executed when the program
-        is launched.
+        中的第一行代码将在程序启动的时候被执行。
     </div>
     <p>
-        Build and run your project; you’ll see the following output in Xcode’s
-        Console:
+        Build并运行你的项目；你会在Xcode的控制台中看到下列的输出：
     </p>
-    <pre lang="" class="hljs bash">
-        usage: Panagram -a string1 string2 or Panagram -p string or Panagram -h
-        to show usage information Type Panagram without an option to enter interactive
-        mode. Program ended with
-        <span class="hljs-built_in">
-            exit
-        </span>
-        code: 0
-    </pre>
+    <pre lang="" class="hljs bash">usage:
+Panagram -a string1 string2
+or
+Panagram -p string
+or
+Panagram -h to show usage information
+Type Panagram without an option to enter interactive mode.
+Program ended with <span class="hljs-built_in">exit</span> code: 0
+</pre>
     <p>
         So far, you’ve learned what a command-line tool is, where the execution
         starts, how to send messages to
