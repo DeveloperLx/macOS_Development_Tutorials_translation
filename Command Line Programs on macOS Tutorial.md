@@ -240,23 +240,23 @@
         重定向到一个文件中，这样错误的信息就不会展示到屏幕上，但可以在之后进行查看。这样就可以通过隐藏用户不需要看到的信息，来使得debug一个装载好的app更加容易，但仍然保留错误的信息以便将来的查看。
     </div>
     <p>
-        With the Panagram group selected in the Project navigator, press
+        在Project navigator中选择Panagram组，按下
         <em>
             Cmd + N
         </em>
-        to create a new file. Under
+        来创建一个新的文件。在
         <em>
             macOS
         </em>
-        , select
+        下，选择
         <em>
             Source/Swift File
         </em>
-        and press
+        并按
         <em>
             Next
         </em>
-        :
+        键：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/New-Swift-File.png"
@@ -268,35 +268,26 @@
         </a>
     </p>
     <p>
-        Save the file as
+        将文件保存为
         <em>
             ConsoleIO.swift
         </em>
-        . You’ll wrap all the input and output elements in a small, handy class
-        named
+        。你将会把所有的输入和输出元素封装到一个又小又方法的名为
         <code>
             ConsoleIO
         </code>
-        .
+        的类中。
     </p>
     <p>
-        Add the following code to the end of
+        添加下列的代码到
         <em>
             ConsoleIO.swift
         </em>
-        :
+        的尾部：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                ConsoleIO
-            </span>
-        </span>
-        { }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConsoleIO</span> </span>{
+}
+</pre>
     <p>
         Your next task is to change Panagram to use the two output streams.
     </p>
@@ -315,25 +306,11 @@
         </code>
         line:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                enum
-            </span>
-            <span class="hljs-title">
-                OutputType
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            case
-        </span>
-        error
-        <span class="hljs-keyword">
-            case
-        </span>
-        standard }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">OutputType</span> </span>{
+  <span class="hljs-keyword">case</span> error
+  <span class="hljs-keyword">case</span> standard
+}
+</pre>
     <p>
         This defines the output stream to use when writing messages.
     </p>
@@ -344,56 +321,15 @@
         </code>
         class (between the curly braces for the class implementation):
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                writeMessage
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                message: String, to: OutputType = .standard)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            switch
-        </span>
-        to {
-        <span class="hljs-keyword">
-            case
-        </span>
-        .standard:
-        <span class="hljs-built_in">
-            print
-        </span>
-        (
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(message)
-            </span>
-            "
-        </span>
-        )
-        <span class="hljs-keyword">
-            case
-        </span>
-        .error: fputs(
-        <span class="hljs-string">
-            "Error:
-            <span class="hljs-subst">
-                \(message)
-            </span>
-            \n"
-        </span>
-        , stderr) } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">writeMessage</span><span class="hljs-params">(<span class="hljs-number">_</span> message: String, to: OutputType = .standard)</span></span> {
+  <span class="hljs-keyword">switch</span> to {
+  <span class="hljs-keyword">case</span> .standard:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(message)</span>"</span>)
+  <span class="hljs-keyword">case</span> .error:
+    fputs(<span class="hljs-string">"Error: <span class="hljs-subst">\(message)</span>\n"</span>, stderr)
+  }
+}
+</pre>
     <p>
         This method has two parameters; the first is the actual message to print,
         and the second is the destination. The second parameter defaults to
@@ -436,83 +372,19 @@
         </code>
         class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                printUsage
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        executableName = (
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .arguments[
-        <span class="hljs-number">
-            0
-        </span>
-        ]
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).lastPathComponent writeMessage(
-        <span class="hljs-string">
-            "usage:"
-        </span>
-        ) writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(executableName)
-            </span>
-            -a string1 string2"
-        </span>
-        ) writeMessage(
-        <span class="hljs-string">
-            "or"
-        </span>
-        ) writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(executableName)
-            </span>
-            -p string"
-        </span>
-        ) writeMessage(
-        <span class="hljs-string">
-            "or"
-        </span>
-        ) writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(executableName)
-            </span>
-            -h to show usage information"
-        </span>
-        ) writeMessage(
-        <span class="hljs-string">
-            "Type
-            <span class="hljs-subst">
-                \(executableName)
-            </span>
-            without an option to enter interactive mode."
-        </span>
-        ) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printUsage</span><span class="hljs-params">()</span></span> {
+
+  <span class="hljs-keyword">let</span> executableName = (<span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">0</span>] <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).lastPathComponent
+        
+  writeMessage(<span class="hljs-string">"usage:"</span>)
+  writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(executableName)</span> -a string1 string2"</span>)
+  writeMessage(<span class="hljs-string">"or"</span>)
+  writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(executableName)</span> -p string"</span>)
+  writeMessage(<span class="hljs-string">"or"</span>)
+  writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(executableName)</span> -h to show usage information"</span>)
+  writeMessage(<span class="hljs-string">"Type <span class="hljs-subst">\(executableName)</span> without an option to enter interactive mode."</span>)
+}
+</pre>
     <p>
         This code defines the
         <code>
@@ -555,37 +427,16 @@
         </em>
         (following the same steps as before) and add the following code to it:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                Panagram
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        consoleIO =
-        <span class="hljs-type">
-            ConsoleIO
-        </span>
-        ()
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                staticMode
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { consoleIO.printUsage() } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Panagram</span> </span>{
+
+  <span class="hljs-keyword">let</span> consoleIO = <span class="hljs-type">ConsoleIO</span>()
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">staticMode</span><span class="hljs-params">()</span></span> {
+    consoleIO.printUsage()
+  }
+
+}
+</pre>
     <p>
         This defines a
         <code>
@@ -704,99 +555,9 @@
         </code>
         class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                enum
-            </span>
-            <span class="hljs-title">
-                OptionType
-            </span>
-            :
-            <span class="hljs-title">
-                String
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            case
-        </span>
-        palindrome =
-        <span class="hljs-string">
-            "p"
-        </span>
-        <span class="hljs-keyword">
-            case
-        </span>
-        anagram =
-        <span class="hljs-string">
-            "a"
-        </span>
-        <span class="hljs-keyword">
-            case
-        </span>
-        help =
-        <span class="hljs-string">
-            "h"
-        </span>
-        <span class="hljs-keyword">
-            case
-        </span>
-        unknown
-        <span class="hljs-keyword">
-            init
-        </span>
-        (value:
-        <span class="hljs-type">
-            String
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            switch
-        </span>
-        value {
-        <span class="hljs-keyword">
-            case
-        </span>
-        <span class="hljs-string">
-            "a"
-        </span>
-        :
-        <span class="hljs-keyword">
-            self
-        </span>
-        = .anagram
-        <span class="hljs-keyword">
-            case
-        </span>
-        <span class="hljs-string">
-            "p"
-        </span>
-        :
-        <span class="hljs-keyword">
-            self
-        </span>
-        = .palindrome
-        <span class="hljs-keyword">
-            case
-        </span>
-        <span class="hljs-string">
-            "h"
-        </span>
-        :
-        <span class="hljs-keyword">
-            self
-        </span>
-        = .help
-        <span class="hljs-keyword">
-            default
-        </span>
-        :
-        <span class="hljs-keyword">
-            self
-        </span>
-        = .unknown } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> panagram = <span class="hljs-type">Panagram</span>()
+panagram.staticMode()
+</pre>
     <p>
         This defines an
         <code>
