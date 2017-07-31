@@ -590,109 +590,57 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        The above method accepts an option argument as a
+        上面的方法接受一个选项参数作为
         <code>
             String
         </code>
-        and returns a tuple of
+        ，并返回一个关于
         <code>
             OptionType
         </code>
-        and
+        和
         <code>
             String
         </code>
-        .
+        的元组。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        If you’re not yet familiar with Tuples in Swift, check out our video series
-        on
+        如果你不熟悉Swift中的元组，可以访问我们在 
         <em>
             Beginning Swift 3
         </em>
-        , specifically
+        上的视频系列，特别是
         <a href="https://videos.raywenderlich.com/courses/51-beginning-swift-3/lessons/5"
         target="_blank" sl-processed="1">
             PART 5: Tuples
         </a>
-        .
+        。
     </div>
     <p>
-        In the
+        在
         <code>
             Panagram
         </code>
-        , class replace the contents of
+        类中，使用下列代码替换
         <code>
             staticMode()
         </code>
-        with the following:
+        的内容：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        argCount =
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .argc
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        argument =
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .arguments[
-        <span class="hljs-number">
-            1
-        </span>
-        ]
-        <span class="hljs-comment">
-            //3
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        (option, value) = getOption(argument.substring(from: argument.index(argument.startIndex,
-        offsetBy:
-        <span class="hljs-number">
-            1
-        </span>
-        )))
-        <span class="hljs-comment">
-            //4
-        </span>
-        consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Argument count:
-            <span class="hljs-subst">
-                \(argCount)
-            </span>
-            Option:
-            <span class="hljs-subst">
-                \(option)
-            </span>
-            value:
-            <span class="hljs-subst">
-                \(value)
-            </span>
-            "
-        </span>
-        )
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">let</span> argCount = <span class="hljs-type">CommandLine</span>.argc
+<span class="hljs-comment">//2</span>
+<span class="hljs-keyword">let</span> argument = <span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">1</span>]
+<span class="hljs-comment">//3</span>
+<span class="hljs-keyword">let</span> (option, value) = getOption(argument.substring(from: argument.index(argument.startIndex, offsetBy: <span class="hljs-number">1</span>)))
+<span class="hljs-comment">//4</span>
+consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="hljs-subst">\(argCount)</span> Option: <span class="hljs-subst">\(option)</span> value: <span class="hljs-subst">\(value)</span>"</span>)
+</pre>
     <p>
-        Here’s what’s going on in the code above:
+        上面的代码：
     </p>
     <ol>
         <li>
