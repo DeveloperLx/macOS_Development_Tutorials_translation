@@ -644,72 +644,51 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
     </p>
     <ol>
         <li>
-            You first get the number of arguments passed to the program. Since the
-            executable path is always passed in (as
+            首先，你获取了传递给程序的参数的个数。由于可执行文件的路径必然会传入（
             <code>
                 CommandLine.arguments[0]
             </code>
-            ), the count value will always be greater than or equal to 1.
+            ），count的值总是会大于等于1。
         </li>
         <li>
-            Next, take the first “real” argument (the option argument) from the
+            下一步，从
             <code>
                 arguments
             </code>
-            array.
+            的数组中获取“真正的”第一个参数（选项参数）。
         </li>
         <li>
-            Then you parse the argument and convert it to an
+            接下来，你将参数进行解析，并将它转换为一个
             <code>
                 OptionType
             </code>
-            . The
+            。
             <code>
                 index(_:offsetBy:)
             </code>
-            method is simply skipping the first character in the argument’s string,
-            which in this case is the hyphen (`-`) character before the option.
+            方法会跳过参数字符串中的第一个字符，在本例中也就是“-”这个字符。
         </li>
         <li>
-            Finally, you log the parsing results to the Console.
+            最后，把解析的结果作为log输出到控制台中。
         </li>
     </ol>
     <p>
-        In
+        在
         <em>
             main.swift
         </em>
-        , replace the line
+        中，使用下列代码替换
         <code>
             panagram.staticMode()
         </code>
-        with the following:
+        这行：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .argc &lt;
-        <span class="hljs-number">
-            2
-        </span>
-        {
-        <span class="hljs-comment">
-            //
-            <span class="hljs-doctag">
-                TODO:
-            </span>
-            Handle interactive mode
-        </span>
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { panagram.staticMode() }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-type">CommandLine</span>.argc &lt; <span class="hljs-number">2</span> {
+  <span class="hljs-comment">//<span class="hljs-doctag">TODO:</span> Handle interactive mode</span>
+} <span class="hljs-keyword">else</span> {
+  panagram.staticMode()
+}
+</pre>
     <p>
         If your program is invoked with fewer than 2 arguments, then you're going
         to start interactive mode - you'll do this part later. Otherwise, you use
