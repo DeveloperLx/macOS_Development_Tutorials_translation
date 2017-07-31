@@ -503,38 +503,37 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         命令行的参数
     </h2>
     <p>
-        When you start a is passed as an argument to the program. Arguments can be separated with whitespace characters. 
-        Usually, you’ll run into two kind of arguments:
+        当你启动一个命令行程序时，你在命令后输入的任何内容都会被当做参数传递给程序。参数之间是通过空格来区分的。通常，你会传入两种类型的参数：
         <em>
-            options
+            选项
         </em>
-        and
+        和
         <em>
-            strings
+            字符串
         </em>
-        .
+        。
     </p>
     <p>
-        Options start with a dash followed by a character, or two dashes followed by a word. For example, many programs have the option
+        选项是由一条横线开始，后跟一个字符；或两条横线，后跟一个单词。例如，很多程序都有选项
         <code>
             -h
         </code>
-        or
+        或
         <code>
             --help
         </code>
-        , the first being simply a shortcut for the second. To keep things simple, Panagram will only support the short version of options.
+        ，前者就是后者的简写。为了让一切保持简单，Panagram将只支持简短版本的选项。
     </p>
     <p>
-        Open
+        打开
         <em>
             Panagram.swift
         </em>
-        and add the following enum at the top of the file, outside the scope of the
+        并添加下列的enum到文件的顶部，要在
         <code>
             Panagram
         </code>
-        class:
+        类的范围之外：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> panagram = <span class="hljs-type">Panagram</span>()
 panagram.staticMode()
