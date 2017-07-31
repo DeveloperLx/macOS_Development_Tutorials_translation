@@ -690,25 +690,22 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
 }
 </pre>
     <p>
-        If your program is invoked with fewer than 2 arguments, then you're going
-        to start interactive mode - you'll do this part later. Otherwise, you use
-        the non-interactive static mode.
+        如果程序收到的参数少于两个，你就会进入到交互模式 - 你将在之后完成这个部分。否则，你就会使用非交互的静态模式。
     </p>
     <p>
-        You now need to figure out how to pass arguments to your command-line
-        tool from within Xcode. To do this, click on the
-        <em>
-            Scheme
-        </em>
-        named
-        <em>
-            Panagram
-        </em>
-        in the
+        现在你需要知道如何在Xcode中传递参数到你的命令行工具中。因此，在
         <em>
             Toolbar
         </em>
-        :
+        中，选择名为
+        <em>
+            Panagram
+        </em>
+        的
+        <em>
+            Scheme
+        </em>
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/Scheme.png"
@@ -718,11 +715,11 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
         </a>
     </p>
     <p>
-        Select
+        在出现的菜单中选择
         <em>
             Edit Scheme...
         </em>
-        from the menu that appears:
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/Edit_Scheme.png"
