@@ -2412,9 +2412,4 @@ panagram.staticMode()
         </a>
         if you're interested in Swift for scripting.
     </p>
-    <p>
-        I hope you enjoyed this Command Line Programs on macOS tutorial; if you
-        have any questions or comments, feel free to join the forum discussion
-        below!
-    </p>
 </div>
