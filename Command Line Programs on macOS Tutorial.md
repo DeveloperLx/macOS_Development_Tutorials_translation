@@ -535,77 +535,60 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         类的范围之外：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> panagram = <span class="hljs-type">Panagram</span>()
-panagram.staticMode()
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">OptionType</span>: <span class="hljs-title">String</span> </span>{
+  <span class="hljs-keyword">case</span> palindrome = <span class="hljs-string">"p"</span>
+  <span class="hljs-keyword">case</span> anagram = <span class="hljs-string">"a"</span>
+  <span class="hljs-keyword">case</span> help = <span class="hljs-string">"h"</span>
+  <span class="hljs-keyword">case</span> unknown
+  
+  <span class="hljs-keyword">init</span>(value: <span class="hljs-type">String</span>) {
+    <span class="hljs-keyword">switch</span> value {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"a"</span>: <span class="hljs-keyword">self</span> = .anagram
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"p"</span>: <span class="hljs-keyword">self</span> = .palindrome
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"h"</span>: <span class="hljs-keyword">self</span> = .help
+    <span class="hljs-keyword">default</span>: <span class="hljs-keyword">self</span> = .unknown
+    }
+  }
+}
 </pre>
     <p>
-        This defines an
+        这就使用
+        <code>
+            String
+        </code>
+        作为基本类型，定义了一个
         <code>
             enum
         </code>
-        with
-        <code>
-            String
-        </code>
-        as its base type so you can pass the option argument directly to
+        ，这样你就可以直接将选项参数传递给
         <code>
             init(_:)
         </code>
-        . Panagram has three options:
+        。Panagram有三个选项：
         <code>
             -p
         </code>
-        to detect palindromes,
+        用来检测回文，
         <code>
             -a
         </code>
-        for anagrams and
+        用来检测颠倒字母的单词，
         <code>
             -h
         </code>
-        to show the usage information. Everything else will be handled as an error.
+        则用来展示用法信息。其余的东西则被当做错误处理。
     </p>
     <p>
-        Next, add the following method to the
+        接下来，添加下列的方法到
         <code>
             Panagram
         </code>
-        class:
+        类中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                getOption
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                option: String)
-            </span>
-        </span>
-        -&gt; (option:
-        <span class="hljs-type">
-            OptionType
-        </span>
-        , value:
-        <span class="hljs-type">
-            String
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            return
-        </span>
-        (
-        <span class="hljs-type">
-            OptionType
-        </span>
-        (value: option), option) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOption</span><span class="hljs-params">(<span class="hljs-number">_</span> option: String)</span></span> -&gt; (option:<span class="hljs-type">OptionType</span>, value: <span class="hljs-type">String</span>) {
+  <span class="hljs-keyword">return</span> (<span class="hljs-type">OptionType</span>(value: option), option)
+}
+</pre>
     <p>
         The above method accepts an option argument as a
         <code>
