@@ -729,31 +729,31 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
         </a>
     </p>
     <p>
-        Ensure
+        确定在左侧的面板中选择
         <em>
             Run
         </em>
-        is selected in the left pane, click the
+        ，点击
         <em>
             Arguments
         </em>
-        tab, then click the
-        <em>
-            +
-        </em>
-        sign under
+        tab，然后点击
         <em>
             Arguments Passed On Launch
         </em>
-        . Add
+        下的
+        <em>
+            +
+        </em>
+        。添加
         <code>
             -p
         </code>
-        as argument and click
+        作为参数，并点击
         <em>
             Close
         </em>
-        :
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Scheme_Settings-700x394.png"
@@ -762,24 +762,19 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Now build and run, and you'll see the following output in the Console:
+        现在，build并运行，你会在控制台中看到下面的输出：
     </p>
-    <pre lang="" class="hljs bash">
-        Argument count: 2 Option: Palindrome value: p Program ended with
-        <span class="hljs-built_in">
-            exit
-        </span>
-        code: 0
-    </pre>
+    <pre lang="" class="hljs bash">Argument count: 2 Option: Palindrome value: p
+Program ended with <span class="hljs-built_in">exit</span> code: 0
+</pre>
     <p>
-        So far, you've added a basic option system to your tool, learned how to
-        handle command-line arguments and how to pass arguments from within Xcode.
+        到目前为止，你已经添加了一个基本的选项系统到你的工具在，了解了如何处理命令行参数，以及如何在Xcode中传递参数。
     </p>
     <p>
-        Next up, you'll build the main functionality of Panagram.
+        接下来，你就要构建Panagram的主要功能了。
     </p>
     <h2>
-        Anagrams and Palindromes
+        颠倒字母的单词和回文
     </h2>
     <p>
         Before you can write any code to detect palindromes or anagrams, you should
