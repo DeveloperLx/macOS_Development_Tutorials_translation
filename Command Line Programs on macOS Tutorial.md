@@ -482,32 +482,29 @@ Type Panagram without an option to enter interactive mode.
 Program ended with <span class="hljs-built_in">exit</span> code: 0
 </pre>
     <p>
-        So far, you’ve learned what a command-line tool is, where the execution
-        starts, how to send messages to
+        到目前为止，你已经学习了什么是命令行工具，它会从哪里开始执行，如何发送信息到
         <code>
             stdout
         </code>
-        and
+        和
         <code>
             stderr
         </code>
-        and how you can split your code into logical units to keep
+        上，以及如何将代码拆分到不同的逻辑单元，来保持
         <em>
             main.swift
         </em>
-        organized.
+        整洁有序。
     </p>
     <p>
-        In the next section, you’ll handle command-line arguments and complete
-        the static mode of Panagram.
+        在下一部分，你将会处理命令行的参数，并完成Panagram的静态模式。
     </p>
     <h2>
-        Command-Line Arguments
+        命令行的参数
     </h2>
     <p>
-        When you start a command-line program, everything you type after the name
-        is passed as an argument to the program. Arguments can be separated with
-        whitespace characters. Usually, you’ll run into two kind of arguments:
+        When you start a is passed as an argument to the program. Arguments can be separated with whitespace characters. 
+        Usually, you’ll run into two kind of arguments:
         <em>
             options
         </em>
@@ -518,8 +515,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         .
     </p>
     <p>
-        Options start with a dash followed by a character, or two dashes followed
-        by a word. For example, many programs have the option
+        Options start with a dash followed by a character, or two dashes followed by a word. For example, many programs have the option
         <code>
             -h
         </code>
@@ -527,16 +523,14 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         <code>
             --help
         </code>
-        , the first being simply a shortcut for the second. To keep things simple,
-        Panagram will only support the short version of options.
+        , the first being simply a shortcut for the second. To keep things simple, Panagram will only support the short version of options.
     </p>
     <p>
         Open
         <em>
             Panagram.swift
         </em>
-        and add the following enum at the top of the file, outside the scope of
-        the
+        and add the following enum at the top of the file, outside the scope of the
         <code>
             Panagram
         </code>
