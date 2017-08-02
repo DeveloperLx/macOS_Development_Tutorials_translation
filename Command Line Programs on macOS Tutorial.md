@@ -664,7 +664,7 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
             </code>
             。
             <code>
-                index(_:offsetBy:)
+                index(\_:offsetBy:)
             </code>
             方法会跳过参数字符串中的第一个字符，在本例中也就是“-”这个字符。
         </li>
