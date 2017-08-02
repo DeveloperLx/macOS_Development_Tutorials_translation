@@ -774,18 +774,16 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         接下来，你就要构建Panagram的主要功能了。
     </p>
     <h2>
-        颠倒字母的单词和回文
+        颠倒字母的单词和异构词
     </h2>
     <p>
-        Before you can write any code to detect palindromes or anagrams, you should
-        be clear on what they are!
+        在你撰写代码去识别颠倒字母的单词和异构词之前，你应当首先清楚它们是什么！
     </p>
     <p>
         <a href="https://en.wikipedia.org/wiki/Palindrome" sl-processed="1">
             Palindromes
         </a>
-        are words or sentences that read the same backwards and forwards. Here
-        are some examples:
+        是那些从前往后读，或从后往前读完全一样的单词或句子。下面有一些例子：
     </p>
     <ul>
         <li>
@@ -799,50 +797,39 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </li>
     </ul>
     <p>
-        As you can see, capitalization and punctuation are often ignored. To keep
-        things simple, Panagram will ignore capitalization and white spaces, but
-        will not handle punctuation.
+        正如你所看到的，首字母大写和标点符号通常会被忽略。为了保持简单，Panagram将忽略掉首字母大写和空格，并且不会处理标点。
     </p>
     <p>
         <a href="https://en.wikipedia.org/wiki/Anagram" sl-processed="1">
             Anagrams
         </a>
-        are words or sentences that are built using the characters of other words
-        or sentences. Some examples are:
+        是那些由另一个单词或句子中的字母，所构建成的单词或句子。一些例子包括：
     </p>
     <ul>
         <li>
             silent &lt;-&gt; listen
         </li>
         <li>
-            Bolivia &lt;-&gt; Lobivia (it's a cactus from Bolivia)
+            Bolivia &lt;-&gt; Lobivia （是一种来自玻利维亚的🌵）
         </li>
     </ul>
     <p>
-        You'll encapsulate the detection logic inside a small extension to
+        你会将检测的逻辑封装到一个
         <code>
             String
         </code>
-        .
+        的小extension中。
     </p>
     <p>
-        Create a new file named
+        创建一个新的名为
         <em>
             StringExtension.swift
         </em>
-        and add the following code to it:
+        的文件，并添加下列的代码到其中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                String
-            </span>
-        </span>
-        { }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
+}
+</pre>
     <p>
         Time for a bit of design work. First, how to detect an anagram:
     </p>
@@ -862,66 +849,14 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </em>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                isAnagramOf
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                s: String)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Bool
-        </span>
-        {
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        lowerSelf =
-        <span class="hljs-keyword">
-            self
-        </span>
-        .lowercased().replacingOccurrences(of:
-        <span class="hljs-string">
-            " "
-        </span>
-        , with:
-        <span class="hljs-string">
-            ""
-        </span>
-        )
-        <span class="hljs-keyword">
-            let
-        </span>
-        lowerOther = s.lowercased().replacingOccurrences(of:
-        <span class="hljs-string">
-            " "
-        </span>
-        , with:
-        <span class="hljs-string">
-            ""
-        </span>
-        )
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        lowerSelf.sorted() == lowerOther.sorted() }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAnagramOf</span><span class="hljs-params">(<span class="hljs-number">_</span> s: String)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">let</span> lowerSelf = <span class="hljs-keyword">self</span>.lowercased().replacingOccurrences(of: <span class="hljs-string">" "</span>, with: <span class="hljs-string">""</span>)
+  <span class="hljs-keyword">let</span> lowerOther = s.lowercased().replacingOccurrences(of: <span class="hljs-string">" "</span>, with: <span class="hljs-string">""</span>)
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">return</span> lowerSelf.sorted() == lowerOther.sorted()
+}
+</pre>
     <p>
         Taking a closer look at the algorithm above:
     </p>
@@ -947,61 +882,15 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <p>
         Add the following method to detect palindromes:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                isPalindrome
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Bool
-        </span>
-        {
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        f =
-        <span class="hljs-keyword">
-            self
-        </span>
-        .lowercased().replacingOccurrences(of:
-        <span class="hljs-string">
-            " "
-        </span>
-        , with:
-        <span class="hljs-string">
-            ""
-        </span>
-        )
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        s =
-        <span class="hljs-type">
-            String
-        </span>
-        (f.reversed())
-        <span class="hljs-comment">
-            //3
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        f == s }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Bool</span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">let</span> f = <span class="hljs-keyword">self</span>.lowercased().replacingOccurrences(of: <span class="hljs-string">" "</span>, with: <span class="hljs-string">""</span>)
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">let</span> s = <span class="hljs-type">String</span>(f.reversed())
+  <span class="hljs-comment">//3</span>
+  <span class="hljs-keyword">return</span>  f == s
+}
+</pre>
     <p>
         The logic here is quite straightforward:
     </p>
@@ -1034,222 +923,52 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         with the following:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            switch
-        </span>
-        option {
-        <span class="hljs-keyword">
-            case
-        </span>
-        .anagram:
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        argCount !=
-        <span class="hljs-number">
-            4
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        argCount &gt;
-        <span class="hljs-number">
-            4
-        </span>
-        { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Too many arguments for option
-            <span class="hljs-subst">
-                \(option.rawValue)
-            </span>
-            "
-        </span>
-        , to: .error) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Too few arguments for option
-            <span class="hljs-subst">
-                \(option.rawValue)
-            </span>
-            "
-        </span>
-        , to: .error) } consoleIO.printUsage() }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-comment">
-            //3
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        first =
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .arguments[
-        <span class="hljs-number">
-            2
-        </span>
-        ]
-        <span class="hljs-keyword">
-            let
-        </span>
-        second =
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .arguments[
-        <span class="hljs-number">
-            3
-        </span>
-        ]
-        <span class="hljs-keyword">
-            if
-        </span>
-        first.isAnagramOf(second) { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(second)
-            </span>
-            is an anagram of
-            <span class="hljs-subst">
-                \(first)
-            </span>
-            "
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(second)
-            </span>
-            is not an anagram of
-            <span class="hljs-subst">
-                \(first)
-            </span>
-            "
-        </span>
-        ) } }
-        <span class="hljs-keyword">
-            case
-        </span>
-        .palindrome:
-        <span class="hljs-comment">
-            //4
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        argCount !=
-        <span class="hljs-number">
-            3
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        argCount &gt;
-        <span class="hljs-number">
-            3
-        </span>
-        { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Too many arguments for option
-            <span class="hljs-subst">
-                \(option.rawValue)
-            </span>
-            "
-        </span>
-        , to: .error) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Too few arguments for option
-            <span class="hljs-subst">
-                \(option.rawValue)
-            </span>
-            "
-        </span>
-        , to: .error) } consoleIO.printUsage() }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-comment">
-            //5
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        s =
-        <span class="hljs-type">
-            CommandLine
-        </span>
-        .arguments[
-        <span class="hljs-number">
-            2
-        </span>
-        ]
-        <span class="hljs-keyword">
-            let
-        </span>
-        isPalindrome = s.isPalindrome() consoleIO.writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(s)
-            </span>
-            is
-            <span class="hljs-subst">
-                \(isPalindrome ? "" : "not ")
-            </span>
-            a palindrome"
-        </span>
-        ) }
-        <span class="hljs-comment">
-            //6
-        </span>
-        <span class="hljs-keyword">
-            case
-        </span>
-        .help: consoleIO.printUsage()
-        <span class="hljs-keyword">
-            case
-        </span>
-        .unknown:
-        <span class="hljs-comment">
-            //7
-        </span>
-        consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Unknown option
-            <span class="hljs-subst">
-                \(value)
-            </span>
-            "
-        </span>
-        ) consoleIO.printUsage() }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">switch</span> option {
+<span class="hljs-keyword">case</span> .anagram:
+    <span class="hljs-comment">//2</span>
+    <span class="hljs-keyword">if</span> argCount != <span class="hljs-number">4</span> {
+        <span class="hljs-keyword">if</span> argCount &gt; <span class="hljs-number">4</span> {
+            consoleIO.writeMessage(<span class="hljs-string">"Too many arguments for option <span class="hljs-subst">\(option.rawValue)</span>"</span>, to: .error)
+        } <span class="hljs-keyword">else</span> {
+            consoleIO.writeMessage(<span class="hljs-string">"Too few arguments for option <span class="hljs-subst">\(option.rawValue)</span>"</span>, to: .error)
+        }        
+        consoleIO.printUsage()
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//3</span>
+        <span class="hljs-keyword">let</span> first = <span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">2</span>]
+        <span class="hljs-keyword">let</span> second = <span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">3</span>]
+        
+        <span class="hljs-keyword">if</span> first.isAnagramOf(second) {
+            consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(second)</span> is an anagram of <span class="hljs-subst">\(first)</span>"</span>)
+        } <span class="hljs-keyword">else</span> {
+            consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(second)</span> is not an anagram of <span class="hljs-subst">\(first)</span>"</span>)
+        }
+    }
+<span class="hljs-keyword">case</span> .palindrome:
+    <span class="hljs-comment">//4</span>
+    <span class="hljs-keyword">if</span> argCount != <span class="hljs-number">3</span> {
+        <span class="hljs-keyword">if</span> argCount &gt; <span class="hljs-number">3</span> {
+            consoleIO.writeMessage(<span class="hljs-string">"Too many arguments for option <span class="hljs-subst">\(option.rawValue)</span>"</span>, to: .error)
+        } <span class="hljs-keyword">else</span> {
+            consoleIO.writeMessage(<span class="hljs-string">"Too few arguments for option <span class="hljs-subst">\(option.rawValue)</span>"</span>, to: .error)
+        }
+        consoleIO.printUsage()
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//5</span>
+        <span class="hljs-keyword">let</span> s = <span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">2</span>]
+        <span class="hljs-keyword">let</span> isPalindrome = s.isPalindrome()
+        consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(s)</span> is <span class="hljs-subst">\(isPalindrome ? "" : "not ")</span>a palindrome"</span>)
+    }
+<span class="hljs-comment">//6</span>
+<span class="hljs-keyword">case</span> .help:
+    consoleIO.printUsage()
+<span class="hljs-keyword">case</span> .unknown:
+    <span class="hljs-comment">//7</span>
+    consoleIO.writeMessage(<span class="hljs-string">"Unknown option <span class="hljs-subst">\(value)</span>"</span>)
+    consoleIO.printUsage()
+}
+</pre>
     <p>
         Going through the above code step-by-step:
     </p>
