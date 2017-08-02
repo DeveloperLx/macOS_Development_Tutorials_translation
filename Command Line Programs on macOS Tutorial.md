@@ -55,7 +55,7 @@
         <em>
             Panagram
         </em>
-        的命令行工具。它会根据传入的选项，来检测给定的是否是回文或相同字母的异序词。它可以由预定义的参数启动，也可以运行在交互模式下，用户将会被提示输入要求的值。
+        的命令行工具。它会根据传入的选项，来检测给定的是否是异构词或相同字母的异序词。它可以由预定义的参数启动，也可以运行在交互模式下，用户将会被提示输入要求的值。
     </p>
     <p>
         通常，在macOS中，命令行程序是通过 嵌入工具app的类似终端的shell（在macOS中是
@@ -568,11 +568,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         <code>
             -p
         </code>
-        用来检测回文，
+        用来检测异构词，
         <code>
             -a
         </code>
-        用来检测颠倒字母的单词，
+        用来检测逆序词，
         <code>
             -h
         </code>
@@ -774,10 +774,10 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         接下来，你就要构建Panagram的主要功能了。
     </p>
     <h2>
-        颠倒字母的单词和异构词
+        逆序词和异构词
     </h2>
     <p>
-        在你撰写代码去识别颠倒字母的单词和异构词之前，你应当首先清楚它们是什么！
+        在你撰写代码去识别逆序词和异构词之前，你应当首先清楚它们是什么！
     </p>
     <p>
         <a href="https://en.wikipedia.org/wiki/Palindrome" sl-processed="1">
@@ -831,23 +831,22 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        Time for a bit of design work. First, how to detect an anagram:
+        需要一些时间来进行设计工作。首先，如何检测一个异构词：
     </p>
     <ol>
         <li>
-            Ignore capitalization and whitespace for both strings.
+            对于两个字符串，都忽略掉首字母大写和空格。
         </li>
         <li>
-            Check that both strings contain the same characters, and that all characters
-            appear the same number of times.
+            检测两个字符串中所含有的是否都是相同的字符，且所有的字符出现的次数都对应相同。
         </li>
     </ol>
     <p>
-        Add the following method to
+        添加下列的方法到
         <em>
             StringExtension.swift
         </em>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAnagramOf</span><span class="hljs-params">(<span class="hljs-number">_</span> s: String)</span></span> -&gt; <span class="hljs-type">Bool</span> {
   <span class="hljs-comment">//1</span>
@@ -858,29 +857,29 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        Taking a closer look at the algorithm above:
+        仔细看上述算法：
     </p>
     <ol>
         <li>
-            First, you remove capitalization and whitespace from both Strings.
+            首先，把两个字符串中的首字母大写和空格都移除掉。
         </li>
         <li>
-            Then you sort and compare the characters.
+            然后将字符进行比较和排序。
         </li>
     </ol>
     <p>
-        Detecting palindromes is simple as well:
+        检测逆序词也是同样的简单：
     </p>
     <ol>
         <li>
-            Ignore all capitalization and whitespace.
+            忽略掉字符串中的所有大写和空格。
         </li>
         <li>
-            Reverse the string and compare; if it's the same, then you have a palindrome.
+            将字符串逆序并进行比较；如果相同的话，你就得到了一个逆序词。
         </li>
     </ol>
     <p>
-        Add the following method to detect palindromes:
+        添加下列的代码到检测逆序词的方法中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Bool</span> {
   <span class="hljs-comment">//1</span>
@@ -892,7 +891,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        The logic here is quite straightforward:
+        这里的逻辑相当得直接：
     </p>
     <ol>
         <li>
