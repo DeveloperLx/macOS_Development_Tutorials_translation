@@ -562,7 +562,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         ，这样你就可以直接将选项参数传递给
         <code>
-            init(_:)
+            init(\_:)
         </code>
         。Panagram有三个选项：
         <code>
