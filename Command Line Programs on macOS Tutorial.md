@@ -781,7 +781,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <p>
         <a href="https://en.wikipedia.org/wiki/Palindrome" sl-processed="1">
-            Palindromes
+            逆序词
         </a>
         是那些从前往后读，或从后往前读完全一样的单词或句子。下面有一些例子：
     </p>
@@ -801,7 +801,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <p>
         <a href="https://en.wikipedia.org/wiki/Anagram" sl-processed="1">
-            Anagrams
+            异构词
         </a>
         是那些由另一个单词或句子中的字母，所构建成的单词或句子。一些例子包括：
     </p>
