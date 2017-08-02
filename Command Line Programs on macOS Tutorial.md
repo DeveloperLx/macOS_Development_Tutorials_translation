@@ -895,32 +895,32 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <ol>
         <li>
-            Remove capitalization and whitespace.
+            忽略掉字符串中的所有大写和空格。
         </li>
         <li>
-            Create a second string with the reversed characters.
+            使用颠倒顺序的字符创建第二个字符串。
         </li>
         <li>
-            If they are equal, it is a palindrome.
+            如果它们是相同的，你就得到了一个逆序词。
         </li>
     </ol>
     <p>
-        Time to pull this all together and help Panagram do its job.
+        是时候将它们组合到一起，来让Panagram完成它的工作。
     </p>
     <p>
-        Open
+        打开
         <em>
             Panagram.swift
         </em>
-        and replace the call to
-        <code>
-            writeMessage(_:to:)
-        </code>
-        in
+        并在
         <code>
             staticMode()
         </code>
-        with the following:
+        方法中使用下列的代码替换对
+        <code>
+            writeMessage(_:to:)
+        </code>
+        的调用：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//1</span>
 <span class="hljs-keyword">switch</span> option {
@@ -937,7 +937,6 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         <span class="hljs-comment">//3</span>
         <span class="hljs-keyword">let</span> first = <span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">2</span>]
         <span class="hljs-keyword">let</span> second = <span class="hljs-type">CommandLine</span>.arguments[<span class="hljs-number">3</span>]
-        
         <span class="hljs-keyword">if</span> first.isAnagramOf(second) {
             consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(second)</span> is an anagram of <span class="hljs-subst">\(first)</span>"</span>)
         } <span class="hljs-keyword">else</span> {
@@ -969,7 +968,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        Going through the above code step-by-step:
+        一步一步地来查看上述代码：
     </p>
     <ol>
         <li>
