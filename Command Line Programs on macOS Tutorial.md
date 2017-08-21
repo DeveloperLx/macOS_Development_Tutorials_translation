@@ -975,60 +975,53 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             首先，根据你所传的参数，觉得来执行什么样的操作。
         </li>
         <li>
-            In the case of an anagram, there must be four command-line arguments passed
-            in. The first is the executable path, the second the
+            在异构词这种case下，必须传入四个命令行参数。第一个参数是可执行文件的路径，第二个是
             <code>
                 -a
             </code>
-            option and finally the two strings to check. If you don't have four arguments,
-            then print an error message.
+            选项，还有待判定两个字符串。当未传入四个参数的时候，就会打印出一个错误信息。
         </li>
         <li>
-            If the argument count is good, store the two strings in local variables,
-            check them to see if they are anagrams of each other, and print the result.
+            在参数个数正确的前提下，保存两个字符串到本地变量中，然后确定它们是否互为异构词，并将结果打印出来。
         </li>
         <li>
-            In the case of a palindrome, you must have three arguments. The first
-            is the executable path, the second is the
+            在逆序词这种case下，则必须传入三个参数。第一个参数是可执行文件的路径，第二个是
             <code>
                 -p
             </code>
-            option and finally the string to check. If you don't have three arguments,
-            then print an error message.
+            选项，以及一个待判定的字符串。当未传入三个参数的时候，就会打印出一个错误信息。
         </li>
         <li>
-            Check the string to see if it is a palindrome and print the result.
+            确定这个字符串是否为逆序词，并打印出结果。
         </li>
         <li>
-            If the
+            如果传入
             <code>
                 -h
             </code>
-            option was passed in, then print the usage information.
+            选项，就打印出用法信息。
         </li>
         <li>
-            If an unknown option is passed, print the usage information.
+            如果传入未知的选项，亦打印出用法信息。
         </li>
     </ol>
     <p>
-        Now, modify the arguments inside the scheme. For example, to use the
+        现在，修改scheme中的参数。例如，为使用
         <code>
             -p
         </code>
-        option you must pass two arguments (in addition to the first argument,
-        the executable's path, which is always passed implicitly).
+        选项，你必须传入两个参数（除第一个参数外，也就是可执行文件的路径，总是被隐式地传递）。
     </p>
     <p>
-        Select
+        从设置活动Scheme的工具栏项目中，选择
         <em>
             Edit Scheme...
         </em>
-        from the Set Active Scheme toolbar item, and add a second argument with
-        the value "
+        ，并将第二个参数设置为“
         <em>
             level
         </em>
-        " as shown below:
+        ”，就像下面这样：        
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Bildschirmfoto-2016-03-05-um-13.25.10-700x393.png"
@@ -1037,7 +1030,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Build and run, and you'll see the following output in the console:
+        Build并运行，你就会在控制台中看到下列的输出：
     </p>
     <pre lang="" class="hljs bash">
         level is a palindrome Program ended with
