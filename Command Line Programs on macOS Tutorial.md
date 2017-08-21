@@ -1032,15 +1032,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <p>
         Build并运行，你就会在控制台中看到下列的输出：
     </p>
-    <pre lang="" class="hljs bash">
-        level is a palindrome Program ended with
-        <span class="hljs-built_in">
-            exit
-        </span>
-        code: 0
-    </pre>
+    <pre lang="" class="hljs bash">level is a palindrome
+Program ended with <span class="hljs-built_in">exit</span> code: 0
+</pre>
     <h2>
-        Handle Input Interactively
+        处理交互性的输入
     </h2>
     <p>
         Now that you have a basic version of Panagram working, you can make it
