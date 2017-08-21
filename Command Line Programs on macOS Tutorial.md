@@ -972,8 +972,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <ol>
         <li>
-            First, switch based on what argument you were passed, to determine what
-            operation will be performed.
+            首先，根据你所传的参数，觉得来执行什么样的操作。
         </li>
         <li>
             In the case of an anagram, there must be four command-line arguments passed
