@@ -1142,97 +1142,93 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             <code>
                 shouldQuit
             </code>
-            breaks the infinite loop that is started in the next line.
+            用来中断下面这行代码启动无限循环。
         </li>
         <li>
-            Prompt the user for input and convert it to one of the two options, if
-            possible.
+            提示用户输入，并在可以的情况下，将其转换为两个选项之一。
         </li>
         <li>
-            If the option was for anagrams, prompt the user for the two strings to
-            compare.
+            如果选项为anagrams，就提示用户输入两个字符串来进行比较。
         </li>
         <li>
-            Write the result out. The same logic flow applies to the palindrome option.
+            输出结果。相同的逻辑流程也被应用到palindrome选项之上。
         </li>
         <li>
-            If the user enters an unknown option, print an error and start the loop
-            again.
+            如果用户输入了一个未知的选项，就打印一个错误，并再次启动循环。
         </li>
     </ol>
     <p>
-        At the moment, you have no way to interrupt the
+        现在，你并没有任何办法能够中断
         <code>
             while
         </code>
-        loop. In
+        循环。在
         <em>
             Panagram.swift
         </em>
-        add the following line to the
+        中，添加下列的行到
         <code>
             OptionType
         </code>
-        enum:
+        枚举当中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> quit = <span class="hljs-string">"q"</span>
 </pre>
     <p>
-        Next, add the following line to the enum's
+        接下来，添加下列这行代码到枚举的
         <code>
             init(_:)
         </code>
-        :
+        方法中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> <span class="hljs-string">"q"</span>: <span class="hljs-keyword">self</span> = .quit
 </pre>
     <p>
-        In the same file, add a
+        在同一文件中，添加一个
         <code>
             .quit
         </code>
-        case to the
-        <code>
-            switch
-        </code>
-        statement inside
+        case到
         <code>
             interactiveMode()
         </code>
-        :
+        的
+        <code>
+            switch
+        </code>
+        语句中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> .quit:
   shouldQuit = <span class="hljs-literal">true</span>
 </pre>
     <p>
-        Then, change the
-        <code>
-            .unknown
-        </code>
-        case definition inside
+        接下来，改变
         <code>
             staticMode()
         </code>
-        as follows:
+        中的
+        <code>
+            .unknown
+        </code>
+        case的定义，就像下面这样：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> .unknown, .quit:
 </pre>
     <p>
-        Open
+        打开
         <em>
             main.swift
         </em>
-        and replace the comment
+        并使用下列代码替换注释
         <code>
             //TODO: Handle interactive mode
         </code>
-        with the following:
+        ：
     </p>
     <pre lang="swift" class="language-swift hljs">panagram.interactiveMode()
 </pre>
     <p>
-        To test interactive mode, you must not have any arguments defined in the
-        Scheme.
+        为了测试交互模式，你在Scheme中必须不能添加任何参数。
     </p>
     <p>
         So, remove the two arguments you defined earlier. Select
