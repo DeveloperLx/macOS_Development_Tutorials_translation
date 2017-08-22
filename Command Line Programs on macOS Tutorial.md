@@ -1070,32 +1070,32 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        Taking each numbered section in turn:
+        一步一步地看：
     </p>
     <ol>
         <li>
-            First, grab a handle to
+            首先，获取用来处理
             <code>
                 stdin
             </code>
-            .
+            的句柄。
         </li>
         <li>
-            Next, read any data on the stream.
+            接下来，读取流中的全部数据。
         </li>
         <li>
-            Convert the data to a string.
+            将data转换为字符串。
         </li>
         <li>
-            Finally, remove any newline characters and return the string.
+            最后，移除所有的换行符，并返回处理所得的字符串。
         </li>
     </ol>
     <p>
-        Next, open
+        接下来，打开
         <em>
             Panagram.swift
         </em>
-        and add the following method to the class:
+        并添加下列方法到类中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">interactiveMode</span><span class="hljs-params">()</span></span> {
   <span class="hljs-comment">//1</span>
@@ -1106,7 +1106,6 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <span class="hljs-comment">//3</span>
     consoleIO.writeMessage(<span class="hljs-string">"Type 'a' to check for anagrams or 'p' for palindromes type 'q' to quit."</span>)
     <span class="hljs-keyword">let</span> (option, value) = getOption(consoleIO.getInput())
-     
     <span class="hljs-keyword">switch</span> option {
     <span class="hljs-keyword">case</span> .anagram:
       <span class="hljs-comment">//4</span>
@@ -1114,7 +1113,6 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
       <span class="hljs-keyword">let</span> first = consoleIO.getInput()
       consoleIO.writeMessage(<span class="hljs-string">"Type the second string:"</span>)
       <span class="hljs-keyword">let</span> second = consoleIO.getInput()
-        
       <span class="hljs-comment">//5</span>
       <span class="hljs-keyword">if</span> first.isAnagramOf(second) {
         consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(second)</span> is an anagram of <span class="hljs-subst">\(first)</span>"</span>)
@@ -1134,11 +1132,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 }
 </pre>
     <p>
-        Taking a look at what's going on above:
+        检查上述代码所做的事：
     </p>
     <ol>
         <li>
-            First, print a welcome message.
+            首先，打印一条欢迎信息。
         </li>
         <li>
             <code>
