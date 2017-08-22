@@ -1228,26 +1228,26 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <pre lang="swift" class="language-swift hljs">panagram.interactiveMode()
 </pre>
     <p>
-        为了测试交互模式，你在Scheme中必须不能添加任何参数。
+        为了测试交互模式，你必须在Scheme中添加任何参数。
     </p>
     <p>
-        So, remove the two arguments you defined earlier. Select
+        因此，移除你之前定义的两个参数。从工具栏菜单中选择
         <em>
             Edit Scheme...
         </em>
-        from the toolbar menu. Select each argument and then click the
-        <em>
-            -
-        </em>
-        sign under
+        。依次选择每个参数，并点击
         <em>
             Arguments Passed On Launch
         </em>
-        . Once all arguments are deleted, click
+        下的
+        <em>
+            -
+        </em>
+        符号。当所有的参数都被删除之后，点击
         <em>
             Close
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/NoArguments.png"
@@ -1259,22 +1259,21 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Build and run, and you'll see the following output in the Console:
+        Build并运行，你将会在控制台中看到下列的输出：
     </p>
     <pre lang="" class="hljs cs">Welcome to Panagram. This program checks <span class="hljs-keyword">if</span> an input <span class="hljs-keyword">string</span> <span class="hljs-keyword">is</span> an anagram or palindrome.
 Type <span class="hljs-string">'a'</span> to check <span class="hljs-keyword">for</span> anagrams or <span class="hljs-string">'p'</span> <span class="hljs-keyword">for</span> palindromes type <span class="hljs-string">'q'</span> to quit.
 </pre>
     <p>
-        Try out the different options. Type an option letter (do not prefix with
-        a hyphen) followed by
+        尝试不同的选项。输入一个选项的字母（不需要前缀的小横线），然后
         <em>
             Return
         </em>
-        . You will be prompted for the arguments. Enter each value followed by
+        。它就会提示你输入参数。输入每个参数，然后
         <em>
             Return
         </em>
-        . In the Console you should see something similar to this:
+        。你就会在控制台中看到类似下面的内容：
     </p>
     <pre lang="" class="hljs bash">a
 Type the first string:
@@ -1295,7 +1294,7 @@ q
 Program ended with <span class="hljs-built_in">exit</span> code: 0
 </pre>
     <h2>
-        Launching Outside Xcode
+        在Xcode外部运行
     </h2>
     <p>
         Normally, a command-line program is launched from a shell utility like
@@ -1309,7 +1308,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         learn the lazy way.
     </p>
     <h3>
-        Launch your app in Terminal from Xcode
+        在终端中运行你的来自Xcode的app
     </h3>
     <p>
         Create a new scheme that will open Terminal and launch Panagram in the
@@ -1559,7 +1558,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         etc..
     </div>
     <h2>
-        Displaying Errors
+        展示错误
     </h2>
     <p>
         Finally, you will add some code to display error messages in red.
@@ -1579,43 +1578,13 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         statements with the following:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            case
-        </span>
-        .standard:
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-built_in">
-            print
-        </span>
-        (
-        <span class="hljs-string">
-            "\u{001B}[;m
-            <span class="hljs-subst">
-                \(message)
-            </span>
-            "
-        </span>
-        )
-        <span class="hljs-keyword">
-            case
-        </span>
-        .error:
-        <span class="hljs-comment">
-            // 2
-        </span>
-        fputs(
-        <span class="hljs-string">
-            "\u{001B}[0;31m
-            <span class="hljs-subst">
-                \(message)
-            </span>
-            \n"
-        </span>
-        , stderr)
-    </pre>
+    <pre lang="swift" class="language-swift hljs">    <span class="hljs-keyword">case</span> .standard:
+      <span class="hljs-comment">// 1</span>
+      <span class="hljs-built_in">print</span>(<span class="hljs-string">"\u{001B}[;m<span class="hljs-subst">\(message)</span>"</span>)
+    <span class="hljs-keyword">case</span> .error:
+      <span class="hljs-comment">// 2</span>
+      fputs(<span class="hljs-string">"\u{001B}[0;31m<span class="hljs-subst">\(message)</span>\n"</span>, stderr)
+</pre>
     <p>
         Taking each numbered line in turn:
     </p>
