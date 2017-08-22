@@ -1039,29 +1039,24 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         处理交互性的输入
     </h2>
     <p>
-        Now that you have a basic version of Panagram working, you can make it
-        even more useful by adding the ability to type in the arguments interactively
-        via the input stream.
+        现在你已经有了可以work的基本版本的异构词工具，你可以通过增加交互式地输入参数的能力，来让它变得更加得有用。 
     </p>
     <p>
-        In this section, you will add code so when Panagram is started without
-        arguments, it will open in interactive mode and prompt the user for the
-        input it needs.
+        在这个部分，你将添加异构词工具在未传入参数的情况下进行处理的代码，它将打开交互模式，来提示用户如如所需的参数。
     </p>
     <p>
-        First, you need a way to get input from the keyboard.
+        首先，你需要增加从键盘获取输入的方法。
         <code>
             stdin
         </code>
-        is attached to the keyboard and is therefore a way for you to collect
-        input from users interactively.
+        会附加到键盘上，它提供了一个交互式收集用户输入的方式。
     </p>
     <p>
-        Open
+        打开
         <em>
             ConsoleIO.swift
         </em>
-        and add the following method to the class:
+        ，并添加下列的方法到类中：
     </p>
     <pre lang="swift" class="language-swift hljs">
         <span class="hljs-function">
