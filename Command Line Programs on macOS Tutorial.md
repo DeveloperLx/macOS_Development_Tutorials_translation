@@ -1058,76 +1058,17 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </em>
         ，并添加下列的方法到类中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                getInput
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            String
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        keyboard =
-        <span class="hljs-type">
-            FileHandle
-        </span>
-        .standardInput
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        inputData = keyboard.availableData
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        strData =
-        <span class="hljs-type">
-            String
-        </span>
-        (data: inputData, encoding:
-        <span class="hljs-type">
-            String
-        </span>
-        .
-        <span class="hljs-type">
-            Encoding
-        </span>
-        .utf8)!
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        strData.trimmingCharacters(
-        <span class="hljs-keyword">
-            in
-        </span>
-        :
-        <span class="hljs-type">
-            CharacterSet
-        </span>
-        .newlines) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getInput</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">String</span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> keyboard = <span class="hljs-type">FileHandle</span>.standardInput
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> inputData = keyboard.availableData
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">let</span> strData = <span class="hljs-type">String</span>(data: inputData, encoding: <span class="hljs-type">String</span>.<span class="hljs-type">Encoding</span>.utf8)!
+  <span class="hljs-comment">// 4</span>
+  <span class="hljs-keyword">return</span> strData.trimmingCharacters(<span class="hljs-keyword">in</span>: <span class="hljs-type">CharacterSet</span>.newlines)
+}
+</pre>
     <p>
         Taking each numbered section in turn:
     </p>
@@ -1156,162 +1097,42 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </em>
         and add the following method to the class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                interactiveMode
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            //1
-        </span>
-        consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Welcome to Panagram. This program checks if an input string is an anagram
-            or palindrome."
-        </span>
-        )
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        shouldQuit =
-        <span class="hljs-literal">
-            false
-        </span>
-        <span class="hljs-keyword">
-            while
-        </span>
-        !shouldQuit {
-        <span class="hljs-comment">
-            //3
-        </span>
-        consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Type 'a' to check for anagrams or 'p' for palindromes type 'q' to quit."
-        </span>
-        )
-        <span class="hljs-keyword">
-            let
-        </span>
-        (option, value) = getOption(consoleIO.getInput())
-        <span class="hljs-keyword">
-            switch
-        </span>
-        option {
-        <span class="hljs-keyword">
-            case
-        </span>
-        .anagram:
-        <span class="hljs-comment">
-            //4
-        </span>
-        consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Type the first string:"
-        </span>
-        )
-        <span class="hljs-keyword">
-            let
-        </span>
-        first = consoleIO.getInput() consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Type the second string:"
-        </span>
-        )
-        <span class="hljs-keyword">
-            let
-        </span>
-        second = consoleIO.getInput()
-        <span class="hljs-comment">
-            //5
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        first.isAnagramOf(second) { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(second)
-            </span>
-            is an anagram of
-            <span class="hljs-subst">
-                \(first)
-            </span>
-            "
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { consoleIO.writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(second)
-            </span>
-            is not an anagram of
-            <span class="hljs-subst">
-                \(first)
-            </span>
-            "
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            case
-        </span>
-        .palindrome: consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Type a word or sentence:"
-        </span>
-        )
-        <span class="hljs-keyword">
-            let
-        </span>
-        s = consoleIO.getInput()
-        <span class="hljs-keyword">
-            let
-        </span>
-        isPalindrome = s.isPalindrome() consoleIO.writeMessage(
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(s)
-            </span>
-            is
-            <span class="hljs-subst">
-                \(isPalindrome ? "" : "not ")
-            </span>
-            a palindrome"
-        </span>
-        )
-        <span class="hljs-keyword">
-            default
-        </span>
-        :
-        <span class="hljs-comment">
-            //6
-        </span>
-        consoleIO.writeMessage(
-        <span class="hljs-string">
-            "Unknown option
-            <span class="hljs-subst">
-                \(value)
-            </span>
-            "
-        </span>
-        , to: .error) } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">interactiveMode</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">//1</span>
+  consoleIO.writeMessage(<span class="hljs-string">"Welcome to Panagram. This program checks if an input string is an anagram or palindrome."</span>)
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">var</span> shouldQuit = <span class="hljs-literal">false</span>
+  <span class="hljs-keyword">while</span> !shouldQuit {
+    <span class="hljs-comment">//3</span>
+    consoleIO.writeMessage(<span class="hljs-string">"Type 'a' to check for anagrams or 'p' for palindromes type 'q' to quit."</span>)
+    <span class="hljs-keyword">let</span> (option, value) = getOption(consoleIO.getInput())
+     
+    <span class="hljs-keyword">switch</span> option {
+    <span class="hljs-keyword">case</span> .anagram:
+      <span class="hljs-comment">//4</span>
+      consoleIO.writeMessage(<span class="hljs-string">"Type the first string:"</span>)
+      <span class="hljs-keyword">let</span> first = consoleIO.getInput()
+      consoleIO.writeMessage(<span class="hljs-string">"Type the second string:"</span>)
+      <span class="hljs-keyword">let</span> second = consoleIO.getInput()
+        
+      <span class="hljs-comment">//5</span>
+      <span class="hljs-keyword">if</span> first.isAnagramOf(second) {
+        consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(second)</span> is an anagram of <span class="hljs-subst">\(first)</span>"</span>)
+      } <span class="hljs-keyword">else</span> {
+        consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(second)</span> is not an anagram of <span class="hljs-subst">\(first)</span>"</span>)
+      }
+    <span class="hljs-keyword">case</span> .palindrome:
+      consoleIO.writeMessage(<span class="hljs-string">"Type a word or sentence:"</span>)
+      <span class="hljs-keyword">let</span> s = consoleIO.getInput()
+      <span class="hljs-keyword">let</span> isPalindrome = s.isPalindrome()
+      consoleIO.writeMessage(<span class="hljs-string">"<span class="hljs-subst">\(s)</span> is <span class="hljs-subst">\(isPalindrome ? "" : "not ")</span>a palindrome"</span>)
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-comment">//6</span>
+      consoleIO.writeMessage(<span class="hljs-string">"Unknown option <span class="hljs-subst">\(value)</span>"</span>, to: .error)
+    }
+  }
+}
+</pre>
     <p>
         Taking a look at what's going on above:
     </p>
@@ -1356,15 +1177,8 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         enum:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            case
-        </span>
-        quit =
-        <span class="hljs-string">
-            "q"
-        </span>
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> quit = <span class="hljs-string">"q"</span>
+</pre>
     <p>
         Next, add the following line to the enum's
         <code>
@@ -1372,19 +1186,8 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            case
-        </span>
-        <span class="hljs-string">
-            "q"
-        </span>
-        :
-        <span class="hljs-keyword">
-            self
-        </span>
-        = .quit
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> <span class="hljs-string">"q"</span>: <span class="hljs-keyword">self</span> = .quit
+</pre>
     <p>
         In the same file, add a
         <code>
@@ -1400,15 +1203,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            case
-        </span>
-        .quit: shouldQuit =
-        <span class="hljs-literal">
-            true
-        </span>
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> .quit:
+  shouldQuit = <span class="hljs-literal">true</span>
+</pre>
     <p>
         Then, change the
         <code>
@@ -1420,12 +1217,8 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         as follows:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            case
-        </span>
-        .unknown, .quit:
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> .unknown, .quit:
+</pre>
     <p>
         Open
         <em>
@@ -1437,9 +1230,8 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         with the following:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        panagram.interactiveMode()
-    </pre>
+    <pre lang="swift" class="language-swift hljs">panagram.interactiveMode()
+</pre>
     <p>
         To test interactive mode, you must not have any arguments defined in the
         Scheme.
@@ -1475,39 +1267,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <p>
         Build and run, and you'll see the following output in the Console:
     </p>
-    <pre lang="" class="hljs cs">
-        Welcome to Panagram. This program checks
-        <span class="hljs-keyword">
-            if
-        </span>
-        an input
-        <span class="hljs-keyword">
-            string
-        </span>
-        <span class="hljs-keyword">
-            is
-        </span>
-        an anagram or palindrome. Type
-        <span class="hljs-string">
-            'a'
-        </span>
-        to check
-        <span class="hljs-keyword">
-            for
-        </span>
-        anagrams or
-        <span class="hljs-string">
-            'p'
-        </span>
-        <span class="hljs-keyword">
-            for
-        </span>
-        palindromes type
-        <span class="hljs-string">
-            'q'
-        </span>
-        to quit.
-    </pre>
+    <pre lang="" class="hljs cs">Welcome to Panagram. This program checks <span class="hljs-keyword">if</span> an input <span class="hljs-keyword">string</span> <span class="hljs-keyword">is</span> an anagram or palindrome.
+Type <span class="hljs-string">'a'</span> to check <span class="hljs-keyword">for</span> anagrams or <span class="hljs-string">'p'</span> <span class="hljs-keyword">for</span> palindromes type <span class="hljs-string">'q'</span> to quit.
+</pre>
     <p>
         Try out the different options. Type an option letter (do not prefix with
         a hyphen) followed by
@@ -1520,80 +1282,24 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </em>
         . In the Console you should see something similar to this:
     </p>
-    <pre lang="" class="hljs bash">
-        a Type the first string: silent Type the second string: listen listen
-        is an anagram of silent Type
-        <span class="hljs-string">
-            'a'
-        </span>
-        to check
-        <span class="hljs-keyword">
-            for
-        </span>
-        anagrams or
-        <span class="hljs-string">
-            'p'
-        </span>
-        <span class="hljs-keyword">
-            for
-        </span>
-        palindromes
-        <span class="hljs-built_in">
-            type
-        </span>
-        <span class="hljs-string">
-            'q'
-        </span>
-        to quit. p Type a word or sentence: level level is a palindrome Type
-        <span class="hljs-string">
-            'a'
-        </span>
-        to check
-        <span class="hljs-keyword">
-            for
-        </span>
-        anagrams or
-        <span class="hljs-string">
-            'p'
-        </span>
-        <span class="hljs-keyword">
-            for
-        </span>
-        palindromes
-        <span class="hljs-built_in">
-            type
-        </span>
-        <span class="hljs-string">
-            'q'
-        </span>
-        to quit. f Error: Unknown option f Type
-        <span class="hljs-string">
-            'a'
-        </span>
-        to check
-        <span class="hljs-keyword">
-            for
-        </span>
-        anagrams or
-        <span class="hljs-string">
-            'p'
-        </span>
-        <span class="hljs-keyword">
-            for
-        </span>
-        palindromes
-        <span class="hljs-built_in">
-            type
-        </span>
-        <span class="hljs-string">
-            'q'
-        </span>
-        to quit. q Program ended with
-        <span class="hljs-built_in">
-            exit
-        </span>
-        code: 0
-    </pre>
+    <pre lang="" class="hljs bash">a
+Type the first string:
+silent
+Type the second string:
+listen
+listen is an anagram of silent
+Type <span class="hljs-string">'a'</span> to check <span class="hljs-keyword">for</span> anagrams or <span class="hljs-string">'p'</span> <span class="hljs-keyword">for</span> palindromes <span class="hljs-built_in">type</span> <span class="hljs-string">'q'</span> to quit.
+p
+Type a word or sentence:
+level
+level is a palindrome
+Type <span class="hljs-string">'a'</span> to check <span class="hljs-keyword">for</span> anagrams or <span class="hljs-string">'p'</span> <span class="hljs-keyword">for</span> palindromes <span class="hljs-built_in">type</span> <span class="hljs-string">'q'</span> to quit.
+f
+Error: Unknown option f
+Type <span class="hljs-string">'a'</span> to check <span class="hljs-keyword">for</span> anagrams or <span class="hljs-string">'p'</span> <span class="hljs-keyword">for</span> palindromes <span class="hljs-built_in">type</span> <span class="hljs-string">'q'</span> to quit.
+q
+Program ended with <span class="hljs-built_in">exit</span> code: 0
+</pre>
     <h2>
         Launching Outside Xcode
     </h2>
