@@ -1297,30 +1297,24 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         在Xcode外部运行
     </h2>
     <p>
-        Normally, a command-line program is launched from a shell utility like
-        Terminal (vs. launching it from an IDE like Xcode). The following section
-        walks you through launching your app in Terminal.
+        通常，一个命令行程序是由一个类似终端的shell工具启动的（而不是通过一个类似Xcode的IDE启动）。下面这部分将带领你从终端中启动你的app。
     </p>
     <p>
-        There are different ways to launch your program via Terminal. You could
-        find the compiled binary using the Finder and start it directly via Terminal.
-        Or, you could be lazy and tell Xcode to do this for you. First, you'll
-        learn the lazy way.
+        有若干种方式都可以从终端中来运行你的程序。你可以使用Finder找到编译好的binary程序，并直接使用终端来启动它。否则，你可以偷个懒，来告诉Xcode为你做这些事。首先，你就会学到这种偷懒的方式。
     </p>
     <h3>
-        在终端中运行你的来自Xcode的app
+        从Xcode在终端中运行你的app
     </h3>
     <p>
-        Create a new scheme that will open Terminal and launch Panagram in the
-        Terminal window. Click on the scheme named
+        创建一个新的scheme，它会打开终端，并在终端窗口中运行Panagram。单击scheme，并在工具栏中点击名为
         <em>
             Panagram
         </em>
-        in the toolbar and select
+        的scheme ，并选择
         <em>
             New Scheme
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/SelectNewScheme.png"
@@ -1330,11 +1324,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Name the new scheme
+        将新的scheme命名为
         <em>
             Panagram on Terminal
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/NameNewScheme.png"
@@ -1346,57 +1340,57 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Ensure the
+        确保选中
         <em>
             Panagram on Terminal
         </em>
-        scheme is selected as the active scheme. Click the scheme and select
+        作为活动的scheme。点击scheme并在弹出的菜单中选择
         <em>
             Edit Scheme...
         </em>
-        in the popover.
+        。
     </p>
     <p>
-        Ensure that the
+        确保
         <em>
             Info
         </em>
-        tab is selected and then click on the
+        tab被选中，然后点击
         <em>
             Executable
         </em>
-        drop down and select
+        ，在弹出的下拉菜单中选择
         <em>
             Other
         </em>
-        . Now, find the
-        <em>
-            Terminal.app
-        </em>
-        in your
+        。现在，在你的
         <em>
             Applications/Utilities
         </em>
-        folder and click
+        目录下找到
+        <em>
+            Terminal.app
+        </em>
+        ，并点击
         <em>
             Choose
         </em>
-        . Now that Terminal is your executable, uncheck
+        。现在终端就是你的可执行程序了，取消勾选
         <em>
             Debug executable
         </em>
-        .
+        。
     </p>
     <p>
-        Your
+        现在，你的
         <em>
             Panagram on Terminal
         </em>
-        scheme's
+        scheme的
         <em>
             Info
         </em>
-        tab should look like this:
+        tab应当看起来就像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/TerminalScheme.png"
@@ -1409,18 +1403,16 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        The downside is that you can't debug your app in Xcode this way because
-        now the executable that Xcode launches during a run is Terminal and not
-        Panagram.
+        上述方法的不足之处，是你不能在Xcode中debug你的app，因为Xcode在运行期间执行的程序是终端而不是Panagram。
     </div>
     <p>
-        Next, select the
+        下面，选择
         <em>
             Arguments
         </em>
-        tab, then add one new argument:
+        tab，然后添加一个新的参数：
     </p>
     <p>
         <code>
@@ -1437,20 +1429,18 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Finally, click
+        最后，点击
         <em>
             Close
         </em>
-        .
+        。
     </p>
     <p>
-        Now, make sure you have the scheme
+        现在，确保你的scheme
         <em>
             Panagram on Terminal
         </em>
-        selected, then build and run your project. Xcode will open Terminal and
-        pass through the path to your program. Terminal will then launch your program
-        as you'd expect.
+        已被选中，然后build并运行你的项目。Xcode就会打开终端并传递路径给你的程序。终端就会在之后运行你所期望的程序。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png"
@@ -1459,7 +1449,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h3>
-        Launch your app directly from Terminal
+        直接通过终端运行你的app
     </h3>
     <p>
         Open Terminal from your
