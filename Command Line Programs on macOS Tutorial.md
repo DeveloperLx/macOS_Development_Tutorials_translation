@@ -1592,24 +1592,22 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         <em>
             注意：
         </em>
-        When you run the Panagram scheme (and not the Terminal one), the
+        当你运行Panagram的scheme时（不是终端），输出起始处的
         <code>
             [;m
         </code>
-        at the beginning of the output might look a bit awkward. That's because
-        the Xcode Console doesn't support using control characters to colorize
-        text output.
+        看起来会有一点尴尬。这是因为Xcode的控制台不支持着色的输出。
     </div>
     <p>
-        Build and run, this will launch Panagram in Terminal. Type
+        Build并运行，就会在终端上运行Panagram。输入
         <em>
             f
         </em>
-        for option, the
+        作为选项，你就会看到红色的错误信息
         <em>
             Unknown option f
         </em>
-        error message will display in red:
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Colored_Output-e1458912975895-700x216.png"
@@ -1618,7 +1616,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
