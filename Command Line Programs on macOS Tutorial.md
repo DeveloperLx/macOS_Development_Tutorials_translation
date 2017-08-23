@@ -585,7 +585,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         类中：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOption</span><span class="hljs-params">(<span class="hljs-number">\_</span> option: String)</span></span> -&gt; (option:<span class="hljs-type">OptionType</span>, value: <span class="hljs-type">String</span>) {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOption</span><span class="hljs-params">(<span class="hljs-number">\_</span> option: String)</span></span> -&gt; (option: <span class="hljs-type">OptionType</span>, value: <span class="hljs-type">String</span>) {
   <span class="hljs-keyword">return</span> (<span class="hljs-type">OptionType</span>(value: option), option)
 }
 </pre>
@@ -848,7 +848,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </em>
         中：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAnagramOf</span><span class="hljs-params">(<span class="hljs-number">_</span> s: String)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isAnagramOf</span><span class="hljs-params">(<span class="hljs-number">\_</span> s: String)</span></span> -&gt; <span class="hljs-type">Bool</span> {
   <span class="hljs-comment">//1</span>
   <span class="hljs-keyword">let</span> lowerSelf = <span class="hljs-keyword">self</span>.lowercased().replacingOccurrences(of: <span class="hljs-string">" "</span>, with: <span class="hljs-string">""</span>)
   <span class="hljs-keyword">let</span> lowerOther = s.lowercased().replacingOccurrences(of: <span class="hljs-string">" "</span>, with: <span class="hljs-string">""</span>)
@@ -918,7 +918,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         方法中使用下列的代码替换对
         <code>
-            writeMessage(_:to:)
+            writeMessage(\_:to:)
         </code>
         的调用：
     </p>
@@ -1177,7 +1177,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <p>
         接下来，添加下列这行代码到枚举的
         <code>
-            init(_:)
+            init(\_:)
         </code>
         方法中：
     </p>
