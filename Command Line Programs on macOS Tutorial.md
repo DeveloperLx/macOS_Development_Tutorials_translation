@@ -1452,26 +1452,26 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         直接通过终端运行你的app
     </h3>
     <p>
-        Open Terminal from your
+        在你的
         <em>
             Applications/Utilities
         </em>
-        folder.
+        目录下打开终端。
     </p>
     <p>
-        In the
+        在
         <em>
             Project Navigator
         </em>
-        select your product under the
+        下的
         <em>
             Products
         </em>
-        group. Copy your debug folder's
+        组中，选择你的产品。从Xcode的工具区中，拷贝你的debug目录下的
         <em>
-            Full Path
+            全路径
         </em>
-        from Xcode's Utility area as shown below (do not include "Panagram"):
+        就像下面这样（不包含“Panagram”）：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/BuildFullPath.png"
@@ -1483,12 +1483,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Open a Finder window and select the
+        打开Finder的窗口，并选择
         <em>
             Go/Go to Folder...
         </em>
-        menu item and paste the full path you copied in the previous step into
-        the dialog's text field:
+        菜单项，然后将你刚拷贝的全路径粘贴到出现的文本输入框中：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/GoToFolder.png"
@@ -1498,11 +1497,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Click
+        点击
         <em>
             Go
         </em>
-        and Finder navigates to the folder containing the Panagram executable:
+        ，Finder就会找到包含Panagram可执行文件的目录：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/ExecutableInFinder.png"
@@ -1514,13 +1513,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Drag the Panagram executable from Finder to the Terminal window and drop
-        it there. Switch to the Terminal window and hit
+        从Finder将Panagram的可执行文件拖拽到终端中。切换到终端的窗口，并在键盘上点击
         <em>
             Return
         </em>
-        on the keyboard. Terminal launches Panagram in interactive mode since
-        no arguments were specified:
+        。终端就会以交互模式运行Panagram，因为没有参数的指定。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png"
@@ -1530,43 +1527,42 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        To run Panagram directly from Terminal in static mode, perform the same
-        steps as described above for the interactive mode, but before hitting
+        要在终端中，以静态模式直接运行Panagram，可以在点击
         <em>
             Return
         </em>
-        type the relevant arguments. For example:
+        前输入相关的参数，然后再执行上述相同的步骤。例如：
         <em>
             -p level
         </em>
-        or
+        或
         <em>
             -a silent listen
         </em>
-        etc..
+        等等..
     </div>
     <h2>
         展示错误
     </h2>
     <p>
-        Finally, you will add some code to display error messages in red.
+        最后，你将添加一些代码来以红色字展示错误信息。
     </p>
     <p>
-        Open
+        打开
         <em>
             ConsoleIO.swift
         </em>
-        and in
+        ，并在
         <code>
             writeMessage(_:to:)
         </code>
-        , replace the two
+        中，使用下列代码替换两个
         <code>
             case
         </code>
-        statements with the following:
+        语句：
     </p>
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-keyword">case</span> .standard:
       <span class="hljs-comment">// 1</span>
@@ -1576,29 +1572,25 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
       fputs(<span class="hljs-string">"\u{001B}[0;31m<span class="hljs-subst">\(message)</span>\n"</span>, stderr)
 </pre>
     <p>
-        Taking each numbered line in turn:
+        一步一步地看每行的代码：
     </p>
     <ol>
         <li>
-            The sequence
             <code>
                 \u{001B}[;m
             </code>
-            is used in the standard case to reset the terminal's text color back to
-            the default.
+            用来将终端的字体颜色重置为默认的值。
         </li>
         <li>
-            The sequence
             <code>
                 \u{001B}[0;31m
             </code>
-            are control characters that cause Terminal to change the color of the
-            following text strings to red.
+            则把其后字体的颜色改变为红色。
         </li>
     </ol>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
         When you run the Panagram scheme (and not the Terminal one), the
         <code>
