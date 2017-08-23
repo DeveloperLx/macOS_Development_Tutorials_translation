@@ -585,7 +585,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </code>
         类中：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOption</span><span class="hljs-params">(<span class="hljs-number">_</span> option: String)</span></span> -&gt; (option:<span class="hljs-type">OptionType</span>, value: <span class="hljs-type">String</span>) {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOption</span><span class="hljs-params">(<span class="hljs-number">\_</span> option: String)</span></span> -&gt; (option:<span class="hljs-type">OptionType</span>, value: <span class="hljs-type">String</span>) {
   <span class="hljs-keyword">return</span> (<span class="hljs-type">OptionType</span>(value: option), option)
 }
 </pre>
@@ -1655,7 +1655,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         查看如何将stderr重定向到日志文件中。它是一个用来给终端撰写"GUI-style"风格程序的C语言库。
     </p>
     <p>
-        如果你感兴趣于使用Swift撰写脚本，可以查看文章：
+        如果你感兴趣如何使用Swift撰写脚本，可以查看文章：
         <a href="http://krakendev.io/blog/scripting-in-swift" target="_blank"
         sl-processed="1">
             Scripting in Swift is pretty awesome
