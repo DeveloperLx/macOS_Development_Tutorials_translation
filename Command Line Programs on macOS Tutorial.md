@@ -1628,10 +1628,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1639,27 +1640,26 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </div>
     </div>
     <p>
-        You can download the final project for this tutorial
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/Panagram_Final_170706.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载本教程的最终项目。
     </p>
     <p>
-        If you want to write more command-line programs in the future, take a
-        look at how to redirect stderr to a log file and also look at
+        如果你想在将来编写更多的命令行程序，可以在
         <a href="http://www.gnu.org/software/ncurses/" sl-processed="1">
-            ncurses
+            这里（ncurses）
         </a>
-        , which is a C library for writing "GUI-style" programs for the terminal.
+        查看如何将stderr重定向到日志文件中。它是一个用来给终端撰写"GUI-style"风格程序的C语言库。
     </p>
     <p>
-        You can also check out the article
+        如果你感兴趣于使用Swift撰写脚本，可以查看文章：
         <a href="http://krakendev.io/blog/scripting-in-swift" target="_blank"
         sl-processed="1">
             Scripting in Swift is pretty awesome
         </a>
-        if you're interested in Swift for scripting.
+        。
     </p>
 </div>
