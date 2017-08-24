@@ -29,7 +29,6 @@
     </p>
     <p>
         尽管GUI非常的流行，命令行程序仍然在今天的计算机世界中扮演重要的角色。诸如
-        Despite the prevalence of GUIs, command-line programs still have an important role in today’s computing world. Command-line programs such as
         <a href="http://www.imagemagick.org/script/command-line-processing.php"
         target="_blank" sl-processed="1">
             ImageMagick
