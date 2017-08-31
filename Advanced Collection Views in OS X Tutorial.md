@@ -211,10 +211,9 @@
   }</font></font><font></font>
 </pre>
     <p>
-        With this line you enable the button only when one item is selected.
+        这样这个按钮就只会在某个item被选中时才打开了。
         <br>
-        Build and run. Verify that the button is enabled only when an item is
-        selected.
+        运行项目。验证仅当某个item被选中时才能够使用。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/05/First_Run.png">
             <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/First_Run-264x320.png"
@@ -224,261 +223,83 @@
         </a>
     </p>
     <h3>
-        Insert the New Items
+        插入新的项目
     </h3>
     <p>
-        Adding new items to a collection view is a two-stage process. First, you
-        add the items to the model then notify the collection view about the changes.
+        添加一个新的item到collection view包含两个步骤。首先，添加item到model中，然后，通知collection view这个变化。
     </p>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : When editing operations, such as add, remove and move, you must always
-        update the model before you notify the collection view to tell it to update
-        its layout.
+        ：在进行编辑时，诸如添加，删除和移动，你必须首先更新model，然后再通知collection view来更新它的布局。
     </div>
     <p>
-        To update your model, you’ll need to append the following to the
+        要更新你的model，你需要添加下列的代码到
         <code>
             ImageDirectoryLoader
         </code>
-        class:
+        类中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                insertImage
-            </span>
-            <span class="hljs-params">
-                (image: ImageFile, atIndexPath: NSIndexPath)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        imageIndexInImageFiles = sectionsAttributesArray[atIndexPath.section].sectionOffset
-        + atIndexPath.item imageFiles.insert(image, atIndex: imageIndexInImageFiles)
-        <span class="hljs-keyword">
-            let
-        </span>
-        sectionToUpdate = atIndexPath.section sectionsAttributesArray[sectionToUpdate].sectionLength
-        +=
-        <span class="hljs-number">
-            1
-        </span>
-        sectionLengthArray[sectionToUpdate] +=
-        <span class="hljs-number">
-            1
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        sectionToUpdate &lt; numberOfSections-
-        <span class="hljs-number">
-            1
-        </span>
-        {
-        <span class="hljs-keyword">
-            for
-        </span>
-        i
-        <span class="hljs-keyword">
-            in
-        </span>
-        sectionToUpdate+
-        <span class="hljs-number">
-            1
-        </span>
-        ...numberOfSections-
-        <span class="hljs-number">
-            1
-        </span>
-        { sectionsAttributesArray[i].sectionOffset +=
-        <span class="hljs-number">
-            1
-        </span>
-        } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">insertImage</span><span class="hljs-params">(image: ImageFile, atIndexPath: NSIndexPath)</span></span> {
+    <span class="hljs-keyword">let</span> imageIndexInImageFiles = sectionsAttributesArray[atIndexPath.section].sectionOffset + atIndexPath.item
+    imageFiles.insert(image, atIndex: imageIndexInImageFiles)
+    <span class="hljs-keyword">let</span> sectionToUpdate = atIndexPath.section
+    sectionsAttributesArray[sectionToUpdate].sectionLength += <span class="hljs-number">1</span>
+    sectionLengthArray[sectionToUpdate] += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> sectionToUpdate &lt; numberOfSections-<span class="hljs-number">1</span> {
+      <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> sectionToUpdate+<span class="hljs-number">1</span>...numberOfSections-<span class="hljs-number">1</span> {
+        sectionsAttributesArray[i].sectionOffset += <span class="hljs-number">1</span>
+      }
+    }
+  }
+</pre>
     <p>
-        This method inserts the new image to your data model and updates everything
-        so that your model stays in a consistent state.
+        这个方法插入了新的图片到你的数据model中，并更新相关的内容，这样就保持了你的model保持在一个一致的状态。
     </p>
     <p>
-        Add the following methods to
+        添加下列的方法到
         <code>
             ViewController
         </code>
-        . The first method is called from the
+        中。第一个方法来自
         <code>
             IBAction
         </code>
-        method that's triggered by clicking the add button, and then it's followed
-        by the action method:
+        会在点击添加按钮时被调用，后面则是动作方法：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                insertAtIndexPathFromURLs
-            </span>
-            <span class="hljs-params">
-                (urls: [NSURL], atIndexPath: NSIndexPath)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            var
-        </span>
-        indexPaths:
-        <span class="hljs-type">
-            Set
-        </span>
-        &lt;
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        &gt; = []
-        <span class="hljs-keyword">
-            let
-        </span>
-        section = atIndexPath.section
-        <span class="hljs-keyword">
-            var
-        </span>
-        currentItem = atIndexPath.item
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            for
-        </span>
-        url
-        <span class="hljs-keyword">
-            in
-        </span>
-        urls {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        imageFile =
-        <span class="hljs-type">
-            ImageFile
-        </span>
-        (url: url)
-        <span class="hljs-keyword">
-            let
-        </span>
-        currentIndexPath =
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        (forItem: currentItem, inSection: section) imageDirectoryLoader.insertImage(imageFile,
-        atIndexPath: currentIndexPath) indexPaths.insert(currentIndexPath) currentItem
-        +=
-        <span class="hljs-number">
-            1
-        </span>
-        }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        collectionView.insertItemsAtIndexPaths(indexPaths) }
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                addSlide
-            </span>
-            <span class="hljs-params">
-                (sender: NSButton)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        insertAtIndexPath = collectionView.selectionIndexPaths.first!
-        <span class="hljs-comment">
-            //5
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        openPanel =
-        <span class="hljs-type">
-            NSOpenPanel
-        </span>
-        () openPanel.canChooseDirectories =
-        <span class="hljs-literal">
-            false
-        </span>
-        openPanel.canChooseFiles =
-        <span class="hljs-literal">
-            true
-        </span>
-        openPanel.allowsMultipleSelection =
-        <span class="hljs-literal">
-            true
-        </span>
-        ; openPanel.allowedFileTypes = [
-        <span class="hljs-string">
-            "public.image"
-        </span>
-        ] openPanel.beginSheetModalForWindow(
-        <span class="hljs-keyword">
-            self
-        </span>
-        .view.window!) { (response) -&gt;
-        <span class="hljs-type">
-            Void
-        </span>
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        response ==
-        <span class="hljs-type">
-            NSFileHandlingPanelOKButton
-        </span>
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-keyword">
-            self
-        </span>
-        .insertAtIndexPathFromURLs(openPanel.
-        <span class="hljs-type">
-            URLs
-        </span>
-        , atIndexPath: insertAtIndexPath) } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">   <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">insertAtIndexPathFromURLs</span><span class="hljs-params">(urls: [NSURL], atIndexPath: NSIndexPath)</span></span> {
+    <span class="hljs-keyword">var</span> indexPaths: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">NSIndexPath</span>&gt; = []
+    <span class="hljs-keyword">let</span> section = atIndexPath.section
+    <span class="hljs-keyword">var</span> currentItem = atIndexPath.item
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> urls {
+      <span class="hljs-comment">// 2</span>
+      <span class="hljs-keyword">let</span> imageFile = <span class="hljs-type">ImageFile</span>(url: url)
+      <span class="hljs-keyword">let</span> currentIndexPath = <span class="hljs-type">NSIndexPath</span>(forItem: currentItem, inSection: section)
+      imageDirectoryLoader.insertImage(imageFile, atIndexPath: currentIndexPath)
+      indexPaths.insert(currentIndexPath)
+      currentItem += <span class="hljs-number">1</span>
+    }
+    <span class="hljs-comment">// 3</span>
+    collectionView.insertItemsAtIndexPaths(indexPaths)
+  }
+
+  <span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addSlide</span><span class="hljs-params">(sender: NSButton)</span></span> {
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-keyword">let</span> insertAtIndexPath = collectionView.selectionIndexPaths.first!
+    <span class="hljs-comment">//5</span>
+    <span class="hljs-keyword">let</span> openPanel = <span class="hljs-type">NSOpenPanel</span>()
+    openPanel.canChooseDirectories = <span class="hljs-literal">false</span>
+    openPanel.canChooseFiles = <span class="hljs-literal">true</span>
+    openPanel.allowsMultipleSelection = <span class="hljs-literal">true</span>;
+    openPanel.allowedFileTypes = [<span class="hljs-string">"public.image"</span>]
+    openPanel.beginSheetModalForWindow(<span class="hljs-keyword">self</span>.view.window!) { (response) -&gt; <span class="hljs-type">Void</span> <span class="hljs-keyword">in</span>
+      <span class="hljs-keyword">guard</span> response == <span class="hljs-type">NSFileHandlingPanelOKButton</span> <span class="hljs-keyword">else</span> {<span class="hljs-keyword">return</span>}
+      <span class="hljs-keyword">self</span>.insertAtIndexPathFromURLs(openPanel.<span class="hljs-type">URLs</span>, atIndexPath: insertAtIndexPath)
+    }
+  }
+</pre>
     <ol>
         <li>
             This iterates over the
