@@ -9,72 +9,70 @@
         class="alignright size-full wp-image-132621 bordered">
     </p>
     <p>
-        If you want to learn about the advanced capabilities of
+        如果你想了解
         <code>
             NSCollectionView
         </code>
-        , you’ve come to the right place. This is the second part of a tutorial
-        that covered the basics, and in this Advanced Collection Views in OS X
-        Tutorial, you step deeper into the encompassing world of collection views.
+        的高级特性，恭喜你来对了地方。这里是第二部分的教程，关于OS X中Collection View的高级特性，你已经深入到了collection view所围绕的世界中。
     </p>
     <p>
-        In this OS X tutorial, you’ll learn how:
+        在这篇教程中，你将学到如何：
     </p>
     <ul>
         <li>
-            To add, remove, move and reorder items
+            添加，删除，移动，以及重新排列项目
         </li>
         <li>
-            To implement drag and drop with collection views
+            实现拖拽collection view
         </li>
         <li>
-            To fine-tune selection and highlighting
+            调整选择和高亮的效果
         </li>
         <li>
-            To use animation in collection views
+            在collection view中使用动画
         </li>
         <li>
-            To implement sticky section headers
+            实现实现黏性的section头
         </li>
     </ul>
     <h2>
-        Prerequisites
+        预备知识
     </h2>
     <p>
-        You need basic knowledge of
+        你需要了解关于
         <code>
             NSCollectionView
         </code>
-        , and you’ll need to know your way around the project from the
-        <a href="https://www.raywenderlich.com/120494/collection-views-os-x-tutorial"
+        的基础知识，以及来自于
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Collection%20Views%20in%20OS%20X%20Tutorial.md"
         title="Collection Views tutorial" target="_blank">
-            Collection Views tutorial
+            Collection View教程
         </a>
-        .
+        的项目相关的内容。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
+        你将要构建的app叫做
         <em>
             SlidesPro
         </em>
-        is the app you’re going to build, and it picks up where the previous tutorial
-        left off.
+        ，他会从之前教程撂下的地方再捡起来再继续。
     </p>
     <p>
-        Download the
-        <em>
-            SlidesPro
-        </em>
-        starter project
+        在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SlidesPro-Starter.zip">
-            here
+            这里
         </a>
-        .
+        下载
+        <em>
+            SlidesPro
+        </em>
+        的初始项目。
     </p>
     <p>
-        Build and run.
+        Build并运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SlidesProStarterScreen.png"
@@ -86,47 +84,43 @@
         </a>
     </p>
     <h2>
-        Add New Images to the Collection View
+        添加新的图像到Collection View
     </h2>
     <p>
-        In this section, you’ll walk through the steps needed to add new items
-        to the collection.
+        在这一部分，你将会浏览添加新的item到collection的步骤。
     </p>
     <h3>
-        The Add Button
+        添加按钮
     </h3>
     <p>
-        You’re not going to be able to add anything to that collection view until
-        you make a way to do it. Good thing you’re a developer! What’s needed here
-        is a button that displays a standard open panel from which you can choose
-        images.
+        在实现相应的功能之前，你无法向collection view添加任何内容。好在你是一个开发者！现在这里需要一个按钮，点击它展示一个标准的打开面板，来选择你想要的图片。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and drag a
+        并拖拽一个
         <em>
             Push Button
         </em>
-        into the bottom of the collection view. In the
+        到collection view的底部。在
         <em>
             Attributes Inspector
         </em>
-        , set its
+        中，设置它的
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Add
         </em>
-        , and uncheck
+        ，并取消勾选
         <em>
             Enabled
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Add-Slide-Button.png"
@@ -138,18 +132,18 @@
         </a>
     </p>
     <p>
-        Select the
+        选择
         <em>
             Editor \ Resolve Auto Layout Issues \ Add Missing Constraints
         </em>
-        menu item to set the button’s
+        菜单项来设置按钮的
         <em>
-            Auto Layout
+            自动布局
         </em>
-        constraints.
+        约束。
     </p>
     <p>
-        Build and run and check if you’ve got a button.
+        build并运行，查看你是否已得到了button。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Add-Button-Added.png"
@@ -161,46 +155,30 @@
         </a>
     </p>
     <h3>
-        Specify Where to Insert New Items
+        指定在什么地方插入新的item
     </h3>
     <p>
         <em>
             SlidesPro
         </em>
-        should be set up so that when you select an item, the new item is inserted
-        starting at the index path of whatever image you’ve selected. Then this
-        item and the rest of the section are pushed below the new items.
+        当你选择了一个item的时候，新的item就被插入到了那个item的index path位置上。之后那个item和其后的item就会被推移到新的item之后。
     </p>
     <p>
-        Accordingly, the add button can only be enabled when an item is selected.
+        因此，这个添加按钮就应该只有在某个item被选中时才可使用。
     </p>
     <p>
-        In
+        在
         <code>
             ViewController
         </code>
-        , add an
+        中，为按钮添加一个
         <code>
             IBOutlet
         </code>
-        for the button:
+        ：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBOutlet
-        </span>
-        <span class="hljs-keyword">
-            weak
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        addSlideButton:
-        <span class="hljs-type">
-            NSButton
-        </span>
-        !
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta"><font><font>@IBOutlet </font></font></span> <span class="hljs-keyword"><font><font>weak </font></font></span> <span class="hljs-keyword"><font><font>var</font></font></span><font><font> addSlideButton：</font></font><span class="hljs-type"><font><font>NSButton</font></font></span><font><font>！ 
+</font></font></pre>
     <p>
         Next, open
         <em>
@@ -231,28 +209,12 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                highlightItems
-            </span>
-            <span class="hljs-params">
-                (selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)
-            </span>
-        </span>
-        { ....... ....... addSlideButton.enabled = collectionView.selectionIndexPaths.
-        <span class="hljs-built_in">
-            count
-        </span>
-        ==
-        <span class="hljs-number">
-            1
-        </span>
-        }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword"><font><font>func </font></font></span> <span class="hljs-title"><font><font>highlightItems </font></font></span><span class="hljs-params"><font><font>（selected：Bool，atIndexPaths：Set &lt;NSIndexPath&gt;）</font></font></span></span><font><font> {</font></font><font></font><font><font>
+    .......</font></font><font></font><font><font>
+    .......</font></font><font></font><font><font>
+    addSlideButton.enabled = collectionView.selectionIndexPaths。</font></font><span class="hljs-built_in"><font><font>count</font></font></span><font><font> == </font></font><span class="hljs-number"><font><font>1</font></font></span><font></font><font><font>
+  }</font></font><font></font>
+</pre>
     <p>
         With this line you enable the button only when one item is selected.
         <br>
