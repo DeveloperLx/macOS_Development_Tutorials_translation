@@ -185,19 +185,22 @@
         </code>
         for the button:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322681">
-                    <td class="code" id="p132268code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak var addSlideButton: NSButton!
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-meta">
+            @IBOutlet
+        </span>
+        <span class="hljs-keyword">
+            weak
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        addSlideButton:
+        <span class="hljs-type">
+            NSButton
+        </span>
+        !
+    </pre>
     <p>
         Next, open
         <em>
@@ -228,21 +231,28 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322682">
-                    <td class="code" id="p132268code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            func highlightItems(selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)
-                            { ....... ....... addSlideButton.enabled = collectionView.selectionIndexPaths.count
-                            == 1 }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                highlightItems
+            </span>
+            <span class="hljs-params">
+                (selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)
+            </span>
+        </span>
+        { ....... ....... addSlideButton.enabled = collectionView.selectionIndexPaths.
+        <span class="hljs-built_in">
+            count
+        </span>
+        ==
+        <span class="hljs-number">
+            1
+        </span>
+        }
+    </pre>
     <p>
         With this line you enable the button only when one item is selected.
         <br>
@@ -278,25 +288,65 @@
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322683">
-                    <td class="code" id="p132268code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            func insertImage(image: ImageFile, atIndexPath: NSIndexPath) { let imageIndexInImageFiles
-                            = sectionsAttributesArray[atIndexPath.section].sectionOffset + atIndexPath.item
-                            imageFiles.insert(image, atIndex: imageIndexInImageFiles) let sectionToUpdate
-                            = atIndexPath.section sectionsAttributesArray[sectionToUpdate].sectionLength
-                            += 1 sectionLengthArray[sectionToUpdate] += 1 if sectionToUpdate &lt; numberOfSections-1
-                            { for i in sectionToUpdate+1...numberOfSections-1 { sectionsAttributesArray[i].sectionOffset
-                            += 1 } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                insertImage
+            </span>
+            <span class="hljs-params">
+                (image: ImageFile, atIndexPath: NSIndexPath)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        imageIndexInImageFiles = sectionsAttributesArray[atIndexPath.section].sectionOffset
+        + atIndexPath.item imageFiles.insert(image, atIndex: imageIndexInImageFiles)
+        <span class="hljs-keyword">
+            let
+        </span>
+        sectionToUpdate = atIndexPath.section sectionsAttributesArray[sectionToUpdate].sectionLength
+        +=
+        <span class="hljs-number">
+            1
+        </span>
+        sectionLengthArray[sectionToUpdate] +=
+        <span class="hljs-number">
+            1
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        sectionToUpdate &lt; numberOfSections-
+        <span class="hljs-number">
+            1
+        </span>
+        {
+        <span class="hljs-keyword">
+            for
+        </span>
+        i
+        <span class="hljs-keyword">
+            in
+        </span>
+        sectionToUpdate+
+        <span class="hljs-number">
+            1
+        </span>
+        ...numberOfSections-
+        <span class="hljs-number">
+            1
+        </span>
+        { sectionsAttributesArray[i].sectionOffset +=
+        <span class="hljs-number">
+            1
+        </span>
+        } } }
+    </pre>
     <p>
         This method inserts the new image to your data model and updates everything
         so that your model stays in a consistent state.
@@ -310,36 +360,168 @@
         <code>
             IBAction
         </code>
-        method that’s triggered by clicking the add button, and then it’s followed
+        method that's triggered by clicking the add button, and then it's followed
         by the action method:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322684">
-                    <td class="code" id="p132268code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            private func insertAtIndexPathFromURLs(urls: [NSURL], atIndexPath: NSIndexPath)
-                            { var indexPaths: Set&lt;NSIndexPath&gt; = [] let section = atIndexPath.section
-                            var currentItem = atIndexPath.item &nbsp; // 1 for url in urls { // 2 let
-                            imageFile = ImageFile(url: url) let currentIndexPath = NSIndexPath(forItem:
-                            currentItem, inSection: section) imageDirectoryLoader.insertImage(imageFile,
-                            atIndexPath: currentIndexPath) indexPaths.insert(currentIndexPath) currentItem
-                            += 1 } &nbsp; // 3 collectionView.insertItemsAtIndexPaths(indexPaths) }
-                            &nbsp; @IBAction func addSlide(sender: NSButton) { // 4 let insertAtIndexPath
-                            = collectionView.selectionIndexPaths.first! //5 let openPanel = NSOpenPanel()
-                            openPanel.canChooseDirectories = false openPanel.canChooseFiles = true
-                            openPanel.allowsMultipleSelection = true; openPanel.allowedFileTypes =
-                            ["public.image"] openPanel.beginSheetModalForWindow(self.view.window!)
-                            { (response) -&gt; Void in guard response == NSFileHandlingPanelOKButton
-                            else {return} self.insertAtIndexPathFromURLs(openPanel.URLs, atIndexPath:
-                            insertAtIndexPath) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            private
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                insertAtIndexPathFromURLs
+            </span>
+            <span class="hljs-params">
+                (urls: [NSURL], atIndexPath: NSIndexPath)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            var
+        </span>
+        indexPaths:
+        <span class="hljs-type">
+            Set
+        </span>
+        &lt;
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        &gt; = []
+        <span class="hljs-keyword">
+            let
+        </span>
+        section = atIndexPath.section
+        <span class="hljs-keyword">
+            var
+        </span>
+        currentItem = atIndexPath.item
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-keyword">
+            for
+        </span>
+        url
+        <span class="hljs-keyword">
+            in
+        </span>
+        urls {
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        imageFile =
+        <span class="hljs-type">
+            ImageFile
+        </span>
+        (url: url)
+        <span class="hljs-keyword">
+            let
+        </span>
+        currentIndexPath =
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem: currentItem, inSection: section) imageDirectoryLoader.insertImage(imageFile,
+        atIndexPath: currentIndexPath) indexPaths.insert(currentIndexPath) currentItem
+        +=
+        <span class="hljs-number">
+            1
+        </span>
+        }
+        <span class="hljs-comment">
+            // 3
+        </span>
+        collectionView.insertItemsAtIndexPaths(indexPaths) }
+        <span class="hljs-meta">
+            @IBAction
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                addSlide
+            </span>
+            <span class="hljs-params">
+                (sender: NSButton)
+            </span>
+        </span>
+        {
+        <span class="hljs-comment">
+            // 4
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        insertAtIndexPath = collectionView.selectionIndexPaths.first!
+        <span class="hljs-comment">
+            //5
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        openPanel =
+        <span class="hljs-type">
+            NSOpenPanel
+        </span>
+        () openPanel.canChooseDirectories =
+        <span class="hljs-literal">
+            false
+        </span>
+        openPanel.canChooseFiles =
+        <span class="hljs-literal">
+            true
+        </span>
+        openPanel.allowsMultipleSelection =
+        <span class="hljs-literal">
+            true
+        </span>
+        ; openPanel.allowedFileTypes = [
+        <span class="hljs-string">
+            "public.image"
+        </span>
+        ] openPanel.beginSheetModalForWindow(
+        <span class="hljs-keyword">
+            self
+        </span>
+        .view.window!) { (response) -&gt;
+        <span class="hljs-type">
+            Void
+        </span>
+        <span class="hljs-keyword">
+            in
+        </span>
+        <span class="hljs-keyword">
+            guard
+        </span>
+        response ==
+        <span class="hljs-type">
+            NSFileHandlingPanelOKButton
+        </span>
+        <span class="hljs-keyword">
+            else
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        }
+        <span class="hljs-keyword">
+            self
+        </span>
+        .insertAtIndexPathFromURLs(openPanel.
+        <span class="hljs-type">
+            URLs
+        </span>
+        , atIndexPath: insertAtIndexPath) } }
+    </pre>
     <ol>
         <li>
             This iterates over the
@@ -400,7 +582,7 @@
         Build and run.
     </p>
     <p>
-        Select the last image in Section 1 — on my system it’s the
+        Select the last image in Section 1 -- on my system it's the
         <em>
             Desert.jpg
         </em>
@@ -453,13 +635,13 @@
         Remove Items from the Collection View
     </h2>
     <p>
-        To remove items in SlidesPro you’ll need a remove button, and it should
+        To remove items in SlidesPro you'll need a remove button, and it should
         sit next to the add button. The most logical implementation is that it
         should remove all selected items, hence, this button should be enabled
         only when one or more items are selected.
     </p>
     <p>
-        And then there’s this detail: multi-selection must be enabled to allow
+        And then there's this detail: multi-selection must be enabled to allow
         you to work with more than one image at a time.
     </p>
     <p>
@@ -590,19 +772,22 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322685">
-                    <td class="code" id="p132268code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBOutlet weak var removeSlideButton: NSButton!
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-meta">
+            @IBOutlet
+        </span>
+        <span class="hljs-keyword">
+            weak
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        removeSlideButton:
+        <span class="hljs-type">
+            NSButton
+        </span>
+        !
+    </pre>
     <p>
         Next, open
         <em>
@@ -621,21 +806,21 @@
         </code>
         , add the line to enable/disable the remove button.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322686">
-                    <td class="code" id="p132268code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            func highlightItems(selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)
-                            { ....... ....... removeSlideButton.enabled = !collectionView.selectionIndexPaths.isEmpty
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                highlightItems
+            </span>
+            <span class="hljs-params">
+                (selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)
+            </span>
+        </span>
+        { ....... ....... removeSlideButton.enabled = !collectionView.selectionIndexPaths.isEmpty
+        }
+    </pre>
     <p>
         Build and run, then select an item. Both the add and remove buttons should
         become enabled. Add more items to the selection; the add button should
@@ -645,7 +830,7 @@
         Enable Removal of Items
     </h3>
     <p>
-        Now you’ll add the code that removes items from the collection. As it
+        Now you'll add the code that removes items from the collection. As it
         is with adding, removing is a two-stage process where you must remove images
         from the model before notifying the collection view about the changes.
     </p>
@@ -656,25 +841,73 @@
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322687">
-                    <td class="code" id="p132268code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            func removeImageAtIndexPath(indexPath: NSIndexPath) -&gt; ImageFile {
-                            let imageIndexInImageFiles = sectionsAttributesArray[indexPath.section].sectionOffset
-                            + indexPath.item let imageFileRemoved = imageFiles.removeAtIndex(imageIndexInImageFiles)
-                            let sectionToUpdate = indexPath.section sectionsAttributesArray[sectionToUpdate].sectionLength
-                            -= 1 if sectionToUpdate &lt; numberOfSections-1 { for i in sectionToUpdate+1...numberOfSections-1
-                            { sectionsAttributesArray[i].sectionOffset -= 1 } } return imageFileRemoved
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                removeImageAtIndexPath
+            </span>
+            <span class="hljs-params">
+                (indexPath: NSIndexPath)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            ImageFile
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        imageIndexInImageFiles = sectionsAttributesArray[indexPath.section].sectionOffset
+        + indexPath.item
+        <span class="hljs-keyword">
+            let
+        </span>
+        imageFileRemoved = imageFiles.removeAtIndex(imageIndexInImageFiles)
+        <span class="hljs-keyword">
+            let
+        </span>
+        sectionToUpdate = indexPath.section sectionsAttributesArray[sectionToUpdate].sectionLength
+        -=
+        <span class="hljs-number">
+            1
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        sectionToUpdate &lt; numberOfSections-
+        <span class="hljs-number">
+            1
+        </span>
+        {
+        <span class="hljs-keyword">
+            for
+        </span>
+        i
+        <span class="hljs-keyword">
+            in
+        </span>
+        sectionToUpdate+
+        <span class="hljs-number">
+            1
+        </span>
+        ...numberOfSections-
+        <span class="hljs-number">
+            1
+        </span>
+        { sectionsAttributesArray[i].sectionOffset -=
+        <span class="hljs-number">
+            1
+        </span>
+        } }
+        <span class="hljs-keyword">
+            return
+        </span>
+        imageFileRemoved }
+    </pre>
     <p>
         In
         <code>
@@ -684,33 +917,81 @@
         <code>
             IBAction
         </code>
-        method that’s triggered when you click the
+        method that's triggered when you click the
         <em>
             Remove
         </em>
         button:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322688">
-                    <td class="code" id="p132268code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction func removeSlide(sender: NSButton) { &nbsp; let selectionIndexPaths
-                            = collectionView.selectionIndexPaths if selectionIndexPaths.isEmpty { return
-                            } &nbsp; // 1 var selectionArray = Array(selectionIndexPaths) selectionArray.sortInPlace({path1,
-                            path2 in return path1.compare(path2) == .OrderedDescending}) for itemIndexPath
-                            in selectionArray { // 2 imageDirectoryLoader.removeImageAtIndexPath(itemIndexPath)
-                            } &nbsp; // 3 collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-meta">
+            @IBAction
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                removeSlide
+            </span>
+            <span class="hljs-params">
+                (sender: NSButton)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        selectionIndexPaths = collectionView.selectionIndexPaths
+        <span class="hljs-keyword">
+            if
+        </span>
+        selectionIndexPaths.isEmpty {
+        <span class="hljs-keyword">
+            return
+        </span>
+        }
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        selectionArray =
+        <span class="hljs-type">
+            Array
+        </span>
+        (selectionIndexPaths) selectionArray.sortInPlace({path1, path2
+        <span class="hljs-keyword">
+            in
+        </span>
+        <span class="hljs-keyword">
+            return
+        </span>
+        path1.compare(path2) == .
+        <span class="hljs-type">
+            OrderedDescending
+        </span>
+        })
+        <span class="hljs-keyword">
+            for
+        </span>
+        itemIndexPath
+        <span class="hljs-keyword">
+            in
+        </span>
+        selectionArray {
+        <span class="hljs-comment">
+            // 2
+        </span>
+        imageDirectoryLoader.removeImageAtIndexPath(itemIndexPath) }
+        <span class="hljs-comment">
+            // 3
+        </span>
+        collectionView.deleteItemsAtIndexPaths(selectionIndexPaths) }
+    </pre>
     <p>
-        Here’s what happens in there:
+        Here's what happens in there:
     </p>
     <ol>
         <li>
@@ -770,10 +1051,10 @@
     <p>
         One of the best things about OS X is that you can drag and drop items
         to move or copy them to different apps. Users expect this behavior, so
-        you’d be wise to add it to anything you decide to put out there.
+        you'd be wise to add it to anything you decide to put out there.
     </p>
     <p>
-        With SlidesPro, you’ll use drag-and-drop to implement the following capabilities:
+        With SlidesPro, you'll use drag-and-drop to implement the following capabilities:
     </p>
     <ul>
         <li>
@@ -787,7 +1068,7 @@
         </li>
     </ul>
     <p>
-        To support drag-and-drop, you’ll need to implement the relevant
+        To support drag-and-drop, you'll need to implement the relevant
         <code>
             NSCollectionViewDelegate
         </code>
@@ -801,24 +1082,62 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1322689">
-                    <td class="code" id="p132268code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            func registerForDragAndDrop() { // 1 collectionView.registerForDraggedTypes([NSURLPboardType])
-                            // 2 collectionView.setDraggingSourceOperationMask(NSDragOperation.Every,
-                            forLocal: true) // 3 collectionView.setDraggingSourceOperationMask(NSDragOperation.Every,
-                            forLocal: false) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                registerForDragAndDrop
+            </span>
+            <span class="hljs-params">
+                ()
+            </span>
+        </span>
+        {
+        <span class="hljs-comment">
+            // 1
+        </span>
+        collectionView.registerForDraggedTypes([
+        <span class="hljs-type">
+            NSURLPboardType
+        </span>
+        ])
+        <span class="hljs-comment">
+            // 2
+        </span>
+        collectionView.setDraggingSourceOperationMask(
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Every
+        </span>
+        , forLocal:
+        <span class="hljs-literal">
+            true
+        </span>
+        )
+        <span class="hljs-comment">
+            // 3
+        </span>
+        collectionView.setDraggingSourceOperationMask(
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Every
+        </span>
+        , forLocal:
+        <span class="hljs-literal">
+            false
+        </span>
+        ) }
+    </pre>
     <p>
-        In here, you’ve:
+        In here, you've:
     </p>
     <ol>
         <li>
@@ -838,24 +1157,14 @@
         </code>
         , add:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226810">
-                    <td class="code" id="p132268code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            registerForDragAndDrop()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        registerForDragAndDrop()
+    </pre>
     <p>
         Build and run.
     </p>
     <p>
-        Try to drag an item — the item will not move. Drag an image file from
+        Try to drag an item -- the item will not move. Drag an image file from
         Finder and try to drop it on the collection view…nada.
     </p>
     <p>
@@ -866,8 +1175,8 @@
         </a>
     </p>
     <p>
-        I asked you to perform this test so you can see that items aren’t responding
-        to dragging, and nothing related to drag-and-drop works. Why is that? You’ll
+        I asked you to perform this test so you can see that items aren't responding
+        to dragging, and nothing related to drag-and-drop works. Why is that? You'll
         soon discover.
     </p>
     <p>
@@ -882,25 +1191,65 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226811">
-                    <td class="code" id="p132268code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 func collectionView(collectionView: NSCollectionView, canDragItemsAtIndexes
-                            indexes: NSIndexSet, withEvent event: NSEvent) -&gt; Bool { return true
-                            } &nbsp; // 2 func collectionView(collectionView: NSCollectionView, pasteboardWriterForItemAtIndexPath
-                            indexPath: NSIndexPath) -&gt; NSPasteboardWriting? { let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
-                            return imageFile.url.absoluteURL }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, canDragItemsAtIndexes indexes: NSIndexSet,
+                withEvent event: NSEvent)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            Bool
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-literal">
+            true
+        </span>
+        }
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, pasteboardWriterForItemAtIndexPath
+                indexPath: NSIndexPath)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            NSPasteboardWriting
+        </span>
+        ? {
+        <span class="hljs-keyword">
+            let
+        </span>
+        imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
+        <span class="hljs-keyword">
+            return
+        </span>
+        imageFile.url.absoluteURL }
+    </pre>
     <p>
-        Here’s what’s happening in here:
+        Here's what's happening in here:
     </p>
     <ol>
         <li>
@@ -924,12 +1273,12 @@
             </em>
             . If the method in section one allows the drag to begin, the collection
             view invokes this method one time per item to be dragged. It requests a
-            pasteboard writer for the item’s underlying model object. The method returns
+            pasteboard writer for the item's underlying model object. The method returns
             a custom object that implements
             <code>
                 NSPasteboardWriting
             </code>
-            ; in your case it’s
+            ; in your case it's
             <code>
                 NSURL
             </code>
@@ -981,19 +1330,20 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226812">
-                    <td class="code" id="p132268code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            var indexPathsOfItemsBeingDragged: Set&lt;NSIndexPath&gt;!
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            var
+        </span>
+        indexPathsOfItemsBeingDragged:
+        <span class="hljs-type">
+            Set
+        </span>
+        &lt;
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        &gt;!
+    </pre>
     <p>
         Add the following methods to the
         <code>
@@ -1005,31 +1355,108 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226813">
-                    <td class="code" id="p132268code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 func collectionView(collectionView: NSCollectionView, draggingSession
-                            session: NSDraggingSession, willBeginAtPoint screenPoint: NSPoint, forItemsAtIndexPaths
-                            indexPaths: Set&lt;NSIndexPath&gt;) { indexPathsOfItemsBeingDragged = indexPaths
-                            } &nbsp; // 2 func collectionView(collectionView: NSCollectionView, validateDrop
-                            draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath:
-                            AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;, dropOperation proposedDropOperation:
-                            UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;) -&gt; NSDragOperation
-                            { // 3 if proposedDropOperation.memory == NSCollectionViewDropOperation.On
-                            { proposedDropOperation.memory = NSCollectionViewDropOperation.Before }
-                            // 4 if indexPathsOfItemsBeingDragged == nil { return NSDragOperation.Copy
-                            } else { return NSDragOperation.Move } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, draggingSession session: NSDraggingSession,
+                willBeginAtPoint screenPoint: NSPoint, forItemsAtIndexPaths indexPaths:
+                Set&lt;NSIndexPath&gt;)
+            </span>
+        </span>
+        { indexPathsOfItemsBeingDragged = indexPaths }
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo,
+                proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;,
+                dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        {
+        <span class="hljs-comment">
+            // 3
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        proposedDropOperation.memory ==
+        <span class="hljs-type">
+            NSCollectionViewDropOperation
+        </span>
+        .
+        <span class="hljs-type">
+            On
+        </span>
+        { proposedDropOperation.memory =
+        <span class="hljs-type">
+            NSCollectionViewDropOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Before
+        </span>
+        }
+        <span class="hljs-comment">
+            // 4
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        indexPathsOfItemsBeingDragged ==
+        <span class="hljs-literal">
+            nil
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Copy
+        </span>
+        }
+        <span class="hljs-keyword">
+            else
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Move
+        </span>
+        } }
+    </pre>
     <p>
-        Here’s a section-by-section breakdown of this code:
+        Here's a section-by-section breakdown of this code:
     </p>
     <ol>
         <li>
@@ -1037,13 +1464,13 @@
             <code>
                 optional
             </code>
-            method is invoked when the dragging session is imminent. You’ll use this
+            method is invoked when the dragging session is imminent. You'll use this
             method to save the index paths of the items that are dragged. When this
             property is not
             <code>
                 nil
             </code>
-            , it’s an indication that the
+            , it's an indication that the
             <em>
                 Drag Source
             </em>
@@ -1058,7 +1485,7 @@
             <em>
                 SlidesPro
             </em>
-            , the items aren’t able to act as containers; this allows dropping between
+            , the items aren't able to act as containers; this allows dropping between
             items but not dropping on them.
         </li>
         <li>
@@ -1081,7 +1508,7 @@
         Build and run.
     </p>
     <p>
-        Drag an item. After you move it, you’ll see some weird gray rectangle
+        Drag an item. After you move it, you'll see some weird gray rectangle
         with white text. As you keep moving the item over the other items, the
         same rectangle appears in the gap between the items.
     </p>
@@ -1105,28 +1532,71 @@
         <code>
             DataSource
         </code>
-        method that’s invoked when the collection view asks for a supplementary
+        method that's invoked when the collection view asks for a supplementary
         view:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226814">
-                    <td class="code" id="p132268code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind
-                            kind: String, atIndexPath indexPath: NSIndexPath) -&gt; NSView { let view
-                            = collectionView.makeSupplementaryViewOfKind(NSCollectionElementKindSectionHeader,
-                            withIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView view.sectionTitle.stringValue
-                            = "Section \(indexPath.section)" let numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
-                            view.imageCount.stringValue = "\(numberOfItemsInSection) image files" return
-                            view }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind:
+                String, atIndexPath indexPath: NSIndexPath)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            NSView
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        view = collectionView.makeSupplementaryViewOfKind(
+        <span class="hljs-type">
+            NSCollectionElementKindSectionHeader
+        </span>
+        , withIdentifier:
+        <span class="hljs-string">
+            "HeaderView"
+        </span>
+        , forIndexPath: indexPath)
+        <span class="hljs-keyword">
+            as
+        </span>
+        !
+        <span class="hljs-type">
+            HeaderView
+        </span>
+        view.sectionTitle.stringValue =
+        <span class="hljs-string">
+            "Section
+            <span class="hljs-subst">
+                \(indexPath.section)
+            </span>
+            "
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+        view.imageCount.stringValue =
+        <span class="hljs-string">
+            "
+            <span class="hljs-subst">
+                \(numberOfItemsInSection)
+            </span>
+            image files"
+        </span>
+        <span class="hljs-keyword">
+            return
+        </span>
+        view }
+    </pre>
     <p>
         When you start dragging an item, the collection view’s layout asks for
         the interim gap indicator’s supplementary view. The above
@@ -1141,29 +1611,101 @@
         None of this is going to work for you so replace the content of this method
         with:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226815">
-                    <td class="code" id="p132268code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind
-                            kind: String, atIndexPath indexPath: NSIndexPath) -&gt; NSView { // 1 let
-                            identifier: String = kind == NSCollectionElementKindSectionHeader ? "HeaderView"
-                            : "" let view = collectionView.makeSupplementaryViewOfKind(kind, withIdentifier:
-                            identifier, forIndexPath: indexPath) // 2 if kind == NSCollectionElementKindSectionHeader
-                            { let headerView = view as! HeaderView headerView.sectionTitle.stringValue
-                            = "Section \(indexPath.section)" let numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
-                            headerView.imageCount.stringValue = "\(numberOfItemsInSection) image files"
-                            } return view }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind:
+                String, atIndexPath indexPath: NSIndexPath)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            NSView
+        </span>
+        {
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        identifier:
+        <span class="hljs-type">
+            String
+        </span>
+        = kind ==
+        <span class="hljs-type">
+            NSCollectionElementKindSectionHeader
+        </span>
+        ?
+        <span class="hljs-string">
+            "HeaderView"
+        </span>
+        :
+        <span class="hljs-string">
+            ""
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        view = collectionView.makeSupplementaryViewOfKind(kind, withIdentifier:
+        identifier, forIndexPath: indexPath)
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        kind ==
+        <span class="hljs-type">
+            NSCollectionElementKindSectionHeader
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        headerView = view
+        <span class="hljs-keyword">
+            as
+        </span>
+        !
+        <span class="hljs-type">
+            HeaderView
+        </span>
+        headerView.sectionTitle.stringValue =
+        <span class="hljs-string">
+            "Section
+            <span class="hljs-subst">
+                \(indexPath.section)
+            </span>
+            "
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+        headerView.imageCount.stringValue =
+        <span class="hljs-string">
+            "
+            <span class="hljs-subst">
+                \(numberOfItemsInSection)
+            </span>
+            image files"
+        </span>
+        }
+        <span class="hljs-keyword">
+            return
+        </span>
+        view }
+    </pre>
     <p>
-        Here’s what you did in here:
+        Here's what you did in here:
     </p>
     <ol>
         <li>
@@ -1175,7 +1717,7 @@
             <code>
                 kind
             </code>
-            parameter received. When it isn’t a header view, you set the
+            parameter received. When it isn't a header view, you set the
             <code>
                 identifier
             </code>
@@ -1191,7 +1733,7 @@
             <code>
                 identifier
             </code>
-            that doesn’t have a matching class or nib, it will return
+            that doesn't have a matching class or nib, it will return
             <code>
                 nil
             </code>
@@ -1231,14 +1773,14 @@
         <code>
             NSView?
         </code>
-        — the question mark is part of the value.
+        -- the question mark is part of the value.
     </div>
     <p>
         Build and run.
     </p>
     <p>
         Now you see an unmistakable aqua vertical line when you drag an item,
-        indicating the drop target between the items. It’s a sign that the collection
+        indicating the drop target between the items. It's a sign that the collection
         view is ready to accept the drop.
     </p>
     <p>
@@ -1248,7 +1790,7 @@
         </a>
     </p>
     <p>
-        Well…it’s sort of ready. When you try to drop the item, it still bounces
+        Well…it's sort of ready. When you try to drop the item, it still bounces
         back because the delegate methods to handle the drop are not in place yet.
     </p>
     <p>
@@ -1258,27 +1800,66 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226816">
-                    <td class="code" id="p132268code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 func moveImageFromIndexPath(indexPath: NSIndexPath, toIndexPath:
-                            NSIndexPath) { &nbsp; // 2 let itemBeingDragged = removeImageAtIndexPath(indexPath)
-                            &nbsp; let destinationIsLower = indexPath.compare(toIndexPath) == .OrderedDescending
-                            var indexPathOfDestination: NSIndexPath if destinationIsLower { indexPathOfDestination
-                            = toIndexPath } else { indexPathOfDestination = NSIndexPath(forItem: toIndexPath.item-1,
-                            inSection: toIndexPath.section) } // 3 insertImage(itemBeingDragged, atIndexPath:
-                            indexPathOfDestination) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                moveImageFromIndexPath
+            </span>
+            <span class="hljs-params">
+                (indexPath: NSIndexPath, toIndexPath: NSIndexPath)
+            </span>
+        </span>
+        {
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        itemBeingDragged = removeImageAtIndexPath(indexPath)
+        <span class="hljs-keyword">
+            let
+        </span>
+        destinationIsLower = indexPath.compare(toIndexPath) == .
+        <span class="hljs-type">
+            OrderedDescending
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        indexPathOfDestination:
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        destinationIsLower { indexPathOfDestination = toIndexPath }
+        <span class="hljs-keyword">
+            else
+        </span>
+        { indexPathOfDestination =
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem: toIndexPath.item-
+        <span class="hljs-number">
+            1
+        </span>
+        , inSection: toIndexPath.section) }
+        <span class="hljs-comment">
+            // 3
+        </span>
+        insertImage(itemBeingDragged, atIndexPath: indexPathOfDestination) }
+    </pre>
     <p>
-        Here’s what’s going on in there:
+        Here's what's going on in there:
     </p>
     <ol>
         <li>
@@ -1302,45 +1883,189 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226817">
-                    <td class="code" id="p132268code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 func collectionView(collectionView: NSCollectionView, acceptDrop
-                            draggingInfo: NSDraggingInfo, indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation)
-                            -&gt; Bool { if indexPathsOfItemsBeingDragged != nil { // 2 let indexPathOfFirstItemBeingDragged
-                            = indexPathsOfItemsBeingDragged.first! var toIndexPath: NSIndexPath if
-                            indexPathOfFirstItemBeingDragged.compare(indexPath) == .OrderedAscending
-                            { toIndexPath = NSIndexPath(forItem: indexPath.item-1, inSection: indexPath.section)
-                            } else { toIndexPath = NSIndexPath(forItem: indexPath.item, inSection:
-                            indexPath.section) } // 3 imageDirectoryLoader.moveImageFromIndexPath(indexPathOfFirstItemBeingDragged,
-                            toIndexPath: toIndexPath) // 4 collectionView.moveItemAtIndexPath(indexPathOfFirstItemBeingDragged,
-                            toIndexPath: toIndexPath) } else { // 5 var droppedObjects = Array&lt;NSURL&gt;()
-                            draggingInfo.enumerateDraggingItemsWithOptions(NSDraggingItemEnumerationOptions.Concurrent,
-                            forView: collectionView, classes: [NSURL.self], searchOptions: [NSPasteboardURLReadingFileURLsOnlyKey
-                            : NSNumber(bool: true)]) { (draggingItem, idx, stop) in if let url = draggingItem.item
-                            as? NSURL { droppedObjects.append(url) } } // 6 insertAtIndexPathFromURLs(droppedObjects,
-                            atIndexPath: indexPath) } return true } &nbsp; // 7 func collectionView(collectionView:
-                            NSCollectionView, draggingSession session: NSDraggingSession, endedAtPoint
-                            screenPoint: NSPoint, dragOperation operation: NSDragOperation) { indexPathsOfItemsBeingDragged
-                            = nil }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo,
+                indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            Bool
+        </span>
+        {
+        <span class="hljs-keyword">
+            if
+        </span>
+        indexPathsOfItemsBeingDragged !=
+        <span class="hljs-literal">
+            nil
+        </span>
+        {
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        indexPathOfFirstItemBeingDragged = indexPathsOfItemsBeingDragged.first!
+        <span class="hljs-keyword">
+            var
+        </span>
+        toIndexPath:
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        indexPathOfFirstItemBeingDragged.compare(indexPath) == .
+        <span class="hljs-type">
+            OrderedAscending
+        </span>
+        { toIndexPath =
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem: indexPath.item-
+        <span class="hljs-number">
+            1
+        </span>
+        , inSection: indexPath.section) }
+        <span class="hljs-keyword">
+            else
+        </span>
+        { toIndexPath =
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem: indexPath.item, inSection: indexPath.section) }
+        <span class="hljs-comment">
+            // 3
+        </span>
+        imageDirectoryLoader.moveImageFromIndexPath(indexPathOfFirstItemBeingDragged,
+        toIndexPath: toIndexPath)
+        <span class="hljs-comment">
+            // 4
+        </span>
+        collectionView.moveItemAtIndexPath(indexPathOfFirstItemBeingDragged, toIndexPath:
+        toIndexPath) }
+        <span class="hljs-keyword">
+            else
+        </span>
+        {
+        <span class="hljs-comment">
+            // 5
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        droppedObjects =
+        <span class="hljs-type">
+            Array
+        </span>
+        &lt;
+        <span class="hljs-type">
+            NSURL
+        </span>
+        &gt;() draggingInfo.enumerateDraggingItemsWithOptions(
+        <span class="hljs-type">
+            NSDraggingItemEnumerationOptions
+        </span>
+        .
+        <span class="hljs-type">
+            Concurrent
+        </span>
+        , forView: collectionView, classes: [
+        <span class="hljs-type">
+            NSURL
+        </span>
+        .
+        <span class="hljs-keyword">
+            self
+        </span>
+        ], searchOptions: [
+        <span class="hljs-type">
+            NSPasteboardURLReadingFileURLsOnlyKey
+        </span>
+        :
+        <span class="hljs-type">
+            NSNumber
+        </span>
+        (bool:
+        <span class="hljs-literal">
+            true
+        </span>
+        )]) { (draggingItem, idx, stop)
+        <span class="hljs-keyword">
+            in
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        url = draggingItem.item
+        <span class="hljs-keyword">
+            as
+        </span>
+        ?
+        <span class="hljs-type">
+            NSURL
+        </span>
+        { droppedObjects.append(url) } }
+        <span class="hljs-comment">
+            // 6
+        </span>
+        insertAtIndexPathFromURLs(droppedObjects, atIndexPath: indexPath) }
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-literal">
+            true
+        </span>
+        }
+        <span class="hljs-comment">
+            // 7
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, draggingSession session: NSDraggingSession,
+                endedAtPoint screenPoint: NSPoint, dragOperation operation: NSDragOperation)
+            </span>
+        </span>
+        { indexPathsOfItemsBeingDragged =
+        <span class="hljs-literal">
+            nil
+        </span>
+        }
+    </pre>
     <p>
-        Here’s what happens with these methods:
+        Here's what happens with these methods:
     </p>
     <ol>
         <li>
             This is invoked when the user releases the mouse to commit the drop operation.
         </li>
         <li>
-            Then it falls here when it’s a move operation.
+            Then it falls here when it's a move operation.
         </li>
         <li>
             It updates the model.
@@ -1382,14 +2107,14 @@
         Build and run.
     </p>
     <p>
-        Now it’s possible to move a single item to a different location in the
+        Now it's possible to move a single item to a different location in the
         same section. Dragging one or more items from another app should work too.
     </p>
     <h3>
         Fix the UI
     </h3>
     <p>
-        The current implementation of drag-and-drop in SlidesPro doesn’t support
+        The current implementation of drag-and-drop in SlidesPro doesn't support
         drop across sections. Also, multi-selection is supported only for a drop
         outside SlidesPro. To disable in
         <em>
@@ -1405,29 +2130,124 @@
         </code>
         statement to:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226818">
-                    <td class="code" id="p132268code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo:
-                            NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;,
-                            dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)
-                            -&gt; NSDragOperation { if proposedDropOperation.memory == NSCollectionViewDropOperation.On
-                            { proposedDropOperation.memory = NSCollectionViewDropOperation.Before }
-                            if indexPathsOfItemsBeingDragged == nil { return NSDragOperation.Copy }
-                            else { let sectionOfItemBeingDragged = indexPathsOfItemsBeingDragged.first!.section
-                            // 1 if let proposedDropsection = proposedDropIndexPath.memory?.section
-                            where sectionOfItemBeingDragged == proposedDropsection &amp;&amp; indexPathsOfItemsBeingDragged.count
-                            == 1 { return NSDragOperation.Move } else { // 2 return NSDragOperation.None
-                            } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                collectionView
+            </span>
+            <span class="hljs-params">
+                (collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo,
+                proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;,
+                dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        {
+        <span class="hljs-keyword">
+            if
+        </span>
+        proposedDropOperation.memory ==
+        <span class="hljs-type">
+            NSCollectionViewDropOperation
+        </span>
+        .
+        <span class="hljs-type">
+            On
+        </span>
+        { proposedDropOperation.memory =
+        <span class="hljs-type">
+            NSCollectionViewDropOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Before
+        </span>
+        }
+        <span class="hljs-keyword">
+            if
+        </span>
+        indexPathsOfItemsBeingDragged ==
+        <span class="hljs-literal">
+            nil
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Copy
+        </span>
+        }
+        <span class="hljs-keyword">
+            else
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        sectionOfItemBeingDragged = indexPathsOfItemsBeingDragged.first!.section
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        proposedDropsection = proposedDropIndexPath.memory?.section
+        <span class="hljs-keyword">
+            where
+        </span>
+        sectionOfItemBeingDragged == proposedDropsection &amp;&amp; indexPathsOfItemsBeingDragged.
+        <span class="hljs-built_in">
+            count
+        </span>
+        ==
+        <span class="hljs-number">
+            1
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            Move
+        </span>
+        }
+        <span class="hljs-keyword">
+            else
+        </span>
+        {
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-type">
+            NSDragOperation
+        </span>
+        .
+        <span class="hljs-type">
+            None
+        </span>
+        } } }
+    </pre>
     <ol>
         <li>
             The drop is enabled only when the source and target sections match and
@@ -1450,15 +2270,15 @@
         <em>
             Finder
         </em>
-        , and you’ll see that a drop is allowed.
+        , and you'll see that a drop is allowed.
     </p>
     <div class="note">
         <em>
             Note:
         </em>
         If you tried to drag the selection outside the collection view, you might
-        have noticed a highlight issue. You’ll come back to this in the upcoming
-        section, “More Fun With Selection and Highlighting”.
+        have noticed a highlight issue. You'll come back to this in the upcoming
+        section, "More Fun With Selection and Highlighting".
     </div>
     <h2>
         More Fun With Selection and Highlighting
@@ -1486,7 +2306,7 @@
         buttons are enabled, but the selection is empty.
     </p>
     <p>
-        To confirm this is true, select any item —
+        To confirm this is true, select any item --
         <em>
             Item-2
         </em>
@@ -1504,7 +2324,7 @@
     <p>
         Click anywhere between the items to deselect everything.
         <em>
-            Item-2’s
+            Item-2's
         </em>
         highlight goes away, the
         <em>
@@ -1536,7 +2356,7 @@
         of this property.
     </div>
     <p>
-        So what’s going wrong here?
+        So what's going wrong here?
     </p>
     <p>
         Apparently, the collection view successfully deselects
@@ -1556,12 +2376,12 @@
             NSCollectionView.h
         </code>
         , the comments for the above method and its companion for the select action
-        say, “Sent at the end of interactive selection…”. Hence, these notifications
+        say, "Sent at the end of interactive selection…". Hence, these notifications
         are sent only when you select/deselect via UI.
     </p>
     <p>
-        Here’s your answer, Sherlock: The deselection behavior that should occur
-        when you’re moving an item is performed programmatically via the
+        Here's your answer, Sherlock: The deselection behavior that should occur
+        when you're moving an item is performed programmatically via the
         <code>
             deselectItemsAtIndexPaths(_:)
         </code>
@@ -1572,7 +2392,7 @@
         .
     </p>
     <p>
-        You’ll need to override this method.
+        You'll need to override this method.
     </p>
     <p>
         Go to
@@ -1602,7 +2422,7 @@
         <code>
             drawRect(_:)
         </code>
-        — make sure to delete it.
+        -- make sure to delete it.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/EmptyCollectionView.png">
@@ -1619,22 +2439,43 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226819">
-                    <td class="code" id="p132268code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            override func deselectItemsAtIndexPaths(indexPaths: Set&lt;NSIndexPath&gt;)
-                            { super.deselectItemsAtIndexPaths(indexPaths) let viewController = delegate
-                            as! ViewController viewController.highlightItems(false, atIndexPaths: indexPaths)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            override
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                deselectItemsAtIndexPaths
+            </span>
+            <span class="hljs-params">
+                (indexPaths: Set&lt;NSIndexPath&gt;)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            super
+        </span>
+        .deselectItemsAtIndexPaths(indexPaths)
+        <span class="hljs-keyword">
+            let
+        </span>
+        viewController = delegate
+        <span class="hljs-keyword">
+            as
+        </span>
+        !
+        <span class="hljs-type">
+            ViewController
+        </span>
+        viewController.highlightItems(
+        <span class="hljs-literal">
+            false
+        </span>
+        , atIndexPaths: indexPaths) }
+    </pre>
     <p>
         The method calls its super implementation followed by a call to
         <code>
@@ -1695,7 +2536,7 @@
         <code>
             NSView
         </code>
-        , can perform animations via the animator proxy. It’s as easy as adding
+        , can perform animations via the animator proxy. It's as easy as adding
         a single word in your code before an operation such as removal of items.
     </p>
     <p>
@@ -1709,35 +2550,15 @@
         </code>
         , replace this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226820">
-                    <td class="code" id="p132268code20">
-                        <pre class="swift" style="font-family:monospace;">
-                            collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
+    </pre>
     <p>
         With this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226821">
-                    <td class="code" id="p132268code21">
-                        <pre class="swift" style="font-family:monospace;">
-                            collectionView.animator().deleteItemsAtIndexPaths(selectionIndexPaths)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        collectionView.animator().deleteItemsAtIndexPaths(selectionIndexPaths)
+    </pre>
     <p>
         Build and run.
     </p>
@@ -1754,28 +2575,25 @@
         cool and beautiful effect, add a setting for the duration of the animation
         at a higher value. Place it above the line you just added:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226822">
-                    <td class="code" id="p132268code22">
-                        <pre class="swift" style="font-family:monospace;">
-                            NSAnimationContext.currentContext().duration = 1.0 collectionView.animator().deleteItemsAtIndexPaths(selectionIndexPaths)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-type">
+            NSAnimationContext
+        </span>
+        .currentContext().duration =
+        <span class="hljs-number">
+            1.0
+        </span>
+        collectionView.animator().deleteItemsAtIndexPaths(selectionIndexPaths)
+    </pre>
     <p>
-        Build and run, and then remove some items. Cool effect, isn’t it?
+        Build and run, and then remove some items. Cool effect, isn't it?
     </p>
     <p>
         You can do the same for
         <code>
             insertItemsAtIndexPaths
         </code>
-        when you’re adding items, as well as for
+        when you're adding items, as well as for
         <code>
             moveItemAtIndexPath
         </code>
@@ -1789,7 +2607,7 @@
         of a given section that vanishes at the top of the screen is its header.
     </p>
     <p>
-        In this section, you’ll implement
+        In this section, you'll implement
         <em>
             Sticky Headers
         </em>
@@ -1806,7 +2624,7 @@
         </a>
     </p>
     <p>
-        To make this effect reality, you’ll subclass
+        To make this effect reality, you'll subclass
         <code>
             NSCollectionViewFlowLayout
         </code>
@@ -1854,19 +2672,16 @@
         </code>
         to:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226823">
-                    <td class="code" id="p132268code23">
-                        <pre class="swift" style="font-family:monospace;">
-                            let flowLayout = StickyHeadersLayout()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            let
+        </span>
+        flowLayout =
+        <span class="hljs-type">
+            StickyHeadersLayout
+        </span>
+        ()
+    </pre>
     <p>
         Now implement sticky headers by adding the following method to the empty
         body of the
@@ -1875,43 +2690,256 @@
         </code>
         class:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226824">
-                    <td class="code" id="p132268code24">
-                        <pre class="swift" style="font-family:monospace;">
-                            override func layoutAttributesForElementsInRect(rect: NSRect) -&gt; [NSCollectionViewLayoutAttributes]
-                            { &nbsp; // 1 var layoutAttributes = super.layoutAttributesForElementsInRect(rect)
-                            &nbsp; // 2 let sectionsToMoveHeaders = NSMutableIndexSet() for attributes
-                            in layoutAttributes { if attributes.representedElementCategory == .Item
-                            { sectionsToMoveHeaders.addIndex(attributes.indexPath!.section) } } &nbsp;
-                            // 3 for attributes in layoutAttributes { if let elementKind = attributes.representedElementKind
-                            where elementKind == NSCollectionElementKindSectionHeader { sectionsToMoveHeaders.removeIndex(attributes.indexPath!.section)
-                            } } &nbsp; // 4 sectionsToMoveHeaders.enumerateIndexesUsingBlock { (index,
-                            stop) -&gt; Void in let indexPath = NSIndexPath(forItem: 0, inSection:
-                            index) let attributes = self.layoutAttributesForSupplementaryViewOfKind(NSCollectionElementKindSectionHeader,
-                            atIndexPath: indexPath) if attributes != nil { layoutAttributes.append(attributes!)
-                            } } &nbsp; for attributes in layoutAttributes { // 5 if let elementKind
-                            = attributes.representedElementKind where elementKind == NSCollectionElementKindSectionHeader
-                            { let section = attributes.indexPath!.section let attributesForFirstItemInSection
-                            = layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: 0, inSection:
-                            section)) let attributesForLastItemInSection = layoutAttributesForItemAtIndexPath(NSIndexPath(forItem:
-                            collectionView!.numberOfItemsInSection(section) - 1, inSection: section))
-                            var frame = attributes.frame &nbsp; // 6 let offset = collectionView!.enclosingScrollView?.documentVisibleRect.origin.y
-                            &nbsp; // 7 let minY = CGRectGetMinY(attributesForFirstItemInSection!.frame)
-                            - frame.height &nbsp; // 8 let maxY = CGRectGetMaxY(attributesForLastItemInSection!.frame)
-                            - frame.height &nbsp; // 9 let y = min(max(offset!, minY), maxY) &nbsp;
-                            // 10 frame.origin.y = y attributes.frame = frame &nbsp; // 11 attributes.zIndex
-                            = 99 } } &nbsp; // 12 return layoutAttributes }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            override
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                layoutAttributesForElementsInRect
+            </span>
+            <span class="hljs-params">
+                (rect: NSRect)
+            </span>
+        </span>
+        -&gt; [
+        <span class="hljs-type">
+            NSCollectionViewLayoutAttributes
+        </span>
+        ] {
+        <span class="hljs-comment">
+            // 1
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        layoutAttributes =
+        <span class="hljs-keyword">
+            super
+        </span>
+        .layoutAttributesForElementsInRect(rect)
+        <span class="hljs-comment">
+            // 2
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        sectionsToMoveHeaders =
+        <span class="hljs-type">
+            NSMutableIndexSet
+        </span>
+        ()
+        <span class="hljs-keyword">
+            for
+        </span>
+        attributes
+        <span class="hljs-keyword">
+            in
+        </span>
+        layoutAttributes {
+        <span class="hljs-keyword">
+            if
+        </span>
+        attributes.representedElementCategory == .
+        <span class="hljs-type">
+            Item
+        </span>
+        { sectionsToMoveHeaders.addIndex(attributes.indexPath!.section) } }
+        <span class="hljs-comment">
+            // 3
+        </span>
+        <span class="hljs-keyword">
+            for
+        </span>
+        attributes
+        <span class="hljs-keyword">
+            in
+        </span>
+        layoutAttributes {
+        <span class="hljs-keyword">
+            if
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        elementKind = attributes.representedElementKind
+        <span class="hljs-keyword">
+            where
+        </span>
+        elementKind ==
+        <span class="hljs-type">
+            NSCollectionElementKindSectionHeader
+        </span>
+        { sectionsToMoveHeaders.removeIndex(attributes.indexPath!.section) } }
+        <span class="hljs-comment">
+            // 4
+        </span>
+        sectionsToMoveHeaders.enumerateIndexesUsingBlock { (index, stop) -&gt;
+        <span class="hljs-type">
+            Void
+        </span>
+        <span class="hljs-keyword">
+            in
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        indexPath =
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem:
+        <span class="hljs-number">
+            0
+        </span>
+        , inSection: index)
+        <span class="hljs-keyword">
+            let
+        </span>
+        attributes =
+        <span class="hljs-keyword">
+            self
+        </span>
+        .layoutAttributesForSupplementaryViewOfKind(
+        <span class="hljs-type">
+            NSCollectionElementKindSectionHeader
+        </span>
+        , atIndexPath: indexPath)
+        <span class="hljs-keyword">
+            if
+        </span>
+        attributes !=
+        <span class="hljs-literal">
+            nil
+        </span>
+        { layoutAttributes.append(attributes!) } }
+        <span class="hljs-keyword">
+            for
+        </span>
+        attributes
+        <span class="hljs-keyword">
+            in
+        </span>
+        layoutAttributes {
+        <span class="hljs-comment">
+            // 5
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        elementKind = attributes.representedElementKind
+        <span class="hljs-keyword">
+            where
+        </span>
+        elementKind ==
+        <span class="hljs-type">
+            NSCollectionElementKindSectionHeader
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        section = attributes.indexPath!.section
+        <span class="hljs-keyword">
+            let
+        </span>
+        attributesForFirstItemInSection = layoutAttributesForItemAtIndexPath(
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem:
+        <span class="hljs-number">
+            0
+        </span>
+        , inSection: section))
+        <span class="hljs-keyword">
+            let
+        </span>
+        attributesForLastItemInSection = layoutAttributesForItemAtIndexPath(
+        <span class="hljs-type">
+            NSIndexPath
+        </span>
+        (forItem: collectionView!.numberOfItemsInSection(section) -
+        <span class="hljs-number">
+            1
+        </span>
+        , inSection: section))
+        <span class="hljs-keyword">
+            var
+        </span>
+        frame = attributes.frame
+        <span class="hljs-comment">
+            // 6
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        offset = collectionView!.enclosingScrollView?.documentVisibleRect.origin.y
+        <span class="hljs-comment">
+            // 7
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        minY =
+        <span class="hljs-type">
+            CGRectGetMinY
+        </span>
+        (attributesForFirstItemInSection!.frame) - frame.height
+        <span class="hljs-comment">
+            // 8
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        maxY =
+        <span class="hljs-type">
+            CGRectGetMaxY
+        </span>
+        (attributesForLastItemInSection!.frame) - frame.height
+        <span class="hljs-comment">
+            // 9
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        y =
+        <span class="hljs-built_in">
+            min
+        </span>
+        (
+        <span class="hljs-built_in">
+            max
+        </span>
+        (offset!, minY), maxY)
+        <span class="hljs-comment">
+            // 10
+        </span>
+        frame.origin.y = y attributes.frame = frame
+        <span class="hljs-comment">
+            // 11
+        </span>
+        attributes.zIndex =
+        <span class="hljs-number">
+            99
+        </span>
+        } }
+        <span class="hljs-comment">
+            // 12
+        </span>
+        <span class="hljs-keyword">
+            return
+        </span>
+        layoutAttributes }
+    </pre>
     <p>
-        Okay, there’s a lot happening in there, but it makes sense when you take
+        Okay, there's a lot happening in there, but it makes sense when you take
         it section by section:
     </p>
     <ol>
@@ -1958,7 +2986,7 @@
             the lower bounds of the last item in the section.
         </li>
         <li>
-            Let’s break this into 2 statements:
+            Let's break this into 2 statements:
             <ol>
                 <li>
                     <code>
@@ -1972,7 +3000,7 @@
                         y = min(maybeY, maxY)
                     </code>
                     : When the space between the bottom of the section to the top of the visible
-                    area is less than header height, it shows only the part of the header’s
+                    area is less than header height, it shows only the part of the header's
                     bottom that fits this space.
                 </li>
             </ol>
@@ -1981,7 +3009,7 @@
             Update the vertical position of the header.
         </li>
         <li>
-            Make the items “go” under the header.
+            Make the items "go" under the header.
         </li>
         <li>
             Return the updated attributes.
@@ -1994,20 +3022,34 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p13226825">
-                    <td class="code" id="p132268code25">
-                        <pre class="swift" style="font-family:monospace;">
-                            override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect)
-                            -&gt; Bool { return true }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            override
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                shouldInvalidateLayoutForBoundsChange
+            </span>
+            <span class="hljs-params">
+                (newBounds: CGRect)
+            </span>
+        </span>
+        -&gt;
+        <span class="hljs-type">
+            Bool
+        </span>
+        {
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-literal">
+            true
+        </span>
+        }
+    </pre>
     <p>
         You always return
         <code>
@@ -2060,7 +3102,7 @@
         features the kinds of bells and whistles any Mac user would expect.
     </p>
     <p>
-        After all your hard work, you’re able to add and remove items, reorder
+        After all your hard work, you're able to add and remove items, reorder
         them, and troubleshoot and correct highlighting/selection issues. You took
         it to the next level by adding in animations and implemented sticky headers
         to give SlidesPro a very polished look.
@@ -2068,7 +3110,7 @@
     <p>
         Most impressively, you now know how to build a functional, elegant collection
         view in OS X. Considering that the documentation for these is fairly limited,
-        it’s a great skill to have.
+        it's a great skill to have.
     </p>
     <p>
         Some of the topics that were not covered neither here nor in the basic
@@ -2101,11 +3143,11 @@
         title="Custom Collection View Layout">
             Custom Collection View Layout
         </a>
-        from Mic Pringle. Although it’s an iOS series, you can find lots of useful
-        information that’s relevant to collection views in OS X as well.
+        from Mic Pringle. Although it's an iOS series, you can find lots of useful
+        information that's relevant to collection views in OS X as well.
     </p>
     <p>
-        I hope you found this tutorial most helpful! Let’s talk about it in the
+        I hope you found this tutorial most helpful! Let's talk about it in the
         forums. I look forward to your questions, comments and discoveries!
     </p>
 </div>
