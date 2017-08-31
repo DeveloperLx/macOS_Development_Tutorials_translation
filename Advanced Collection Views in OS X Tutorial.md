@@ -180,34 +180,29 @@
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta"><font><font>@IBOutlet </font></font></span> <span class="hljs-keyword"><font><font>weak </font></font></span> <span class="hljs-keyword"><font><font>var</font></font></span><font><font> addSlideButton：</font></font><span class="hljs-type"><font><font>NSButton</font></font></span><font><font>！ 
 </font></font></pre>
     <p>
-        Next, open
+        接下来，打开
         <em>
             Main.storyboard
         </em>
-        and connect the outlet to the button.
+        并连接outlet到按钮上。
     </p>
     <p>
-        You’ll need to track selection changes that will ultimately enable and
-        disable the button inside of
+        你需要去跟踪item选择的变化，以在ViewController的方法
         <code>
             highlightItems(_: atIndexPaths:)
         </code>
-        , a
-        <code>
-            ViewController
-        </code>
-        method. When items are selected or deselected it’s called by the two
+        中确定这个按钮的打开和关闭。当选择或取消选择一个item时，它就会被两个
         <code>
             NSCollectionViewDelegate
         </code>
-        methods.
+        的方法去调用。
     </p>
     <p>
-        To do this, you just need to append one line to
+        为了实现这点，只需要添加一行代码到
         <code>
             highlightItems(_: atIndexPaths:)
         </code>
-        :
+        方法中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword"><font><font>func </font></font></span> <span class="hljs-title"><font><font>highlightItems </font></font></span><span class="hljs-params"><font><font>（selected：Bool，atIndexPaths：Set &lt;NSIndexPath&gt;）</font></font></span></span><font><font> {</font></font><font></font><font><font>
     .......</font></font><font></font><font><font>
