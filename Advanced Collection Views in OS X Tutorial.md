@@ -560,7 +560,7 @@
         </code>
         中，
         <code>
-            highlightItems(_: atIndexPaths:)
+            highlightItems(\_: atIndexPaths:)
         </code>
         的尾部，添加下列的代码来控制移除按钮的打开/禁用。
     </p>
@@ -652,7 +652,7 @@
         </em>
         and connect the
         <code>
-            removeSlide(_:) IBAction
+            removeSlide(\_:) IBAction
         </code>
         to the button.
     </p>
