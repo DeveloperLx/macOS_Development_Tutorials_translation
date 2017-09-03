@@ -412,39 +412,35 @@
         从Collection View中移除item
     </h2>
     <p>
-        To remove items in SlidesPro you'll need a remove button, and it should
-        sit next to the add button. The most logical implementation is that it
-        should remove all selected items, hence, this button should be enabled
-        only when one or more items are selected.
+        在SlidesPro中，你需要一个移除按钮来移除item，可以把它摆在添加按钮的旁边。最合乎逻辑的实现就是移除掉全部被选中的项目，因此，这个应当当且仅当一个或多个项目被选择是才可用。
     </p>
     <p>
-        And then there's this detail: multi-selection must be enabled to allow
-        you to work with more than one image at a time.
+        接下来就是细节了：多选必须允许你一次同时控制多个图片。
     </p>
     <p>
-        This section will walk you through adding the button and enabling multi-select.
+        这一部分将一步步地带领你添加这个按钮及打开多选。
     </p>
     <h3>
-        Enable Multi-Selection
+        打开多选
     </h3>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and select the
+        并选择
         <em>
             Collection View
         </em>
-        . In the
+        。并在
         <em>
             Attributes Inspector
         </em>
-        , check
+        中，勾选
         <em>
             Allows Multiple Selection
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/MultipleSelection.png">
@@ -455,7 +451,7 @@
         </a>
     </p>
     <p>
-        Build and run and verify that multi-selection works.
+        运行项目，并验证多选正常work。
     </p>
     <p>
         To expand or reduce a collection’s selection, press and hold the
