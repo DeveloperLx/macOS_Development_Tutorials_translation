@@ -547,22 +547,22 @@
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> removeSlideButton: <span class="hljs-type">NSButton</span>!
 </pre>
     <p>
-        Next, open
+        接下来，打开
         <em>
             Main.storyboard
         </em>
-        and connect the outlet to the button.
+        并连接这个outlet到按钮上。
     </p>
     <p>
-        In
+        在
         <code>
             ViewController
         </code>
-        , at the end of
+        中，
         <code>
             highlightItems(_: atIndexPaths:)
         </code>
-        , add the line to enable/disable the remove button.
+        的尾部，添加下列的代码来控制移除按钮的打开/禁用。
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">highlightItems</span><span class="hljs-params">(selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
     .......
@@ -571,24 +571,20 @@
   }
 </pre>
     <p>
-        Build and run, then select an item. Both the add and remove buttons should
-        become enabled. Add more items to the selection; the add button should
-        become disabled while the remove button stays enabled.
+        运行项目，然后选择一个item。现在添加按钮和移除按钮都应变为可用了。选中更多的item，这是添加按钮就应变为禁用了，而移除按钮仍保持可用。
     </p>
     <h3>
-        Enable Removal of Items
+        实现移除item
     </h3>
     <p>
-        Now you'll add the code that removes items from the collection. As it
-        is with adding, removing is a two-stage process where you must remove images
-        from the model before notifying the collection view about the changes.
+        现在你就要添加代码来从collection中移除item了。正如添加一样，移除分为两个步骤，你需要首先移除相应图片的model，然后再通知给collection view相应的变化。
     </p>
     <p>
-        To update the model, add the following method at the end of the
+        要更新model，添加下列的方法到
         <code>
             ImageDirectoryLoader
         </code>
-        class:
+        类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeImageAtIndexPath</span><span class="hljs-params">(indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">ImageFile</span> {
     <span class="hljs-keyword">let</span> imageIndexInImageFiles = sectionsAttributesArray[indexPath.section].sectionOffset + indexPath.item
@@ -604,27 +600,25 @@
   }
 </pre>
     <p>
-        In
+        在
         <code>
             ViewController
         </code>
-        , add the
+        中，添加
         <code>
             IBAction
         </code>
-        method that's triggered when you click the
+        方法，它会在你点击
         <em>
             Remove
         </em>
-        button:
+        按钮时被触发：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeSlide</span><span class="hljs-params">(sender: NSButton)</span></span> {
-    
     <span class="hljs-keyword">let</span> selectionIndexPaths = collectionView.selectionIndexPaths
     <span class="hljs-keyword">if</span> selectionIndexPaths.isEmpty {
       <span class="hljs-keyword">return</span>
     }
-    
     <span class="hljs-comment">// 1</span>
     <span class="hljs-keyword">var</span> selectionArray = <span class="hljs-type">Array</span>(selectionIndexPaths)
     selectionArray.sortInPlace({path1, path2 <span class="hljs-keyword">in</span> <span class="hljs-keyword">return</span> path1.compare(path2) == .<span class="hljs-type">OrderedDescending</span>})
@@ -632,7 +626,6 @@
       <span class="hljs-comment">// 2</span>
       imageDirectoryLoader.removeImageAtIndexPath(itemIndexPath)
     }
-    
     <span class="hljs-comment">// 3</span>
     collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
   }
