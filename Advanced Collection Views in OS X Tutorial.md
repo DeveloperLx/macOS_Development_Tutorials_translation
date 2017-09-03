@@ -189,7 +189,7 @@
     <p>
         你需要去跟踪item选择的变化，以在ViewController的方法
         <code>
-            highlightItems(_: atIndexPaths:)
+            highlightItems(\_: atIndexPaths:)
         </code>
         中确定这个按钮的打开和关闭。当选择或取消选择一个item时，它就会被两个
         <code>
@@ -200,7 +200,7 @@
     <p>
         为了实现这点，只需要添加一行代码到
         <code>
-            highlightItems(_: atIndexPaths:)
+            highlightItems(\_: atIndexPaths:)
         </code>
         方法中：
     </p>
@@ -631,41 +631,40 @@
   }
 </pre>
     <p>
-        Here's what happens in there:
+        上述代码：
     </p>
     <ol>
         <li>
-            Creates an array to iterate over the selection in descending order regarding
-            index paths, so you don’t need to adjust index path values during the iteration
+            创建一个数组，依据index path逆序迭代选择的item，这样你就不需要在迭代过程中调整index path了
         </li>
         <li>
-            Removes selected items from the model
+            从model中移除选中的item
         </li>
         <li>
-            Notifies the collection view that items have been removed
+            通知collection view item已被移除
         </li>
     </ol>
     <p>
-        Now open
+        现在，打开
         <em>
             Main.storyboard
         </em>
-        and connect the
+        并连接
         <code>
             removeSlide(\_:) IBAction
         </code>
-        to the button.
+        到移除按钮上。
     </p>
     <p>
-        This is how the
-        <em>
-            Connections Inspector
-        </em>
-        of
+        添加outlet和action后，
         <em>
             View Controller
         </em>
-        should look after adding the outlets and actions:
+        的
+        <em>
+            Connections Inspector
+        </em>
+        看起来应当是这个样子：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SlidesProActionsOutlets.png">
@@ -676,17 +675,17 @@
         </a>
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Select one or more images and click the
+        选择一个或多个图片，并点击
         <em>
             Remove
         </em>
-        button to verify that it successfully removes the items.
+        按钮，来验证是否成功地移除了item。
     </p>
     <h2>
-        Drag and Drop in Collection Views
+        Collection View中的拖拽
     </h2>
     <p>
         One of the best things about OS X is that you can drag and drop items
@@ -722,60 +721,15 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                registerForDragAndDrop
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        collectionView.registerForDraggedTypes([
-        <span class="hljs-type">
-            NSURLPboardType
-        </span>
-        ])
-        <span class="hljs-comment">
-            // 2
-        </span>
-        collectionView.setDraggingSourceOperationMask(
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Every
-        </span>
-        , forLocal:
-        <span class="hljs-literal">
-            true
-        </span>
-        )
-        <span class="hljs-comment">
-            // 3
-        </span>
-        collectionView.setDraggingSourceOperationMask(
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Every
-        </span>
-        , forLocal:
-        <span class="hljs-literal">
-            false
-        </span>
-        ) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">registerForDragAndDrop</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// 1</span>
+    collectionView.registerForDraggedTypes([<span class="hljs-type">NSURLPboardType</span>])
+    <span class="hljs-comment">// 2</span>
+    collectionView.setDraggingSourceOperationMask(<span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">Every</span>, forLocal: <span class="hljs-literal">true</span>)
+    <span class="hljs-comment">// 3</span>
+    collectionView.setDraggingSourceOperationMask(<span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">Every</span>, forLocal: <span class="hljs-literal">false</span>)
+  }
+</pre>
     <p>
         In here, you've:
     </p>
@@ -2005,7 +1959,7 @@
         </em>
         , but the
         <code>
-            collectionView(_:didDeselectItemsAtIndexPaths: )
+            collectionView(\_:didDeselectItemsAtIndexPaths: )
         </code>
         delegate method is not called to remove the highlight and disable the
         buttons.
@@ -2023,7 +1977,7 @@
         Here's your answer, Sherlock: The deselection behavior that should occur
         when you're moving an item is performed programmatically via the
         <code>
-            deselectItemsAtIndexPaths(_:)
+            deselectItemsAtIndexPaths(\_:)
         </code>
         method of
         <code>
@@ -2060,7 +2014,7 @@
     <p>
         The template may add a
         <code>
-            drawRect(_:)
+            drawRect(\_:)
         </code>
         -- make sure to delete it.
     </p>
@@ -2119,7 +2073,7 @@
     <p>
         The method calls its super implementation followed by a call to
         <code>
-            highlightItems(_:atIndexPaths:)
+            highlightItems(\_:atIndexPaths:)
         </code>
         of its delegate, allowing
         <code>
@@ -2182,7 +2136,7 @@
     <p>
         At the end of the
         <code>
-            removeSlide(_:)
+            removeSlide(\_:)
         </code>
         method in
         <code>
