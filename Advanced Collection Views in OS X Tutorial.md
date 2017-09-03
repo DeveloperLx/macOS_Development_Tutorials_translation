@@ -72,7 +72,7 @@
         的初始项目。
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SlidesProStarterScreen.png"
@@ -143,7 +143,7 @@
         约束。
     </p>
     <p>
-        build并运行，查看你是否已得到了button。
+        运行项目，查看你是否已得到了button。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Add-Button-Added.png"
@@ -262,11 +262,11 @@
         <code>
             ViewController
         </code>
-        中。第一个方法来自
+        中。第一个方法会被
         <code>
             IBAction
         </code>
-        会在点击添加按钮时被调用，后面则是动作方法：
+        在动作方法中调用，第二个就是这个动作方法了，它会在点击添加按钮时被调用：
     </p>
     <pre lang="swift" class="language-swift hljs">   <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">insertAtIndexPathFromURLs</span><span class="hljs-params">(urls: [NSURL], atIndexPath: NSIndexPath)</span></span> {
     <span class="hljs-keyword">var</span> indexPaths: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">NSIndexPath</span>&gt; = []
@@ -302,84 +302,84 @@
 </pre>
     <ol>
         <li>
-            This iterates over the
-            <em>
-                URLs
-            </em>
-            chosen in the
+            迭代从
             <em>
                 Open
             </em>
-            panel.
+            面板中选择的
+            <em>
+                URLs
+            </em>
+            。
         </li>
         <li>
-            For each
+            由每个
             <em>
                 URL
             </em>
-            , an
+            创建一个
             <code>
                 ImageFile
             </code>
-            instance is created and added to the model.
+            实例，并添加到model中。
         </li>
         <li>
-            This notifies the collection view.
+            通知给collection view。
         </li>
         <li>
-            The
+            根据被选择的那个item的
             <code>
                 NSIndexPath
             </code>
-            of the selected item defines where the insertion starts.
+            觉得从什么地方插入。
         </li>
         <li>
-            This creates an
+            创建一个
             <code>
                 NSOpenPanel
             </code>
-            and configures it to only allow the selection of image files and shows
-            it.
+            ，并配置为只允许选择图片文件，然后展示它。
         </li>
     </ol>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and connect the
+        并将
         <code>
             addSlide(_:)
         </code>
+        这个
         <code>
             IBAction
         </code>
-        to the button.
+        连接到这个按钮上。
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Select the last image in Section 1 -- on my system it's the
+        选择第一部分的最后一张图片 -- 在我的系统上是
         <em>
             Desert.jpg
         </em>
-        slide.
+        。
     </p>
     <p>
-        Click the
+        点击
         <em>
             Add
         </em>
-        button. In the
+        按钮。在
         <em>
             Open
         </em>
-        panel navigate to the
+        面板中找到位于项目根目录下的
         <em>
             My Private Zoo
         </em>
-        folder inside the project’s root directory and select all files.
+        目录，并选中全部文件。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/MyPrivateZoo.png">
@@ -390,16 +390,15 @@
         </a>
     </p>
     <p>
-        Click
+        点击
         <em>
             Open
         </em>
-        . The app will insert the new images in Section 1, starting at item 2,
-        where
+        。app将会在第一部分插入新的图像，从item 2的位置开始，
         <em>
             Desert.jpg
         </em>
-        was before the insertion.
+        之前。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/ZooBeforeAfter.png">
@@ -410,7 +409,7 @@
         </a>
     </p>
     <h2>
-        Remove Items from the Collection View
+        从Collection View中移除item
     </h2>
     <p>
         To remove items in SlidesPro you'll need a remove button, and it should
