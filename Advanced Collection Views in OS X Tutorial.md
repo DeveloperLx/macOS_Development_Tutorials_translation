@@ -348,7 +348,7 @@
         </em>
         并将
         <code>
-            addSlide(_:)
+            addSlide(\_:)
         </code>
         这个
         <code>
