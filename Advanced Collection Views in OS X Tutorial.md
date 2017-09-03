@@ -454,57 +454,56 @@
         运行项目，并验证多选正常work。
     </p>
     <p>
-        To expand or reduce a collection’s selection, press and hold the
+        要增加或减少collection的选择，就按住
         <em>
             shift
         </em>
-        or
+        或
         <em>
             command
         </em>
-        key while you click on various items. Multi-selections can reach across
-        sections.
+        键，再来点击各种item，就可以实现多选了。
     </p>
     <h3>
-        The Remove Button
+        移除按钮
     </h3>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        , and then drag a
-        <em>
-            Push Button
-        </em>
-        from the
+        ，并从
         <em>
             Object Library
         </em>
-        and place it to the left of the
+        中拖拽一个
+        <em>
+            Push Button
+        </em>
+        ，并将它拖拽到
         <em>
             Add
         </em>
-        button.
+        按钮的左边。
     </p>
     <p>
-        In the
+        在
         <em>
             Attributes Inspector
         </em>
-        , set its
+        中，设置它的
         <em>
             Title
         </em>
-        to
+        为
         <em>
             Remove
         </em>
-        , and uncheck
+        ，并取消勾选
         <em>
             Enabled
         </em>
-        .
+        。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/05/RemoveButton.png">
             <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/RemoveButton-480x314.png"
@@ -513,18 +512,18 @@
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
         <br>
-        Set the button’s
-        <em>
-            Auto Layout
-        </em>
-        constraints by selecting the
+        通过选择
         <em>
             Editor \ Resolve Auto Layout Issues \ Add Missing Constraints
         </em>
-        menu item.
+        菜单项，设置按钮的
+        <em>
+            Auto Layout
+        </em>
+        约束。
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/RemoveBtnAdded.png">
@@ -535,32 +534,18 @@
         </a>
     </p>
     <p>
-        Add an
-        <code>
-            IBOutlet
-        </code>
-        in
+        在
         <code>
             ViewController
         </code>
-        :
+        中，添加一个
+        <code>
+            IBOutlet
+        </code>
+        ：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBOutlet
-        </span>
-        <span class="hljs-keyword">
-            weak
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        removeSlideButton:
-        <span class="hljs-type">
-            NSButton
-        </span>
-        !
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> removeSlideButton: <span class="hljs-type">NSButton</span>!
+</pre>
     <p>
         Next, open
         <em>
@@ -579,21 +564,12 @@
         </code>
         , add the line to enable/disable the remove button.
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                highlightItems
-            </span>
-            <span class="hljs-params">
-                (selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)
-            </span>
-        </span>
-        { ....... ....... removeSlideButton.enabled = !collectionView.selectionIndexPaths.isEmpty
-        }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">highlightItems</span><span class="hljs-params">(selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
+    .......
+    .......
+    removeSlideButton.enabled = !collectionView.selectionIndexPaths.isEmpty
+  }
+</pre>
     <p>
         Build and run, then select an item. Both the add and remove buttons should
         become enabled. Add more items to the selection; the add button should
@@ -614,73 +590,19 @@
         </code>
         class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                removeImageAtIndexPath
-            </span>
-            <span class="hljs-params">
-                (indexPath: NSIndexPath)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            ImageFile
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        imageIndexInImageFiles = sectionsAttributesArray[indexPath.section].sectionOffset
-        + indexPath.item
-        <span class="hljs-keyword">
-            let
-        </span>
-        imageFileRemoved = imageFiles.removeAtIndex(imageIndexInImageFiles)
-        <span class="hljs-keyword">
-            let
-        </span>
-        sectionToUpdate = indexPath.section sectionsAttributesArray[sectionToUpdate].sectionLength
-        -=
-        <span class="hljs-number">
-            1
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        sectionToUpdate &lt; numberOfSections-
-        <span class="hljs-number">
-            1
-        </span>
-        {
-        <span class="hljs-keyword">
-            for
-        </span>
-        i
-        <span class="hljs-keyword">
-            in
-        </span>
-        sectionToUpdate+
-        <span class="hljs-number">
-            1
-        </span>
-        ...numberOfSections-
-        <span class="hljs-number">
-            1
-        </span>
-        { sectionsAttributesArray[i].sectionOffset -=
-        <span class="hljs-number">
-            1
-        </span>
-        } }
-        <span class="hljs-keyword">
-            return
-        </span>
-        imageFileRemoved }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeImageAtIndexPath</span><span class="hljs-params">(indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">ImageFile</span> {
+    <span class="hljs-keyword">let</span> imageIndexInImageFiles = sectionsAttributesArray[indexPath.section].sectionOffset + indexPath.item
+    <span class="hljs-keyword">let</span> imageFileRemoved = imageFiles.removeAtIndex(imageIndexInImageFiles)
+    <span class="hljs-keyword">let</span> sectionToUpdate = indexPath.section
+    sectionsAttributesArray[sectionToUpdate].sectionLength -= <span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> sectionToUpdate &lt; numberOfSections-<span class="hljs-number">1</span> {
+      <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> sectionToUpdate+<span class="hljs-number">1</span>...numberOfSections-<span class="hljs-number">1</span> {
+        sectionsAttributesArray[i].sectionOffset -= <span class="hljs-number">1</span>
+      }
+    }
+    <span class="hljs-keyword">return</span> imageFileRemoved
+  }
+</pre>
     <p>
         In
         <code>
@@ -696,73 +618,25 @@
         </em>
         button:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                removeSlide
-            </span>
-            <span class="hljs-params">
-                (sender: NSButton)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        selectionIndexPaths = collectionView.selectionIndexPaths
-        <span class="hljs-keyword">
-            if
-        </span>
-        selectionIndexPaths.isEmpty {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        selectionArray =
-        <span class="hljs-type">
-            Array
-        </span>
-        (selectionIndexPaths) selectionArray.sortInPlace({path1, path2
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        path1.compare(path2) == .
-        <span class="hljs-type">
-            OrderedDescending
-        </span>
-        })
-        <span class="hljs-keyword">
-            for
-        </span>
-        itemIndexPath
-        <span class="hljs-keyword">
-            in
-        </span>
-        selectionArray {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        imageDirectoryLoader.removeImageAtIndexPath(itemIndexPath) }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        collectionView.deleteItemsAtIndexPaths(selectionIndexPaths) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeSlide</span><span class="hljs-params">(sender: NSButton)</span></span> {
+    
+    <span class="hljs-keyword">let</span> selectionIndexPaths = collectionView.selectionIndexPaths
+    <span class="hljs-keyword">if</span> selectionIndexPaths.isEmpty {
+      <span class="hljs-keyword">return</span>
+    }
+    
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">var</span> selectionArray = <span class="hljs-type">Array</span>(selectionIndexPaths)
+    selectionArray.sortInPlace({path1, path2 <span class="hljs-keyword">in</span> <span class="hljs-keyword">return</span> path1.compare(path2) == .<span class="hljs-type">OrderedDescending</span>})
+    <span class="hljs-keyword">for</span> itemIndexPath <span class="hljs-keyword">in</span> selectionArray {
+      <span class="hljs-comment">// 2</span>
+      imageDirectoryLoader.removeImageAtIndexPath(itemIndexPath)
+    }
+    
+    <span class="hljs-comment">// 3</span>
+    collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
+  }
+</pre>
     <p>
         Here's what happens in there:
     </p>
