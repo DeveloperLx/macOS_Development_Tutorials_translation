@@ -754,8 +754,7 @@
         允许项目。
     </p>
     <p>
-        Try to drag an item -- the item will not move. Drag an image file from
-        Finder and try to drop it on the collection view…nada.
+        尝试拖拽一个item -- 但item并未移动。从Finder中拖拽一个图片文件到collection view中...呃。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Screen-Shot-2016-05-08-at-4.34.29-PM.png">
