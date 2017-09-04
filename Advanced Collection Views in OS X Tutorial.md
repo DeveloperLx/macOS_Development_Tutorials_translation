@@ -764,86 +764,37 @@
         </a>
     </p>
     <p>
-        I asked you to perform this test so you can see that items aren't responding
-        to dragging, and nothing related to drag-and-drop works. Why is that? You'll
-        soon discover.
+        我让你进行了测试，但你会看到item并没有响应拖拽的事件。为什么会这样？很快你就会知道。
     </p>
     <p>
-        The first issue is that there needs to be some additional logic to handle
-        the action, so append the following methods to the
-        <code>
-            NSCollectionViewDelegate
-        </code>
-        extension of
+        第一个问题是，这里需要一些额外的逻辑来处理拖拽的动作，因此，在
         <code>
             ViewController
         </code>
-        :
+        的
+        <code>
+            NSCollectionViewDelegate
+        </code>
+        extension中添加下列的方法：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, canDragItemsAtIndexes indexes: NSIndexSet,
-                withEvent event: NSEvent)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Bool
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            true
-        </span>
-        }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, pasteboardWriterForItemAtIndexPath
-                indexPath: NSIndexPath)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSPasteboardWriting
-        </span>
-        ? {
-        <span class="hljs-keyword">
-            let
-        </span>
-        imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
-        <span class="hljs-keyword">
-            return
-        </span>
-        imageFile.url.absoluteURL }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, canDragItemsAtIndexes indexes: NSIndexSet, withEvent event: NSEvent)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  }
+  
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, pasteboardWriterForItemAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSPasteboardWriting</span>? {
+    <span class="hljs-keyword">let</span> imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
+    <span class="hljs-keyword">return</span> imageFile.url.absoluteURL
+  }
+</pre>
     <p>
-        Here's what's happening in here:
+        上述代码：
     </p>
     <ol>
         <li>
-            When the collection view is about to start a drag operation, it sends
-            this message to its
+            When the collection view is about to start a drag operation, 
+            it sends this message to its
             <code>
                 delegate
             </code>
@@ -879,7 +830,7 @@
         </li>
     </ol>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
         Try to drag an item, the item moves… Hallelujah!
