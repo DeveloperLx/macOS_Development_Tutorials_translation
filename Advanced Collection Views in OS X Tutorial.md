@@ -793,97 +793,76 @@
     </p>
     <ol>
         <li>
-            When the collection view is about to start a drag operation, 
-            it sends this message to its
+            当collection view将开始一个拖拽操作时，就会发送这个消息给它的
             <code>
                 delegate
             </code>
-            . The return value indicates whether the collection view is allowed to
-            initiate the drag for the specified index paths. You need to be able to
-            drag any item, so you return unconditionally
+            。它的返回值代表了collection view是否指定index path的item允许被拖动。你需要能够拖动任意item，因此你就无条件地返回
             <code>
                 true
             </code>
-            .
+            。
         </li>
         <li>
-            Implementing this method is essential so the collection view can be a
+            实现这个方法是非常关键的，因为这样collection view才可以成为一个
             <em>
                 Drag Source
             </em>
-            . If the method in section one allows the drag to begin, the collection
-            view invokes this method one time per item to be dragged. It requests a
-            pasteboard writer for the item's underlying model object. The method returns
-            a custom object that implements
+            。如果在第一部分中的方法允许开始拖拽，collection view就会为每个item调用一次这个方法，来为item的底层模型对象请求一个pasteboard writer。这个方法就返回一个实现了
             <code>
                 NSPasteboardWriting
             </code>
-            ; in your case it's
+            的自定义对象；在这个case中就是
             <code>
                 NSURL
             </code>
-            . Returning
+            。返回
             <code>
                 nil
             </code>
-            prevents the drag.
+            则会阻止拖拽。
         </li>
     </ol>
     <p>
         运行项目。
     </p>
     <p>
-        Try to drag an item, the item moves… Hallelujah!
+        尝试拖拽一个item，item移动了...哈利路亚!
     </p>
     <p>
-        Perhaps I spoke too soon? When you try to drop the item in a different
-        location in the collection view, it just bounces back. Why? Because you
-        did not define the collection view as a
+        获取我说得太快了？当你尝试把item拖拽到collection view上一个不同的位置的时候，它却又弹回去了。Why？因为你还未将collection view设置为一个
         <em>
             Drop Target
         </em>
-        .
+        。
     </p>
     <p>
-        Now try to drag an item and drop it in Finder; a new image file is created
-        matching the source
+        现在尝试把一个item拖拽到Finder中；你就会发现一个新的基于源
         <em>
             URL
         </em>
-        . You
+        的图片文件创建了出来。你
         <i>
-            have
+            已经
         </i>
-        made progress because it works to drag-and-drop from
+        取得了巨大的进展，因为从
         <em>
             SlidesPro
         </em>
-        to another app!
+        拖拽图片到另一个app上已经可以work了！
     </p>
     <h3>
-        Define Your Drop Target
+        定义你的Drop Target
     </h3>
     <p>
-        Add the following property to
+        添加下列的property到
         <code>
             ViewController
         </code>
-        :
+        中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            var
-        </span>
-        indexPathsOfItemsBeingDragged:
-        <span class="hljs-type">
-            Set
-        </span>
-        &lt;
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        &gt;!
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> indexPathsOfItemsBeingDragged: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">NSIndexPath</span>&gt;!
+</pre>
     <p>
         Add the following methods to the
         <code>
@@ -895,106 +874,26 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, draggingSession session: NSDraggingSession,
-                willBeginAtPoint screenPoint: NSPoint, forItemsAtIndexPaths indexPaths:
-                Set&lt;NSIndexPath&gt;)
-            </span>
-        </span>
-        { indexPathsOfItemsBeingDragged = indexPaths }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo,
-                proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;,
-                dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        {
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        proposedDropOperation.memory ==
-        <span class="hljs-type">
-            NSCollectionViewDropOperation
-        </span>
-        .
-        <span class="hljs-type">
-            On
-        </span>
-        { proposedDropOperation.memory =
-        <span class="hljs-type">
-            NSCollectionViewDropOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Before
-        </span>
-        }
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        indexPathsOfItemsBeingDragged ==
-        <span class="hljs-literal">
-            nil
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Copy
-        </span>
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Move
-        </span>
-        } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAtPoint screenPoint: NSPoint, forItemsAtIndexPaths indexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
+    indexPathsOfItemsBeingDragged = indexPaths
+  }
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath
+    proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;, dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)</span></span> -&gt; <span class="hljs-type">NSDragOperation</span> {
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">if</span> proposedDropOperation.memory == <span class="hljs-type">NSCollectionViewDropOperation</span>.<span class="hljs-type">On</span> {
+      proposedDropOperation.memory = <span class="hljs-type">NSCollectionViewDropOperation</span>.<span class="hljs-type">Before</span>
+    }
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-keyword">if</span> indexPathsOfItemsBeingDragged == <span class="hljs-literal">nil</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">Copy</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">Move</span>
+    }
+  }
+</pre>
     <p>
         Here's a section-by-section breakdown of this code:
     </p>
