@@ -864,15 +864,15 @@
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> indexPathsOfItemsBeingDragged: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">NSIndexPath</span>&gt;!
 </pre>
     <p>
-        Add the following methods to the
-        <code>
-            NSCollectionViewDelegate
-        </code>
-        extension of
+        添加下列方法到
         <code>
             ViewController
         </code>
-        :
+        的
+        <code>
+            NSCollectionViewDelegate
+        </code>
+        extension中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAtPoint screenPoint: NSPoint, forItemsAtIndexPaths indexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
@@ -895,61 +895,55 @@
   }
 </pre>
     <p>
-        Here's a section-by-section breakdown of this code:
+        一步一步来看上述代码：
     </p>
     <ol>
         <li>
-            An
+            当拖拽回话即将开始时，一个
             <code>
                 optional
             </code>
-            method is invoked when the dragging session is imminent. You'll use this
-            method to save the index paths of the items that are dragged. When this
-            property is not
+            的方法就会被调用。你将使用跟这个方法来保存被拖拽的item。当这个property不为
             <code>
                 nil
             </code>
-            , it's an indication that the
+            时，就表示
             <em>
                 Drag Source
             </em>
-            is the collection view.
+            是这个collection view。
         </li>
         <li>
-            Implement the delegation methods related to drop. This method returns
-            the type of operation to perform.
+            实现放置的相关代理方法。这个方法会方法将要执行的操作的类型。
         </li>
         <li>
-            In
+            在
             <em>
                 SlidesPro
             </em>
-            , the items aren't able to act as containers; this allows dropping between
-            items but not dropping on them.
+            中，item并不能充当一个容器；因此只能在item之间进行拖拽，而不能把一个item放到另一个item上。
         </li>
         <li>
-            When moving items inside the collection view, the operation is
+            当在collection view中移动item时，操作类型为
             <code>
                 Move
             </code>
-            . When the
+            。而当
             <em>
                 Dragging Source
             </em>
-            is another app, the operation is
+            是另一个app的时候，操作类型就为
             <code>
                 Copy
             </code>
-            .
+            。
         </li>
     </ol>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Drag an item. After you move it, you'll see some weird gray rectangle
-        with white text. As you keep moving the item over the other items, the
-        same rectangle appears in the gap between the items.
+        拖拽一个item。在你移动它之后，你就会看到一些带有文字的奇怪的灰色矩形。在你移动它经过其它item的时候，相同的矩形也出现在了item之间。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/HeaderAsInterGapIndicator.gif">
@@ -960,191 +954,53 @@
         </a>
     </p>
     <p>
-        What is happening?
+        神马情况？
     </p>
     <p>
-        Inside of
+        在
         <code>
             ViewController
         </code>
-        , look at the
+        中，找到这个
         <code>
             DataSource
         </code>
-        method that's invoked when the collection view asks for a supplementary
-        view:
+        方法，它会在collection view请求一个supplementary view时被调用：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind:
-                String, atIndexPath indexPath: NSIndexPath)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSView
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        view = collectionView.makeSupplementaryViewOfKind(
-        <span class="hljs-type">
-            NSCollectionElementKindSectionHeader
-        </span>
-        , withIdentifier:
-        <span class="hljs-string">
-            "HeaderView"
-        </span>
-        , forIndexPath: indexPath)
-        <span class="hljs-keyword">
-            as
-        </span>
-        !
-        <span class="hljs-type">
-            HeaderView
-        </span>
-        view.sectionTitle.stringValue =
-        <span class="hljs-string">
-            "Section
-            <span class="hljs-subst">
-                \(indexPath.section)
-            </span>
-            "
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
-        view.imageCount.stringValue =
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(numberOfItemsInSection)
-            </span>
-            image files"
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        view }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSView</span> {
+    <span class="hljs-keyword">let</span> view = collectionView.makeSupplementaryViewOfKind(<span class="hljs-type">NSCollectionElementKindSectionHeader</span>, withIdentifier: <span class="hljs-string">"HeaderView"</span>, forIndexPath: indexPath) <span class="hljs-keyword">as</span>! <span class="hljs-type">HeaderView</span>
+    view.sectionTitle.stringValue = <span class="hljs-string">"Section <span class="hljs-subst">\(indexPath.section)</span>"</span>
+    <span class="hljs-keyword">let</span> numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+    view.imageCount.stringValue = <span class="hljs-string">"<span class="hljs-subst">\(numberOfItemsInSection)</span> image files"</span>
+    <span class="hljs-keyword">return</span> view
+  }
+</pre>
     <p>
-        When you start dragging an item, the collection view’s layout asks for
-        the interim gap indicator’s supplementary view. The above
+        当你开始拖拽一个item的时候，collection view的布局就会请求“过渡间隔指示器”的supplementary view。上述的
         <code>
             DataSource
         </code>
-        method unconditionally assumes that this is a request for a header view.
-        Accordingly, a header view is returned and displayed for the inter-item
-        gap indicator.
+        方法无条件地假定这是一个对header view的请求。因此，就会返回header view作为“过渡间隔指示器”。
     </p>
     <p>
-        None of this is going to work for you so replace the content of this method
-        with:
+        这些东西对你来说都是没用的，因此，用下列代码来替换这个方法的内容：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind:
-                String, atIndexPath indexPath: NSIndexPath)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSView
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        identifier:
-        <span class="hljs-type">
-            String
-        </span>
-        = kind ==
-        <span class="hljs-type">
-            NSCollectionElementKindSectionHeader
-        </span>
-        ?
-        <span class="hljs-string">
-            "HeaderView"
-        </span>
-        :
-        <span class="hljs-string">
-            ""
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        view = collectionView.makeSupplementaryViewOfKind(kind, withIdentifier:
-        identifier, forIndexPath: indexPath)
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        kind ==
-        <span class="hljs-type">
-            NSCollectionElementKindSectionHeader
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        headerView = view
-        <span class="hljs-keyword">
-            as
-        </span>
-        !
-        <span class="hljs-type">
-            HeaderView
-        </span>
-        headerView.sectionTitle.stringValue =
-        <span class="hljs-string">
-            "Section
-            <span class="hljs-subst">
-                \(indexPath.section)
-            </span>
-            "
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
-        headerView.imageCount.stringValue =
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(numberOfItemsInSection)
-            </span>
-            image files"
-        </span>
-        }
-        <span class="hljs-keyword">
-            return
-        </span>
-        view }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSView</span> {
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">let</span> identifier: <span class="hljs-type">String</span> = kind == <span class="hljs-type">NSCollectionElementKindSectionHeader</span> ? <span class="hljs-string">"HeaderView"</span> : <span class="hljs-string">""</span>
+    <span class="hljs-keyword">let</span> view = collectionView.makeSupplementaryViewOfKind(kind, withIdentifier: identifier, forIndexPath: indexPath)
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">if</span> kind == <span class="hljs-type">NSCollectionElementKindSectionHeader</span> {
+      <span class="hljs-keyword">let</span> headerView = view <span class="hljs-keyword">as</span>! <span class="hljs-type">HeaderView</span>
+      headerView.sectionTitle.stringValue = <span class="hljs-string">"Section <span class="hljs-subst">\(indexPath.section)</span>"</span>
+      <span class="hljs-keyword">let</span> numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+      headerView.imageCount.stringValue = <span class="hljs-string">"<span class="hljs-subst">\(numberOfItemsInSection)</span> image files"</span>
+    }
+    <span class="hljs-keyword">return</span> view
+  }
+</pre>
     <p>
-        Here's what you did in here:
+        上述代码：
     </p>
     <ol>
         <li>
