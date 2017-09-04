@@ -688,38 +688,35 @@
         Collection View中的拖拽
     </h2>
     <p>
-        One of the best things about OS X is that you can drag and drop items
-        to move or copy them to different apps. Users expect this behavior, so
-        you'd be wise to add it to anything you decide to put out there.
+        OS X中有一个最棒的事，是你可以将一个item拖拽或copy到另一个app中。用户是非常期待这个功能的，因此为你的app加入这个特性是一个非常英明的决定。
     </p>
     <p>
-        With SlidesPro, you'll use drag-and-drop to implement the following capabilities:
+        在SlidesPro中，你将使用拖拽来实现下述的能力：
     </p>
     <ul>
         <li>
-            Move items inside the collection view
+            在collection view中移动item
         </li>
         <li>
-            Drag image files from other apps into the collection view
+            从其它app从移动图片到collection view中
         </li>
         <li>
-            Drag items from the collection view into other apps
+            将collection view中的item拖拽到其它app中
         </li>
     </ul>
     <p>
-        To support drag-and-drop, you'll need to implement the relevant
+        要支持拖拽的功能，你就要实现
         <code>
             NSCollectionViewDelegate
         </code>
-        methods, but you have to register the kind of drag-and-drop operations
-        SlidesPro supports.
+        协议中的相关方法，但首先要注册SlidesPro对于拖拽操作的支持。
     </p>
     <p>
-        Add the following method to
+        添加下列的方法到
         <code>
             ViewController
         </code>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">registerForDragAndDrop</span><span class="hljs-params">()</span></span> {
     <span class="hljs-comment">// 1</span>
@@ -731,31 +728,30 @@
   }
 </pre>
     <p>
-        In here, you've:
+        上述代码中：
     </p>
     <ol>
         <li>
-            Registered for the dropped object types SlidesPro accepts
+            注册了SlidesPro可以接收的对象的类型
         </li>
         <li>
-            Enabled dragging items within and into the collection view
+            打开了允许item在collection view内进行拖拽的特性
         </li>
         <li>
-            Enabled dragging items from the collection view to other applications
+            打开了允许将item从collection view拖拽到其它app中的特性
         </li>
     </ol>
     <p>
-        At the end of
+        在
         <code>
             viewDidLoad()
         </code>
-        , add:
+        的尾部，添加下述代码：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        registerForDragAndDrop()
+    <pre lang="swift" class="language-swift hljs">registerForDragAndDrop()
     </pre>
     <p>
-        Build and run.
+        允许项目。
     </p>
     <p>
         Try to drag an item -- the item will not move. Drag an image file from
