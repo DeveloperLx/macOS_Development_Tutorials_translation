@@ -1165,77 +1165,74 @@
   }
 </pre>
     <p>
-        Here's what happens with these methods:
+        上述的代码：
     </p>
     <ol>
         <li>
-            This is invoked when the user releases the mouse to commit the drop operation.
+            他会在用户释放鼠标来完成拖拽操作时被调用。
         </li>
         <li>
-            Then it falls here when it's a move operation.
+            当它是一个移动的操作的时候，代码就会执行到此处。
         </li>
         <li>
-            It updates the model.
+            更新model
         </li>
         <li>
-            Then it notifies the collection view about the changes.
+            将数据的变化通知给collection view。
         </li>
         <li>
-            It falls here to accept a drop from another app.
+            当从其它的app接收到拖拽的东西时，代码则会执行到此处。
         </li>
         <li>
-            Calls the same method in
-            <code>
-                ViewController
-            </code>
-            as
-            <em>
-                Add
-            </em>
-            with
-            <em>
-                URLs
-            </em>
-            obtained from the
+            用从
             <code>
                 NSDraggingInfo
             </code>
-            .
+            中获取的
+            <em>
+                URLs
+            </em>
+            ，去调用
+            <code>
+                ViewController
+            </code>
+            中的
+            <em>
+                Add
+            </em>
+            方法。
         </li>
         <li>
-            Invoked to conclude the drag session. Clears the value of
+            调用结论性的方法。清除
             <code>
                 indexPathsOfItemsBeingDragged
             </code>
-            .
+            的值。
         </li>
     </ol>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Now it's possible to move a single item to a different location in the
-        same section. Dragging one or more items from another app should work too.
+        现在你就可以将单个的item移动到同一section上不同的位置上了。同时也可以从另一个app拖拽一个或多个item到这里了。
     </p>
     <h3>
-        Fix the UI
+        修复UI
     </h3>
     <p>
-        The current implementation of drag-and-drop in SlidesPro doesn't support
-        drop across sections. Also, multi-selection is supported only for a drop
-        outside SlidesPro. To disable in
+        现在SlidesPro还不能支持在不同section之间进行拖拽移动。并且一次接收多个对象，也必须得从SlidesPro外的app拖来才行。要在
         <em>
             UI
         </em>
-        , these unsupported capabilities change the
-        <code>
-            else
-        </code>
-        part of the second
+        中禁用这些不支持的特性，可将第二个
         <code>
             if
         </code>
-        statement to:
+        语句中的
+        <code>
+            else
+        </code>
+        部分改为：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath
     proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;, dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)</span></span> -&gt; <span class="hljs-type">NSDragOperation</span> {
