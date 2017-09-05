@@ -1255,23 +1255,23 @@
 </pre>
     <ol>
         <li>
-            The drop is enabled only when the source and target sections match and
-            exactly one item is selected.
+            这个拖拽只能在源头和目标匹配，且只有一个item被选中时才可以执行。
         </li>
         <li>
-            Otherwise, it prevents the drop by returning
+            否则，就通过返回
             <code>
                 .None
             </code>
+            来阻止拖拽动作的完成。
         </li>
     </ol>
     <p>
-        Build and run. Try dragging an item from one section to another. The drop
-        indicator does not present itself, meaning a drop is impossible.
+        运行项目。尝试将item拖拽到另一个section中。指示器现在不会再展示出来了，代表这个拖拽动作是不可行的。
     </p>
     <p>
-        Now drag a multi-selection. While inside the bounds of the collection
-        view there is no drop indicator; however, drag it to
+        Now drag a multi-selection. 
+        While inside the bounds of the collection view there is no drop indicator; 
+        however, drag it to
         <em>
             Finder
         </em>
