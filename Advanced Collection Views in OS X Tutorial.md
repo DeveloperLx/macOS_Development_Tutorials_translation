@@ -1004,79 +1004,75 @@
     </p>
     <ol>
         <li>
-            You set the
-            <code>
-                identifier
-            </code>
-            according to the
+            你根据接受到的
             <code>
                 kind
             </code>
-            parameter received. When it isn't a header view, you set the
+            参数，设置了一个
             <code>
                 identifier
             </code>
-            to the empty
+            。如果它不是header view的话，你就将
+            <code>
+                identifier
+            </code>
+            设置为一个空的
             <code>
                 String
             </code>
-            . When you pass to
+            。当你传递给
             <code>
                 makeSupplementaryViewOfKind
             </code>
-            an
+            方法的
             <code>
                 identifier
             </code>
-            that doesn't have a matching class or nib, it will return
+            不能匹配任何的类或nib文件，它就会返回
             <code>
                 nil
             </code>
-            . When a
+            。当返回
             <code>
                 nil
             </code>
-            is returned, the collection view uses its default inter-item gap indicator.
-            When you need to use a custom indicator, you define a nib (as you did for
-            the header) and pass its identifier instead of the empty string.
+            的时候，collection view就会使用默认的“过渡间隔指示器”。当你需要使用自定义一个指示器的时候，你就可以创建一个nib文件（就像你在header中做的一样），并将它的identifier传进来。
         </li>
         <li>
-            When it is a header view, you set up its labels as before.
+            当它是一个header view的时候，你就像之前一样设置它的label。
         </li>
     </ol>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : There is a bug in the Swift API regarding the method above, and the
+        ：对于上述提到的方法，以及
         <code>
             makeItemWithIdentifier
         </code>
-        and
+        和
         <code>
             makeSupplementaryViewOfKind
         </code>
-        methods. The return value specified is
+        方法中，Swift的API中存在一个bug。它们的返回值被指定为
         <code>
             NSView
         </code>
-        , but these methods may return
+        类型，但这些方法是有可能返回
         <code>
             nil
         </code>
-        so the return value should be
+        的。所以返回值应当是
         <code>
             NSView?
         </code>
-        -- the question mark is part of the value.
+        类型的吗 -- 问好也是这个值的一部分。
     </div>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Now you see an unmistakable aqua vertical line when you drag an item,
-        indicating the drop target between the items. It's a sign that the collection
-        view is ready to accept the drop.
+        现在当你拖拽一个item的时候，你就会看到一个明显的竖线，表示item将会被放置到的位置。它是collection view已经准备好接收item的标志。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/InterItemAnimation.gif">
@@ -1085,74 +1081,30 @@
         </a>
     </p>
     <p>
-        Well…it's sort of ready. When you try to drop the item, it still bounces
-        back because the delegate methods to handle the drop are not in place yet.
+        已经有那么几分意思了。但当你尝试把item放下的时候，它仍会弹回到原来的位置，因为处理接收item的方法还没有实现。
     </p>
     <p>
-        Append the following method to
+        为
         <code>
             ImageDirectoryLoader
         </code>
-        :
+        添加下列方法：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                moveImageFromIndexPath
-            </span>
-            <span class="hljs-params">
-                (indexPath: NSIndexPath, toIndexPath: NSIndexPath)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        itemBeingDragged = removeImageAtIndexPath(indexPath)
-        <span class="hljs-keyword">
-            let
-        </span>
-        destinationIsLower = indexPath.compare(toIndexPath) == .
-        <span class="hljs-type">
-            OrderedDescending
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        indexPathOfDestination:
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        destinationIsLower { indexPathOfDestination = toIndexPath }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { indexPathOfDestination =
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        (forItem: toIndexPath.item-
-        <span class="hljs-number">
-            1
-        </span>
-        , inSection: toIndexPath.section) }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        insertImage(itemBeingDragged, atIndexPath: indexPathOfDestination) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">moveImageFromIndexPath</span><span class="hljs-params">(indexPath: NSIndexPath, toIndexPath: NSIndexPath)</span></span> {
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">let</span> itemBeingDragged = removeImageAtIndexPath(indexPath)
+    <span class="hljs-keyword">let</span> destinationIsLower = indexPath.compare(toIndexPath) == .<span class="hljs-type">OrderedDescending</span>
+    <span class="hljs-keyword">var</span> indexPathOfDestination: <span class="hljs-type">NSIndexPath</span>
+    <span class="hljs-keyword">if</span> destinationIsLower {
+      indexPathOfDestination = toIndexPath
+    } <span class="hljs-keyword">else</span> {
+      indexPathOfDestination = <span class="hljs-type">NSIndexPath</span>(forItem: toIndexPath.item-<span class="hljs-number">1</span>, inSection: toIndexPath.section)
+    }
+    <span class="hljs-comment">// 3</span>
+    insertImage(itemBeingDragged, atIndexPath: indexPathOfDestination)
+  }
+</pre>
     <p>
         Here's what's going on in there:
     </p>
@@ -1178,180 +1130,40 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo,
-                indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Bool
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        indexPathsOfItemsBeingDragged !=
-        <span class="hljs-literal">
-            nil
-        </span>
-        {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        indexPathOfFirstItemBeingDragged = indexPathsOfItemsBeingDragged.first!
-        <span class="hljs-keyword">
-            var
-        </span>
-        toIndexPath:
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        indexPathOfFirstItemBeingDragged.compare(indexPath) == .
-        <span class="hljs-type">
-            OrderedAscending
-        </span>
-        { toIndexPath =
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        (forItem: indexPath.item-
-        <span class="hljs-number">
-            1
-        </span>
-        , inSection: indexPath.section) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { toIndexPath =
-        <span class="hljs-type">
-            NSIndexPath
-        </span>
-        (forItem: indexPath.item, inSection: indexPath.section) }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        imageDirectoryLoader.moveImageFromIndexPath(indexPathOfFirstItemBeingDragged,
-        toIndexPath: toIndexPath)
-        <span class="hljs-comment">
-            // 4
-        </span>
-        collectionView.moveItemAtIndexPath(indexPathOfFirstItemBeingDragged, toIndexPath:
-        toIndexPath) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-comment">
-            // 5
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        droppedObjects =
-        <span class="hljs-type">
-            Array
-        </span>
-        &lt;
-        <span class="hljs-type">
-            NSURL
-        </span>
-        &gt;() draggingInfo.enumerateDraggingItemsWithOptions(
-        <span class="hljs-type">
-            NSDraggingItemEnumerationOptions
-        </span>
-        .
-        <span class="hljs-type">
-            Concurrent
-        </span>
-        , forView: collectionView, classes: [
-        <span class="hljs-type">
-            NSURL
-        </span>
-        .
-        <span class="hljs-keyword">
-            self
-        </span>
-        ], searchOptions: [
-        <span class="hljs-type">
-            NSPasteboardURLReadingFileURLsOnlyKey
-        </span>
-        :
-        <span class="hljs-type">
-            NSNumber
-        </span>
-        (bool:
-        <span class="hljs-literal">
-            true
-        </span>
-        )]) { (draggingItem, idx, stop)
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        url = draggingItem.item
-        <span class="hljs-keyword">
-            as
-        </span>
-        ?
-        <span class="hljs-type">
-            NSURL
-        </span>
-        { droppedObjects.append(url) } }
-        <span class="hljs-comment">
-            // 6
-        </span>
-        insertAtIndexPathFromURLs(droppedObjects, atIndexPath: indexPath) }
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            true
-        </span>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <span class="hljs-keyword">if</span> indexPathsOfItemsBeingDragged != <span class="hljs-literal">nil</span> {
+      <span class="hljs-comment">// 2</span>
+      <span class="hljs-keyword">let</span> indexPathOfFirstItemBeingDragged = indexPathsOfItemsBeingDragged.first!
+      <span class="hljs-keyword">var</span> toIndexPath: <span class="hljs-type">NSIndexPath</span>
+      <span class="hljs-keyword">if</span> indexPathOfFirstItemBeingDragged.compare(indexPath) == .<span class="hljs-type">OrderedAscending</span> {
+        toIndexPath = <span class="hljs-type">NSIndexPath</span>(forItem: indexPath.item-<span class="hljs-number">1</span>, inSection: indexPath.section)
+      } <span class="hljs-keyword">else</span> {
+        toIndexPath = <span class="hljs-type">NSIndexPath</span>(forItem: indexPath.item, inSection: indexPath.section)
+      }
+      <span class="hljs-comment">// 3</span>
+      imageDirectoryLoader.moveImageFromIndexPath(indexPathOfFirstItemBeingDragged, toIndexPath: toIndexPath)
+      <span class="hljs-comment">// 4</span>
+      collectionView.moveItemAtIndexPath(indexPathOfFirstItemBeingDragged, toIndexPath: toIndexPath)
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// 5</span>
+      <span class="hljs-keyword">var</span> droppedObjects = <span class="hljs-type">Array</span>&lt;<span class="hljs-type">NSURL</span>&gt;()
+      draggingInfo.enumerateDraggingItemsWithOptions(<span class="hljs-type">NSDraggingItemEnumerationOptions</span>.<span class="hljs-type">Concurrent</span>, forView: collectionView, classes: [<span class="hljs-type">NSURL</span>.<span class="hljs-keyword">self</span>], searchOptions: [<span class="hljs-type">NSPasteboardURLReadingFileURLsOnlyKey</span> : <span class="hljs-type">NSNumber</span>(bool: <span class="hljs-literal">true</span>)]) { (draggingItem, idx, stop) <span class="hljs-keyword">in</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> url = draggingItem.item <span class="hljs-keyword">as</span>? <span class="hljs-type">NSURL</span> {
+          droppedObjects.append(url)
         }
-        <span class="hljs-comment">
-            // 7
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, draggingSession session: NSDraggingSession,
-                endedAtPoint screenPoint: NSPoint, dragOperation operation: NSDragOperation)
-            </span>
-        </span>
-        { indexPathsOfItemsBeingDragged =
-        <span class="hljs-literal">
-            nil
-        </span>
-        }
-    </pre>
+      }
+      <span class="hljs-comment">// 6</span>
+      insertAtIndexPathFromURLs(droppedObjects, atIndexPath: indexPath)
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  }
+  
+  <span class="hljs-comment">// 7</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAtPoint screenPoint: NSPoint, dragOperation operation: NSDragOperation)</span></span> {
+    indexPathsOfItemsBeingDragged = <span class="hljs-literal">nil</span>
+  }
+</pre>
     <p>
         Here's what happens with these methods:
     </p>
@@ -1425,124 +1237,25 @@
         </code>
         statement to:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                collectionView
-            </span>
-            <span class="hljs-params">
-                (collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo,
-                proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;,
-                dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        proposedDropOperation.memory ==
-        <span class="hljs-type">
-            NSCollectionViewDropOperation
-        </span>
-        .
-        <span class="hljs-type">
-            On
-        </span>
-        { proposedDropOperation.memory =
-        <span class="hljs-type">
-            NSCollectionViewDropOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Before
-        </span>
-        }
-        <span class="hljs-keyword">
-            if
-        </span>
-        indexPathsOfItemsBeingDragged ==
-        <span class="hljs-literal">
-            nil
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Copy
-        </span>
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        sectionOfItemBeingDragged = indexPathsOfItemsBeingDragged.first!.section
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        proposedDropsection = proposedDropIndexPath.memory?.section
-        <span class="hljs-keyword">
-            where
-        </span>
-        sectionOfItemBeingDragged == proposedDropsection &amp;&amp; indexPathsOfItemsBeingDragged.
-        <span class="hljs-built_in">
-            count
-        </span>
-        ==
-        <span class="hljs-number">
-            1
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            Move
-        </span>
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-type">
-            NSDragOperation
-        </span>
-        .
-        <span class="hljs-type">
-            None
-        </span>
-        } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath
+    proposedDropIndexPath: AutoreleasingUnsafeMutablePointer&lt;NSIndexPath?&gt;, dropOperation proposedDropOperation: UnsafeMutablePointer&lt;NSCollectionViewDropOperation&gt;)</span></span> -&gt; <span class="hljs-type">NSDragOperation</span> {
+    <span class="hljs-keyword">if</span> proposedDropOperation.memory == <span class="hljs-type">NSCollectionViewDropOperation</span>.<span class="hljs-type">On</span> {
+      proposedDropOperation.memory = <span class="hljs-type">NSCollectionViewDropOperation</span>.<span class="hljs-type">Before</span>
+    }
+    <span class="hljs-keyword">if</span> indexPathsOfItemsBeingDragged == <span class="hljs-literal">nil</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">Copy</span>
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">let</span> sectionOfItemBeingDragged = indexPathsOfItemsBeingDragged.first!.section
+      <span class="hljs-comment">// 1</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> proposedDropsection = proposedDropIndexPath.memory?.section <span class="hljs-keyword">where</span> sectionOfItemBeingDragged == proposedDropsection &amp;&amp; indexPathsOfItemsBeingDragged.<span class="hljs-built_in">count</span> == <span class="hljs-number">1</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">Move</span>
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// 2</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-type">NSDragOperation</span>.<span class="hljs-type">None</span>
+      }
+    }
+  }
+</pre>
     <ol>
         <li>
             The drop is enabled only when the source and target sections match and
