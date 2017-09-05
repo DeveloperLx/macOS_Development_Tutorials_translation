@@ -1106,29 +1106,29 @@
   }
 </pre>
     <p>
-        Here's what's going on in there:
+        上述的代码：
     </p>
     <ol>
         <li>
-            Call this method to update the model when items are moved
+            当item被移动的时候，就会调用这个方法来更新model
         </li>
         <li>
-            Remove the dragged item from the model
+            从model中移除被拖拽的item
         </li>
         <li>
-            Reinsert at its new position in the model
+            重新插入到model的新的位置上
         </li>
     </ol>
     <p>
-        Finish things off here by adding the following methods to the
-        <code>
-            NSCollectionViewDelegate
-        </code>
-        extension in
+        通过添加下列的方法到
         <code>
             ViewController
         </code>
-        :
+        的
+        <code>
+            NSCollectionViewDelegate
+        </code>
+        extension中来把拖拽的过程收尾：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation)</span></span> -&gt; <span class="hljs-type">Bool</span> {
