@@ -1648,10 +1648,8 @@
         class:
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">layoutAttributesForElementsInRect</span><span class="hljs-params">(rect: NSRect)</span></span> -&gt; [<span class="hljs-type">NSCollectionViewLayoutAttributes</span>] {
-    
     <span class="hljs-comment">// 1</span>
     <span class="hljs-keyword">var</span> layoutAttributes = <span class="hljs-keyword">super</span>.layoutAttributesForElementsInRect(rect)
-    
     <span class="hljs-comment">// 2</span>
     <span class="hljs-keyword">let</span> sectionsToMoveHeaders = <span class="hljs-type">NSMutableIndexSet</span>()
     <span class="hljs-keyword">for</span> attributes <span class="hljs-keyword">in</span> layoutAttributes {
@@ -1659,14 +1657,12 @@
         sectionsToMoveHeaders.addIndex(attributes.indexPath!.section)
       }
     }
-    
     <span class="hljs-comment">// 3</span>
     <span class="hljs-keyword">for</span> attributes <span class="hljs-keyword">in</span> layoutAttributes {
       <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> elementKind = attributes.representedElementKind <span class="hljs-keyword">where</span> elementKind == <span class="hljs-type">NSCollectionElementKindSectionHeader</span> {
         sectionsToMoveHeaders.removeIndex(attributes.indexPath!.section)
       }
     }
-    
     <span class="hljs-comment">// 4</span>
     sectionsToMoveHeaders.enumerateIndexesUsingBlock { (index, stop) -&gt; <span class="hljs-type">Void</span> <span class="hljs-keyword">in</span>
       <span class="hljs-keyword">let</span> indexPath = <span class="hljs-type">NSIndexPath</span>(forItem: <span class="hljs-number">0</span>, inSection: index)
@@ -1675,7 +1671,6 @@
         layoutAttributes.append(attributes!)
       }
     }
-    
     <span class="hljs-keyword">for</span> attributes <span class="hljs-keyword">in</span> layoutAttributes {
       <span class="hljs-comment">// 5</span>
       <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> elementKind = attributes.representedElementKind <span class="hljs-keyword">where</span> elementKind == <span class="hljs-type">NSCollectionElementKindSectionHeader</span> {
@@ -1683,28 +1678,21 @@
         <span class="hljs-keyword">let</span> attributesForFirstItemInSection = layoutAttributesForItemAtIndexPath(<span class="hljs-type">NSIndexPath</span>(forItem: <span class="hljs-number">0</span>, inSection: section))
         <span class="hljs-keyword">let</span> attributesForLastItemInSection = layoutAttributesForItemAtIndexPath(<span class="hljs-type">NSIndexPath</span>(forItem: collectionView!.numberOfItemsInSection(section) - <span class="hljs-number">1</span>, inSection: section))
         <span class="hljs-keyword">var</span> frame = attributes.frame
-
         <span class="hljs-comment">// 6</span>
         <span class="hljs-keyword">let</span> offset = collectionView!.enclosingScrollView?.documentVisibleRect.origin.y
-
         <span class="hljs-comment">// 7</span>
         <span class="hljs-keyword">let</span> minY = <span class="hljs-type">CGRectGetMinY</span>(attributesForFirstItemInSection!.frame) - frame.height
-
         <span class="hljs-comment">// 8</span>
         <span class="hljs-keyword">let</span> maxY = <span class="hljs-type">CGRectGetMaxY</span>(attributesForLastItemInSection!.frame) - frame.height
-
         <span class="hljs-comment">// 9</span>
         <span class="hljs-keyword">let</span> y = <span class="hljs-built_in">min</span>(<span class="hljs-built_in">max</span>(offset!, minY), maxY)
-
         <span class="hljs-comment">// 10</span>
         frame.origin.y = y
         attributes.frame = frame
-        
         <span class="hljs-comment">// 11</span>
         attributes.zIndex = <span class="hljs-number">99</span>
       }
     }
-
     <span class="hljs-comment">// 12</span>
     <span class="hljs-keyword">return</span> layoutAttributes
   }
