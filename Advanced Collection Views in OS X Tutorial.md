@@ -1683,103 +1683,98 @@
     </p>
     <ol>
         <li>
-            The super method returns an array of attributes for the visible elements.
+            父类方法返回了一个可见元素的属性的数组。
         </li>
         <li>
-            The
+            这个
             <code>
                 NSMutableIndexSet
             </code>
-            first aggregates all the sections that have at least one visible item.
+            对象首先会收集所有的至少含有一个可见的item的section。
         </li>
         <li>
-            Remove all sections from the set where the header is already in
+            从这个set中，移除所有header早已在
             <code>
                 layoutAttributes
             </code>
-            , leaving only the sections with “Missing Headers” in the set.
+            中的section，只留下“缺少Header”的section。
         </li>
         <li>
-            Request the attributes for the missing headers and add them to
+            获取缺少header的section的attribute，并添加到
             <code>
                 layoutAttributes
             </code>
-            .
+            中。
         </li>
         <li>
-            Iterate over
+            便利
             <code>
                 layoutAttributes
             </code>
-            and process only the headers.
+            但只处理headers。
         </li>
         <li>
-            Set the coordinate for the top of the visible area, aka scroll offset.
+            设置可见区域顶部的坐标，也就是说滚动的偏移。
         </li>
         <li>
-            Make it so the header never goes further up than one-header-height above
-            the upper bounds of the first item in the section.
+            Make it so the header never goes further up than one-header-height above the upper bounds of the first item in the section.
         </li>
         <li>
-            Make it so the header never goes further down than one-header-height above
-            the lower bounds of the last item in the section.
+            Make it so the header never goes further down than one-header-height above the lower bounds of the last item in the section.
         </li>
         <li>
-            Let's break this into 2 statements:
+            可将这里拆分为两步：
             <ol>
                 <li>
                     <code>
                         maybeY = max(offset!, minY)
                     </code>
-                    : When the top of the section is above the visible area this pins (or
-                    pushes down) the header to the top of the visible area.
+                    : When the top of the section is above the visible area this pins (or pushes down) the header to the top of the visible area.
                 </li>
                 <li>
                     <code>
                         y = min(maybeY, maxY)
                     </code>
-                    : When the space between the bottom of the section to the top of the visible
-                    area is less than header height, it shows only the part of the header's
-                    bottom that fits this space.
+                    : When the space between the bottom of the section to the top of the visible area is less than header height, it shows only the part of the header's bottom that fits this space.
                 </li>
             </ol>
         </li>
         <li>
-            Update the vertical position of the header.
+            更新header的垂直位置。
         </li>
         <li>
-            Make the items "go" under the header.
+            把item放置到header的下面。
         </li>
         <li>
-            Return the updated attributes.
+            返回更新后的attributes.
         </li>
     </ol>
     <p>
-        Add the following method to
+        添加下列的方法到
         <code>
             StickyHeadersLayout
         </code>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">shouldInvalidateLayoutForBoundsChange</span><span class="hljs-params">(newBounds: CGRect)</span></span> -&gt; <span class="hljs-type">Bool</span> {
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
   }
 </pre>
     <p>
-        You always return
+        你将总是返回
         <code>
             true
         </code>
-        because you want the to invalidate the layout as the user scrolls.
+        ，因为你想要在用户滚动collection view时清除原先的布局。
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Scroll the collection to see your sticky headers in action.
+        滚动collection以观察黏性header实际的效果。
     </p>
     <h2>
-        Where To Go From Here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
