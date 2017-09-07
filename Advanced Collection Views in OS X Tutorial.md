@@ -1729,13 +1729,13 @@
                     <code>
                         maybeY = max(offset!, minY)
                     </code>
-                    : When the top of the section is above the visible area this pins (or pushes down) the header to the top of the visible area.
+                    ：当这个section的顶部位于可见区域的上方时，就会将header固定到可见区域的顶部。
                 </li>
                 <li>
                     <code>
                         y = min(maybeY, maxY)
                     </code>
-                    : When the space between the bottom of the section to the top of the visible area is less than header height, it shows only the part of the header's bottom that fits this space.
+                    ：当从section底部到可见区域顶部的距离，小于header的高度的时候，它就只展示header底部的一部分，以适应这部分空间。
                 </li>
             </ol>
         </li>
@@ -1786,10 +1786,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1797,67 +1798,57 @@
         </div>
     </div>
     <p>
-        Download the final version of
+        可以从
+        <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SlidesPro-Final.zip">
+            这里
+        </a>
+        下载
         <em>
             SlidesPro
         </em>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/SlidesPro-Final.zip">
-            here
-        </a>
-        .
+        的最终版本。
     </p>
     <p>
-        In this Advanced Collection Views in OS X Tutorial you covered a lot of
-        ground! You took the collection view from a rudimentary app to one that
-        features the kinds of bells and whistles any Mac user would expect.
+        在这篇OS X的高级Collection View教程中，你已经学习了很多的内容！你已把它从一个最基本的app，发展成了任何Mac用户所期望的，包含各种铃声和口哨等各种特性的app。
     </p>
     <p>
-        After all your hard work, you're able to add and remove items, reorder
-        them, and troubleshoot and correct highlighting/selection issues. You took
-        it to the next level by adding in animations and implemented sticky headers
-        to give SlidesPro a very polished look.
+        在所有的辛勤工作之后，你已经可以添加和删除item，重新排序它们，排查错误以及纠正高亮/选择的问题。并且通过添加动画和实现黏性header给SlidesPro以一个优雅的外表，将它提升到了下一等级。
     </p>
     <p>
-        Most impressively, you now know how to build a functional, elegant collection
-        view in OS X. Considering that the documentation for these is fairly limited,
-        it's a great skill to have.
+        留下最深印象的是，你现在已经知道了如何在OS X中构建一个功能丰富，优雅的collection view。考虑到关于它的文档相当地有限，这是一个非常值得去拥有的技能。
     </p>
     <p>
-        Some of the topics that were not covered neither here nor in the basic
-        tutorial are:
+        在本教程中尚未覆盖到的主题还有：
     </p>
     <ul>
         <li>
-            Creating custom layouts by subclassing directly
+            通过直接继承
             <code>
                 NSCollectionViewLayout
             </code>
+            来创建自定义的布局
         </li>
         <li>
-            “Data Source-less” collection views using
+            使用
             <em>
                 <a href="https://www.raywenderlich.com/124490/cocoa-bindings-os-x-tutorial">
                     Cocoa Bindings
                 </a>
             </em>
+            的“无Data Source”的collection views
         </li>
     </ul>
     <p>
-        One of the top resources recommended at the end of the
-        <a href="https://www.raywenderlich.com/120494/collection-views-os-x-tutorial"
+        在这篇
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/OS%20X%20View%20Controllers%20Tutorial.md"
         target="_blank">
-            basic tutorial
+            基本教程
         </a>
-        is this excellent video tutorial series
+        的最后，推荐的一个资源，是来自Mic Pringle的优秀的视频教程系列
         <a href="https://www.raywenderlich.com/video-tutorials#CCVL" target="_blank"
         title="Custom Collection View Layout">
             Custom Collection View Layout
         </a>
-        from Mic Pringle. Although it's an iOS series, you can find lots of useful
-        information that's relevant to collection views in OS X as well.
-    </p>
-    <p>
-        I hope you found this tutorial most helpful! Let's talk about it in the
-        forums. I look forward to your questions, comments and discoveries!
+        。尽管它是一个iOS系列的教程，你可以找到很多用到有用的信息，也可以用到OS X的collection view上。
     </p>
 </div>
