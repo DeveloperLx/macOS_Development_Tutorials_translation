@@ -1269,99 +1269,93 @@
         运行项目。尝试将item拖拽到另一个section中。指示器现在不会再展示出来了，代表这个拖拽动作是不可行的。
     </p>
     <p>
-        Now drag a multi-selection. 
-        While inside the bounds of the collection view there is no drop indicator; 
-        however, drag it to
+        现在，拖拽多个选中的item。当拖拽到collection view的范围中时，并不会展示允许放置的指示；然而，将它拖拽到
         <em>
             Finder
         </em>
-        , and you'll see that a drop is allowed.
+        中时，你会发现这种是允许的。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        If you tried to drag the selection outside the collection view, you might
-        have noticed a highlight issue. You'll come back to this in the upcoming
-        section, "More Fun With Selection and Highlighting".
+        如果把选中的item拖拽到collection view之外，你会发现一个高亮问题。请看下一部分“关于选择和高亮的更多内容”。
     </div>
     <h2>
-        More Fun With Selection and Highlighting
+        关于选择和高亮的更多内容
     </h2>
     <p>
-        In the previous section, you noticed an issue with highlighting.
+        在上一部分，你会注意到一个关于高亮的问题。
     </p>
     <p>
-        For the sake of sanity in this discussion, the item being moved will be
+        为了便于清楚地进行讨论，被移动的这个item将被称作
         <em>
             Item-1
         </em>
-        . After
+        。在
         <em>
             Item-1
         </em>
-        lands at a new position it stays highlighted, and the
+        被放置到一个新的位置后，它仍会保持高亮，
         <em>
             Add
         </em>
-        and
+        和
         <em>
             Remove
         </em>
-        buttons are enabled, but the selection is empty.
+        按钮此时都是可用的，但选择现在却是空的。
     </p>
     <p>
-        To confirm this is true, select any item --
+        为了确认这点是真实的，选择任一item -- 我们将其称作
         <em>
             Item-2
         </em>
-        . It highlights as expected, but
+        。如同设想中的一样，它变为高亮的，但
         <em>
             Item-1
         </em>
-        stays highlighted. It should have been deselected and the highlight removed
-        when you selected
+        仍保持着高亮。它本来应该是在
         <em>
             Item-2
         </em>
-        .
+        被选择时，被取消选择和高亮的效果的。
     </p>
     <p>
-        Click anywhere between the items to deselect everything.
+        点击item之间的任意位置以取消选择全部的item。
         <em>
-            Item-2's
+            Item-2
         </em>
-        highlight goes away, the
+        的高亮效果消失了，
         <em>
             Add
         </em>
-        and
+        和
         <em>
             Remove
         </em>
-        buttons are disabled, as they should be for no selection, but
+        按钮也被禁用了，现在应当是没有任何的选择了，但
         <em>
             Item-1
         </em>
-        is
+        却
         <i>
-            still
+            仍然
         </i>
-        highlighted.
+        是高亮的。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        The collection view tracks its selection in its
+        collection view会同步选择到
         <code>
             selectionIndexPaths
         </code>
-        property. To debug, you can insert print statements to show the value
-        of this property.
+        这个property上。在debug的时候，你就可以打印它的值。
     </div>
     <p>
-        So what's going wrong here?
+        所以到底是哪里出问题了？
     </p>
     <p>
         Apparently, the collection view successfully deselects
