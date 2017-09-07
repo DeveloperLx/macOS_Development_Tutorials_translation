@@ -1358,70 +1358,66 @@
         所以到底是哪里出问题了？
     </p>
     <p>
-        Apparently, the collection view successfully deselects
+        显然，collection view成功地取消选择了
         <em>
             Item-1
         </em>
-        , but the
+        ，但
         <code>
             collectionView(\_:didDeselectItemsAtIndexPaths: )
         </code>
-        delegate method is not called to remove the highlight and disable the
-        buttons.
+        这个代理方法却未被调用，以将高亮的效果移除掉并禁用按钮。
     </p>
     <p>
-        In
+        在
         <code>
             NSCollectionView.h
         </code>
-        , the comments for the above method and its companion for the select action
-        say, "Sent at the end of interactive selection…". Hence, these notifications
-        are sent only when you select/deselect via UI.
+        中，collectionView(\_:didDeselectItemsAtIndexPaths: )上面的注释中描述到，“在交互式选择后调用...”。因此，这些通知仅仅会在你通过UI选择或取消选择item时，才会调用这个方法。
     </p>
     <p>
-        Here's your answer, Sherlock: The deselection behavior that should occur
-        when you're moving an item is performed programmatically via the
+        这就是你的答案了，“夏洛克”：这个当你移动一个item时发生的取消选择的行为，是因为程序性地执行
+        <code>
+            NSCollectionView
+        </code>
+        的方法
         <code>
             deselectItemsAtIndexPaths(\_:)
         </code>
-        method of
-        <code>
-            NSCollectionView
-        </code>
-        .
+        而触发的。
     </p>
     <p>
-        You'll need to override this method.
+        你需要重写这个方法。
     </p>
     <p>
-        Go to
+        依次点击
         <em>
             File \ New \ File…
         </em>
-        and create a new
-        <em>
-            Cocoa Class
-        </em>
-        by the name
+        创建一个新的名为
         <em>
             CollectionView
         </em>
-        make it a subclass of
+        的
+        <em>
+            Cocoa类
+        </em>
+        ，它是
         <em>
             NSCollectionView
         </em>
-        and put it in the
+        的子类，并将它放到
         <em>
             Views
         </em>
-        group.
+        这组中。
     </p>
     <p>
-        The template may add a
+        默认可能会添加一个
         <code>
             drawRect(\_:)
         </code>
-        -- make sure to delete it.
+        方法 -- 将其删除掉。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/EmptyCollectionView.png">
@@ -1432,11 +1428,11 @@
         </a>
     </p>
     <p>
-        Add the following method to
+        添加下列的方法到
         <code>
             CollectionView
         </code>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">deselectItemsAtIndexPaths</span><span class="hljs-params">(indexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
     <span class="hljs-keyword">super</span>.deselectItemsAtIndexPaths(indexPaths)
@@ -1445,38 +1441,38 @@
   }
 </pre>
     <p>
-        The method calls its super implementation followed by a call to
+        这个方法首先会调用其父类的实现，然后在调用它的delegate的
         <code>
             highlightItems(\_:atIndexPaths:)
         </code>
-        of its delegate, allowing
+        方法，并相应地让
         <code>
             ViewController
         </code>
-        to highlight/unhighlight items and enable/disable buttons respectively.
+        高亮/取消高亮item，打开使用/禁用按钮。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and select the
+        并选择
         <em>
             Collection View
         </em>
-        . In the
+        。在
         <em>
             Identity Inspector
         </em>
-        , change
+        中，将
         <em>
             Class
         </em>
-        to
+        改为
         <em>
             CollectionView
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/CollectionViewIB.png">
@@ -1487,92 +1483,86 @@
         </a>
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
-        Move an item inside the collection to a different location. Nothing shows
-        as highlighted and buttons disable as expected. Case closed.
+        在collection中将一个item移动到一个不同的位置上。现在没有高亮的项目出现了，按钮也如同期望的一样被禁用了。问题解决。
     </p>
     <h2>
-        Animation in Collection Views
+        Collection View中的动画
     </h2>
     <p>
         <code>
             NSCollectionView
         </code>
-        , as a subclass of
+        ，作为
         <code>
             NSView
         </code>
-        , can perform animations via the animator proxy. It's as easy as adding
-        a single word in your code before an operation such as removal of items.
+        的子类，可以通用动画代理来执行动画。在诸如移除item的操作之前，它就和你在代码中添加一个单词一样的容易。
     </p>
     <p>
-        At the end of the
-        <code>
-            removeSlide(\_:)
-        </code>
-        method in
+        在
         <code>
             ViewController
         </code>
-        , replace this:
+        中，
+        <code>
+            removeSlide(\_:)
+        </code>
+        方法的尾部，将代码：
     </p>
     <pre lang="swift" class="language-swift hljs">    collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
 </pre>
     <p>
-        With this:
+        替换为：
     </p>
     <pre lang="swift" class="language-swift hljs">    collectionView.animator().deleteItemsAtIndexPaths(selectionIndexPaths)
 </pre>
     <p>
-        Build and run.
+        运行项目
     </p>
     <p>
-        Select several items and click the
+        选择几个item并点击
         <em>
             Remove
         </em>
-        button. Watch as the items glide to take up their new positions on the
-        screen.
+        按钮。你会看到item在屏幕中滑动到了新的位置。
     </p>
     <p>
-        The default duration is a quarter of a second. To experience a really
-        cool and beautiful effect, add a setting for the duration of the animation
-        at a higher value. Place it above the line you just added:
+        动画默认的持续时间是四分之一秒。如果想要体验一个更酷的效果，可以把动画的持续时间替换为一个更高的值。把你上面刚刚添加的这行代码替换为：
     </p>
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-type">NSAnimationContext</span>.currentContext().duration = <span class="hljs-number">1.0</span>
     collectionView.animator().deleteItemsAtIndexPaths(selectionIndexPaths)
 </pre>
     <p>
-        Build and run, and then remove some items. Cool effect, isn't it?
+        运行项目，移除一些项目。效果赞不？
     </p>
     <p>
-        You can do the same for
+        你可以在添加item时，为
         <code>
             insertItemsAtIndexPaths
         </code>
-        when you're adding items, as well as for
+        做相同的事，同理也适用于使用
         <code>
             moveItemAtIndexPath
         </code>
-        when moving an item.
+        方法移动item时的情况。
     </p>
     <h2>
         Sticky Headers
     </h2>
     <p>
-        When you scroll a collection view with section headers, the first element
-        of a given section that vanishes at the top of the screen is its header.
+        When you scroll a collection view with section headers, 
+        the first element of a given section that vanishes at the top of the screen is its header.
     </p>
     <p>
         In this section, you'll implement
         <em>
             Sticky Headers
         </em>
-        , so the top-most section header will pin itself to the top of the collection
-        view. It will hold its position until the next section header bumps it
-        out of the way.
+        , so the top-most section header will pin itself to the top of the collection view. 
+        It will hold its position until the next section header bumps it out of the way.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/StickyHeadersScreen.png">
@@ -1621,15 +1611,15 @@
         </a>
     </p>
     <p>
-        In
+        在
         <code>
             ViewController
         </code>
-        , change the first line of
+        中，将
         <code>
             configureCollectionView()
         </code>
-        to:
+        的第一行改为：
     </p>
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-keyword">let</span> flowLayout = <span class="hljs-type">StickyHeadersLayout</span>()
 </pre>
