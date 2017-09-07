@@ -1550,19 +1550,17 @@
         方法移动item时的情况。
     </p>
     <h2>
-        Sticky Headers
+        黏性Headers
     </h2>
     <p>
-        When you scroll a collection view with section headers, 
-        the first element of a given section that vanishes at the top of the screen is its header.
+        当你使用section header滚动collection view时，这个section在屏幕顶部消失的第一个元素会是header。
     </p>
     <p>
-        In this section, you'll implement
+        在这一部分，你将实现
         <em>
-            Sticky Headers
+            黏性的Headers
         </em>
-        , so the top-most section header will pin itself to the top of the collection view. 
-        It will hold its position until the next section header bumps it out of the way.
+        ，section顶部的header将把自己固定在collection view的顶部。它会将自己的位置保持到下一个section的header把它顶出去为止。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/StickyHeadersScreen.png">
@@ -1573,34 +1571,34 @@
         </a>
     </p>
     <p>
-        To make this effect reality, you'll subclass
+        为了让效果显得更加真实，你将撰写一个
         <code>
             NSCollectionViewFlowLayout
         </code>
-        .
+        的子类。
     </p>
     <p>
-        Go to
+        依次点击
         <em>
             File \ New \ File…
         </em>
-        and create a new
-        <em>
-            Cocoa Class
-        </em>
-        named
+        ，并创建一个新的名为
         <em>
             StickyHeadersLayout
         </em>
-        as a subclass of
+        的
+        <em>
+            Cocoa类
+        </em>
+        ，它是
         <em>
             NSCollectionViewFlowLayout
         </em>
-        , and put it in the
+        的子类，并将它放到
         <em>
             Layout
         </em>
-        group.
+        组中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/StickyHeaderSkeleton.png">
@@ -1624,12 +1622,11 @@
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-keyword">let</span> flowLayout = <span class="hljs-type">StickyHeadersLayout</span>()
 </pre>
     <p>
-        Now implement sticky headers by adding the following method to the empty
-        body of the
+        现在通过添加下列的方法到
         <code>
             StickyHeadersLayout
         </code>
-        class:
+        内来实现黏性headers：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">layoutAttributesForElementsInRect</span><span class="hljs-params">(rect: NSRect)</span></span> -&gt; [<span class="hljs-type">NSCollectionViewLayoutAttributes</span>] {
     <span class="hljs-comment">// 1</span>
@@ -1682,8 +1679,7 @@
   }
 </pre>
     <p>
-        Okay, there's a lot happening in there, but it makes sense when you take
-        it section by section:
+        ok，发生了好多的事，我们一部分一部分来看：
     </p>
     <ol>
         <li>
