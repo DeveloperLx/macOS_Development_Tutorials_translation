@@ -1717,10 +1717,10 @@
             设置可见区域顶部的坐标，也就是说滚动的偏移。
         </li>
         <li>
-            Make it so the header never goes further up than one-header-height above the upper bounds of the first item in the section.
+            这么做，让header从不超过所属section中的第一个item上边界一个header的高度。
         </li>
         <li>
-            Make it so the header never goes further down than one-header-height above the lower bounds of the last item in the section.
+            这么做，则让header从不超过所属section中的最后一个item下边界一个header的高度。
         </li>
         <li>
             可将这里拆分为两步：
