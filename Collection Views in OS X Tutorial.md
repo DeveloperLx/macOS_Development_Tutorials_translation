@@ -247,7 +247,7 @@
         <em>
             Xcode
         </em>
-        中打开它。Build并运行：
+        中打开它。运行项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/empty-app.png">
@@ -664,7 +664,7 @@
     <pre lang="swift" class="language-swift hljs"><font><font>configureCollectionView（）
 </font></font></pre>
     <p>
-        Build并运行：
+        运行项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/BlackView.png">
@@ -1344,7 +1344,7 @@
         </a>
     </p>
     <p>
-        Build并运行。
+        运行项目。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/OneSectionFinal.png">
             <img src="https://koenig-media.raywenderlich.com/uploads/2015/11/OneSectionFinal-409x500.png"
@@ -1501,7 +1501,7 @@
         约束。
     </p>
     <p>
-        Build并运行。它的底部应当看起来就像这样：
+        运行项目。它的底部应当看起来就像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ShowSectionsBottom.png">
@@ -1609,7 +1609,7 @@
         </a>
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SectionsShowing.png">
@@ -1664,7 +1664,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         在这里，你设置底部和顶部section的inset为30，以便提供更好的section之间的分隔。
     </p>
     <p>
-        Build并运行：
+        运行项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/SectionInsets.png">
@@ -2118,7 +2118,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         </a>
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/WithHeaders.png">
@@ -2359,7 +2359,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         这就确保了选择和高亮是同步的。
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/ShowSelection.png">
