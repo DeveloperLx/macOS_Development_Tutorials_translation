@@ -430,7 +430,7 @@
         <code>
             @IBDesignable
         </code>
-        注释，且可选择的，你可以实现
+        标注，且可选择的，你可以实现
         <code>
             prepareForInterfaceBuilder()
         </code>
@@ -476,99 +476,104 @@
 }
 </pre>
     <p>
-        This defines the property
+        这定义了
         <code>
             fileDistribution
         </code>
-        that will store hard drive information. When the property changes, it
-        sets the
+        属性，用来储存硬盘信息。当这个property发生变化的时候，就将这个view的
         <code>
             needsDisplay
         </code>
-        property of the view to
+        property设置为
         <em>
             true
         </em>
-        to force the view to redraw its content.
+        ，来强制这个view重新绘制它的内容。
     </p>
     <p>
-        Then it implements
+        然后实现
         <code>
             prepareForInterfaceBuilder()
         </code>
-        to create a sample file distribution that Xcode will use to render the
-        view.
+        方法来创建一个样本的文件分布，Xcode就会用它来渲染这个view。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You can also change the visual attributes of your custom views in real
-            time inside Interface Builder. You just need to add the
+            ：你也可以在Interface Builder中实时地改变你自定义view的可视的属性。你只需添加
             <code>
                 @IBInspectable
             </code>
-            annotation to a property.
+            这个标注到这个property上。
         </p>
     </div>
     <p>
-        Next up: make all the visual properties of the graph view inspectable.
-        Add the following code inside the
+        接下来：让这个view中所有的可视的property标注@IBInspectable。在
         <code>
             GraphView
         </code>
-        implementation:
+        的实现中添加下列的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286144">
-                    <td class="code" id="p128614code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 fileprivate struct Constants { static let barHeight: CGFloat = 30.0
-                            static let barMinHeight: CGFloat = 20.0 static let barMaxHeight: CGFloat
-                            = 40.0 static let marginSize: CGFloat = 20.0 static let pieChartWidthPercentage:
-                            CGFloat = 1.0 / 3.0 static let pieChartBorderWidth: CGFloat = 1.0 static
-                            let pieChartMinRadius: CGFloat = 30.0 static let pieChartGradientAngle:
-                            CGFloat = 90.0 static let barChartCornerRadius: CGFloat = 4.0 static let
-                            barChartLegendSquareSize: CGFloat = 8.0 static let legendTextMargin: CGFloat
-                            = 5.0 } &nbsp; // 2 @IBInspectable var barHeight: CGFloat = Constants.barHeight
-                            { didSet { barHeight = max(min(barHeight, Constants.barMaxHeight), Constants.barMinHeight)
-                            } } @IBInspectable var pieChartUsedLineColor: NSColor = NSColor.pieChartUsedStrokeColor
-                            @IBInspectable var pieChartAvailableLineColor: NSColor = NSColor.pieChartAvailableStrokeColor
-                            @IBInspectable var pieChartAvailableFillColor: NSColor = NSColor.pieChartAvailableFillColor
-                            @IBInspectable var pieChartGradientStartColor: NSColor = NSColor.pieChartGradientStartColor
-                            @IBInspectable var pieChartGradientEndColor: NSColor = NSColor.pieChartGradientEndColor
-                            @IBInspectable var barChartAvailableLineColor: NSColor = NSColor.availableStrokeColor
-                            @IBInspectable var barChartAvailableFillColor: NSColor = NSColor.availableFillColor
-                            @IBInspectable var barChartAppsLineColor: NSColor = NSColor.appsStrokeColor
-                            @IBInspectable var barChartAppsFillColor: NSColor = NSColor.appsFillColor
-                            @IBInspectable var barChartMoviesLineColor: NSColor = NSColor.moviesStrokeColor
-                            @IBInspectable var barChartMoviesFillColor: NSColor = NSColor.moviesFillColor
-                            @IBInspectable var barChartPhotosLineColor: NSColor = NSColor.photosStrokeColor
-                            @IBInspectable var barChartPhotosFillColor: NSColor = NSColor.photosFillColor
-                            @IBInspectable var barChartAudioLineColor: NSColor = NSColor.audioStrokeColor
-                            @IBInspectable var barChartAudioFillColor: NSColor = NSColor.audioFillColor
-                            @IBInspectable var barChartOthersLineColor: NSColor = NSColor.othersStrokeColor
-                            @IBInspectable var barChartOthersFillColor: NSColor = NSColor.othersFillColor
-                            &nbsp; // 3 func colorsForFileType(fileType: FileType) -&gt; (strokeColor:
-                            NSColor, fillColor: NSColor) { switch fileType { case .audio(_, _): return
-                            (strokeColor: barChartAudioLineColor, fillColor: barChartAudioFillColor)
-                            case .movies(_, _): return (strokeColor: barChartMoviesLineColor, fillColor:
-                            barChartMoviesFillColor) case .photos(_, _): return (strokeColor: barChartPhotosLineColor,
-                            fillColor: barChartPhotosFillColor) case .apps(_, _): return (strokeColor:
-                            barChartAppsLineColor, fillColor: barChartAppsFillColor) case .other(_,
-                            _): return (strokeColor: barChartOthersLineColor, fillColor: barChartOthersFillColor)
-                            } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+<span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">fileprivate</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Constants</span> </span>{
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> barHeight: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">30.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> barMinHeight: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">20.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> barMaxHeight: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">40.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> marginSize: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">20.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> pieChartWidthPercentage: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">1.0</span> / <span class="hljs-number">3.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> pieChartBorderWidth: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">1.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> pieChartMinRadius: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">30.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> pieChartGradientAngle: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">90.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> barChartCornerRadius: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">4.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> barChartLegendSquareSize: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">8.0</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> legendTextMargin: <span class="hljs-type">CGFloat</span> = <span class="hljs-number">5.0</span>
+}
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barHeight: <span class="hljs-type">CGFloat</span> = <span class="hljs-type">Constants</span>.barHeight {
+  <span class="hljs-keyword">didSet</span> {
+    barHeight = <span class="hljs-built_in">max</span>(<span class="hljs-built_in">min</span>(barHeight, <span class="hljs-type">Constants</span>.barMaxHeight), <span class="hljs-type">Constants</span>.barMinHeight)
+  }
+}
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> pieChartUsedLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.pieChartUsedStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> pieChartAvailableLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.pieChartAvailableStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> pieChartAvailableFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.pieChartAvailableFillColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> pieChartGradientStartColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.pieChartGradientStartColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> pieChartGradientEndColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.pieChartGradientEndColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartAvailableLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.availableStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartAvailableFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.availableFillColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartAppsLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.appsStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartAppsFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.appsFillColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartMoviesLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.moviesStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartMoviesFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.moviesFillColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartPhotosLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.photosStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartPhotosFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.photosFillColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartAudioLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.audioStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartAudioFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.audioFillColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartOthersLineColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.othersStrokeColor
+<span class="hljs-meta">@IBInspectable</span> <span class="hljs-keyword">var</span> barChartOthersFillColor: <span class="hljs-type">NSColor</span> = <span class="hljs-type">NSColor</span>.othersFillColor
+
+<span class="hljs-comment">// 3</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">colorsForFileType</span><span class="hljs-params">(fileType: FileType)</span></span> -&gt; (strokeColor: <span class="hljs-type">NSColor</span>, fillColor: <span class="hljs-type">NSColor</span>) {
+  <span class="hljs-keyword">switch</span> fileType {
+  <span class="hljs-keyword">case</span> .audio(<span class="hljs-number">_</span>, <span class="hljs-number">_</span>):
+    <span class="hljs-keyword">return</span> (strokeColor: barChartAudioLineColor, fillColor: barChartAudioFillColor)
+  <span class="hljs-keyword">case</span> .movies(<span class="hljs-number">_</span>, <span class="hljs-number">_</span>):
+    <span class="hljs-keyword">return</span> (strokeColor: barChartMoviesLineColor, fillColor: barChartMoviesFillColor)
+  <span class="hljs-keyword">case</span> .photos(<span class="hljs-number">_</span>, <span class="hljs-number">_</span>):
+    <span class="hljs-keyword">return</span> (strokeColor: barChartPhotosLineColor, fillColor: barChartPhotosFillColor)
+  <span class="hljs-keyword">case</span> .apps(<span class="hljs-number">_</span>, <span class="hljs-number">_</span>):
+    <span class="hljs-keyword">return</span> (strokeColor: barChartAppsLineColor, fillColor: barChartAppsFillColor)
+  <span class="hljs-keyword">case</span> .other(<span class="hljs-number">_</span>, <span class="hljs-number">_</span>):
+    <span class="hljs-keyword">return</span> (strokeColor: barChartOthersLineColor, fillColor: barChartOthersFillColor)
+  }
+}
+</pre>
     <p>
-        This is what the code above does:
+        上述代码：
     </p>
     <ol>
         <li>
