@@ -6,9 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update 9/22/16:
+                更新于2016年9月22日：
             </em>
-            This tutorial has been updated for Xcode 8 and Swift 3.
+            本教程已更新以适配Xcode 8及Swift 3。
         </p>
     </div>
     <p>
@@ -18,31 +18,25 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        You’ve seen a lot of apps that depict beautiful graphics and stylish custom
-        views. The best of them make a lasting impression, and you always remember
-        them because they are just
+        你一定见到过很多app带有美丽的图形和时髦的view。它们会带给你深刻的影响，因为它们是
         <i>
             so
+            如此
         </i>
-        pretty.
+        得漂亮。
     </p>
     <p>
         <em>
             Core Graphics
         </em>
-        is Apple’s 2D drawing engine, and is one of the coolest frameworks in
-        macOS and iOS. It has capacity to draw anything you can imagine, from simple
-        shapes and text to more complex visual effects that include shadows and
-        gradients.
+        是苹果的2D绘制引擎，它是macOS和iOS中最酷的框架之一。它能够绘制任何你可以想象到的东西，从最简单的形状，文本，到最复杂的视觉效果，包括阴影，渐变效果等。
     </p>
     <p>
-        In this Core Graphics on macOS tutorial, you’ll build up an app named
+        在这篇macOS的Core Graphics教程中，你将会创建一个名为
         <em>
             DiskInfo
         </em>
-        to create a custom view that displays the available space and file distribution
-        of a hard drive. It’s a solid example of how you can use Core Graphics
-        to make a dull, text-based interface beautiful:
+        的app，在其中包含一个可以展示某硬盘可用空间及文件分布的view。这将是一个很好的例子，来说明如何使用Core Graphics来讲一个枯燥无味，基于文本的界面变得漂亮起来：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/graphview.png"
@@ -54,49 +48,46 @@
         </a>
     </p>
     <p>
-        Along the way you’ll discover how to:
+        跟随教程你可以了解到如何：
     </p>
     <ul>
         <li>
-            Create and configure a custom view, the base layer for any graphical element
+            创建及配置一个标准的view，它是任何图形元素的基础的层
         </li>
         <li>
-            Implement live rendering so that you don’t have to build and run every
-            time you change your graphics
+            实现实时的渲染，这样你就不必每次改变图形的时候，都重新运行项目了
         </li>
         <li>
-            Paint with code by working with paths, fills, clipping areas and strings
+            通过使用路径、填充、裁剪及文本，来用代码进行绘制
         </li>
         <li>
-            Use
+            使用
             <em>
                 Cocoa Drawing
             </em>
-            , a tool available to
+            ，一个可以在
             <em>
                 AppKit
             </em>
-            apps, which defines higher level classes and functions
+            的app下可用的工具，它给出了更高层级的类和方法
         </li>
     </ul>
     <p>
-        In the first part of this Core Graphics on macOS tutorial, you’ll implement
-        the bar chart using Core Graphics, before moving on to learn how to draw
-        the pie chart using Cocoa Drawing.
+        在本教程的第一部分，你将使用Core Graphics来实现条状的图表，之后再来学习如何使用Cocoa Drawing来绘制饼状图。
     </p>
     <p>
-        So put on your painter’s hat and get ready to learn how to color your
-        world.
+        所以戴上你的画家帽子，开始学习如何绘制你的世界吧。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        First, download the starter project for DiskInfo
+        首先，从
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/06/DiskInfo-Starter.zip">
             here
+            这里
         </a>
-        . Build and run it now.
+        下载DiskInfo的初始项目。运行它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-diskinfo-build-run1.png"
