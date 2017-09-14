@@ -84,7 +84,7 @@
         下载初始项目。
     </p>
     <p>
-        Build并运行项目，你将看到它有一个很棒的界面 - 但是没有数据。
+        运行项目，你将看到它有一个很棒的界面 - 但是没有数据。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Screen-Shot-2016-01-31-at-6.01.30-PM-700x463.png"
@@ -398,7 +398,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         ，就如同你点击搜索按钮一样。这使得使用键盘搜索更加得快速和容易。
     </p>
     <p>
-        Build并运行，输入
+        运行项目，输入
         Build and run, type
         <em>
             flappy
@@ -479,7 +479,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         sizes="(max-width: 170px) 100vw, 170px">
     </p>
     <p>
-        build并运行，并搜索一些你知道的事，将返回大量的结果。你会看到至少5个结果，除非你改变下拉菜单中的数字。由于bindings，这个array controller就自动地代表了table view中的内容。然后，他们都叫“Table View Cell”。
+        运行项目，并搜索一些你知道的事，就返回大量的结果。你会看到至少5个结果，除非你改变下拉菜单中的数字。由于bindings，这个array controller就自动地代表了table view中的内容。然后，他们都叫“Table View Cell”。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/arrayboundnotitlesintable-700x463.png"
@@ -568,7 +568,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         重复上面的过程。
     </p>
     <p>
-        Build并运行，然后再次搜索。这次，标题和publisher会展示如：
+        运行项目，然后再次搜索。这次，标题和publisher会展示如：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/title-and-publisher-700x463.png"
@@ -649,7 +649,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         。
     </p>
     <p>
-        Build并运行，app会在table view的第一列中展示排名：
+        运行项目，app会在table view的第一列中展示排名：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/ranktitlepublisher-700x463.png"
@@ -794,7 +794,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         alt="mainTrackName" width="247" height="193" class="aligncenter size-full wp-image-126075">
     </p>
     <p>
-        Build并运行，选择在table view中的任一app，它的title就会出现在文本输入框中：
+        运行项目，选择在table view中的任一app，它的title就会出现在文本输入框中：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Main-Title-700x463.png"
@@ -888,7 +888,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </a>
     </p>
     <p>
-        Build并运行，从列表中选择任一app，现在货币应当全部展示的是正确的：
+        运行项目，从列表中选择任一app，现在货币应当全部展示的是正确的：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/priceformatted-700x463.png"
@@ -971,7 +971,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         alt="byte count formatter" width="349" height="124" class="aligncenter size-full wp-image-126083">
     </p>
     <p>
-        Build并运行，在列表中选择一个app，你就会看到使用合适单位的文件的大小，例如KB，MB和GB：
+        运行项目，在列表中选择一个app，你就会看到使用合适单位的文件的大小，例如KB，MB和GB：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/byte-count-final-700x463.png"
@@ -1092,7 +1092,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </a>
     </p>
     <p>
-        Build并运行，你会看到大部分的UI已被填充：
+        运行项目，你会看到大部分的UI已被填充：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/mostly-populated-700x421.png"
@@ -1246,7 +1246,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         它们连接到网络资源上，但这样会阻塞UI线程，直到资源完成下载之后。
     </p>
     <p>
-        Build并运行，搜索
+        运行项目，搜索
         <em>
             fruit
         </em>
@@ -1421,7 +1421,7 @@ collectionView.itemPrototype = itemPrototype
         对象。
     </p>
     <p>
-        Build并运行，你会看到图像出现在了描述文本的下面：
+        运行项目，你会看到图像出现在了描述文本的下面：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/screenshots-700x421.png"
@@ -1616,7 +1616,7 @@ collectionView.itemPrototype = itemPrototype
         sizes="(max-width: 248px) 100vw, 248px">
     </p>
     <p>
-        Build并运行；搜索一下，就会返回大量的结果，因此你就有时间去观察spinner来做它的事情了：
+        运行项目；搜索一下，就会返回大量的结果，因此你就有时间去观察spinner来做它的事情了：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Spinner-animating-700x421.png"
@@ -1631,7 +1631,7 @@ collectionView.itemPrototype = itemPrototype
         Cocoa Bindings可以做到的事，远远不止我们现在学到的这些：你可以绑定颜色和字体到label上，打开和禁用控件，甚至为label根据它们的状态设置不同的值。
     </p>
     <p>
-        Build并运行你的app，你会注意到在你全部的label之前，你会看到
+        运行项目，你会注意到在你全部的label之前，你会看到
         <em>
             No Selection
         </em>
@@ -1663,7 +1663,7 @@ collectionView.itemPrototype = itemPrototype
         sizes="(max-width: 261px) 100vw, 261px">
     </p>
     <p>
-        Build并运行你的app，你会看到
+        运行项目，你会看到
         <em>
             Price
         </em>

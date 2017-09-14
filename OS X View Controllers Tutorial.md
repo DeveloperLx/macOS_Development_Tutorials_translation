@@ -208,7 +208,7 @@
         </a>
     </p>
     <p>
-        build并运行app。你应会看到你的应用的主窗口。
+        运行app。你应会看到你的应用的主窗口。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/window-empty.png"
@@ -507,7 +507,7 @@
         </a>
     </p>
     <p>
-        build并运行app
+        运行app
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/tabview-empty2.png"
@@ -718,7 +718,7 @@
         </a>
     </p>
     <p>
-        毕竟你努力工作在界面上，现在是最终的时间来查看结果了，build并运行。
+        毕竟你努力工作在界面上，现在是最终的时间来查看结果了，运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/RunOverview.png"
@@ -1334,7 +1334,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     </p>
     <pre class="swift" style="font-family:monospace;">overviewViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
     <p>
-        build并运行，查看当你选择了一个不同的产品时，UI是怎么更新的。
+        运行项目，查看当你选择了一个不同的产品时，UI是怎么更新的。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/OverviewRun.png"
@@ -1802,7 +1802,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         。
     </p>
     <p>
-        build并运行，并enjoy你完成的应用！
+        运行项目，并enjoy你完成的应用！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/FinalRun.png"

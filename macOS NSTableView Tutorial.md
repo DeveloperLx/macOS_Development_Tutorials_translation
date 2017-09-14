@@ -67,7 +67,7 @@
         中打开它。
     </p>
     <p>
-    	build并运行，来查看你会从什么地方开始：
+    	运行项目，来查看你会从什么地方开始：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/build-run-empty.png">
@@ -541,7 +541,7 @@
         alt="resize modification date if needed" width="260" height="129" class="aligncenter size-full wp-image-145687">
     </p>
     <p>
-    	build并运行。这里是你应该看到的：
+    	运行项目。这里是你应该看到的：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/post-column-naming.png"
@@ -960,7 +960,7 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         方法来更新table view的数据。
     </p>
     <p>
-        build并运行。
+        运行项目。
     </p>
     <p>
         使用菜单上的
@@ -1056,7 +1056,7 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     	当选择改变时，table view就会调用这个方法，然后更新状态文本。
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/table-selection-label.png"
@@ -1178,7 +1178,7 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
         </li>
     </ol>
     <p>
-    	build并运行来检查你的作品。
+    	运行项目以检查你的作品。
     </p>
     <p>
     	双击任何文件并观察它是怎么用默认的应用打开的。现在，选择一个目录并观察table view怎么更新及展示那个目录的内容。
@@ -1305,7 +1305,7 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
         </li>
     </ol>
     <p>
-    	build并运行。
+    	运行项目。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/10/sortable-columns.png"

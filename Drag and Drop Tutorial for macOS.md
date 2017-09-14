@@ -1150,7 +1150,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </li>
     </ol>
     <p>
-        build并运行，拖拽独角兽的图片到sticker view上。它将投放带颜色的独角兽到view上。赞！
+        运行项目，拖拽独角兽的图片到sticker view上。它将投放带颜色的独角兽到view上。赞！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/midway.png"
@@ -1501,7 +1501,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         </ol>
     </ol>
     <p>
-    	build并运行。现在你可以拖拽星星的view到sticker view上了，来添加“一阵”（a spray of）星星到你的view上。
+    	运行项目。现在你可以拖拽星星的view到sticker view上了，来添加“一阵”（a spray of）星星到你的view上。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/06/final-361x500.png"

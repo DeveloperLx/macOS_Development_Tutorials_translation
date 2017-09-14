@@ -166,7 +166,7 @@
         并保存你的项目。
     </p>
     <p>
-        build并运行，你将看到：
+        运行项目，你将看到：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112378" src="https://koenig-media.raywenderlich.com/uploads/2015/08/3-FirstWindow.png"
@@ -385,7 +385,7 @@
         重复该步骤。
     </p>
     <p>
-        build并运行，切换到
+        运行项目，切换到
         <em>
             Open
         </em>
@@ -523,7 +523,7 @@
         sizes="(max-width: 241px) 100vw, 241px">
     </p>
     <p>
-        build并运行，你应当看到：
+        运行项目，你应当看到：
     </p>
     <p>
         <img class="aligncenter wp-image-119247 size-medium" src="https://koenig-media.raywenderlich.com/uploads/2015/09/demonstrating_position-452x320.png"
@@ -572,11 +572,11 @@
             <em>
                 注意
             </em>
-            ：OS X在每次启动时会记忆window的位置。为了查看你做的变化，你需要确保关掉了app的window - 而不仅仅是重新build并运行。
+            ：OS X在每次启动时会记忆window的位置。为了查看你做的变化，你需要确保关掉了app的window - 而不仅仅是重新运行。
         </p>
     </div>
     <p>
-        关掉所有的窗口，然后build并运行。
+        关掉所有的窗口，然后运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/10-Window200x200Xcode.png"
@@ -774,7 +774,7 @@
         小，因为系统会持有了一个小的边界区域来当展示dock时进行检测。
     </p>
     <p>
-        build并运行，这个window应该被设定为，距离屏幕左上角的每个方向都是20个点的位置上。
+        运行项目，这个window应该被设定为，距离屏幕左上角的每个方向都是20个点的位置上。
     </p>
     <h2>
         Cascading window
@@ -821,7 +821,7 @@
         property设置为true。
     </p>
     <p>
-        build并运行app，然后打开5个window。你的屏幕看起来应该就更友好些了：
+        运行app，然后打开5个window。你的屏幕看起来应该就更友好些了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/13-CascadingWindows.png"
@@ -1015,7 +1015,7 @@
         sizes="(max-width: 625px) 100vw, 625px">
     </p>
     <p>
-        build并运行 - 你应该看到如下这样：
+        运行项目 - 你应该看到如下这样：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112657" src="https://koenig-media.raywenderlich.com/uploads/2015/08/16-EmptyText.png"
@@ -1118,7 +1118,7 @@
         这个selector的第一响应者。
     </p>
     <p>
-        build并运行app，然后输入一些文本并选择它。选择
+        运行app，然后输入一些文本并选择它。选择
         <em>
             Format / Font / Show Fonts
         </em>
@@ -1173,7 +1173,7 @@
         </a>
     </p>
     <p>
-        build并运行，你应该会看到：
+        运行项目，你应该会看到：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112672" src="https://koenig-media.raywenderlich.com/uploads/2015/08/21-EditMe.png"
@@ -1258,7 +1258,7 @@
         </a>
     </p>
     <p>
-        build并运行，观察window和text view怎样一起改变大小：
+        运行项目，观察window和text view怎样一起改变大小：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/22-AutoLayoutFixed.png"
@@ -1328,7 +1328,7 @@
         sizes="(max-width: 550px) 100vw, 550px">
     </p>
     <p>
-        build并运行，现在这个window就会默认id展示尺子：
+        运行项目，现在这个window就会默认id展示尺子：
     </p>
     <p>
         <img class="aligncenter size-full wp-image-112689" src="https://koenig-media.raywenderlich.com/uploads/2015/08/RulerShowing.png"
@@ -1921,7 +1921,7 @@
         </p>
     </div>
     <p>
-        build并运行app，选择
+        运行app，选择
         <em>
             Edit / Word Count
         </em>

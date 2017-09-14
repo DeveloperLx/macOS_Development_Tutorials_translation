@@ -88,7 +88,7 @@
         sl-processed="1">
             下载这个项目
         </a>
-        ，并在Xcode中打开，build并运行。
+        ，并在Xcode中打开，运行项目。
     </p>
     <p>
         这个启动的app有一个window，就像下面这样：
@@ -467,7 +467,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         的时间内非常忙碌，用户会无耐心地多次点击它 - 每次都会产生一个新的build过程。这个动作避免了用户在app非常忙碌的时候创建按钮的点击事件。
     </p>
     <p>
-        Build并运行你的应用，然后点击
+        运行项目，然后点击
         <em>
             Build
         </em>
@@ -630,7 +630,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         方法。
     </p>
     <p>
-        Build并运行你的应用，点击
+        运行项目，点击
         <em>
             Build
         </em>
@@ -856,7 +856,7 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
         </li>
     </ol>
     <p>
-        Build并运行你的项目；你不会看到任何
+        运行你的项目；你不会看到任何
         <i>
             看起来
         </i>
@@ -1148,7 +1148,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         的权限。你可以读和写文件，但你并不能执行它。
     </p>
     <p>
-        这意味着如果你现在build并运行，当你点击Build按钮时，app就会crash。如果你想，就可以尝试一下。这在开发时并没什么大不了，你会在你的Xcode控制台中看到“launch path not accessible”的异常。
+        这意味着如果你现在运行app，当你点击Build按钮时，app就会crash。如果你想，就可以尝试一下。这在开发时并没什么大不了，你会在你的Xcode控制台中看到“launch path not accessible”的异常。
     </p>
     <p>
         为了让它可执行，在终端中前往你的项目目录。终端默认位于你的家目录中，因此如果项目是在你的
@@ -1516,7 +1516,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </li>
     </ol>
     <p>
-        再次Build并运行你的应用；确保
+        再次运行你的应用；确保
         <code>
             Project Location
         </code>
@@ -1579,7 +1579,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         在它的执行中。
     </p>
     <p>
-        Build并运行你的app，确保全部的field配置正确，并单击
+        运行你的app，确保全部的field配置正确，并单击
         <em>
             Build
         </em>

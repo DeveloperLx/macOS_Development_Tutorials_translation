@@ -587,7 +587,7 @@ isDirectory.boolValue
         <em>
             Command+R键
         </em>
-        build并运行。它的UI已完成，但你需要添加文件管理位。
+        运行项目。它的UI已完成，但你需要添加文件管理位。
     </p>
     <p>
         你第一个任务就是让用户选择一个目录，然后展示它的内容。你会在
@@ -679,7 +679,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         </li>
     </ol>
     <p>
-        Build并运行，单击
+        运行项目，单击
         <em>
             Select Folder
         </em>
@@ -925,7 +925,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         </li>
     </ol>
     <p>
-        现在build并运行，选择一个目录，你应当看到一个文件和目录的列表出现了 - 欢呼吧！
+        运行项目，选择一个目录，你应当看到一个文件和目录的列表出现了 - 欢呼吧！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/FolderContents.png"
@@ -1236,7 +1236,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         </li>
     </ol>
     <p>
-        Build并运行，选择一个目录，并勾选及取消
+        运行项目，选择一个目录，并勾选及取消
         <em>
             Show Invisible Files
         </em>
@@ -1325,7 +1325,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         </li>
     </ol>
     <p>
-        Build并运行，选择一个包含其它目录的目录，然后双击这个列表中的目录进入它。
+        运行项目，选择一个包含其它目录的目录，然后双击这个列表中的目录进入它。
     </p>
     <p>
         <em>
@@ -1530,7 +1530,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         ，这是一个通用的标准。
     </p>
     <p>
-        Build并运行，从列表中选择一个文件或目录，点击
+        运行项目，从列表中选择一个文件或目录，点击
         <em>
             Save Info
         </em>
@@ -1721,7 +1721,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         。虽然简写的方式会更容易输入和阅读，但完整的方式会更有用于了解这些来自于哪里，因此如果需要的话，你可以在文档中找到他们。
     </div>
     <p>
-        Build并运行，选择一个目录，然后点击一个目录或文件。使用
+        运行项目，选择一个目录，然后点击一个目录或文件。使用
         <em>
             Quit
         </em>

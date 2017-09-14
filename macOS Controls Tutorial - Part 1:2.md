@@ -250,7 +250,7 @@
         </a>
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/empty-window.png">
@@ -565,7 +565,7 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
 pastTenseVerbTextField.stringValue = <span class="hljs-string">"ate"</span>
 </pre>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-textfield.png">
@@ -915,7 +915,7 @@ singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count
         的名称到了combo box中。然后，它选择了列表中的最后一个项目。
     </p>
     <p>
-        Build并运行app来查看你的combo box的动作！
+        运行app来查看你的combo box的动作！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-combo.png">
@@ -1109,7 +1109,7 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
         方法添加了名词的数组。最后，选中列表中的第一个项目。
     </p>
     <p>
-        Build并运行应用来查看结果：
+        运行app查看结果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-popup.png">
@@ -1378,7 +1378,7 @@ myTextView.textColor = NSColor.black
 phraseTextView.<span class="hljs-keyword">string</span> = <span class="hljs-string">"Me coding Mac Apps!!!"</span>
 </pre>
     <p>
-        Build并运行app，查看结果：
+        运行app，查看结果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/textview-result.png">
@@ -1566,7 +1566,7 @@ myButton.image = theImage
         来代替。
     </p>
     <p>
-        这就是到目前为止你所需的全部代码 - build并运行你的app。
+        这就是到目前为止你所需的全部代码 - 运行你的app。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/button-buildrun.png">
@@ -1658,7 +1658,7 @@ fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type
     <pre lang="swift" class="hljs bash"><span class="hljs-built_in">read</span>Sentence(madLibSentence, rate: .normal)
 </pre>
     <p>
-        Build并运行；点击
+        运行项目；点击
         <em>
             Go!
         </em>

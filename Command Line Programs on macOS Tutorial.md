@@ -469,7 +469,7 @@ panagram.staticMode()
         中的第一行代码将在程序启动的时候被执行。
     </div>
     <p>
-        Build并运行你的项目；你会在Xcode的控制台中看到下列的输出：
+        运行你的项目；你会在Xcode的控制台中看到下列的输出：
     </p>
     <pre lang="" class="hljs bash">usage:
 Panagram -a string1 string2
@@ -761,7 +761,7 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        现在，build并运行，你会在控制台中看到下面的输出：
+        现在，运行项目，你会在控制台中看到下面的输出：
     </p>
     <pre lang="" class="hljs bash">Argument count: 2 Option: Palindrome value: p
 Program ended with <span class="hljs-built_in">exit</span> code: 0
@@ -1029,7 +1029,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Build并运行，你就会在控制台中看到下列的输出：
+        运行项目，你就会在控制台中看到下列的输出：
     </p>
     <pre lang="" class="hljs bash">level is a palindrome
 Program ended with <span class="hljs-built_in">exit</span> code: 0
@@ -1258,7 +1258,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </a>
     </p>
     <p>
-        Build并运行，你将会在控制台中看到下列的输出：
+        运行项目，你将会在控制台中看到下列的输出：
     </p>
     <pre lang="" class="hljs cs">Welcome to Panagram. This program checks <span class="hljs-keyword">if</span> an input <span class="hljs-keyword">string</span> <span class="hljs-keyword">is</span> an anagram or palindrome.
 Type <span class="hljs-string">'a'</span> to check <span class="hljs-keyword">for</span> anagrams or <span class="hljs-string">'p'</span> <span class="hljs-keyword">for</span> palindromes type <span class="hljs-string">'q'</span> to quit.
@@ -1439,7 +1439,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         <em>
             Panagram on Terminal
         </em>
-        已被选中，然后build并运行你的项目。Xcode就会打开终端并传递路径给你的程序。终端就会在之后运行你所期望的程序。
+        已被选中，然后运行你的项目。Xcode就会打开终端并传递路径给你的程序。终端就会在之后运行你所期望的程序。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png"
@@ -1598,7 +1598,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         看起来会有一点尴尬。这是因为Xcode的控制台不支持着色的输出。
     </div>
     <p>
-        Build并运行，就会在终端上运行Panagram。输入
+        运行项目，就会在终端上运行Panagram。输入
         <em>
             f
         </em>

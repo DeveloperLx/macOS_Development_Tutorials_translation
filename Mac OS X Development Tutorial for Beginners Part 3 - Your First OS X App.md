@@ -115,7 +115,7 @@
         来打开你的空项目。
     </p>
     <p>
-        Build并运行
+        运行
         <em>
             MagicEight
         </em>
@@ -982,7 +982,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-    	build并运行app来查看这个图怎么出现：
+    	运行app来查看这个图怎么出现：
     </p>
     <p>
         <img class="aligncenter wp-image-121119 size-large" src="https://koenig-media.raywenderlich.com/uploads/2015/11/45_bar_03-e1448290439265-700x430.png"
@@ -1548,7 +1548,7 @@
         。
     </p>
     <p>
-    	build并运行，来检查你在开始时不会看到建议。
+    	运行项目，来检查你在开始时不会看到建议。
     </p>
     <h2>
     	建议生成器

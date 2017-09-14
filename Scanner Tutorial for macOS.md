@@ -304,7 +304,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         。
     </div>
     <p>
-        Build并运行项目来在实际中查看它。
+        运行项目来在实际中查看它。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Starter-Initial-Screen-683x500.png"
@@ -1746,7 +1746,7 @@ override init() {
         。
     </p>
     <p>
-        Build并运行你的项目。
+        运行你的项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/starter-final.png"

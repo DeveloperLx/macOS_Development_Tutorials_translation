@@ -356,7 +356,7 @@ amountLabel.stringValue = <span class="hljs-string">"Amount: [<span class="hljs-
         </p>
     </div>
     <p>
-        Build并运行app。尝试来回滑动slider，来查看label的值跟随slider当前的值变化而变化：
+        运行项目。尝试来回滑动slider，来查看label的值跟随slider当前的值变化而变化：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-slider.png">
@@ -390,7 +390,7 @@ sliderChanged(<span class="hljs-keyword">self</span>)
         ，它就会更新label。Neat！
     </p>
     <p>
-        Build并运行。现在label就在一运行时展示正确的值，这是一个很小的接触，但这是“配合和完成”，让你的app看起来更优美的元素。
+        运行项目。现在label就在一运行时展示正确的值，这是一个很小的接触，但这是“配合和完成”，让你的app看起来更优美的元素。
     </p>
     <p>
         更复杂的值，例如日历日期呢？是的，macOS也有那些的处理了！:]
@@ -494,7 +494,7 @@ myDatePicker.maxDate = theMaximumDate
 datePicker.dateValue = <span class="hljs-built_in">Date</span>()
 </pre>
     <p>
-        Build并运行你app！你应该会看到你漂亮的新date picker正在展示当前的日期，就像下面截图中的一样：
+        运行项目！你应该会看到你漂亮的新date picker正在展示当前的日期，就像下面截图中的一样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-datepicker.png">
@@ -618,7 +618,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         。
     </p>
     <p>
-        Build并运行。
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-radio-error.png">
@@ -702,7 +702,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
         </a>
     </p>
     <p>
-        Build并运行：
+        运行项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-radio.png">
@@ -737,7 +737,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
 rwDevConRadioButton.state = <span class="hljs-built_in">NSOnState</span>
 </pre>
     <p>
-        Build并运行app。你会看到在app启动时，
+        运行项目。你会看到在app启动时，
         <em>
             RWDevCon
         </em>
@@ -843,7 +843,7 @@ let state = myCheckBox.state
 yellCheck.state = <span class="hljs-built_in">NSOffState</span>
 </pre>
     <p>
-        Build并运行你的app！你应当看到check box的状态是未勾选的。点击它来查看其行为：
+        运行项目！你应当看到check box的状态是未勾选的。点击它来查看其行为：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-check.png">
@@ -954,7 +954,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
         <code>
             selectedSegment
         </code>
-        的property设置为1。现在，Build并运行，查看Normal segment是否已选中。
+        的property设置为1。现在，运行项目，查看Normal segment是否已选中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-selected.png">
@@ -1091,7 +1091,7 @@ myImageView.image = myImage
         。
     </p>
     <p>
-        Build并运行。你的app现在看起来应该是这样：
+        运行项目。你的app现在看起来应该是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-uifinished.png">
@@ -1325,7 +1325,7 @@ readSentence(sentence, rate: voiceRate)
         </li>
     </ol>
     <p>
-        就是这个！你已经完成了！Build并运行app，你已可以为自己构建一些欢闹的句子。
+        就是这个！你已经完成了！运行项目app，你已可以为自己构建一些欢闹的句子。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/01/buildrun-final.png">

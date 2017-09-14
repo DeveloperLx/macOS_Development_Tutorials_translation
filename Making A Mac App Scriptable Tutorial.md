@@ -35,7 +35,7 @@
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/ScriptableTasks-Starter2.zip">
             示例工程
         </a>
-        ，在Xcode中打开它，build并运行，查看它的样子：
+        ，在Xcode中打开并运行，查看它的样子：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Scriptable-Tasks-app.png">
@@ -771,7 +771,7 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         在你开始之前，确保退出任何这个app运行中的实例，它们可能是被Script Editor打开的。
     </p>
     <p>
-        Build并运行Scriptable Task；右击Dock上的icon，并在Finder中选择
+        运行Scriptable Task；右击Dock上的icon，并在Finder中选择
         <em>
             Options/Show
         </em>
@@ -1054,7 +1054,7 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
         </li>
     </ol>
     <p>
-        如果app正在运行，退出，然后build并运行你的app。再次运行
+        如果app正在运行，退出，然后运行你的app。再次运行
         <em>
             4. 添加Edit Tasks
         </em>
@@ -1208,7 +1208,7 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
   <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;cocoa</span> <span style="color: #000066;">key</span>=<span style="color: #ff0000;">"tags"</span><span style="color: #000000; font-weight: bold;">/&gt;</span></span>
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/element<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
-        退出app，然后再次build并运行app。
+        退出app，然后再次运行。
     </p>
     <p>
         返回
@@ -1305,7 +1305,7 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
         中来获取新的标签，然后这个task的property就被赋值了。
     </p>
     <p>
-        退出，build并运行你的app。现在运行示例的脚本
+        退出。再次运行你的app。现在运行示例的脚本
         <em>
             6. Tasks With Tags.scpt
         </em>
@@ -1420,7 +1420,7 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
         。从它们这里，你会尝试获取任务和字符创的参数，并使用它们来调整相应的任务。
     </p>
     <p>
-        退出，再次build并运行你的app。在Script Editor中查看字典，如果
+        退出，再次运行你的app。在Script Editor中查看字典，如果
         <code>
             mark
         </code>

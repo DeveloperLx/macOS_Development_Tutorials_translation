@@ -552,7 +552,7 @@
         来打开这个项目在Xcode中。
     </p>
     <p>
-        Build并运行
+        运行
         <em>
             HubEvent
         </em>
