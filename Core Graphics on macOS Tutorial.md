@@ -99,12 +99,10 @@
         </a>
     </p>
     <p>
-        The app lists all your hard drives, and when you click on one it shows
-        detailed information.
+        这个app列出了你全部的硬盘，当你点击其中一个的时候，详细的信息就会被展示出来。
     </p>
     <p>
-        Before going any further, have a look at the structure of the project
-        to become familiar with the lay of the land:
+        在继续下一步之前，查看一下项目的结构，来熟悉代码的分布：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-starterproject-structure-xcode-edit.png"
@@ -116,98 +114,95 @@
         </a>
     </p>
     <p>
-        How about a guided tour?
+        需要进行一下指导？
     </p>
     <ul>
         <li>
             <em>
                 ViewController.swift
             </em>
-            : The main view controller of the application
+            ：app的主view controller
         </li>
         <li>
             <em>
                 VolumeInfo.swift
             </em>
-            : Contains the implementation of the
+            ：包含了
             <code>
                 VolumeInfo
             </code>
-            class, which reads the information from the hard drive, and the
+            类的实现，它可以从硬盘中读取信息，而
             <code>
                 FilesDistribution
             </code>
-            struct that handles the split between file types
+            结构体则用来处理文件类型间的拆分
         </li>
         <li>
             <em>
                 NSColor+DiskInfo.swift
             </em>
-            and
+            和
             <em>
                 NSFont+DiskInfo.swift
             </em>
-            : Extensions that define constants with the default colors and fonts
+            ：extension，定义了默认颜色和字体常量
         </li>
         <li>
             <em>
                 CGFloat+Radians.swift
             </em>
-            : Extension that converts between degrees and radians via some helper
-            functions
+            ：extension提供了助手方法，以便在角度和弧度之间转换
         </li>
         <li>
             <em>
                 MountedVolumesDataSource.swift
             </em>
-            and
+            和
             <em>
                 MountedVolumesDelegate.swift
             </em>
-            : Implement the required methods to show disk information in the outline
-            view
+            ：实现了要求的方法，在outline
+            view中展示硬盘的信息
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            The app shows the correct disk usage information, but for the sake this
-            tutorial, it creates a random file distribution.
+            这个app展示了正确的硬盘使用信息，但由于教程本身的原因，它只是提供了随机的文件分布。
         </p>
         <p>
-            Calculating the real file distribution each time you run the app will
-            quickly become a time drain and spoil all your fun, and nobody wants that.
+            在每次运行app时，计算真实的文件分布，这将耗尽所有的时间，破坏你的乐趣，没有人想要这样。
         </p>
     </div>
     <h2>
-        Creating a Custom View
+        创建自定义的view
     </h2>
     <p>
-        Your first to-do is to create a custom view named
+        你要做的第一件事是创建一个自定义的view，名为
         <code>
             GraphView
         </code>
-        . It’s where you’ll draw the pie and bar charts, so it’s pretty important.
+        。你将在这里绘制饼状和条状的图表，因此它相当得重要。
     </p>
     <p>
-        You need to accomplish two objectives to create a custom view:
+        你需要完成两个目标来创建自定义的view：
     </p>
     <ol>
         <li>
-            Create an
+            创建一个
             <code>
                 NSView
             </code>
-            subclass.
+            的子类。
         </li>
         <li>
-            Override
+            重写
             <code>
                 draw(_:)
             </code>
-            and add some drawing code.
+            ，添加一些绘制的代码。
         </li>
     </ol>
     <p>
