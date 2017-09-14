@@ -368,43 +368,32 @@
         重写draw(\_:)
     </h3>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        . You’ll see that
+        。你将看到
         <em>
             Xcode
         </em>
-        created a default implementation of
+        已创建了
         <code>
             draw(_:)
         </code>
-        . Replace the existing comment with the following, ensuring that you leave
-        the call to the superclass method:
+        的默认的实现。将其中的注释替换为下列的代码，并确保你保留着对父类方法的调用：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286141">
-                    <td class="code" id="p128614code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            NSColor.white.setFill() NSRectFill(bounds)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-type">NSColor</span>.white.setFill()
+<span class="hljs-type">NSRectFill</span>(bounds)
+</pre>
     <p>
-        First you set the fill color to white, and then you call the
+        首先你将填充颜色设置为白色，然后调用
         <code>
             NSRectFill
         </code>
-        method to fill the view background with that color.
+        方法来填充这个view的背景。
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-whitecolor.png"
@@ -416,7 +405,7 @@
         </a>
     </p>
     <p>
-        Your custom view’s background has changed from standard gray to white.
+        你自定义的view的背景现在已由标准灰变为了白色。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/first-custom-view.png"
@@ -428,74 +417,64 @@
         </a>
     </p>
     <p>
-        Yes, it’s that easy to create a custom drawn view.
+        是的，创建自定义绘制的view就是如此的容易。
     </p>
     <h2>
-        Live Rendering: @IBDesignable and @IBInspectable
+        实时渲染：@IBDesignable 和 @IBInspectable
     </h2>
     <p>
-        Xcode 6 introduced an amazing feature: live rendering. It allows you to
-        see how your custom view looks in Interface Builder — without the need
-        to build and run.
+        Xcode 6引入了一个令人震惊的特性：实时渲染。它让你可以在Interface Builder中查看你自定义view的样子 - 无需运行项目。
     </p>
     <p>
-        To enable it, you just need to add the
+        要打开这个特性，你只需在你的类中添加
         <code>
             @IBDesignable
         </code>
-        annotation to your class, and optionally, implement
+        注释，且可选择的，你可以实现
         <code>
             prepareForInterfaceBuilder()
         </code>
-        to provide some sample data.
+        方法来提供一些样本的数据。
     </p>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        and add this just before the class declaration:
+        ，并在类的声明前添加下列的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286142">
-                    <td class="code" id="p128614code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBDesignable
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBDesignable</span>
+</pre>
     <p>
-        Now, you need to provide sample data. Add this inside the
+        现在，你需要提供一些样本数据。在
         <code>
             GraphView
         </code>
-        class:
+        类中添加下列代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286143">
-                    <td class="code" id="p128614code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            var fileDistribution: FilesDistribution? { didSet { needsDisplay = true
-                            } } &nbsp; override func prepareForInterfaceBuilder() { let used = Int64(100000000000)
-                            let available = used / 3 let filesBytes = used / 5 let distribution: [FileType]
-                            = [ .apps(bytes: filesBytes / 2, percent: 0.1), .photos(bytes: filesBytes,
-                            percent: 0.2), .movies(bytes: filesBytes * 2, percent: 0.15), .audio(bytes:
-                            filesBytes, percent: 0.18), .other(bytes: filesBytes, percent: 0.2) ] fileDistribution
-                            = FilesDistribution(capacity: used + available, available: available, distribution:
-                            distribution) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+<span class="hljs-keyword">var</span> fileDistribution: <span class="hljs-type">FilesDistribution</span>? {
+  <span class="hljs-keyword">didSet</span> {
+    needsDisplay = <span class="hljs-literal">true</span>
+  }
+}
+
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">prepareForInterfaceBuilder</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> used = <span class="hljs-type">Int64</span>(<span class="hljs-number">100000000000</span>)
+  <span class="hljs-keyword">let</span> available = used / <span class="hljs-number">3</span>
+  <span class="hljs-keyword">let</span> filesBytes = used / <span class="hljs-number">5</span>
+  <span class="hljs-keyword">let</span> distribution: [<span class="hljs-type">FileType</span>] = [
+    .apps(bytes: filesBytes / <span class="hljs-number">2</span>, percent: <span class="hljs-number">0.1</span>),
+    .photos(bytes: filesBytes, percent: <span class="hljs-number">0.2</span>),
+    .movies(bytes: filesBytes * <span class="hljs-number">2</span>, percent: <span class="hljs-number">0.15</span>),
+    .audio(bytes: filesBytes, percent: <span class="hljs-number">0.18</span>),
+    .other(bytes: filesBytes, percent: <span class="hljs-number">0.2</span>)
+  ]
+  fileDistribution = <span class="hljs-type">FilesDistribution</span>(capacity: used + available,
+                                       available: available,
+                                       distribution: distribution)
+}
+</pre>
     <p>
         This defines the property
         <code>
