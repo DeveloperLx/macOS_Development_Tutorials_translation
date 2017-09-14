@@ -577,34 +577,29 @@
     </p>
     <ol>
         <li>
-            Declares a struct with constants — magic numbers in code are a no-no —
-            you’ll use them throughout the tutorial.
+            使用常量来声明一个结构体 - magic number是代码中的禁忌 - 你在整个教程中都会使用到它们。
         </li>
         <li>
-            Declares all the configurable properties of the view as
+            将这个view中全部可配置的property标注为
             <em>
                 @IBInspectable
             </em>
-            and sets them using the values in
+            的，并使用在
             <em>
                 NSColor+DiskInfo.swift
             </em>
-            . Pro tip: To make a property inspectable, you must declare its type,
-            even when it’s obvious from the contents.
+            中的值来设置它们。专业提示：要让一个property可检视化，你必须声明它的类型，即使这个显然可以从它的内容中推断出来。
         </li>
         <li>
-            Defines a helper method that returns the stroke and fill colors to use
-            for a file type. It’ll come in handy when you draw the file distribution.
+            声明一个助手方法，来依据文件的类型返回线条和填充的颜色。它会让你在绘制文件分布时非常方便。
         </li>
     </ol>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        and have a look at the graph view. It’s now white instead of the default
-        view color, meaning that live rendering is working. Have patience if it’s
-        not there right away; it may take a second or two to render.
+        并查看graph view。它现在已使用白色提换了默认的颜色，意味着实时渲染已可以work。如果没看马上看到效果的话，请保持耐心；它可能需要一两秒的时间来进行渲染。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-render-white-trim.png"
@@ -616,11 +611,11 @@
         </a>
     </p>
     <p>
-        Select the graph view and open the
+        选择graph view并打开
         <em>
             Attributes Inspector
         </em>
-        . You’ll see all of the inspectable properties you’ve added.
+        。你就可以看到刚刚添加的所有inspectable的property了。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-ibdesignable-trim.png"
@@ -632,23 +627,20 @@
         </a>
     </p>
     <p>
-        From now on, you can choose to build and run the app to see the results,
-        or just check it in Interface Builder.
+        现在，你就既可以运行app来查看效果，也可以直接在Interface Builder来查看了。
     </p>
     <p>
-        Time to do some drawing.
+        是时候来进行绘制了。
     </p>
     <h2>
-        Graphics Contexts
+        图形的上下文
     </h2>
     <p>
-        When you use Core Graphics, you don’t draw directly into the view. You
-        use a
+        当你使用Core Graphics，你不会直接绘制到view上，而是使用一个
         <em>
             Graphics Context
         </em>
-        , and that’s where the system renders the drawing and displays it in the
-        view.
+        ，系统会在这里把绘制的内容渲染出来并展示到view上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-rendering.png"
@@ -713,31 +705,34 @@
         and add the following extension at the end of the file, outside of the
         class definition:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286145">
-                    <td class="code" id="p128614code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            // MARK: - Drawing extension &nbsp; extension GraphView { func drawRoundedRect(rect:
-                            CGRect, inContext context: CGContext?, radius: CGFloat, borderColor: CGColor,
-                            fillColor: CGColor) { // 1 let path = CGMutablePath() &nbsp; // 2 path.move(
-                            to: CGPoint(x: rect.midX, y:rect.minY )) path.addArc( tangent1End: CGPoint(x:
-                            rect.maxX, y: rect.minY ), tangent2End: CGPoint(x: rect.maxX, y: rect.maxY),
-                            radius: radius) path.addArc( tangent1End: CGPoint(x: rect.maxX, y: rect.maxY
-                            ), tangent2End: CGPoint(x: rect.minX, y: rect.maxY), radius: radius) path.addArc(
-                            tangent1End: CGPoint(x: rect.minX, y: rect.maxY ), tangent2End: CGPoint(x:
-                            rect.minX, y: rect.minY), radius: radius) path.addArc( tangent1End: CGPoint(x:
-                            rect.minX, y: rect.minY ), tangent2End: CGPoint(x: rect.maxX, y: rect.minY),
-                            radius: radius) path.closeSubpath() &nbsp; // 3 context?.setLineWidth(1.0)
-                            context?.setFillColor(fillColor) context?.setStrokeColor(borderColor) &nbsp;
-                            // 4 context?.addPath(path) context?.drawPath(using: .fillStroke) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// MARK: - Drawing extension</span>
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">GraphView</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">drawRoundedRect</span><span class="hljs-params">(rect: CGRect, inContext context: CGContext?,
+                       radius: CGFloat, borderColor: CGColor, fillColor: CGColor)</span></span> {
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">let</span> path = <span class="hljs-type">CGMutablePath</span>()
+    <span class="hljs-comment">// 2</span>
+    path.move( to: <span class="hljs-type">CGPoint</span>(x:  rect.midX, y:rect.minY ))
+    path.addArc( tangent1End: <span class="hljs-type">CGPoint</span>(x: rect.maxX, y: rect.minY ), 
+                 tangent2End: <span class="hljs-type">CGPoint</span>(x: rect.maxX, y: rect.maxY), radius: radius)
+    path.addArc( tangent1End: <span class="hljs-type">CGPoint</span>(x: rect.maxX, y: rect.maxY ), 
+                 tangent2End: <span class="hljs-type">CGPoint</span>(x: rect.minX, y: rect.maxY), radius: radius)
+    path.addArc( tangent1End: <span class="hljs-type">CGPoint</span>(x: rect.minX, y: rect.maxY ), 
+                 tangent2End: <span class="hljs-type">CGPoint</span>(x: rect.minX, y: rect.minY), radius: radius)
+    path.addArc( tangent1End: <span class="hljs-type">CGPoint</span>(x: rect.minX, y: rect.minY ), 
+                 tangent2End: <span class="hljs-type">CGPoint</span>(x: rect.maxX, y: rect.minY), radius: radius)
+    path.closeSubpath()
+    <span class="hljs-comment">// 3</span>
+    context?.setLineWidth(<span class="hljs-number">1.0</span>)
+    context?.setFillColor(fillColor)
+    context?.setStrokeColor(borderColor)
+    <span class="hljs-comment">// 4</span>
+    context?.addPath(path)
+    context?.drawPath(using: .fillStroke)
+  }
+}
+</pre>
     <p>
         TL/DR:
         <i>
