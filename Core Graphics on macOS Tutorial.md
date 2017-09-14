@@ -200,81 +200,80 @@
         <li>
             重写
             <code>
-                draw(_:)
+                draw(\_:)
             </code>
             ，添加一些绘制的代码。
         </li>
     </ol>
     <p>
-        On a high level, it’s as easy as that. Follow the next steps to learn
-        how to get there.
+        在一个较高的层面看，它就是如此得容易。继续下列的步骤来了解如何实现这点。
     </p>
     <h3>
-        Make the NSView Subclass
+        创建NSView的子类
     </h3>
     <p>
-        Select the
+        在Project Navigator中选择
         <em>
             Views
         </em>
-        group in the Project Navigator. Choose
+        组。依次选择
         <em>
             File \ New \ File…
         </em>
-        and select the
+        ，并选择
         <em>
             macOS \ Source \ Cocoa Class
         </em>
-        file template.
+        文件模板。
     </p>
     <p>
-        Click
+        点击
         <em>
             Next
         </em>
-        , and in the ensuing screen, name the new class
+        ，并在确认界面中，将新的类命名为
         <code>
             GraphView
         </code>
-        . Make it a subclass of
+        ，并将其作为
         <code>
             NSView
         </code>
-        , and make sure that the language is
+        的子类，并确保语言为
         <em>
             Swift
         </em>
-        .
+        。
     </p>
     <p>
-        Click
+        点击
         <em>
             Next
         </em>
-        and
+        来
         <em>
-            Create
+            创建
         </em>
-        to save your new file.
+        并保存你的新文件。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        , and go the the
+        ，并找到
         <em>
             View Controller
         </em>
-        Scene. Drag a
-        <em>
-            Custom View
-        </em>
-        from the
+        场景。从
         <em>
             Objects Inspector
         </em>
-        into the custom view as shown:
+        中拖拽一个
+        <em>
+            Custom View
+        </em>
+        到它上面，就像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-drag-customview.png"
@@ -286,15 +285,15 @@
         </a>
     </p>
     <p>
-        Select that new custom view, and in the
+        选择这个view，并在
         <em>
             Identity Inspector
         </em>
-        , set the class name to
+        中。将类名设置为
         <code>
             GraphView
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-attrinspector-change-class.png"
@@ -306,31 +305,31 @@
         </a>
     </p>
     <p>
-        You need some constraints, so with the graph view selected, click on the
+        现在你需要一些约束来进行布局，所以选中这个view，在自动布局工具栏中点击
         <em>
             Pin
         </em>
-        button in the Auto Layout toolbar. On the popup, set 0 for the
+        按钮。在弹出的面板中，将
         <em>
             Top
         </em>
-        ,
+        ，
         <em>
             Bottom
         </em>
-        ,
+        ，
         <em>
             Leading
         </em>
-        and
+        和
         <em>
             Trailing
         </em>
-        constraints, and click the
+        约束都设置为0，然后点击
         <em>
             Add 4 Constraints
         </em>
-        button.
+        按钮。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-addconstraints-trim.png"
@@ -342,20 +341,19 @@
         </a>
     </p>
     <p>
-        Click the triangular
+        点击自动布局工具栏中三角形的
         <em>
             Resolve Auto Layout Issues
         </em>
-        button in the Auto Layout toolbar, and under the
+        按钮，在
         <em>
             Selected Views
         </em>
-        section, click on
+        部分中，点击
         <em>
             Update Frames
         </em>
-        — should it show as disabled, click anywhere to deselect the new GraphView,
-        and then re-select it.
+        - 它现在看起来是被禁用的，所以点击其它任意地方来取消选择GraphView，然后在重新选择它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-updateframes-2-trim.png"
@@ -367,7 +365,7 @@
         </a>
     </p>
     <h3>
-        Override draw(_:)
+        重写draw(\_:)
     </h3>
     <p>
         Open
