@@ -789,28 +789,24 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : For more information about how path drawing works, check out Paths &amp;
-            Arcs in Apple’s
+            ：更多有关path绘制如何工作的内容，请参考苹果官方文档
             <a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_paths/dq_paths.html"
             target="_blank" title="Quartz 2D Programming Guide">
                 Quartz 2D Programming Guide
             </a>
-            .
+            中Paths &amp; Arcs部分。
         </p>
     </div>
     <h3>
-        Calculate the Bar Chart’s Position
+        计算条状图表的位置
     </h3>
     <p>
-        Drawing with Core Graphics is all about calculating the positions of the
-        visual elements in your view. It’s important to plan where to locate the
-        different elements and think through they should behave when the size of
-        the view changes.
+        用Core Graphics进行绘制，基本上全都在是计算在你的view上可视元素的位置。规划将不同的元素放在什么地方，以及当所在view的尺寸发生变化时，如何做出相应的改变，是非常得重要的。
     </p>
     <p>
-        Here’s the layout for your custom view:
+        这里是你自定义的view的布局：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-viewlayout.png"
@@ -822,39 +818,46 @@
         </a>
     </p>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        and add this extension:
+        并添加下列的extension：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286146">
-                    <td class="code" id="p128614code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            // MARK: - Calculations extension &nbsp; extension GraphView { // 1 func
-                            pieChartRectangle() -&gt; CGRect { let width = bounds.size.width * Constants.pieChartWidthPercentage
-                            - 2 * Constants.marginSize let height = bounds.size.height - 2 * Constants.marginSize
-                            let diameter = max(min(width, height), Constants.pieChartMinRadius) let
-                            rect = CGRect(x: Constants.marginSize, y: bounds.midY - diameter / 2.0,
-                            width: diameter, height: diameter) return rect } &nbsp; // 2 func barChartRectangle()
-                            -&gt; CGRect { let pieChartRect = pieChartRectangle() let width = bounds.size.width
-                            - pieChartRect.maxX - 2 * Constants.marginSize let rect = CGRect(x: pieChartRect.maxX
-                            + Constants.marginSize, y: pieChartRect.midY + Constants.marginSize, width:
-                            width, height: barHeight) return rect } &nbsp; // 3 func barChartLegendRectangle()
-                            -&gt; CGRect { let barchartRect = barChartRectangle() let rect = barchartRect.offsetBy(dx:
-                            0.0, dy: -(barchartRect.size.height + Constants.marginSize)) return rect
-                            } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// MARK: - Calculations extension</span>
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">GraphView</span> </span>{
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">pieChartRectangle</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">CGRect</span> {
+    <span class="hljs-keyword">let</span> width = bounds.size.width * <span class="hljs-type">Constants</span>.pieChartWidthPercentage - <span class="hljs-number">2</span> * <span class="hljs-type">Constants</span>.marginSize
+    <span class="hljs-keyword">let</span> height = bounds.size.height - <span class="hljs-number">2</span> * <span class="hljs-type">Constants</span>.marginSize
+    <span class="hljs-keyword">let</span> diameter = <span class="hljs-built_in">max</span>(<span class="hljs-built_in">min</span>(width, height), <span class="hljs-type">Constants</span>.pieChartMinRadius)
+    <span class="hljs-keyword">let</span> rect = <span class="hljs-type">CGRect</span>(x: <span class="hljs-type">Constants</span>.marginSize,
+                      y: bounds.midY - diameter / <span class="hljs-number">2.0</span>,
+                      width: diameter, height: diameter)
+    <span class="hljs-keyword">return</span> rect
+  }
+  
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">barChartRectangle</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">CGRect</span> {
+    <span class="hljs-keyword">let</span> pieChartRect = pieChartRectangle()
+    <span class="hljs-keyword">let</span> width = bounds.size.width - pieChartRect.maxX - <span class="hljs-number">2</span> * <span class="hljs-type">Constants</span>.marginSize
+    <span class="hljs-keyword">let</span> rect = <span class="hljs-type">CGRect</span>(x: pieChartRect.maxX + <span class="hljs-type">Constants</span>.marginSize,
+                      y: pieChartRect.midY + <span class="hljs-type">Constants</span>.marginSize,
+                      width: width, height: barHeight)
+    <span class="hljs-keyword">return</span> rect
+  }
+  
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">barChartLegendRectangle</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">CGRect</span> {
+    <span class="hljs-keyword">let</span> barchartRect = barChartRectangle()
+    <span class="hljs-keyword">let</span> rect = barchartRect.offsetBy(dx: <span class="hljs-number">0.0</span>, dy: -(barchartRect.size.height + <span class="hljs-type">Constants</span>.marginSize))
+    <span class="hljs-keyword">return</span> rect
+  }
+}
+</pre>
     <p>
-        The above code does all of these required calculations:
+        上述的代码实现了以下所需求的计算：
     </p>
     <ol>
         <li>
@@ -877,22 +880,15 @@
         </code>
         drawing extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286147">
-                    <td class="code" id="p128614code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            func drawBarGraphInContext(context: CGContext?) { let barChartRect = barChartRectangle()
-                            drawRoundedRect(rect: barChartRect, inContext: context, radius: Constants.barChartCornerRadius,
-                            borderColor: barChartAvailableLineColor.cgColor, fillColor: barChartAvailableFillColor.cgColor)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">drawBarGraphInContext</span><span class="hljs-params">(context: CGContext?)</span></span> {
+  <span class="hljs-keyword">let</span> barChartRect = barChartRectangle()
+  drawRoundedRect(rect: barChartRect, inContext: context,
+                  radius: <span class="hljs-type">Constants</span>.barChartCornerRadius,
+                  borderColor: barChartAvailableLineColor.cgColor,
+                  fillColor: barChartAvailableFillColor.cgColor)
+}
+</pre>
     <p>
         You’ve added a helper method that will draw the bar chart. It draws a
         rounded rectangle as a background, using the fill and stroke colors for
@@ -909,20 +905,12 @@
         </code>
         with this:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286148">
-                    <td class="code" id="p128614code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            super.draw(dirtyRect) &nbsp; let context = NSGraphicsContext.current()?.cgContext
-                            drawBarGraphInContext(context: context)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">    
+<span class="hljs-keyword">super</span>.draw(dirtyRect)
+      
+<span class="hljs-keyword">let</span> context = <span class="hljs-type">NSGraphicsContext</span>.current()?.cgContext
+drawBarGraphInContext(context: context)
+</pre>
     <p>
         Here is where the actual drawing takes place. First, you get the view’s
         current graphics context by invoking
