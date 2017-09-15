@@ -652,14 +652,10 @@
         </a>
     </p>
     <p>
-        Core Graphics uses a “painter’s model”, so when you draw into a context,
-        think of it as if you were swooshing paint across a canvas. You lay down
-        a path and fill it, and then lay down another path on top and fill it.
-        You can’t change the pixels that have been laid down, but you can paint
-        over them.
+        Core Graphics应用了一个“画家模型”，因此当你在上下文中进行绘制的时候，请想象你正在一张画布上嗖嗖地进行绘图。你画下一条条的路径，并进行填充，然后又画下另一条路径，又进行填充。你已经画下的像素是不可以被擦除的，但可以再画下另外的像素来覆盖它。
     </p>
     <p>
-        This concept is very important, because ordering affects the final result.
+        这里的概念是非常重要的，因为这个顺序将影响到最终的结果。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/drawing-order-aligned.png"
@@ -669,41 +665,38 @@
         </a>
     </p>
     <h2>
-        Drawing Shapes with Paths
+        用路径来绘制形状
     </h2>
     <p>
-        To draw a shape in Core Graphics, you need to define a
+        要在Core Graphics中绘制一个形状，你就需要设定它的
         <em>
             path
         </em>
-        , represented in Core Graphics by the type
+        ，在Core Graphics中它是由
         <code>
             CGPathRef
         </code>
-        and its mutable representation
+        类型所代表的，相应地，它的可变版本的类型则是
         <code>
             CGMutablePathRef
         </code>
-        . A path is simply a vectorial representation of a shape. It does not
-        draw itself.
+        。path只是形状的一个向量的表示。它无法自己去绘制自己。
     </p>
     <p>
-        When your path is ready, you add it to the context, which uses the path
-        information and drawing attributes to render the desired graphic.
+        当你的路径完成后，你就可以把它添加到上下文中了。上下文就会使用路径和绘制属性等信息来渲染出你所期待的图形。
     </p>
     <h3>
-        Make a Path…For The Bar Chart
+        为条状图表绘制路径
     </h3>
     <p>
-        A rounded rectangle is the basic shape of the bar chart, so start there.
+        圆角矩形是条状图表中的基本形状，所以就从这里开始吧。
     </p>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        and add the following extension at the end of the file, outside of the
-        class definition:
+        并添加下列的extension到文件尾部，类定义的外部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// MARK: - Drawing extension</span>
 
