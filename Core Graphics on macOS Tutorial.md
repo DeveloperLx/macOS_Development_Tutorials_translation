@@ -727,58 +727,55 @@
 }
 </pre>
     <p>
-        TL/DR:
         <i>
-            That
+            这
         </i>
-        is how you draw a rectangle. Here’s a more comprehensive explanation:
+        就是你绘制圆角矩形的方法。以下是更容易理解的解释：
     </p>
     <ol>
         <li>
-            Create a mutable path.
+            创建一个可变的path。
         </li>
         <li>
-            Form the rounded rectangle path, following these steps:
+            构建圆角矩形的path，跟随以下步骤：
         </li>
         <ul>
             <li>
-                Move to the center point at the bottom of the rectangle.
+                首先移动到矩形底部的中心点。
             </li>
             <li>
-                Add the lower line segment at the bottom-right corner using
+                使用
                 <code>
                     addArc(tangent1End:tangent2End:radius)
                 </code>
-                . This method draws the horizontal line and the rounded corner.
+                方法来绘制矩形右下侧的部分。这个方法将会绘制水平的线及圆角。
             </li>
             <li>
-                Add the right line segment and the top-right corner.
+                添加右侧的线段及右上角的弧线。
             </li>
             <li>
-                Add the top line segment and the top-left corner.
+                添加顶部的线段及左上角的弧线。
             </li>
             <li>
-                Add the right line segment and the bottom-left corner.
+                添加左侧的线段及左下角的弧线。
             </li>
             <li>
-                Close the path, which adds a line from the last point to the starter point.
+                闭合路径，这将在最后一个点到起始的点之间绘制一条线段。
             </li>
         </ul>
         <li>
-            Set the drawing attributes: line width, fill color and border color.
+            设置绘制属性：线条粗细，填充颜色和边界颜色。
         </li>
         <li>
-            Add the path to the context and draw it using the
+            将路径添加到上下文中，并使用
             <code>
                 .fillStroke
             </code>
-            parameter, which tells Core Graphics to fill the rectangle and draw the
-            border.
+            参数来绘制它，该参数会告知Core Graphics去填充矩形并绘制边框。
         </li>
     </ol>
     <p>
-        You’ll never look at a rectangle the same way! Here’s the humble result
-        of all that code:
+        你再也不会以同样的方式来看矩形了！以下是上述代码运行的结果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-roundedrect.png"
