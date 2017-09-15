@@ -378,7 +378,7 @@
         </em>
         已创建了
         <code>
-            draw(_:)
+            draw(\_:)
         </code>
         的默认的实现。将其中的注释替换为下列的代码，并确保你保留着对父类方法的调用：
     </p>
@@ -896,7 +896,7 @@
     <p>
         使用下列代码替换
         <code>
-            draw(_:)
+            draw(\_:)
         </code>
         方法中的全部内容：
     </p>
@@ -1060,7 +1060,7 @@ drawBarGraphInContext(context: context)
         </em>
         ，并在
         <code>
-            showVolumeInfo(_:)
+            showVolumeInfo(\_:)
         </code>
         的尾部添加下列代码：
     </p>
@@ -1492,7 +1492,7 @@ graphView.fileDistribution = volume.fileDistribution
     <p>
         Now, add the following code inside
         <code>
-            draw(_:)
+            draw(\_:)
         </code>
         to draw the pie chart:
     </p>
