@@ -861,24 +861,21 @@
     </p>
     <ol>
         <li>
-            Start by calculating the position of the pie chart — it’s in the center
-            vertically and occupies one third of the view’s width.
+            从计算饼状图表的位置开始 - 它位于垂直居中的位置，并占据了此view宽度的三分之一。
         </li>
         <li>
-            Here you calculate the position of the bar chart. It takes two thirds
-            of the width and it’s located above the vertical center of the view.
+            计算条状图表的位置。它占据了三分之二的宽度，并位于此view垂直中心靠上的位置。
         </li>
         <li>
-            Then you calculate the position of the graphics legend, based on the minimum
-            Y position of the pie chart and the margins.
+            接下来计算图形说明的位置，基于饼状图最小的Y位置以及此view的边缘。
         </li>
     </ol>
     <p>
-        Time to draw it in your view. Add this method inside the
+        现在该将它绘制到你的view上了。在
         <code>
             GraphView
         </code>
-        drawing extension:
+        的绘制extension中添加下面的方法：
     </p>
     <pre lang="swift" class="language-swift hljs">  
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">drawBarGraphInContext</span><span class="hljs-params">(context: CGContext?)</span></span> {
@@ -890,20 +887,18 @@
 }
 </pre>
     <p>
-        You’ve added a helper method that will draw the bar chart. It draws a
-        rounded rectangle as a background, using the fill and stroke colors for
-        the available space. You can find those colors in the
+        上面的代码添加了一个用来绘制条状图表的助手方法。它使用可用空间的填充和线条的颜色，绘制了一个圆角矩形作为背景。你可以在
         <em>
             NSColor+DiskInfo
         </em>
-        extension.
+        extension中找到这些颜色。
     </p>
     <p>
-        Replace all the code inside
+        使用下列代码替换
         <code>
             draw(_:)
         </code>
-        with this:
+        方法中的全部内容：
     </p>
     <pre lang="swift" class="language-swift hljs">    
 <span class="hljs-keyword">super</span>.draw(dirtyRect)
@@ -912,15 +907,14 @@
 drawBarGraphInContext(context: context)
 </pre>
     <p>
-        Here is where the actual drawing takes place. First, you get the view’s
-        current graphics context by invoking
+        此处才是绘制真正发生的地方。首先，你通过调用
         <code>
             NSGraphicsContext.current()
         </code>
-        , and then you call the method to draw the bar chart.
+        方法获取到了这个view当前的图形上下文，接着调用drawBarGraphInContext(context:)绘制出条状的图表。
     </p>
     <p>
-        Build and run. You’ll see the bar chart in it’s proper position.
+        运行项目。你会看到条状图表已出现在了合适的位置上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-barchart-first.png"
@@ -931,18 +925,18 @@ drawBarGraphInContext(context: context)
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
         <br>
-        Now, open
+        现在，打开
         <em>
             Main.storyboard
         </em>
-        and select the
+        并选择
         <em>
             View Controller
         </em>
-        scene.
+        场景。
     </p>
     <p>
-        You’ll see this:
+        你会看到：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-live-render-barchart-first.png"
@@ -954,15 +948,13 @@ drawBarGraphInContext(context: context)
         </a>
     </p>
     <p>
-        Interface Builder now renders the view in real time. You can also change
-        the colors and the view responds to those changes. How awesome is that?
+        Interface Builder现在已经实时地将这个view绘制出来了。你也可以换一些颜色，这个view就会做出相应的变化。是不是很酷？
     </p>
     <h2>
-        Clipping Areas
+        裁剪区域
     </h2>
     <p>
-        You’re at the part where you make the distribution chart, a bar chart
-        that looks like this:
+        这一部分将会完成分布图表，也就是一个看起来像这样子的图表：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/barchart.png"
@@ -974,31 +966,20 @@ drawBarGraphInContext(context: context)
         </a>
     </p>
     <p>
-        Take a step back here and dabble in a bit of theory. As you know, each
-        file type has its own color, and somehow, the app needs to calculate each
-        bar’s width based on the corresponding file type’s percentage, and then
-        draw each type with a unique color.
+        先来扯一通理论吧。正如你所知道的，每个文件类型都有它自己的颜色，因此app需要基于相应文件大小所占的百分比，计算其对应的条的宽度，然后用相应的颜色绘制出来。
     </p>
     <p>
-        You could create a special shape, such as a filled rectangle with two
-        lines at bottom and top of the rectangle, and then draw it. However, there
-        is another technique that will let you reuse your code and get the same
-        result:
+        你可以创建一个特定的形状，例如用顶部和底部的两条线构成的填充好的矩形，然后绘制出来。然而，有另一种技术可以让你复用你的代码来获得相同的结果：
         <em>
-            clipping areas
+            裁剪区域
         </em>
-        .
+        。
     </p>
     <p>
-        You can think of a clipping area as a sheet of paper with a hole cut out
-        of it, which you place over your drawing: you can only see the part of
-        the drawing which shows through the hole. This hole is known as the clipping
-        mask, and is specified as a path within Core Graphics.
+        你可以吧裁剪区域看做是一张被挖过一个洞的纸，然后把你放到你的画布上方：这样你就只能看到洞中透出来的部分了。这个“洞”被称作是裁剪蒙版，在Core Graphics中由一个path来指定。
     </p>
     <p>
-        In the case of the bar chart, you can create an identical fully-filled
-        bar for each filetype, and then use a clipping-mask to only display the
-        correct proportion, as shown in the following diagram:
+        在条状图表中，你就可以为每种文件类型创建被完全填充的相同的条，然后使用裁剪蒙版来只展示正确的比例，就像下图中所示的一样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-clippingarea.png"
@@ -1010,42 +991,40 @@ drawBarGraphInContext(context: context)
         </a>
     </p>
     <p>
-        With an understanding of how clipping areas work, you’re ready to make
-        this bar chart happen.
+        了解了裁剪区域的工作原理，你就可以把条状图表搞出来了。
     </p>
     <p>
-        Before drawing, you need to set the value for
+        在绘制之前，你需要设置当一个一篇被选中时
         <code>
             fileDistribution
         </code>
-        when a disk is selected. Open
+        的值。打开
         <em>
             Main.storyboard
         </em>
-        and go to the
+        ，并前往
         <em>
             View Controller
         </em>
-        scene to create an outlet.
+        来创建一个outlet。
     </p>
     <p>
+        在Project Navigator中
         <em>
-            Option-click
+            按住Option点击
         </em>
-        on
         <em>
             ViewController.swift
         </em>
-        in the Project Navigator to open it in the
+        ，在
         <em>
             Assistant Editor
         </em>
-        , and
+        中打开它，然后
         <em>
-            Control-Drag
+            按住Control
         </em>
-        from the graph view into the view controller class source code to create
-        an outlet for it.
+        把graph view拖拽到view controller的源码中来为它创建一个outlet。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-outlet-1.png"
@@ -1057,15 +1036,15 @@ drawBarGraphInContext(context: context)
         </a>
     </p>
     <p>
-        In the popup, name the outlet
+        在弹出的面板中，将outlet命名为
         <code>
             graphView
         </code>
-        and click
+        ，并点击
         <em>
             Connect
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-outlet-2.png"
@@ -1075,71 +1054,62 @@ drawBarGraphInContext(context: context)
         </a>
     </p>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        and add this code at the end of
+        ，并在
         <code>
             showVolumeInfo(_:)
         </code>
-        :
+        的尾部添加下列代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1286149">
-                    <td class="code" id="p128614code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            graphView.fileDistribution = volume.fileDistribution
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">    
+graphView.fileDistribution = volume.fileDistribution
+</pre>
     <p>
-        This code sets the
+        根据被选择的硬盘，设置
         <code>
             fileDistribution
         </code>
-        value with the distribution of the selected disk.
+        的值。
     </p>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        and add this code at the end of
+        ，并在
         <code>
             drawBarGraphInContext(context:)
         </code>
-        to draw the bar chart:
+        方法的尾部添加下列代码以绘制条状图表：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12861410">
-                    <td class="code" id="p128614code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 if let fileTypes = fileDistribution?.distribution, let capacity =
-                            fileDistribution?.capacity, capacity &gt; 0 { var clipRect = barChartRect
-                            // 2 for (index, fileType) in fileTypes.enumerated() { // 3 let fileTypeInfo
-                            = fileType.fileTypeInfo let clipWidth = floor(barChartRect.width * CGFloat(fileTypeInfo.percent))
-                            clipRect.size.width = clipWidth &nbsp; // 4 context?.saveGState() context?.clip(to:
-                            clipRect) &nbsp; let fileTypeColors = colorsForFileType(fileType: fileType)
-                            drawRoundedRect(rect: barChartRect, inContext: context, radius: Constants.barChartCornerRadius,
-                            borderColor: fileTypeColors.strokeColor.cgColor, fillColor: fileTypeColors.fillColor.cgColor)
-                            context?.restoreGState() &nbsp; // 5 clipRect.origin.x = clipRect.maxX
-                            } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> fileTypes = fileDistribution?.distribution, <span class="hljs-keyword">let</span> capacity = fileDistribution?.capacity, capacity &gt; <span class="hljs-number">0</span> {
+  <span class="hljs-keyword">var</span> clipRect = barChartRect
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">for</span> (index, fileType) <span class="hljs-keyword">in</span> fileTypes.enumerated() {
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">let</span> fileTypeInfo = fileType.fileTypeInfo
+    <span class="hljs-keyword">let</span> clipWidth = floor(barChartRect.width * <span class="hljs-type">CGFloat</span>(fileTypeInfo.percent))
+    clipRect.size.width = clipWidth
+    <span class="hljs-comment">// 4</span>
+    context?.saveGState()
+    context?.clip(to: clipRect)
+    <span class="hljs-keyword">let</span> fileTypeColors = colorsForFileType(fileType: fileType)
+    drawRoundedRect(rect: barChartRect, inContext: context,
+                    radius: <span class="hljs-type">Constants</span>.barChartCornerRadius,
+                    borderColor: fileTypeColors.strokeColor.cgColor,
+                    fillColor: fileTypeColors.fillColor.cgColor)
+    context?.restoreGState()
+    <span class="hljs-comment">// 5</span>
+    clipRect.origin.x = clipRect.maxX
+  }
+}
+</pre>
     <p>
-        This is what the code above does:
+        上述代码：
     </p>
     <ol>
         <li>
