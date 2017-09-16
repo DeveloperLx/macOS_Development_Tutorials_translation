@@ -1490,38 +1490,36 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </a>
     </p>
     <p>
-        Looking good so far!
+        看起来是不好赞！
     </p>
     <h3>
-        Drawing Gradients
+        绘制渐变效果
     </h3>
     <p>
         <em>
             Cocoa Drawing
         </em>
-        uses
+        使用
         <code>
             NSGradient
         </code>
-        to draw a gradient.
+        来绘制渐变效果。
     </p>
     <p>
-        You need to draw the gradient inside the used space segment of the circle,
-        and you already know how to do it.
+        你需要把渐变的效果绘制到可用部分的圆中，你早已知道该怎么做了。
     </p>
     <p>
-        How will you do it? Exactly, clipping areas!
+        没错，就是裁切区域！
     </p>
     <p>
-        You’ve already created a path to draw it, and you can use it as a clipping
-        path before you draw the gradient.
+        你早已创建了一条用来进行绘制的路径，在绘制渐变效果之前，你就可以把它当做一个裁切区域来用。
     </p>
     <p>
-        Add this code at the end of
+        添加下列的代码到
         <code>
             drawPieChart()
         </code>
-        :
+        的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">     
 <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> gradient = <span class="hljs-type">NSGradient</span>(starting: pieChartGradientStartColor,
@@ -1530,13 +1528,11 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
 }
 </pre>
     <p>
-        In the first line, you try to create a gradient with two colors. If this
-        works, you call
+        在第一行代码中，你尝试用两种颜色来创建一个渐变效果。如果创建成功的话，就调用
         <code>
             draw(in:angle:)
         </code>
-        to draw it. Internally, this method sets the clipping path for you and
-        draws the gradient inside it. How nice is that?
+        方法来绘制它。这个方法在内部设置了裁切区域，并绘制渐变的效果。这样子是不很棒？
     </p>
     <p>
         运行项目。
