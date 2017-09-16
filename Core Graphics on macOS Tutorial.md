@@ -1418,73 +1418,66 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
   pieChartUsedLineColor.setStroke()
   path.stroke()
 }
-
 </pre>
     <p>
-        There are a few things to go through here:
+        上述代码：
     </p>
     <ol>
         <li>
-            Create a circle path using the constructor
+            使用构造器
             <code>
                 init(ovalIn:)
             </code>
-            , set the fill and stroke color, and then draw the path.
+            来创建一个圆形的path，设定好笔划和填充的颜色，然后绘制path。
         </li>
         <li>
-            Create a path for the used space circle segment. First, calculate the
-            ending angle based on the used space. Then create the path in four steps:
+            为已用部分的圆创建相应的路径。首先，基于已用的空间计算结束处的角度。然后分四步来创建path：
             <ol>
                 <li>
-                    Move to the center point of the circle.
+                    移动到圆形的中点。
                 </li>
                 <li>
-                    Add an horizontal line from the center to the right side of the circle.
+                    从中心到圆形的右侧添加一条线。
                 </li>
                 <li>
-                    Add an arc from current point to the calculated angle.
+                    从当前的点添加一条弧线到刚计算出的角度。
                 </li>
                 <li>
-                    Close the path. This adds a line from the arc’s end point back to the
-                    center of the circle.
+                    闭合路径。然后再从弧形结束的点处连接一条线到圆形的中心。
                 </li>
             </ol>
         </li>
         <li>
-            Set the stroke color and stroke the path by calling its
+            设定好笔划的颜色，并使用
             <code>
                 stroke()
             </code>
-            method.
+            方法来绘制path。
         </li>
     </ol>
     <p>
-        You may have noticed a couple of differences compared to Core Graphics:
+        你会发现很多相对于Core Graphics不同的情况：
     </p>
     <ul>
         <li>
-            There aren’t any reference to the graphics context in the code. That’s
-            because these methods automatically get the current context, and in this
-            case, it’s the view’s context.
+            在代码中没有对图形上下文的引用。这是因为这些方法会自动获取当前的上下文，在这个case中，它就是当前view的上下文了。
         </li>
         <li>
-            Angles are measured in degrees, not radians.
+            这里需要的是角度，而不是弧度。所以需要的话，可使用
             <em>
                 CGFloat+Radians.swift
             </em>
-            extends CGFloat to do conversions if needed.
+            中的方法来进行转换。
         </li>
     </ul>
     <p>
-        Now, add the following code inside
+        现在，添加下列的代码到
         <code>
             draw(\_:)
         </code>
-        to draw the pie chart:
+        中来绘制饼状图表：
     </p>
-    <pre lang="swift" class="language-swift hljs">    
-drawPieChart()
-</pre>
+    <pre lang="swift" class="language-swift hljs">drawPieChart()</pre>
     <p>
         运行项目。
         <br>
@@ -1621,8 +1614,7 @@ drawPieChart()
         </code>
         method:
     </p>
-    <pre lang="swift" class="language-swift hljs">  
-<span class="hljs-comment">// 1</span>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">let</span> usedMidAngle = endAngle / <span class="hljs-number">2.0</span>
 <span class="hljs-keyword">let</span> availableMidAngle = (<span class="hljs-number">360.0</span> - endAngle) / <span class="hljs-number">2.0</span>
 <span class="hljs-keyword">let</span> halfRadius = radius / <span class="hljs-number">2.0</span>
