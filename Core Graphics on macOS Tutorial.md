@@ -1265,41 +1265,35 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     </p>
     <ol>
         <li>
-            You’re already familiar with this code: calculate the position of the
-            legend’s colored square, create a path for it and draw with the appropriate
-            colors.
+            你早已熟悉了这个代码：计算说明颜色块的位置，创建它的路径并使用合适的颜色进行绘制。
         </li>
         <li>
-            Create a dictionary of attributes that includes the font and a paragraph
-            style
+            创建一个包含有字体和段落格式
             <code>
                 NSMutableParagraphStyle
             </code>
-            . The paragraph defines how the string should be drawn inside the given
-            rectangle. In this case, it’s left aligned with a truncated tail.
+            的属性的字典。这个段落格式会确定文案如何被绘制到给定的矩形中。在本例中，它被设定为靠左对齐及过长时省略尾部。
         </li>
         <li>
-            Calculate the position and size of the rectangle to draw the text in.
+            计算文案将要被绘制到的矩形的范围。
         </li>
         <li>
-            Draw the text invoking
+            使用
             <code>
                 draw(in:withAttributes:)
             </code>
-            .
+            方法绘制文案。
         </li>
         <li>
-            Get the size string using the
+            使用
             <code>
                 bytesFormatter
             </code>
-            and create the attributes for the file size text. The main difference
-            from the previous code is that this sets a different text color in the
-            attributes dictionary via
+            获取文案的尺寸大小，并为文件大小的文案创建属性。这里相对于之前的代码，主要的区别是它通过
             <code>
                 NSFontAttributeName
             </code>
-            .
+            在属性字典中设置了一个不同的文案颜色。
         </li>
     </ol>
     <p>
@@ -1319,12 +1313,10 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </a>
     </p>
     <p>
-        The bar chart is complete! You can resize the window to see how it adapts
-        to the new size. Watch how the text properly truncates when there isn’t
-        enough space to draw it.
+        条状的图表完成了！你可以调整窗口的大小，看查看它如何适配新的尺寸。注意观察当没有足够大的空间时，文案如何被绘制。
     </p>
     <p>
-        Looking great so far!
+        是不是很酷！
     </p>
     <h2>
         Cocoa Drawing
@@ -1400,28 +1392,38 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </em>
         and add this method into the drawing extension:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12861413">
-                    <td class="code" id="p128614code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            func drawPieChart() { guard let fileDistribution = fileDistribution else
-                            { return } &nbsp; // 1 let rect = pieChartRectangle() let circle = NSBezierPath(ovalIn:
-                            rect) pieChartAvailableFillColor.setFill() pieChartAvailableLineColor.setStroke()
-                            circle.stroke() circle.fill() &nbsp; // 2 let path = NSBezierPath() let
-                            center = CGPoint(x: rect.midX, y: rect.midY) let usedPercent = Double(fileDistribution.capacity
-                            - fileDistribution.available) / Double(fileDistribution.capacity) let endAngle
-                            = CGFloat(360 * usedPercent) let radius = rect.size.width / 2.0 path.move(to:
-                            center) path.line(to: CGPoint(x: rect.maxX, y: center.y)) path.appendArc(withCenter:
-                            center, radius: radius, startAngle: 0, endAngle: endAngle) path.close()
-                            &nbsp; // 3 pieChartUsedLineColor.setStroke() path.stroke() }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">drawPieChart</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> fileDistribution = fileDistribution <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>
+  }
+  
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> rect = pieChartRectangle()
+  <span class="hljs-keyword">let</span> circle = <span class="hljs-type">NSBezierPath</span>(ovalIn: rect)
+  pieChartAvailableFillColor.setFill()
+  pieChartAvailableLineColor.setStroke()
+  circle.stroke()
+  circle.fill()
+  
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> path = <span class="hljs-type">NSBezierPath</span>()
+  <span class="hljs-keyword">let</span> center = <span class="hljs-type">CGPoint</span>(x: rect.midX, y: rect.midY)
+  <span class="hljs-keyword">let</span> usedPercent = <span class="hljs-type">Double</span>(fileDistribution.capacity - fileDistribution.available) /
+    <span class="hljs-type">Double</span>(fileDistribution.capacity)
+  <span class="hljs-keyword">let</span> endAngle = <span class="hljs-type">CGFloat</span>(<span class="hljs-number">360</span> * usedPercent)
+  <span class="hljs-keyword">let</span> radius = rect.size.width / <span class="hljs-number">2.0</span>
+  path.move(to: center)
+  path.line(to: <span class="hljs-type">CGPoint</span>(x: rect.maxX, y: center.y))
+  path.appendArc(withCenter: center, radius: radius,
+                                         startAngle: <span class="hljs-number">0</span>, endAngle: endAngle)
+  path.close()
+  
+  <span class="hljs-comment">// 3</span>
+  pieChartUsedLineColor.setStroke()
+  path.stroke()
+}
+
+</pre>
     <p>
         There are a few things to go through here:
     </p>
@@ -1484,19 +1486,9 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </code>
         to draw the pie chart:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12861414">
-                    <td class="code" id="p128614code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            drawPieChart()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">    
+drawPieChart()
+</pre>
     <p>
         Build and run.
         <br>
@@ -1542,21 +1534,12 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12861415">
-                    <td class="code" id="p128614code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            if let gradient = NSGradient(starting: pieChartGradientStartColor, ending:
-                            pieChartGradientEndColor) { gradient.draw(in: path, angle: Constants.pieChartGradientAngle)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">     
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> gradient = <span class="hljs-type">NSGradient</span>(starting: pieChartGradientStartColor,
+                             ending: pieChartGradientEndColor) {
+  gradient.draw(<span class="hljs-keyword">in</span>: path, angle: <span class="hljs-type">Constants</span>.pieChartGradientAngle)
+}
+</pre>
     <p>
         In the first line, you try to create a gradient with two colors. If this
         works, you call
