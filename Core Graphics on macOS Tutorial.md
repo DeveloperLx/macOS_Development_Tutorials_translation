@@ -58,7 +58,7 @@
             实现实时的渲染，这样你就不必每次改变图形的时候，都重新运行项目了
         </li>
         <li>
-            通过使用路径、填充、裁剪及文本，来用代码进行绘制
+            通过使用路径、填充、裁切及文本，来用代码进行绘制
         </li>
         <li>
             使用
@@ -951,7 +951,7 @@ drawBarGraphInContext(context: context)
         Interface Builder现在已经实时地将这个view绘制出来了。你也可以换一些颜色，这个view就会做出相应的变化。是不是很酷？
     </p>
     <h2>
-        裁剪区域
+        裁切区域
     </h2>
     <p>
         这一部分将会完成分布图表，也就是一个看起来像这样子的图表：
@@ -971,15 +971,15 @@ drawBarGraphInContext(context: context)
     <p>
         你可以创建一个特定的形状，例如用顶部和底部的两条线构成的填充好的矩形，然后绘制出来。然而，有另一种技术可以让你复用你的代码来获得相同的结果：
         <em>
-            裁剪区域
+            裁切区域
         </em>
         。
     </p>
     <p>
-        你可以吧裁剪区域看做是一张被挖过一个洞的纸，然后把你放到你的画布上方：这样你就只能看到洞中透出来的部分了。这个“洞”被称作是裁剪蒙版，在Core Graphics中由一个path来指定。
+        你可以吧裁切区域看做是一张被挖过一个洞的纸，然后把你放到你的画布上方：这样你就只能看到洞中透出来的部分了。这个“洞”被称作是裁切蒙版，在Core Graphics中由一个path来指定。
     </p>
     <p>
-        在条状图表中，你就可以为每种文件类型创建被完全填充的相同的条，然后使用裁剪蒙版来只展示正确的比例，就像下图中所示的一样：
+        在条状图表中，你就可以为每种文件类型创建被完全填充的相同的条，然后使用裁切蒙版来只展示正确的比例，就像下图中所示的一样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/image-clippingarea.png"
@@ -991,7 +991,7 @@ drawBarGraphInContext(context: context)
         </a>
     </p>
     <p>
-        了解了裁剪区域的工作原理，你就可以把条状图表搞出来了。
+        了解了裁切区域的工作原理，你就可以把条状图表搞出来了。
     </p>
     <p>
         在绘制之前，你需要设置当一个一篇被选中时
@@ -1113,59 +1113,52 @@ graphView.fileDistribution = volume.fileDistribution
     </p>
     <ol>
         <li>
-            Makes sure there is a valid
+            确保这里的
             <code>
                 fileDistribution
             </code>
-            .
+            有效。
         </li>
         <li>
-            Iterates through all the file types in the distribution.
+            迭代全部的文件类型。
         </li>
         <li>
-            Calculates the clipping rect, based on the file type percentage and previous
-            file types.
+            基于文件类型的百分比和前一文件类型，计算裁切的rect。
         </li>
         <li>
-            Saves the state of the context, sets the clipping area and draws the rectangle
-            using the colors configured for the file type. Then it restores the state
-            of the context.
+            保存上下文的状态，设置裁切的区域，并使用对应文件类似的颜色绘制矩形。然后再恢复上下文的状态。
         </li>
         <li>
-            Moves the
+            在下一次迭代之前移动裁切rect的
             <i>
                 x
             </i>
-            origin of the clipping rect before the next iteration.
+            位置。
         </li>
     </ol>
     <p>
-        You might wonder why you need to save and restore the state of the context.
-        Remember the painter’s model? Everything you add to the context stays there.
+        你可能会好奇为什么要保存及恢复上下文的状态。还记的画家模式么？你添加到上下文的任何内容都会保留到这里。
     </p>
     <p>
-        If you add multiple clipping areas, you are in fact creating a clipping
-        area that acts as the unifying force for all of them. To avoid that, you
-        save the state before adding the clipping area, and when you’ve used it,
-        you restore the context to that state, disposing of that clipping area.
+        如果你添加多个裁切区域，你实际上就会创建一个涵盖所有裁切区域的大的裁切区域。为了避免这样，你就要在添加裁切区域之前，保存状态，然后当你用到的时候，再恢复上下文到这个状态，如此来处理裁切区域。
     </p>
     <p>
-        At this point,
-        <em>
-            Xcode
-        </em>
-        shows a warning because
+        现在，由于
         <code>
             index
         </code>
-        is never used. Don’t worry about it for now. You’ll fix it later on.
+        从未被使用过，
+        <em>
+            Xcode
+        </em>
+        会提示一个warning。不必担心，我们将在后面修复它。
     </p>
     <p>
-        Build and run, or open
+        运行项目，或打开
         <em>
             Main.storyboard
         </em>
-        and check it out in Interface Builder.
+        以在Interface Builder中查看它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-rung-graphbar-drawn.png"
@@ -1177,46 +1170,31 @@ graphView.fileDistribution = volume.fileDistribution
         </a>
     </p>
     <p>
-        It’s beginning to look functional. The bar chart is almost finished and
-        you just need to add the legend.
+        看起来我们已经实现了一些功能了。条状的图表已几乎完成，你只需要为它添加一些标记说明。
     </p>
     <h3>
-        Drawing Strings
+        绘制文案
     </h3>
     <p>
-        Drawing a string in a custom view is super easy. You just need to create
-        a dictionary with the string attributes — for instance the font, size,
-        color, alignment — calculate the rectangle where it will be drawn, and
-        invoke
+        在自定义的view中绘制文案超级得简单。你只需要创建一个文案属性的字典 - 例如字体，大小，颜色，对齐方式 - 计算好要绘制到的rect的位置，然后调用
         <code>
             String
         </code>
-        ‘s method
+        的
         <code>
             draw(in:withAttributes:)
         </code>
-        .
+        方法就可以了。
     </p>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        and add the following property to the class:
+        并添加下列的property到类中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12861411">
-                    <td class="code" id="p128614code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate var bytesFormatter = ByteCountFormatter()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-keyword">var</span> bytesFormatter = <span class="hljs-type">ByteCountFormatter</span>()
+</pre>
     <p>
         This creates an
         <em>
@@ -1236,42 +1214,53 @@ graphView.fileDistribution = volume.fileDistribution
         </code>
         loop:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12861412">
-                    <td class="code" id="p128614code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 let legendRectWidth = (barChartRect.size.width / CGFloat(fileTypes.count))
-                            let legendOriginX = barChartRect.origin.x + floor(CGFloat(index) * legendRectWidth)
-                            let legendOriginY = barChartRect.minY - 2 * Constants.marginSize let legendSquareRect
-                            = CGRect(x: legendOriginX, y: legendOriginY, width: Constants.barChartLegendSquareSize,
-                            height: Constants.barChartLegendSquareSize) &nbsp; let legendSquarePath
-                            = CGMutablePath() legendSquarePath.addRect( legendSquareRect ) context?.addPath(legendSquarePath)
-                            context?.setFillColor(fileTypeColors.fillColor.cgColor) context?.setStrokeColor(fileTypeColors.strokeColor.cgColor)
-                            context?.drawPath(using: .fillStroke) &nbsp; // 2 let paragraphStyle =
-                            NSMutableParagraphStyle() paragraphStyle.lineBreakMode = .byTruncatingTail
-                            paragraphStyle.alignment = .left let nameTextAttributes = [ NSFontAttributeName:
-                            NSFont.barChartLegendNameFont, NSParagraphStyleAttributeName: paragraphStyle]
-                            &nbsp; // 3 let nameTextSize = fileType.name.size(withAttributes: nameTextAttributes)
-                            let legendTextOriginX = legendSquareRect.maxX + Constants.legendTextMargin
-                            let legendTextOriginY = legendOriginY - 2 * Constants.pieChartBorderWidth
-                            let legendNameRect = CGRect(x: legendTextOriginX, y: legendTextOriginY,
-                            width: legendRectWidth - legendSquareRect.size.width - 2 * Constants.legendTextMargin,
-                            height: nameTextSize.height) &nbsp; // 4 fileType.name.draw(in: legendNameRect,
-                            withAttributes: nameTextAttributes) &nbsp; // 5 let bytesText = bytesFormatter.string(fromByteCount:
-                            fileTypeInfo.bytes) let bytesTextAttributes = [ NSFontAttributeName: NSFont.barChartLegendSizeTextFont,
-                            NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName:
-                            NSColor.secondaryLabelColor] let bytesTextSize = bytesText.size(withAttributes:
-                            bytesTextAttributes) let bytesTextRect = legendNameRect.offsetBy(dx: 0.0,
-                            dy: -bytesTextSize.height) bytesText.draw(in: bytesTextRect, withAttributes:
-                            bytesTextAttributes)
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"> 
+<span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">let</span> legendRectWidth = (barChartRect.size.width / <span class="hljs-type">CGFloat</span>(fileTypes.<span class="hljs-built_in">count</span>))
+<span class="hljs-keyword">let</span> legendOriginX = barChartRect.origin.x + floor(<span class="hljs-type">CGFloat</span>(index) * legendRectWidth)
+<span class="hljs-keyword">let</span> legendOriginY = barChartRect.minY - <span class="hljs-number">2</span> * <span class="hljs-type">Constants</span>.marginSize
+<span class="hljs-keyword">let</span> legendSquareRect = <span class="hljs-type">CGRect</span>(x: legendOriginX, y: legendOriginY,
+                              width: <span class="hljs-type">Constants</span>.barChartLegendSquareSize,
+                              height: <span class="hljs-type">Constants</span>.barChartLegendSquareSize)
+
+<span class="hljs-keyword">let</span> legendSquarePath = <span class="hljs-type">CGMutablePath</span>()
+legendSquarePath.addRect( legendSquareRect )
+context?.addPath(legendSquarePath)
+context?.setFillColor(fileTypeColors.fillColor.cgColor)
+context?.setStrokeColor(fileTypeColors.strokeColor.cgColor)
+context?.drawPath(using: .fillStroke)
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">let</span> paragraphStyle = <span class="hljs-type">NSMutableParagraphStyle</span>()
+paragraphStyle.lineBreakMode = .byTruncatingTail
+paragraphStyle.alignment = .<span class="hljs-keyword">left</span>
+<span class="hljs-keyword">let</span> nameTextAttributes = [
+  <span class="hljs-type">NSFontAttributeName</span>: <span class="hljs-type">NSFont</span>.barChartLegendNameFont,
+  <span class="hljs-type">NSParagraphStyleAttributeName</span>: paragraphStyle]
+
+<span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">let</span> nameTextSize = fileType.name.size(withAttributes: nameTextAttributes)
+<span class="hljs-keyword">let</span> legendTextOriginX = legendSquareRect.maxX + <span class="hljs-type">Constants</span>.legendTextMargin
+<span class="hljs-keyword">let</span> legendTextOriginY = legendOriginY - <span class="hljs-number">2</span> * <span class="hljs-type">Constants</span>.pieChartBorderWidth
+<span class="hljs-keyword">let</span> legendNameRect = <span class="hljs-type">CGRect</span>(x: legendTextOriginX, y: legendTextOriginY,
+                            width: legendRectWidth - legendSquareRect.size.width - <span class="hljs-number">2</span> *
+                              <span class="hljs-type">Constants</span>.legendTextMargin,
+                            height: nameTextSize.height)
+
+<span class="hljs-comment">// 4</span>
+fileType.name.draw(<span class="hljs-keyword">in</span>: legendNameRect, withAttributes: nameTextAttributes)
+
+<span class="hljs-comment">// 5</span>
+<span class="hljs-keyword">let</span> bytesText = bytesFormatter.string(fromByteCount: fileTypeInfo.bytes)
+<span class="hljs-keyword">let</span> bytesTextAttributes = [
+  <span class="hljs-type">NSFontAttributeName</span>: <span class="hljs-type">NSFont</span>.barChartLegendSizeTextFont,
+  <span class="hljs-type">NSParagraphStyleAttributeName</span>: paragraphStyle,
+  <span class="hljs-type">NSForegroundColorAttributeName</span>: <span class="hljs-type">NSColor</span>.secondaryLabelColor]
+<span class="hljs-keyword">let</span> bytesTextSize = bytesText.size(withAttributes: bytesTextAttributes)
+<span class="hljs-keyword">let</span> bytesTextRect = legendNameRect.offsetBy(dx: <span class="hljs-number">0.0</span>, dy: -bytesTextSize.height)
+bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttributes: bytesTextAttributes)
+
+</pre>
     <p>
         That was quite a bit of code, but it’s easy to follow:
     </p>
