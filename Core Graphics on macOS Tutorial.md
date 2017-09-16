@@ -1486,7 +1486,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
 drawPieChart()
 </pre>
     <p>
-        Build and run.
+        运行项目。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-rung-pie-stroke.png"
         rel="attachment wp-att-128925">
@@ -1546,7 +1546,7 @@ drawPieChart()
         draws the gradient inside it. How nice is that?
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-gradient.png"
@@ -1611,11 +1611,9 @@ drawPieChart()
             </li>
         </ul>
     </ol>
-    <tr style="white-space:normal;">
-        <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
-            Solution Inside: Draw Pie Chart Legend
-        </th>
-    </tr>
+    <h3>
+        Draw Pie Chart Legend
+    </h3>
     <tr>
         <td class="easySpoilerRow" colspan="2" style="">
             <div id="spoilerDiv87b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
