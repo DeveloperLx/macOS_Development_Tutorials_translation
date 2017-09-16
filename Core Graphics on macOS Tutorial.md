@@ -1196,23 +1196,22 @@ graphView.fileDistribution = volume.fileDistribution
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-keyword">var</span> bytesFormatter = <span class="hljs-type">ByteCountFormatter</span>()
 </pre>
     <p>
-        This creates an
+        这就创建了一个
         <em>
             ByteCountFormatter
         </em>
-        . It does all the heavy work of transforming bytes into a human-friendly
-        string.
+        。它承担了将字节转换为人类可读的文案的重要工作。
     </p>
     <p>
-        Now, add this inside
+        现在，添加下列的代码到
         <code>
             drawBarGraphInContext(context:)
         </code>
-        . Make sure you add it inside the
+        中。确保添加到
         <code>
             for (index,fileType) in fileTypes.enumerated()
         </code>
-        loop:
+        的循环中：
     </p>
     <pre lang="swift" class="language-swift hljs"> 
 <span class="hljs-comment">// 1</span>
@@ -1262,7 +1261,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
 
 </pre>
     <p>
-        That was quite a bit of code, but it’s easy to follow:
+        相当多的代码，但要看看懂并不困难：
     </p>
     <ol>
         <li>
@@ -1304,11 +1303,11 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </li>
     </ol>
     <p>
-        Build and run, or open
+        运行项目，或直接打开
         <em>
             Main.storyboard
         </em>
-        , to see the results).
+        来查看效果。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-graphbar-legend.png"
