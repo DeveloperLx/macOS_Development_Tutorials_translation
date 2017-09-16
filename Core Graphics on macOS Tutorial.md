@@ -1716,43 +1716,41 @@ availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableX
         下载最终完整的项目。
     </p>
     <p>
-        This Core Graphics on macOS tutorial covered the basics of the different
-        frameworks available to use for drawing custom views in
+        本教程已覆盖了在
         <em>
             macOS
         </em>
-        . You just covered:
+        中，可用来在定制的view上进行绘制的不同的框架。你已经了解了：
     </p>
     <ul>
         <li>
-            How to create and draw paths using Core Graphics and Cocoa Drawing
+            如何使用Core Graphics和Cocoa Drawing创建及绘制path
         </li>
         <li>
-            How to use clipping areas
+            如何使用裁切区域
         </li>
         <li>
-            How to draw text strings
+            如何绘制文本
         </li>
         <li>
-            How to draw gradients
+            如何绘制渐变效果
         </li>
     </ul>
     <p>
-        You should now feel confident in your abilities to use Core Graphics and
-        Cocoa Drawing next time you need clean, responsive graphics.
+        现在，你应当非常自信地使用Core Graphics和Cocoa Drawing去绘制漂亮的、相应式的图形了。
     </p>
     <p>
-        If you’re looking to learn more, consider the following resources:
+        如果你想要学到更多相关的内容，可以参考下列的资源：
     </p>
     <li>
-        Apple’s
+        苹果的文档
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaDrawingGuide/Introduction/Introduction.html"
         target="_blank" title="Introduction to Cocoa Drawing Guide">
             Introduction to Cocoa Drawing Guide
         </a>
     </li>
     <li>
-        Apple’s
+        苹果的文档
         <a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/Introduction/Introduction.html"
         target="_blank" title="Quartz" 2d="" programming="" guide="">
             Quartz 2D Programming Guide
