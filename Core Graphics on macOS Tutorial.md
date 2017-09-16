@@ -1325,32 +1325,29 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         <em>
             macOS
         </em>
-        apps come with the option to use
+        提供了使用
         <em>
             AppKit
         </em>
-        framework to draw instead. It provides a higher level of abstraction.
-        It uses classes instead of
+        框架来完成绘制的替代选项。它提供了更高层次抽象的方法。他用类来替换
         <em>
             C
         </em>
-        functions and includes helper methods that make it easier to perform common
-        tasks. The concepts are equivalent in both frameworks, and Cocoa Drawing
-        is very easy to adopt if you’re familiar with Core Graphics.
+        的函数，并提供助手方法来使得执行一些常见的任务变得更加容易。概念在两个框架中都是相同的，如果你熟悉Core Graphics的话，Cocoa Drawing是非常容易上手的。
     </p>
     <p>
-        As it goes in Core Graphics, you need to create and draw paths, using
+        正如在Core Graphics中所做的一样，你需要使用
         <code>
             NSBezierPath
         </code>
-        , the equivalent of
+        来创建和绘制路径，它是在Cocoa Drawing中等价于
         <code>
             CGPathRef
         </code>
-        in Cocoa Drawing:
+        的对象：
     </p>
     <p>
-        This is how the pie chart will look:
+        饼状图看起来应该是这样的：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/piechart.png"
@@ -1362,7 +1359,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </a>
     </p>
     <p>
-        You’ll draw it in three steps:
+        你会分三步来绘制它：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/pichart-steps.png"
@@ -1375,22 +1372,21 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     </p>
     <ul>
         <li>
-            First, you create a circle path for the available space circle, and then
-            you fill and stroke it with the configured colors.
+            首先，你创建了一个圆形的路径来表示可用的空间，然后用配置好的颜色来描边和填充它。
         </li>
         <li>
-            Then you create a path for the used space circle segment and stroke it.
+            然后为已用的空间创建相应的path，并描出来。
         </li>
         <li>
-            Finally, you draw a gradient that only fills the used space path.
+            最后，基于已用部分路径，绘制出渐变的效果。
         </li>
     </ul>
     <p>
-        Open
+        打开
         <em>
             GraphView.swift
         </em>
-        and add this method into the drawing extension:
+        并添加下列的方法到绘制的extension中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">drawPieChart</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> fileDistribution = fileDistribution <span class="hljs-keyword">else</span> {
