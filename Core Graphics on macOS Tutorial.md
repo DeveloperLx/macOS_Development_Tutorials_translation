@@ -1743,16 +1743,14 @@ availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableX
         如果你想要学到更多相关的内容，可以参考下列的资源：
     </p>
     <li>
-        苹果的文档
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaDrawingGuide/Introduction/Introduction.html"
         target="_blank" title="Introduction to Cocoa Drawing Guide">
             Introduction to Cocoa Drawing Guide
         </a>
     </li>
     <li>
-        苹果的文档
         <a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/Introduction/Introduction.html"
-        target="_blank" title="Quartz" 2d="" programming="" guide="">
+        target="_blank" title="Quartz">
             Quartz 2D Programming Guide
         </a>
     </li>
