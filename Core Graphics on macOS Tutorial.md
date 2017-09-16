@@ -1614,93 +1614,87 @@ drawPieChart()
     <h3>
         Draw Pie Chart Legend
     </h3>
-    <tr>
-        <td class="easySpoilerRow" colspan="2" style="">
-            <div id="spoilerDiv87b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
-                <p>
-                    Add this code inside the
-                    <code>
-                        drawPieChart()
-                    </code>
-                    method:
-                </p>
-                <div class="wp_codebox">
-                    <table>
-                        <tbody>
-                            <tr id="p12861416">
-                                <td class="code" id="p128614code16">
-                                    <pre class="swift" style="font-family:monospace;">
-                                        // 1 let usedMidAngle = endAngle / 2.0 let availableMidAngle = (360.0
-                                        - endAngle) / 2.0 let halfRadius = radius / 2.0 &nbsp; // 2 let usedSpaceText
-                                        = bytesFormatter.string(fromByteCount: fileDistribution.capacity) let usedSpaceTextAttributes
-                                        = [ NSFontAttributeName: NSFont.pieChartLegendFont, NSForegroundColorAttributeName:
-                                        NSColor.pieChartUsedSpaceTextColor] let usedSpaceTextSize = usedSpaceText.size(withAttributes:
-                                        usedSpaceTextAttributes) let xPos = rect.midX + CGFloat(cos(usedMidAngle.radians))
-                                        * halfRadius - (usedSpaceTextSize.width / 2.0) let yPos = rect.midY + CGFloat(sin(usedMidAngle.radians))
-                                        * halfRadius - (usedSpaceTextSize.height / 2.0) usedSpaceText.draw(at:
-                                        CGPoint(x: xPos, y: yPos), withAttributes: usedSpaceTextAttributes) &nbsp;
-                                        // 3 let availableSpaceText = bytesFormatter.string(fromByteCount: fileDistribution.available)
-                                        let availableSpaceTextAttributes = [ NSFontAttributeName: NSFont.pieChartLegendFont,
-                                        NSForegroundColorAttributeName: NSColor.pieChartAvailableSpaceTextColor]
-                                        let availableSpaceTextSize = availableSpaceText.size(withAttributes: availableSpaceTextAttributes)
-                                        let availableXPos = rect.midX + cos(-availableMidAngle.radians) * halfRadius
-                                        - (availableSpaceTextSize.width / 2.0) let availableYPos = rect.midY +
-                                        sin(-availableMidAngle.radians) * halfRadius - (availableSpaceTextSize.height
-                                        / 2.0) availableSpaceText.draw(at: CGPoint(x: availableXPos, y: availableYPos),
-                                        withAttributes: availableSpaceTextAttributes)
-                                    </pre>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>
-                    This code does the following:
-                </p>
-                <ol>
-                    <li>
-                        Calculates the angles where you’ll draw used and available texts.
-                    </li>
-                    <li>
-                        Creates the text attributes and calculates the
-                        <i>
-                            x
-                        </i>
-                        and
-                        <i>
-                            y
-                        </i>
-                        position of the used space text – then it draws.
-                    </li>
-                    <li>
-                        Creates the text attributes and calculates the
-                        <i>
-                            x
-                        </i>
-                        and
-                        <i>
-                            y
-                        </i>
-                        position of the available space, and then it draws.
-                    </li>
-                </ol>
-                <p>
-                    Now, build and run and see the final result of your handiwork.
-                </p>
-                <p>
-                    <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png"
-                    rel="attachment wp-att-128927">
-                        <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png"
-                        alt="Final app made using Core Graphics on macOS" width="480" height="242"
-                        class="aligncenter size-medium wp-image-128927" srcset="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png 480w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-768x388.png 768w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-700x354.png 700w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png 1568w"
-                        sizes="(max-width: 480px) 100vw, 480px">
-                    </a>
-                </p>
-                <p>
-                </p>
-            </div>
-        </td>
-    </tr>
+    <p>
+        Add this code inside the
+        <code>
+            drawPieChart()
+        </code>
+        method:
+    </p>
+    <pre lang="swift" class="language-swift hljs">  
+<span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">let</span> usedMidAngle = endAngle / <span class="hljs-number">2.0</span>
+<span class="hljs-keyword">let</span> availableMidAngle = (<span class="hljs-number">360.0</span> - endAngle) / <span class="hljs-number">2.0</span>
+<span class="hljs-keyword">let</span> halfRadius = radius / <span class="hljs-number">2.0</span>
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">let</span> usedSpaceText = bytesFormatter.string(fromByteCount: fileDistribution.capacity)
+<span class="hljs-keyword">let</span> usedSpaceTextAttributes = [
+<span class="hljs-type">NSFontAttributeName</span>: <span class="hljs-type">NSFont</span>.pieChartLegendFont,
+<span class="hljs-type">NSForegroundColorAttributeName</span>: <span class="hljs-type">NSColor</span>.pieChartUsedSpaceTextColor]
+<span class="hljs-keyword">let</span> usedSpaceTextSize = usedSpaceText.size(withAttributes: usedSpaceTextAttributes)
+<span class="hljs-keyword">let</span> xPos = rect.midX + <span class="hljs-type">CGFloat</span>(cos(usedMidAngle.radians)) *
+halfRadius - (usedSpaceTextSize.width / <span class="hljs-number">2.0</span>)
+<span class="hljs-keyword">let</span> yPos = rect.midY + <span class="hljs-type">CGFloat</span>(sin(usedMidAngle.radians)) *
+halfRadius - (usedSpaceTextSize.height / <span class="hljs-number">2.0</span>)
+usedSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: xPos, y: yPos),
+        withAttributes: usedSpaceTextAttributes)
+
+<span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">let</span> availableSpaceText = bytesFormatter.string(fromByteCount: fileDistribution.available)
+<span class="hljs-keyword">let</span> availableSpaceTextAttributes = [
+<span class="hljs-type">NSFontAttributeName</span>: <span class="hljs-type">NSFont</span>.pieChartLegendFont,
+<span class="hljs-type">NSForegroundColorAttributeName</span>: <span class="hljs-type">NSColor</span>.pieChartAvailableSpaceTextColor]
+<span class="hljs-keyword">let</span> availableSpaceTextSize = availableSpaceText.size(withAttributes: availableSpaceTextAttributes)
+<span class="hljs-keyword">let</span> availableXPos = rect.midX + cos(-availableMidAngle.radians) *
+halfRadius - (availableSpaceTextSize.width / <span class="hljs-number">2.0</span>)
+<span class="hljs-keyword">let</span> availableYPos = rect.midY + sin(-availableMidAngle.radians) *
+halfRadius - (availableSpaceTextSize.height / <span class="hljs-number">2.0</span>)
+availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableXPos, y: availableYPos),
+            withAttributes: availableSpaceTextAttributes)
+</pre>
+    <p>
+        This code does the following:
+    </p>
+    <ol>
+        <li>
+            Calculates the angles where you’ll draw used and available texts.
+        </li>
+        <li>
+            Creates the text attributes and calculates the
+            <i>
+                x
+            </i>
+            and
+            <i>
+                y
+            </i>
+            position of the used space text – then it draws.
+        </li>
+        <li>
+            Creates the text attributes and calculates the
+            <i>
+                x
+            </i>
+            and
+            <i>
+                y
+            </i>
+            position of the available space, and then it draws.
+        </li>
+    </ol>
+    <p>
+        Now, build and run and see the final result of your handiwork.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png"
+        rel="attachment wp-att-128927">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png"
+            alt="Final app made using Core Graphics on macOS" width="480" height="242"
+            class="aligncenter size-medium wp-image-128927" srcset="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png 480w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-768x388.png 768w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-700x354.png 700w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png 1568w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
     <br>
     Congratulations! You’ve built a beautiful app using Core Graphics and
     Cocoa Drawing!
