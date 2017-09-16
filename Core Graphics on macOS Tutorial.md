@@ -1173,10 +1173,10 @@ graphView.fileDistribution = volume.fileDistribution
         看起来我们已经实现了一些功能了。条状的图表已几乎完成，你只需要为它添加一些标记说明。
     </p>
     <h3>
-        绘制文案
+        绘制文本
     </h3>
     <p>
-        在自定义的view中绘制文案超级得简单。你只需要创建一个文案属性的字典 - 例如字体，大小，颜色，对齐方式 - 计算好要绘制到的rect的位置，然后调用
+        在自定义的view中绘制文本超级得简单。你只需要创建一个文本属性的字典 - 例如字体，大小，颜色，对齐方式 - 计算好要绘制到的rect的位置，然后调用
         <code>
             String
         </code>
@@ -1200,7 +1200,7 @@ graphView.fileDistribution = volume.fileDistribution
         <em>
             ByteCountFormatter
         </em>
-        。它承担了将字节转换为人类可读的文案的重要工作。
+        。它承担了将字节转换为人类可读的文本的重要工作。
     </p>
     <p>
         现在，添加下列的代码到
@@ -1272,28 +1272,28 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
             <code>
                 NSMutableParagraphStyle
             </code>
-            的属性的字典。这个段落格式会确定文案如何被绘制到给定的矩形中。在本例中，它被设定为靠左对齐及过长时省略尾部。
+            的属性的字典。这个段落格式会确定文本如何被绘制到给定的矩形中。在本例中，它被设定为靠左对齐及过长时省略尾部。
         </li>
         <li>
-            计算文案将要被绘制到的矩形的范围。
+            计算文本将要被绘制到的矩形的范围。
         </li>
         <li>
             使用
             <code>
                 draw(in:withAttributes:)
             </code>
-            方法绘制文案。
+            方法绘制文本。
         </li>
         <li>
             使用
             <code>
                 bytesFormatter
             </code>
-            获取文案的尺寸大小，并为文件大小的文案创建属性。这里相对于之前的代码，主要的区别是它通过
+            获取文本的尺寸大小，并为文件大小的文本创建属性。这里相对于之前的代码，主要的区别是它通过
             <code>
                 NSFontAttributeName
             </code>
-            在属性字典中设置了一个不同的文案颜色。
+            在属性字典中设置了一个不同的文本颜色。
         </li>
     </ol>
     <p>
@@ -1313,7 +1313,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </a>
     </p>
     <p>
-        条状的图表完成了！你可以调整窗口的大小，看查看它如何适配新的尺寸。注意观察当没有足够大的空间时，文案如何被绘制。
+        条状的图表完成了！你可以调整窗口的大小，看查看它如何适配新的尺寸。注意观察当没有足够大的空间时，文本如何被绘制。
     </p>
     <p>
         是不是很酷！
@@ -1547,53 +1547,51 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </a>
     </p>
     <p>
-        The custom view is looking better and better. There’s only one thing left
-        to do: Draw the available and used space text strings inside the pie chart.
+        现在这个自定义的view已经看起来越来越棒了。现在就剩一件事需要做了：在饼状图表中绘制可用和已用空间的标记文本。
     </p>
     <p>
-        You already know how to do it. Are you up to the challenge? :]
+        你早就知道该怎么做了吧。想不想挑战一下？:]
     </p>
     <p>
-        This is what you need to do:
+        下面是你需要做的事：
     </p>
     <ol>
         <li>
-            Use the
+            使用
             <code>
                 bytesFormatter
             </code>
-            to get the text string for the available space (
+            来获取可用空间的文本（
             <code>
                 fileDistribution.available
             </code>
-            property ) and full space (
+            property）以及全部空间（
             <code>
                 fileDistribution.capacity
             </code>
-            property).
+            property）。
         </li>
         <li>
-            Calculate the position of the text so that you draw it in the middle point
-            of the available and used segments.
+            计算文本的位置，把它放到可用和已用部分的中点处。
         </li>
         <li>
-            Draw the text in that position with these attributes:
+            使用下列的熟悉绘制文本：
         </li>
         <ul>
             <li>
-                Font:
+                字体：
                 <code>
                     NSFont.pieChartLegendFont
                 </code>
             </li>
             <li>
-                Used space text color:
+                已用空间文本的颜色：
                 <code>
                     NSColor.pieChartUsedSpaceTextColor
                 </code>
             </li>
             <li>
-                Available space text color:
+                可用空间文本的颜色：
                 <code>
                     NSColor.pieChartAvailableSpaceTextColor
                 </code>
@@ -1601,14 +1599,14 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </ul>
     </ol>
     <h3>
-        Draw Pie Chart Legend
+        绘制饼状图的标注
     </h3>
     <p>
-        Add this code inside the
+        添加下面的代码到
         <code>
             drawPieChart()
         </code>
-        method:
+        方法中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">let</span> usedMidAngle = endAngle / <span class="hljs-number">2.0</span>
@@ -1642,37 +1640,37 @@ availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableX
             withAttributes: availableSpaceTextAttributes)
 </pre>
     <p>
-        This code does the following:
+        上述代码：
     </p>
     <ol>
         <li>
-            Calculates the angles where you’ll draw used and available texts.
+            计算你绘制已用和可用部分文本位置相应的角度。
         </li>
         <li>
-            Creates the text attributes and calculates the
+            创建文本的属性，并计算已用空间文本的位置
             <i>
                 x
             </i>
-            and
+            和
             <i>
                 y
             </i>
-            position of the used space text – then it draws.
+            - 然后绘制出来。
         </li>
         <li>
-            Creates the text attributes and calculates the
+            创建文本的属性，并计算可用空间文本的位置
             <i>
                 x
             </i>
-            and
+            和
             <i>
                 y
             </i>
-            position of the available space, and then it draws.
+            - 然后绘制出来。
         </li>
     </ol>
     <p>
-        Now, build and run and see the final result of your handiwork.
+        现在，运行项目来查看你最终的作品吧。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png"
@@ -1683,13 +1681,11 @@ availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableX
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
     </p>
-    <br>
-    Congratulations! You’ve built a beautiful app using Core Graphics and
-    Cocoa Drawing!
     <p>
+        祝贺！你已经用Core Graphics和Cocoa Drawing构建了一个超美的app！
     </p>
     <h2>
-        Where to Go From Here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1701,10 +1697,11 @@ availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableX
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1712,11 +1709,11 @@ availableSpaceText.draw(at: <span class="hljs-type">CGPoint</span>(x: availableX
         </div>
     </div>
     <p>
-        You can download the completed project
+        你可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/06/DiskInfo-Final.zip">
-            here
+            这里
         </a>
-        .
+        下载最终完整的项目。
     </p>
     <p>
         This Core Graphics on macOS tutorial covered the basics of the different
