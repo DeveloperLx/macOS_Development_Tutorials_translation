@@ -1611,134 +1611,98 @@ drawPieChart()
             </li>
         </ul>
     </ol>
-    <div class="easySpoilerWrapper" style="">
-        <table class="easySpoilerTable" border="0" style="text-align:center;"
-        align="center" bgcolor="FFFFFF">
-            <tbody>
-                <tr style="white-space:normal;">
-                    <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
-                        Solution Inside: Draw Pie Chart Legend
-                    </th>
-                    <th class="easySpoilerTitleB" style="text-align:right;vertical-align:middle;font-size:100%; white-space:nowrap;">
-                        <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv87b8001&quot;); return false;"
-                        class="easySpoilerButtonOther" style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px; padding: 4px; "
-                        align="right">
-                            Select
-                        </a>
-                        <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv87b8001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
-                        id="spoilerDiv87b8001_action" class="easySpoilerButton" value="Show" align="right"
-                        style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px 5px; padding: 4px;">
-                            Show
-                        </a>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="easySpoilerRow" colspan="2" style="">
-                        <div id="spoilerDiv87b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
-                            <p>
-                                Add this code inside the
-                                <code>
-                                    drawPieChart()
-                                </code>
-                                method:
-                            </p>
-                            <div class="wp_codebox">
-                                <table>
-                                    <tbody>
-                                        <tr id="p12861416">
-                                            <td class="code" id="p128614code16">
-                                                <pre class="swift" style="font-family:monospace;">
-                                                    // 1 let usedMidAngle = endAngle / 2.0 let availableMidAngle = (360.0
-                                                    - endAngle) / 2.0 let halfRadius = radius / 2.0 &nbsp; // 2 let usedSpaceText
-                                                    = bytesFormatter.string(fromByteCount: fileDistribution.capacity) let usedSpaceTextAttributes
-                                                    = [ NSFontAttributeName: NSFont.pieChartLegendFont, NSForegroundColorAttributeName:
-                                                    NSColor.pieChartUsedSpaceTextColor] let usedSpaceTextSize = usedSpaceText.size(withAttributes:
-                                                    usedSpaceTextAttributes) let xPos = rect.midX + CGFloat(cos(usedMidAngle.radians))
-                                                    * halfRadius - (usedSpaceTextSize.width / 2.0) let yPos = rect.midY + CGFloat(sin(usedMidAngle.radians))
-                                                    * halfRadius - (usedSpaceTextSize.height / 2.0) usedSpaceText.draw(at:
-                                                    CGPoint(x: xPos, y: yPos), withAttributes: usedSpaceTextAttributes) &nbsp;
-                                                    // 3 let availableSpaceText = bytesFormatter.string(fromByteCount: fileDistribution.available)
-                                                    let availableSpaceTextAttributes = [ NSFontAttributeName: NSFont.pieChartLegendFont,
-                                                    NSForegroundColorAttributeName: NSColor.pieChartAvailableSpaceTextColor]
-                                                    let availableSpaceTextSize = availableSpaceText.size(withAttributes: availableSpaceTextAttributes)
-                                                    let availableXPos = rect.midX + cos(-availableMidAngle.radians) * halfRadius
-                                                    - (availableSpaceTextSize.width / 2.0) let availableYPos = rect.midY +
-                                                    sin(-availableMidAngle.radians) * halfRadius - (availableSpaceTextSize.height
-                                                    / 2.0) availableSpaceText.draw(at: CGPoint(x: availableXPos, y: availableYPos),
-                                                    withAttributes: availableSpaceTextAttributes)
-                                                </pre>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <p>
-                                This code does the following:
-                            </p>
-                            <ol>
-                                <li>
-                                    Calculates the angles where you’ll draw used and available texts.
-                                </li>
-                                <li>
-                                    Creates the text attributes and calculates the
-                                    <i>
-                                        x
-                                    </i>
-                                    and
-                                    <i>
-                                        y
-                                    </i>
-                                    position of the used space text – then it draws.
-                                </li>
-                                <li>
-                                    Creates the text attributes and calculates the
-                                    <i>
-                                        x
-                                    </i>
-                                    and
-                                    <i>
-                                        y
-                                    </i>
-                                    position of the available space, and then it draws.
-                                </li>
-                            </ol>
-                            <p>
-                                Now, build and run and see the final result of your handiwork.
-                            </p>
-                            <p>
-                                <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png"
-                                rel="attachment wp-att-128927">
-                                    <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png"
-                                    alt="Final app made using Core Graphics on macOS" width="480" height="242"
-                                    class="aligncenter size-medium wp-image-128927" srcset="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png 480w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-768x388.png 768w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-700x354.png 700w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png 1568w"
-                                    sizes="(max-width: 480px) 100vw, 480px">
-                                </a>
-                            </p>
-                            <p>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="easySpoilerConclude" style="">
-            <table class="easySpoilerTable" border="0" style="text-align:center;"
-            frame="box" align="center" bgcolor="FFFFFF">
-                <tbody>
-                    <tr>
-                        <th class="easySpoilerEnd" style="width:100%;">
-                        </th>
-                        <td class="easySpoilerEnd" style="white-space:nowrap;" colspan="2">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="easySpoilerGroupWrapperLastRow" colspan="2" style="">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <tr style="white-space:normal;">
+        <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
+            Solution Inside: Draw Pie Chart Legend
+        </th>
+    </tr>
+    <tr>
+        <td class="easySpoilerRow" colspan="2" style="">
+            <div id="spoilerDiv87b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
+                <p>
+                    Add this code inside the
+                    <code>
+                        drawPieChart()
+                    </code>
+                    method:
+                </p>
+                <div class="wp_codebox">
+                    <table>
+                        <tbody>
+                            <tr id="p12861416">
+                                <td class="code" id="p128614code16">
+                                    <pre class="swift" style="font-family:monospace;">
+                                        // 1 let usedMidAngle = endAngle / 2.0 let availableMidAngle = (360.0
+                                        - endAngle) / 2.0 let halfRadius = radius / 2.0 &nbsp; // 2 let usedSpaceText
+                                        = bytesFormatter.string(fromByteCount: fileDistribution.capacity) let usedSpaceTextAttributes
+                                        = [ NSFontAttributeName: NSFont.pieChartLegendFont, NSForegroundColorAttributeName:
+                                        NSColor.pieChartUsedSpaceTextColor] let usedSpaceTextSize = usedSpaceText.size(withAttributes:
+                                        usedSpaceTextAttributes) let xPos = rect.midX + CGFloat(cos(usedMidAngle.radians))
+                                        * halfRadius - (usedSpaceTextSize.width / 2.0) let yPos = rect.midY + CGFloat(sin(usedMidAngle.radians))
+                                        * halfRadius - (usedSpaceTextSize.height / 2.0) usedSpaceText.draw(at:
+                                        CGPoint(x: xPos, y: yPos), withAttributes: usedSpaceTextAttributes) &nbsp;
+                                        // 3 let availableSpaceText = bytesFormatter.string(fromByteCount: fileDistribution.available)
+                                        let availableSpaceTextAttributes = [ NSFontAttributeName: NSFont.pieChartLegendFont,
+                                        NSForegroundColorAttributeName: NSColor.pieChartAvailableSpaceTextColor]
+                                        let availableSpaceTextSize = availableSpaceText.size(withAttributes: availableSpaceTextAttributes)
+                                        let availableXPos = rect.midX + cos(-availableMidAngle.radians) * halfRadius
+                                        - (availableSpaceTextSize.width / 2.0) let availableYPos = rect.midY +
+                                        sin(-availableMidAngle.radians) * halfRadius - (availableSpaceTextSize.height
+                                        / 2.0) availableSpaceText.draw(at: CGPoint(x: availableXPos, y: availableYPos),
+                                        withAttributes: availableSpaceTextAttributes)
+                                    </pre>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    This code does the following:
+                </p>
+                <ol>
+                    <li>
+                        Calculates the angles where you’ll draw used and available texts.
+                    </li>
+                    <li>
+                        Creates the text attributes and calculates the
+                        <i>
+                            x
+                        </i>
+                        and
+                        <i>
+                            y
+                        </i>
+                        position of the used space text – then it draws.
+                    </li>
+                    <li>
+                        Creates the text attributes and calculates the
+                        <i>
+                            x
+                        </i>
+                        and
+                        <i>
+                            y
+                        </i>
+                        position of the available space, and then it draws.
+                    </li>
+                </ol>
+                <p>
+                    Now, build and run and see the final result of your handiwork.
+                </p>
+                <p>
+                    <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png"
+                    rel="attachment wp-att-128927">
+                        <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png"
+                        alt="Final app made using Core Graphics on macOS" width="480" height="242"
+                        class="aligncenter size-medium wp-image-128927" srcset="https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-480x242.png 480w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-768x388.png 768w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1-700x354.png 700w, https://koenig-media.raywenderlich.com/uploads/2016/03/sshot-build-run-final-1.png 1568w"
+                        sizes="(max-width: 480px) 100vw, 480px">
+                    </a>
+                </p>
+                <p>
+                </p>
+            </div>
+        </td>
+    </tr>
     <br>
     Congratulations! You’ve built a beautiful app using Core Graphics and
     Cocoa Drawing!
