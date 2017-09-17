@@ -158,35 +158,8 @@
         </em>
         并添加下列的property到类中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        button = statusItem.button { button.image =
-        <span class="hljs-type">
-            NSImage
-        </span>
-        (named:
-        <span class="hljs-type">
-            NSImage
-        </span>
-        .
-        <span class="hljs-type">
-            Name
-        </span>
-        (
-        <span class="hljs-string">
-            "StatusBarButtonImage"
-        </span>
-        )) button.action = #selector(printQuote(
-        <span class="hljs-number">
-            _
-        </span>
-        :)) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> statusItem = <span class="hljs-type">NSStatusBar</span>.system.statusItem(withLength:<span class="hljs-type">NSStatusItem</span>.squareLength)
+</pre>
     <p>
         这就创建了一个
         <em>
@@ -239,92 +212,24 @@
         </code>
         中
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        button = statusItem.button { button.image =
-        <span class="hljs-type">
-            NSImage
-        </span>
-        (named:
-        <span class="hljs-type">
-            NSImage
-        </span>
-        .
-        <span class="hljs-type">
-            Name
-        </span>
-        (
-        <span class="hljs-string">
-            "StatusBarButtonImage"
-        </span>
-        )) button.action = #selector(printQuote(
-        <span class="hljs-number">
-            _
-        </span>
-        :)) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
+  button.image = <span class="hljs-type">NSImage</span>(named:<span class="hljs-type">NSImage</span>.<span class="hljs-type">Name</span>(<span class="hljs-string">"StatusBarButtonImage"</span>))
+  button.action = #selector(printQuote(<span class="hljs-number">_</span>:))
+}
+</pre>
     <p>
         这会把你刚刚添加的图片作为icon配置到status item的上面，然后配置了一个当你点击这个item时会发生的动作。现在这里会出现一个错误，但你很快就会修复它。
     </p>
     <p>
         在类中添加下列的代码：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @objc
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                printQuote
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        quoteText =
-        <span class="hljs-string">
-            "Never put off until tomorrow what you can do the day after tomorrow."
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        quoteAuthor =
-        <span class="hljs-string">
-            "Mark Twain"
-        </span>
-        <span class="hljs-built_in">
-            print
-        </span>
-        (
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(quoteText)
-            </span>
-            —
-            <span class="hljs-subst">
-                \(quoteAuthor)
-            </span>
-            "
-        </span>
-        ) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printQuote</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
+  <span class="hljs-keyword">let</span> quoteText = <span class="hljs-string">"Never put off until tomorrow what you can do the day after tomorrow."</span>
+  <span class="hljs-keyword">let</span> quoteAuthor = <span class="hljs-string">"Mark Twain"</span>
+  
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(quoteText)</span> — <span class="hljs-subst">\(quoteAuthor)</span>"</span>)
+}
+</pre>
     <p>
         这个方法将会把名言直接打印到控制台中。
     </p>
@@ -450,72 +355,16 @@
         </code>
         的尾部。
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                constructMenu
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        menu =
-        <span class="hljs-type">
-            NSMenu
-        </span>
-        () menu.addItem(
-        <span class="hljs-type">
-            NSMenuItem
-        </span>
-        (title:
-        <span class="hljs-string">
-            "Print Quote"
-        </span>
-        , action: #selector(
-        <span class="hljs-type">
-            AppDelegate
-        </span>
-        .printQuote(
-        <span class="hljs-number">
-            _
-        </span>
-        :)), keyEquivalent:
-        <span class="hljs-string">
-            "P"
-        </span>
-        )) menu.addItem(
-        <span class="hljs-type">
-            NSMenuItem
-        </span>
-        .separator()) menu.addItem(
-        <span class="hljs-type">
-            NSMenuItem
-        </span>
-        (title:
-        <span class="hljs-string">
-            "Quit Quotes"
-        </span>
-        , action: #selector(
-        <span class="hljs-type">
-            NSApplication
-        </span>
-        .terminate(
-        <span class="hljs-number">
-            _
-        </span>
-        :)), keyEquivalent:
-        <span class="hljs-string">
-            "q"
-        </span>
-        )) statusItem.menu = menu }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">constructMenu</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> menu = <span class="hljs-type">NSMenu</span>()
+
+  menu.addItem(<span class="hljs-type">NSMenuItem</span>(title: <span class="hljs-string">"Print Quote"</span>, action: #selector(<span class="hljs-type">AppDelegate</span>.printQuote(<span class="hljs-number">_</span>:)), keyEquivalent: <span class="hljs-string">"P"</span>))
+  menu.addItem(<span class="hljs-type">NSMenuItem</span>.separator())
+  menu.addItem(<span class="hljs-type">NSMenuItem</span>(title: <span class="hljs-string">"Quit Quotes"</span>, action: #selector(<span class="hljs-type">NSApplication</span>.terminate(<span class="hljs-number">_</span>:)), keyEquivalent: <span class="hljs-string">"q"</span>))
+
+  statusItem.menu = menu
+}
+</pre>
     <p>
         然后在
         <code>
@@ -626,79 +475,79 @@
         </a>
     </p>
     <p>
-        Go to
+        点击
         <em>
             File/New/File…
         </em>
-        , select the
+        ，选择
         <em>
             macOS/Source/Cocoa Class
         </em>
-        template and click
+        模板并点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <ul>
         <li>
-            Name the class
+            将这个类命名为
             <code>
                 QuotesViewController
             </code>
-            .
+            。
         </li>
         <li>
-            Make it a subclass of
+            将它成为
             <code>
                 NSViewController
             </code>
-            .
+            的子类。
         </li>
         <li>
-            Ensure that
+            确保
             <em>
                 Also create XIB file for user interface
             </em>
-            is not checked.
+            未被勾选。
         </li>
         <li>
-            Set the language to
+            将语言设置为
             <em>
                 Swift
             </em>
-            .
+            。
         </li>
     </ul>
     <p>
-        Finally, click
+        最后，再次点击
         <em>
             Next
         </em>
-        again, choose a place to save the file (In the
+        ，选择一个位置来保存文件（在项目目录下的
         <em>
             Quotes
         </em>
-        subfolder of the project folder is a good place) and click
+        子目录是一个不错的地方），然后点击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Now open
+        现在打开
         <em>
             Main.storyboard
         </em>
-        . Expand the
+        。展开
         <em>
-            View Controller Scene
+            View Controller场景
         </em>
-        and select the
+        并选择
         <em>
             View Controller
         </em>
-        instance.
+        实例。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/QuotesViewController-scene.png
@@ -711,19 +560,19 @@
         </a>
     </p>
     <p>
-        First select the
+        首选选择
         <em>
             Identity Inspector
         </em>
-        and change the Class to
+        并将Class修改为
         <code>
             QuotesViewController
         </code>
-        , next set the
+        ，将
         <em>
             Storyboard ID
         </em>
-        to
+        设置为
         <code>
             QuotesViewController
         </code>
