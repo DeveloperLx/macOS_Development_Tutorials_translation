@@ -626,43 +626,42 @@
         </li>
     </ol>
     <p>
-        You create this method so that anything thats using
+        创建了这个方法之后，其它用到
         <code>
             QuotesViewController
         </code>
-        doesn’t need to know how to instantiate it. It just works :]
+        的东西就不需要了解如何去实例化它了。直接调用它就阔以了:]
     </p>
     <p>
-        Notice the
-        <code>
-            fatalError
-        </code>
-        inside the
+        注意位于
         <code>
             guard
         </code>
-        statement. Its often good to use this or
+        语句中的
+        <code>
+            fatalError
+        </code>
+        。使用它或
         <code>
             assertionFailure
         </code>
-        to let yourself or other team members know when you have messed up during
-        development.
+        ，来让自己或团队其它的成员知晓这里出现了问题，是一个非常好的习惯。
     </p>
     <p>
-        Now go back to
+        现在返回到
         <em>
             AppDelegate.swift
         </em>
-        . Start by adding a new property declaration to the class:
+        。添加一个新的property声明到类中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> popover = <span class="hljs-type">NSPopover</span>()
 </pre>
     <p>
-        Next, replace
+        现在，使用下列的方法替换
         <code>
             applicationDidFinishLaunching(\_:)
         </code>
-        with the following:
+        ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">applicationDidFinishLaunching</span><span class="hljs-params">(<span class="hljs-number">_</span> aNotification: Notification)</span></span> {
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
@@ -673,18 +672,18 @@
 }
 </pre>
     <p>
-        You’ve changed the button action to
+        现在你已把按钮的动作替换为
         <code>
             togglePopover(\_:)
         </code>
-        which you’ll implement next. Also, rather than set up a menu, you’re setting
-        up the popover to show whatever’s in QuotesViewController.
+        ，接下来我们就会实现它，用popover去展示存在于QuotesViewController中的内容。
     </p>
     <p>
-        Add the following three methods to
+        添加下面的三个方法到
         <code>
             AppDelegate
         </code>
+        中
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">togglePopover</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
   <span class="hljs-keyword">if</span> popover.isShown {
