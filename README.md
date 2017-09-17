@@ -95,7 +95,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20Development%20for%20Beginners%20-%20Part%203.md" sl-processed="1">
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Menus%20and%20Popovers%20in%20Menu%20Bar%20Apps%20for%20macOS.md" sl-processed="1">
                     macOS教程：在Menu Bar App中的Menu和Popover
                 </a>
             </li>
