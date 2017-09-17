@@ -842,23 +842,21 @@
     <div id="spoilerDiv50478001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
         <br>
         Here are the auto layout constraints you need to get the correct layout:
-        <ol>
-            <li>
-                Pin the left button to the left edge with a gap of 20 and vertically center.
-            </li>
-            <li>
-                Pin the right button to the right edge with a gap of 20 and vertically
-                center.
-            </li>
-            <li>
-                Pin the lower button to the bottom edge with a gap of 20 and horizontally
-                center.
-            </li>
-            <li>
-                Pin the label left &amp; right to the buttons with a gap of 20 and vertically
-                center.
-            </li>
-        </ol>
+        <li>
+            Pin the left button to the left edge with a gap of 20 and vertically center.
+        </li>
+        <li>
+            Pin the right button to the right edge with a gap of 20 and vertically
+            center.
+        </li>
+        <li>
+            Pin the lower button to the bottom edge with a gap of 20 and horizontally
+            center.
+        </li>
+        <li>
+            Pin the label left &amp; right to the buttons with a gap of 20 and vertically
+            center.
+        </li>
         <p>
             <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
             sl-processed="1">
