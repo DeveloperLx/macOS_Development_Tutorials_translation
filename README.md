@@ -50,21 +50,6 @@
         </p>
         <ul>
             <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md" sl-processed="1">
-                    Mac OS X 初学者开发教程 第一部分：Xcode介绍
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md" sl-processed="1">
-                    Mac OS X 初学者开发教程 第二部分：OS X App剖析
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md" sl-processed="1">
-                    Mac OS X 初学者开发教程 第三部分：你的第一个OS X App
-                </a>
-            </li>
-            <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Cocoa%20Bindings%20on%20macOS.md" sl-processed="1">
                     绑定在macOS上的Cocoa
                 </a>
@@ -77,6 +62,21 @@
             <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20Controls%20Tutorial%20-%20Part%202:2.md" sl-processed="1">
                     macOS控件教程：2/2部分
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md" sl-processed="1">
+                    Mac OS X 初学者开发教程 第一部分：Xcode介绍
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md" sl-processed="1">
+                    Mac OS X 初学者开发教程 第二部分：OS X App剖析
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%203%20-%20Your%20First%20OS%20X%20App.md" sl-processed="1">
+                    Mac OS X 初学者开发教程 第三部分：你的第一个OS X App
                 </a>
             </li>
             <li>
@@ -112,20 +112,9 @@
         alt="CocoaBindings-feature" width="250" height="250" class="alignright size-thumbnail wp-image-129292 bordered"
         />
         <p>
-            一旦你通过了基础，你应该了解windows, views, 和view controllers在OS X中如何工作, 以及一些在你每天的开发中用到的关键的view
-            controllers和views。
+            一旦你通过了基础，你应该了解windows, views, 和view controllers在OS X中如何工作, 以及一些在你每天的开发中用到的关键的view controllers和views。
         </p>
         <ul>
-            <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Windows%20and%20Window%20Controllers%20in%20OS%20X%20Tutorial.md" sl-processed="1">
-                    OS X教程：Windows和Window Controllers
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/OS%20X%20View%20Controllers%20Tutorial.md" sl-processed="1">
-                    OS X View Controllers教程
-                </a>
-            </li>
             <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Collection%20Views%20in%20OS%20X%20Tutorial.md" sl-processed="1">
                     OS X教程：Collection Views
@@ -159,6 +148,16 @@
             <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/NSCollectionView%20Tutorial.md" sl-processed="1">
                     NSCollectionView教程
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/OS%20X%20View%20Controllers%20Tutorial.md" sl-processed="1">
+                    OS X View Controllers教程
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Windows%20and%20Window%20Controllers%20in%20OS%20X%20Tutorial.md" sl-processed="1">
+                    OS X教程：Windows和Window Controllers
                 </a>
             </li>
         </ul>
@@ -210,6 +209,11 @@
             <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/FileManager%20Class%20Tutorial%20for%20macOS%20Getting%20Started%20with%20the%20File%20System.md" sl-processed="1">
                     macOS FileManager类教程：文件系统入门
+                </a>
+            </li>
+            <li>
+                <a href="" sl-processed="1">
+                    把你的iOS app搬到macOS上去
                 </a>
             </li>
         </ul>
