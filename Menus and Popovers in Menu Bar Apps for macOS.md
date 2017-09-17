@@ -840,22 +840,19 @@
         解决办法
     </h3>
     <p>
-    Here are the auto layout constraints you need to get the correct layout:
+        下列是获取正确布局所需的约束：
     </p>
     <li>
-        Pin the left button to the left edge with a gap of 20 and vertically center.
+        将左侧的按钮固定到距左边20，且竖直居中的位置。
     </li>
     <li>
-        Pin the right button to the right edge with a gap of 20 and vertically
-        center.
+        将右侧的按钮固定到距右边20，且竖直居中的位置。
     </li>
     <li>
-        Pin the lower button to the bottom edge with a gap of 20 and horizontally
-        center.
+        将底部的按钮固定到距底部20，且水平居中的位置。
     </li>
     <li>
-        Pin the label left &amp; right to the buttons with a gap of 20 and vertically
-        center.
+        将标签固定到距离左右两边均为20，且竖直居中的位置。
     </li>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
@@ -867,15 +864,14 @@
         </a>
     </p>
     <p>
-        You are going to see a set of layout errors as there isn’t enough information
-        for auto layout to figure things out yet.
+        你会发现出现了一些布局的错误，因为没有足够的信息以确定布局。
     </p>
     <p>
-        Set the
+        因此将label的
         <em>
             Horizontal Content Hugging Priority
         </em>
-        of the label to 249 to allow the label to grow properly.
+        设置为249，以允许label恰当地增长。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution.png"
@@ -887,149 +883,78 @@
         </a>
     </p>
     <p>
-        Once you have the layout setup to your satisfaction set up the elements
-        like this:
+        在得到满意的布局之后：
     </p>
     <ul>
         <li>
-            Set the left button’s image to
+            设置左侧按钮的图片为
             <code>
                 NSGoLeftTemplate
             </code>
-            and delete the title.
+            ，并删除title。
         </li>
         <li>
-            Set the right button’s image to
+            设置右侧按钮的图片为
             <code>
                 NSGoRightTemplate
             </code>
-            and delete the title.
+            ，并删除title。
         </li>
         <li>
-            Set the title of the lower push button to
+            设置下侧按钮的title为
             <em>
                 Quit Quotes
             </em>
-            .
+            。
         </li>
         <li>
-            Set the label’s text alignment to center.
+            设置label的对齐方式为居中对齐。
         </li>
         <li>
-            Check that
+            设置label的
             <em>
                 Line Break
             </em>
-            for the label is set to
+            模式为
             <em>
                 Word Wrap
             </em>
-            .
+            。
         </li>
     </ul>
     <p>
-        Now open
+        现在，打开
         <em>
             QuotesViewController.swift
         </em>
-        and add the the following code to the class implementation of
+        ，并添加下列的代码到
         <code>
             QuotesViewController
         </code>
-        :
+        类的实现中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBOutlet
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        textLabel:
-        <span class="hljs-type">
-            NSTextField
-        </span>
-        !
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">var</span> textLabel: <span class="hljs-type">NSTextField</span>!
+</pre>
     <p>
-        Add this extension after the class implementation. You will now have two
-        extensions in
+        添加下列的extension到类的实现之后。现在在
         <em>
             QuotesViewController.swift
         </em>
-        .
+        中你会有两个extension。
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-comment">
-            // MARK: Actions
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                QuotesViewController
-            </span>
-        </span>
-        {
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                previous
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSButton)
-            </span>
-        </span>
-        { }
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                next
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSButton)
-            </span>
-        </span>
-        { }
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                quit
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSButton)
-            </span>
-        </span>
-        { } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// MARK: Actions</span>
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">QuotesViewController</span> </span>{
+  <span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">previous</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
+  }
+
+  <span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">next</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
+  }
+
+  <span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">quit</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
+  }
+}
+</pre>
     <p>
         You have just added an outlet for the text label, which you’ll use to
         display the inspirational quote and 3 stub actions which you will connect
