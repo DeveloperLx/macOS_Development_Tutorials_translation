@@ -234,19 +234,17 @@
 }
 </pre>
     <p>
-        This method will simply log out the quote text to the console.
+        这个方法将会把名言直接打印到控制台中。
     </p>
     <p>
-        Take note of the
+        注意
         <code>
             @objc
         </code>
-        directive in the signature. This exposes the method to the Objective-C
-        runtime to allow the button to use it as an action.
+        这个标记。它会把这个方法暴露给Objective-C的运行时，来让按钮响应这里的动作。
     </p>
     <p>
-        Build and run the app, and you should see a new menu bar app available.
-        You did it!
+        运行app，你就会看到新的菜单栏app了。你办到了！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-light.png"
@@ -269,46 +267,42 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you have too many menu bar apps, you might not be able to see your
-            button. Switch to an app with fewer menus than Xcode (like Finder) and
-            you should be able to see it.
+            ：如果菜单栏中的app太多了，可能你会无法看到这个按钮。可以切换到一个比Xcode的菜单少的app（例如Finder），你应该就可以看到它了。
         </p>
     </div>
     <p>
-        Every time you click on the menu bar icon, you’ll see the quote printed
-        out in the Xcode console.
+        每次你点击菜单栏的icon的时候，你就会看到名言被打印到了Xcode的控制台上。
     </p>
     <h2>
-        Hiding the Dock Icon and Main Window
+        隐藏Dock中的Icon和主窗口
     </h2>
     <p>
-        There are still two small things to do before you have a functional menu
-        bar app.
+        在你完成完整功能的菜单栏app之前，还有两件小事需要做一下。
     </p>
     <ol>
         <li>
-            Disable the dock icon.
+            禁用dock中的icon。
         </li>
         <li>
-            Remove the main window.
+            移除主窗口。
         </li>
     </ol>
     <p>
-        To disable the dock icon, open
+        要禁用dock icon，只需打开
         <em>
             Info.plist
         </em>
-        . Add a new key
+        ，添加一个新的key
         <em>
             Application is agent (UIElement)
         </em>
-        and set its value to
+        并将它的值设为
         <em>
             YES
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/03/Application-Is-Agent-YES.png"
@@ -316,30 +310,29 @@
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        If you’re an expert plist editor, feel free to set this manually with
-        the key
+        如果你是一个编辑plist editor的专家，你可以随意地使用
         <code>
             LSUIElement
         </code>
-        .
+        键来进行设置。
     </div>
     <p>
-        Now it’s time to handle the main window.
+        现在该来处理主窗口了。
     </p>
     <ul>
         <li>
-            Open
+            打开
             <code>
                 Main.storyboard
             </code>
         </li>
         <li>
-            Select the Window Controller scene and delete it.
+            选择Window Controller场景并删除它。
         </li>
         <li>
-            Leave the View Controller scene alone as you are going to use it soon.
+            只留下View Controller场景。你很快就会用到它。
         </li>
     </ul>
     <p>
@@ -352,109 +345,50 @@
         </a>
     </p>
     <p>
-        Build and run. You’ll see the app has no main window, no pesky dock icon
-        and only a tidy status item in the menu bar. High five yourself :]
+        运行项目。你就会看到这个app已经没有主窗口了，也没有讨厌的dock icon，只有一个简单的status item放在菜单栏中。为自己庆祝一下吧 :]
     </p>
     <h2>
-        Adding a Menu to the Status Item
+        添加一个菜单到Status Item上
     </h2>
     <p>
-        Usually, a measly single action on click is not enough for a menu bar
-        app. The easiest way to add more functionality to your app is to add a
-        menu. Add the following function to the end of
+        通常，点击它只有可怜兮兮的一个动作，是不值得成为一个菜单栏的app的。为你的app添加更多功能，最简单的办法就是添加菜单了。因此添加下列的方法到
         <code>
             AppDelegate
         </code>
-        .
+        的尾部。
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                constructMenu
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        menu =
-        <span class="hljs-type">
-            NSMenu
-        </span>
-        () menu.addItem(
-        <span class="hljs-type">
-            NSMenuItem
-        </span>
-        (title:
-        <span class="hljs-string">
-            "Print Quote"
-        </span>
-        , action: #selector(
-        <span class="hljs-type">
-            AppDelegate
-        </span>
-        .printQuote(
-        <span class="hljs-number">
-            _
-        </span>
-        :)), keyEquivalent:
-        <span class="hljs-string">
-            "P"
-        </span>
-        )) menu.addItem(
-        <span class="hljs-type">
-            NSMenuItem
-        </span>
-        .separator()) menu.addItem(
-        <span class="hljs-type">
-            NSMenuItem
-        </span>
-        (title:
-        <span class="hljs-string">
-            "Quit Quotes"
-        </span>
-        , action: #selector(
-        <span class="hljs-type">
-            NSApplication
-        </span>
-        .terminate(
-        <span class="hljs-number">
-            _
-        </span>
-        :)), keyEquivalent:
-        <span class="hljs-string">
-            "q"
-        </span>
-        )) statusItem.menu = menu }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">constructMenu</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> menu = <span class="hljs-type">NSMenu</span>()
+
+  menu.addItem(<span class="hljs-type">NSMenuItem</span>(title: <span class="hljs-string">"Print Quote"</span>, action: #selector(<span class="hljs-type">AppDelegate</span>.printQuote(<span class="hljs-number">_</span>:)), keyEquivalent: <span class="hljs-string">"P"</span>))
+  menu.addItem(<span class="hljs-type">NSMenuItem</span>.separator())
+  menu.addItem(<span class="hljs-type">NSMenuItem</span>(title: <span class="hljs-string">"Quit Quotes"</span>, action: #selector(<span class="hljs-type">NSApplication</span>.terminate(<span class="hljs-number">_</span>:)), keyEquivalent: <span class="hljs-string">"q"</span>))
+
+  statusItem.menu = menu
+}
+</pre>
     <p>
-        and then add this call to the end of
+        然后在
         <code>
             applicationDidFinishLaunching(_:)
         </code>
+        的尾部添加对它的调用
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        constructMenu()
-    </pre>
+    <pre lang="swift" class="language-swift hljs">constructMenu()
+</pre>
     <p>
-        Here you create an
+        你在这里创建了一个
         <code>
             NSMenu
         </code>
-        , add 3 instances of
+        ，并添加了三个
         <code>
             NSMenuItem
         </code>
-        to it, and then set the status item’s menu to that new menu.
+        的实例，然后把status item的菜单设置为这个新的菜单。
     </p>
     <p>
-        A few things to note here:
+        这里有一些事值得去关注：
     </p>
     <ul>
         <li>
