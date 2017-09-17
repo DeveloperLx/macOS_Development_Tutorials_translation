@@ -839,54 +839,53 @@
     <h3>
         解决办法
     </h3>
-    <div id="spoilerDiv50478001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
-        <br>
-        Here are the auto layout constraints you need to get the correct layout:
-        <li>
-            Pin the left button to the left edge with a gap of 20 and vertically center.
-        </li>
-        <li>
-            Pin the right button to the right edge with a gap of 20 and vertically
-            center.
-        </li>
-        <li>
-            Pin the lower button to the bottom edge with a gap of 20 and horizontally
-            center.
-        </li>
-        <li>
-            Pin the label left &amp; right to the buttons with a gap of 20 and vertically
-            center.
-        </li>
-        <p>
-            <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
-            sl-processed="1">
-                <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png"
-                alt="constraints for layout" width="480" height="292" class="aligncenter size-medium wp-image-167067"
-                srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-650x396.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png 1110w"
-                sizes="(max-width: 480px) 100vw, 480px">
-            </a>
-        </p>
-        <p>
-            You are going to see a set of layout errors as there isn’t enough information
-            for auto layout to figure things out yet.
-        </p>
-        <p>
-            Set the
-            <em>
-                Horizontal Content Hugging Priority
-            </em>
-            of the label to 249 to allow the label to grow properly.
-        </p>
-        <p>
-            <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution.png"
-            sl-processed="1">
-                <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png"
-                alt="resolve constraint conflicts" width="480" height="192" class="aligncenter size-medium wp-image-167068"
-                srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-650x260.png 650w"
-                sizes="(max-width: 480px) 100vw, 480px">
-            </a>
-        </p>
-    </div>
+    <p>
+    Here are the auto layout constraints you need to get the correct layout:
+    </p>
+    <li>
+        Pin the left button to the left edge with a gap of 20 and vertically center.
+    </li>
+    <li>
+        Pin the right button to the right edge with a gap of 20 and vertically
+        center.
+    </li>
+    <li>
+        Pin the lower button to the bottom edge with a gap of 20 and horizontally
+        center.
+    </li>
+    <li>
+        Pin the label left &amp; right to the buttons with a gap of 20 and vertically
+        center.
+    </li>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png"
+            alt="constraints for layout" width="480" height="292" class="aligncenter size-medium wp-image-167067"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-650x396.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png 1110w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
+    <p>
+        You are going to see a set of layout errors as there isn’t enough information
+        for auto layout to figure things out yet.
+    </p>
+    <p>
+        Set the
+        <em>
+            Horizontal Content Hugging Priority
+        </em>
+        of the label to 249 to allow the label to grow properly.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png"
+            alt="resolve constraint conflicts" width="480" height="192" class="aligncenter size-medium wp-image-167068"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-650x260.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
     <p>
         Once you have the layout setup to your satisfaction set up the elements
         like this:
