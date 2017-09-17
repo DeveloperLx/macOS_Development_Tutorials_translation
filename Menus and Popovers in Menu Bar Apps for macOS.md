@@ -790,43 +790,39 @@
 }
 </pre>
     <p>
-        This defines a simple quote structure and a static property that returns
-        all the quotes. Since you also make
+        上述代码定义了一个简单的名言结构体，其中包含一个静态的property来返回全部的名言。同时，你让
         <code>
             Quote
         </code>
-        conform to
+        遵循
         <code>
             CustomStringConvertible
         </code>
-        , you can easily get a nice formatted string.
+        协议，这样你就能够很轻松地获得一个准备好的字符串。
     </p>
     <p>
-        You’re making progress, but you now need some function in the UI to display
-        all these famous quotes.
+        你已经取得了很大的进展，但你现在需要一些方法，来在UI中展示全部的名言。
     </p>
     <h3>
-        Setting up the View Controller UI
+        设置View Controller的UI
     </h3>
     <p>
-        Open
+        打开
         <code>
             Main.storyboard
         </code>
-        and drag 3
+        并拖拽三个
         <em>
             Push Button
         </em>
-        instances, and a
+        ，一个
         <em>
             Multiline Label
         </em>
-        into the view controller.
+        到view controller中。
     </p>
     <p>
-        Drag the buttons and label into place until they look like this layout.
-        The dotted blue layout guides that appear will help you get the items into
-        place:
+        把按钮和标签拖拽成就像下面的样子。蓝色的虚线会帮助你去定位到正确的位置去进行布局：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/layout-no-constraints.png"
@@ -838,109 +834,60 @@
         </a>
     </p>
     <p>
-        Can you add the auto layout constraints to make the user interface match?
-        Give it a few good attempts before you open the spoiler below. If you get
-        it right, skip the spoiler and give yourself a gold star.
+        你可以独自完成添加自动布局的约束，来适配用户的交互么？在查看下面的详解之前，可以首先自己进行一下尝试。如果成功的话，就可以略过下面这部分了。你可以给奖自己一颗星星。
     </p>
-    <div class="easySpoilerWrapper" style="">
-        <table class="easySpoilerTable" border="0" style="text-align:center;"
-        align="center" bgcolor="FFFFFF">
-            <tbody>
-                <tr style="white-space:normal;">
-                    <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
-                        Solution Inside
-                    </th>
-                    <th class="easySpoilerTitleB" style="text-align:right;vertical-align:middle;font-size:100%; white-space:nowrap;">
-                        <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv50478001&quot;); return false;"
-                        class="easySpoilerButtonOther" style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px; padding: 4px; "
-                        align="right" sl-processed="1">
-                            Select
-                        </a>
-                        <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv50478001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
-                        id="spoilerDiv50478001_action" class="easySpoilerButton" value="Show" align="right"
-                        style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px 5px; padding: 4px;"
-                        sl-processed="1">
-                            Show
-                        </a>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="easySpoilerRow" colspan="2" style="">
-                        <div id="spoilerDiv50478001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
-                            <br>
-                            Here are the auto layout constraints you need to get the correct layout:
-                            <p>
-                            </p>
-                            <ol>
-                                <li>
-                                    Pin the left button to the left edge with a gap of 20 and vertically center.
-                                </li>
-                                <li>
-                                    Pin the right button to the right edge with a gap of 20 and vertically
-                                    center.
-                                </li>
-                                <li>
-                                    Pin the lower button to the bottom edge with a gap of 20 and horizontally
-                                    center.
-                                </li>
-                                <li>
-                                    Pin the label left &amp; right to the buttons with a gap of 20 and vertically
-                                    center.
-                                </li>
-                            </ol>
-                            <p>
-                                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
-                                sl-processed="1">
-                                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png"
-                                    alt="constraints for layout" width="480" height="292" class="aligncenter size-medium wp-image-167067"
-                                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-650x396.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png 1110w"
-                                    sizes="(max-width: 480px) 100vw, 480px">
-                                </a>
-                            </p>
-                            <p>
-                                You are going to see a set of layout errors as there isn’t enough information
-                                for auto layout to figure things out yet.
-                            </p>
-                            <p>
-                                Set the
-                                <em>
-                                    Horizontal Content Hugging Priority
-                                </em>
-                                of the label to 249 to allow the label to grow properly.
-                            </p>
-                            <p>
-                                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution.png"
-                                sl-processed="1">
-                                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png"
-                                    alt="resolve constraint conflicts" width="480" height="192" class="aligncenter size-medium wp-image-167068"
-                                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-650x260.png 650w"
-                                    sizes="(max-width: 480px) 100vw, 480px">
-                                </a>
-                            </p>
-                            <p>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="easySpoilerConclude" style="">
-            <table class="easySpoilerTable" border="0" style="text-align:center;"
-            frame="box" align="center" bgcolor="FFFFFF">
-                <tbody>
-                    <tr>
-                        <th class="easySpoilerEnd" style="width:100%;">
-                        </th>
-                        <td class="easySpoilerEnd" style="white-space:nowrap;" colspan="2">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="easySpoilerGroupWrapperLastRow" colspan="2" style="">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <h3>
+        解决办法
+    </h3>
+    <div id="spoilerDiv50478001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
+        <br>
+        Here are the auto layout constraints you need to get the correct layout:
+        <ol>
+            <li>
+                Pin the left button to the left edge with a gap of 20 and vertically center.
+            </li>
+            <li>
+                Pin the right button to the right edge with a gap of 20 and vertically
+                center.
+            </li>
+            <li>
+                Pin the lower button to the bottom edge with a gap of 20 and horizontally
+                center.
+            </li>
+            <li>
+                Pin the label left &amp; right to the buttons with a gap of 20 and vertically
+                center.
+            </li>
+        </ol>
+        <p>
+            <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
+            sl-processed="1">
+                <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png"
+                alt="constraints for layout" width="480" height="292" class="aligncenter size-medium wp-image-167067"
+                srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-650x396.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png 1110w"
+                sizes="(max-width: 480px) 100vw, 480px">
+            </a>
+        </p>
+        <p>
+            You are going to see a set of layout errors as there isn’t enough information
+            for auto layout to figure things out yet.
+        </p>
+        <p>
+            Set the
+            <em>
+                Horizontal Content Hugging Priority
+            </em>
+            of the label to 249 to allow the label to grow properly.
+        </p>
+        <p>
+            <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution.png"
+            sl-processed="1">
+                <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png"
+                alt="resolve constraint conflicts" width="480" height="192" class="aligncenter size-medium wp-image-167068"
+                srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-650x260.png 650w"
+                sizes="(max-width: 480px) 100vw, 480px">
+            </a>
+        </p>
     </div>
     <p>
         Once you have the layout setup to your satisfaction set up the elements
