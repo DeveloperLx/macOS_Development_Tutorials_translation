@@ -211,7 +211,7 @@
         </em>
         ，添加下列的代码到
         <code>
-            applicationDidFinishLaunching(_:)
+            applicationDidFinishLaunching(\_:)
         </code>
         中
     </p>
@@ -370,7 +370,7 @@
     <p>
         然后在
         <code>
-            applicationDidFinishLaunching(_:)
+            applicationDidFinishLaunching(\_:)
         </code>
         的尾部添加对它的调用
     </p>
@@ -539,7 +539,7 @@
             <pre lang="swift " class="language-swift hljs "><span class="hljs-keyword
             ">let</span> popover = <span class="hljs-type ">NSPopover</span>()
             </pre>
-            <p>Next, replace <code>applicationDidFinishLaunching(_:)</code> with the following:</p>
+            <p>Next, replace <code>applicationDidFinishLaunching(\_:)</code> with the following:</p>
             <pre lang="swift " class="language-swift hljs "><span class="hljs-function
             "><span class="hljs-keyword ">func</span> <span class="hljs-title
             ">applicationDidFinishLaunching</span><span class="hljs-params ">(<span class="hljs-number ">_</span> aNotification: Notification)</span></span> {
@@ -552,7 +552,7 @@
             popover.contentViewController = <span class="hljs-type ">QuotesViewController</span>.freshController()
             }
             </pre>
-            <p>You’ve changed the button action to <code>togglePopover(_:)</code> which you’ll implement next. Also, rather than set up a menu, you’re setting up the popover to show whatever’s in QuotesViewController.</p>
+            <p>You’ve changed the button action to <code>togglePopover(\_:)</code> which you’ll implement next. Also, rather than set up a menu, you’re setting up the popover to show whatever’s in QuotesViewController.</p>
             <p>Add the following three methods to <code>AppDelegate</code></p>
             <pre lang="swift " class="language-swift hljs "><span class="hljs-meta
             ">@objc</span> <span class="hljs-function "><span class="hljs-keyword ">func</span> <span class="hljs-title
@@ -1450,7 +1450,7 @@
                 </code>
                 calls
                 <code>
-                    addGlobalMonitorForEventsMatchingMask(_:handler:)
+                    addGlobalMonitorForEventsMatchingMask(\_:handler:)
                 </code>
                 , which returns an object for you to hold on to. Any time the event specified
                 in the mask occurs, the system calls your handler.
@@ -1508,7 +1508,7 @@
             <p>
                 Next, add the code to configure the event monitor at the end of
                 <code>
-                    applicationDidFinishLaunching(_:)
+                    applicationDidFinishLaunching(\_:)
                 </code>
             </p>
             <pre lang="swift" class="language-swift hljs">
@@ -1570,7 +1570,7 @@
             <p>
                 Add the following code to the end of
                 <code>
-                    showPopover(_:)
+                    showPopover(\_:)
                 </code>
                 :
             </p>
@@ -1583,7 +1583,7 @@
             <p>
                 Then, you’ll need to add the following code to the end of
                 <code>
-                    closePopover(_:)
+                    closePopover(\_:)
                 </code>
                 :
             </p>
