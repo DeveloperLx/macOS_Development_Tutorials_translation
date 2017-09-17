@@ -95,6 +95,11 @@
                 </a>
             </li>
             <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Command%20Line%20Programs%20on%20macOS%20Tutorial.md" sl-processed="1">
+                    macOS教程：命令行程序
+                </a>
+            </li>
+            <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Menus%20and%20Popovers%20in%20Menu%20Bar%20Apps%20for%20macOS.md" sl-processed="1">
                     macOS教程：在Menu Bar App中的Menu和Popover
                 </a>
@@ -168,23 +173,8 @@
         </p>
         <ul>
             <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/OS%20X%20Tutorial%20-%20Menus%20and%20Popovers%20in%20Menu%20Bar%20Apps.md" sl-processed="1">
-                    OS X教程：在Menu Bar Apps中的Menus和Popovers
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Cocoa%20Bindings%20on%20OS%20X%20Tutorial.md" sl-processed="1">
-                    OS X教程：Cocoa Bindings
-                </a>
-            </li>
-            <li>
                 <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/NSTask%20Tutorial%20for%20OS%20X.md" sl-processed="1">
                     OS X NSTask教程
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Command%20Line%20Programs%20on%20macOS%20Tutorial.md" sl-processed="1">
-                    macOS教程：命令行程序
                 </a>
             </li>
             <li>
