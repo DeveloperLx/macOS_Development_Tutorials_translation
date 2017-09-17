@@ -6,15 +6,14 @@
     <div class="note">
         <p>
             <em>
-                Update note:
+                更新日志：
             </em>
-            This Menus and Popovers in Menu Bar Apps for macOS tutorial has been updated
-            to Xcode 9 and Swift 4 by Warren Burton. The
+            本教程已由Warren Burton更新至支持Xcode 9及Swift 4的版本。
             <a href="https://www.raywenderlich.com/98178/os-x-tutorial-menus-popovers-menu-bar-apps"
             sl-processed="1">
-                original
+                原教材
             </a>
-            tutorial was written by Mikael Konutgan.
+            由Mikael Konutgan撰写。
         </p>
     </div>
     <div id="attachment_105403" style="width: 260px" class="wp-caption alignright">
@@ -25,57 +24,54 @@
             height="250" class="size-full wp-image-105403">
         </a>
         <p class="wp-caption-text">
-            Learn how to make a menu bar macOS app with a popover!
+            学习如何使用popover来制作一个macOS app的菜单栏！
         </p>
     </div>
     <p>
-        Menu bar apps have been staple of macOS for a long time. Many apps like
+        菜单栏app长期以来都是macOS中的主打项。很多app例如
         <a href="https://agilebits.com/onepassword/mac" target="_blank" sl-processed="1">
             1Password
         </a>
-        and
+        和
         <a href="http://dayoneapp.com" target="_blank" sl-processed="1">
             Day One
         </a>
-        have companion menu bar apps. Others like
+        都有着相应的菜单栏app。其它app诸如
         <a href="http://flexibits.com/fantastical" target="_blank" sl-processed="1">
             Fantastical
         </a>
-        live exclusively in macOS’s menu bar.
+        甚至仅仅存在于macOS的菜单栏中。
     </p>
     <p>
-        In this menu bar app tutorial, you’ll build a menu bar app that shows
-        inspirational quotes in a popover. While you do this, you’ll learn:
+        在本教程中，你将会构建一个菜单栏app，它会在一个popover中展示鼓舞人心的名言。你会在其中学到：
     </p>
     <ul>
         <li>
-            How to create a menu bar icon
+            如何创建一个菜单栏的图标
         </li>
         <li>
-            How to make the app live exclusively in the menu bar
+            如何让app仅仅存在于菜单栏中
         </li>
         <li>
-            How to add a menu for the user
+            如何为用户添加菜单
         </li>
         <li>
-            How to make a popover that shows on demand and hides when the user moves
-            on — aka Event Monitoring
+            如何让popover按照需求展示和隐藏 - 也就是说事件监视
         </li>
     </ul>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        This tutorial assumes you’re familiar with Swift and macOS. If you need
-        a refresher, start with our
+        本教程假定你已熟悉了Swift和macOS。如果你需要再温习一下，欢迎关注我们的
         <a href="https://www.raywenderlich.com/151741/macos-development-beginners-part-1"
         target="_blank" sl-processed="1">
             macOS Development for Beginners
         </a>
-        tutorial for a great introduction.
+        系列教程。
     </div>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         Fire up Xcode. Go to
