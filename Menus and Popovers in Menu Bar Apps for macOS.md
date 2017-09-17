@@ -392,62 +392,52 @@
     </p>
     <ul>
         <li>
-            The title of a menu item is the text that appears in the menu. This is
-            a good point for localization if needed.
+            menu item的title是将会出现在菜单中的文本。如果需要的话，这里是实现本地化的一个好地方。
         </li>
         <li>
-            The action, like the action of a button or any control, is the method
-            that gets called when you click the menu item.
+            动作，类似于按钮或者其它控件的动作，是当你在点击菜单项的时候将会调用的方法。
         </li>
         <li>
-            The
             <code>
                 keyEquivalent
             </code>
-            is a keyboard shortcut that you can use to activate the menu item. A lowercase
-            letter uses
+            是用来激活菜单项的键盘快捷键。小写的字母将使用
             <em>
                 Cmd
             </em>
-            as the modifier key and an uppercase letter uses
+            作为修饰键，而大写的字母则使用
             <em>
                 Cmd+Shift
             </em>
-            . This keyboard shortcut only works if the application is front-most and
-            active. So, in this case, the menu or any other window needs to be visible,
-            since the app has no dock icon.
+            作为修饰键。这里的键盘快捷键只有当app位于应用的最前方且被激活的时候才会work。因此，在这个case中，这个菜单或其它的窗口必须在可见的情况下，键盘快捷键才可以使用，因为我们的app没有dock的icon。
         </li>
         <li>
-            A
             <code>
                 separatorItem
             </code>
-            is a stock inactive menu item that appears as a simple gray line between
-            other menu items. Use it to group functionality in the menu.
+            则是一个不活动的菜单项，它只会表现为其它菜单项之间的一条灰色的线。我们可以用它来对菜单中的功能进行分组。
         </li>
         <li>
-            The
             <code>
                 printQuote:
             </code>
-            action is the method you already defined in
+            动作是你早已定义在
             <code>
                 AppDelegate
             </code>
-            while
+            中的方法，而
             <code>
                 terminate:
             </code>
-            is an action method defined by
+            动作则是定义在
             <code>
                 NSApplication
             </code>
-            .
+            中的方法。
         </li>
     </ul>
     <p>
-        Build and run, and you should see a menu when clicking on the status item.
-        Progress!
+        运行项目，然后点击status item，你就会看到一个菜单。庆祝一下进展吧！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/Menu-Action.png"
