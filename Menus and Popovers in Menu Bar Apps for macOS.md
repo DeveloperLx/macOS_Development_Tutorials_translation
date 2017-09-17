@@ -578,134 +578,29 @@
         </code>
     </p>
     <p>
-        Next add the following code to the end of
+        下面添加下列的代码到
         <em>
             QuotesViewController.swift
         </em>
+        的尾部
     </p>
-    <pre lang="swift " class="language-swift hljs ">
-        <span class="hljs-class
-        ">
-            <span class="hljs-keyword ">
-                extension
-            </span>
-            <span class="hljs-title ">
-                QuotesViewController
-            </span>
-        </span>
-        {
-        <span class="hljs-comment ">
-            // MARK: Storyboard instantiation
-        </span>
-        <span class="hljs-keyword ">
-            static
-        </span>
-        <span class="hljs-function
-        ">
-            <span class="hljs-keyword ">
-                func
-            </span>
-            <span class="hljs-title
-            ">
-                freshController
-            </span>
-            <span class="hljs-params ">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type ">
-            QuotesViewController
-        </span>
-        {
-        <span class="hljs-comment ">
-            //1.
-        </span>
-        <span class="hljs-keyword ">
-            let
-        </span>
-        storyboard =
-        <span class="hljs-type
-        ">
-            NSStoryboard
-        </span>
-        (name:
-        <span class="hljs-type ">
-            NSStoryboard
-        </span>
-        .
-        <span class="hljs-type
-        ">
-            Name
-        </span>
-        (rawValue:
-        <span class="hljs-string ">
-            "Main "
-        </span>
-        ), bundle:
-        <span class="hljs-literal ">
-            nil
-        </span>
-        )
-        <span class="hljs-comment ">
-            //2.
-        </span>
-        <span class="hljs-keyword ">
-            let
-        </span>
-        identifier =
-        <span class="hljs-type
-        ">
-            NSStoryboard
-        </span>
-        .
-        <span class="hljs-type ">
-            SceneIdentifier
-        </span>
-        (rawValue:
-        <span class="hljs-string
-        ">
-            "QuotesViewController "
-        </span>
-        )
-        <span class="hljs-comment ">
-            //3.
-        </span>
-        <span class="hljs-keyword ">
-            guard
-        </span>
-        <span class="hljs-keyword
-        ">
-            let
-        </span>
-        viewcontroller = storyboard.instantiateController(withIdentifier: identifier)
-        <span class="hljs-keyword ">
-            as
-        </span>
-        ?
-        <span class="hljs-type
-        ">
-            QuotesViewController
-        </span>
-        <span class="hljs-keyword ">
-            else
-        </span>
-        {
-        <span class="hljs-built_in ">
-            fatalError
-        </span>
-        (
-        <span class="hljs-string ">
-            "Why cant i find QuotesViewController? - Check Main.storyboard "
-        </span>
-        ) }
-        <span class="hljs-keyword ">
-            return
-        </span>
-        viewcontroller } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">QuotesViewController</span> </span>{
+  <span class="hljs-comment">// MARK: Storyboard instantiation</span>
+  <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">freshController</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">QuotesViewController</span> {
+    <span class="hljs-comment">//1.</span>
+    <span class="hljs-keyword">let</span> storyboard = <span class="hljs-type">NSStoryboard</span>(name: <span class="hljs-type">NSStoryboard</span>.<span class="hljs-type">Name</span>(rawValue: <span class="hljs-string">"Main"</span>), bundle: <span class="hljs-literal">nil</span>)
+    <span class="hljs-comment">//2.</span>
+    <span class="hljs-keyword">let</span> identifier = <span class="hljs-type">NSStoryboard</span>.<span class="hljs-type">SceneIdentifier</span>(rawValue: <span class="hljs-string">"QuotesViewController"</span>)
+    <span class="hljs-comment">//3.</span>
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> viewcontroller = storyboard.instantiateController(withIdentifier: identifier) <span class="hljs-keyword">as</span>? <span class="hljs-type">QuotesViewController</span> <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">fatalError</span>(<span class="hljs-string">"Why cant i find QuotesViewController? - Check Main.storyboard"</span>)
+    }
+    <span class="hljs-keyword">return</span> viewcontroller
+  }
+}
+</pre>
     <p>
-        What happens here is…
+        上述代码...
     </p>
     <ol>
         <li>
@@ -760,17 +655,8 @@
         </em>
         . Start by adding a new property declaration to the class:
     </p>
-    <pre lang="swift " class="language-swift hljs ">
-        <span class="hljs-keyword
-        ">
-            let
-        </span>
-        popover =
-        <span class="hljs-type ">
-            NSPopover
-        </span>
-        ()
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> popover = <span class="hljs-type">NSPopover</span>()
+</pre>
     <p>
         Next, replace
         <code>
@@ -778,59 +664,14 @@
         </code>
         with the following:
     </p>
-    <pre lang="swift " class="language-swift hljs ">
-        <span class="hljs-function
-        ">
-            <span class="hljs-keyword ">
-                func
-            </span>
-            <span class="hljs-title
-            ">
-                applicationDidFinishLaunching
-            </span>
-            <span class="hljs-params ">
-                (
-                <span class="hljs-number ">
-                    _
-                </span>
-                aNotification: Notification)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword ">
-            if
-        </span>
-        <span class="hljs-keyword ">
-            let
-        </span>
-        button = statusItem.button { button.image =
-        <span class="hljs-type
-        ">
-            NSImage
-        </span>
-        (named:
-        <span class="hljs-type ">
-            NSImage
-        </span>
-        .
-        <span class="hljs-type
-        ">
-            Name
-        </span>
-        (
-        <span class="hljs-string ">
-            "StatusBarButtonImage "
-        </span>
-        )) button.action = #selector(togglePopover(
-        <span class="hljs-number ">
-            _
-        </span>
-        :)) } popover.contentViewController =
-        <span class="hljs-type ">
-            QuotesViewController
-        </span>
-        .freshController() }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">applicationDidFinishLaunching</span><span class="hljs-params">(<span class="hljs-number">_</span> aNotification: Notification)</span></span> {
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
+    button.image = <span class="hljs-type">NSImage</span>(named:<span class="hljs-type">NSImage</span>.<span class="hljs-type">Name</span>(<span class="hljs-string">"StatusBarButtonImage"</span>))
+    button.action = #selector(togglePopover(<span class="hljs-number">_</span>:))
+  }
+  popover.contentViewController = <span class="hljs-type">QuotesViewController</span>.freshController()
+}
+</pre>
     <p>
         You’ve changed the button action to
         <code>
@@ -845,76 +686,24 @@
             AppDelegate
         </code>
     </p>
-    <pre lang="swift " class="language-swift hljs ">
-        <span class="hljs-meta
-        ">
-            @objc
-        </span>
-        <span class="hljs-function ">
-            <span class="hljs-keyword ">
-                func
-            </span>
-            <span class="hljs-title
-            ">
-                togglePopover
-            </span>
-            <span class="hljs-params ">
-                (
-                <span class="hljs-number ">
-                    _
-                </span>
-                sender: Any?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword ">
-            if
-        </span>
-        popover.isShown { closePopover(sender: sender) }
-        <span class="hljs-keyword ">
-            else
-        </span>
-        { showPopover(sender: sender) } }
-        <span class="hljs-function ">
-            <span class="hljs-keyword
-            ">
-                func
-            </span>
-            <span class="hljs-title ">
-                showPopover
-            </span>
-            <span class="hljs-params ">
-                (sender: Any?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword ">
-            if
-        </span>
-        <span class="hljs-keyword
-        ">
-            let
-        </span>
-        button = statusItem.button { popover.show(relativeTo: button.bounds, of:
-        button, preferredEdge:
-        <span class="hljs-type ">
-            NSRectEdge
-        </span>
-        .minY) } }
-        <span class="hljs-function ">
-            <span class="hljs-keyword
-            ">
-                func
-            </span>
-            <span class="hljs-title ">
-                closePopover
-            </span>
-            <span class="hljs-params ">
-                (sender: Any?)
-            </span>
-        </span>
-        { popover.performClose(sender) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">togglePopover</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
+  <span class="hljs-keyword">if</span> popover.isShown {
+    closePopover(sender: sender)
+  } <span class="hljs-keyword">else</span> {
+    showPopover(sender: sender)
+  }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">showPopover</span><span class="hljs-params">(sender: Any?)</span></span> {
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
+    popover.show(relativeTo: button.bounds, of: button, preferredEdge: <span class="hljs-type">NSRectEdge</span>.minY)
+  }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">closePopover</span><span class="hljs-params">(sender: Any?)</span></span> {
+  popover.performClose(sender)
+}
+</pre>
     <p>
         <code>
             showPopover()
