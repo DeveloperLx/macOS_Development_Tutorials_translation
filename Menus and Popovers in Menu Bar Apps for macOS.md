@@ -1,0 +1,1832 @@
+# macOS教程：在Menu Bar App中的Menu和Popover
+
+#### [原文地址](https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+
+<div class="content-wrapper">
+    <div class="note">
+        <p>
+            <em>
+                Update note:
+            </em>
+            This Menus and Popovers in Menu Bar Apps for macOS tutorial has been updated
+            to Xcode 9 and Swift 4 by Warren Burton. The
+            <a href="https://www.raywenderlich.com/98178/os-x-tutorial-menus-popovers-menu-bar-apps"
+            sl-processed="1">
+                original
+            </a>
+            tutorial was written by Mikael Konutgan.
+        </p>
+    </div>
+    <div id="attachment_105403" style="width: 260px" class="wp-caption alignright">
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Menus-Popovers-feature.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/Menus-Popovers-feature.png"
+            alt="Learn how to make a menu bar macOS app with a popover!" width="250"
+            height="250" class="size-full wp-image-105403">
+        </a>
+        <p class="wp-caption-text">
+            Learn how to make a menu bar macOS app with a popover!
+        </p>
+    </div>
+    <p>
+        Menu bar apps have been staple of macOS for a long time. Many apps like
+        <a href="https://agilebits.com/onepassword/mac" target="_blank" sl-processed="1">
+            1Password
+        </a>
+        and
+        <a href="http://dayoneapp.com" target="_blank" sl-processed="1">
+            Day One
+        </a>
+        have companion menu bar apps. Others like
+        <a href="http://flexibits.com/fantastical" target="_blank" sl-processed="1">
+            Fantastical
+        </a>
+        live exclusively in macOS’s menu bar.
+    </p>
+    <p>
+        In this menu bar app tutorial, you’ll build a menu bar app that shows
+        inspirational quotes in a popover. While you do this, you’ll learn:
+    </p>
+    <ul>
+        <li>
+            How to create a menu bar icon
+        </li>
+        <li>
+            How to make the app live exclusively in the menu bar
+        </li>
+        <li>
+            How to add a menu for the user
+        </li>
+        <li>
+            How to make a popover that shows on demand and hides when the user moves
+            on — aka Event Monitoring
+        </li>
+    </ul>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        This tutorial assumes you’re familiar with Swift and macOS. If you need
+        a refresher, start with our
+        <a href="https://www.raywenderlich.com/151741/macos-development-beginners-part-1"
+        target="_blank" sl-processed="1">
+            macOS Development for Beginners
+        </a>
+        tutorial for a great introduction.
+    </div>
+    <h2>
+        Getting Started
+    </h2>
+    <p>
+        Fire up Xcode. Go to
+        <em>
+            File/New/Project…
+        </em>
+        then select the
+        <em>
+            macOS/Application/Cocoa App
+        </em>
+        template and click
+        <em>
+            Next
+        </em>
+        .
+    </p>
+    <p>
+        On the next screen, enter
+        <em>
+            Quotes
+        </em>
+        as the
+        <em>
+            Product Name
+        </em>
+        , choose your desired
+        <em>
+            Organization Name
+        </em>
+        and
+        <em>
+            Organization Identifier
+        </em>
+        . Then make sure that
+        <em>
+            Swift
+        </em>
+        is selected as the language, and that
+        <em>
+            Use Storyboards
+        </em>
+        is checked. Uncheck
+        <em>
+            Create Document-Based Application
+        </em>
+        ,
+        <em>
+            Use Core Data
+        </em>
+        ,
+        <em>
+            Include Unit tests
+        </em>
+        and
+        <em>
+            Include UI Tests
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/configure-project.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/configure-project-442x320.png"
+            alt="configure new project" width="442" height="320" class="aligncenter size-medium wp-image-167056"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/configure-project-442x320.png 442w, https://koenig-media.raywenderlich.com/uploads/2017/07/configure-project-650x471.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/configure-project.png 1480w"
+            sizes="(max-width: 442px) 100vw, 442px">
+        </a>
+    </p>
+    <p>
+        Finally, click
+        <em>
+            Next
+        </em>
+        again, choose a place to save the project and click
+        <em>
+            Create
+        </em>
+        .
+    </p>
+    <p>
+        Once the new project is set up, open
+        <em>
+            AppDelegate.swift
+        </em>
+        and add the following property to the class:
+    </p>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            let
+        </span>
+        statusItem =
+        <span class="hljs-type">
+            NSStatusBar
+        </span>
+        .system.statusItem(withLength:
+        <span class="hljs-type">
+            NSStatusItem
+        </span>
+        .squareLength)
+    </pre>
+    <p>
+        This creates a
+        <em>
+            Status Item
+        </em>
+        — aka application icon — in the menu bar with a fixed length that the
+        user will see and use.
+    </p>
+    <p>
+        Next, you’ll need to associate an image to the status item to make your
+        app recognizable in the menu bar.
+    </p>
+    <p>
+        Go to
+        <code>
+            Assets.xcassets
+        </code>
+        in the project navigator, download this image
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/03/StatusBarButtonImage@2x.png"
+        sl-processed="1">
+            StatusBarButtonImage@2x.png
+        </a>
+        and drag it into the asset catalog.
+    </p>
+    <p>
+        Select the image and open the attributes inspector. Change the
+        <em>
+            Render As
+        </em>
+        option to Template Image.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/add-image-asset.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/add-image-asset-480x109.png"
+            alt="" width="480" height="109" class="aligncenter size-medium wp-image-167058"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/add-image-asset-480x109.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/add-image-asset-650x147.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
+    <p>
+        If you use your own custom image, make sure that the image is black and
+        white and configured as a template image so the Status Item looks great
+        against both light and dark menu bars.
+    </p>
+    <p>
+        Back in
+        <em>
+            AppDelegate.swift
+        </em>
+        , add the following code to
+        <code>
+            applicationDidFinishLaunching(_:)
+        </code>
+    </p>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-keyword">
+            if
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        button = statusItem.button { button.image =
+        <span class="hljs-type">
+            NSImage
+        </span>
+        (named:
+        <span class="hljs-type">
+            NSImage
+        </span>
+        .
+        <span class="hljs-type">
+            Name
+        </span>
+        (
+        <span class="hljs-string">
+            "StatusBarButtonImage"
+        </span>
+        )) button.action = #selector(printQuote(
+        <span class="hljs-number">
+            _
+        </span>
+        :)) }
+    </pre>
+    <p>
+        This will configure the status item with an icon of the image you just
+        added, and an action for when you click on the item. This will create an
+        error but you’ll fix that now.
+    </p>
+    <p>
+        Add the following method to the class:
+    </p>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-meta">
+            @objc
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                printQuote
+            </span>
+            <span class="hljs-params">
+                (
+                <span class="hljs-number">
+                    _
+                </span>
+                sender: Any?)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        quoteText =
+        <span class="hljs-string">
+            "Never put off until tomorrow what you can do the day after tomorrow."
+        </span>
+        <span class="hljs-keyword">
+            let
+        </span>
+        quoteAuthor =
+        <span class="hljs-string">
+            "Mark Twain"
+        </span>
+        <span class="hljs-built_in">
+            print
+        </span>
+        (
+        <span class="hljs-string">
+            "
+            <span class="hljs-subst">
+                \(quoteText)
+            </span>
+            —
+            <span class="hljs-subst">
+                \(quoteAuthor)
+            </span>
+            "
+        </span>
+        ) }
+    </pre>
+    <p>
+        This method will simply log out the quote text to the console.
+    </p>
+    <p>
+        Take note of the
+        <code>
+            @objc
+        </code>
+        directive in the signature. This exposes the method to the Objective-C
+        runtime to allow the button to use it as an action.
+    </p>
+    <p>
+        Build and run the app, and you should see a new menu bar app available.
+        You did it!
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-light.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-light-650x10.png"
+            alt="light mode menu bar" width="650" height="10" class="aligncenter size-large wp-image-167060"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-light-650x10.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-light-480x8.png 480w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-dark.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-dark-650x10.png"
+            alt="dark mode menu bar" width="650" height="10" class="aligncenter size-large wp-image-167059"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-dark-650x10.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/menubar-dark-480x8.png 480w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <div class="note">
+        <p>
+            <em>
+                Note
+            </em>
+            : If you have too many menu bar apps, you might not be able to see your
+            button. Switch to an app with fewer menus than Xcode (like Finder) and
+            you should be able to see it.
+        </p>
+    </div>
+    <p>
+        Every time you click on the menu bar icon, you’ll see the quote printed
+        out in the Xcode console.
+    </p>
+    <h2>
+        Hiding the Dock Icon and Main Window
+    </h2>
+    <p>
+        There are still two small things to do before you have a functional menu
+        bar app.
+    </p>
+    <ol>
+        <li>
+            Disable the dock icon.
+        </li>
+        <li>
+            Remove the main window.
+        </li>
+    </ol>
+    <p>
+        To disable the dock icon, open
+        <em>
+            Info.plist
+        </em>
+        . Add a new key
+        <em>
+            Application is agent (UIElement)
+        </em>
+        and set its value to
+        <em>
+            YES
+        </em>
+        .
+    </p>
+    <p>
+        <img src="https://koenig-media.raywenderlich.com/uploads/2015/03/Application-Is-Agent-YES.png"
+        class="aligncenter wp-image-98940" width="650">
+    </p>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        If you’re an expert plist editor, feel free to set this manually with
+        the key
+        <code>
+            LSUIElement
+        </code>
+        .
+    </div>
+    <p>
+        Now it’s time to handle the main window.
+    </p>
+    <ul>
+        <li>
+            Open
+            <code>
+                Main.storyboard
+            </code>
+        </li>
+        <li>
+            Select the Window Controller scene and delete it.
+        </li>
+        <li>
+            Leave the View Controller scene alone as you are going to use it soon.
+        </li>
+    </ul>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/delete-window-scene.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/delete-window-scene-480x137.png"
+            alt="delete window scene" width="480" height="137" class="aligncenter size-medium wp-image-167061"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/delete-window-scene-480x137.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/delete-window-scene-650x185.png 650w"
+            sizes="(max-width: 480px) 100vw, 480px">
+        </a>
+    </p>
+    <p>
+        Build and run. You’ll see the app has no main window, no pesky dock icon
+        and only a tidy status item in the menu bar. High five yourself :]
+    </p>
+    <h2>
+        Adding a Menu to the Status Item
+    </h2>
+    <p>
+        Usually, a measly single action on click is not enough for a menu bar
+        app. The easiest way to add more functionality to your app is to add a
+        menu. Add the following function to the end of
+        <code>
+            AppDelegate
+        </code>
+        .
+    </p>
+    <pre lang="swift" class="language-swift hljs">
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                func
+            </span>
+            <span class="hljs-title">
+                constructMenu
+            </span>
+            <span class="hljs-params">
+                ()
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            let
+        </span>
+        menu =
+        <span class="hljs-type">
+            NSMenu
+        </span>
+        () menu.addItem(
+        <span class="hljs-type">
+            NSMenuItem
+        </span>
+        (title:
+        <span class="hljs-string">
+            "Print Quote"
+        </span>
+        , action: #selector(
+        <span class="hljs-type">
+            AppDelegate
+        </span>
+        .printQuote(
+        <span class="hljs-number">
+            _
+        </span>
+        :)), keyEquivalent:
+        <span class="hljs-string">
+            "P"
+        </span>
+        )) menu.addItem(
+        <span class="hljs-type">
+            NSMenuItem
+        </span>
+        .separator()) menu.addItem(
+        <span class="hljs-type">
+            NSMenuItem
+        </span>
+        (title:
+        <span class="hljs-string">
+            "Quit Quotes"
+        </span>
+        , action: #selector(
+        <span class="hljs-type">
+            NSApplication
+        </span>
+        .terminate(
+        <span class="hljs-number">
+            _
+        </span>
+        :)), keyEquivalent:
+        <span class="hljs-string">
+            "q"
+        </span>
+        )) statusItem.menu = menu }
+    </pre>
+    <p>
+        and then add this call to the end of
+        <code>
+            applicationDidFinishLaunching(_:)
+        </code>
+    </p>
+    <pre lang="swift" class="language-swift hljs">
+        constructMenu()
+    </pre>
+    <p>
+        Here you create an
+        <code>
+            NSMenu
+        </code>
+        , add 3 instances of
+        <code>
+            NSMenuItem
+        </code>
+        to it, and then set the status item’s menu to that new menu.
+    </p>
+    <p>
+        A few things to note here:
+    </p>
+    <ul>
+        <li>
+            The title of a menu item is the text that appears in the menu. This is
+            a good point for localization if needed.
+        </li>
+        <li>
+            The action, like the action of a button or any control, is the method
+            that gets called when you click the menu item.
+        </li>
+        <li>
+            The
+            <code>
+                keyEquivalent
+            </code>
+            is a keyboard shortcut that you can use to activate the menu item. A lowercase
+            letter uses
+            <em>
+                Cmd
+            </em>
+            as the modifier key and an uppercase letter uses
+            <em>
+                Cmd+Shift
+            </em>
+            . This keyboard shortcut only works if the application is front-most and
+            active. So, in this case, the menu or any other window needs to be visible,
+            since the app has no dock icon.
+        </li>
+        <li>
+            A
+            <code>
+                separatorItem
+            </code>
+            is a stock inactive menu item that appears as a simple gray line between
+            other menu items. Use it to group functionality in the menu.
+        </li>
+        <li>
+            The
+            <code>
+                printQuote:
+            </code>
+            action is the method you already defined in
+            <code>
+                AppDelegate
+            </code>
+            while
+            <code>
+                terminate:
+            </code>
+            is an action method defined by
+            <code>
+                NSApplication
+            </code>
+            .
+        </li>
+    </ul>
+    <p>
+        Build and run, and you should see a menu when clicking on the status item.
+        Progress!
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/Menu-Action.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/Menu-Action.png"
+            alt="status bar item menu" width="442" height="180" class="aligncenter size-full wp-image-167062">
+        </a>
+    </p>
+    <p>
+        Try out your options –&nbsp;selecting
+        <em>
+            Print Quote
+        </em>
+        will display the quote in the Xcode console, while
+        <em>
+            Quit Quotes
+        </em>
+        will quit the app.
+    </p>
+    <h2>
+        Adding a Popover to the Status Item
+    </h2>
+    <p>
+        You’ve seen how easy it is to set up a menu from code, but showing the
+        quote in the Xcode console won’t cut it for most of your end users. The
+        next step is to replace the menu with a simple view controller to show
+        a quote right in place.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/Create-QuotesViewController.png"
+        sl-processed="1">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/Create-QuotesViewController-442x320.png"
+            alt="" width="442 height=" 320 "=" " class="aligncenter size-medium wp-image-167063
+            " srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/Create-QuotesViewController-442x320.png
+            442w, https://koenig-media.raywenderlich.com/uploads/2017/07/Create-QuotesViewController-650x470.png
+            650w, https://koenig-media.raywenderlich.com/uploads/2017/07/Create-QuotesViewController.png
+            1460w " sizes="(max-width: 442px) 100vw, 442px "></a></p>
+            <p>Go to <em>File/New/File…</em>, select the <em>macOS/Source/Cocoa Class</em> template and click <em>Next</em>. </p>
+            <ul>
+            <li>Name the class <code>QuotesViewController</code>.</li>
+            <li>Make it a subclass of <code>NSViewController</code>.</li>
+            <li>Ensure that <em>Also create XIB file for user interface</em> is not checked.</li>
+            <li>Set the language to <em>Swift</em>.</li>
+            </ul>
+            <p>Finally, click <em>Next</em> again, choose a place to save the file (In the <em>Quotes</em> subfolder of the project folder is a good place) and click <em>Create</em>.</p>
+            <p>Now open <em>Main.storyboard</em>. Expand the <em>View Controller Scene</em> and select the <em>View Controller</em> instance.</p>
+            <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/07/QuotesViewController-scene.png
+            " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2017/07/QuotesViewController-scene-480x106.png
+            " alt=" " width="480 " height="106 " class="aligncenter size-medium wp-image-167064
+            " srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/QuotesViewController-scene-480x106.png
+            480w, https://koenig-media.raywenderlich.com/uploads/2017/07/QuotesViewController-scene-650x143.png
+            650w " sizes="(max-width: 480px) 100vw, 480px "></a></p>
+            <p>First select the <em>Identity Inspector</em> and change the Class to <code>QuotesViewController</code>, next set the <em>Storyboard ID</em> to <code>QuotesViewController</code></p>
+            <p>Next add the following code to the end of <em>QuotesViewController.swift</em></p>
+            <pre lang="swift " class="language-swift hljs "><span class="hljs-class
+            "><span class="hljs-keyword ">extension</span> <span class="hljs-title ">QuotesViewController</span> </span>{
+            <span class="hljs-comment ">// MARK: Storyboard instantiation</span>
+            <span class="hljs-keyword ">static</span> <span class="hljs-function
+            "><span class="hljs-keyword ">func</span> <span class="hljs-title
+            ">freshController</span><span class="hljs-params ">()</span></span> -&gt; <span class="hljs-type ">QuotesViewController</span> {
+            <span class="hljs-comment ">//1.</span>
+            <span class="hljs-keyword ">let</span> storyboard = <span class="hljs-type
+            ">NSStoryboard</span>(name: <span class="hljs-type ">NSStoryboard</span>.<span class="hljs-type
+            ">Name</span>(rawValue: <span class="hljs-string ">"Main "</span>), bundle: <span class="hljs-literal ">nil</span>)
+            <span class="hljs-comment ">//2.</span>
+            <span class="hljs-keyword ">let</span> identifier = <span class="hljs-type
+            ">NSStoryboard</span>.<span class="hljs-type ">SceneIdentifier</span>(rawValue: <span class="hljs-string
+            ">"QuotesViewController "</span>)
+            <span class="hljs-comment ">//3.</span>
+            <span class="hljs-keyword ">guard</span> <span class="hljs-keyword
+            ">let</span> viewcontroller = storyboard.instantiateController(withIdentifier: identifier) <span class="hljs-keyword ">as</span>? <span class="hljs-type
+            ">QuotesViewController</span> <span class="hljs-keyword ">else</span> {
+            <span class="hljs-built_in ">fatalError</span>(<span class="hljs-string ">"Why
+            cant i find QuotesViewController? - Check Main.storyboard "</span>)
+            }
+            <span class="hljs-keyword ">return</span> viewcontroller
+            }
+            }
+            </pre>
+            <p>What happens here is…</p>
+            <ol>
+            <li>Get a reference to <em>Main.storyboard</em>.</li>
+            <li>Create a <em>Scene identifier</em> that matches the one you set just before.</li>
+            <li>Instantiate <em>QuotesViewController</em> and return it.</li>
+            </ol>
+            <p>You create this method so that anything thats using <code>QuotesViewController</code> doesn’t need to know how to instantiate it. It just works :]</p>
+            <p>Notice the <code>fatalError</code> inside the <code>guard</code> statement. Its often good to use this or <code>assertionFailure</code> to let yourself or other team members know when you have messed up during development. </p>
+            <p>Now go back to <em>AppDelegate.swift</em>. Start by adding a new property declaration to the class:</p>
+            <pre lang="swift " class="language-swift hljs "><span class="hljs-keyword
+            ">let</span> popover = <span class="hljs-type ">NSPopover</span>()
+            </pre>
+            <p>Next, replace <code>applicationDidFinishLaunching(_:)</code> with the following:</p>
+            <pre lang="swift " class="language-swift hljs "><span class="hljs-function
+            "><span class="hljs-keyword ">func</span> <span class="hljs-title
+            ">applicationDidFinishLaunching</span><span class="hljs-params ">(<span class="hljs-number ">_</span> aNotification: Notification)</span></span> {
+            <span class="hljs-keyword ">if</span> <span class="hljs-keyword ">let</span> button = statusItem.button {
+            button.image = <span class="hljs-type
+            ">NSImage</span>(named:<span class="hljs-type ">NSImage</span>.<span class="hljs-type
+            ">Name</span>(<span class="hljs-string ">"StatusBarButtonImage "</span>))
+            button.action = #selector(togglePopover(<span class="hljs-number ">_</span>:))
+            }
+            popover.contentViewController = <span class="hljs-type ">QuotesViewController</span>.freshController()
+            }
+            </pre>
+            <p>You’ve changed the button action to <code>togglePopover(_:)</code> which you’ll implement next. Also, rather than set up a menu, you’re setting up the popover to show whatever’s in QuotesViewController.</p>
+            <p>Add the following three methods to <code>AppDelegate</code></p>
+            <pre lang="swift " class="language-swift hljs "><span class="hljs-meta
+            ">@objc</span> <span class="hljs-function "><span class="hljs-keyword ">func</span> <span class="hljs-title
+            ">togglePopover</span><span class="hljs-params ">(<span class="hljs-number ">_</span> sender: Any?)</span></span> {
+            <span class="hljs-keyword ">if</span> popover.isShown {
+            closePopover(sender: sender)
+            } <span class="hljs-keyword ">else</span> {
+            showPopover(sender: sender)
+            }
+            }
+            <span class="hljs-function "><span class="hljs-keyword
+            ">func</span> <span class="hljs-title ">showPopover</span><span class="hljs-params ">(sender: Any?)</span></span> {
+            <span class="hljs-keyword ">if</span> <span class="hljs-keyword
+            ">let</span> button = statusItem.button {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: <span class="hljs-type ">NSRectEdge</span>.minY)
+            }
+            }
+            <span class="hljs-function "><span class="hljs-keyword
+            ">func</span> <span class="hljs-title ">closePopover</span><span class="hljs-params ">(sender: Any?)</span></span> {
+            popover.performClose(sender)
+            }
+            </pre>
+            <p><code>showPopover()</code> displays the popover to the user. You just need to supply a source rect and macOS will position the popover and arrow so it looks like it’s coming out of the menu bar icon.</p>
+            <p><code>closePopover()</code> simply closes the popover, and <code>togglePopover()</code> is the action method that will either open or close the popover depending on its current state.</p>
+            <p>Build and run, and then click on the menu bar icon to check that it shows and then hides an empty popover.</p>
+            <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/07/show-QuotesViewController.png
+            " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2017/07/show-QuotesViewController-480x292.png
+            " alt=" " width="480 " height="292 " class="aligncenter size-medium wp-image-167065
+            " srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/show-QuotesViewController-480x292.png
+            480w, https://koenig-media.raywenderlich.com/uploads/2017/07/show-QuotesViewController-650x395.png
+            650w, https://koenig-media.raywenderlich.com/uploads/2017/07/show-QuotesViewController.png
+            1040w " sizes="(max-width: 480px) 100vw, 480px "></a></p>
+            <p>Your popover works great, but where’s all the inspiration? All you see is an empty view and no quotes. Guess what you’ll do next?</p>
+            <h2>Implementing the Quote View Controller</h2>
+            <p>First, you need a model to store the quotes and attributions. Go to <em>File/New/File…</em> and select the <em>macOS/Source/Swift File</em> template, then click <em>Next</em>. Name the file <em>Quote</em> and click <em>Create</em>.</p>
+            <p>Open <em>Quote.swift</em> and add the following code to the file:</p>
+            <pre lang="swift " class="language-swift hljs "><span class="hljs-class
+            "><span class="hljs-keyword ">struct</span> <span class="hljs-title ">Quote</span> </span>{
+            <span class="hljs-keyword ">let</span> text: <span class="hljs-type ">String</span>
+            <span class="hljs-keyword ">let</span> author: <span class="hljs-type ">String</span>
+            <span class="hljs-keyword ">static</span> <span class="hljs-keyword
+            ">let</span> all: [<span class="hljs-type ">Quote</span>] =  [
+            <span class="hljs-type ">Quote</span>(text: <span class="hljs-string ">"Never
+            put off until tomorrow what you can do the day after tomorrow.
+            "</span>, author: <span class="hljs-string ">"Mark Twain "</span>),
+            <span class="hljs-type ">Quote</span>(text: <span class="hljs-string ">"Efficiency
+            is doing better what is already being done.
+            "</span>, author: <span class="hljs-string ">"Peter Drucker "</span>),
+            <span class="hljs-type ">Quote</span>(text: <span class="hljs-string ">"To
+            infinity and beyond! "</span>, author: <span class="hljs-string ">"Buzz
+            Lightyear "</span>),
+            <span class="hljs-type ">Quote</span>(text: <span class="hljs-string ">"May
+            the Force be with you. "</span>, author: <span class="hljs-string ">"Han
+            Solo "</span>),
+            <span class="hljs-type ">Quote</span>(text: <span class="hljs-string ">"Simplicity
+            is the ultimate sophistication "</span>, author: <span class="hljs-string
+            ">"Leonardo da Vinci "</span>),
+            <span class="hljs-type ">Quote</span>(text: <span class="hljs-string ">"It’s
+            not just what it looks like and feels like. Design is how it works.
+            "</span>, author: <span class="hljs-string ">"Steve Jobs "</span>)
+            ]
+            }
+            <span class="hljs-class "><span class="hljs-keyword
+            ">extension</span> <span class="hljs-title ">Quote</span>: <span class="hljs-title ">CustomStringConvertible</span> </span>{
+            <span class="hljs-keyword ">var</span> description: <span class="hljs-type ">String</span> {
+            <span class="hljs-keyword ">return</span> <span class="hljs-string ">"\
+            "<span class="hljs-subst ">\(text)</span>\" — <span class="hljs-subst">
+            \(author)
+            </span>
+            "
+            </span>
+            } }
+            </pre>
+            <p>
+                This defines a simple quote structure and a static property that returns
+                all the quotes. Since you also make
+                <code>
+                    Quote
+                </code>
+                conform to
+                <code>
+                    CustomStringConvertible
+                </code>
+                , you can easily get a nice formatted string.
+            </p>
+            <p>
+                You’re making progress, but you now need some function in the UI to display
+                all these famous quotes.
+            </p>
+            <h3>
+                Setting up the View Controller UI
+            </h3>
+            <p>
+                Open
+                <code>
+                    Main.storyboard
+                </code>
+                and drag 3
+                <em>
+                    Push Button
+                </em>
+                instances, and a
+                <em>
+                    Multiline Label
+                </em>
+                into the view controller.
+            </p>
+            <p>
+                Drag the buttons and label into place until they look like this layout.
+                The dotted blue layout guides that appear will help you get the items into
+                place:
+            </p>
+            <p>
+                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/layout-no-constraints.png"
+                sl-processed="1">
+                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/layout-no-constraints-480x304.png"
+                    alt="view controller layout" width="480" height="304" class="aligncenter size-medium wp-image-167083"
+                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/layout-no-constraints-480x304.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/layout-no-constraints-650x412.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/layout-no-constraints.png 1118w"
+                    sizes="(max-width: 480px) 100vw, 480px">
+                </a>
+            </p>
+            <p>
+                Can you add the auto layout constraints to make the user interface match?
+                Give it a few good attempts before you open the spoiler below. If you get
+                it right, skip the spoiler and give yourself a gold star.
+            </p>
+            <div class="easySpoilerWrapper" style="">
+                <table class="easySpoilerTable" border="0" style="text-align:center;"
+                align="center" bgcolor="FFFFFF">
+                    <tbody>
+                        <tr style="white-space:normal;">
+                            <th class="easySpoilerTitleA" style="white-space:normal;font-weight:normal;text-align:left;vertical-align:middle;font-size:120%;color:#000000;">
+                                Solution Inside
+                            </th>
+                            <th class="easySpoilerTitleB" style="text-align:right;vertical-align:middle;font-size:100%; white-space:nowrap;">
+                                <a href="" onclick="wpSpoilerSelect(&quot;spoilerDiv50478001&quot;); return false;"
+                                class="easySpoilerButtonOther" style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px; padding: 4px; "
+                                align="right" sl-processed="1">
+                                    Select
+                                </a>
+                                <a href="" onclick="wpSpoilerToggle(&quot;spoilerDiv50478001&quot;,true,&quot;Show&quot;,&quot;Hide&quot;,&quot;fast&quot;,false); return false;"
+                                id="spoilerDiv50478001_action" class="easySpoilerButton" value="Show" align="right"
+                                style="font-size:100%;color:#000000;background-color:#fcfcfc;background-image:none;border: 1px inset;border-style:solid;border-color:#cccccc; margin: 3px 0px 3px 5px; padding: 4px;"
+                                sl-processed="1">
+                                    Show
+                                </a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="easySpoilerRow" colspan="2" style="">
+                                <div id="spoilerDiv50478001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
+                                    <br>
+                                    Here are the auto layout constraints you need to get the correct layout:
+                                    <p>
+                                    </p>
+                                    <ol>
+                                        <li>
+                                            Pin the left button to the left edge with a gap of 20 and vertically center.
+                                        </li>
+                                        <li>
+                                            Pin the right button to the right edge with a gap of 20 and vertically
+                                            center.
+                                        </li>
+                                        <li>
+                                            Pin the lower button to the bottom edge with a gap of 20 and horizontally
+                                            center.
+                                        </li>
+                                        <li>
+                                            Pin the label left &amp; right to the buttons with a gap of 20 and vertically
+                                            center.
+                                        </li>
+                                    </ol>
+                                    <p>
+                                        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png"
+                                        sl-processed="1">
+                                            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png"
+                                            alt="constraints for layout" width="480" height="292" class="aligncenter size-medium wp-image-167067"
+                                            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-480x292.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints-650x396.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/final-layout-show-constraints.png 1110w"
+                                            sizes="(max-width: 480px) 100vw, 480px">
+                                        </a>
+                                    </p>
+                                    <p>
+                                        You are going to see a set of layout errors as there isn’t enough information
+                                        for auto layout to figure things out yet.
+                                    </p>
+                                    <p>
+                                        Set the
+                                        <em>
+                                            Horizontal Content Hugging Priority
+                                        </em>
+                                        of the label to 249 to allow the label to grow properly.
+                                    </p>
+                                    <p>
+                                        <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution.png"
+                                        sl-processed="1">
+                                            <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png"
+                                            alt="resolve constraint conflicts" width="480" height="192" class="aligncenter size-medium wp-image-167068"
+                                            srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-480x192.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/conflict-resolution-650x260.png 650w"
+                                            sizes="(max-width: 480px) 100vw, 480px">
+                                        </a>
+                                    </p>
+                                    <p>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="easySpoilerConclude" style="">
+                    <table class="easySpoilerTable" border="0" style="text-align:center;"
+                    frame="box" align="center" bgcolor="FFFFFF">
+                        <tbody>
+                            <tr>
+                                <th class="easySpoilerEnd" style="width:100%;">
+                                </th>
+                                <td class="easySpoilerEnd" style="white-space:nowrap;" colspan="2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="easySpoilerGroupWrapperLastRow" colspan="2" style="">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>
+                Once you have the layout setup to your satisfaction set up the elements
+                like this:
+            </p>
+            <ul>
+                <li>
+                    Set the left button’s image to
+                    <code>
+                        NSGoLeftTemplate
+                    </code>
+                    and delete the title.
+                </li>
+                <li>
+                    Set the right button’s image to
+                    <code>
+                        NSGoRightTemplate
+                    </code>
+                    and delete the title.
+                </li>
+                <li>
+                    Set the title of the lower push button to
+                    <em>
+                        Quit Quotes
+                    </em>
+                    .
+                </li>
+                <li>
+                    Set the label’s text alignment to center.
+                </li>
+                <li>
+                    Check that
+                    <em>
+                        Line Break
+                    </em>
+                    for the label is set to
+                    <em>
+                        Word Wrap
+                    </em>
+                    .
+                </li>
+            </ul>
+            <p>
+                Now open
+                <em>
+                    QuotesViewController.swift
+                </em>
+                and add the the following code to the class implementation of
+                <code>
+                    QuotesViewController
+                </code>
+                :
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-meta">
+                    @IBOutlet
+                </span>
+                <span class="hljs-keyword">
+                    var
+                </span>
+                textLabel:
+                <span class="hljs-type">
+                    NSTextField
+                </span>
+                !
+            </pre>
+            <p>
+                Add this extension after the class implementation. You will now have two
+                extensions in
+                <em>
+                    QuotesViewController.swift
+                </em>
+                .
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-comment">
+                    // MARK: Actions
+                </span>
+                <span class="hljs-class">
+                    <span class="hljs-keyword">
+                        extension
+                    </span>
+                    <span class="hljs-title">
+                        QuotesViewController
+                    </span>
+                </span>
+                {
+                <span class="hljs-meta">
+                    @IBAction
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        previous
+                    </span>
+                    <span class="hljs-params">
+                        (
+                        <span class="hljs-number">
+                            _
+                        </span>
+                        sender: NSButton)
+                    </span>
+                </span>
+                { }
+                <span class="hljs-meta">
+                    @IBAction
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        next
+                    </span>
+                    <span class="hljs-params">
+                        (
+                        <span class="hljs-number">
+                            _
+                        </span>
+                        sender: NSButton)
+                    </span>
+                </span>
+                { }
+                <span class="hljs-meta">
+                    @IBAction
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        quit
+                    </span>
+                    <span class="hljs-params">
+                        (
+                        <span class="hljs-number">
+                            _
+                        </span>
+                        sender: NSButton)
+                    </span>
+                </span>
+                { } }
+            </pre>
+            <p>
+                You have just added an outlet for the text label, which you’ll use to
+                display the inspirational quote and 3 stub actions which you will connect
+                to the 3 buttons.
+            </p>
+            <h3>
+                Connect code to Interface Builder
+            </h3>
+            <p>
+                You’ll notice that Xcode has placed circles in the left hand margin of
+                your source editor. The circles are handles that appear when you use the
+                <code>
+                    @IBAction
+                </code>
+                and
+                <code>
+                    @IBOutlet
+                </code>
+                keywords.
+            </p>
+            <p>
+                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/IB-handles.png"
+                sl-processed="1">
+                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/IB-handles-340x320.png"
+                    alt="" width="340" height="320" class="aligncenter size-medium wp-image-167069"
+                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/IB-handles-340x320.png 340w, https://koenig-media.raywenderlich.com/uploads/2017/07/IB-handles-532x500.png 532w, https://koenig-media.raywenderlich.com/uploads/2017/07/IB-handles.png 972w"
+                    sizes="(max-width: 340px) 100vw, 340px">
+                </a>
+            </p>
+            <p>
+                You will now use them to connect your code to the UI.
+            </p>
+            <p>
+                While holding down
+                <em>
+                    alt
+                </em>
+                click on
+                <em>
+                    Main.storyboard
+                </em>
+                in the project navigator. This should open the storyboard in the Assistant
+                Editor on the right and the source on the left.
+            </p>
+            <p>
+                Drag from the circle next to
+                <code>
+                    textLabel
+                </code>
+                to the label in interface builder. In the same way connect the previous,
+                next and quit actions to the left, right and bottom buttons respectively.
+            </p>
+            <p>
+                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/connect-outlets.png"
+                sl-processed="1">
+                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/connect-outlets-480x300.png"
+                    alt="" width="480" height="300" class="aligncenter size-medium wp-image-167070"
+                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/connect-outlets-480x300.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/connect-outlets-650x406.png 650w"
+                    sizes="(max-width: 480px) 100vw, 480px">
+                </a>
+            </p>
+            <div class="note">
+                <p>
+                    <em>
+                        Note
+                    </em>
+                    : If you have trouble with any of the above steps, refer to our library
+                    of
+                    <a href="https://www.raywenderlich.com/category/macos" target="_blank"
+                    title="macOS tutorials" sl-processed="1">
+                        macOS tutorials
+                    </a>
+                    , where you’ll find introductory tutorials that will walk you through
+                    many aspects of macOS development, including adding views/constraints in
+                    interface builder and connecting outlets and actions.
+                </p>
+            </div>
+            <p>
+                Stand up, stretch and maybe do a quick victory lap around your desk because
+                you just flew through a bunch of interface builder work.
+            </p>
+            <p>
+                Build and run, and your popover should look like this now:
+            </p>
+            <p>
+                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/ui-completed.png"
+                sl-processed="1">
+                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/ui-completed-480x245.png"
+                    alt="" width="480" height="245" class="aligncenter size-medium wp-image-167071"
+                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/ui-completed-480x245.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/ui-completed-650x332.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/ui-completed.png 1002w"
+                    sizes="(max-width: 480px) 100vw, 480px">
+                </a>
+            </p>
+            <p>
+                You used the default size of the view controller for the popover above.
+                If you want a smaller or bigger popover, all you need to do is resize the
+                view controller in the storyboard.
+            </p>
+            <p>
+                The interface is finished, but you’re not done yet. Those buttons are
+                waiting on you to know what to do when the user clicks them — don’t leave
+                them hanging.
+            </p>
+            <h2>
+                Create actions for the buttons
+            </h2>
+            <p>
+                If you haven’t already dismiss the Assistant Editor with
+                <em>
+                    Cmd-Return
+                </em>
+                or
+                <em>
+                    View &gt; Standard Editor &gt; Show Standard Editor
+                </em>
+            </p>
+            <p>
+                Open
+                <em>
+                    QuotesViewController.swift
+                </em>
+                and add the following properties to the class implementation:
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-keyword">
+                    let
+                </span>
+                quotes =
+                <span class="hljs-type">
+                    Quote
+                </span>
+                .all
+                <span class="hljs-keyword">
+                    var
+                </span>
+                currentQuoteIndex:
+                <span class="hljs-type">
+                    Int
+                </span>
+                =
+                <span class="hljs-number">
+                    0
+                </span>
+                {
+                <span class="hljs-keyword">
+                    didSet
+                </span>
+                { updateQuote() } }
+            </pre>
+            <p>
+                The
+                <code>
+                    quotes
+                </code>
+                property holds all the quotes, and
+                <code>
+                    currentQuoteIndex
+                </code>
+                holds the index of the current quote displayed.
+                <code>
+                    currentQuoteIndex
+                </code>
+                also has a property observer to update the text label string with the
+                new quote when the index changes.
+            </p>
+            <p>
+                Next, add the following methods to the class:
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-keyword">
+                    override
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        viewDidLoad
+                    </span>
+                    <span class="hljs-params">
+                        ()
+                    </span>
+                </span>
+                {
+                <span class="hljs-keyword">
+                    super
+                </span>
+                .viewDidLoad() currentQuoteIndex =
+                <span class="hljs-number">
+                    0
+                </span>
+                }
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        updateQuote
+                    </span>
+                    <span class="hljs-params">
+                        ()
+                    </span>
+                </span>
+                { textLabel.stringValue =
+                <span class="hljs-type">
+                    String
+                </span>
+                (describing: quotes[currentQuoteIndex]) }
+            </pre>
+            <p>
+                When the view loads, you set the current quote index to 0, which in turn
+                updates the user interface.
+                <code>
+                    updateQuote()
+                </code>
+                simply updates the text label to show whichever quote is currently selected
+                according to
+                <code>
+                    currentQuoteIndex
+                </code>
+                .
+            </p>
+            <p>
+                To tie it all together, update the three action methods as follows;
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-meta">
+                    @IBAction
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        previous
+                    </span>
+                    <span class="hljs-params">
+                        (
+                        <span class="hljs-number">
+                            _
+                        </span>
+                        sender: NSButton)
+                    </span>
+                </span>
+                { currentQuoteIndex = (currentQuoteIndex -
+                <span class="hljs-number">
+                    1
+                </span>
+                + quotes.
+                <span class="hljs-built_in">
+                    count
+                </span>
+                ) % quotes.
+                <span class="hljs-built_in">
+                    count
+                </span>
+                }
+                <span class="hljs-meta">
+                    @IBAction
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        next
+                    </span>
+                    <span class="hljs-params">
+                        (
+                        <span class="hljs-number">
+                            _
+                        </span>
+                        sender: NSButton)
+                    </span>
+                </span>
+                { currentQuoteIndex = (currentQuoteIndex +
+                <span class="hljs-number">
+                    1
+                </span>
+                ) % quotes.
+                <span class="hljs-built_in">
+                    count
+                </span>
+                }
+                <span class="hljs-meta">
+                    @IBAction
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        quit
+                    </span>
+                    <span class="hljs-params">
+                        (
+                        <span class="hljs-number">
+                            _
+                        </span>
+                        sender: NSButton)
+                    </span>
+                </span>
+                {
+                <span class="hljs-type">
+                    NSApplication
+                </span>
+                .shared.terminate(sender) }
+            </pre>
+            <p>
+                In
+                <code>
+                    next()
+                </code>
+                and
+                <code>
+                    previous()
+                </code>
+                , you cycle through the all the quotes and wrap around when you reach
+                the ends of the array.
+                <code>
+                    quit
+                </code>
+                terminates the app.
+            </p>
+            <p>
+                Build and run again, and
+                <i>
+                    now
+                </i>
+                you can cycle back and forward through the quotes and quit the app!
+            </p>
+            <p>
+                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/code-connected.png"
+                sl-processed="1">
+                    <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/code-connected-480x267.png"
+                    alt="final UI" width="480" height="267" class="aligncenter size-medium wp-image-167074"
+                    srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/code-connected-480x267.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/07/code-connected-650x361.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/07/code-connected.png 964w"
+                    sizes="(max-width: 480px) 100vw, 480px">
+                </a>
+            </p>
+            <h2>
+                Event Monitoring
+            </h2>
+            <p>
+                There is one feature your users will want in your unobtrusive, small menu
+                bar app, and that’s when you click anywhere outside the app, the popover
+                automatically closes.
+            </p>
+            <p>
+                Menu bar apps should open the UI on click, and then disappear once the
+                user moves onto the next thing. For that, you need an macOS global event
+                monitor.
+            </p>
+            <p>
+                Next you’ll make an event monitor thats reusable in all your projects
+                and then use it when showing the popover.
+            </p>
+            <p>
+                Bet you’re feeling smarter already!
+            </p>
+            <p>
+                <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-320x320.png"
+                alt="" width="320" height="320" class="aligncenter size-medium wp-image-167085"
+                srcset="https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-500x500.png 500w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-128x128.png 128w, https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1.png 1000w"
+                sizes="(max-width: 320px) 100vw, 320px">
+            </p>
+            <p>
+                Create a new Swift File and name it
+                <em>
+                    EventMonitor
+                </em>
+                , and then replace its contents with the following class definition:
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-keyword">
+                    import
+                </span>
+                Cocoa
+                <span class="hljs-keyword">
+                    public
+                </span>
+                <span class="hljs-class">
+                    <span class="hljs-keyword">
+                        class
+                    </span>
+                    <span class="hljs-title">
+                        EventMonitor
+                    </span>
+                </span>
+                {
+                <span class="hljs-keyword">
+                    private
+                </span>
+                <span class="hljs-keyword">
+                    var
+                </span>
+                monitor:
+                <span class="hljs-type">
+                    Any
+                </span>
+                ?
+                <span class="hljs-keyword">
+                    private
+                </span>
+                <span class="hljs-keyword">
+                    let
+                </span>
+                mask:
+                <span class="hljs-type">
+                    NSEvent
+                </span>
+                .
+                <span class="hljs-type">
+                    EventTypeMask
+                </span>
+                <span class="hljs-keyword">
+                    private
+                </span>
+                <span class="hljs-keyword">
+                    let
+                </span>
+                handler: (
+                <span class="hljs-type">
+                    NSEvent
+                </span>
+                ?) -&gt;
+                <span class="hljs-type">
+                    Void
+                </span>
+                <span class="hljs-keyword">
+                    public
+                </span>
+                <span class="hljs-keyword">
+                    init
+                </span>
+                (mask:
+                <span class="hljs-type">
+                    NSEvent
+                </span>
+                .
+                <span class="hljs-type">
+                    EventTypeMask
+                </span>
+                , handler: @escaping (
+                <span class="hljs-type">
+                    NSEvent
+                </span>
+                ?) -&gt;
+                <span class="hljs-type">
+                    Void
+                </span>
+                ) {
+                <span class="hljs-keyword">
+                    self
+                </span>
+                .mask = mask
+                <span class="hljs-keyword">
+                    self
+                </span>
+                .handler = handler }
+                <span class="hljs-keyword">
+                    deinit
+                </span>
+                { stop() }
+                <span class="hljs-keyword">
+                    public
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        start
+                    </span>
+                    <span class="hljs-params">
+                        ()
+                    </span>
+                </span>
+                { monitor =
+                <span class="hljs-type">
+                    NSEvent
+                </span>
+                .addGlobalMonitorForEvents(matching: mask, handler: handler) }
+                <span class="hljs-keyword">
+                    public
+                </span>
+                <span class="hljs-function">
+                    <span class="hljs-keyword">
+                        func
+                    </span>
+                    <span class="hljs-title">
+                        stop
+                    </span>
+                    <span class="hljs-params">
+                        ()
+                    </span>
+                </span>
+                {
+                <span class="hljs-keyword">
+                    if
+                </span>
+                monitor !=
+                <span class="hljs-literal">
+                    nil
+                </span>
+                {
+                <span class="hljs-type">
+                    NSEvent
+                </span>
+                .removeMonitor(monitor!) monitor =
+                <span class="hljs-literal">
+                    nil
+                </span>
+                } } }
+            </pre>
+            <p>
+                You initialize an instance of this class by passing in a mask of events
+                to listen for –&nbsp;things like key down, scroll wheel moved, left mouse
+                button click, etc –&nbsp;and an event handler.
+            </p>
+            <p>
+                When you’re ready to start listening,
+                <code>
+                    start()
+                </code>
+                calls
+                <code>
+                    addGlobalMonitorForEventsMatchingMask(_:handler:)
+                </code>
+                , which returns an object for you to hold on to. Any time the event specified
+                in the mask occurs, the system calls your handler.
+            </p>
+            <p>
+                To remove the global event monitor, you call
+                <code>
+                    removeMonitor()
+                </code>
+                in
+                <code>
+                    stop()
+                </code>
+                and delete the returned object by setting it to
+                <code>
+                    nil
+                </code>
+                .
+            </p>
+            <p>
+                All that’s left is calling
+                <code>
+                    start()
+                </code>
+                and
+                <code>
+                    stop()
+                </code>
+                when needed. How easy is that? The class also calls
+                <code>
+                    stop()
+                </code>
+                for you in the deinitializer, to clean up after itself.
+            </p>
+            <h3>
+                Connect the Event Monitor
+            </h3>
+            <p>
+                Open
+                <em>
+                    AppDelegate.swift
+                </em>
+                one last time, and add a new property declaration to the class:
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                <span class="hljs-keyword">
+                    var
+                </span>
+                eventMonitor:
+                <span class="hljs-type">
+                    EventMonitor
+                </span>
+                ?
+            </pre>
+            <p>
+                Next, add the code to configure the event monitor at the end of
+                <code>
+                    applicationDidFinishLaunching(_:)
+                </code>
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                eventMonitor =
+                <span class="hljs-type">
+                    EventMonitor
+                </span>
+                (mask: [.leftMouseDown, .rightMouseDown]) { [
+                <span class="hljs-keyword">
+                    weak
+                </span>
+                <span class="hljs-keyword">
+                    self
+                </span>
+                ] event
+                <span class="hljs-keyword">
+                    in
+                </span>
+                <span class="hljs-keyword">
+                    if
+                </span>
+                <span class="hljs-keyword">
+                    let
+                </span>
+                strongSelf =
+                <span class="hljs-keyword">
+                    self
+                </span>
+                , strongSelf.popover.isShown { strongSelf.closePopover(sender: event)
+                } }
+            </pre>
+            <p>
+                This notifies your app of any left or right mouse down event and closes
+                the popover when the system event occurs. Note that your handler will not
+                be called for events that are sent to your own application. That’s why
+                the popover doesn’t close when you click around inside of it. :]
+            </p>
+            <p>
+                You use a
+                <code>
+                    weak
+                </code>
+                reference to self to avoid a potential
+                <i>
+                    retain cycle
+                </i>
+                between
+                <code>
+                    AppDelegate
+                </code>
+                and
+                <code>
+                    EventMonitor
+                </code>
+                . It’s not essential in this particular situation because there’s only
+                one setup cycle but is something to watch out for in your own code when
+                you use block handlers between objects.
+            </p>
+            <p>
+                Add the following code to the end of
+                <code>
+                    showPopover(_:)
+                </code>
+                :
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                eventMonitor?.start()
+            </pre>
+            <p>
+                This will start the event monitor when the popover appears.
+            </p>
+            <p>
+                Then, you’ll need to add the following code to the end of
+                <code>
+                    closePopover(_:)
+                </code>
+                :
+            </p>
+            <pre lang="swift" class="language-swift hljs">
+                eventMonitor?.stop()
+            </pre>
+            <p>
+                This will stop the event monitor when the popover closes.
+            </p>
+            <p>
+                All done! Build and run the app one more time. Click on the menu bar icon
+                to show the popover, and then click anywhere else and the popover closes.
+                Awesome!
+            </p>
+            <h2>
+                Where To Go From Here?
+            </h2>
+            <div class="inline-video-ad" id="sub-banner-inline">
+                <div class="inline-video-ad-wrapper">
+                    <a href="https://videos.raywenderlich.com/courses" sl-processed="1">
+                        <div class="col-wrapper">
+                            <div class="col">
+                                <img src="https://koenig-assets.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png"
+                                alt="yeti holding videos">
+                            </div>
+                            <div class="col large-col">
+                                <span>
+                                    Want to learn even faster? Save time with our
+                                    <span>
+                                        video courses
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <p>
+                Here is the
+                <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/Quotes_final-s4b3.zip"
+                sl-processed="1">
+                    final project
+                </a>
+                with all of the code you’ve developed in the above tutorial.
+            </p>
+            <p>
+                You’ve seen how to set up both menus and popovers in your menu bar status
+                items –&nbsp;why not keep experimenting with using attributed text or multiple
+                labels to style the quote, or connecting to a web backend to pull new quotes.
+                Maybe you can discover how to use the keyboard to cycle through the quotes.
+            </p>
+            <p>
+                A good place to look for other possibilities is reading the official documentation
+                for
+                <a href="https://developer.apple.com/documentation/appkit/nsmenu" target="_blank"
+                sl-processed="1">
+                    <code>
+                        NSMenu
+                    </code>
+                </a>
+                ,
+                <a href="https://developer.apple.com/documentation/appkit/nspopover" target="_blank"
+                sl-processed="1">
+                    <code>
+                        NSPopover
+                    </code>
+                </a>
+                and
+                <a href="https://developer.apple.com/documentation/appkit/nsstatusitem"
+                target="_blank" sl-processed="1">
+                    <code>
+                        NSStatusItem
+                    </code>
+                </a>
+                .
+            </p>
+            <p>
+                One thing to consider is that you are asking your customers for a very
+                privileged piece of screen real estate so while you might think its cool
+                to have a status bar item your users might not feel the same way. A lot
+                of apps manage this by providing preferences to show or hide the item.
+                You can use that as an advanced exercise for yourself.
+            </p>
+            <p>
+                Thanks for taking the time to learn how to make a cool popover menu app
+                for macOS. For now, it’s pretty simple, but you can see that the concepts
+                you’ve learned here are an excellent foundation for a variety of apps.
+            </p>
+            <p>
+                If you have any questions, awesome discoveries or ideas you’d like to
+                bounce off others as you configure status items, menus or popovers in your
+                apps, please let me know in the forum discussion below! :]
+            </p>
+</div>

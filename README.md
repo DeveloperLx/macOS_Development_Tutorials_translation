@@ -94,6 +94,11 @@
                     macOS新手开发：第三部分
                 </a>
             </li>
+            <li>
+                <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20Development%20for%20Beginners%20-%20Part%203.md" sl-processed="1">
+                    macOS教程：在Menu Bar App中的Menu和Popover
+                </a>
+            </li>
         </ul>
         <h2 style="clear:both; padding-top: 20px;">
             Windows, Views, 和View Controllers
