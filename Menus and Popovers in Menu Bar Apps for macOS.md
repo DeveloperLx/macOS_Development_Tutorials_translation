@@ -74,62 +74,62 @@
         入门
     </h2>
     <p>
-        Fire up Xcode. Go to
+        打开Xcode。点击
         <em>
             File/New/Project…
         </em>
-        then select the
+        ，然后选择
         <em>
             macOS/Application/Cocoa App
         </em>
-        template and click
+        模板并点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
-        On the next screen, enter
+        在下一屏中，输入
         <em>
             Quotes
         </em>
-        as the
+        作为
         <em>
             Product Name
         </em>
-        , choose your desired
+        ，选择你的
         <em>
             Organization Name
         </em>
-        and
+        和
         <em>
             Organization Identifier
         </em>
-        . Then make sure that
+        。然后选择
         <em>
             Swift
         </em>
-        is selected as the language, and that
+        编程语言，选中
         <em>
             Use Storyboards
         </em>
-        is checked. Uncheck
+        。确保
         <em>
             Create Document-Based Application
         </em>
-        ,
+        ，
         <em>
             Use Core Data
         </em>
-        ,
+        ，
         <em>
             Include Unit tests
         </em>
-        and
+        和
         <em>
             Include UI Tests
         </em>
-        .
+        均不选中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/configure-project.png"
@@ -141,37 +141,28 @@
         </a>
     </p>
     <p>
-        Finally, click
+        最后，再次点击
         <em>
             Next
         </em>
-        again, choose a place to save the project and click
+        ，选择一个地方来保存项目，并点击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Once the new project is set up, open
+        设置完成新项目之后，打开
         <em>
             AppDelegate.swift
         </em>
-        and add the following property to the class:
+        并添加下列的property到类中：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            let
-        </span>
-        statusItem =
-        <span class="hljs-type">
-            NSStatusBar
-        </span>
-        .system.statusItem(withLength:
-        <span class="hljs-type">
-            NSStatusItem
-        </span>
-        .squareLength)
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
+  button.image = <span class="hljs-type">NSImage</span>(named:<span class="hljs-type">NSImage</span>.<span class="hljs-type">Name</span>(<span class="hljs-string">"StatusBarButtonImage"</span>))
+  button.action = #selector(printQuote(<span class="hljs-number">_</span>:))
+}
+</pre>
     <p>
         This creates a
         <em>
