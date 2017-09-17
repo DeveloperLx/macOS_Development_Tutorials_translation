@@ -604,25 +604,25 @@
     </p>
     <ol>
         <li>
-            Get a reference to
+            获取到对
             <em>
                 Main.storyboard
             </em>
-            .
+            的引用。
         </li>
         <li>
-            Create a
+            创建一个能够匹配你刚设定的identifier的
             <em>
                 Scene identifier
             </em>
-            that matches the one you set just before.
+            。
         </li>
         <li>
-            Instantiate
+            实例化
             <em>
                 QuotesViewController
             </em>
-            and return it.
+            并返回。
         </li>
     </ol>
     <p>
