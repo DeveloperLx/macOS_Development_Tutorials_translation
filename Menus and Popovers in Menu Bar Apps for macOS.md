@@ -707,24 +707,20 @@
         <code>
             showPopover()
         </code>
-        displays the popover to the user. You just need to supply a source rect
-        and macOS will position the popover and arrow so it looks like it’s coming
-        out of the menu bar icon.
+        方法会向用户展示popover。你只需要提供一个源rect，macOS会基于此来展示popover和箭头，这样看起来popover就像是从菜单栏中的icon中弹出来的。
     </p>
     <p>
         <code>
             closePopover()
         </code>
-        simply closes the popover, and
+        会把popover关闭掉，而
         <code>
             togglePopover()
         </code>
-        is the action method that will either open or close the popover depending
-        on its current state.
+        则会基于当前的状态，来确定是打开还是关闭popover。
     </p>
     <p>
-        Build and run, and then click on the menu bar icon to check that it shows
-        and then hides an empty popover.
+        运行项目，然后点击菜单栏中的icon，来查看展示空popover和关闭它的效果。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/show-QuotesViewController.png
@@ -738,192 +734,61 @@
         </a>
     </p>
     <p>
-        Your popover works great, but where’s all the inspiration? All you see
-        is an empty view and no quotes. Guess what you’ll do next?
+        你的popover已能够正常地工作，但那些令人鼓舞的内容在哪里？你看到的只有一个空空的view，没有名言。猜猜看接下来该做什么了？
     </p>
     <h2>
-        Implementing the Quote View Controller
+        实现Quote View Controller
     </h2>
     <p>
-        First, you need a model to store the quotes and attributions. Go to
+        首先，你需要一个model来储存名言和属性。点击
         <em>
             File/New/File…
         </em>
-        and select the
+        并选择
         <em>
             macOS/Source/Swift File
         </em>
-        template, then click
+        模板，然后点击
         <em>
             Next
         </em>
-        . Name the file
+        。将文件命名为
         <em>
             Quote
         </em>
-        and click
+        并点击
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             Quote.swift
         </em>
-        and add the following code to the file:
+        并添加下列代码到文件中：
     </p>
-    <pre lang="swift " class="language-swift hljs ">
-        <span class="hljs-class
-        ">
-            <span class="hljs-keyword ">
-                struct
-            </span>
-            <span class="hljs-title ">
-                Quote
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword ">
-            let
-        </span>
-        text:
-        <span class="hljs-type ">
-            String
-        </span>
-        <span class="hljs-keyword ">
-            let
-        </span>
-        author:
-        <span class="hljs-type ">
-            String
-        </span>
-        <span class="hljs-keyword ">
-            static
-        </span>
-        <span class="hljs-keyword
-        ">
-            let
-        </span>
-        all: [
-        <span class="hljs-type ">
-            Quote
-        </span>
-        ] = [
-        <span class="hljs-type ">
-            Quote
-        </span>
-        (text:
-        <span class="hljs-string ">
-            "Never put off until tomorrow what you can do the day after tomorrow.
-            "
-        </span>
-        , author:
-        <span class="hljs-string ">
-            "Mark Twain "
-        </span>
-        ),
-        <span class="hljs-type ">
-            Quote
-        </span>
-        (text:
-        <span class="hljs-string ">
-            "Efficiency is doing better what is already being done. "
-        </span>
-        , author:
-        <span class="hljs-string ">
-            "Peter Drucker "
-        </span>
-        ),
-        <span class="hljs-type ">
-            Quote
-        </span>
-        (text:
-        <span class="hljs-string ">
-            "To infinity and beyond! "
-        </span>
-        , author:
-        <span class="hljs-string ">
-            "Buzz Lightyear "
-        </span>
-        ),
-        <span class="hljs-type ">
-            Quote
-        </span>
-        (text:
-        <span class="hljs-string ">
-            "May the Force be with you. "
-        </span>
-        , author:
-        <span class="hljs-string ">
-            "Han Solo "
-        </span>
-        ),
-        <span class="hljs-type ">
-            Quote
-        </span>
-        (text:
-        <span class="hljs-string ">
-            "Simplicity is the ultimate sophistication "
-        </span>
-        , author:
-        <span class="hljs-string
-        ">
-            "Leonardo da Vinci "
-        </span>
-        ),
-        <span class="hljs-type ">
-            Quote
-        </span>
-        (text:
-        <span class="hljs-string ">
-            "It’s not just what it looks like and feels like. Design is how it works.
-            "
-        </span>
-        , author:
-        <span class="hljs-string ">
-            "Steve Jobs "
-        </span>
-        ) ] }
-        <span class="hljs-class ">
-            <span class="hljs-keyword
-            ">
-                extension
-            </span>
-            <span class="hljs-title ">
-                Quote
-            </span>
-            :
-            <span class="hljs-title ">
-                CustomStringConvertible
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword ">
-            var
-        </span>
-        description:
-        <span class="hljs-type ">
-            String
-        </span>
-        {
-        <span class="hljs-keyword ">
-            return
-        </span>
-        <span class="hljs-string ">
-            "\ "
-            <span class="hljs-subst ">
-                \(text)
-            </span>
-            \" —
-            <span class="hljs-subst">
-                \(author)
-            </span>
-            "
-        </span>
-        } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Quote</span> </span>{
+  <span class="hljs-keyword">let</span> text: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> author: <span class="hljs-type">String</span>
+  
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> all: [<span class="hljs-type">Quote</span>] =  [
+    <span class="hljs-type">Quote</span>(text: <span class="hljs-string">"Never put off until tomorrow what you can do the day after tomorrow."</span>, author: <span class="hljs-string">"Mark Twain"</span>),
+    <span class="hljs-type">Quote</span>(text: <span class="hljs-string">"Efficiency is doing better what is already being done."</span>, author: <span class="hljs-string">"Peter Drucker"</span>),
+    <span class="hljs-type">Quote</span>(text: <span class="hljs-string">"To infinity and beyond!"</span>, author: <span class="hljs-string">"Buzz Lightyear"</span>),
+    <span class="hljs-type">Quote</span>(text: <span class="hljs-string">"May the Force be with you."</span>, author: <span class="hljs-string">"Han Solo"</span>),
+    <span class="hljs-type">Quote</span>(text: <span class="hljs-string">"Simplicity is the ultimate sophistication"</span>, author: <span class="hljs-string">"Leonardo da Vinci"</span>),
+    <span class="hljs-type">Quote</span>(text: <span class="hljs-string">"It’s not just what it looks like and feels like. Design is how it works."</span>, author: <span class="hljs-string">"Steve Jobs"</span>)
+  ]
+}
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Quote</span>: <span class="hljs-title">CustomStringConvertible</span> </span>{
+  <span class="hljs-keyword">var</span> description: <span class="hljs-type">String</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"\"<span class="hljs-subst">\(text)</span>\" — <span class="hljs-subst">\(author)</span>"</span>
+  }
+}
+</pre>
     <p>
         This defines a simple quote structure and a static property that returns
         all the quotes. Since you also make
