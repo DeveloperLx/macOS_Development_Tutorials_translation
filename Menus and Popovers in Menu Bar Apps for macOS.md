@@ -164,35 +164,33 @@
 }
 </pre>
     <p>
-        This creates a
+        这就创建了一个
         <em>
             Status Item
         </em>
-        — aka application icon — in the menu bar with a fixed length that the
-        user will see and use.
+        - 也就是说app的icon - 带有一个固定的长度并放置在菜单栏中，用户能够看到并使用它。
     </p>
     <p>
-        Next, you’ll need to associate an image to the status item to make your
-        app recognizable in the menu bar.
+        接下来，你需要为status item关联一个图像，让你的app能够在菜单栏中易于识别。
     </p>
     <p>
-        Go to
+        在project navigator中周到
         <code>
             Assets.xcassets
         </code>
-        in the project navigator, download this image
+        ，下载图片
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/03/StatusBarButtonImage@2x.png"
         sl-processed="1">
             StatusBarButtonImage@2x.png
         </a>
-        and drag it into the asset catalog.
+        并将它拖拽到asset目录中。
     </p>
     <p>
-        Select the image and open the attributes inspector. Change the
+        选择图片并打开attributes inspector。将
         <em>
             Render As
         </em>
-        option to Template Image.
+        选项改变为Template Image。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/add-image-asset.png"
@@ -204,108 +202,37 @@
         </a>
     </p>
     <p>
-        If you use your own custom image, make sure that the image is black and
-        white and configured as a template image so the Status Item looks great
-        against both light and dark menu bars.
+        如果你想使用自己的图片，请确保它是黑白图片，并将它配置为template image。这样Status Item才能在亮色和暗色主题下的菜单栏中都看起来比较不错。
     </p>
     <p>
-        Back in
+        回到
         <em>
             AppDelegate.swift
         </em>
-        , add the following code to
+        ，添加下列的代码到
         <code>
             applicationDidFinishLaunching(_:)
         </code>
+        中
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        button = statusItem.button { button.image =
-        <span class="hljs-type">
-            NSImage
-        </span>
-        (named:
-        <span class="hljs-type">
-            NSImage
-        </span>
-        .
-        <span class="hljs-type">
-            Name
-        </span>
-        (
-        <span class="hljs-string">
-            "StatusBarButtonImage"
-        </span>
-        )) button.action = #selector(printQuote(
-        <span class="hljs-number">
-            _
-        </span>
-        :)) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
+  button.image = <span class="hljs-type">NSImage</span>(named:<span class="hljs-type">NSImage</span>.<span class="hljs-type">Name</span>(<span class="hljs-string">"StatusBarButtonImage"</span>))
+  button.action = #selector(printQuote(<span class="hljs-number">_</span>:))
+}
+</pre>
     <p>
-        This will configure the status item with an icon of the image you just
-        added, and an action for when you click on the item. This will create an
-        error but you’ll fix that now.
+        这会把你刚刚添加的图片作为icon配置到status item的上面，然后配置了一个当你点击这个item时会发生的动作。现在这里会出现一个错误，但你很快就会修复它。
     </p>
     <p>
-        Add the following method to the class:
+        在类中添加下列的代码：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @objc
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                printQuote
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        quoteText =
-        <span class="hljs-string">
-            "Never put off until tomorrow what you can do the day after tomorrow."
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        quoteAuthor =
-        <span class="hljs-string">
-            "Mark Twain"
-        </span>
-        <span class="hljs-built_in">
-            print
-        </span>
-        (
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(quoteText)
-            </span>
-            —
-            <span class="hljs-subst">
-                \(quoteAuthor)
-            </span>
-            "
-        </span>
-        ) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printQuote</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
+  <span class="hljs-keyword">let</span> quoteText = <span class="hljs-string">"Never put off until tomorrow what you can do the day after tomorrow."</span>
+  <span class="hljs-keyword">let</span> quoteAuthor = <span class="hljs-string">"Mark Twain"</span>
+  
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(quoteText)</span> — <span class="hljs-subst">\(quoteAuthor)</span>"</span>)
+}
+</pre>
     <p>
         This method will simply log out the quote text to the console.
     </p>
