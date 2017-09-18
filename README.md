@@ -10,16 +10,16 @@
         </h2>
         <div class="content-wrapper taxonomy-description">
             <p>
-                想要学习怎么使用Swift为Mac开发App？
+                想要学习怎么使用Swift为Mac开发App？
             </p>
             <p>
-                点击我们超过15个免费的macOS开发教程，它覆盖了几乎所有你入门你需要了解的事情！
+                点击我们超过15个免费的macOS开发教程，它覆盖了几乎所有你入门你需要了解的事情！
             </p>
             <div class="note">
                 <em>
                     注意：
                 </em>
-                我们网站上的所有macOS教程，均使用苹果新的Swift编程语言编写。如果你对于Swift是个新手，请首先访问我们的
+                我们网站上的所有macOS教程，均使用苹果新的Swift编程语言编写。如果你对于Swift是个新手，请首先访问我们的
                 <a href="http://www.raywenderlich.com/swift-language-tutorials" sl-processed="1">
                     Swift语言教程
                 </a>
@@ -29,13 +29,13 @@
     </header>
     <div class="content-wrapper">
         <h2 style="clear:both; padding-top: 20px;">
-            入门
-        </h2>
+            入门
+        </h2>
         <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png"
         alt="250x250" width="250" height="250" />
         <p>
-            入门最好的方式，是从我们的Mac OS X 初学者开发教程系列开始。
-            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
+            入门最好的方式，是从我们的Mac OS X 初学者开发教程系列开始。
+            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
             sl-processed="1">
                 第一部分
             </a>
@@ -161,7 +161,7 @@
             </li>
         </ul>
         <h2 style="clear:both; padding-top: 20px;">
-            其它OS X开发教程
+            其它OS X的开发教程
         </h2>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/NSTask-for-mac-feature-250x250.png"
         alt="See a practical example of using NSTask!" width="250" height="250"
