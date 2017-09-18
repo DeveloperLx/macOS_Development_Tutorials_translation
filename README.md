@@ -10,16 +10,16 @@
         </h2>
         <div class="content-wrapper taxonomy-description">
             <p>
-                想要学习怎么使用Swift为你的Mac开发App？
+                想要学习怎么使用Swift为Mac开发App？
             </p>
             <p>
-                点击我们超过15个的免费macOS开发教程，覆盖所有你了解的启动的事情！
+                点击我们超过15个免费的macOS开发教程，它覆盖了几乎所有你入门你需要了解的事情！
             </p>
             <div class="note">
                 <em>
                     注意：
                 </em>
-                在我们网站上，所有的macOS教程使用苹果新的Swift编程语言。如果你对于Swift是个新手，请确保首先点击我们的
+                我们网站上的所有macOS教程，均使用苹果新的Swift编程语言编写。如果你对于Swift是个新手，请首先访问我们的
                 <a href="http://www.raywenderlich.com/swift-language-tutorials" sl-processed="1">
                     Swift语言教程
                 </a>
@@ -29,17 +29,16 @@
     </header>
     <div class="content-wrapper">
         <h2 style="clear:both; padding-top: 20px;">
-            启动
-        </h2>
+            入门
+        </h2>
         <img class="alignright size-full wp-image-110249 bordered" src="https://koenig-media.raywenderlich.com/uploads/2015/07/250x250.png"
         alt="250x250" width="250" height="250" />
         <p>
-            启动最好的方式是从我们的Mac OS X 初学者开发教程系列
-            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
+            入门最好的方式，是从我们的Mac OS X 初学者开发教程系列开始。
+            <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%201%20-%20Intro%20to%20Xcode.md"
             sl-processed="1">
                 第一部分
             </a>
-            开始。
         </p>
         <p>
             这个系列将教给你OS X开发最基础的东西。你可以接下来了解更多关于OS X的
