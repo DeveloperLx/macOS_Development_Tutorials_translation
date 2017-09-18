@@ -1183,7 +1183,7 @@
         <em>
             EventMonitor
         </em>
-        ，然后用下列的类定义类替换它的内容：
+        ，然后用下列的类定义来替换它的内容：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Cocoa
 
