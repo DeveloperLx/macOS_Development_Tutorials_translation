@@ -1217,64 +1217,60 @@
         你会通过传递一个待监听事件类型的标记来初始化这个类的实例 - 事件诸如按键，滚动鼠标，单击左键等 - 以及一个事件处理者。
     </p>
     <p>
-        When you’re ready to start listening,
+        当你准备好开始监听的时候，
         <code>
             start()
         </code>
-        calls
+        就会调用
         <code>
             addGlobalMonitorForEventsMatchingMask(\_:handler:)
         </code>
-        , which returns an object for you to hold on to. Any time the event specified
-        in the mask occurs, the system calls your handler.
+        ，它会返回一个可以让你持有的对象。任何时候只有指定的事件发生，系统就会调用你的处理方法。
     </p>
     <p>
-        To remove the global event monitor, you call
+        要移除全局事件的监听器，可以调用
+        <code>
+            stop()
+        </code>
+        中的
         <code>
             removeMonitor()
         </code>
-        in
-        <code>
-            stop()
-        </code>
-        and delete the returned object by setting it to
-        <code>
-            nil
-        </code>
-        .
+        方法，并通过将其设置为nil，删除返回的对象。
     </p>
     <p>
-        All that’s left is calling
+        现在剩下的工作，就只有在需要的时候调用
         <code>
             start()
         </code>
-        and
+        和
         <code>
             stop()
         </code>
-        when needed. How easy is that? The class also calls
+        方法了。是不是很容易？当然这个类也会在它的析构器中调用
         <code>
             stop()
         </code>
-        for you in the deinitializer, to clean up after itself.
+        方法来实现清理自己。
     </p>
     <h3>
-        Connect the Event Monitor
+        连接事件监听器
     </h3>
     <p>
-        Open
+        最后一次打开
         <em>
             AppDelegate.swift
         </em>
-        one last time, and add a new property declaration to the class:
+        ，并为其添加一个新的property声明：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> eventMonitor: <span class="hljs-type">EventMonitor</span>?
 </pre>
     <p>
-        Next, add the code to configure the event monitor at the end of
+        然后，在
         <code>
             applicationDidFinishLaunching(\_:)
         </code>
+        的尾部添加下列代码来配置事件监听器：
     </p>
     <pre lang="swift" class="language-swift hljs">eventMonitor = <span class="hljs-type">EventMonitor</span>(mask: [.leftMouseDown, .rightMouseDown]) { [<span class="hljs-keyword">weak</span> <span class="hljs-keyword">self</span>] event <span class="hljs-keyword">in</span>
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> strongSelf = <span class="hljs-keyword">self</span>, strongSelf.popover.isShown {
