@@ -1127,27 +1127,26 @@
 }
 </pre>
     <p>
-        In
+        在
         <code>
             next()
         </code>
-        and
+        和
         <code>
             previous()
         </code>
-        , you cycle through the all the quotes and wrap around when you reach
-        the ends of the array.
+        中，你会循环遍历全部的名言。而
         <code>
             quit
         </code>
-        terminates the app.
+        则会退出当前的app。
     </p>
     <p>
-        Build and run again, and
+        再次运行项目，
         <i>
-            now
+            现在
         </i>
-        you can cycle back and forward through the quotes and quit the app!
+        你就可以循环地浏览名言及退出app了！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/code-connected.png"
@@ -1159,24 +1158,19 @@
         </a>
     </p>
     <h2>
-        Event Monitoring
+        事件监听
     </h2>
     <p>
-        There is one feature your users will want in your unobtrusive, small menu
-        bar app, and that’s when you click anywhere outside the app, the popover
-        automatically closes.
+        你的用户会在你小小的谦逊的菜单栏app上期待一个特性，就是当你点击app之外的任何地方，让popover自动地关闭。
     </p>
     <p>
-        Menu bar apps should open the UI on click, and then disappear once the
-        user moves onto the next thing. For that, you need an macOS global event
-        monitor.
+        菜单栏的app应当在点击它的时候打开UI，而当用户移动到下一个项目的时候就消失。因此，你需要一个macOS的全局事件监听器。
     </p>
     <p>
-        Next you’ll make an event monitor thats reusable in all your projects
-        and then use it when showing the popover.
+        接下来我们就会创建一个时间监听器，它可以复用到你所有的项目上，例如当展示popover的时候就可以用到它。
     </p>
     <p>
-        Bet you’re feeling smarter already!
+        我赌你早已变得更聪明了！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/07/osx-triumphant-1-320x320.png"
@@ -1185,11 +1179,11 @@
         sizes="(max-width: 320px) 100vw, 320px">
     </p>
     <p>
-        Create a new Swift File and name it
+        创建一个Swift文件并将它命名为
         <em>
             EventMonitor
         </em>
-        , and then replace its contents with the following class definition:
+        ，然后用下列的类定义类替换它的内容：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Cocoa
 
