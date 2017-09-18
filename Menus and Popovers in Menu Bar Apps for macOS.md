@@ -1408,9 +1408,4 @@
         for macOS. For now, it’s pretty simple, but you can see that the concepts
         you’ve learned here are an excellent foundation for a variety of apps.
     </p>
-    <p>
-        If you have any questions, awesome discoveries or ideas you’d like to
-        bounce off others as you configure status items, menus or popovers in your
-        apps, please let me know in the forum discussion below! :]
-    </p>
 </div>
