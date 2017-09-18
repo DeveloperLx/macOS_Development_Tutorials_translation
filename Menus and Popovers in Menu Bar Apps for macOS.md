@@ -1040,34 +1040,31 @@
         </a>
     </p>
     <p>
-        You used the default size of the view controller for the popover above.
-        If you want a smaller or bigger popover, all you need to do is resize the
-        view controller in the storyboard.
+        你对上面的popover采取了view controller的默认尺寸。如果你想要一个更小或更大的popover，只需在storyboard中调整view controller即可。
     </p>
     <p>
-        The interface is finished, but you’re not done yet. Those buttons are
-        waiting on you to know what to do when the user clicks them — don’t leave
-        them hanging.
+        关于交互的部分现在已完成了，但还并没有实现。这些按钮现在正等着你去实现，当你点击它们的时候，该做些什么事情 - 不要把它们挂在那里。
     </p>
     <h2>
-        Create actions for the buttons
+        为按钮创建动作
     </h2>
     <p>
-        If you haven’t already dismiss the Assistant Editor with
+        如果你尚未使用
         <em>
             Cmd-Return
         </em>
-        or
+        或
         <em>
             View &gt; Standard Editor &gt; Show Standard Editor
         </em>
+        来关闭Assistant Editor
     </p>
     <p>
-        Open
+        打开
         <em>
             QuotesViewController.swift
         </em>
-        and add the following properties to the class implementation:
+        并添加下列的property到类的实现中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> quotes = <span class="hljs-type">Quote</span>.all
 
@@ -1078,23 +1075,21 @@
 }
 </pre>
     <p>
-        The
         <code>
             quotes
         </code>
-        property holds all the quotes, and
+        property会持有所有的名言，而
         <code>
             currentQuoteIndex
         </code>
-        holds the index of the current quote displayed.
+        则持有着当前的名言。
         <code>
             currentQuoteIndex
         </code>
-        also has a property observer to update the text label string with the
-        new quote when the index changes.
+        同时会作为一个property的观察器，他会在序号发生变化的时候，使用新的名言来更新文本标签。
     </p>
     <p>
-        Next, add the following methods to the class:
+        接下来，添加下列的方法到类中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">super</span>.viewDidLoad()
@@ -1106,20 +1101,18 @@
 }
 </pre>
     <p>
-        When the view loads, you set the current quote index to 0, which in turn
-        updates the user interface.
+        当这个view被加载的时候，你就会把当前名言的序号设置为0，相应地来更新UI。
         <code>
             updateQuote()
         </code>
-        simply updates the text label to show whichever quote is currently selected
-        according to
+        会根据
         <code>
             currentQuoteIndex
         </code>
-        .
+        确定的当前选择的名言来更新文本的标签。
     </p>
     <p>
-        To tie it all together, update the three action methods as follows;
+        要把它们到绑定到一起，更新三个方法，就像下面这样：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">previous</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
   currentQuoteIndex = (currentQuoteIndex - <span class="hljs-number">1</span> + quotes.<span class="hljs-built_in">count</span>) % quotes.<span class="hljs-built_in">count</span>
