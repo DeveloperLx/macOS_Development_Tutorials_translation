@@ -1214,9 +1214,7 @@
 }
 </pre>
     <p>
-        You initialize an instance of this class by passing in a mask of events
-        to listen for –&nbsp;things like key down, scroll wheel moved, left mouse
-        button click, etc –&nbsp;and an event handler.
+        你会通过传递一个待监听事件类型的标记来初始化这个类的实例 - 事件诸如按键，滚动鼠标，单击左键等 - 以及一个事件处理者。
     </p>
     <p>
         When you’re ready to start listening,
