@@ -1363,7 +1363,7 @@
         你已经明白了如何在你菜单栏的status items上设置菜单和popovers –&nbsp;为何不尝试下使用属性字符创或多个label来美化名言，或是连接web的后端来拉群新的名言。也许你还可以找到使用键盘快捷键去循环浏览名言的方法。
     </p>
     <p>
-        寻找其它可能性的一个很棒的地方，就是阅读苹果的官方文档，如
+        一个寻找其它可能性的很棒的地方，就是阅读苹果的官方文档，如
         <a href="https://developer.apple.com/documentation/appkit/nsmenu" target="_blank"
         sl-processed="1">
             <code>
@@ -1387,13 +1387,9 @@
         。
     </p>
     <p>
-        One thing to consider is that you are asking your customers for a very privileged piece of screen real estate so while you might think its cool to have a status bar item your users might not feel the same way. 
-        A lot of apps manage this by providing preferences to show or hide the item.
-        You can use that as an advanced exercise for yourself.
+        需要考虑的一件事是你希望你的用户把你的app当做一个非常珍贵的屏幕上的不动产，因此当你感觉在状态栏上有一个item很酷的时候，可能你的用户并不这么认为。很多的app会提供偏好选项来让用户确定是打开还是隐藏这个item。你可以把它作为自己的一个进阶的练习。
     </p>
     <p>
-        Thanks for taking the time to learn how to make a cool popover menu app for macOS. 
-        For now, it’s pretty simple, 
-        but you can see that the concepts you’ve learned here are an excellent foundation for a variety of apps.
+        感谢你抽出时间来学习如何为macOS打造一个很酷的popover菜单的app。它相当得简单，但可以看出来，你所学到的这些概念将会成为你开发各种app的绝佳基础。
     </p>
 </div>
