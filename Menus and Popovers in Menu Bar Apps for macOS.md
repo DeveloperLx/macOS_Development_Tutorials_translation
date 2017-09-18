@@ -837,7 +837,7 @@
         你可以独自完成添加自动布局的约束，来适配用户的交互么？在查看下面的详解之前，可以首先自己进行一下尝试。如果成功的话，就可以略过下面这部分了，你可以直接奖励给自己一颗星星。
     </p>
     <h3>
-        解决办法
+        解决方案
     </h3>
     <p>
         下列是获取正确布局所需的约束：
@@ -956,24 +956,21 @@
 }
 </pre>
     <p>
-        You have just added an outlet for the text label, which you’ll use to
-        display the inspirational quote and 3 stub actions which you will connect
-        to the 3 buttons.
+        你现在已为label添加了一个outlet，你将会用这个label来展示鼓舞人心的名言。还添加了三个动作，你将把它们分别连接到三个按钮上。
     </p>
     <h3>
-        Connect code to Interface Builder
+        将代码连接到Interface Builder上
     </h3>
     <p>
-        You’ll notice that Xcode has placed circles in the left hand margin of
-        your source editor. The circles are handles that appear when you use the
+        你会注意到源码编辑器的左侧已出现了一些小小的圆形。只要你使用
         <code>
             @IBAction
         </code>
-        and
+        和
         <code>
             @IBOutlet
         </code>
-        keywords.
+        关键字，这些原型就会出现。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/IB-handles.png"
@@ -985,27 +982,25 @@
         </a>
     </p>
     <p>
-        You will now use them to connect your code to the UI.
+        现在，你就会使用它们来将代码和UI进行连接。
     </p>
     <p>
-        While holding down
+        在project navigator中按住
         <em>
             alt
         </em>
-        click on
+        点击
         <em>
             Main.storyboard
         </em>
-        in the project navigator. This should open the storyboard in the Assistant
-        Editor on the right and the source on the left.
+        ，就会把storyboard打开到Assistant Editor的右侧，而源码位于左侧。
     </p>
     <p>
-        Drag from the circle next to
+        拖拽靠近
         <code>
             textLabel
         </code>
-        to the label in interface builder. In the same way connect the previous,
-        next and quit actions to the left, right and bottom buttons respectively.
+        的小圆形到interface builder中的label上。并用相同的方式把previous，next和quit动作连接到相应的按钮上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/connect-outlets.png"
@@ -1019,25 +1014,21 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you have trouble with any of the above steps, refer to our library
-            of
+            ：如果你在上面的步骤中遇到了困难，请参考我们的
             <a href="https://www.raywenderlich.com/category/macos" target="_blank"
             title="macOS tutorials" sl-processed="1">
-                macOS tutorials
+                macOS教程
             </a>
-            , where you’ll find introductory tutorials that will walk you through
-            many aspects of macOS development, including adding views/constraints in
-            interface builder and connecting outlets and actions.
+            ，你会在这里找到macOS开发的引导性的教程，涉及到其中的方方面面，包括在interface builder中添加view和约束，以及连接outlets和actions。
         </p>
     </div>
     <p>
-        Stand up, stretch and maybe do a quick victory lap around your desk because
-        you just flew through a bunch of interface builder work.
+        站起来伸一下懒腰吧，做一个胜利的手势，你已成功地完成了一堆interface builder的工作。
     </p>
     <p>
-        Build and run, and your popover should look like this now:
+        运行项目，你的popover现在应该看起来是下面这个样子了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/ui-completed.png"
@@ -1078,32 +1069,14 @@
         </em>
         and add the following properties to the class implementation:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            let
-        </span>
-        quotes =
-        <span class="hljs-type">
-            Quote
-        </span>
-        .all
-        <span class="hljs-keyword">
-            var
-        </span>
-        currentQuoteIndex:
-        <span class="hljs-type">
-            Int
-        </span>
-        =
-        <span class="hljs-number">
-            0
-        </span>
-        {
-        <span class="hljs-keyword">
-            didSet
-        </span>
-        { updateQuote() } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> quotes = <span class="hljs-type">Quote</span>.all
+
+<span class="hljs-keyword">var</span> currentQuoteIndex: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span> {
+  <span class="hljs-keyword">didSet</span> {
+    updateQuote()
+  }
+}
+</pre>
     <p>
         The
         <code>
@@ -1123,47 +1096,15 @@
     <p>
         Next, add the following methods to the class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                viewDidLoad
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .viewDidLoad() currentQuoteIndex =
-        <span class="hljs-number">
-            0
-        </span>
-        }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                updateQuote
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { textLabel.stringValue =
-        <span class="hljs-type">
-            String
-        </span>
-        (describing: quotes[currentQuoteIndex]) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.viewDidLoad()
+  currentQuoteIndex = <span class="hljs-number">0</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateQuote</span><span class="hljs-params">()</span></span> {
+  textLabel.stringValue = <span class="hljs-type">String</span>(describing: quotes[currentQuoteIndex])
+}
+</pre>
     <p>
         When the view loads, you set the current quote index to 0, which in turn
         updates the user interface.
@@ -1180,89 +1121,18 @@
     <p>
         To tie it all together, update the three action methods as follows;
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                previous
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSButton)
-            </span>
-        </span>
-        { currentQuoteIndex = (currentQuoteIndex -
-        <span class="hljs-number">
-            1
-        </span>
-        + quotes.
-        <span class="hljs-built_in">
-            count
-        </span>
-        ) % quotes.
-        <span class="hljs-built_in">
-            count
-        </span>
-        }
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                next
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSButton)
-            </span>
-        </span>
-        { currentQuoteIndex = (currentQuoteIndex +
-        <span class="hljs-number">
-            1
-        </span>
-        ) % quotes.
-        <span class="hljs-built_in">
-            count
-        </span>
-        }
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                quit
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSButton)
-            </span>
-        </span>
-        {
-        <span class="hljs-type">
-            NSApplication
-        </span>
-        .shared.terminate(sender) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">previous</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
+  currentQuoteIndex = (currentQuoteIndex - <span class="hljs-number">1</span> + quotes.<span class="hljs-built_in">count</span>) % quotes.<span class="hljs-built_in">count</span>
+}
+
+<span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">next</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
+  currentQuoteIndex = (currentQuoteIndex + <span class="hljs-number">1</span>) % quotes.<span class="hljs-built_in">count</span>
+}
+
+<span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">quit</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSButton)</span></span> {
+  <span class="hljs-type">NSApplication</span>.shared.terminate(sender)
+}
+</pre>
     <p>
         In
         <code>
@@ -1328,148 +1198,34 @@
         </em>
         , and then replace its contents with the following class definition:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        Cocoa
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                EventMonitor
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        monitor:
-        <span class="hljs-type">
-            Any
-        </span>
-        ?
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        mask:
-        <span class="hljs-type">
-            NSEvent
-        </span>
-        .
-        <span class="hljs-type">
-            EventTypeMask
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        handler: (
-        <span class="hljs-type">
-            NSEvent
-        </span>
-        ?) -&gt;
-        <span class="hljs-type">
-            Void
-        </span>
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-keyword">
-            init
-        </span>
-        (mask:
-        <span class="hljs-type">
-            NSEvent
-        </span>
-        .
-        <span class="hljs-type">
-            EventTypeMask
-        </span>
-        , handler: @escaping (
-        <span class="hljs-type">
-            NSEvent
-        </span>
-        ?) -&gt;
-        <span class="hljs-type">
-            Void
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            self
-        </span>
-        .mask = mask
-        <span class="hljs-keyword">
-            self
-        </span>
-        .handler = handler }
-        <span class="hljs-keyword">
-            deinit
-        </span>
-        { stop() }
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                start
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { monitor =
-        <span class="hljs-type">
-            NSEvent
-        </span>
-        .addGlobalMonitorForEvents(matching: mask, handler: handler) }
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                stop
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        monitor !=
-        <span class="hljs-literal">
-            nil
-        </span>
-        {
-        <span class="hljs-type">
-            NSEvent
-        </span>
-        .removeMonitor(monitor!) monitor =
-        <span class="hljs-literal">
-            nil
-        </span>
-        } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Cocoa
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EventMonitor</span> </span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> monitor: <span class="hljs-type">Any</span>?
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">let</span> mask: <span class="hljs-type">NSEvent</span>.<span class="hljs-type">EventTypeMask</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">let</span> handler: (<span class="hljs-type">NSEvent</span>?) -&gt; <span class="hljs-type">Void</span>
+
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">init</span>(mask: <span class="hljs-type">NSEvent</span>.<span class="hljs-type">EventTypeMask</span>, handler: @escaping (<span class="hljs-type">NSEvent</span>?) -&gt; <span class="hljs-type">Void</span>) {
+    <span class="hljs-keyword">self</span>.mask = mask
+    <span class="hljs-keyword">self</span>.handler = handler
+  }
+
+  <span class="hljs-keyword">deinit</span> {
+    stop()
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">start</span><span class="hljs-params">()</span></span> {
+    monitor = <span class="hljs-type">NSEvent</span>.addGlobalMonitorForEvents(matching: mask, handler: handler)
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">stop</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">if</span> monitor != <span class="hljs-literal">nil</span> {
+      <span class="hljs-type">NSEvent</span>.removeMonitor(monitor!)
+      monitor = <span class="hljs-literal">nil</span>
+    }
+  }
+}
+</pre>
     <p>
         You initialize an instance of this class by passing in a mask of events
         to listen for –&nbsp;things like key down, scroll wheel moved, left mouse
@@ -1527,51 +1283,20 @@
         </em>
         one last time, and add a new property declaration to the class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            var
-        </span>
-        eventMonitor:
-        <span class="hljs-type">
-            EventMonitor
-        </span>
-        ?
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> eventMonitor: <span class="hljs-type">EventMonitor</span>?
+</pre>
     <p>
         Next, add the code to configure the event monitor at the end of
         <code>
             applicationDidFinishLaunching(\_:)
         </code>
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        eventMonitor =
-        <span class="hljs-type">
-            EventMonitor
-        </span>
-        (mask: [.leftMouseDown, .rightMouseDown]) { [
-        <span class="hljs-keyword">
-            weak
-        </span>
-        <span class="hljs-keyword">
-            self
-        </span>
-        ] event
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        strongSelf =
-        <span class="hljs-keyword">
-            self
-        </span>
-        , strongSelf.popover.isShown { strongSelf.closePopover(sender: event)
-        } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs">eventMonitor = <span class="hljs-type">EventMonitor</span>(mask: [.leftMouseDown, .rightMouseDown]) { [<span class="hljs-keyword">weak</span> <span class="hljs-keyword">self</span>] event <span class="hljs-keyword">in</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> strongSelf = <span class="hljs-keyword">self</span>, strongSelf.popover.isShown {
+    strongSelf.closePopover(sender: event)
+  }
+}
+</pre>
     <p>
         This notifies your app of any left or right mouse down event and closes
         the popover when the system event occurs. Note that your handler will not
@@ -1606,9 +1331,8 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        eventMonitor?.start()
-    </pre>
+    <pre lang="swift" class="language-swift hljs">eventMonitor?.start()
+</pre>
     <p>
         This will start the event monitor when the popover appears.
     </p>
@@ -1619,9 +1343,8 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        eventMonitor?.stop()
-    </pre>
+    <pre lang="swift" class="language-swift hljs">eventMonitor?.stop()
+</pre>
     <p>
         This will stop the event monitor when the popover closes.
     </p>
