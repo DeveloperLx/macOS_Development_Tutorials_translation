@@ -1279,63 +1279,56 @@
 }
 </pre>
     <p>
-        This notifies your app of any left or right mouse down event and closes
-        the popover when the system event occurs. Note that your handler will not
-        be called for events that are sent to your own application. That’s why
-        the popover doesn’t close when you click around inside of it. :]
+        上述代码会监听系统的鼠标左键和有件按下的事件，当这些事件发生的时候，就会将popover关闭。注意，发送到你的自己app上的事件，这里是不会响应的。这就是为何当你点击popover中的内容时，它并不会消失的原因。:]
     </p>
     <p>
-        You use a
+        你使用了一个指向self的
         <code>
             weak
         </code>
-        reference to self to avoid a potential
-        <i>
-            retain cycle
-        </i>
-        between
+        引用以避免
         <code>
             AppDelegate
         </code>
-        and
+        和
         <code>
             EventMonitor
         </code>
-        . It’s not essential in this particular situation because there’s only
-        one setup cycle but is something to watch out for in your own code when
-        you use block handlers between objects.
+        之间潜在的
+        <i>
+            循环引用
+        </i>
+        。在本例中它并非是必要的，因为这里只有一次循环，但这却是一个值得在你自己的代码中关注的地方，尤其是你在两个对象之间使用block处理回调的时候。
     </p>
     <p>
-        Add the following code to the end of
+        添加下列的代码到
         <code>
             showPopover(\_:)
         </code>
-        :
+        的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">eventMonitor?.start()
 </pre>
     <p>
-        This will start the event monitor when the popover appears.
+        这样就会在popover出现的时候启动事件监听器。
     </p>
     <p>
-        Then, you’ll need to add the following code to the end of
+        然后添加下列的代码到
         <code>
             closePopover(\_:)
         </code>
-        :
+        的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">eventMonitor?.stop()
 </pre>
     <p>
-        This will stop the event monitor when the popover closes.
+        这样当popover关闭的时候，就会停止事件监听器的监听。
     </p>
     <p>
-        All done! Build and run the app one more time. Click on the menu bar icon
-        to show the popover, and then click anywhere else and the popover closes.
-        Awesome!
+        全部都搞定了！再次运行项目。点击菜单栏的icon来展示popover，然后点击外面的任意地方来关闭它。Awesome！
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1347,10 +1340,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1358,54 +1352,48 @@
         </div>
     </div>
     <p>
-        Here is the
+        这里是
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/Quotes_final-s4b3.zip"
         sl-processed="1">
-            final project
+            最终的项目
         </a>
-        with all of the code you’ve developed in the above tutorial.
+        ，包含了上述教程中你所开发的所有的代码。
     </p>
     <p>
-        You’ve seen how to set up both menus and popovers in your menu bar status
-        items –&nbsp;why not keep experimenting with using attributed text or multiple
-        labels to style the quote, or connecting to a web backend to pull new quotes.
-        Maybe you can discover how to use the keyboard to cycle through the quotes.
+        你已经明白了如何在你菜单栏的status items上设置菜单和popovers –&nbsp;为何不尝试下使用属性字符创或多个label来美化名言，或是连接web的后端来拉群新的名言。也许你还可以找到使用键盘快捷键去循环浏览名言的方法。
     </p>
     <p>
-        A good place to look for other possibilities is reading the official documentation
-        for
+        寻找其它可能性的一个很棒的地方，就是阅读苹果的官方文档，如
         <a href="https://developer.apple.com/documentation/appkit/nsmenu" target="_blank"
         sl-processed="1">
             <code>
                 NSMenu
             </code>
         </a>
-        ,
+        ，
         <a href="https://developer.apple.com/documentation/appkit/nspopover" target="_blank"
         sl-processed="1">
             <code>
                 NSPopover
             </code>
         </a>
-        and
+        和
         <a href="https://developer.apple.com/documentation/appkit/nsstatusitem"
         target="_blank" sl-processed="1">
             <code>
                 NSStatusItem
             </code>
         </a>
-        .
+        。
     </p>
     <p>
-        One thing to consider is that you are asking your customers for a very
-        privileged piece of screen real estate so while you might think its cool
-        to have a status bar item your users might not feel the same way. A lot
-        of apps manage this by providing preferences to show or hide the item.
+        One thing to consider is that you are asking your customers for a very privileged piece of screen real estate so while you might think its cool to have a status bar item your users might not feel the same way. 
+        A lot of apps manage this by providing preferences to show or hide the item.
         You can use that as an advanced exercise for yourself.
     </p>
     <p>
-        Thanks for taking the time to learn how to make a cool popover menu app
-        for macOS. For now, it’s pretty simple, but you can see that the concepts
-        you’ve learned here are an excellent foundation for a variety of apps.
+        Thanks for taking the time to learn how to make a cool popover menu app for macOS. 
+        For now, it’s pretty simple, 
+        but you can see that the concepts you’ve learned here are an excellent foundation for a variety of apps.
     </p>
 </div>
