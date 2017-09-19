@@ -664,7 +664,6 @@
     <span style="color: #11740a; font-style: italic;">// The shared data model</span>
     <span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Network<span style="color: #002200;">)</span>
 </pre>
-
     <p>
         这行选择了GitHub事件的数据源 - 这里选择了Ray的名字（
         <code>
@@ -944,10 +943,10 @@
         Debugging
     </h2>
     <p>
-    	没有人有能力，让每次写的代码都能够完美运行，因此你很有可能需要花费一些时间来修复代码中的问题。你会很快发现，能够在特定的那行代码停下来，并调查变量的值是非常有用的。这恰恰就是debugger所提供的功能。
+        没有人有能力，让每次写的代码都能够完美运行，因此你很有可能需要花费一些时间来修复代码中的问题。你会很快发现，能够在特定的那行代码停下来，并调查变量的值是非常有用的。这恰恰就是debugger所提供的功能。
     </p>
     <p>
-    	Xcode在这里再次提供猎头帮助。它有一个整合的debugger，使得在运行时研究（investigation）你的代码非常容易。为了演示它的一些功能，你要使用它：
+        Xcode在这里再次提供猎头帮助。它有一个整合的debugger，使得在运行时研究（investigation）你的代码非常容易。为了演示它的一些功能，你要使用它：
     </p>
     <p>
         通过选择
@@ -961,18 +960,18 @@
         来打开它。
     </p>
     <p>
-    	找到下面这行代码：
+        找到下面这行代码：
     </p>
     <pre class="swift" style="font-family:monospace;">
         <span style="color: #a61390;">return</span> <span style="color: #400080;">NSAttributedString</span><span style="color: #002200;">(</span>string<span style="color: #002200;">:</span> unescaped, attributes<span style="color: #002200;">:</span> attributes<span style="color: #002200;">)</span>
     </pre>
     <p>
         <em>
-        	点击
+            点击
         </em>
         这行代码左边的“沟”（gutter）来插入一个
         <em>
-        	断点
+            断点
         </em>
         ：
     </p>
@@ -982,7 +981,7 @@
         sizes="(max-width: 672px) 100vw, 672px">
     </p>
     <p>
-    	断点将标记你代码中的这行在执行时停下。你的app会在此刻暂停来让你研究它的状态。
+        断点将标记你代码中的这行在执行时停下。你的app会在此刻暂停来让你研究它的状态。
     </p>
     <p>
         <em>
@@ -996,10 +995,10 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-    	这意味着你的app已经启动运行，并到达了代码中的这行。它暂停在了此处，让你可以研究。
+        这意味着你的app已经启动运行，并到达了代码中的这行。它暂停在了此处，让你可以研究。
     </p>
     <p>
-    	Xcode底部的窗格展示给你当前执行时变量的状态，包括它们所含的变量。
+        Xcode底部的窗格展示给你当前执行时变量的状态，包括它们所含的变量。
     </p>
     <p>
         <img class="aligncenter size-large wp-image-110214" src="https://koenig-media.raywenderlich.com/uploads/2015/07/debug_pane-700x186.png"
@@ -1007,7 +1006,7 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-    	这个方法是用来从下载自GitHub API的JSON中移除转义的字符。你可以看到输入的字符串
+        这个方法是用来从下载自GitHub API的JSON中移除转义的字符。你可以看到输入的字符串
         <code>
             s
         </code>
@@ -1018,7 +1017,7 @@
         。
     </p>
     <p>
-    	你可以使用
+        你可以使用
         <em>
             stepover
         </em>
@@ -1029,7 +1028,7 @@
         alt="stepover" width="56" height="52">
     </p>
     <p>
-    	或使用
+        或使用
         <em>
             continue
         </em>
@@ -1041,10 +1040,10 @@
         sizes="(max-width: 52px) 100vw, 52px">
     </p>
     <p>
-    	注意，继续会接着执行程序直到遇到另一个断点。
+        注意，继续会接着执行程序直到遇到另一个断点。
     </p>
     <p>
-    	为了移除一个断点，你可以将它拖拽出“沟”（gutter），直到指针变成了一个
+        为了移除一个断点，你可以将它拖拽出“沟”（gutter），直到指针变成了一个
         <em>
             x
         </em>
@@ -1054,11 +1053,11 @@
         使用debugger来修复一个bug
     </h3>
     <p>
-    	为了看到debug怎么工作，你将修复一个真实世界中的bug！
+        为了看到debug怎么工作，你将修复一个真实世界中的bug！
         你得到报告说，如果你将HubEvent从基于网络改变为基于磁盘的数据源，然后发现它忽视了你的选择 - 仍是查询网络。你的工作是找到并修复它。
     </p>
     <p>
-    	首先，为了改变app到磁盘模式来替换网络模式，打开
+        首先，为了改变app到磁盘模式来替换网络模式，打开
         <em>
             WindowController.swift
         </em>
@@ -1071,10 +1070,10 @@
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Disk<span style="color: #002200;">)</span>
     </pre>
     <p>
-    	现在运行app，确认数据就是从网络获取的（磁盘上的数据是2015年四月获取的）。
+        现在运行app，确认数据就是从网络获取的（磁盘上的数据是2015年四月获取的）。
     </p>
     <p>
-    	为了debug这个问题，你要添加在数据存储的地方添加一个断点，来找到发生了什么。打开
+        为了debug这个问题，你要添加在数据存储的地方添加一个断点，来找到发生了什么。打开
         <em>
             DataStore.swift
         </em>
@@ -1085,11 +1084,11 @@
         的这行。
     </p>
     <p>
-    	运行app，并等待停到断点这里。使用debug来在
-    	<code>
+        运行app，并等待停到断点这里。使用debug来在
+        <code>
             self
         </code>
-    	中定位
+        中定位
         <code>
             dataProvider
         </code>
@@ -1101,14 +1100,14 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-    	注意靠近它的类型是
+        注意靠近它的类型是
         <code>
             GitHubData.GitHubDataNetworkProvider
         </code>
         。这听起来不对 - 为何它从磁盘读取的时候，使用一个叫做网络的对象。
     </p>
     <p>
-    	现在更进一步地看下这个文件，你会找到
+        现在更进一步地看下这个文件，你会找到
         <code>
             dataProvider
         </code>
@@ -1122,8 +1121,8 @@
     <span style="color: #002200;">}</span>
     </pre>
     <p>
-    	这是一个选择哪种提供者需要被创建的转换语句 - 为何它为
-    	<code>
+        这是一个选择哪种提供者需要被创建的转换语句 - 为何它为
+        <code>
             .Disk
         </code>
         创建的是
@@ -1133,19 +1132,17 @@
         类型？这就是bug！
     </p>
     <p>
-    	替换
+        替换
         <code>
             .Disk
         </code>
         到如下的样子：
     </p>
-
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">case</span> .Disk<span style="color: #002200;">:</span>
       dataProvider <span style="color: #002200;">=</span> GitHubDataFileProvider<span style="color: #002200;">(</span><span style="color: #002200;">)</span>
     </pre>
-
     <p>
-    	现在再次运行app，它会停到相同的断点上。再次检查
+        现在再次运行app，它会停到相同的断点上。再次检查
         <code>
             dataProvider
         </code>
@@ -1157,7 +1154,7 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-    	这个类型看起来就正确了 - 使用
+        这个类型看起来就正确了 - 使用
         <em>
             Continue program execution
         </em>
@@ -1169,7 +1166,7 @@
         sizes="(max-width: 479px) 100vw, 479px">
     </p>
     <p>
-    	哇！现在app从磁盘中读取了，而不是从网络中。干得好 - 你修复了你的第一个OS X bug！
+        哇！现在app从磁盘中读取了，而不是从网络中。干得好 - 你修复了你的第一个OS X bug！
     </p>
     <h2>
         文档
@@ -1288,7 +1285,7 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                        	想要学习得更快？通过我们的
+                            想要学习得更快？通过我们的
                             <span>
                                 视频课程
                             </span>
@@ -1308,18 +1305,18 @@
         。
     </p>
     <p>
-    	现在，你已经有了对于Xcode所有最重要当面的把握（birds-eye overview）。在
+        现在，你已经有了对于Xcode所有最重要当面的把握（birds-eye overview）。在
         <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Mac%20OS%20X%20Development%20Tutorial%20for%20Beginners%20Part%202%20-%20OS%20X%20App%20Anatomy.md"
         sl-processed="1">
-        	下一篇文章
+            下一篇文章
         </a>
         中，你将学习对一个app的剖析，并最终创建出你的第一个OS X app。
     </p>
     <p>
-        苹果有着OS X的大量文档 - 全部可以获取的在这里
+        可以在这里获取苹果大量的OS X官方文档
         <a href="https://developer.apple.com/library/mac/navigation/" sl-processed="1">
             Developer Portal
         </a>
-        .
+        。
     </p>
 </div>
