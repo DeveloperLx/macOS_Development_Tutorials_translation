@@ -797,7 +797,7 @@
     <p>
     	添加下面这行代码到
         <code>
-            handleWelcome(_:)
+            handleWelcome(\_:)
         </code>
         方法体中：
     </p>
@@ -1448,14 +1448,14 @@
     <p>
     	当用户点击8-ball时，你想在展示建议或展示“8”。这意味着
         <code>
-            handleBallClick(_:)
+            handleBallClick(\_:)
         </code>
         会同时操作image view和建议label。
     </p>
     <p>
     	添加下列的代码到
         <code>
-            handleBallClick(_:)
+            handleBallClick(\_:)
         </code>
         中：
     </p>
@@ -1608,7 +1608,7 @@
     <p>
     	在
         <code>
-            handleBallClick(_:)
+            handleBallClick(\_:)
         </code>
         中，更新
     	<code>

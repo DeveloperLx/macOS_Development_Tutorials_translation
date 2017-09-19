@@ -1555,7 +1555,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </em>
         ，并在
         <code>
-            writeMessage(_:to:)
+            writeMessage(\_:to:)
         </code>
         中，使用下列代码替换两个
         <code>

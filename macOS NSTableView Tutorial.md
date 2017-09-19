@@ -698,7 +698,7 @@
         <li>
         	这个table view为每一行和列调用delegate的方法
             <code>
-                tableView(_:viewFor:row:)
+                tableView(\_:viewFor:row:)
             </code>
             。delegate会创建这个位置上的view，并用恰当的数据填充它，然后返回给table view。
         </li>
@@ -862,7 +862,7 @@
         </code>
         协议的extension，并实现了方法
         <code>
-            tableView(_:viewFor:row)
+            tableView(\_:viewFor:row)
         </code>
         。它接下来会被table view的每一行和每一列调用，来得到恰当的cell。
     </p>
@@ -920,7 +920,7 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
         </code>
         的方法
         <code>
-            contentsOrderedBy(_:ascending)
+            contentsOrderedBy(\_:ascending)
         </code>
         ，并返回了一个包含目录文件的有序的数组。然后调用了table view的方法
         <code>
@@ -997,7 +997,7 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     <p>
     	为了在选择发生变化时收到通知，你需要在delegate中实现
         <code>
-            tableViewSelectionDidChange(_:)
+            tableViewSelectionDidChange(\_:)
         </code>
         。这个方法将在table view探测到选择发生变化时被调用。
     </p>
@@ -1119,14 +1119,14 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
         方法中添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;">tableView.target <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
-tableView.doubleAction <span style="color: #002200;">=</span> <span style="color: #6e371a;">#selector(tableViewDoubleClick(_:))</span></pre>
+tableView.doubleAction <span style="color: #002200;">=</span> <span style="color: #6e371a;">#selector(tableViewDoubleClick(\_:))</span></pre>
     <p>
     	这告诉了table view这个view controller将变成它的动作的target，这样这个方法就会在双击后被调用。
     </p>
     <p>
     	添加
         <code>
-            tableViewDoubleClick(_:)
+            tableViewDoubleClick(\_:)
         </code>
         方法的实现：
     </p>
@@ -1262,7 +1262,7 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
     <p>
     	当用户点击任一列头时，这个table view会调用data source的方法
         <code>
-            tableView(_:sortDescriptorsDidChange:)
+            tableView(\_:sortDescriptorsDidChange:)
         </code>
         ，app就会基于提供的descriptor来进行排序。
     </p>

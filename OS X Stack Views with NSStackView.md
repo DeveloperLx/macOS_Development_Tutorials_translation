@@ -1059,11 +1059,11 @@
             controls. For example you can dynamically add arranged view by calling
             the
             <code>
-                addArrangedSubview(_:)
+                addArrangedSubview(\_:)
             </code>
             method on your stack view or remove and arranged view by making use of
             <code>
-                removeArrangedSubview(_:)
+                removeArrangedSubview(\_:)
             </code>
             .
         </p>
@@ -1087,7 +1087,7 @@
         </code>
         called
         <code>
-            actionToggleListView(_:)
+            actionToggleListView(\_:)
         </code>
         , so you can just add your code at the bottom of the method body.
     </p>

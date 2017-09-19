@@ -795,7 +795,7 @@
         Your outline view needs to know how many items it should show. For this,
         use the method
         <code>
-            outlineView(_: numberOfChildrenOfItem:) -&gt; Int
+            outlineView(\_: numberOfChildrenOfItem:) -&gt; Int
         </code>
         .
     </p>
@@ -1203,7 +1203,7 @@
     <p>
         Return to
         <code>
-            outlineView(_:viewForTableColumn:item:)
+            outlineView(\_:viewForTableColumn:item:)
         </code>
         and add an
         <em>
@@ -1637,14 +1637,14 @@
         which key was pressed. For some keys, the system will call a corresponding
         action. The method called for the backspace key is
         <code>
-            deleteBackward(_:)
+            deleteBackward(\_:)
         </code>
         .
     </p>
     <p>
         Add the method below
         <code>
-            keyDown(_:)
+            keyDown(\_:)
         </code>
         :
     </p>
@@ -1809,11 +1809,11 @@
             Not only can you delete a row, but you can also add and move rows. The
             steps are the same: add an item to your data model and call
             <code>
-                insertItemsAtIndexes(_:, inParent:, withAnimation:)
+                insertItemsAtIndexes(\_:, inParent:, withAnimation:)
             </code>
             to insert items, or
             <code>
-                moveItemAtIndex(_:, inParent:, toIndex:, inParent:)
+                moveItemAtIndex(\_:, inParent:, toIndex:, inParent:)
             </code>
             to move items. Make sure that your datasource is also changed accordingly.
         </p>

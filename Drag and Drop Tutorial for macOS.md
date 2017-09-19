@@ -364,7 +364,7 @@
         </code>
         的实现中添加下列代码去覆盖
         <code>
-            draggingEntered(_:)
+            draggingEntered(\_:)
         </code>
         方法：
     </p>
@@ -395,7 +395,7 @@
         <li>
         	覆盖
             <code>
-                draggingEntered(_:)
+                draggingEntered(\_:)
             </code>
             方法，并确定它是否接受这个拖拽操作。
         </li>
@@ -445,7 +445,7 @@
     <p>
     	你已经覆盖了
         <code>
-            draggingExited(_:)
+            draggingExited(\_:)
         </code>
         方法，并设置
         <code>
@@ -562,7 +562,7 @@
         </code>
         意味着view接受了这个image。当接受时，系统就会移除拖拽的图片并调用协议序列中的下一个方法：
         <code>
-            performDragOperation(_:)
+            performDragOperation(\_:)
         </code>
         。
     </p>
@@ -666,7 +666,7 @@
         </code>
         的方法，将图片放到目标的层上。找到
         <code>
-            processImage(_:center:)
+            processImage(\_:center:)
         </code>
         并用下列的代码替换它。
     </p>
@@ -714,7 +714,7 @@
         <br>
         使用下列代码替换
         <code>
-            processImageURLs(_:center:)
+            processImageURLs(\_:center:)
         </code>
         方法：
     </p>
@@ -988,7 +988,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         <li>
             更新
             <code>
-                performDragOperation(_:)
+                performDragOperation(\_:)
             </code>
             来从粘贴板中拿到图片
         </li>
@@ -1043,7 +1043,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     <p>
         最后，更新
         <code>
-            performDragOperation(_:)
+            performDragOperation(\_:)
         </code>
         来解档从粘贴板来的图片数据。这相当得容易。
     </p>
@@ -1065,7 +1065,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     <p>
         找到
         <code>
-            performDragOperation(_:)
+            performDragOperation(\_:)
         </code>
         ，在最后添加下列的代码，就在return语句
         <code>
@@ -1115,7 +1115,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </em>
         并用下列代码替换
         <code>
-            pasteboard(_:item:provideDataForType:)
+            pasteboard(\_:item:provideDataForType:)
         </code>
         的内容：
     </p>
@@ -1432,7 +1432,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
         </em>
         并替换
         <code>
-            processAction(_:center:)
+            processAction(\_:center:)
         </code>
         为：
     </p>

@@ -697,7 +697,7 @@
         </em>
         并添加下列的代码到
         <code>
-            loadDataForNewFolderWithUrl(_:)
+            loadDataForNewFolderWithUrl(\_:)
         </code>
         的尾部：
     </p>
@@ -1130,7 +1130,7 @@
         </code>
         的方法
         <code>
-            makeItemWithIdentifier(_:forIndexPath:)
+            makeItemWithIdentifier(\_:forIndexPath:)
         </code>
         会实例化collection view的item，它要求nib文件包含一个单独的顶层的
         <code>
@@ -1269,7 +1269,7 @@
         <li>
             collection view的方法
             <code>
-                makeItemWithIdentifier(_:forIndexPath:)
+                makeItemWithIdentifier(\_:forIndexPath:)
             </code>
             从nib文件中初始化了一个item，该nib文件的名称和
             <code>
@@ -1550,7 +1550,7 @@
             </code>
             ，然后调用model的
             <code>
-                setupDataForUrls(_:)
+                setupDataForUrls(\_:)
             </code>
             方法来重新排列section的结构。传递
             <code>
@@ -1988,7 +1988,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
     <p>
         你的header view已准备就绪，你需要将它拖拽到collection view上来实现
         <code>
-            collectionView(_:viewForSupplementaryElementOfKind:atIndexPath:)
+            collectionView(\_:viewForSupplementaryElementOfKind:atIndexPath:)
         </code>
         方法。
     </p>
@@ -2021,7 +2021,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
         <li>
             调用
             <code>
-                makeSupplementaryViewOfKind(_:withIdentifier:forIndexPath:)
+                makeSupplementaryViewOfKind(\_:withIdentifier:forIndexPath:)
             </code>
             方法来初始化一个
             <code>
@@ -2341,7 +2341,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         </code>
         的extension中，你需要添加下列的代码到
         <code>
-            collectionView(_:itemForRepresentedObjectAtIndexPath:)
+            collectionView(\_:itemForRepresentedObjectAtIndexPath:)
         </code>
         方法中，就在
         <code>

@@ -844,7 +844,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         </code>
         ，并注意到
         <code>
-            tableView(_:viewFor:row:)
+            tableView(\_:viewFor:row:)
         </code>
         返回的是
         <code>

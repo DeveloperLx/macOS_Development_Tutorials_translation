@@ -190,7 +190,7 @@
             </code>
             : Sets the initial size of the window on the left half of the screen.
             <code>
-                openAnotherFolder(_:)
+                openAnotherFolder(\_:)
             </code>
             presents a standard open dialog to choose a different folder.
         </li>
@@ -1352,7 +1352,7 @@
         </em>
         and add this code to the end of
         <code>
-            loadDataForNewFolderWithUrl(_:)
+            loadDataForNewFolderWithUrl(\_:)
         </code>
         :
     </p>
@@ -2025,7 +2025,7 @@
         Your header view is in place and ready to go, and you need to pass the
         header views to the collection view to implement
         <code>
-            collectionView(_:viewForSupplementaryElementOfKind:at:)
+            collectionView(\_:viewForSupplementaryElementOfKind:at:)
         </code>
         .
     </p>
@@ -2067,7 +2067,7 @@
         <li>
             Calls
             <code>
-                makeSupplementaryViewOfKind(_:withIdentifier:for:)
+                makeSupplementaryViewOfKind(\_:withIdentifier:for:)
             </code>
             to instantiate a
             <code>

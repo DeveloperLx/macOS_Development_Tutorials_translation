@@ -1921,7 +1921,7 @@
     <ol>
         <li>
             <code>
-                setFieldsEnabled(_:)
+                setFieldsEnabled(\_:)
             </code>
             will allow you to easily turn off and on the ability to use the form controls.
         </li>
@@ -2073,7 +2073,7 @@
     <p>
         Right now, the table view isn’t actually able to display any data, but
         <code>
-            selectRowIndexes(_:byExtendingSelection:)
+            selectRowIndexes(\_:byExtendingSelection:)
         </code>
         will select the first beer in the list. The delegate code will handle
         the rest for you.
@@ -2451,7 +2451,7 @@
     <p>
         To remove a beer, add the below code for
         <code>
-            removeBeer(_:)
+            removeBeer(\_:)
         </code>
         :
     </p>
@@ -2566,7 +2566,7 @@
         </em>
         have the ability to accept an image dropped on them? Change
         <code>
-            imageChanged(_:)
+            imageChanged(\_:)
         </code>
         to:
     </p>
@@ -2778,7 +2778,7 @@
     <p>
         Finally, add the code that will save the data model in
         <code>
-            updateBeer(_:)
+            updateBeer(\_:)
         </code>
         :
     </p>

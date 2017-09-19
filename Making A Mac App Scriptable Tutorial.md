@@ -1403,7 +1403,7 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
 }</pre>
     <p>
         <code>
-            markAsDone(_:)
+            markAsDone(\_:)
         </code>
         的参数是
         <code>

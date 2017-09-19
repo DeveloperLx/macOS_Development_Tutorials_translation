@@ -549,31 +549,31 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </p>
         <ul>
             <li>
-                scanDecimal(_:)
+                scanDecimal(\_:)
             </li>
             <li>
-                scanFloat(_:)
+                scanFloat(\_:)
             </li>
             <li>
-                scanHexDouble(_:)
+                scanHexDouble(\_:)
             </li>
             <li>
-                scanHexFloat(_:)
+                scanHexFloat(\_:)
             </li>
             <li>
-                scanHexInt32(_:)
+                scanHexInt32(\_:)
             </li>
             <li>
-                scanHexInt64(_:)
+                scanHexInt64(\_:)
             </li>
             <li>
-                scanInt(_:)
+                scanInt(\_:)
             </li>
             <li>
-                scanInt32(_:)
+                scanInt32(\_:)
             </li>
             <li>
-                scanInt64(_:)
+                scanInt64(\_:)
             </li>
         </ul>
     </div>
@@ -845,7 +845,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
                 <li>
                     调用
                     <code>
-                        fromInfoByExtractingFrom(_:)
+                        fromInfoByExtractingFrom(\_:)
                     </code>
                     分析
                     <i>
@@ -931,7 +931,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </code>
         实现的内部，就在
         <code>
-            fieldsByExtractingFrom(_:)
+            fieldsByExtractingFrom(\_:)
         </code>
         方法之后：
     </p>
@@ -1408,7 +1408,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             </code>
             的
             <code>
-                fieldsByExtractingFrom(_:)
+                fieldsByExtractingFrom(\_:)
             </code>
             方法，来获取全部的元数据字段。
         </li>
@@ -1633,7 +1633,7 @@ override init() {
             </code>
             的可是白初始化器和
             <code>
-                flatMap(_:)
+                flatMap(\_:)
             </code>
             读取文件内容，惰性获取
             <code>
@@ -1641,7 +1641,7 @@ override init() {
             </code>
             实例的数组。使用
             <code>
-                flatMap(_:)
+                flatMap(\_:)
             </code>
             是要获取元素不为
             <code>
@@ -1696,7 +1696,7 @@ override init() {
     <p>
         接下来，找到
         <code>
-            tableView(_:viewForTableColumn:row:)
+            tableView(\_:viewForTableColumn:row:)
         </code>
         ，并使用下列代码替换注释
         <code>
@@ -1709,7 +1709,7 @@ override init() {
     <p>
         table view会调用代理方法
         <code>
-            tableView(_:viewForTableColumn:row:)
+            tableView(\_:viewForTableColumn:row:)
         </code>
         来设置每个cell。它为相应的行获取post的引用，并调用
         <code>
@@ -1717,14 +1717,14 @@ override init() {
         </code>
         的
         <code>
-            configure(_:)
+            configure(\_:)
         </code>
         方法来展示数据。
     </p>
     <p>
         现在你需要当在table view中选择一个post时，在text view上展示它。使用下列代码替换
         <code>
-            tableViewSelectionDidChange(_:)
+            tableViewSelectionDidChange(\_:)
         </code>
         的实现：
     </p>
@@ -1737,7 +1737,7 @@ override init() {
 </pre>
     <p>
         <code>
-            tableViewSelectionDidChange(_:)
+            tableViewSelectionDidChange(\_:)
         </code>
         方法会在table view的选择发生变化时被调用。当调用发生时，这个代码就会获取选择的行的硬件post，并在text view中展示
         <code>

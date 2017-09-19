@@ -1254,7 +1254,7 @@
         </code>
         ，阅读
         <code>
-            setPosition(_:, ofDividerAtIndex:)
+            setPosition(\_:, ofDividerAtIndex:)
         </code>
         方法的相关内容。然后使用这个方法在
         <code>

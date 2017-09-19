@@ -316,7 +316,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         <li>
             调用
             <code>
-                getSearchResults(_:results:langString:completionHandler:)
+                getSearchResults(\_:results:langString:completionHandler:)
             </code>
             方法。它传递来自组合框的结果的数字，和你输入到文本输入框中的查询字符串。并通过完成的句柄，来返回一个
             <code>
@@ -393,7 +393,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     <p>
         当用户在文本输入框中点击Enter时，就会调用
         <code>
-            searchClicked(_:)
+            searchClicked(\_:)
         </code>
         ，就如同你点击搜索按钮一样。这使得使用键盘搜索更加得快速和容易。
     </p>
@@ -1150,7 +1150,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     <ol>
         <li>
             <code>
-                tableViewSelectionDidChange(_:)
+                tableViewSelectionDidChange(\_:)
             </code>
             会在用户每次table选择不同的行时被触发。
         </li>
@@ -1341,7 +1341,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </em>
         的
         <code>
-            tableViewSelectionDidChange(_:)
+            tableViewSelectionDidChange(\_:)
         </code>
         方法中，就在
         <code>
@@ -1474,7 +1474,7 @@ collectionView.itemPrototype = itemPrototype
         </code>
         中添加下列的代码，就在调用
         <code>
-            getSearchResults(_:results:langString:completionHandler:)
+            getSearchResults(\_:results:langString:completionHandler:)
         </code>
         之前：
     </p>

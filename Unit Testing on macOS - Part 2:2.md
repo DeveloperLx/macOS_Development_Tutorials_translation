@@ -247,11 +247,11 @@
         If you were using the app and clicked on the up or down arrows to change
         the stepper, the IBAction method
         <code>
-            numberOfDiceStepperChanged(_:)
+            numberOfDiceStepperChanged(\_:)
         </code>
         would be called automatically. Similarly, if you edited the text field,
         <code>
-            numberOfDiceTextFieldChanged(_:)
+            numberOfDiceTextFieldChanged(\_:)
         </code>
         would be called. When testing, you have to call the IBAction methods manually.
     </p>
@@ -354,7 +354,7 @@
         </em>
         in the assistant editor and look at
         <code>
-            rollButtonClicked(_:)
+            rollButtonClicked(\_:)
         </code>
         . It does three things:
     </p>
@@ -465,7 +465,7 @@
     <p>
         Look back at
         <code>
-            rollButtonClicked(_:)
+            rollButtonClicked(\_:)
         </code>
         in
         <em>
@@ -1486,7 +1486,7 @@
     <p>
         In this case,
         <code>
-            applicationWillTerminate(_:)
+            applicationWillTerminate(\_:)
         </code>
         is not used at all; it’s dramatically decreasing the code coverage for
         this file. Since the app is not using this function, delete it. Now run

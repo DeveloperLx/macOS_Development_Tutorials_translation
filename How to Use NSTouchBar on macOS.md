@@ -239,7 +239,7 @@
         </em>
         , and paste the following into
         <code>
-            applicationDidFinishLaunching(_:)
+            applicationDidFinishLaunching(\_:)
         </code>
         :
     </p>
@@ -400,7 +400,7 @@
     <p>
         By implementing
         <code>
-            touchBar(_:makeItemForIdentifier:)
+            touchBar(\_:makeItemForIdentifier:)
         </code>
         , you can customize your touch bar items anyway you’d like. Here, you’ve
         created a simple
@@ -489,7 +489,7 @@
         </code>
         in
         <code>
-            touchBar(_:makeItemForIdentifier:)
+            touchBar(\_:makeItemForIdentifier:)
         </code>
         :
     </p>
@@ -592,7 +592,7 @@
         </code>
         to
         <code>
-            touchBar(_:makeItemForIdentifier:)
+            touchBar(\_:makeItemForIdentifier:)
         </code>
         :
     </p>
@@ -611,7 +611,7 @@
                             case NSTouchBarItemIdentifier.visitSegmentedItem: // 3 let customActionItem
                             = NSCustomTouchBarItem(identifier: identifier) let segmentedControl = NSSegmentedControl(images:
                             [NSImage(named: NSImageNameRemoveTemplate)!, NSImage(named: NSImageNameAddTemplate)!],
-                            trackingMode: .momentary, target: self, action: #selector(changevisitedAmount(_:)))
+                            trackingMode: .momentary, target: self, action: #selector(changevisitedAmount(\_:)))
                             segmentedControl.setWidth(40, forSegment: 0) segmentedControl.setWidth(40,
                             forSegment: 1) customActionItem.view = segmentedControl return customActionItem
                         </pre>
@@ -734,7 +734,7 @@
         You’re almost done – all you have left is to handle configuring the new
         item. In
         <code>
-            touchBar(_:makeItemForIdentifier:)
+            touchBar(\_:makeItemForIdentifier:)
         </code>
         , add a final
         <code>
@@ -754,7 +754,7 @@
                         <pre class="swift" style="font-family:monospace;">
                             case NSTouchBarItemIdentifier.saveItem: let saveItem = NSCustomTouchBarItem(identifier:
                             identifier) let button = NSButton(title: "Save", target: self, action:
-                            #selector(save(_:))) button.bezelColor = NSColor(red:0.35, green:0.61,
+                            #selector(save(\_:))) button.bezelColor = NSColor(red:0.35, green:0.61,
                             blue:0.35, alpha:1.00) saveItem.view = button return saveItem
                         </pre>
                     </td>

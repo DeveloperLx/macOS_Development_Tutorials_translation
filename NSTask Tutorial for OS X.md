@@ -353,7 +353,7 @@
         </em>
         并添加下列的代码到
         <code>
-            startTask(_:)
+            startTask(\_:)
         </code>
         中：
     </p>
@@ -1359,7 +1359,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </em>
         并在
         <code>
-            runScript(_:)
+            runScript(\_:)
         </code>
         中将评论
         <code>
@@ -1556,7 +1556,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
         </em>
         中，添加下列的代码到
         <code>
-            stopTask(_:)
+            stopTask(\_:)
         </code>
         中
     </p>
