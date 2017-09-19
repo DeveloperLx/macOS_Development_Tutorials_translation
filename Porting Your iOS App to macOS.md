@@ -8,35 +8,29 @@
         alt="Porting Your iOS App to macOS" width="250" height="250" class="alignright size-thumbnail bordered">
     </p>
     <p>
-        If you’re developing apps for iOS, you already have a particular set of
-        skills that you can use to write apps for another platform – macOS!
+        如果你是一个iOS的开发者，事实上你早已有了相当一部分的为另一个平台 - macOS开发app的能力！
     </p>
     <p>
-        If you’re like most developers, you don’t want to have to write your app
-        twice just to ship your app on a new platform, as this can take too much
-        time and money. But with a little effort, you can learn how to port iOS
-        apps to macOS, reusing a good portion of your existing iOS app, and only
-        rewriting the portions that are platform-specific.
+        如果你和大多数的开发者一样，不想仅仅为了把你的app迁移到一个新的平台，就把它重写一遍，因为这会浪费太多的时间和金钱。只需一点小小的努力，你就可以学到如何把你的iOS app接入到macOS上，复用你已存在的iOS app中的大部分内容，仅需把平台特定的那一部分重写就可以了。
     </p>
     <p>
-        In this tutorial, you’ll learn how to create an Xcode project that is
-        home to both iOS and macOS, how to refactor your code for reuse on both
-        platforms, and when it is appropriate to write platform specific code.
+        在本教程中，你会学到如何创建一个同时支持iOS和macOS的项目，如何在两个平台上复用你的代码，以及什么时候适合去写平台指定的代码。
     </p>
     <p>
+        要搞懂本教程中的主要内容，你需要熟悉
         To get the most out of this tutorial you should be familiar with
         <em>
             NSTableView
         </em>
-        . If you need to refresh your knowledge we have an
-        <a href="https://www.raywenderlich.com/143828/macos-nstableview-tutorial"
+        。如果你需要的话，我们有一个很不错的
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20NSTableView%20Tutorial.md"
         sl-processed="1">
-            introduction
+            介绍
         </a>
-        for you.
+        可以帮助你来学习。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         For this tutorial, you’ll need to download the starter project
