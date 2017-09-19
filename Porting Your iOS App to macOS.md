@@ -1,4 +1,4 @@
-# 把你的iOS app搬到macOS上去
+# 把你的iOS app接入到macOS上去
 
 #### [原文地址](https://www.raywenderlich.com/161968/porting-your-ios-app-to-macos) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
@@ -33,18 +33,15 @@
         入门
     </h2>
     <p>
-        For this tutorial, you’ll need to download the starter project
+        为学习本教程，你需要从
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/BeerTracker-Port_Starter-1.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载初始项目。
     </p>
     <p>
-        The sample project is a version of the BeerTracker app used in previous
-        tutorials. It allows you to keep a record of beers you’ve tried, along
-        with notes, ratings, and images of the beers. Build and run the app to
-        get a feel for how it works.
+        这个样本工程就是在之前教程中用到的BeerTracker app。你可以用它来你尝试过的啤酒，以及啤酒的说明，评分和图片。运行项目，来熟悉一下它的工作方式。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker-iOS-Initial-282x500.png"
@@ -53,30 +50,26 @@
         sizes="(max-width: 282px) 100vw, 282px">
     </p>
     <p>
-        Since the app is only available on iOS, the first step to porting the
-        app for macOS is to create a new target. A target simply is a set of instructions
-        telling Xcode how to build your application. Currently, you only have an
-        iOS target, which contains all the information needed to build your app
-        for an iPhone.
+        由于这个app目前只是在iOS上可用，因此要把这个app迁移到macOS上，第一件事就是创建一个新的target。target简单来说，就是一组告诉Xcode如何来构建app的指令集。当前，你只有一个iOS的target，它就包含了所有为iPhone构建你的app所需的信息。
     </p>
     <p>
-        Select the
-        <em>
-            BeerTracker
-        </em>
-        project at the top of the
+        在顶部的
         <em>
             Project Navigator
         </em>
-        . At the bottom of the
+        中选择
+        <em>
+            BeerTracker
+        </em>
+        。在
         <em>
             Project and Targets
         </em>
-        list, click the
+        列表的底部，点击
         <em>
             +
         </em>
-        button.
+        按钮。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/AddingMacTarget.png"
