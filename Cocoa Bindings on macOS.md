@@ -399,7 +399,6 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     </p>
     <p>
         运行项目，输入
-        Build and run, type
         <em>
             flappy
         </em>
