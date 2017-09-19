@@ -81,21 +81,19 @@
         </a>
     </p>
     <p>
-        This will present a window for you to add a new target to your project.
-        At the top of the window, you’ll see tabs representing the different categories
-        of platforms supported. Select macOS, then scroll down to
+        这时会弹出一个窗口，让你为项目创建一个新的target。在窗口的顶部，你会看到表示所支持的不同的平台的tab。选择macOS，然后向下滚动到
         <em>
             Application
         </em>
-        and choose
+        这里并选择
         <em>
             Cocoa App
         </em>
-        . Name the new target
+        。将新的target命名为
         <em>
             BeerTracker-mac
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/TargetSelection.png"
@@ -107,51 +105,50 @@
         </a>
     </p>
     <h3>
-        Adding the Assets
+        添加Assets
     </h3>
     <p>
-        In the starter app you downloaded, you’ll find a folder named
+        在你刚下载的起始项目中，你会发现一个名为
         <em>
             BeerTracker Mac Icons
         </em>
-        . You’ll need to add the App Icons to
-        <em>
-            AppIcon
-        </em>
-        in
-        <em>
-            Assets.xcassets
-        </em>
-        found under the
+        的目录。你需要将其中的App Icon添加到
         <em>
             BeerTracker-mac
         </em>
-        group. Also add
-        <em>
-            beerMug.pdf
-        </em>
-        to
+        组中的
         <em>
             Assets.xcassets
         </em>
-        . Select
+        的
+        <em>
+            AppIcon
+        </em>
+        中。并将
+        <em>
+            beerMug.pdf
+        </em>
+        也添加到
+        <em>
+            Assets.xcassets
+        </em>
+        中。选择
         <em>
             beerMug
         </em>
-        , open the
+        ，打开
         <em>
             Attributes Inspector
         </em>
-        and change the
+        并将
         <em>
             Scales
         </em>
-        to
+        改为
         <em>
             Single Scale
         </em>
-        . This ensures you don’t need to use different scaled images for this
-        asset.
+        。这样就确保了你不需要为这个asset使用不同scale的图。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/ScaleSelection.png"
@@ -161,7 +158,7 @@
         </a>
     </p>
     <p>
-        When you’re done, your assets should look like this:
+        当你完成之后，你的asset看起来应该是下面这个样子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker_mac-assets-650x360.png"
@@ -170,25 +167,23 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        In the top left of the
+        在
         <em>
             Xcode
         </em>
-        window, select the
+        窗口顶部的左侧，在scheme的弹出窗口中选择
         <em>
             BeerTracker-mac
         </em>
-        scheme in the scheme pop-up. Build and run, and you’ll see an empty window.
-        Before you can start adding the user interface, you’ll need to make sure
-        your code doesn’t have any conflicts between
+        scheme。运行项目，你会看到一个空空的窗口。在你添加UI之前，你需要确保你的代码在iOS的框架
         <em>
             UIKit
         </em>
-        , the framework used on iOS, and
+        和macOS的框架
         <em>
             AppKit
         </em>
-        , the framework used by macOS.
+        之间没有任何的冲突。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker-mac-Initial.png"
@@ -197,7 +192,7 @@
         sizes="(max-width: 592px) 100vw, 592px">
     </p>
     <h2>
-        Separation of Powers
+        能力的分离
     </h2>
     <p>
         The
