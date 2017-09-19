@@ -659,7 +659,6 @@
     <p>
         在Xcode窗口的主要部分，你现在可以看到相关于Window Controller的源代码。找到下面这行：
     </p>
-
 <pre class="swift" style="font-family:monospace;">
     <span style="color: #11740a; font-style: italic;">// The shared data model</span>
     <span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Network<span style="color: #002200;">)</span>
