@@ -1601,8 +1601,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             <a href="https://videos.raywenderlich.com/courses" sl-processed="1">
                 <div class="col-wrapper">
                     <div class="col">
-                        <img src="https://cdn3.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png"
-                        alt="yeti holding videos">
+                        <img src="https://cdn3.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png" alt="yeti holding videos">
                     </div>
                     <div class="col large-col">
                         <span>
