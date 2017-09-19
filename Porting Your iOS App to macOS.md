@@ -195,76 +195,63 @@
         能力的分离
     </h2>
     <p>
-        The
         <em>
             Foundation
         </em>
-        framework allows your app to share quite a bit of code, as it is universal
-        to both platforms. However, your UI cannot be universal. In fact, Apple
-        recommends that multi-platform applications should not attempt to share
-        UI code, as your secondary platform will begin to take on the appearance
-        of your initial application’s UI.
+        框架让你的app可以共享大量的代码，因为它对于两个平台是通用的。然而，你的UI无法是通用的。事实上，由于你的第二个平台将会呈现你初始app的UI，苹果建议多平台的app不要去分享UI代码。
     </p>
     <p>
-        iOS has some fairly strict
+        iOS有着相当严格的
         <em>
-            Human Interface Guidelines
+            人机交互指南
         </em>
-        that ensure your users are able to read and select elements on their touchscreen
-        devices. However, macOS has different requirements. Laptops and desktops
-        have a mouse pointer to click and select, allowing elements on the screen
-        to be much smaller than would be possible on a phone.
+        以确保你的用户能够在他的触摸屏幕设备上读取和选择元素。然而，macOS上有着不同的要求。笔记本和台式机都有一个鼠标指针来点击和选择，这就使得屏幕上的元素可以比在手机上的更小。
     </p>
     <p>
-        Having identified the UI as needing to be different on both platforms,
-        it is also important to understand what other components of your code can
-        be reused, and which ones need to be rewritten. Keep in mind that there
-        isn’t necessarily a definitive right or wrong answer in most of these cases,
-        and you will need to decide what works best for your app. Always remember
-        that the more code shared, the less code you need to test and debug.
+        确定了UI在两个平台上无法相同之后，理解你代码中其它哪些部分可以被复用，哪些需要重写就变得非常重要。记住，在大多数的情况下，并没有绝对正确或错误的答案，应当确定的是怎样的工作方式才对你的app最好。永远记得被共享的代码越多，需要测试和debug的代码就越少。
     </p>
     <p>
-        Generally, you’ll be able to share models and model controllers. Open
+        通常情况下，你可以共享model和 model controller。打开
         <em>
             Beer.swift
         </em>
-        , and open the
-        <em>
-            Utilities
-        </em>
-        drawer in
+        ，并在
         <em>
             Xcode
         </em>
-        , and select the
-        <em>
-            File Inspector
-        </em>
-        . Since both targets will use this model, under
-        <em>
-            Target Membership
-        </em>
-        , check
-        <em>
-            BeerTracker-mac
-        </em>
-        leaving
-        <em>
-            BeerTracker
-        </em>
-        still checked. Do the same thing for
-        <em>
-            BeerManager.swift
-        </em>
-        , and
-        <em>
-            SharedAssets.xcassets
-        </em>
-        under the
+        中打开
         <em>
             Utilities
         </em>
-        group.
+        抽屉，并选择
+        <em>
+            File Inspector
+        </em>
+        。由于两个target都会使用这个model，因此在
+        <em>
+            Target Membership
+        </em>
+        下，勾选
+        <em>
+            BeerTracker-mac
+        </em>
+        且
+        <em>
+            BeerTracker
+        </em>
+        仍然保持勾选。为
+        <em>
+            BeerManager.swift
+        </em>
+        和
+        <em>
+            Utilities
+        </em>
+        组下的
+        <em>
+            Utilities
+        </em>
+        执行同样的操作。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/TargetMembership.png"
@@ -276,26 +263,21 @@
         </a>
     </p>
     <p>
-        If you try to build and run, you will get a build error. This is because
+        如果你运行项目，你就会得到一个编译错误。这是因为
         <em>
             Beer.swift
         </em>
-        is importing
+        导入了
         <em>
             UIKit
         </em>
-        . The model is using some platform specific logic to load and save images
-        of beers.
+        。这个model使用了一些平台特有的逻辑，来为啤酒加载和保存图片。
     </p>
     <p>
-        Replace the import line at the top of the file with the following:
+        将文件顶部import的这行代码替换成下面这样：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        Foundation
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Foundation
+</pre>
     <p>
         If you try to build and run, you’ll see the app no longer compiles due
         to
@@ -321,52 +303,12 @@
         </code>
         statement, add the following protocol:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                protocol
-            </span>
-            <span class="hljs-title">
-                BeerImage
-            </span>
-        </span>
-        { associatedtype
-        <span class="hljs-type">
-            Image
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                beerImage
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Image
-        </span>
-        ?
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                saveImage
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                image: Image)
-            </span>
-        </span>
-        }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">BeerImage</span> </span>{
+  associatedtype <span class="hljs-type">Image</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">beerImage</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Image</span>?
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">saveImage</span><span class="hljs-params">(<span class="hljs-number">_</span> image: Image)</span></span>
+}
+</pre>
     <p>
         Since each target will still need access to the beer’s image, and to be
         able to save images, this protocol provides a contract that can be used
