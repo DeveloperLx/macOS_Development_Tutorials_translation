@@ -494,31 +494,30 @@
             在iOS中，通常会把文件保存到Documents目录下。你通常是不需要担心会把这个目录搞乱的，因为他是指定app下的目录，并且是对用户隐藏的。但在macOS中，你是不可以弄乱用户的Documents目录的，因此你要把文件保存到App的支持目录下。
         </li>
         <li>
-            Since
+            由于
             <em>
                 NSImage
             </em>
-            doesn’t have the same method for getting image data as
+            并没有和
             <em>
                 UIImage
             </em>
-            , you’re using the supported
+            一样的获取图片data的方法，因此你需要使用
             <code>
                 tiffRepresentation
             </code>
-            .
+            来代替。
         </li>
     </ol>
     <p>
-        Switch your target to
+        将你的target切换为
         <em>
             BeerTracker_mac
         </em>
-        , then build and run. Your app now compiles for both platforms, while
-        maintaining a standard set of functionality from your model.
+        ，然后运行项目。由于你的model已包含了标准功能的集合，app现在可以同时在两个平台上进行编译了。
     </p>
     <h3>
-        Creating the User Interface
+        创建用户界面
     </h3>
     <p>
         Your empty view Mac app isn’t very useful, so it’s time to build the UI.
