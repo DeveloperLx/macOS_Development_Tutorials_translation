@@ -651,88 +651,81 @@
         添加Delegate和Data Source
     </h3>
     <p>
-        Next you’ll need to connect your delegate, data source and properties
-        for the
+        接下来你需要连接
         <em>
             Table View
         </em>
-        . Again, you’ll need to select the
+        的delegate，data source和property。你需要再次在Document Outline中选择
         <em>
             Table View
         </em>
-        from the Document Outline to do this. With it selected, you can
-        <em>
-            Control-drag
-        </em>
-        to the
+        ，然后拖拽到Document Outline中的
         <em>
             View Controller
         </em>
-        item in the Document Outline and click
+        并点击
         <em>
             delegate
         </em>
-        . Repeat this for the
+        。为
         <em>
             dataSource
         </em>
-        .
+        执行同样的操作。
     </p>
     <p>
-        Open
+        在Assistant Editor中打开
         <em>
             ViewController.swift
         </em>
-        in the Assistant Editor,
-        <em>
-            Control-drag
-        </em>
-        from the
+        ，把
         <em>
             Table View
         </em>
-        and create a new outlet named
+        <em>
+            拖拽
+        </em>
+        到这里，并创建一个新的名为
         <code>
             tableView
         </code>
-        .
+        的outlet。
     </p>
     <p>
-        Before you finish with the
+        在你完成
         <em>
             Table View
         </em>
-        , there’s one last thing you need to set. Back in the Document Outline,
-        find the item named
+        之前，还有最后一件事你需要去做。返回Document Outline，找到名为
         <em>
             Table Cell View
         </em>
-        . With that selected, open the Identity Inspector, and set the
+        的item。选中它，打开Identity Inspector，并将
         <em>
             Identifier
         </em>
-        to
+        设置为
         <em>
             NameCell
         </em>
-        .
+        。
     </p>
     <h3>
-        Images and Text
+        图片和文本
     </h3>
     <p>
-        With the
+        设置
         <em>
             Table View
         </em>
-        setup, next comes the “form” section of the UI.
+        完毕后，接下来就是设置UI的“form”部分了。
     </p>
     <p>
-        First, you’ll add an
+        首先，你需要添加一个
         <em>
             Image Well
         </em>
-        to the right of the table. Set the frame to the following:
+        到table的右侧。将frame设置为如下的形式：
     </p>
     <ul>
         <li>
