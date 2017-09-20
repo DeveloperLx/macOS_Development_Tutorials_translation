@@ -279,29 +279,27 @@
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Foundation
 </pre>
     <p>
-        If you try to build and run, you’ll see the app no longer compiles due
-        to
+        尝试运行项目，你会看到，现在由于
         <em>
             UIImage
         </em>
-        being part of the now removed
+        是已被移除的
         <em>
             UIKit
         </em>
-        . While the model portion of this file is shareable between both targets,
-        the platform specific logic will need to be separated out. In
+        中的一部分，它不会再被编译。当这个文件中的model部分在两个target之间可共享时，平台指定部分的逻辑就需要被分离出来。因此在
         <em>
             Beer.swift
         </em>
-        , delete the entire extension marked
+        中，删除全部标记为
         <em>
             Image Saving
         </em>
-        . After the
+        的全部extension。在
         <code>
             import
         </code>
-        statement, add the following protocol:
+        语句之后，添加下列的协议：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">BeerImage</span> </span>{
   associatedtype <span class="hljs-type">Image</span>
@@ -310,9 +308,7 @@
 }
 </pre>
     <p>
-        Since each target will still need access to the beer’s image, and to be
-        able to save images, this protocol provides a contract that can be used
-        across the two targets to accomplish this.
+        由于每个模块仍然都需要访问啤酒的图片，并可以保存这些图片，这个protocol就提出了一个可以交给两个target来实现的协议。
     </p>
     <h3>
         Models
