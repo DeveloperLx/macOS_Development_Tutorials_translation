@@ -1942,88 +1942,20 @@
         </em>
         , and replace the contents with the following code:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        Foundation
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                String
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        noteLimit =
-        <span class="hljs-number">
-            1024
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                isValidLength
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Bool
-        </span>
-        {
-        <span class="hljs-keyword">
-            let
-        </span>
-        limitLength =
-        <span class="hljs-type">
-            UserDefaults
-        </span>
-        .standard.bool(forKey:
-        <span class="hljs-string">
-            "BT_Restrict_Note_Length"
-        </span>
-        )
-        <span class="hljs-keyword">
-            if
-        </span>
-        limitLength {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-keyword">
-            self
-        </span>
-        .characters.
-        <span class="hljs-built_in">
-            count
-        </span>
-        &lt;=
-        <span class="hljs-type">
-            String
-        </span>
-        .noteLimit }
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            true
-        </span>
-        } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Foundation
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> noteLimit = <span class="hljs-number">1024</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">isValidLength</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <span class="hljs-keyword">let</span> limitLength = <span class="hljs-type">UserDefaults</span>.standard.bool(forKey: <span class="hljs-string">"BT_Restrict_Note_Length"</span>)
+    <span class="hljs-keyword">if</span> limitLength {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.characters.<span class="hljs-built_in">count</span> &lt;= <span class="hljs-type">String</span>.noteLimit
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  }
+}
+</pre>
     <p>
         This class will provide both targets with the ability to check if a string
         is a valid length, but only if the user default
@@ -2039,83 +1971,15 @@
         </em>
         add the following code at the bottom:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                ViewController
-            </span>
-            :
-            <span class="hljs-title">
-                NSTextViewDelegate
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                textView
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString:
-                String?)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Bool
-        </span>
-        {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        replacementString = replacementString
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            true
-        </span>
-        }
-        <span class="hljs-keyword">
-            let
-        </span>
-        currentText = textView.string
-        <span class="hljs-keyword">
-            let
-        </span>
-        proposed = (currentText
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).replacingCharacters(
-        <span class="hljs-keyword">
-            in
-        </span>
-        : affectedCharRange, with: replacementString)
-        <span class="hljs-keyword">
-            return
-        </span>
-        proposed.isValidLength() } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTextViewDelegate</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">textView</span><span class="hljs-params">(<span class="hljs-number">_</span> textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> replacementString = replacementString <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span> }
+    <span class="hljs-keyword">let</span> currentText = textView.string
+    <span class="hljs-keyword">let</span> proposed = (currentText <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).replacingCharacters(<span class="hljs-keyword">in</span>: affectedCharRange, with: replacementString)
+    <span class="hljs-keyword">return</span> proposed.isValidLength()
+  }
+}
+</pre>
     <p>
         Finally, change the names of each
         <em>
