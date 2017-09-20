@@ -314,604 +314,163 @@
         Models
     </h3>
     <p>
-        Create a new file by going to
+        点击
         <em>
             File/New/File…
         </em>
-        , select
+        来创建一个新的文件，选择
         <em>
             Swift File
         </em>
-        , and name it
+        ，并将其命名为
         <em>
             Beer_iOS.swift
         </em>
-        . Ensure that only the
+        。确保仅有
         <em>
             BeerTracker
         </em>
-        target is checked. After that, create another new file named
+        target被勾选。然后创建另一个名为
         <em>
             Beer_mac.swift
         </em>
-        , this time selecting
+        的文件，这次则只选中
         <em>
             BeerTracker-mac
         </em>
-        as the target.
+        作为target。
     </p>
     <p>
-        Open
+        打开
         <em>
             Beer_iOS.swift
         </em>
-        , delete the file’s contents, and add the following:
+        ，删除文件全部的原始内容，并添加下列的代码：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        UIKit
-        <span class="hljs-comment">
-            // MARK: - Image Saving
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                Beer
-            </span>
-            :
-            <span class="hljs-title">
-                BeerImage
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1.
-        </span>
-        <span class="hljs-keyword">
-            typealias
-        </span>
-        <span class="hljs-type">
-            Image
-        </span>
-        =
-        <span class="hljs-type">
-            UIImage
-        </span>
-        <span class="hljs-comment">
-            // 2.
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                beerImage
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Image
-        </span>
-        ? {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        imagePath = imagePath,
-        <span class="hljs-keyword">
-            let
-        </span>
-        path =
-        <span class="hljs-type">
-            NSSearchPathForDirectoriesInDomains
-        </span>
-        (.documentDirectory, .userDomainMask,
-        <span class="hljs-literal">
-            true
-        </span>
-        ).first
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        #imageLiteral(resourceName:
-        <span class="hljs-string">
-            "beerMugPlaceholder"
-        </span>
-        ) }
-        <span class="hljs-comment">
-            // 3.
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        pathName = (path
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).appendingPathComponent(
-        <span class="hljs-string">
-            "BeerTracker/
-            <span class="hljs-subst">
-                \(imagePath)
-            </span>
-            "
-        </span>
-        )
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        image =
-        <span class="hljs-type">
-            Image
-        </span>
-        (contentsOfFile: pathName)
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        #imageLiteral(resourceName:
-        <span class="hljs-string">
-            "beerMugPlaceholder"
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            return
-        </span>
-        image }
-        <span class="hljs-comment">
-            // 4.
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                saveImage
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                image: Image)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        imgData =
-        <span class="hljs-type">
-            UIImageJPEGRepresentation
-        </span>
-        (image,
-        <span class="hljs-number">
-            0.5
-        </span>
-        ),
-        <span class="hljs-keyword">
-            let
-        </span>
-        path =
-        <span class="hljs-type">
-            NSSearchPathForDirectoriesInDomains
-        </span>
-        (.documentDirectory, .userDomainMask,
-        <span class="hljs-literal">
-            true
-        </span>
-        ).first
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-keyword">
-            let
-        </span>
-        appPath = (path
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).appendingPathComponent(
-        <span class="hljs-string">
-            "/BeerTracker"
-        </span>
-        )
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileName =
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(UUID()
-            </span>
-            .uuidString).jpg"
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        pathName = (appPath
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).appendingPathComponent(fileName)
-        <span class="hljs-keyword">
-            var
-        </span>
-        isDirectory:
-        <span class="hljs-type">
-            ObjCBool
-        </span>
-        =
-        <span class="hljs-literal">
-            false
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        !
-        <span class="hljs-type">
-            FileManager
-        </span>
-        .
-        <span class="hljs-keyword">
-            default
-        </span>
-        .fileExists(atPath: appPath, isDirectory: &amp;isDirectory) {
-        <span class="hljs-keyword">
-            do
-        </span>
-        {
-        <span class="hljs-keyword">
-            try
-        </span>
-        <span class="hljs-type">
-            FileManager
-        </span>
-        .
-        <span class="hljs-keyword">
-            default
-        </span>
-        .createDirectory(atPath: pathName, withIntermediateDirectories:
-        <span class="hljs-literal">
-            true
-        </span>
-        , attributes:
-        <span class="hljs-literal">
-            nil
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        {
-        <span class="hljs-built_in">
-            print
-        </span>
-        (
-        <span class="hljs-string">
-            "Failed to create directory:
-            <span class="hljs-subst">
-                \(error)
-            </span>
-            "
-        </span>
-        ) } }
-        <span class="hljs-keyword">
-            if
-        </span>
-        (
-        <span class="hljs-keyword">
-            try
-        </span>
-        ? imgData.write(to:
-        <span class="hljs-type">
-            URL
-        </span>
-        (fileURLWithPath: pathName), options: [.atomic])) !=
-        <span class="hljs-literal">
-            nil
-        </span>
-        { imagePath = fileName } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> UIKit
+
+<span class="hljs-comment">// MARK: - Image Saving</span>
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Beer</span>: <span class="hljs-title">BeerImage</span> </span>{
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">typealias</span> <span class="hljs-type">Image</span> = <span class="hljs-type">UIImage</span>
+
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">beerImage</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Image</span>? {
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> imagePath = imagePath,
+      <span class="hljs-keyword">let</span> path = <span class="hljs-type">NSSearchPathForDirectoriesInDomains</span>(.documentDirectory, .userDomainMask, <span class="hljs-literal">true</span>).first <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> #imageLiteral(resourceName: <span class="hljs-string">"beerMugPlaceholder"</span>)
+    }
+    <span class="hljs-comment">// 3.</span>
+    <span class="hljs-keyword">let</span> pathName = (path <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).appendingPathComponent(<span class="hljs-string">"BeerTracker/<span class="hljs-subst">\(imagePath)</span>"</span>)
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> image = <span class="hljs-type">Image</span>(contentsOfFile: pathName) <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> #imageLiteral(resourceName: <span class="hljs-string">"beerMugPlaceholder"</span>) }
+    <span class="hljs-keyword">return</span> image
+  }
+
+  <span class="hljs-comment">// 4.</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">saveImage</span><span class="hljs-params">(<span class="hljs-number">_</span> image: Image)</span></span> {
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> imgData = <span class="hljs-type">UIImageJPEGRepresentation</span>(image, <span class="hljs-number">0.5</span>),
+      <span class="hljs-keyword">let</span> path = <span class="hljs-type">NSSearchPathForDirectoriesInDomains</span>(.documentDirectory, .userDomainMask, <span class="hljs-literal">true</span>).first <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">let</span> appPath = (path <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).appendingPathComponent(<span class="hljs-string">"/BeerTracker"</span>)
+    <span class="hljs-keyword">let</span> fileName = <span class="hljs-string">"<span class="hljs-subst">\(UUID()</span>.uuidString).jpg"</span>
+    <span class="hljs-keyword">let</span> pathName = (appPath <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).appendingPathComponent(fileName)
+    <span class="hljs-keyword">var</span> isDirectory: <span class="hljs-type">ObjCBool</span> = <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">if</span> !<span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>.fileExists(atPath: appPath, isDirectory: &amp;isDirectory) {
+      <span class="hljs-keyword">do</span> {
+        <span class="hljs-keyword">try</span> <span class="hljs-type">FileManager</span>.<span class="hljs-keyword">default</span>.createDirectory(atPath: pathName, withIntermediateDirectories: <span class="hljs-literal">true</span>, attributes: <span class="hljs-literal">nil</span>)
+      } <span class="hljs-keyword">catch</span> {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Failed to create directory: <span class="hljs-subst">\(error)</span>"</span>)
+      }
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">try</span>? imgData.write(to: <span class="hljs-type">URL</span>(fileURLWithPath: pathName), options: [.atomic])) != <span class="hljs-literal">nil</span> {
+      imagePath = fileName
+    }
+  }
+}
+</pre>
     <p>
-        Here’s what’s happening:
+        上述的代码：
     </p>
     <ol>
         <li>
-            The
             <em>
                 BeerImage
             </em>
-            protocol requires the implementing class to define an
+            协议要求实现的类定义一个
             <em>
-                associated type
+                关联类型
             </em>
-            . Think of this as a placeholder name for the type of object you really
-            want to use, based on your object’s needs. Since this file is for iOS,
-            you’re using
+            。它是基于对象的实际需要的，你真实想使用的对象类型名称的占位符。因此在这个文件中，你会使用
             <em>
                 UIImage
             </em>
-            .
+            。
         </li>
         <li>
-            Implement the first protocol method. Here, the
+            实现协议的第一个方法。这里的
             <em>
                 Image
             </em>
-            type represents
+            类型就代表了
             <em>
                 UIImage
             </em>
-            .
+            。
         </li>
         <li>
-            Another example of how the type alias can be used when initializing an
-            image.
+            此处是当初始化一个image的时候，如何使用类型别名的另一个例子。
         </li>
         <li>
-            Implement the second protocol method to save an image.
+            实现第二个协议方法来保存image。
         </li>
     </ol>
     <p>
-        Switch your scheme to
+        将你的scheme切换为
         <em>
             BeerTracker
         </em>
-        , then build and run. The application should behave as before.
+        ，然后运行项目。app此时的表现应当如同之前一样。
     </p>
     <p>
-        Now that your iOS target is working, you’re ready to add macOS-specific
-        code. Open
+        现在既然你的iOS target已经可以正常地工作了，你就可以去添加macOS指定的代码了。打开
         <em>
             Beer_mac.swift
         </em>
-        , delete all the contents, and add the following code:
+        ，删除全部的原始内容，并添加下列的代码：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        AppKit
-        <span class="hljs-comment">
-            // MARK: - Image Saving
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                Beer
-            </span>
-            :
-            <span class="hljs-title">
-                BeerImage
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1.
-        </span>
-        <span class="hljs-keyword">
-            typealias
-        </span>
-        <span class="hljs-type">
-            Image
-        </span>
-        =
-        <span class="hljs-type">
-            NSImage
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                beerImage
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Image
-        </span>
-        ? {
-        <span class="hljs-comment">
-            // 2.
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        imagePath = imagePath,
-        <span class="hljs-keyword">
-            let
-        </span>
-        path =
-        <span class="hljs-type">
-            NSSearchPathForDirectoriesInDomains
-        </span>
-        (.applicationSupportDirectory, .userDomainMask,
-        <span class="hljs-literal">
-            true
-        </span>
-        ).first
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        #imageLiteral(resourceName:
-        <span class="hljs-string">
-            "beerMugPlaceholder"
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            let
-        </span>
-        pathName = (path
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).appendingPathComponent(imagePath)
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        image =
-        <span class="hljs-type">
-            Image
-        </span>
-        (contentsOfFile: pathName)
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        #imageLiteral(resourceName:
-        <span class="hljs-string">
-            "beerMugPlaceholder"
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            return
-        </span>
-        image }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                saveImage
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                image: Image)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 3.
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        imgData = image.tiffRepresentation,
-        <span class="hljs-keyword">
-            let
-        </span>
-        path =
-        <span class="hljs-type">
-            NSSearchPathForDirectoriesInDomains
-        </span>
-        (.applicationSupportDirectory, .userDomainMask,
-        <span class="hljs-literal">
-            true
-        </span>
-        ).first
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-keyword">
-            let
-        </span>
-        fileName =
-        <span class="hljs-string">
-            "/BeerTracker/
-            <span class="hljs-subst">
-                \(UUID()
-            </span>
-            .uuidString).jpg"
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        pathName = (path
-        <span class="hljs-keyword">
-            as
-        </span>
-        <span class="hljs-type">
-            NSString
-        </span>
-        ).appendingPathComponent(fileName)
-        <span class="hljs-keyword">
-            if
-        </span>
-        (
-        <span class="hljs-keyword">
-            try
-        </span>
-        ? imgData.write(to:
-        <span class="hljs-type">
-            URL
-        </span>
-        (fileURLWithPath: pathName), options: [.atomic])) !=
-        <span class="hljs-literal">
-            nil
-        </span>
-        { imagePath = fileName } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> AppKit
+
+<span class="hljs-comment">// MARK: - Image Saving</span>
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">Beer</span>: <span class="hljs-title">BeerImage</span> </span>{
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">typealias</span> <span class="hljs-type">Image</span> = <span class="hljs-type">NSImage</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">beerImage</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Image</span>? {
+    <span class="hljs-comment">// 2.</span>
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> imagePath = imagePath,
+      <span class="hljs-keyword">let</span> path = <span class="hljs-type">NSSearchPathForDirectoriesInDomains</span>(.applicationSupportDirectory, .userDomainMask, <span class="hljs-literal">true</span>).first <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> #imageLiteral(resourceName: <span class="hljs-string">"beerMugPlaceholder"</span>)
+    }
+    <span class="hljs-keyword">let</span> pathName = (path <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).appendingPathComponent(imagePath)
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> image = <span class="hljs-type">Image</span>(contentsOfFile: pathName) <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> #imageLiteral(resourceName: <span class="hljs-string">"beerMugPlaceholder"</span>) }
+    <span class="hljs-keyword">return</span> image
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">saveImage</span><span class="hljs-params">(<span class="hljs-number">_</span> image: Image)</span></span> {
+    <span class="hljs-comment">// 3.</span>
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> imgData = image.tiffRepresentation,
+      <span class="hljs-keyword">let</span> path = <span class="hljs-type">NSSearchPathForDirectoriesInDomains</span>(.applicationSupportDirectory, .userDomainMask, <span class="hljs-literal">true</span>).first <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">let</span> fileName = <span class="hljs-string">"/BeerTracker/<span class="hljs-subst">\(UUID()</span>.uuidString).jpg"</span>
+    <span class="hljs-keyword">let</span> pathName = (path <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).appendingPathComponent(fileName)
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">try</span>? imgData.write(to: <span class="hljs-type">URL</span>(fileURLWithPath: pathName), options: [.atomic])) != <span class="hljs-literal">nil</span> {
+      imagePath = fileName
+    }
+  }
+}
+</pre>
     <p>
         The above code is nearly identical to the previous code, with just a few
         changes:
