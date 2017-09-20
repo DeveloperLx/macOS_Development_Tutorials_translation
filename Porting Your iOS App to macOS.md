@@ -520,24 +520,23 @@
         创建用户界面
     </h3>
     <p>
-        Your empty view Mac app isn’t very useful, so it’s time to build the UI.
-        From the
+        你空空的Mac app并没有什么用处，因此我们要来构建UI。在
         <em>
             BeerTracker-mac
         </em>
-        group, open
+        组中，打开
         <em>
             Main.storyboard
         </em>
-        . Start by dragging a
+        。拖拽一个
         <em>
             Table View
         </em>
-        into your empty view. Now select the
+        到你空空的view上。现在在Document Outline中选择
         <em>
             Table View
         </em>
-        in the Document Outline.
+        。
         <br>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Add-TableView-650x413.png"
         alt="Adding a table view" width="650" height="413" class="aligncenter size-large wp-image-162919"
@@ -545,51 +544,49 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        macOS storyboards sometimes require you to dig down a bit deeper into
-        the view hierarchy. This is a change from iOS, where you’re used to seeing
-        all template views at the top level.
+        macOS的storyboards有时会要求你深入地挖掘视图层级。这点和iOS有所不同，你看到过iOS所有的模板view都处在顶层。
     </p>
     <h3>
-        Configuring the Table View
+        配置Table View
     </h3>
     <p>
-        With the
+        选中
         <em>
             Table View
         </em>
-        selected, make the following changes in the Attributes Inspector:
+        ，然后在Attributes Inspector中做出下面的改变：
     </p>
     <ul>
         <li>
-            Set
+            将
             <em>
                 Columns
             </em>
-            to 1
+            设为1
         </li>
         <li>
-            Uncheck
+            不勾选
             <em>
                 Reordering
             </em>
         </li>
         <li>
-            Uncheck
+            不勾选
             <em>
                 Resizing
             </em>
         </li>
     </ul>
     <p>
-        Select the
+        在Document Outline中选择
         <em>
             Table Column
         </em>
-        in the Document Outline and set its Title to
+        ，并将它的Title设置为
         <em>
             Beer Name
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Beer-TrackerSelect-Table-View-2.png"
@@ -598,41 +595,40 @@
         sizes="(max-width: 268px) 100vw, 268px">
     </p>
     <p>
-        In the Document Outline, select the
+        在Document Outline中，选择
         <em>
             Bordered Scroll View
         </em>
-        (which houses the
+        （它包含着
         <em>
             Table View
         </em>
-        ), and in the Size Inspector find the View section and set the View dimensions
-        to the following:
+        ），然后在Size Inspector中找到View这一部分，并将View的位置尺寸设置为：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 0
+            ：0
         </li>
         <li>
             <em>
                 y
             </em>
-            : 17
+            ：17
         </li>
         <li>
             <em>
                 width
             </em>
-            : 185
+            ：185
         </li>
         <li>
             <em>
                 height
             </em>
-            : 253
+            ：253
         </li>
     </ul>
     <p>
@@ -645,16 +641,14 @@
         </a>
     </p>
     <p>
-        Setting the coordinates is going to be slightly different here, as well.
-        In macOS, the origin of the UI is not in the top left, but the lower left.
-        Here, you’ve set the
+        坐标的设置在这里也有一点的不同。在macOS中，UI的原点并非位于左上侧，而在左下侧。这里你将
         <em>
             y
         </em>
-        coordinate to 17, which means 17 points up from the bottom.
+        坐标设置为17，就意味着距离底部是17个像素点。
     </p>
     <h3>
-        Adding a Delegate and Data Source
+        添加Delegate和Data Source
     </h3>
     <p>
         Next you’ll need to connect your delegate, data source and properties
