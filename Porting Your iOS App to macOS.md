@@ -1013,31 +1013,31 @@
         </li>
     </ul>
     <p>
-        To create an outlet for the
+        要为
         <em>
             Text View
         </em>
-        , you’ll need to make sure you select
+        创建一个outlet，你需要确保在Document Outline中选择的是
         <em>
             Text View
         </em>
-        inside the Document Outline, like you did with the
+        ，就像你在
         <em>
             Table View
         </em>
-        . Name the outlet
+        中做的一样。将outlet命名为
         <code>
             noteView
         </code>
-        . You’ll also need to set the
+        。你还需要将
         <em>
             Text View
         </em>
-        ‘s delegate to the
+        的delegate设置为
         <em>
             ViewController
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/TextView.png"
@@ -1047,49 +1047,49 @@
         </a>
     </p>
     <p>
-        Below the note view, drop in a
+        在note view的下方，放置一个
         <em>
             Push Button
         </em>
-        . Change the title to
+        。将它的title改为
         <em>
             Update
         </em>
-        , and set the frame to:
+        ，并将它的frame设置为：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 284
+            ：284
         </li>
         <li>
             <em>
                 y
             </em>
-            : 3
+            ：3
         </li>
         <li>
             <em>
                 width
             </em>
-            : 85
+            ：85
         </li>
     </ul>
     <p>
-        Connect an action from the button to
-        <em>
-            ViewController
-        </em>
-        named
+        从按钮连接一个名为
         <code>
             updateBeer
         </code>
-        .
+        的动作到
+        <em>
+            ViewController
+        </em>
+        上。
     </p>
     <h3>
-        Adding and Removing Beers
+        添加和删除啤酒
     </h3>
     <p>
         With that, you have all the necessary controls to edit and view your beer
