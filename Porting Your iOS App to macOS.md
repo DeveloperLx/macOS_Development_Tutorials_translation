@@ -725,76 +725,74 @@
         <em>
             Image Well
         </em>
-        到table的右侧。将frame设置为如下的形式：
+        到table的右侧。将frame设置为如下的数值：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 190
+            ：190
         </li>
         <li>
             <em>
                 y
             </em>
-            : 188
+            ：188
         </li>
         <li>
             <em>
                 width
             </em>
-            : 75
+            ：75
         </li>
         <li>
             <em>
                 height
             </em>
-            : 75
+            ：75
         </li>
     </ul>
     <p>
-        An
         <em>
             Image Well
         </em>
-        is a convenient object that displays an image, but also allows a user
-        to drag and drop a picture onto it. To accomplish this, the
+        是一个方便的用来展示图片的对象，但也允许用户把一张图片拖拽到它的上面。为了实现这点，
         <em>
             Image Well
         </em>
-        has the ability to connect an action to your code!
+        拥有将动作连接到你代码上的能力！
     </p>
     <p>
-        Open the BeerTracker-mac
+        在Assistant Editor中打开BeerTracker-mac的
         <em>
             ViewController.swift
         </em>
-        in the Assistant Editor and create an outlet for the
+        ，并为
         <em>
             Image Well
         </em>
-        named
+        创建一个名为
         <code>
             imageView
         </code>
-        . Also create an action for the
+        的outlet。然后为
         <em>
             Image View
         </em>
-        , and name it
+        创建一个名为
         <code>
             imageChanged
         </code>
-        . Ensure that you change
+        的动作。确保将
         <em>
             Type
         </em>
-        to
+        设置为
         <em>
             NSImageView
         </em>
-        , as shown:
+        ，就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker-Image-View-Action-2.png"
