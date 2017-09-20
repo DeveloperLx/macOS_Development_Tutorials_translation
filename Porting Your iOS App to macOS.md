@@ -1092,61 +1092,58 @@
         添加和删除啤酒
     </h3>
     <p>
-        With that, you have all the necessary controls to edit and view your beer
-        information. However, there’s no way to add or remove beers. This will
-        make the app difficult to use, even if your users haven’t had anything
-        to drink. :]
+        到目前为止，你已经有了所有用来编辑和查看啤酒必须的控件。然而，现在还无法添加和删除啤酒。这将使得app很难使用，即使你的用户还没有任何要喝的酒:]
     </p>
     <p>
-        Add a
+        添加一个
         <em>
             Gradient Button
         </em>
-        to the bottom left of the screen. In the Attributes Inspector, change
+        到屏幕底部的左侧。在Attributes Inspector中，将
         <em>
             Image
         </em>
-        to
+        改为
         <em>
             NSAddTemplate
         </em>
-        if it is not already set.
+        。
     </p>
     <p>
-        In the Size Inspector, set the frame to:
+        在Size Inspector中，将frame设置为：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 0
+            ：0
         </li>
         <li>
             <em>
                 y
             </em>
-            : -1
+            ：-1
         </li>
         <li>
             <em>
                 width
             </em>
-            : 24
+            ：24
         </li>
         <li>
             <em>
                 height
             </em>
-            : 20
+            ：20
         </li>
     </ul>
     <p>
-        Add an action from the new button named
+        为新的按钮添加一个名为
         <code>
             addBeer
         </code>
-        .
+        的动作。
     </p>
     <p>
         One great thing about macOS is that you get access to template images
