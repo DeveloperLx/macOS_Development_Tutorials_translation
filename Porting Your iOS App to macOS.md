@@ -472,31 +472,26 @@
 }
 </pre>
     <p>
-        The above code is nearly identical to the previous code, with just a few
-        changes:
+        上述的代码和之前的一篇几乎如出一辙，只有几点的不同：
     </p>
     <ol>
         <li>
-            Here, instead of using
-            <em>
-                UIImage
-            </em>
-            , you’re using the
+            这里使用
             <em>
                 AppKit
             </em>
-            specific class
+            指定的类
             <em>
                 NSImage
             </em>
-            .
+            来替换
+            <em>
+                UIImage
+            </em>
+            。
         </li>
         <li>
-            On iOS, it’s common to save files in the Documents directory. You usually
-            don’t have to worry about cluttering up this directory, since it is specific
-            to the app and hidden from the user. On macOS, however, you won’t want
-            to not mess up the user’s Documents, so you save the app’s files to the
-            Application Support directory.
+            在iOS中，通常会把文件保存到Documents目录下。你通常是不需要担心会把这个目录搞乱的，因为他是指定app下的目录，并且是对用户隐藏的。但在macOS中，你是不可以弄乱用户的Documents目录的，因此你要把文件保存到App的支持目录下。
         </li>
         <li>
             Since
