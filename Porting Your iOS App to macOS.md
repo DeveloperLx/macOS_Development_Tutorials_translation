@@ -799,219 +799,217 @@
         alt="Adding the imageView action." width="300" height="141" class="aligncenter size-full wp-image-163219">
     </p>
     <p>
-        While drag and drop is great, sometimes users want to be able to view
-        an
+        拖拽尽管非常得棒，有时用户却更希望看到一个
         <em>
-            Open Dialog
+            打开对话框
         </em>
-        and search for the file themselves. Set this up by dropping a
+        由它们自己来搜索文件。拖拽一个
         <em>
             Click Gesture Recognizer
         </em>
-        on the
+        到
         <em>
             Image Well
         </em>
-        . In the Document Outline, connect an action from the
+        的上面。在Document Outline中，将
         <em>
             Click Gesture Recognizer
         </em>
-        to
+        连接到
         <em>
             ViewController.swift
         </em>
-        named
+        中并命名为
         <code>
             selectImage
         </code>
-        .
+        。
     </p>
     <p>
-        Add a
-        <em>
-            Text Field
-        </em>
-        to the right of the
+        在
         <em>
             Image Well
         </em>
-        . In the Attributes Inspector, change the
+        的右侧添加一个
+        <em>
+            Text Field
+        </em>
+        。在Attributes Inspector中，将
         <em>
             Placeholder
         </em>
-        to
+        改为
         <em>
             Enter Name
         </em>
-        . Set the frame to the following:
+        。将frame设置成下面的样子：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 270
+            ：270
         </li>
         <li>
             <em>
                 y
             </em>
-            : 223
+            ：223
         </li>
         <li>
             <em>
                 width
             </em>
-            : 190
+            ：190
         </li>
         <li>
             <em>
                 height
             </em>
-            : 22
+            ：22
         </li>
     </ul>
     <p>
-        Create an outlet in
+        在
         <em>
             ViewController.swift
         </em>
-        for the
+        中为
         <em>
             Text Field
         </em>
-        named
+        创建一个名为
         <code>
             nameField
         </code>
-        .
+        的outlet。
     </p>
     <h3>
-        Rating a Beer
+        给啤酒评分
     </h3>
     <p>
-        Next, add a
+        下面，添加一个
         <em>
             Level Indicator
         </em>
-        below the name field. This will control setting the rating of your beers.
-        In the Attributes Inspector, set the following:
+        到name field的下面。它将用来控制你的啤酒的评分。在Attributes Inspector中进行如下的设置：
     </p>
     <ul>
         <li>
             <em>
                 Style
             </em>
-            : Rating
+            ：Rating
         </li>
         <li>
             <em>
                 State
             </em>
-            : Editable
+            ：Editable
         </li>
         <li>
             <em>
                 Minimum
             </em>
-            : 0
+            ：0
         </li>
         <li>
             <em>
                 Maximum
             </em>
-            : 5
+            ：5
         </li>
         <li>
             <em>
                 Warning
             </em>
-            : 0
+            ：0
         </li>
         <li>
             <em>
                 Critical
             </em>
-            : 0
+            ：0
         </li>
         <li>
             <em>
                 Current
             </em>
-            : 5
+            ：5
         </li>
         <li>
             <em>
                 Image
             </em>
-            : beerMug
+            ：beerMug
         </li>
     </ul>
     <p>
-        Set the frame to the following:
+        将frame设置为下面的样子：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 270
+            ：270
         </li>
         <li>
             <em>
                 y
             </em>
-            : 176
+            ：176
         </li>
         <li>
             <em>
                 width
             </em>
-            : 115
+            ：115
         </li>
     </ul>
     <p>
-        Create an outlet for the
+        为
         <em>
             Level Indicator
         </em>
-        named
+        创建一个名为
         <code>
             ratingIndicator
         </code>
-        .
+        的outlet。
     </p>
     <p>
-        Add a
+        在rating indicator的下面添加一个        
         <em>
             Text View
         </em>
-        below the rating indicator. Set the frame to:
+        。将它的frame设置为：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 193
+            ：193
         </li>
         <li>
             <em>
                 y
             </em>
-            : 37
+            ：37
         </li>
         <li>
             <em>
                 width
             </em>
-            : 267
+            ：267
         </li>
         <li>
             <em>
                 height
             </em>
-            : 134
+            ：134
         </li>
     </ul>
     <p>
