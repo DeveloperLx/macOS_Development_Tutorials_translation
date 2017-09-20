@@ -1146,115 +1146,112 @@
         的动作。
     </p>
     <p>
-        One great thing about macOS is that you get access to template images
-        like the
+        在macOS中有一件很棒的事情，是你可以访问像
         <em>
             +
         </em>
-        sign. This can make your life a lot simpler when you have any standard
-        action buttons, but don’t have the time or ability to create your own artwork.
+        号这样的模板图片。这样当你有任何标准动作的按钮，但没有时间或能力创建你自己的图片，就能够让你的生活变得更加的容易。
     </p>
     <p>
-        Next, you’ll need to add the remove button. Add another
+        接下来，你需要添加移除的按钮。直接添加另一个
         <em>
             Gradient Button
         </em>
-        directly to the right of the previous button, and change the
+        到前一个按钮的右边，并将
         <em>
             Image
         </em>
-        to
+        改为
         <em>
             NSRemoveTemplate
         </em>
-        . Set the frame to:
+        。将它的frame设置为：
     </p>
     <ul>
         <li>
             <em>
                 x
             </em>
-            : 23
+            ：23
         </li>
         <li>
             <em>
                 y
             </em>
-            : -1
+            ：-1
         </li>
         <li>
             <em>
                 width
             </em>
-            : 24
+            ：24
         </li>
         <li>
             <em>
                 height
             </em>
-            : 20
+            ：20
         </li>
     </ul>
     <p>
-        And finally, add an action from this button named
+        最后，为这个按钮添加一个名为
         <code>
             removeBeer
         </code>
-        .
+        的动作。
     </p>
     <h3>
-        Finishing The UI
+        完成UI
     </h3>
     <p>
-        You’re almost finished building the UI! You just need to add a few labels
-        to help polish it off.
+        你几乎已经完成了构建UI！你只需要添加几个label让它变得更棒。
     </p>
     <p>
-        Add the following labels:
+        添加下列的label：
     </p>
     <ul>
         <li>
-            Above the name field, titled
+            在name field的上方，添加文本为
             <em>
                 Name
             </em>
-            .
+            的label。
         </li>
         <li>
-            Above the rating indicator titled
+            在rating indicator的上方，添加文本为
             <em>
                 Rating
             </em>
-            .
+            的label。
         </li>
         <li>
-            Above the notes view titled
+            在notes view的上方，添加文本为
             <em>
                 Notes
             </em>
-            .
+            的label。
         </li>
         <li>
-            Beneath the table view titled
+            在table view的下方，添加文本为
             <em>
                 Beer Count:
             </em>
-            .
+            的label。
         </li>
         <li>
-            To the right of the beer count label, titled
+            在beer count label的下方，添加文本为
             <em>
                 0
             </em>
-            .
+            beer count label
         </li>
     </ul>
     <p>
-        For each of these labels, in the Attributes Inspector, set the font to
+        对于上述添加的每一个label，在Attributes Inspector中，将它们的font设置为
         <em>
             Other – Label
         </em>
-        , and the size to 10.
+        ，size设置为10。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/labelFont.png"
@@ -1264,18 +1261,18 @@
         </a>
     </p>
     <p>
-        For the last label, connect an outlet to
-        <em>
-            ViewController.swift
-        </em>
-        named
+        为最后一个label，创建一个名为
         <code>
             beerCountField
         </code>
-        .
+        的outlet到
+        <em>
+            ViewController.swift
+        </em>
+        上。
     </p>
     <p>
-        Make sure your labels all line like so:
+        确保你的所有label看起来像是这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker-mac-UI-2.png"
@@ -1284,19 +1281,19 @@
         sizes="(max-width: 600px) 100vw, 600px">
     </p>
     <p>
-        Click the Resolve
+        点击解决
         <em>
             Auto Layout Issues
         </em>
-        button and in the
+        的按钮，并在
         <em>
             All Views in View Controller
         </em>
-        section click
+        的部分点击
         <em>
             Reset to Suggested Constraints
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/AutoLayout-1.png"
@@ -1306,68 +1303,34 @@
         </a>
     </p>
     <h3>
-        Adding the Code
+        添加代码
     </h3>
     <p>
-        Whew! Now you’re ready to code. Open
+        好的！现在你要准备开始coding了。打开
         <em>
             ViewController.swift
         </em>
-        and delete the property named
+        并删除名为
         <code>
             representedObject
         </code>
-        . Add the following methods below
+        的property。在
         <code>
             viewDidLoad()
         </code>
-        :
+        下面添加下列的方法：
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                setFieldsEnabled
-            </span>
-            <span class="hljs-params">
-                (enabled: Bool)
-            </span>
-        </span>
-        { imageView.isEditable = enabled nameField.isEnabled = enabled ratingIndicator.isEnabled
-        = enabled noteView.isEditable = enabled }
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                updateBeerCountLabel
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { beerCountField.stringValue =
-        <span class="hljs-string">
-            "
-            <span class="hljs-subst">
-                \(BeerManager.sharedInstance.beers.
-                <span class="hljs-built_in">
-                    count
-                </span>
-                )
-            </span>
-            "
-        </span>
-        }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setFieldsEnabled</span><span class="hljs-params">(enabled: Bool)</span></span> {
+  imageView.isEditable = enabled
+  nameField.isEnabled = enabled
+  ratingIndicator.isEnabled = enabled
+  noteView.isEditable = enabled
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateBeerCountLabel</span><span class="hljs-params">()</span></span> {
+  beerCountField.stringValue = <span class="hljs-string">"<span class="hljs-subst">\(BeerManager.sharedInstance.beers.<span class="hljs-built_in">count</span>)</span>"</span>
+}
+</pre>
     <p>
         There are two methods that will help you control your UI:
     </p>
@@ -1392,60 +1355,24 @@
     <p>
         Beneath all of your outlets, add the following property:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            var
-        </span>
-        selectedBeer:
-        <span class="hljs-type">
-            Beer
-        </span>
-        ? {
-        <span class="hljs-keyword">
-            didSet
-        </span>
-        {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        selectedBeer = selectedBeer
-        <span class="hljs-keyword">
-            else
-        </span>
-        { setFieldsEnabled(enabled:
-        <span class="hljs-literal">
-            false
-        </span>
-        ) imageView.image =
-        <span class="hljs-literal">
-            nil
-        </span>
-        nameField.stringValue =
-        <span class="hljs-string">
-            ""
-        </span>
-        ratingIndicator.integerValue =
-        <span class="hljs-number">
-            0
-        </span>
-        noteView.string =
-        <span class="hljs-string">
-            ""
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        } setFieldsEnabled(enabled:
-        <span class="hljs-literal">
-            true
-        </span>
-        ) imageView.image = selectedBeer.beerImage() nameField.stringValue = selectedBeer.name
-        ratingIndicator.integerValue = selectedBeer.rating noteView.string = selectedBeer.note!
-        } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> selectedBeer: <span class="hljs-type">Beer</span>? {
+  <span class="hljs-keyword">didSet</span> {
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> selectedBeer = selectedBeer <span class="hljs-keyword">else</span> {
+      setFieldsEnabled(enabled: <span class="hljs-literal">false</span>)
+      imageView.image = <span class="hljs-literal">nil</span>
+      nameField.stringValue = <span class="hljs-string">""</span>
+      ratingIndicator.integerValue = <span class="hljs-number">0</span>
+      noteView.string = <span class="hljs-string">""</span>
+      <span class="hljs-keyword">return</span>
+    }
+    setFieldsEnabled(enabled: <span class="hljs-literal">true</span>)
+    imageView.image = selectedBeer.beerImage()
+    nameField.stringValue = selectedBeer.name
+    ratingIndicator.integerValue = selectedBeer.rating
+    noteView.string = selectedBeer.note!
+  }
+}
+</pre>
     <p>
         This property will keep track of the beer selected from the table view.
         If no beer is currently selected, the setter takes care of clearing the
@@ -1459,62 +1386,16 @@
         </code>
         with the following code:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                viewDidLoad
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .viewDidLoad()
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.
-        <span class="hljs-built_in">
-            count
-        </span>
-        ==
-        <span class="hljs-number">
-            0
-        </span>
-        { setFieldsEnabled(enabled:
-        <span class="hljs-literal">
-            false
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { tableView.selectRowIndexes(
-        <span class="hljs-type">
-            IndexSet
-        </span>
-        (integer:
-        <span class="hljs-number">
-            0
-        </span>
-        ), byExtendingSelection:
-        <span class="hljs-literal">
-            false
-        </span>
-        ) } updateBeerCountLabel() }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.viewDidLoad()
+  <span class="hljs-keyword">if</span> <span class="hljs-type">BeerManager</span>.sharedInstance.beers.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {
+    setFieldsEnabled(enabled: <span class="hljs-literal">false</span>)
+  } <span class="hljs-keyword">else</span> {
+    tableView.selectRowIndexes(<span class="hljs-type">IndexSet</span>(integer: <span class="hljs-number">0</span>), byExtendingSelection: <span class="hljs-literal">false</span>)
+  }
+  updateBeerCountLabel()
+}
+</pre>
     <p>
         Just like in iOS, you want our app to do something the moment it starts
         up. In the macOS version, however, you’ll need to immediately fill out
@@ -1543,208 +1424,40 @@
         </code>
         class:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                ViewController
-            </span>
-            :
-            <span class="hljs-title">
-                NSTableViewDataSource
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                numberOfRows
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    in
-                </span>
-                tableView: NSTableView)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            Int
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.
-        <span class="hljs-built_in">
-            count
-        </span>
-        } }
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                extension
-            </span>
-            <span class="hljs-title">
-                ViewController
-            </span>
-            :
-            <span class="hljs-title">
-                NSTableViewDelegate
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // MARK: - CellIdentifiers
-        </span>
-        <span class="hljs-keyword">
-            fileprivate
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                enum
-            </span>
-            <span class="hljs-title">
-                CellIdentifier
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        <span class="hljs-type">
-            NameCell
-        </span>
-        =
-        <span class="hljs-string">
-            "NameCell"
-        </span>
-        }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                tableView
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int)
-            </span>
-        </span>
-        -&gt;
-        <span class="hljs-type">
-            NSView
-        </span>
-        ? {
-        <span class="hljs-keyword">
-            let
-        </span>
-        beer =
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers[row]
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        cell = tableView.makeView(withIdentifier:
-        <span class="hljs-type">
-            NSUserInterfaceItemIdentifier
-        </span>
-        (rawValue:
-        <span class="hljs-type">
-            CellIdentifier
-        </span>
-        .
-        <span class="hljs-type">
-            NameCell
-        </span>
-        ), owner:
-        <span class="hljs-literal">
-            nil
-        </span>
-        )
-        <span class="hljs-keyword">
-            as
-        </span>
-        ?
-        <span class="hljs-type">
-            NSTableCellView
-        </span>
-        { cell.textField?.stringValue = beer.name
-        <span class="hljs-keyword">
-            if
-        </span>
-        beer.name.characters.
-        <span class="hljs-built_in">
-            count
-        </span>
-        ==
-        <span class="hljs-number">
-            0
-        </span>
-        { cell.textField?.stringValue =
-        <span class="hljs-string">
-            "New Beer"
-        </span>
-        }
-        <span class="hljs-keyword">
-            return
-        </span>
-        cell }
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            nil
-        </span>
-        }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                tableViewSelectionDidChange
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                notification: Notification)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        tableView.selectedRow &gt;=
-        <span class="hljs-number">
-            0
-        </span>
-        { selectedBeer =
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers[tableView.selectedRow] } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTableViewDataSource</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">numberOfRows</span><span class="hljs-params">(<span class="hljs-keyword">in</span> tableView: NSTableView)</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-type">BeerManager</span>.sharedInstance.beers.<span class="hljs-built_in">count</span>
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTableViewDelegate</span> </span>{
+  <span class="hljs-comment">// MARK: - CellIdentifiers</span>
+  <span class="hljs-keyword">fileprivate</span> <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">CellIdentifier</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> <span class="hljs-type">NameCell</span> = <span class="hljs-string">"NameCell"</span>
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-number">_</span> tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
+
+    <span class="hljs-keyword">let</span> beer = <span class="hljs-type">BeerManager</span>.sharedInstance.beers[row]
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> cell = tableView.makeView(withIdentifier: <span class="hljs-type">NSUserInterfaceItemIdentifier</span>(rawValue: <span class="hljs-type">CellIdentifier</span>.<span class="hljs-type">NameCell</span>), owner: <span class="hljs-literal">nil</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span> {
+      cell.textField?.stringValue = beer.name
+      <span class="hljs-keyword">if</span> beer.name.characters.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {
+        cell.textField?.stringValue = <span class="hljs-string">"New Beer"</span>
+      }
+      <span class="hljs-keyword">return</span> cell
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">_</span> notification: Notification)</span></span> {
+    <span class="hljs-keyword">if</span> tableView.selectedRow &gt;= <span class="hljs-number">0</span> {
+      selectedBeer = <span class="hljs-type">BeerManager</span>.sharedInstance.beers[tableView.selectedRow]
+    }
+  }
+
+}
+</pre>
     <p>
         This code takes care of populating the table view’s rows from the data
         source.
@@ -1778,97 +1491,29 @@
         </code>
         to:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                addBeer
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1.
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        beer =
-        <span class="hljs-type">
-            Beer
-        </span>
-        () beer.name =
-        <span class="hljs-string">
-            ""
-        </span>
-        beer.rating =
-        <span class="hljs-number">
-            1
-        </span>
-        beer.note =
-        <span class="hljs-string">
-            ""
-        </span>
-        selectedBeer = beer
-        <span class="hljs-comment">
-            // 2.
-        </span>
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.insert(beer, at:
-        <span class="hljs-number">
-            0
-        </span>
-        )
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.saveBeers()
-        <span class="hljs-comment">
-            // 3.
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        indexSet =
-        <span class="hljs-type">
-            IndexSet
-        </span>
-        (integer:
-        <span class="hljs-number">
-            0
-        </span>
-        ) tableView.beginUpdates() tableView.insertRows(at: indexSet, withAnimation:
-        .slideDown) tableView.endUpdates() updateBeerCountLabel()
-        <span class="hljs-comment">
-            // 4.
-        </span>
-        tableView.selectRowIndexes(
-        <span class="hljs-type">
-            IndexSet
-        </span>
-        (integer:
-        <span class="hljs-number">
-            0
-        </span>
-        ), byExtendingSelection:
-        <span class="hljs-literal">
-            false
-        </span>
-        ) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">let</span> beer = <span class="hljs-type">Beer</span>()
+  beer.name = <span class="hljs-string">""</span>
+  beer.rating = <span class="hljs-number">1</span>
+  beer.note = <span class="hljs-string">""</span>
+  selectedBeer = beer
+
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-type">BeerManager</span>.sharedInstance.beers.insert(beer, at: <span class="hljs-number">0</span>)
+  <span class="hljs-type">BeerManager</span>.sharedInstance.saveBeers()
+
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-keyword">let</span> indexSet = <span class="hljs-type">IndexSet</span>(integer: <span class="hljs-number">0</span>)
+  tableView.beginUpdates()
+  tableView.insertRows(at: indexSet, withAnimation: .slideDown)
+  tableView.endUpdates()
+  updateBeerCountLabel()
+
+  <span class="hljs-comment">// 4.</span>
+  tableView.selectRowIndexes(<span class="hljs-type">IndexSet</span>(integer: <span class="hljs-number">0</span>), byExtendingSelection: <span class="hljs-literal">false</span>)
+}
+</pre>
     <p>
         Nothing too crazy here. You’re simply doing the following:
     </p>
@@ -1908,96 +1553,25 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                removeBeer
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        beer = selectedBeer,
-        <span class="hljs-keyword">
-            let
-        </span>
-        index =
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.index(of: beer)
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-comment">
-            // 1.
-        </span>
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.remove(at: index)
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.saveBeers()
-        <span class="hljs-comment">
-            // 2
-        </span>
-        tableView.reloadData() updateBeerCountLabel() tableView.selectRowIndexes(
-        <span class="hljs-type">
-            IndexSet
-        </span>
-        (integer:
-        <span class="hljs-number">
-            0
-        </span>
-        ), byExtendingSelection:
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.
-        <span class="hljs-built_in">
-            count
-        </span>
-        ==
-        <span class="hljs-number">
-            0
-        </span>
-        { selectedBeer =
-        <span class="hljs-literal">
-            nil
-        </span>
-        } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> beer = selectedBeer,
+    <span class="hljs-keyword">let</span> index = <span class="hljs-type">BeerManager</span>.sharedInstance.beers.index(of: beer) <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span>
+  }
+
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-type">BeerManager</span>.sharedInstance.beers.remove(at: index)
+  <span class="hljs-type">BeerManager</span>.sharedInstance.saveBeers()
+
+  <span class="hljs-comment">// 2</span>
+  tableView.reloadData()
+  updateBeerCountLabel()
+  tableView.selectRowIndexes(<span class="hljs-type">IndexSet</span>(integer: <span class="hljs-number">0</span>), byExtendingSelection: <span class="hljs-literal">false</span>)
+  <span class="hljs-keyword">if</span> <span class="hljs-type">BeerManager</span>.sharedInstance.beers.<span class="hljs-built_in">count</span> == <span class="hljs-number">0</span> {
+    selectedBeer = <span class="hljs-literal">nil</span>
+  }
+}
+</pre>
     <p>
         Once again, very straightforward code:
     </p>
@@ -2023,42 +1597,11 @@
         </code>
         to:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                imageChanged
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: NSImageView)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        image = sender.image
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        } selectedBeer?.saveImage(image) }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">imageChanged</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSImageView)</span></span> {
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> image = sender.image <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+  selectedBeer?.saveImage(image)
+}
+</pre>
     <p>
         And you thought it was going to be hard! Apple has taken care of all the
         heavy lifting for you, and provides you with the image dropped.
@@ -2071,137 +1614,31 @@
         </code>
         with:
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                selectImage
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        window = view.window
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        }
-        <span class="hljs-comment">
-            // 1.
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        openPanel =
-        <span class="hljs-type">
-            NSOpenPanel
-        </span>
-        () openPanel.allowsMultipleSelection =
-        <span class="hljs-literal">
-            false
-        </span>
-        openPanel.canChooseDirectories =
-        <span class="hljs-literal">
-            false
-        </span>
-        openPanel.canCreateDirectories =
-        <span class="hljs-literal">
-            false
-        </span>
-        openPanel.canChooseFiles =
-        <span class="hljs-literal">
-            true
-        </span>
-        <span class="hljs-comment">
-            // 2.
-        </span>
-        openPanel.allowedFileTypes = [
-        <span class="hljs-string">
-            "jpg"
-        </span>
-        ,
-        <span class="hljs-string">
-            "png"
-        </span>
-        ,
-        <span class="hljs-string">
-            "tiff"
-        </span>
-        ]
-        <span class="hljs-comment">
-            // 3.
-        </span>
-        openPanel.beginSheetModal(
-        <span class="hljs-keyword">
-            for
-        </span>
-        : window) { (result)
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        result ==
-        <span class="hljs-type">
-            NSApplication
-        </span>
-        .
-        <span class="hljs-type">
-            ModalResponse
-        </span>
-        .
-        <span class="hljs-type">
-            OK
-        </span>
-        {
-        <span class="hljs-comment">
-            // 4.
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        panelURL = openPanel.url,
-        <span class="hljs-keyword">
-            let
-        </span>
-        beerImage =
-        <span class="hljs-type">
-            NSImage
-        </span>
-        (contentsOf: panelURL) {
-        <span class="hljs-keyword">
-            self
-        </span>
-        .selectedBeer?.saveImage(beerImage)
-        <span class="hljs-keyword">
-            self
-        </span>
-        .imageView.image = beerImage } } } }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">selectImage</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> window = view.window <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">let</span> openPanel = <span class="hljs-type">NSOpenPanel</span>()
+  openPanel.allowsMultipleSelection = <span class="hljs-literal">false</span>
+  openPanel.canChooseDirectories = <span class="hljs-literal">false</span>
+  openPanel.canCreateDirectories = <span class="hljs-literal">false</span>
+  openPanel.canChooseFiles = <span class="hljs-literal">true</span>
+
+  <span class="hljs-comment">// 2.</span>
+  openPanel.allowedFileTypes = [<span class="hljs-string">"jpg"</span>, <span class="hljs-string">"png"</span>, <span class="hljs-string">"tiff"</span>]
+
+  <span class="hljs-comment">// 3.</span>
+  openPanel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) <span class="hljs-keyword">in</span>
+    <span class="hljs-keyword">if</span> result == <span class="hljs-type">NSApplication</span>.<span class="hljs-type">ModalResponse</span>.<span class="hljs-type">OK</span> {
+      <span class="hljs-comment">// 4.</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> panelURL = openPanel.url,
+        <span class="hljs-keyword">let</span> beerImage = <span class="hljs-type">NSImage</span>(contentsOf: panelURL) {
+        <span class="hljs-keyword">self</span>.selectedBeer?.saveImage(beerImage)
+        <span class="hljs-keyword">self</span>.imageView.image = beerImage
+      }
+    }
+  }
+}
+</pre>
     <p>
         The above code is how you use
         <code>
@@ -2235,81 +1672,24 @@
         </code>
         :
     </p>
-    <pre lang="swift" class="language-swift hljs">
-        <span class="hljs-meta">
-            @IBAction
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                func
-            </span>
-            <span class="hljs-title">
-                updateBeer
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-number">
-                    _
-                </span>
-                sender: Any)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1.
-        </span>
-        <span class="hljs-keyword">
-            guard
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        beer = selectedBeer,
-        <span class="hljs-keyword">
-            let
-        </span>
-        index =
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.beers.index(of: beer)
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        } beer.name = nameField.stringValue beer.rating = ratingIndicator.integerValue
-        beer.note = noteView.string
-        <span class="hljs-comment">
-            // 2.
-        </span>
-        <span class="hljs-keyword">
-            let
-        </span>
-        indexSet =
-        <span class="hljs-type">
-            IndexSet
-        </span>
-        (integer: index) tableView.beginUpdates() tableView.reloadData(forRowIndexes:
-        indexSet, columnIndexes:
-        <span class="hljs-type">
-            IndexSet
-        </span>
-        (integer:
-        <span class="hljs-number">
-            0
-        </span>
-        )) tableView.endUpdates()
-        <span class="hljs-comment">
-            // 3.
-        </span>
-        <span class="hljs-type">
-            BeerManager
-        </span>
-        .sharedInstance.saveBeers() }
-    </pre>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
+  <span class="hljs-comment">// 1.</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> beer = selectedBeer,
+    <span class="hljs-keyword">let</span> index = <span class="hljs-type">BeerManager</span>.sharedInstance.beers.index(of: beer) <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+  beer.name = nameField.stringValue
+  beer.rating = ratingIndicator.integerValue
+  beer.note = noteView.string
+
+  <span class="hljs-comment">// 2.</span>
+  <span class="hljs-keyword">let</span> indexSet = <span class="hljs-type">IndexSet</span>(integer: index)
+  tableView.beginUpdates()
+  tableView.reloadData(forRowIndexes: indexSet, columnIndexes: <span class="hljs-type">IndexSet</span>(integer: <span class="hljs-number">0</span>))
+  tableView.endUpdates()
+
+  <span class="hljs-comment">// 3.</span>
+  <span class="hljs-type">BeerManager</span>.sharedInstance.saveBeers()
+}
+</pre>
     <p>
         Here’s what you added:
     </p>
