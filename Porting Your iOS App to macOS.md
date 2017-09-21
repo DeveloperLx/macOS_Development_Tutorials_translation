@@ -1705,29 +1705,22 @@
         最后的接触
     </h3>
     <p>
-        You’ve learned a lot about the similarities and differences between iOS
-        and macOS development. There’s another concept that you should familiarize
-        yourself with:
+        你已经学到了大量关于iOS和macOS开发的不同之处。但这里还有一个你需要熟悉的概念：
         <em>
             Settings/Preferences
         </em>
-        . In iOS, you should be comfortable with the concept of going into Settings,
-        finding your desired app, and changing any settings available to you. In
-        macOS, this can be accomplished inside your app through
+        。在iOS中，你可能已经习惯了前往Setting，找到你的app，然后修改你可用的设置。在macOS中，这些却需要你在app内部的
         <em>
             Preferences
         </em>
-        .
+        中来完成。
     </p>
     <p>
-        Build and run the
+        运行
         <em>
             BeerTracker
         </em>
-        target, and in the simulator, navigate to the BeerTracker settings in
-        the Settings app. There you’ll find a setting allowing your users to limit
-        the length of their notes, just in case they get a little chatty after
-        having a few.
+        target，在模拟器中的Settings app中找到BeerTracker的设置。这里你会发现一个让用户限制他的笔记长度的设置，以避免他们日后会进行投诉。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTrackerSettings-282x500.png"
@@ -1736,85 +1729,81 @@
         sizes="(max-width: 282px) 100vw, 282px">
     </p>
     <p>
-        In order to get the same feature in your mac app, you’ll create a Preferences
-        window for the user. In
+        为了在你的mac app中获得相同的特性，你要为你的用户创建一个Preferences窗口。在
         <em>
             BeerTracker-mac
         </em>
-        , open
+        中，打开
         <em>
             Main.storyboard
         </em>
-        , and drop in a new
+        ，并拖拽一个新的
         <em>
             Window Controller
         </em>
-        . Select the
+        。选择这个
         <em>
             Window
         </em>
-        , open the Size Inspector, and change the following:
+        ，打开Size Inspector，并进行如下的修改：
     </p>
     <ol>
         <li>
-            Set
+            将
             <em>
                 Content Size
             </em>
-            width to 380, and height to 55.
+            的width设置为380，height设置为55。
         </li>
         <li>
-            Check
+            在
             <em>
                 Minimum Content Size
             </em>
-            , and set width to 380, and height to 55.
+            中，将width设置为380，height设置为55。
         </li>
         <li>
-            Check
+            在
             <em>
                 Maximum Content Size
             </em>
-            , and set width to 380, and height to 55.
+            中，将width设置为380，height设置为55。
         </li>
         <li>
-            Check
+            在
             <em>
                 Full Screen Minimum Content Size
             </em>
-            , and set width to 380, and height to 55.
+            中，将width设置为380，height设置为55。
         </li>
         <li>
-            Check
+            在
             <em>
                 Full Screen Maximum Content Size
             </em>
-            , and set width to 380, and height to 55.
+            中，将width设置为380，height设置为55。
         </li>
         <li>
-            Under
+            在
             <em>
                 Initial Position
             </em>
-            , select
+            中，选择
             <em>
                 Center Horizontally
             </em>
-            and
+            和
             <em>
                 Center Vertically
             </em>
-            .
+            。
         </li>
     </ol>
     <p>
-        Next, select the View of the empty View Controller, and change the size
-        to match the above settings, 380 x 55.
+        接下来，选择这个空空的View Controller的view，然后将它的size修改至和上面设置中相匹配的380 x 55。
     </p>
     <p>
-        Doing these things will ensure your Preferences window is always the same
-        size, and opens in a logical place to the user. When you’re finished, your
-        new window should look like this in the storyboard:
+        以上操作可以让你的Preferences窗口始终保持在相同的尺寸下，以在合乎逻辑的位置打开给用户。当你完成之后，你的新窗口看起来在storyboard中像这个样子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker-Preferences-Window-1.png"
@@ -1823,107 +1812,104 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        At this point, there is no way for a user to open your new window. Since
-        it should be tied to the
+        现在，用户还没有办法来打开你的新窗口。由于它应当被绑定到
         <em>
             Preferences
         </em>
-        menu item, find the menu bar scene in storyboard. It will be easier if
-        you drag it close to the Preferences window for this next part. Once it
-        is close enough, do the following:
+        的菜单项上，因此要在storyboard中找到菜单栏场景。你可以把它拖动到靠近Preferences窗口的地方，这样以下部分的操作就可以方便一些。当它足够接近之后，执行如下的操作：
     </p>
     <ol>
         <li>
-            In the menu bar in storyboard, click
+            在storyboard的菜单栏中，点击
             <em>
                 BeerTracker-mac
             </em>
-            to open the menu.
+            来打开菜单。
         </li>
-        <li>
-            <em>
-                Control-drag
-            </em>
-            from the
+        <li>    
+            将
             <em>
                 Preferences
             </em>
-            menu item to the new Window Controller
+            菜单项
+            <em>
+                拖拽
+            </em>
+            到新Window Controller上
         </li>
         <li>
-            Select
+            在弹出的对话框中选择
             <em>
                 Show
             </em>
-            from the dialog
         </li>
     </ol>
     <p>
-        Find a
+        添加一个
         <em>
             Check Box Button
         </em>
-        , and add it to the empty View Controller. Change the text to be
+        到空空的View Controller上。将它的text修改为
         <em>
             Restrict Note Length to 1,024 Characters
         </em>
-        .
+        。
     </p>
     <p>
-        With the
+        选中
         <em>
             Checkbox Button
         </em>
-        selected, open the Bindings Inspector, and do the following:
+        后，打开Bindings Inspector，执行下列的操作：
     </p>
     <ol>
         <li>
-            Expand
+            展开
             <em>
                 Value
             </em>
-            , and check
+            ，并勾选
             <em>
                 Bind to
             </em>
-            .
+            。
         </li>
         <li>
-            Select
+            在弹出的菜单中选择
             <em>
                 Shared User Defaults Controller
             </em>
-            from the drop down.
+            。
         </li>
         <li>
-            In
+            在
             <em>
                 Model Key Path
             </em>
-            , put
+            中，输入
             <em>
                 BT_Restrict_Note_Length
             </em>
-            .
+            。
         </li>
     </ol>
     <p>
-        Create a new Swift file in the
+        在
         <em>
             Utilities
         </em>
-        group named
+        组中创建一个新的名为
         <em>
             StringValidator.swift
         </em>
-        . Make sure to check both targets for this file.
+        的Swift文件。确定为这个文件同时勾选两个target。
     </p>
     <p>
-        Open
+        打开
         <em>
             StringValidator.swift
         </em>
-        , and replace the contents with the following code:
+        ，并使用下列的代码来替换其中的内容：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Foundation
 
@@ -1940,19 +1926,18 @@
 }
 </pre>
     <p>
-        This class will provide both targets with the ability to check if a string
-        is a valid length, but only if the user default
+        这个类为两个target提供了检查一个字符串的长度是否合法的能力，只要用户默认的
         <em>
             BT_Restrict_Note_Length
         </em>
-        is true.
+        值为true。
     </p>
     <p>
-        In
+        在
         <em>
             ViewController.swift
         </em>
-        add the following code at the bottom:
+        中添加下列的代码到文件的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTextViewDelegate</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">textView</span><span class="hljs-params">(<span class="hljs-number">_</span> textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?)</span></span> -&gt; <span class="hljs-type">Bool</span> {
@@ -1964,45 +1949,42 @@
 }
 </pre>
     <p>
-        Finally, change the names of each
-        <em>
-            Window
-        </em>
-        in
+        最后，在
         <em>
             Main.storyboard
         </em>
-        to match their purpose, and give the user more clarity. Select the initial
+        中改变每个
+        <em>
+            Window
+        </em>
+        的名称已匹配他们的目标，让用户更加的清晰。选择initial的
         <em>
             Window Controller
         </em>
-        , and in the
+        ，并在
         <em>
             Attributes Inspector
         </em>
-        change the title to
+        中将它的title改为
         <em>
             BeerTracker
         </em>
-        . Select the
+        。从Preferences窗口中选择
         <em>
             Window Controller
         </em>
-        for the Preferences window, and change the title to
+        ，并将它的title修改为
         <em>
             Preferences
         </em>
-        .
+        。
     </p>
     <p>
-        Build and run your app. If you select the Preferences menu item, you should
-        now see your new Preferences window with your preferences item. Select
-        the checkbox, and find some large amount of text to paste in. If this would
-        make the note more 1024 characters, the
+        运行你的app。选择Preferences菜单项，现在你应当能够看到带有偏好项的新Preferences窗口了。勾选这里，然后找到一些较长的文本来粘贴到
         <em>
             Text View
         </em>
-        will not accept it, just like the iOS app.
+        中，如果超过了1024个字符的话，就无法做到，就像在iOS app中一样。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/06/Screen-Shot-2017-06-12-at-6.31.32-PM.png"
@@ -2011,7 +1993,7 @@
         sizes="(max-width: 484px) 100vw, 484px">
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
