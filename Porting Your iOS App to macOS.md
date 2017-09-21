@@ -2005,10 +2005,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -2016,40 +2017,36 @@
         </div>
     </div>
     <p>
-        You can download the finished project
+        你可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/BeerTracker-Port_Finished-2.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终完成的项目。
     </p>
     <p>
-        In this tutorial you learned:
+        在本教程中，你已学到了：
     </p>
     <ul>
         <li>
-            How to utilize a current iOS project to host a macOS app.
+            如何将一个现有的iOS项目迁移到macOS上去。
         </li>
         <li>
-            When to separate code based on your platform's needs.
+            如何根据你的平台所需来拆分代码。
         </li>
         <li>
-            How to reuse existing code between both projects.
+            如何在项目之间复用已存在的代码。
         </li>
         <li>
-            The differences between some of Xcode's behaviors between the two platforms.
+            Xcode在两个平台上的一些不同的表现。
         </li>
     </ul>
     <p>
-        For more information about porting your apps to macOS, check out
+        关于更多移植的你的app到macOS中的内容，请访问
         <a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/OSX_Technology_Overview/MigratingFromCocoaTouch/MigratingFromCocoaTouch.html"
         sl-processed="1">
             Apple's Migrating from Cocoa Touch Overview
         </a>
-        .
-    </p>
-    <p>
-        If you have any questions or comments, please join in the forum discussion
-        below!
+        。
     </p>
 </div>
