@@ -1503,43 +1503,42 @@
 }
 </pre>
     <p>
-        Nothing too crazy here. You’re simply doing the following:
+        这里没有太多累赘的东西。你只需去完成下列的事情：
     </p>
     <ol>
         <li>
-            Creating a new beer.
+            创建一个新的啤酒。
         </li>
         <li>
-            Inserting the beer into the model.
+            将啤酒插入到model中。
         </li>
         <li>
-            Inserting a new row into the table.
+            为table插入一个新的行。
         </li>
         <li>
-            Selecting the row of the new beer.
+            选择新啤酒所在的这行。
         </li>
     </ol>
     <p>
-        You might have even noticed that, like in iOS, you need to call
+        你货主注意到了这点，就像在iOS中一样，你需要在插入新的行之前调用
         <code>
             beginUpdates()
         </code>
-        and
+        和
         <code>
             endUpdates()
         </code>
-        before inserting the new row. See, you really do know a lot about macOS
-        already!
+        。所以说，你其实早已懂得了关于macOS的很多的内容！
     </p>
     <h3>
-        Removing Entries
+        移除条目
     </h3>
     <p>
-        To remove a beer, add the below code for
+        为了移除一瓶啤酒，添加下列的代码到
         <code>
             removeBeer(\_:)
         </code>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
   <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> beer = selectedBeer,
@@ -1561,29 +1560,29 @@
 }
 </pre>
     <p>
-        Once again, very straightforward code:
+        依然是非常直接的代码：
     </p>
     <ol>
         <li>
-            If a beer is selected, you remove it from the model.
+            如果已选中一个啤酒，就从model中移除它。
         </li>
         <li>
-            Reload the table view, and select the first available beer.
+            重载table view，选择第一瓶可用的啤酒。
         </li>
     </ol>
     <h3>
-        Handling Images
+        处理图片
     </h3>
     <p>
-        Remember how
+        记得
         <em>
             Image Wells
         </em>
-        have the ability to accept an image dropped on them? Change
+        拥有接收拖拽到它上面的图片的能力么？将
         <code>
             imageChanged(\_:)
         </code>
-        to:
+        的方法修改为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">imageChanged</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSImageView)</span></span> {
   <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> image = sender.image <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
@@ -1591,16 +1590,14 @@
 }
 </pre>
     <p>
-        And you thought it was going to be hard! Apple has taken care of all the
-        heavy lifting for you, and provides you with the image dropped.
+        你以为这可能会很难！但苹果早已为你负责处理了所有繁重的工作，并将接收拖拽来的图片的能力赐予了你。
     </p>
     <p>
-        On the flip side to that, you’ll need to do a bit more work to handle
-        user’s picking the image from within your app. Replace
+        但另一方面，你需要做很多工作，来方便用户从你的app中选取图片。将
         <code>
             selectImage()
         </code>
-        with:
+        方法替换为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">selectImage</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
   <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> window = view.window <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
@@ -1628,37 +1625,36 @@
 }
 </pre>
     <p>
-        The above code is how you use
+        上述代码实现了你使用
         <code>
             NSOpenPanel
         </code>
-        to select a file. Here’s what’s happening:
+        来选取一个文件的过程。以下是详细步骤：
     </p>
     <ol>
         <li>
-            You create an
+            创建一个
             <code>
                 NSOpenPanel
             </code>
-            , and configure its settings.
+            ，并配置它的设置。
         </li>
         <li>
-            In order to allow the user to choose only pictures, you set the allowed
-            file types to your preferred image formats.
+            为了让用户只可以选择图片，你将允许的文件类型设置为你所需的文件格式。
         </li>
         <li>
-            Present the sheet to the user.
+            展示这个sheet给用户。
         </li>
         <li>
-            Save the image if the user selected one.
+            如果用户选择了一张图片的话，保存它。
         </li>
     </ol>
     <p>
-        Finally, add the code that will save the data model in
+        最后，在
         <code>
             updateBeer(\_:)
         </code>
-        :
+        中添加保存数据model的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
   <span class="hljs-comment">// 1.</span>
@@ -1679,26 +1675,25 @@
 }
 </pre>
     <p>
-        Here’s what you added:
+        上述代码：
     </p>
     <ol>
         <li>
-            You ensure the beer exists, and update its properties.
+            确认啤酒是存在的，并更新它的property。
         </li>
         <li>
-            Update the table view to reflect any names changes in the table.
+            更新table view以在table上反映任何名称的变化。
         </li>
         <li>
-            Save the data to the disk.
+            保存数据到磁盘上。
         </li>
     </ol>
     <p>
-        You’re all set! Build and run the app, and start adding beers. Remember,
-        you’ll need to select
+        你已经全部设定完毕！运行app，然后添加啤酒。记住你需要选择
         <em>
             Update
         </em>
-        to save your data.
+        来更新你的数据。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/BeerTracker-mac-UI-Beers.png"
@@ -1707,7 +1702,7 @@
         sizes="(max-width: 600px) 100vw, 600px">
     </p>
     <h3>
-        Final Touches
+        最后的接触
     </h3>
     <p>
         You’ve learned a lot about the similarities and differences between iOS
