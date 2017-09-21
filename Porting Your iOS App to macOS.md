@@ -1332,28 +1332,28 @@
 }
 </pre>
     <p>
-        There are two methods that will help you control your UI:
+        这里有两个方法来帮助你控制UI：
     </p>
     <ol>
         <li>
             <code>
                 setFieldsEnabled(\_:)
             </code>
-            will allow you to easily turn off and on the ability to use the form controls.
+            可以帮助你快速地打开或关闭使用form控件的能力。
         </li>
         <li>
             <code>
                 updateBeerCountLabel()
             </code>
-            simply sets the count of beers in the
+            帮助你快速地在
             <code>
                 beerCountField
             </code>
-            .
+            中设置啤酒的数量。
         </li>
     </ol>
     <p>
-        Beneath all of your outlets, add the following property:
+        在你所有的outlet下面，添加下列的property：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> selectedBeer: <span class="hljs-type">Beer</span>? {
   <span class="hljs-keyword">didSet</span> {
@@ -1374,17 +1374,14 @@
 }
 </pre>
     <p>
-        This property will keep track of the beer selected from the table view.
-        If no beer is currently selected, the setter takes care of clearing the
-        values from all the fields, and disabling the UI components that shouldn’t
-        be used.
+        这个property将会跟踪从table view选中的啤酒。如果当前没有啤酒被选择，setter会负责清空所有field中的值，并禁用所有当前无法使用的UI组件。
     </p>
     <p>
-        Replace
+        将
         <code>
             viewDidLoad()
         </code>
-        with the following code:
+        替换为下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">super</span>.viewDidLoad()
@@ -1397,32 +1394,28 @@
 }
 </pre>
     <p>
-        Just like in iOS, you want our app to do something the moment it starts
-        up. In the macOS version, however, you’ll need to immediately fill out
-        the form for the user to see their data.
+        就像在iOS中一样，你希望在一启动的时候去做一些事情。然而，在macOS的版本中，你需要一上来就将form填充好，以便用户能够及时看到他们的数据。
     </p>
     <h3>
-        Adding Data to the Table View
+        添加数据到Table View上
     </h3>
     <p>
-        Right now, the table view isn’t actually able to display any data, but
+        现在table view还不可以实际地展示任何数据，但
         <code>
             selectRowIndexes(\_:byExtendingSelection:)
         </code>
-        will select the first beer in the list. The delegate code will handle
-        the rest for you.
+        会选中列表中的第一瓶啤酒。delegate中的代码将会为你处理剩余的事情。
     </p>
     <p>
-        In order to get the table view showing you your list of beers, add the
-        following code to the end of
+        为了让table view去展示你的啤酒列表，添加下列的代码到
         <em>
             ViewController.swift
         </em>
-        , outside of the
+        尾部，要在
         <code>
             ViewController
         </code>
-        class:
+        类之外：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTableViewDataSource</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">numberOfRows</span><span class="hljs-params">(<span class="hljs-keyword">in</span> tableView: NSTableView)</span></span> -&gt; <span class="hljs-type">Int</span> {
@@ -1459,37 +1452,32 @@
 }
 </pre>
     <p>
-        This code takes care of populating the table view’s rows from the data
-        source.
+        上述代码负责用来自data source的数据填充table view中的行。
     </p>
     <p>
-        Look at it closely, and you’ll see it’s not too different from the iOS
-        counterpart found in
+        仔细地看一下它，你会发现它和iOS中相应的部分
         <em>
             BeersTableViewController.swift
         </em>
-        . One notable difference is that when the table view selection changes,
-        it sends a
+        并没有太大的差别。一个值得注意的区别是，当table view选择的行发生变化时，NSTableView会发送一个
         <em>
             Notification
         </em>
-        to the
+        到
         <em>
             NSTableViewDelegate
         </em>
-        .
+        上。
     </p>
     <p>
-        Remember that your new macOS app has multiple input sources — not just
-        a finger. Using a mouse or keyboard can change the selection of the table
-        view, and that makes handling the change just a little different to iOS.
+        记住，你的新macOS app现在有了多个的输入源 - 不仅仅依靠一根手指来操作。使用鼠标或键盘都可以改变table view的选择，这导致处理这些改变时，将和iOS有一点点不同。
     </p>
     <p>
-        Now to add a beer. Change
+        现在添加一个啤酒。将
         <code>
             addBeer()
         </code>
-        to:
+        修改为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
   <span class="hljs-comment">// 1.</span>
