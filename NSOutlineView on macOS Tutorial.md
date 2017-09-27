@@ -58,34 +58,29 @@
         入门
     </h2>
     <p>
+        从
         The starter project can be downloaded
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Reader_Starter.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        . Open the project and take a peek. Besides the files created by the template,
-        there is a
+        下载起始的项目。打开项目来看一下吧。除了由模板创建的文件外，还有一个
         <em>
             Feeds.plist
         </em>
-        , which is the file you’ll load the feeds from. You’ll take a closer look
-        at it later, when creating the model classes.
+        ，你将从这里加载信息流。你需要在之后创建model类的时候进一步查看这个文件。
     </p>
     <p>
-        Open
+        打开
         <em>
             Main.storyboard
         </em>
-        to see the prepared UI. On the left is a plain outline view, and beside
-        it is a white area, which is the web view. Those are grouped using a horizontal
-        stack view, which is pinned to the window edges. Stack views are the latest
-        and greatest way to deal with Auto Layout, if you haven’t yet given them
-        a try. You can learn all about them in
-        <a href="http://www.raywenderlich.com/122295/os-x-stack-views-nsstackview"
+        来查看预备好的UI。左边是一个普通的outline view，旁边则是一个空白的区域，它是一个web view。上述内容使用了一个水平布局的stack view，它被固定到窗口的边缘。Stack view是处理自动布局最新和最后的方式，如果你到现在还未尝试过，你可以在
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/OS%20X%20Stack%20Views%20with%20NSStackView.md"
         sl-processed="1">
-            Marin’s great tutorial about NSStackViews
+            这里
         </a>
-        .
+        进行学习。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/starter_ui-2"
@@ -97,16 +92,15 @@
         </a>
     </p>
     <p>
-        Your first task: complete the UI. To do this, double-click in the header
-        to change the title. For the first column, change it to
+        你的第一个任务就是完成UI。双击header，来将第一列的标题修改为
         <em>
             Feed
         </em>
-        ; change the second to
+        ；第二列的标题则修改为
         <em>
             Date
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Change_Header.png"
@@ -118,28 +112,27 @@
         </a>
     </p>
     <p>
-        That was easy! Now select the outline view, in the document outline —
-        you’ll find it under
+        非常得容易！现在在document outline中选择outline view - 你可以在
         <em>
-            Bordered Scroll View – Outline View \ Clip View \ Outline View
+            Bordered Scroll View – Outline View / Clip View / Outline View
         </em>
-        . In the
+        下找到它。在
         <em>
             Attributes Inspector
         </em>
-        , change
+        中，将
         <em>
             Indentation
         </em>
-        to 5, enable
+        修改为5，打开
         <em>
             Floats Group Rows
         </em>
-        and disable
+        并关闭
         <em>
             Reordering
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/nsoutline-inspector-new.png"
@@ -151,23 +144,23 @@
         </a>
     </p>
     <p>
-        Inside the document outline on the left, click on the triangle beside
+        在左侧的document outline中，点击
         <em>
             Outline View
         </em>
-        to expand it. Do the same for
+        旁边的三角形来展开它。为
         <em>
             Feed
         </em>
-        and
+        和
         <em>
             Date
         </em>
-        . Select the Table View Cell below
+        执行同样的操作。选择
         <em>
             Date
         </em>
-        .
+        下的Table View Cell。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/date_selection"
@@ -178,20 +171,20 @@
             sizes="(max-width: 234px) 100vw, 234px">
         </a>
     </p>
-    <p>
-        Change the
-        <em>
-            Identifier
-        </em>
-        to
-        <em>
-            DateCell
-        </em>
-        in
+    <p>        
+        在
         <em>
             Identity Inspector
         </em>
-        .
+        中将
+        <em>
+            Identifier
+        </em>
+        修改为
+        <em>
+            DateCell
+        </em>
+        。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/change_cell_identifier-2"
@@ -203,34 +196,34 @@
         </a>
     </p>
     <p>
-        Now show the
+        现在切换到
         <em>
             Size Inspector
         </em>
-        and change
+        并将
         <em>
             Width
         </em>
-        to 102. Repeat this step for the cell below Feed, changing the
+        修改为102。为Feed下的cell重复同样的步骤，将
         <em>
             Identifier
         </em>
-        to
+        修改为
         <em>
             FeedCell
         </em>
-        and
+        ，
         <em>
             Width
         </em>
-        to 320.
+        修改为。
     </p>
     <p>
-        Expand the cell below feed and select the text field named
+        展开feed下的cell并选择名为
         <em>
             Table View Cell
         </em>
-        .
+        的text field。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/selected_textfield"
@@ -240,13 +233,11 @@
         </a>
     </p>
     <p>
-        Use the Pin and Align menus on the Auto Layout toolbar to add an Auto
-        Layout constraint of 2 points leading, plus another constraint to center
-        the text field vertically. You will see the constraints in
+        使用自动布局工具栏中的Pin和Align菜单，来添加一个2点leading的约束，以及另一个将text field垂直居中的约束。你可以在
         <em>
             Size Inspector
         </em>
-        :
+        中查看被添加的约束：
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/constraints-5"
@@ -258,25 +249,23 @@
         </a>
     </p>
     <p>
-        Now select the table cell again (above the text field in the layout hierarchy).
-        Duplicate it by pressing
+        现在再次选择table cell（就在布局层级中text field的上方）。按下
         <em>
             Cmd + C
         </em>
-        and
+        和
         <em>
             Cmd + V
         </em>
-        , then change the
+        键对它进行复制，然后将副本的        
         <em>
             Identifier
         </em>
-        of the duplicate to
+        修改为
         <em>
             FeedItemCell
         </em>
-        . Now you have 3 different cells, one for each type of entry that will
-        be shown in the outline view.
+        。现在你就有了3个不同的cell，每个类型的cell都会被展示在outline view中。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/finishedcells"
@@ -286,27 +275,27 @@
         </a>
     </p>
     <p>
-        Select
+        选择
         <em>
             Date
         </em>
-        , and in the
+        ，并在
         <em>
             Identity Inspector
         </em>
-        change the Identifier to
+        中将Identifier修改为
         <em>
             DateColumn
         </em>
-        ; do the same for
+        ；为
         <em>
             Feed
         </em>
-        and change it to
+        执行相同的操作将Identifier修改为
         <em>
             TitleColumn
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/titlecolumn"
@@ -318,17 +307,15 @@
         </a>
     </p>
     <p>
-        The final step is to give the outline view a delegate and a data source.
-        Select the outline view and right- or control-click on it. Drag a line
-        from
+        最后的一步是给outline view设置一个delegate和data source。选择outline view并右击或按住control点击它，从
         <em>
             dataSource
         </em>
-        to the
+        拖拽一个到代表你的view controller的
         <em>
-            blue circle
+            蓝色圆圈
         </em>
-        that represents your view controller; repeat this to set the delegate.
+        上；重复类似的步骤来设置delegate。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/add_delegate"
@@ -340,7 +327,7 @@
         </a>
     </p>
     <p>
-        Run the project and you’ll see …
+        运行项目，你将会看到...
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/first_run-5"
