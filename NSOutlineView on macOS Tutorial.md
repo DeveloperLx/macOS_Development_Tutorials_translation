@@ -348,31 +348,26 @@
         Data Model
     </h2>
     <p>
-        The data model for an outline view is a bit different than the one for a table view. 
-        Like mentioned in the introduction, 
-        an outline view shows a hierarchical data model, 
-        and your model classes have to represent this hierarchy. 
-        Every hierarchy has a top level or root object. 
-        Here this will be a RSS Feed; the name of the feed is the root.
+        outline view的数据结构和table view中的有所不同。就像在介绍中提到的，outline view展示的是分层级的数据模型，你的模型类必须能够代表这个层级。每个层级都要有一个顶层或根对象。这里，它就RSS的信息流；feed的名称就是根。
     </p>
     <p>
-        Press
+        按
         <em>
             Cmd + N
         </em>
-        to create a new class. Inside the
+        键来创建一个新的类。在
         <em>
             macOS
         </em>
-        section select
+        部分中选择
         <em>
             Cocoa Class
         </em>
-        and click
+        并点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/New_File_Template.png"
@@ -384,23 +379,23 @@
         </a>
     </p>
     <p>
-        Name the class
+        将这个类命名为
         <code>
             Feed
         </code>
-        and make it a subclass of
+        ，且让它成为
         <code>
             NSObject
         </code>
-        . Then click
+        的子类。然后点击
         <em>
             Next
         </em>
-        and
+        ，下一页中则点击
         <em>
             Create
         </em>
-        on the next screen.
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Create_Feed_Class_2.png"
@@ -412,7 +407,7 @@
         </a>
     </p>
     <p>
-        Replace the automatically generated code with:
+        将自动生成的代码替换为：
     </p>
     <div class="wp_codebox">
         <table>
