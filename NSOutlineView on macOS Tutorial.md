@@ -420,22 +420,19 @@
 }
 </pre>
     <p>
-        This adds a
+        上述代码为你的类添加了一个名为
         <code>
             name
         </code>
-        property to your class and provides an init method that sets the property
-        to a provided value. Your class will store its children in an array, but
-        before you can do this, you need to create a class for those children.
-        Using the same procedure as before, add a new file for the
+        的property，以及一个方便设备此property的初始化分发。你的类会将它的“孩子”储存到一个数组中，但在你这么做之前，你需要创建一个类作为这个“孩子”。和之前的步骤一样，添加一个新名为
         <code>
             FeedItem
         </code>
-        class. Open the newly created
+        的类。打开新建的
         <em>
             FeedItem.swift
         </em>
-        and replace the content with the following:
+        文件，并将其内容替换为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Cocoa
 
@@ -452,52 +449,50 @@
 }
 </pre>
     <p>
-        This is another simple model class:
+        这是另一个简答的模型类：
         <code>
             FeedItem
         </code>
-        has a
+        ，它包含一个
         <code>
             url
         </code>
-        that you will use to load the corresponding article into the web view;
-        a
+        用来储存将加载到web view的网页的地址，一个
         <code>
             title
         </code>
-        ; and a
+        ，及一个
         <code>
             publishingDate
         </code>
-        . The initializer takes a dictionary as its parameter. This could be received
-        from a web service or, in this case, from a plist file.
+        。它的构造器使用一个字典作为它的参数。它既可以从网络服务器中接收内容，也可以像本例中一样，从plist文件中获取。
     </p>
     <p>
-        Head back to
+        找到
         <em>
             Feed.swift
         </em>
-        and add the following property to
+        并添加下列的property到
         <code>
             Feed
         </code>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> children = [<span class="hljs-type">FeedItem</span>]()
  </pre>
     <p>
-        This creates an empty array to store
+        这样就创建了一个空数组来储存
         <em>
             FeedItem
         </em>
-        objects.
+        对象。
     </p>
     <p>
-        Now add the following class method to
+        现在添加下列的类方法到
         <code>
             Feed
         </code>
-        to load the plist:
+        中来加载plist文件：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">feedList</span>(<span class="hljs-title">_</span> <span class="hljs-title">fileName</span>: <span class="hljs-title">String</span>) -&gt; [<span class="hljs-title">Feed</span>] </span>{
   <span class="hljs-comment">//1</span>
@@ -527,11 +522,11 @@
  }
 </pre>
     <p>
-        The method gets a file name as its argument and returns an array of
+        这个方法以一个文件名作为它的参数，然后返回了一个由
         <code>
             Feed
         </code>
-        objects. This code:
+        对象组成的数组。上述代码：
     </p>
     <ol>
         <li>
