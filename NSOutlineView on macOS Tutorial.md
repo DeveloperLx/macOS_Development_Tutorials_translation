@@ -339,22 +339,21 @@
         </a>
     </p>
     <p>
-        There’s an empty outline view and an error message in your console, saying
-        you have an illegal data source. What’s wrong?
+        只有一个空空的outline view，和你控制台中的错误信息，说你的data source是非法的。What’s wrong？
     </p>
     <p>
-        Before you can fill the outline view and get rid of the error message,
-        you need a data model.
+        在你填充outline view并解除错误信息之前，你需要一个data model。
     </p>
     <h2>
         Data Model
     </h2>
     <p>
-        The data model for an outline view is a bit different than the one for
-        a table view. Like mentioned in the introduction, an outline view shows
-        a hierarchical data model, and your model classes have to represent this
-        hierarchy. Every hierarchy has a top level or root object. Here this will
-        be a RSS Feed; the name of the feed is the root.
+        The data model for an outline view is a bit different than the one for a table view. 
+        Like mentioned in the introduction, 
+        an outline view shows a hierarchical data model, 
+        and your model classes have to represent this hierarchy. 
+        Every hierarchy has a top level or root object. 
+        Here this will be a RSS Feed; the name of the feed is the root.
     </p>
     <p>
         Press
