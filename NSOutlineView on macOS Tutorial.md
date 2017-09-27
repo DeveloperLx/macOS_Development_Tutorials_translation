@@ -6,9 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update 9/30/16:
+                更新于2016年9月30日：
             </em>
-            This tutorial has been updated for Xcode 8 and Swift 3.
+            本教程已适配Xcode 8及Swift 3。
         </p>
     </div>
     <p>
@@ -18,39 +18,29 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        When writing applications, you often want to show data that has a list-like
-        structure. For example, you might want to display a list of recipes. This
-        can be easily done with a
+        当编写app的时候，你会经常想以一个类似列表的结构来展示数据。例如，你想要展示一个食谱的列表，这可以很容易地使用
         <code>
             NSTableView
         </code>
-        . But what if you want to group the recipes by appetizer or main course?
-        Now you have a problem, because table views have no sections. Your five-layer-dip
-        recipe is right next to your linguine del mare recipe, which just won’t
-        do!
+        完成。但如果你想依据开胃菜或主要成分对食谱进行分组呢？现在你遇到了问题，因为table view不能进行分组。上图展示了设想中的分级食谱，只可惜我们还不会做！
     </p>
     <p>
-        Thankfully,
+        幸好，
         <code>
             NSOutlineView
         </code>
-        provides a lot more functionality.
+        提供了更多的功能。
         <code>
             NSOutlineView
         </code>
-        is a common component in macOS applications, and is a subclass of
+        是macOS中的一个常用组件，且它是
         <code>
             NSTableView
         </code>
-        . Like a table view, it uses rows and columns to display its content;
-        unlike a table view, it uses a hierarchical data structure.
+        的子类。和table view一样，它也用行和列来展示内容；有所不同的是，它使用分层的数据结构。
     </p>
     <p>
-        To see an outline view in action, open Xcode with an existing project
-        and have a look at the project navigator. Click on the triangle next to
-        the project name to expand it. You’ll see a structure like the image below:
-        beneath the project are groups, and inside the groups are Swift or Objective-C
-        files.
+        来实际地看一下outline view吧，打开一个已存在的工程，查看你的project navigator。项目名称的旁边有一个小三角形，你可以用它来将项目展开。如下图所示：在项目的下发就是分组，各组的内部则是Swift或Objective-C文件。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Outline_Xcode.png"
@@ -62,13 +52,10 @@
         </a>
     </p>
     <p>
-        In this NSOutlineView on macOS tutorial, you will learn how to use an
-        outline view to show your own hierarchical data. To do this, you’ll write
-        a RSS Reader-like application that loads RSS Feeds from a file and shows
-        them in an outline view.
+        在本教程中，你将学到如何使用outline view来展示你分级的数据。你将会编写一个RSS阅读器 - 从文件中加载出RSS的信息流，并将其展示到outline view上。 
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         The starter project can be downloaded
