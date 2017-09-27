@@ -673,19 +673,10 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234638">
-                    <td class="code" id="p123463code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension ViewController: NSOutlineViewDataSource { &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSOutlineViewDataSource</span> </span>{
+  
+}
+</pre>
     <p>
         This makes
         <code>
@@ -706,21 +697,15 @@
         </code>
         .
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234639">
-                    <td class="code" id="p123463code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem
-                            item: Any?) -&gt; Int { //1 if let feed = item as? Feed { return feed.children.count
-                            } //2 return feeds.count }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?)</span></span> -&gt; <span class="hljs-type">Int</span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
+    <span class="hljs-keyword">return</span> feed.children.<span class="hljs-built_in">count</span>
+  }
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">return</span> feeds.<span class="hljs-built_in">count</span>
+}
+</pre>
     <p>
         This method will be called for every level of the hierarchy displayed
         in the outline view. Since you only have 2 levels in your outline view,
@@ -786,21 +771,14 @@
         a given parent and index. The code for this is similiar to the previous
         code:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346310">
-                    <td class="code" id="p123463code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem
-                            item: Any?) -&gt; Any { if let feed = item as? Feed { return feed.children[index]
-                            } &nbsp; return feeds[index] }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, child index: Int, ofItem item: Any?)</span></span> -&gt; <span class="hljs-type">Any</span> {
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
+    <span class="hljs-keyword">return</span> feed.children[index]
+  }
+    
+  <span class="hljs-keyword">return</span> feeds[index]
+}
+</pre>
     <p>
         This checks whether
         <code>
@@ -836,21 +814,14 @@
         is that it can collapse items. First, however, you have to tell it which
         items can be collapsed or expanded. Add the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346311">
-                    <td class="code" id="p123463code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            func outlineView(_ outlineView: NSOutlineView, isItemExpandable item:
-                            Any) -&gt; Bool { if let feed = item as? Feed { return feed.children.count
-                            &gt; 0 } &nbsp; return false }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, isItemExpandable item: Any)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
+    <span class="hljs-keyword">return</span> feed.children.<span class="hljs-built_in">count</span> &gt; <span class="hljs-number">0</span>
+  }
+    
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+</pre>
     <p>
         In this application only
         <code>
@@ -911,19 +882,10 @@
         </em>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346312">
-                    <td class="code" id="p123463code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension ViewController: NSOutlineViewDelegate { &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSOutlineViewDelegate</span> </span>{
+
+}
+</pre>
     <p>
         The next method is a bit more complex, since the outline view should show
         different views for
@@ -939,21 +901,13 @@
     <p>
         First, add the method body to the extension.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346313">
-                    <td class="code" id="p123463code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?,
-                            item: Any) -&gt; NSView? { var view: NSTableCellView? // More code here
-                            return view }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">		
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
+  <span class="hljs-keyword">var</span> view: <span class="hljs-type">NSTableCellView</span>?
+  <span class="hljs-comment">// More code here</span>
+  <span class="hljs-keyword">return</span> view
+}
+</pre>
     <p>
         Right now this method returns
         <code>
@@ -973,21 +927,18 @@
         </code>
         comment:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346314">
-                    <td class="code" id="p123463code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            //1 if let feed = item as? Feed { //2 view = outlineView.make(withIdentifier:
-                            "FeedCell", owner: self) as? NSTableCellView if let textField = view?.textField
-                            { //3 textField.stringValue = feed.name textField.sizeToFit() } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">	
+<span class="hljs-comment">//1</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
+  <span class="hljs-comment">//2</span>
+  view = outlineView.make(withIdentifier: <span class="hljs-string">"FeedCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> textField = view?.textField {
+    <span class="hljs-comment">//3</span>
+    textField.stringValue = feed.name
+    textField.sizeToFit()
+  }
+} 
+</pre>
     <p>
         This code:
     </p>
@@ -1055,19 +1006,8 @@
         </code>
         property:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346315">
-                    <td class="code" id="p123463code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            let dateFormatter = DateFormatter()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> dateFormatter = <span class="hljs-type">DateFormatter</span>() 
+</pre>
     <p>
         Change
         <code>
@@ -1079,19 +1019,8 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346316">
-                    <td class="code" id="p123463code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            dateFormatter.dateStyle = .short
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">dateFormatter.dateStyle = .short
+</pre>
     <p>
         This adds an
         <code>
@@ -1122,26 +1051,28 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346317">
-                    <td class="code" id="p123463code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            else if let feedItem = item as? FeedItem { //1 if tableColumn?.identifier
-                            == "DateColumn" { //2 view = outlineView.make(withIdentifier: "DateCell",
-                            owner: self) as? NSTableCellView &nbsp; if let textField = view?.textField
-                            { //3 textField.stringValue = dateFormatter.string(from: feedItem.publishingDate)
-                            textField.sizeToFit() } } else { //4 view = outlineView.make(withIdentifier:
-                            "FeedItemCell", owner: self) as? NSTableCellView if let textField = view?.textField
-                            { //5 textField.stringValue = feedItem.title textField.sizeToFit() } }
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feedItem = item <span class="hljs-keyword">as</span>? <span class="hljs-type">FeedItem</span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">if</span> tableColumn?.identifier == <span class="hljs-string">"DateColumn"</span> {
+    <span class="hljs-comment">//2</span>
+    view = outlineView.make(withIdentifier: <span class="hljs-string">"DateCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
+       	
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> textField = view?.textField {
+      <span class="hljs-comment">//3</span>
+      textField.stringValue = dateFormatter.string(from: feedItem.publishingDate)
+      textField.sizeToFit()
+    }
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">//4</span>
+    view = outlineView.make(withIdentifier: <span class="hljs-string">"FeedItemCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> textField = view?.textField {
+      <span class="hljs-comment">//5</span>
+      textField.stringValue = feedItem.title
+      textField.sizeToFit()
+    }
+  }
+}
+</pre>
     <p>
         This is what you’re doing here:
     </p>
@@ -1233,47 +1164,44 @@
         </code>
         if statement to:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346318">
-                    <td class="code" id="p123463code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            if tableColumn?.identifier == "DateColumn" { view = outlineView.make(withIdentifier:
-                            "DateCell", owner: self) as? NSTableCellView if let textField = view?.textField
-                            { textField.stringValue = "" textField.sizeToFit() } } else { view = outlineView.make(withIdentifier:
-                            "FeedCell", owner: self) as? NSTableCellView if let textField = view?.textField
-                            { textField.stringValue = feed.name textField.sizeToFit() } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> tableColumn?.identifier == <span class="hljs-string">"DateColumn"</span> {
+  view = outlineView.make(withIdentifier: <span class="hljs-string">"DateCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> textField = view?.textField {
+    textField.stringValue = <span class="hljs-string">""</span>
+    textField.sizeToFit()
+  }
+} <span class="hljs-keyword">else</span> {
+  view = outlineView.make(withIdentifier: <span class="hljs-string">"FeedCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> textField = view?.textField {
+    textField.stringValue = feed.name
+    textField.sizeToFit()
+  }
+}
+</pre>
     <p>
         To complete this app, after you select an entry the web view should show
         the corresponding article. How can you do that? Luckily, the following
         delegate method can be used to check whether something was selected or
         if the selection changed.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346319">
-                    <td class="code" id="p123463code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            func outlineViewSelectionDidChange(_ notification: Notification) { //1
-                            guard let outlineView = notification.object as? NSOutlineView else { return
-                            } //2 let selectedIndex = outlineView.selectedRow if let feedItem = outlineView.item(atRow:
-                            selectedIndex) as? FeedItem { //3 let url = URL(string: feedItem.url) //4
-                            if let url = url { //5 self.webView.mainFrame.load(URLRequest(url: url))
-                            } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">_</span> notification: Notification)</span></span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> outlineView = notification.object <span class="hljs-keyword">as</span>? <span class="hljs-type">NSOutlineView</span> <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span>
+  }
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">let</span> selectedIndex = outlineView.selectedRow
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feedItem = outlineView.item(atRow: selectedIndex) <span class="hljs-keyword">as</span>? <span class="hljs-type">FeedItem</span> {
+    <span class="hljs-comment">//3</span>
+    <span class="hljs-keyword">let</span> url = <span class="hljs-type">URL</span>(string: feedItem.url)
+    <span class="hljs-comment">//4</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> url = url {
+      <span class="hljs-comment">//5</span>
+      <span class="hljs-keyword">self</span>.webView.mainFrame.load(<span class="hljs-type">URLRequest</span>(url: url))
+    }
+  }
+}
+</pre>
     <p>
         This code:
     </p>
