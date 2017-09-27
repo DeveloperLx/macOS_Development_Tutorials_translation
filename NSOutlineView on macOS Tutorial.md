@@ -409,20 +409,16 @@
     <p>
         将自动生成的代码替换为：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234631">
-                    <td class="code" id="p123463code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            import Cocoa &nbsp; class Feed: NSObject { let name: String &nbsp; init(name:
-                            String) { self.name = name } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Cocoa
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Feed</span>: <span class="hljs-title">NSObject</span> </span>{
+   <span class="hljs-keyword">let</span> name: <span class="hljs-type">String</span>
+       
+   <span class="hljs-keyword">init</span>(name: <span class="hljs-type">String</span>) {
+     <span class="hljs-keyword">self</span>.name = name
+   }
+}
+</pre>
     <p>
         This adds a
         <code>
@@ -441,23 +437,20 @@
         </em>
         and replace the content with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234632">
-                    <td class="code" id="p123463code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            import Cocoa &nbsp; class FeedItem: NSObject { let url: String let title:
-                            String let publishingDate: Date &nbsp; init(dictionary: NSDictionary) {
-                            self.url = dictionary.object(forKey: "url") as! String self.title = dictionary.object(forKey:
-                            "title") as! String self.publishingDate = dictionary.object(forKey: "date")
-                            as! Date } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">import</span> Cocoa
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeedItem</span>: <span class="hljs-title">NSObject</span> </span>{
+  <span class="hljs-keyword">let</span> url: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> title: <span class="hljs-type">String</span>
+  <span class="hljs-keyword">let</span> publishingDate: <span class="hljs-type">Date</span>
+	  
+  <span class="hljs-keyword">init</span>(dictionary: <span class="hljs-type">NSDictionary</span>) {
+    <span class="hljs-keyword">self</span>.url = dictionary.object(forKey: <span class="hljs-string">"url"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">String</span>
+    <span class="hljs-keyword">self</span>.title = dictionary.object(forKey: <span class="hljs-string">"title"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">String</span>
+    <span class="hljs-keyword">self</span>.publishingDate = dictionary.object(forKey: <span class="hljs-string">"date"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">Date</span>
+  }
+}
+</pre>
     <p>
         This is another simple model class:
         <code>
@@ -490,19 +483,8 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234633">
-                    <td class="code" id="p123463code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            var children = [FeedItem]()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> children = [<span class="hljs-type">FeedItem</span>]()
+ </pre>
     <p>
         This creates an empty array to store
         <em>
@@ -517,25 +499,33 @@
         </code>
         to load the plist:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234634">
-                    <td class="code" id="p123463code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            class func feedList(_ fileName: String) -&gt; [Feed] { //1 var feeds =
-                            [Feed]() &nbsp; //2 if let feedList = NSArray(contentsOfFile: fileName)
-                            as? [NSDictionary] { //3 for feedItems in feedList { //4 let feed = Feed(name:
-                            feedItems.object(forKey: "name") as! String) //5 let items = feedItems.object(forKey:
-                            "items") as! [NSDictionary] //6 for dict in items { //7 let item = FeedItem(dictionary:
-                            dict) feed.children.append(item) } //8 feeds.append(feed) } } &nbsp; //9
-                            return feeds }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">feedList</span>(<span class="hljs-title">_</span> <span class="hljs-title">fileName</span>: <span class="hljs-title">String</span>) -&gt; [<span class="hljs-title">Feed</span>] </span>{
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">var</span> feeds = [<span class="hljs-type">Feed</span>]()
+    
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feedList = <span class="hljs-type">NSArray</span>(contentsOfFile: fileName) <span class="hljs-keyword">as</span>? [<span class="hljs-type">NSDictionary</span>] {
+    <span class="hljs-comment">//3</span>
+    <span class="hljs-keyword">for</span> feedItems <span class="hljs-keyword">in</span> feedList {
+      <span class="hljs-comment">//4</span>
+      <span class="hljs-keyword">let</span> feed = <span class="hljs-type">Feed</span>(name: feedItems.object(forKey: <span class="hljs-string">"name"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">String</span>)
+      <span class="hljs-comment">//5</span>
+      <span class="hljs-keyword">let</span> items = feedItems.object(forKey: <span class="hljs-string">"items"</span>) <span class="hljs-keyword">as</span>! [<span class="hljs-type">NSDictionary</span>]
+      <span class="hljs-comment">//6</span>
+      <span class="hljs-keyword">for</span> dict <span class="hljs-keyword">in</span> items {
+        <span class="hljs-comment">//7</span>
+        <span class="hljs-keyword">let</span> item = <span class="hljs-type">FeedItem</span>(dictionary: dict)
+        feed.children.append(item)
+      }
+      <span class="hljs-comment">//8</span>
+      feeds.append(feed)
+    }
+  }
+    
+  <span class="hljs-comment">//9</span>
+  <span class="hljs-keyword">return</span> feeds
+ }
+</pre>
     <p>
         The method gets a file name as its argument and returns an array of
         <code>
@@ -627,19 +617,8 @@
         </em>
         , and below the IBOutlet section add a property to store feeds:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234635">
-                    <td class="code" id="p123463code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            var feeds = [Feed]()
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> feeds = [<span class="hljs-type">Feed</span>]()
+</pre>
     <p>
         Find
         <code>
@@ -647,56 +626,16 @@
         </code>
         and add the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234636">
-                    <td class="code" id="p123463code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            if let filePath = Bundle.main.path(forResource: "Feeds", ofType: "plist")
-                            { feeds = Feed.feedList(filePath) print(feeds) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> filePath = <span class="hljs-type">Bundle</span>.main.path(forResource: <span class="hljs-string">"Feeds"</span>, ofType: <span class="hljs-string">"plist"</span>) {
+  feeds = <span class="hljs-type">Feed</span>.feedList(filePath)
+  <span class="hljs-built_in">print</span>(feeds)
+}
+</pre>
     <p>
         Run the project; you should see something like this in your console:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1234637">
-                    <td class="code" id="p123463code7">
-                        <pre class="bash" style="font-family:monospace;">
-                            <span style="color: #7a0874; font-weight: bold;">
-                                [
-                            </span>
-                            <span style="color: #000000; font-weight: bold;">
-                                &lt;
-                            </span>
-                            Reader.Feed: 0x600000045010
-                            <span style="color: #000000; font-weight: bold;">
-                                &gt;
-                            </span>
-                            ,
-                            <span style="color: #000000; font-weight: bold;">
-                                &lt;
-                            </span>
-                            Reader.Feed: 0x6000000450d0
-                            <span style="color: #000000; font-weight: bold;">
-                                &gt;
-                            </span>
-                            <span style="color: #7a0874; font-weight: bold;">
-                                ]
-                            </span>
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="bash" class="language-bash hljs">[&lt;Reader.Feed: 0x600000045010&gt;, &lt;Reader.Feed: 0x6000000450d0&gt;]
+</pre>
     <p>
         You can see that you’ve successfully loaded two
         <code>
