@@ -1238,15 +1238,13 @@
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Adding this entry to your plist causes your application to accept insecure
-            connections to every host, which can be a security risk. Usually it is
-            better to add
+            添加此条目到你的plist文件中，会使你的app能够接受任何不安全的主机，可能会造成一定的风险。通常添加
             <em>
                 Exception Domains
             </em>
-            to this entry or, even better, to use backends that use an encrypted connection.
+            为某个接口，而对其它接口则使用加密连接的后端，会更好一些。
         </p>
     </div>
     <p>
@@ -1259,15 +1257,14 @@
         </a>
     </p>
     <p>
-        Now build your project and select a
+        现在运行项目，并选择一个
         <code>
             FeedItem
         </code>
-        . Assuming you have a working internet connection, the article will load
-        after a few seconds.
+        。如果你的网路已连接，对应的文章就会在几秒中之后被加载出来。
     </p>
     <h2>
-        Finishing Touches
+        完成项目
     </h2>
     <p>
         Your example application is now working, but there are at least two common
