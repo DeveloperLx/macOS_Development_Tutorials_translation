@@ -1568,27 +1568,24 @@
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Not only can you delete a row, but you can also add and move rows. 
-            The steps are the same: add an item to your data model and call
+            不仅你可以删除一行，但你还可以添加和移动行。步骤是相同的：添加一个item到你的data model中并调用
             <code>
                 insertItemsAtIndexes(\_:, inParent:, withAnimation:)
             </code>
-            to insert items, or
+            来插入item，或通过
             <code>
                 moveItemAtIndex(\_:, inParent:, toIndex:, inParent:)
             </code>
-            to move items. Make sure that your datasource is also changed accordingly.
+            来移动item。确保你的datasource做出相应的改变。
         </p>
     </div>
     <p>
-        Now your app is complete! Build and run to check out the new functionality you just added. 
-        Select a feed item and hit the delete key–it’ll disappear as expected. 
-        Check that the same is true for the feed as well.
+        现在你的app全部完成了！运行项目来测试你刚添加的新功能。选择一个feed的item并按下删除键 - 它会如你期望中的一样消失掉。测试对于feed也会发生同样的动作。
     </p>
     <h2>
-        Where To Go From here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1600,10 +1597,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1611,9 +1609,10 @@
         </div>
     </div>
     <p>
-        Congrats! You’ve created an RSS Feed Reader-type app with hierarchical
-        functionality that allows the user to delete rows at will and to double-click
-        to expand and collapse the lists.
+        Congrats! 
+        You’ve created an RSS Feed Reader-type app with hierarchical functionality that 
+        allows the user to delete rows at will 
+        and to double-click to expand and collapse the lists.
     </p>
     <p>
         You can download the final project
@@ -1675,7 +1674,8 @@
         is also worth a look.
     </p>
     <p>
-        I hope you enjoyed this NSOutlineView on macOS tutorial! If you have any
-        questions or comments, feel free to join the forum discussion below.
+        I hope you enjoyed this NSOutlineView on macOS tutorial! 
+        If you have any questions or comments, 
+        feel free to join the forum discussion below.
     </p>
 </div>
