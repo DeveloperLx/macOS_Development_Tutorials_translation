@@ -1267,39 +1267,37 @@
         完成项目
     </h2>
     <p>
-        Your example application is now working, but there are at least two common
-        behaviors missing: double-clicking to expand or collapse a group, and the
-        ability to remove an entry from the outline view.
+        你的示例app已经可以正常地工作了，但现在至少还有两种行为是缺失的：双击来展开或收起一个组，以及从outline view中移除一个组。
     </p>
     <p>
-        Let’s start with the double-click feature. Open the
-        <em>
-            Assistant Editor
-        </em>
-        by pressing
+        让我们从双击的特性开始。按
         <em>
             Alt + Cmd + Enter
         </em>
-        . Open
+        键打开
+        <em>
+            Assistant Editor
+        </em>
+        。在窗口的左边打开
         <em>
             Main.storyboard
         </em>
-        in the left part of the window, and
+        ，右边打开
         <em>
             ViewController.swift
         </em>
-        in the right part.
+        。
     </p>
     <p>
-        Right-click on the outline view inside the
+        双击左边
         <em>
             Document Outline
         </em>
-        on the left. Inside the appearing pop-up, find
+        中的outline view。在弹出的菜单中，找到
         <em>
             doubleAction
         </em>
-        and click the small circle to its right.
+        并点击它右侧的小圆圈。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/assistanteditor-9"
@@ -1311,27 +1309,27 @@
         </a>
     </p>
     <p>
-        Drag from the circle inside
+        拖拽小圆圈到
         <em>
             ViewController.swift
         </em>
-        and add an
-        <em>
-            IBAction
-        </em>
-        named
+        中，添加一个名为
         <code>
             doubleClickedItem
         </code>
-        . Make sure that the sender is of type
+        的
+        <em>
+            IBAction
+        </em>
+        。确保sender的类型为
         <code>
             NSOutlineView
         </code>
-        and not
+        而不是
         <code>
             AnyObject
         </code>
-        .
+        。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/addaction-2"
@@ -1343,32 +1341,31 @@
         </a>
     </p>
     <p>
-        Switch back to the Standard editor (
+        切回到Standard editor中（按
         <em>
             Cmd + Enter
         </em>
-        ) and open
+        键），打开
         <em>
             ViewController.swift
         </em>
-        . Add the following code to the action you just created.
+        。添加下列代码到你刚创建的动作方法中。
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346320">
-                    <td class="code" id="p123463code20">
-                        <pre class="swift" style="font-family:monospace;">
-                            @IBAction func doubleClickedItem(_ sender: NSOutlineView) { //1 let item
-                            = sender.item(atRow: sender.clickedRow) &nbsp; //2 if item is Feed { //3
-                            if sender.isItemExpanded(item) { sender.collapseItem(item) } else { sender.expandItem(item)
-                            } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">doubleClickedItem</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSOutlineView)</span></span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">let</span> item = sender.item(atRow: sender.clickedRow)
+ 
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">if</span> item <span class="hljs-keyword">is</span> <span class="hljs-type">Feed</span> {
+    <span class="hljs-comment">//3</span>
+    <span class="hljs-keyword">if</span> sender.isItemExpanded(item) {
+      sender.collapseItem(item)
+    } <span class="hljs-keyword">else</span> {
+      sender.expandItem(item)
+    }
+  }
+}
+</pre>
     <p>
         This code:
     </p>
@@ -1411,20 +1408,10 @@
         . Make sure to add it to the normal declaration and not inside an extension,
         because the method has nothing to do with the delegate or datasource protocols.
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346321">
-                    <td class="code" id="p123463code21">
-                        <pre class="swift" style="font-family:monospace;">
-                            override func keyDown(with theEvent: NSEvent) { interpretKeyEvents([theEvent])
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">keyDown</span><span class="hljs-params">(with theEvent: NSEvent)</span></span> {
+  interpretKeyEvents([theEvent])
+}
+</pre>
     <p>
         This method is called every time a key is pressed, and asks the system
         which key was pressed. For some keys, the system will call a corresponding
@@ -1441,21 +1428,19 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346322">
-                    <td class="code" id="p123463code22">
-                        <pre class="swift" style="font-family:monospace;">
-                            override func deleteBackward(_ sender: Any?) { //1 let selectedRow = outlineView.selectedRow
-                            if selectedRow == -1 { return } &nbsp; //2 outlineView.beginUpdates() &nbsp;
-                            outlineView.endUpdates() }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">deleteBackward</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">let</span> selectedRow = outlineView.selectedRow
+  <span class="hljs-keyword">if</span> selectedRow == -<span class="hljs-number">1</span> {
+    <span class="hljs-keyword">return</span>
+  }
+   	
+  <span class="hljs-comment">//2</span>
+  outlineView.beginUpdates()
+
+  outlineView.endUpdates()
+}
+</pre>
     <ol>
         <li>
             The first thing this does is see if there is something selected. If nothing
@@ -1481,23 +1466,21 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346323">
-                    <td class="code" id="p123463code23">
-                        <pre class="swift" style="font-family:monospace;">
-                            //3 if let item = outlineView.item(atRow: selectedRow) { &nbsp; //4 if
-                            let item = item as? Feed { //5 if let index = self.feeds.index( where:
-                            {$0.name == item.name} ) { //6 self.feeds.remove(at: index) //7 outlineView.removeItems(at:
-                            IndexSet(integer: selectedRow), inParent: nil, withAnimation: .slideLeft)
-                            } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//3</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> item = outlineView.item(atRow: selectedRow) {
+     
+  <span class="hljs-comment">//4</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> item = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
+    <span class="hljs-comment">//5</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> index = <span class="hljs-keyword">self</span>.feeds.index( <span class="hljs-keyword">where</span>: {$<span class="hljs-number">0</span>.name == item.name} ) {
+      <span class="hljs-comment">//6</span>
+      <span class="hljs-keyword">self</span>.feeds.remove(at: index)
+      <span class="hljs-comment">//7</span>
+      outlineView.removeItems(at: <span class="hljs-type">IndexSet</span>(integer: selectedRow), inParent: <span class="hljs-literal">nil</span>, withAnimation: .slideLeft)
+    }
+  }
+}
+</pre>
     <p>
         This code:
     </p>
@@ -1545,22 +1528,18 @@
         </code>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p12346324">
-                    <td class="code" id="p123463code24">
-                        <pre class="swift" style="font-family:monospace;">
-                            else if let item = item as? FeedItem { //8 for feed in self.feeds { //9
-                            if let index = feed.children.index( where: {$0.title == item.title} ) {
-                            feed.children.remove(at: index) outlineView.removeItems(at: IndexSet(integer:
-                            index), inParent: feed, withAnimation: .slideLeft) } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">		
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> item = item <span class="hljs-keyword">as</span>? <span class="hljs-type">FeedItem</span> {
+  <span class="hljs-comment">//8</span>
+  <span class="hljs-keyword">for</span> feed <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.feeds {
+    <span class="hljs-comment">//9</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> index = feed.children.index( <span class="hljs-keyword">where</span>: {$<span class="hljs-number">0</span>.title == item.title} ) {
+      feed.children.remove(at: index)
+      outlineView.removeItems(at: <span class="hljs-type">IndexSet</span>(integer: index), inParent: feed, withAnimation: .slideLeft)
+    }
+  }
+}
+</pre>
     <ol start="8">
         <li>
             This code is similar to the code for a
