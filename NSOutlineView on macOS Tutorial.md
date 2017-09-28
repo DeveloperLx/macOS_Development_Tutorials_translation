@@ -809,29 +809,22 @@
 }
 </pre>
     <p>
-        In this application only
+        在本app中，只有
         <code>
             Feeds
         </code>
-        can be expanded and collapsed, and only if they have children. 
-        This checks whether
+        可以展开或收起，因为只有它有children。因此首先检查
         <code>
             item
         </code>
-        is a
+        是否是
         <code>
             Feed
         </code>
-        and if so, returns whether the child count of
-        <code>
-            Feed
-        </code>
-        is greater than 0. For every other item, it just returns false.
+        ，如果是的话，就判断它的child数量是否大于0，大于的话就返回true，否则返回false。对于其它的item，都返回false。
     </p>
     <p>
-        Run your application. Hooray! The error message is gone, and the outline
-        view is populated. But wait — you only see 2 triangles indicating that
-        you can expand the row. If you click one, more invisible entries appear.
+        运行你的app。万岁！错误的消息已经消失了，outline view已经被填充好了。但是稍等 - 你现在只能看到2个小三角形，来指示你可以展开这一行。如果你点击它的话，就可以看到更多的行。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/second_run"
@@ -843,10 +836,10 @@
         </a>
     </p>
     <p>
-        Did you do something wrong? Nope — you just need one more method.
+        是你做错了什么吗？不是 - 你只需要在添加一个方法。
     </p>
     <h2>
-        Introducing NSOutlineViewDelegate
+        介绍NSOutlineViewDelegate
     </h2>
     <p>
         The outline view asks its delegate for the view it should show for a specific
