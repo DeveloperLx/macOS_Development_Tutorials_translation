@@ -1367,66 +1367,61 @@
 }
 </pre>
     <p>
-        This code:
+        上述代码：
     </p>
     <ol>
         <li>
-            Gets the clicked item.
+            获取被点击的item。
         </li>
         <li>
-            Checks whether this item is a
+            检查这个item是否为
             <code>
                 Feed
             </code>
-            , which is the only item that can be expanded or collapsed.
+            ，只有Feed的item可以被展开或收起。
         </li>
         <li>
-            If the item is a
+            如果这个item是
             <code>
                 Feed
             </code>
-            , asks the outline view if the item is expanded or collapsed, and calls
-            the appropriate method.
+            的话，就询问outline view这个item是展开的还是收起的，然后调用恰当地方法完成操作。
         </li>
     </ol>
     <p>
-        Build your project, then double-click a feed. It works!
+        运行你的项目，然后双击一个feed。成功了！
     </p>
     <p>
-        The last behavior we want to implement is allowing the user to press backspace
-        to delete the selected feed or article.
+        你想实现的最后一个特性，就是让用户可以按下退格键删除被选择的feed或文章。
     </p>
     <p>
-        Still inside
+        还是在
         <em>
             ViewController.swift
         </em>
-        , add the following method to your
+        中，为
         <code>
             ViewController
         </code>
-        . Make sure to add it to the normal declaration and not inside an extension,
-        because the method has nothing to do with the delegate or datasource protocols.
+        添加下列的方法。确保将它添加到原始的类声明中而不是extension中，因为这个方法和delegate或datasource的协议无关。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">keyDown</span><span class="hljs-params">(with theEvent: NSEvent)</span></span> {
   interpretKeyEvents([theEvent])
 }
 </pre>
     <p>
-        This method is called every time a key is pressed, and asks the system
-        which key was pressed. For some keys, the system will call a corresponding
-        action. The method called for the backspace key is
+        这个方法会在每次某个键被按下时被调用，并询问系统是哪个键被按下了。对于一些键，系统会执行相应的动作。将被退格键调用的方法是
         <code>
             deleteBackward(\_:)
         </code>
-        .
+        。
     </p>
     <p>
-        Add the method below
+        添加下面的方法
         <code>
             keyDown(\_:)
         </code>
-        :
+        ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">deleteBackward</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
   <span class="hljs-comment">//1</span>
@@ -1443,28 +1438,26 @@
 </pre>
     <ol>
         <li>
-            The first thing this does is see if there is something selected. If nothing
-            is selected,
+            第一件事是检查现在有无被选中的项。如果没有任何项被选中，
             <code>
                 selectedRow
             </code>
-            will have a value of -1 and you return from this method.
+            的值就会是-1，直接退出本方法。
         </li>
         <li>
-            Otherwise, it tells the outline view that there will be updates on it
-            and when these updates are done.
+            否则，就告知outline view现在需要更新一些内容，以及什么时候会更新完毕。
         </li>
     </ol>
     <p>
-        Now add the following between
+        现在在
         <code>
             beginUpdates()
         </code>
-        and
+        和
         <code>
             endUpdates()
         </code>
-        :
+        间添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//3</span>
 <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> item = outlineView.item(atRow: selectedRow) {
@@ -1482,51 +1475,51 @@
 }
 </pre>
     <p>
-        This code:
+        上述代码：
     </p>
     <ol start="3">
         <li>
-            Gets the selected item.
+            获取被选择的item。
         </li>
         <li>
-            Checks if it is a
+            检查它是否为
             <code>
                 Feed
             </code>
-            or a
+            或
             <code>
                 FeedItem
             </code>
-            .
+            。
         </li>
         <li>
-            If it is a
+            如果是
             <code>
                 Feed
             </code>
-            , searches the index of it inside the
+            的话，就在
             <code>
                 feeds
             </code>
-            array.
+            数组中查找它的序号。
         </li>
         <li>
-            If found, removes it from the array.
+            找到后，从数组中移除它。
         </li>
         <li>
-            Removes the row for this entry from the outline view with a small animation.
+            从outline view中移除相应的行，要带有一个小小的动画。
         </li>
     </ol>
     <p>
-        To finish this method, add the code to handle
+        为了完成这个方法，添加下列的代码来处理
         <code>
             FeedItems
         </code>
-        as an else part to
+        ，将它作为
         <code>
             if let item = item as? Feed
         </code>
-        :
+        的else部分：
     </p>
     <pre lang="swift" class="language-swift hljs">		
 <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> item = item <span class="hljs-keyword">as</span>? <span class="hljs-type">FeedItem</span> {
@@ -1542,35 +1535,34 @@
 </pre>
     <ol start="8">
         <li>
-            This code is similar to the code for a
+            这里的代码非常类似于
             <code>
                 Feed
             </code>
-            . The only additional step is that here it iterates over all feeds, because
-            you don’t know to which
-            <code>
-                Feed
-            </code>
-            the
+            。唯一额外的步骤是它会迭代所有的feed，因为你不知道这个
             <code>
                 FeedItem
             </code>
-            belongs.
+            属于哪个
+            <code>
+                Feed
+            </code>
+            。
         </li>
         <li>
-            For each
+            对于每个
             <code>
                 Feed
             </code>
-            , the code checks if you can find a
-            <code>
-                FeedItem
-            </code>
-            in its
+            ，检查它的
             <code>
                 children
             </code>
-            array. If so, it deletes it from the array and from the outline view.
+            数组中是否可以找到
+            <code>
+                FeedItem
+            </code>
+            。如果可以的话，就将它从数组和outline view中删除。
         </li>
     </ol>
     <div class="note">
@@ -1578,8 +1570,8 @@
             <em>
                 Note:
             </em>
-            Not only can you delete a row, but you can also add and move rows. The
-            steps are the same: add an item to your data model and call
+            Not only can you delete a row, but you can also add and move rows. 
+            The steps are the same: add an item to your data model and call
             <code>
                 insertItemsAtIndexes(\_:, inParent:, withAnimation:)
             </code>
@@ -1591,9 +1583,9 @@
         </p>
     </div>
     <p>
-        Now your app is complete! Build and run to check out the new functionality
-        you just added. Select a feed item and hit the delete key–it’ll disappear
-        as expected. Check that the same is true for the feed as well.
+        Now your app is complete! Build and run to check out the new functionality you just added. 
+        Select a feed item and hit the delete key–it’ll disappear as expected. 
+        Check that the same is true for the feed as well.
     </p>
     <h2>
         Where To Go From here?
