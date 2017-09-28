@@ -842,43 +842,36 @@
         介绍NSOutlineViewDelegate
     </h2>
     <p>
-        The outline view asks its delegate for the view it should show for a specific entry. 
-        However, you haven’t implemented any delegate methods yet — 
-        time to add conformance to
-        <code>
-            NSOutlineViewDelegate
-        </code>
-        .
+        outline view会询问它的delegate，该为每个特定的条目展示什么样的view。然而，你至今还没有添加任何delegate方法的实现 - 现在就是该去添加的时候了。
     </p>
     <p>
-        Add another extension to your
-        <code>
-            ViewController
-        </code>
-        in
+        在
         <em>
             ViewController.swift
         </em>
-        :
+        中添加另一个
+        <code>
+            ViewController
+        </code>
+        的extension：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSOutlineViewDelegate</span> </span>{
 
 }
 </pre>
     <p>
-        The next method is a bit more complex, 
-        since the outline view should show different views for
+        下面的这个方法会有一点复杂，因为outline view应当为每个
         <code>
-            Feeds
+            Feed
         </code>
-        and
+        和
         <code>
             FeedItems
         </code>
-        . Let’s put it together piece by piece.
+        展示不同的view。让我们一块一块地说。
     </p>
     <p>
-        First, add the method body to the extension.
+        首先，添加方法体到extension中。
     </p>
     <pre lang="swift" class="language-swift hljs">		
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
@@ -888,23 +881,19 @@
 }
 </pre>
     <p>
-        Right now this method returns
-        <code>
-            nil
-        </code>
-        for every
+        现在对于每个
         <code>
             item
         </code>
-        . In the next step you start to return a view for a
+        我们都返回了nil。下一步你要为
         <code>
             Feed
         </code>
-        . Add this code above the
+        来返回view。在
         <code>
             // More code here
         </code>
-        comment:
+        注释的上方添加如下的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">	
 <span class="hljs-comment">//1</span>
@@ -919,7 +908,7 @@
 } 
 </pre>
     <p>
-        This code:
+        上述代码：
     </p>
     <ol>
         <li>
