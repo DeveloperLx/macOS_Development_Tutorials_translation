@@ -842,9 +842,9 @@
         介绍NSOutlineViewDelegate
     </h2>
     <p>
-        The outline view asks its delegate for the view it should show for a specific
-        entry. However, you haven’t implemented any delegate methods yet — time
-        to add conformance to
+        The outline view asks its delegate for the view it should show for a specific entry. 
+        However, you haven’t implemented any delegate methods yet — 
+        time to add conformance to
         <code>
             NSOutlineViewDelegate
         </code>
@@ -866,8 +866,8 @@
 }
 </pre>
     <p>
-        The next method is a bit more complex, since the outline view should show
-        different views for
+        The next method is a bit more complex, 
+        since the outline view should show different views for
         <code>
             Feeds
         </code>
@@ -949,8 +949,7 @@
             <code>
                 sizeToFit()
             </code>
-            . This causes the text field to recalculate its frame so the contents
-            fit inside.
+            . This causes the text field to recalculate its frame so the contents fit inside.
         </li>
     </ol>
     <p>
