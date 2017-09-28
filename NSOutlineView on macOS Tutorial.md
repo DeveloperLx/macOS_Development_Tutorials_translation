@@ -530,96 +530,96 @@
     </p>
     <ol>
         <li>
-            Creates an empty
+            创建了一个空的
             <code>
                 Feed
             </code>
-            array.
+            数组。
         </li>
         <li>
-            Tries to load an array of dictionaries from the file.
+            尝试从文件中加载一个字典的数组。
         </li>
         <li>
-            If this worked, loops through the entries.
+            如果加载成功的话，遍历数组中的每一个项目。
         </li>
         <li>
-            The dictionary contains a key
+            这个字典包含一个键
             <em>
                 name
             </em>
-            that is used to inititalize
+            ，用来初始化
             <code>
                 Feed
             </code>
-            .
+            。
         </li>
         <li>
-            The key
+            键
             <em>
                 items
             </em>
-            contains another array of dictionaries.
+            则包含了另一个字典的数组。
         </li>
         <li>
-            Loops through the dictionaries.
+            遍历字典。
         </li>
         <li>
-            Initializes a
+            初始化一个
             <code>
                 FeedItem
             </code>
-            . This item is appended to the
+            。这个item被添加到了父
+            <code>
+                Feed
+            </code>
+            的
             <code>
                 children
             </code>
-            array of the parent
-            <code>
-                Feed
-            </code>
-            .
+            数组中。
         </li>
         <li>
-            After the loop, every child for the
+            循环完成后，在
             <code>
                 Feed
             </code>
-            is added to the
+            开始加载之前，
+            <code>
+                Feed
+            </code>
+            的每个child都被添加到了
             <code>
                 feeds
             </code>
-            array before the next
-            <code>
-                Feed
-            </code>
-            starts loading.
+            的数组中。
         </li>
         <li>
-            Returns the
+            返回
             <code>
                 feeds
             </code>
-            . If everything worked as expected, this array will contain 2
+            。如果每件事都如同期望中的工作方式，这个数组将包含两个
             <code>
                 Feed
             </code>
-            objects.
+            对象。
         </li>
     </ol>
     <p>
-        Open
+        打开
         <em>
             ViewController.swift
         </em>
-        , and below the IBOutlet section add a property to store feeds:
+        ，并在IBOutlet部分的下面添加一个property来储存feeds：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> feeds = [<span class="hljs-type">Feed</span>]()
 </pre>
     <p>
-        Find
+        找到
         <code>
             viewDidLoad()
         </code>
-        and add the following:
+        并添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> filePath = <span class="hljs-type">Bundle</span>.main.path(forResource: <span class="hljs-string">"Feeds"</span>, ofType: <span class="hljs-string">"plist"</span>) {
   feeds = <span class="hljs-type">Feed</span>.feedList(filePath)
@@ -627,70 +627,67 @@
 }
 </pre>
     <p>
-        Run the project; you should see something like this in your console:
+        运行项目；你应当会在控制台中类似如下的内容：
     </p>
     <pre lang="bash" class="language-bash hljs">[&lt;Reader.Feed: 0x600000045010&gt;, &lt;Reader.Feed: 0x6000000450d0&gt;]
 </pre>
     <p>
-        You can see that you’ve successfully loaded two
+        可以看到你已经成功地加载了两个
         <code>
             Feed
         </code>
-        objects into the
+        对象到
         <code>
             feeds
         </code>
-        property — yay!
+        property中 — 哇！
     </p>
     <h2>
-        Introducing NSOutlineViewDataSource
+        介绍NSOutlineViewDataSource
     </h2>
     <p>
-        So far, you’ve told the outline view that
+        到目前为止，你已告知了outline view
         <code>
             ViewController
         </code>
-        is its data source — but
+        是它的data source — 但
         <code>
             ViewController
         </code>
-        doesn’t yet know about its new job. It’s time to change this and get rid
-        of that pesky error message.
+        至今不知道如何完成它的新工作。现在是时候来改变这点去解决错误信息了。
     </p>
     <p>
-        Add the following
+        在你的
+        <code>
+            ViewController
+        </code>
+        的类声明下添加如下的
         <em>
             extension
         </em>
-        below your class declaration of
-        <code>
-            ViewController
-        </code>
-        :
+        ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSOutlineViewDataSource</span> </span>{
   
 }
 </pre>
     <p>
-        This makes
+        这就让
         <code>
             ViewController
         </code>
-        adopt the
+        采取了
         <code>
             NSOutlineViewDataSource
         </code>
-        protocol. Since we’re not using bindings in this tutorial, you must implement
-        a few methods to fill the outline view. Let’s go through each method.
+        协议。由于在本教程中，我们不会使用binding，因此你必须实现几个方法来填充outline view。让我们来看看每个方法。
     </p>
     <p>
-        Your outline view needs to know how many items it should show. For this,
-        use the method
+        你的outline view需要知道该展示多少个item。因此，使用方法
         <code>
             outlineView(\_: numberOfChildrenOfItem:) -&gt; Int
         </code>
-        .
+        。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?)</span></span> -&gt; <span class="hljs-type">Int</span> {
   <span class="hljs-comment">//1</span>
@@ -702,69 +699,65 @@
 }
 </pre>
     <p>
-        This method will be called for every level of the hierarchy displayed
-        in the outline view. Since you only have 2 levels in your outline view,
-        the implementation is pretty straightforward:
+        展示在outline view中的每个层级都会调用这个方法。由于你的outline view中只有两个层级，因此这个方法的实现相当得简单：
     </p>
     <ol>
         <li>
-            If
+            如果
             <code>
                 item
             </code>
-            is a
+            是一个
             <code>
                 Feed
             </code>
-            , it returns the number of
+            ，就返回
             <code>
                 children
             </code>
-            .
+            的数量。
         </li>
         <li>
-            Otherwise, it returns the number of
+            否则，返回
             <code>
                 feeds
             </code>
-            .
+            的数量。
         </li>
     </ol>
     <p>
-        One thing to note:
+        值得注意的是：
         <code>
             item
         </code>
-        is an optional, and will be
+        是可选类型，对于你data model的根对象，它就是
         <code>
             nil
         </code>
-        for the root objects of your data model. In this case, it will be
-        <code>
-            nil
-        </code>
-        for
+        。在本例中，它对于
         <code>
             Feed
         </code>
-        ; otherwise it will contain the parent of the object. For
+        就会返回
+        <code>
+            nil
+        </code>
+        ；否则它就会包含对象的父对象。对于
         <code>
             FeedItem
         </code>
-        objects,
+        对象，
         <code>
             item
         </code>
-        will be a
+        就会是一个
         <code>
             Feed
         </code>
-        .
+        。
     </p>
     <p>
-        Onward! The outline view needs to know which child it should show for
-        a given parent and index. The code for this is similiar to the previous
-        code:
+        继续！outline view需要知道对于给定的parent和index，应该展示那个child。这里的代码和之前的很类似：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, child index: Int, ofItem item: Any?)</span></span> -&gt; <span class="hljs-type">Any</span> {
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
@@ -775,39 +768,37 @@
 }
 </pre>
     <p>
-        This checks whether
+        首先检查
         <code>
             item
         </code>
-        is a
+        是否是一个
         <code>
             Feed
         </code>
-        ; if so, it returns the
+        ；如果是的话，就为给定的index返回相应的
         <code>
             FeedItem
         </code>
-        for the given index. Otherwise, it return a
+        。否则，就返回
         <code>
             Feed
         </code>
-        . Again,
+        。同样，对于根对象，
         <code>
             item
         </code>
-        will be
+        将是
         <code>
             nil
         </code>
-        for the root object.
+        。
     </p>
     <p>
-        One great feature of
         <code>
             NSOutlineView
         </code>
-        is that it can collapse items. First, however, you have to tell it which
-        items can be collapsed or expanded. Add the following:
+        的一个很棒的特性就是他可以折叠item。然而，你必须首先告诉它那些item可以折叠或是展开。添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, isItemExpandable item: Any)</span></span> -&gt; <span class="hljs-type">Bool</span> {
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
@@ -822,8 +813,8 @@
         <code>
             Feeds
         </code>
-        can be expanded and collapsed, and only if they have children. This checks
-        whether
+        can be expanded and collapsed, and only if they have children. 
+        This checks whether
         <code>
             item
         </code>
