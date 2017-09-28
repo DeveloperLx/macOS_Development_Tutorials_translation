@@ -1609,73 +1609,63 @@
         </div>
     </div>
     <p>
-        Congrats! 
-        You’ve created an RSS Feed Reader-type app with hierarchical functionality that 
-        allows the user to delete rows at will 
-        and to double-click to expand and collapse the lists.
+        恭喜！你已创建好了一个RSS Feed的阅读器 - 一个带有层级功能的app，它允许用户可以删除行，还可以双击来展开或收起列表。
     </p>
     <p>
-        You can download the final project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Reader_Final.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终完成后的项目。
     </p>
     <p>
-        In this NSOutlineView on macOS tutorial you learned a lot about
+        在本教程中，你学到了大量有关
         <code>
             NSOutlineView
         </code>
-        . You learned:
+        的内容：
     </p>
     <ul>
         <li>
-            How to hook up an
+            如何与Interface Builder中的
             <code>
                 NSOutlineView
             </code>
-            in Interface Builder.
+            进行交互。
         </li>
         <li>
-            How to populate it with data.
+            如何填充outline view中的数据。
         </li>
         <li>
-            How to expand/collapse items.
+            如何展开/收起item。
         </li>
         <li>
-            How to remove entries.
+            如何移除条目。
         </li>
         <li>
-            How to respond to user interactions.
+            如何响应用户的交互。
         </li>
     </ul>
     <p>
-        There is lots of functionality that you didn’t get chance to cover here,
-        like support for drag and drop or data models with a deeper hierarchy,
-        so if you want to learn more about
+        还有很多未能覆盖到的功能，如拖拽深层级结构的data model。因此，如果你想要了解更多关于
         <code>
             NSOutlineView
         </code>
-        , take a look at the
+        的内容，可以去查阅
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSOutlineView_Class/"
         sl-processed="1">
-            documentation
+            官方文档
         </a>
-        . Since it is a subclass of
+        。由于NSOutlineView是
         <code>
             NSTableView
         </code>
-        , Ernesto García’s tutorial about
-        <a href="http://www.raywenderlich.com/118835/os-x-nstableview-tutorial"
+        的子类，Ernesto García的教程
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20NSTableView%20Tutorial.md"
         sl-processed="1">
             table views
         </a>
-        is also worth a look.
-    </p>
-    <p>
-        I hope you enjoyed this NSOutlineView on macOS tutorial! 
-        If you have any questions or comments, 
-        feel free to join the forum discussion below.
+        同样值得一看。
     </p>
 </div>
