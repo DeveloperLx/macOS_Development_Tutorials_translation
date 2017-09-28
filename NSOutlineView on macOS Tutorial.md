@@ -494,7 +494,7 @@
         </code>
         中来加载plist文件：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">feedList</span>(<span class="hljs-title">_</span> <span class="hljs-title">fileName</span>: <span class="hljs-title">String</span>) -&gt; [<span class="hljs-title">Feed</span>] </span>{
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">feedList</span>(<span class="hljs-title">\_</span> <span class="hljs-title">fileName</span>: <span class="hljs-title">String</span>) -&gt; [<span class="hljs-title">Feed</span>] </span>{
   <span class="hljs-comment">//1</span>
   <span class="hljs-keyword">var</span> feeds = [<span class="hljs-type">Feed</span>]()
     
@@ -689,7 +689,7 @@
         </code>
         。
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?)</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">\_</span> outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?)</span></span> -&gt; <span class="hljs-type">Int</span> {
   <span class="hljs-comment">//1</span>
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
     <span class="hljs-keyword">return</span> feed.children.<span class="hljs-built_in">count</span>
@@ -759,7 +759,7 @@
     <p>
         继续！outline view需要知道对于给定的parent和index，应该展示那个child。这里的代码和之前的很类似：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, child index: Int, ofItem item: Any?)</span></span> -&gt; <span class="hljs-type">Any</span> {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">\_</span> outlineView: NSOutlineView, child index: Int, ofItem item: Any?)</span></span> -&gt; <span class="hljs-type">Any</span> {
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
     <span class="hljs-keyword">return</span> feed.children[index]
   }
@@ -800,7 +800,7 @@
         </code>
         的一个很棒的特性就是他可以折叠item。然而，你必须首先告诉它那些item可以折叠或是展开。添加下列的代码：
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, isItemExpandable item: Any)</span></span> -&gt; <span class="hljs-type">Bool</span> {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">\_</span> outlineView: NSOutlineView, isItemExpandable item: Any)</span></span> -&gt; <span class="hljs-type">Bool</span> {
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feed = item <span class="hljs-keyword">as</span>? <span class="hljs-type">Feed</span> {
     <span class="hljs-keyword">return</span> feed.children.<span class="hljs-built_in">count</span> &gt; <span class="hljs-number">0</span>
   }
@@ -874,7 +874,7 @@
         首先，添加方法体到extension中。
     </p>
     <pre lang="swift" class="language-swift hljs">		
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">_</span> outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">\_</span> outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any)</span></span> -&gt; <span class="hljs-type">NSView</span>? {
   <span class="hljs-keyword">var</span> view: <span class="hljs-type">NSTableCellView</span>?
   <span class="hljs-comment">// More code here</span>
   <span class="hljs-keyword">return</span> view
@@ -912,41 +912,41 @@
     </p>
     <ol>
         <li>
-            Checks if
+            检查
             <code>
                 item
             </code>
-            is a
+            是否是
             <code>
                 Feed
             </code>
-            .
+            。
         </li>
         <li>
-            Gets a view for a
+            从outline view中获取一个对应于
             <code>
                 Feed
             </code>
-            from the outline view. A normal
+            的view，包含一个text field的正常的
             <code>
                 NSTableViewCell
             </code>
-            contains a text field.
+            。
         </li>
         <li>
-            Sets the text field’s text to the feed’s name and calls
+            设置text field中的文本为feed的名称并调用
             <code>
                 sizeToFit()
             </code>
-            . This causes the text field to recalculate its frame so the contents fit inside.
+            ，来重新计算它的frame以适应它内容的大小。
         </li>
     </ol>
     <p>
-        Run your project. While you can see cells for a
+        运行你的项目。你现在可以看到
         <code>
             Feed
         </code>
-        , if you expand one you still see nothing.
+        的cell，但展开的行中仍然看不到任何内容。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/third_run"
@@ -958,72 +958,70 @@
         </a>
     </p>
     <p>
-        This is because you’ve only provided views for the cells that represent
-        a
+        这是因为你现在仅仅提供了代表
         <code>
             Feed
         </code>
-        . To change this, move on to the next step! Still in
+        的view。继续前进到下一步吧！依然在
         <em>
             ViewController.swift
         </em>
-        , add the following property below the
+        中，在
         <code>
             feeds
         </code>
-        property:
+        这个property下添加下列的property：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> dateFormatter = <span class="hljs-type">DateFormatter</span>() 
 </pre>
     <p>
-        Change
+        在
         <code>
             viewDidLoad()
         </code>
-        by adding the following line after
+        中
         <code>
             super.viewDidLoad()
         </code>
-        :
+        后添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">dateFormatter.dateStyle = .short
 </pre>
     <p>
-        This adds an
+        上述代码添加了一个
         <code>
             NSDateformatter
         </code>
-        that will be used to create a nice formatted date from the
-        <code>
-            publishingDate
-        </code>
-        of a
+        ，用来依据
         <code>
             FeedItem
         </code>
-        .
+        中的
+        <code>
+            publishingDate
+        </code>
+        创建一个很好的格式化日期。
     </p>
     <p>
-        Return to
+        回到
         <code>
             outlineView(\_:viewForTableColumn:item:)
         </code>
-        and add an
+        并添加一个
         <em>
             else-if
         </em>
-        clause to
+        子句
         <code>
             if let feed = item as? Feed
         </code>
-        :
+        ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feedItem = item <span class="hljs-keyword">as</span>? <span class="hljs-type">FeedItem</span> {
   <span class="hljs-comment">//1</span>
   <span class="hljs-keyword">if</span> tableColumn?.identifier == <span class="hljs-string">"DateColumn"</span> {
     <span class="hljs-comment">//2</span>
     view = outlineView.make(withIdentifier: <span class="hljs-string">"DateCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
-       	
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> textField = view?.textField {
       <span class="hljs-comment">//3</span>
       textField.stringValue = dateFormatter.string(from: feedItem.publishingDate)
@@ -1151,7 +1149,7 @@
         delegate method can be used to check whether something was selected or
         if the selection changed.
     </p>
-    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">_</span> notification: Notification)</span></span> {
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">\_</span> notification: Notification)</span></span> {
   <span class="hljs-comment">//1</span>
   <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> outlineView = notification.object <span class="hljs-keyword">as</span>? <span class="hljs-type">NSOutlineView</span> <span class="hljs-keyword">else</span> {
     <span class="hljs-keyword">return</span>
