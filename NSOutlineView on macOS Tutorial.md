@@ -1039,75 +1039,75 @@
 }
 </pre>
     <p>
-        This is what you’re doing here:
+        上述代码：
     </p>
     <ol>
         <li>
-            If
+            如果
             <code>
                 item
             </code>
-            is a
+            是一个
             <code>
                 FeedItem
             </code>
-            , you fill two columns: one for the
+            ，你就需要填充两列：一列是
             <code>
                 title
             </code>
-            and another one for the
+            ，另一列是
             <code>
                 publishingDate
             </code>
-            . You can differentiate the columns with their
+            。你可以使用它们的
             <code>
                 identifier
             </code>
-            .
+            来区分列。
         </li>
         <li>
-            If the
+            如果
             <code>
                 identifier
             </code>
-            is
+            是
             <em>
                 dateColumn
             </em>
-            , you request a DateCell.
+            ，就请求一个DateCell。
         </li>
         <li>
-            You use the date formatter to create a string from the
+            使用date formatter来根据
             <code>
                 publishingDate
             </code>
-            .
+            创建一个字符串。
         </li>
         <li>
-            If it is not a
+            如果不是
             <em>
                 dateColumn
             </em>
-            , you need a cell for a
+            的话，你就需要一个对应于
             <code>
                 FeedItem
             </code>
-            .
+            的cell。
         </li>
         <li>
-            You set the text to the
+            将文本设置为
+            <code>
+                FeedItem
+            </code>
+            的
             <code>
                 title
             </code>
-            of the
-            <code>
-                FeedItem
-            </code>
-            .
+            。
         </li>
     </ol>
     <p>
-        Run your project again to see feeds filled properly with articles.
+        再次运行你的项目，相应的单元格已被正确地填充。
     </p>
     <p>
         <a href="https://www.raywenderlich.com/123463/nsoutlineview-macos-tutorial/fourth_run"
@@ -1119,15 +1119,15 @@
         </a>
     </p>
     <p>
-        There’s one problem left — the date column for a
+        还剩一个问题 - 相应于
         <code>
             Feed
         </code>
-        shows a static text. To fix this, change the content of the
+        的date这列展示了一个静态的文本。要修复这里，可将if语句
         <code>
             if let feed = item as? Feed
         </code>
-        if statement to:
+        的内容修改为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> tableColumn?.identifier == <span class="hljs-string">"DateColumn"</span> {
   view = outlineView.make(withIdentifier: <span class="hljs-string">"DateCell"</span>, owner: <span class="hljs-keyword">self</span>) <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTableCellView</span>
@@ -1144,10 +1144,7 @@
 }
 </pre>
     <p>
-        To complete this app, after you select an entry the web view should show
-        the corresponding article. How can you do that? Luckily, the following
-        delegate method can be used to check whether something was selected or
-        if the selection changed.
+        要完成这app，你还需要在选择一个条目后，在web view中展示出相应的文字。你应该怎么做？幸运的是，下列的方法可以跟踪outline view选择的变化。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineViewSelectionDidChange</span><span class="hljs-params">(<span class="hljs-number">\_</span> notification: Notification)</span></span> {
   <span class="hljs-comment">//1</span>
@@ -1168,76 +1165,75 @@
 }
 </pre>
     <p>
-        This code:
+        上述代码：
     </p>
     <ol>
         <li>
-            Checks if the notification object is an NSOutlineView. If not, return
-            early.
+            检查通知的对象是否是NSOutlineView。如果不是的话，退出方法。
         </li>
         <li>
-            Gets the selected index and checks if the selected row contains a
+            获取被选择的序号，并检查被选择的行是否包含
             <code>
                 FeedItem
             </code>
-            or a
+            或
             <code>
                 Feed
             </code>
-            .
+            。
         </li>
         <li>
-            If a
+            如果选中的是
             <code>
                 FeedItem
             </code>
-            was selected, creates a
+            ，就根据
             <code>
-                NSURL
+                Feed
             </code>
-            from the
+            对象的
             <code>
                 url
             </code>
-            property of the
+            property创建一个
             <code>
-                Feed
+                NSURL
             </code>
-            object.
+            。
         </li>
         <li>
-            Checks whether this succeeded.
+            检查url是否创建成功。
         </li>
         <li>
-            Finally, loads the page.
+            最后，加载页面。
         </li>
     </ol>
     <p>
-        Before you test this out, return to the
+        在你进行测试之前，返回
         <em>
             Info.plist
         </em>
-        file. Add a new Entry called
+        文件。添加一项
         <em>
             App Transport Security Settings
         </em>
-        and make it a
+        的
         <em>
             Dictionary
         </em>
-        if Xcode didn’t. Add one entry,
+        （如果Xcode中还没有的情况下）。在其中添加一项
         <em>
             Allow Arbitrary Loads
         </em>
-        of type
+        ，类型为
         <em>
             Boolean
         </em>
-        , and set it to
+        ，值为
         <em>
             YES
         </em>
-        .
+        。
     </p>
     <div class="note">
         <p>
