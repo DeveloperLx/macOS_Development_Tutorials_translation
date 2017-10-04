@@ -948,34 +948,29 @@
         </table>
     </div>
     <p>
-        This uses
+        上述代码使用了
         <code>
             arc4random_uniform()
         </code>
-        to produce what should be a number between 1 and 6. It looks simple, but
-        you still have to test! Press
+        产生一个1到6之间的数字。看起来非常得简单，但仍然需要进行测试！再次按下
         <em>
             Command-U
         </em>
-        again; all the tests pass. You can now be sure that the
+        键，所有的测试都通过了。你现在就可以确信
         <code>
             Dice
         </code>
-        struct is producing numbers in roughly the expected ratios. If anyone
-        says your app is cheating, you can show them the test results to prove
-        it isn’t!
+        结构体大致是以你所期望的比例产生数字了。如果有人说你的app作弊，你就可以把测试结果给它们看说不是的！
     </p>
     <p>
-        Job well done! The
+        完工大吉了！
         <code>
             Dice
         </code>
-        struct is complete, time for a cup of tea…
+        结构体已完成，喝茶时间...
     </p>
     <p>
-        Until your friend, who plays a lot of role-playing games, has just asked
-        if your app could support different types of dice: 4-sided, 8-sided, 12-sided,
-        20-sided, even 100-sided…
+        如果你有这样的朋友，他玩过很多的角色扮演游戏，说你的app不支持多种类型的骰子：四面的，8面的，12面的，20面的甚至100面的...该怎么办？
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/Dice.jpg"
@@ -984,14 +979,14 @@
         sizes="(max-width: 400px) 100vw, 400px">
     </p>
     <h3>
-        Modifying Existing Code
+        修改代码
     </h3>
     <p>
-        You don’t want to ruin your friend’s D&amp;D nights, so head back to
+        你不想让你的朋友扫兴，因此回到
         <em>
             DiceTests.swift
         </em>
-        and add another test:
+        并添加另一个测试：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1009,27 +1004,27 @@
         </table>
     </div>
     <p>
-        The compiler complains because
+        编译器会抱怨说
         <code>
             rollDie()
         </code>
-        doesn’t take any parameters. Switch over to the
+        不可以传任何参数。切到
         <em>
             assistant editor
         </em>
-        and in
+        并在
         <em>
             Dice.swift
         </em>
-        change the function declaration of
+        中修改
         <code>
             rollDie()
         </code>
-        to expect a
+        的声明，来添加一个
         <code>
             numberOfSides
         </code>
-        parameter:
+        的形参：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1045,24 +1040,22 @@
         </table>
     </div>
     <p>
-        But that will make the old test fail because they don’t supply a parameter.
-        You
+        但这会导致之前的测试失败，因为它们并没有提供参数。你
         <i>
-            could
+            可以
         </i>
-        edit them all, but most dice rolls are for 6-sided dice (no need to tell
-        your role-playing friend that). How about giving the
+        将它们全部修改，但大多数的骰子都是6个面的（无需告知你角色扮演的朋友这点）。那么何不给
         <code>
             numberOfSides
         </code>
-        parameter a default value?
+        参数一个默认值？
     </p>
     <p>
-        Change the
+        将
         <code>
             rollDie(numberOfSides:)
         </code>
-        definition to this:
+        的声明修改为：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1078,16 +1071,14 @@
         </table>
     </div>
     <p>
-        All the tests now pass, but you are in the same position as before: the
-        tests don’t check that the 20-sided dice roll is really producing values
-        from 1 to 20.
+        现在所有的测试就都通过了，但你还在处在之前相同的位置：测试并不会检查当20个面的骰子滚动的时候，产生的值是1到20之间的。
     </p>
     <p>
-        Time to write another test similar to
+        因此现在需要写另一个类似于
         <code>
             testRollsAreSpreadRoughlyEvenly()
         </code>
-        , but only for 20-sided dice.
+        的测试了，但针对的是20个面的骰子。
     </p>
     <div class="wp_codebox">
         <table>
@@ -1110,12 +1101,11 @@
         </table>
     </div>
     <p>
-        This test gives seven failures: the number of keys is only 6, and the
-        distribution isn’t even. Have a look in the
+        这个测试给出了7个失败：key的数量只有6个，且它们的分布并不相等。使用
         <em>
             Issue Navigator
         </em>
-        for all the details.
+        来查看全部的细节。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/IssueNavigator2-213x500.png"
@@ -1124,59 +1114,54 @@
         sizes="(max-width: 213px) 100vw, 213px">
     </p>
     <p>
-        You should expect this:
+        你应当期望：
         <code>
             rollDie(numberOfSides:)
         </code>
-        isn’t using the
+        还不使用
         <code>
             numberOfSides
         </code>
-        parameter yet.
+        参数。
     </p>
     <p>
-        Replace the
+        用
         <code>
-            6
+            numberOfSides
         </code>
-        in the
+        来替换
         <code>
             arc4random_uniform()
         </code>
-        function call with
-        <code>
-            numberOfSides
-        </code>
-        and
+        中的6，然后再次按下
         <em>
             Command-U
         </em>
-        again.
+        键。
     </p>
     <p>
-        Success! All the tests pass — even the old ones that call the function
-        you just changed.
+        成功了！所有的测试都通过了 - 甚至包括之前调用了你刚修改过的方法的那些测试。
     </p>
     <h3>
-        Refactoring Tests
+        重构测试
     </h3>
     <p>
-        For the first time, you have some code worth re-factoring.
+        你有一些很值得去重构的代码。
         <code>
             testRollsAreSpreadRoughlyEvenly()
         </code>
-        and
+        和
         <code>
             testTwentySidedRollsAreSpreadRoughlyEvenly()
         </code>
-        use very similar code, so you could separate that out into a private function.
+        中的代码非常相似，因此你可以将其分离出来作为一个私有方法。
     </p>
     <p>
-        Add the following extension to the end of the
+        添加下列的extension到
         <em>
             DiceTests.swift
         </em>
-        file, outside the class:
+        文件的尾部，要在类的外部：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1201,26 +1186,26 @@
         </table>
     </div>
     <p>
-        This function name doesn’t start with
+        这个方法的名称并不以
         <code>
             test
         </code>
-        , as it’s never run on its own as a test.
+        开头，因此不会被当做一个测试去运行。
     </p>
     <p>
-        Go back to the main
+        回到主
         <code>
             DiceTests
         </code>
-        class and replace
+        类，并将
         <code>
             testRollsAreSpreadRoughlyEvenly()
         </code>
-        and
+        和
         <code>
             testTwentySidedRollsAreSpreadRoughlyEvenly()
         </code>
-        with the following:
+        方法替换为下列的代码：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1238,67 +1223,65 @@
         </table>
     </div>
     <p>
-        Run all the tests again to confirm that this works.
+        再次运行所有的测试，来证实上述重构正确。
     </p>
     <h3>
-        Using #line
+        使用 #line
     </h3>
     <p>
-        To demonstrate another useful testing technique, go back to
+        为了演示另一项非常有用的测试技术，切回
         <em>
             Dice.swift
         </em>
-        and undo the 20-sided dice change you made to
+        并撤销你在
         <code>
             rollDie(numberOfSides:)
         </code>
-        : replace
-        <code>
-            numberOfSides
-        </code>
-        with
-        <code>
-            6
-        </code>
-        inside the
+        中做的有关于20面的骰子的改动：将调用
         <code>
             arc4random_uniform()
         </code>
-        call. Now run the tests again.
+        中的
+        <code>
+            numberOfSides
+        </code>
+        替换为
+        <code>
+            6
+        </code>
+        。现在再次运行测试。
     </p>
     <p>
         <code>
             testTwentySidedRollsAreSpreadRoughlyEvenly()
         </code>
-        has failed, but the failure messages are in
+        失败了，但错误信息却位于
         <code>
             performMultipleRollTests(numberOfSides:)
         </code>
-        — not a terribly useful spot.
+        中 — 不是一个非常有用的地点。
     </p>
     <p>
-        Xcode can solve this for you. When defining a helper function, you can
-        supply a parameter with a special default value —
+        Xcode可以帮助你解决这个问题。当定义一个助手方法的时候，你可以提供一个带有特定默认值
         <code>
             #line
         </code>
-        — that contains the line number of the calling function. This line number
-        can be used in the
+        的参数 - 它会包含调用这个方法时的代码的行序号。这个行序号就可以被用到
         <code>
             XCTAssert
         </code>
-        function to send the error somewhere useful.
+        方法中，使得错误的信息更有价值。
     </p>
     <p>
-        In the
+        在
         <code>
             DiceTests
         </code>
-        extension, change the function definition of
+        的extension中，将方法的定义
         <code>
             performMultipleRollTests(numberOfSides:)
         </code>
-        to the following:
+        修改为如下的代码：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1315,11 +1298,11 @@
         </table>
     </div>
     <p>
-        And change the
+        将
         <code>
             XCTAsserts
         </code>
-        like this:
+        修改为如下的样子：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1337,82 +1320,69 @@
         </table>
     </div>
     <p>
-        You don’t have to change the code that calls
+        你无需修改调用
         <code>
             performMultipleRollTests(numberOfSides:line:)
         </code>
-        because the new parameter is filled in by default. Run the tests again,
-        and you’ll see the error markers are on the line that calls
+        方法的代码，因为新的参数会被默认值自动地填充。再次运行测试，你就会发现现在错误的记号位于调用
         <code>
             performMultipleRollTests(numberOfSides:line:)
         </code>
-        — not inside the helper function.
+        方法这行了 - 而不是在助手方法之中。
     </p>
     <p>
-        Change
+        将
         <code>
             rollDie(numberOfSides:)
         </code>
-        back again by putting
-        <code>
-            numberOfSides
-        </code>
-        in the
-        <code>
-            arc4random_uniform()
-        </code>
-        call, and
+        方法恢复原状，然后按
         <em>
             Command-U
         </em>
-        to confirm that everything works.
+        键确认一切工作正常。
     </p>
     <p>
-        Pat yourself on the back — you’ve learned how to use TDD to develop a
-        fully-tested model class.
+        给自己点个赞吧 - 你已学会了如何使用TDD来开发一个经过完整测试的model类。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/victory.png"
         alt="victory" width="475" height="313" class="aligncenter size-full wp-image-142118">
     </p>
     <h2>
-        Adding Unit Tests to Existing Code
+        添加单元测试到已存在的代码中
     </h2>
     <p>
-        TDD can be great when developing new code, but often you’ll have to retrofit
-        tests into existing code that you didn’t write. The process is much the
-        same, except that you’re writing tests to confirm that existing code works
-        as expected.
+        TDD在开发新的代码时很棒，但你经常会不得不在之前已有的代码中加入测试。步骤和之前基本相同，除了你现在是编写测试，来确认已存在的代码如同期望中的方式工作。
     </p>
     <p>
-        To learn how to do this, you’ll add tests for the
+        要学习该怎么做，你要为
         <code>
             Roll
         </code>
-        struct. In this app, the
+        结构体添加测试。在这个app中，
         <code>
             Roll
         </code>
-        contains an array of
+        包含了一个
         <code>
             Dice
         </code>
-        and a
+        的数组和一个
         <code>
             numberOfSides
         </code>
-        property. It handles rolling all the dice as well as totaling the result.
+        的property。它用来处理滚动所有的筛子及统计滚动的结果。
     </p>
     <p>
-        Back in the
+        回到
         <em>
             File Navigator
         </em>
-        , select
+        ，选择
         <code>
             Roll.swift
         </code>
-        . Delete all the placeholder code and replace it with the following code:
+        。将全部占位的代码替换为如下内容：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1436,38 +1406,37 @@
         </table>
     </div>
     <p>
-        (Did you spot the error? Ignore it for now; that’s what the tests are
-        for. :])
+        （发现错误了么？现在先忽略它，这就是我们将要测试的地方。:]）
     </p>
     <p>
-        Select the
-        <em>
-            High RollerTests
-        </em>
-        group in the
+        在
         <em>
             File Navigator
         </em>
-        and use
+        中选择
         <em>
-            File\New\File…
+            High RollerTests
         </em>
-        to add a new
+        组，并使用
         <em>
-            macOS\Unit Test Case Class
+            File/New/File…
         </em>
-        called
+        中的
+        <em>
+            macOS/Unit Test Case Class
+        </em>
+        来添加一个叫做
         <code>
             RollTests
         </code>
-        . Delete all the code inside the test class.
+        的类。删除其中所有的测试代码。
     </p>
     <p>
-        Add the following import to
+        添加下列的import到
         <em>
             RollTests.swift
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1483,33 +1452,33 @@
         </table>
     </div>
     <p>
-        Open
+        在assistant editor中打开
         <em>
             Roll.swift
         </em>
-        in the assistant editor, and you’ll be ready to write more tests.
+        ，你将在其中编写更多的测试。
     </p>
     <p>
-        First, you want to test that a
+        首先，你想去测试
         <code>
             Roll
         </code>
-        can be created, and that it can have
+        可否被创建，且可以添加
         <code>
             Dice
         </code>
-        added to its
+        到
         <code>
             dice
         </code>
-        array. Arbitrarily, the test uses five dice.
+        数组中。测试使用5个骰子。
     </p>
     <p>
-        Add this test to
+        添加测试到
         <em>
             RollTests.swift
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1527,13 +1496,10 @@
         </table>
     </div>
     <p>
-        Run the tests; so far, so good — the first test passes. Unlike TDD, a
-        failing test is not an essential first step in a retrofit as the code should
-        (theoretically) already work properly.
+        运行测试。目前一切都好 - 第一个测试通过了。和TDD不同，一个失败的测试并非是基本的第一步，因为代码（理论上）早已可以正常地工作。
     </p>
     <p>
-        Next, use the following test to check that the total is zero before the
-        dice are rolled:
+        接下来，使用下列的测试，来检查在滚动之前，点数的总数为0：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1551,34 +1517,33 @@
         </table>
     </div>
     <p>
-        Again this succeeds, but it looks like there is some refactoring to be
-        done. The first section of each test sets up a
+        再次成功了，但看起来似乎需要进行一些重构。每个测试的第一部分都设置了一个
         <code>
             Roll
         </code>
-        object and populates it with five dice. If this was moved to
+        对象，并使用5个骰子来填充它。如果将它移到
         <code>
             setup()
         </code>
-        it would happen before every test.
+        方法中，它就会在每个测试前执行。
     </p>
     <p>
-        Not only that, but
+        不仅如此，
         <code>
             Roll
         </code>
-        has a method of its own for changing the number of
+        有一个方法来改变自身数组中
         <code>
             Dice
         </code>
-        in the array, so the tests might as well use and test that.
+        的个数，因此测试也可以使用和测试这里。
     </p>
     <p>
-        Replace the contents of the
+        将
         <code>
             RollTests
         </code>
-        class with this:
+        类的内容替换为：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1598,11 +1563,10 @@
         </table>
     </div>
     <p>
-        As always, run the tests again to check that everything still works.
+        按照惯例，再次运行测试，来检查一切是否正常工作。
     </p>
-    <p>
-        With five 6-sided dice, the minimum total is 5 and the maximum is 30,
-        so add the following test to check that the total falls between those limits:
+    <p> 
+        在6面骰子的情况下，最小的总数应当是5，而最大的总数则应是30，因此添加下列的测试来验证总数是否处于这个范围之中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1620,33 +1584,30 @@
         </table>
     </div>
     <p>
-        Run this test — it fails! It looks like the tests have discovered a bug
-        in the code. The problem must be in either
+        运行测试 - 它失败了！看起来测试已经发现了一个代码中的bug。问题应该是在
         <code>
             rollAll()
         </code>
-        or
+        或
         <code>
             totalForDice()
         </code>
-        , since those are the only two functions called by this test. If
+        中，因为这个测试中只调用过这两个方法。如果
         <code>
             rollAll()
         </code>
-        was failing, the total would be zero. However, returned total is a negative
-        number, so have a look at
+        失败的话，总数应该是0.然而，返回的总数是一个负值，因此让我们来看一看
         <code>
             totalForDice()
         </code>
-        instead.
+        方法。
     </p>
     <p>
-        There’s the problem:
+        问题就在这里：
         <code>
             reduce
         </code>
-        is subtracting instead of adding the values. Change the minus sign to
-        a plus sign:
+        是减而不是加value。将减号改为加号：
     </p>
     <div class="wp_codebox">
         <table>
@@ -1664,7 +1625,7 @@
         </table>
     </div>
     <p>
-        Run your tests again — everything should run perfectly.
+        再次运行你的测试 - 现在一切都完美地运行了。
     </p>
     <h2>
         Where to Go From Here?
@@ -1690,24 +1651,19 @@
         </div>
     </div>
     <p>
-        You can download the
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/08/HighRoller-part1.zip"
         sl-processed="1">
-            sample project here
+            这里
         </a>
-        with all the tests from this part of the tutorial in it.
+        下载本教程中，这一部分的完整的测试。
     </p>
     <p>
-        Carry on to the
-        <a href="https://www.raywenderlich.com/142090/unit-testing-macos-part-22"
+        请继续阅读
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Unit%20Testing%20on%20macOS%20-%20Part%202:2.md"
         sl-processed="1">
-            second half of this Unit testing on macOS tutorial
+            单元测试：2/2部分
         </a>
-        for more goodness, including interface testing, network testing, performance
-        testing and code coverage. Hope to see you there! :]
-    </p>
-    <p>
-        If you have any questions or comments about this part of the tutorial,
-        please join the discussion below!
+        ，来学习更多优秀的特性，包括交互测试，网络测试，性能测试和代码覆盖。希望可以在这里看到你！:]
     </p>
 </div>
