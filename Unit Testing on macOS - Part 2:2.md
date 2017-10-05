@@ -661,30 +661,23 @@
         网络和异步测试
     </h2>
     <p>
-        So far, everyone is happy. Family games night is going ahead, your role-playing
-        friends have the option to roll all their weird dice, your tests prove
-        that everything is working correctly…. but there is always someone who
-        causes trouble:
+        目前为止，每个人都是高兴的。家庭游戏之夜得以继续，角色扮演的朋友可以滚动所有奇怪的骰子，你的测试也证明了所有的一切都可以正确地工作...但总有些人会造成麻烦：
     </p>
     <p>
         <i>
-            “I still don’t trust your app to roll the dice. I found a web page that
-            generates dice rolls using atmospheric noise. I want your app to use that
-            instead.”
+            “我仍然不相信你的app可以滚动骰子。我发现了一个可以使用大气噪声来滚动骰子的网页。我希望你的app可以使用它。”
         </i>
     </p>
     <p>
-        Sigh. Head to
+        头疼。前往
         <a href="https://www.random.org/dice/" sl-processed="1">
             Random.org
         </a>
-        to see how this works. If the URL contains a
+        来查看它如何工作。如果URL包含有一个
         <code>
             num
         </code>
-        parameter, the page shows the results of rolling that many 6-sided dice.
-        Inspecting the source code for the page, it looks like this is the relevant
-        section:
+        参数，这个网页就会展示滚动很多六面的骰子的结果。似乎和下面这部分的内容相关：
     </p>
     <div class="wp_codebox">
         <table>
