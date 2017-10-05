@@ -260,21 +260,18 @@
         </table>
     </div>
     <p>
-        Run the tests to see the result. You should also test the view controller’s
-        variables and confirm that they are being changed as expected by events
-        from the interface elements.
+        运行测试来查看结果。你还应当测试view controller中的变量，以确认它们如同期望中的方式进行变化。
     </p>
     <p>
-        The view controller has a
+        view controller含有一个
         <code>
             Roll
         </code>
-        object which has its own properties. Add the following test to check that
-        the
+        对象，它含有自己的property。添加下列的测试以确认
         <code>
             Roll
         </code>
-        object exists and has the expected default properties:
+        存在对象，并含有期望的默认property：
     </p>
     <div class="wp_codebox">
         <table>
@@ -292,12 +289,11 @@
         </table>
     </div>
     <p>
-        Next, you need to confirm that changing a setting using one of the interface
-        elements actually changes the setting in the
+        接下来，你需要确认通过界面中的元素改变一项设置后，确实可以改变
         <code>
             Roll
         </code>
-        object. Add the following tests:
+        对象中的设置。添加下列的设置：
     </p>
     <div class="wp_codebox">
         <table>
@@ -319,37 +315,36 @@
         </table>
     </div>
     <p>
-        These three tests operate the text field, the stepper and the popup. After
-        each change, they check that the
+        这三个测试会分别操作text field，stepper和弹出菜单。在每次UI元素发生变化之后，它们就会检查
         <code>
             roll
         </code>
-        property has changed to match.
+        这个property是否匹配于相应的值。
     </p>
     <p>
-        Open
+        在assistant editor中打开
         <em>
             ViewController.swift
         </em>
-        in the assistant editor and look at
+        ，并查看
         <code>
             rollButtonClicked(\_:)
         </code>
-        . It does three things:
+        。它做了三件事：
     </p>
     <ol>
         <li>
-            Makes sure that any ongoing edit in the number of dice text field is processed.
+            确保任何正在骰子text field中编辑的值都被处理过。
         </li>
         <li>
-            Tells the
+            告知
             <code>
                 Roll
             </code>
-            struct to roll all the dice.
+            结构体滚动所有骰子。
         </li>
         <li>
-            Displays the results.
+            展示结果。
         </li>
     </ol>
     <p>
