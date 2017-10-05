@@ -348,52 +348,48 @@
         </li>
     </ol>
     <p>
-        You have already written tests to confirm that
+        你早已编写了测试来确认
         <code>
             rollAll()
         </code>
-        works as expected, but
+        的功能如同期望中一样，但
         <code>
             displayDiceFromRoll(diceRolls:numberOfSides:)
         </code>
-        needs to be tested as part of the interface tests. The display methods
-        are all in
+        需要被当做交互的一部分进行测试。展示的方法全在
         <em>
             ViewControllerDisplay.swift
         </em>
-        , which is a separate file containing an extension to
+        中，它是包含
         <code>
             ViewController
         </code>
-        . This is just an organizational split to keep
+        的一个extension的单独的文件。这是组织代码的一种方式，以保持
         <em>
             ViewController.swift
         </em>
-        smaller and to keep the display functions all collected in one place.
+        尽量得小，并将所有的展示方法收集到一个地方。
     </p>
     <p>
-        Look in
+        查看
         <em>
             ViewControllerDisplay.swift
         </em>
-        and you’ll see a bunch of private functions and one public function:
+        文件，你会看到一堆私有方法和一个公有方法：
         <code>
             displayDiceFromRoll(diceRolls:numberOfSides:)
         </code>
-        , This clears the display, fills in the textual information and then populates
-        a stack view with a series of sub-views, one for each die.
+        ，它可以清空展示的内容，填入文本信息，然后用一系列的子view来填充一个stack view，每个子view对应于一个骰子。
     </p>
     <p>
-        As with all testing, it is important to start in the right place. The
-        first test to write is one that checks that the results text view and stack
-        view are empty at the start.
+        和所有的测试一样，在正确的地方开始非常重要。第一个测试就是检查结果text view和stack view在开始的时候是空的。
     </p>
     <p>
-        Go to
+        切到
         <em>
             ViewControllerTests.swift
         </em>
-        and add this test:
+        并添加下列的测试：
     </p>
     <div class="wp_codebox">
         <table>
@@ -410,11 +406,10 @@
         </table>
     </div>
     <p>
-        Run this test to confirm that the display starts off as expected.
+        运行测试来确认开始的展示如同期望一般。
     </p>
     <p>
-        Next, add the test below to check if data appears after the Roll button
-        is clicked:
+        接下来，添加下面的测试来检查Roll按钮被点击之后，数据是否出现：
     </p>
     <div class="wp_codebox">
         <table>
@@ -432,32 +427,29 @@
         </table>
     </div>
     <p>
-        Since the default setting for the number of dice is 2, it’s safe to check
-        that the stack view has two views. But if you don’t know what the settings
-        might be, you can’t test to see whether the data displayed is correct.
+        由于默认的设置中，骰子的数量为2，因此检查stack view有两个view是安全的。但如果你不知道设置是什么，你就无法测试展示的数据是否正确了。
     </p>
     <p>
-        Look back at
-        <code>
-            rollButtonClicked(\_:)
-        </code>
-        in
+        查看
         <em>
             ViewController.swift
         </em>
-        . See how it rolls the dice and then displays the result? What if you
-        called
+        中的
+        <code>
+            rollButtonClicked(\_:)
+        </code>
+        。看看它是如何滚动骰子，然后来展示结果？如果你直接使用已知的数据调用
         <code>
             displayDiceFromRoll(diceRolls:numberOfSides:)
         </code>
-        directly with known data? That would allow exact checking of the display.
+        呢？这将允许精确地检查展示。
     </p>
     <p>
-        Add the following test to
+        添加下列的测试到
         <em>
             ViewControllerTests.swift
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -478,16 +470,14 @@
         </table>
     </div>
     <p>
-        Run it to confirm that the test result is as expected for a roll with
-        6 six-sided dice showing one of each possible sides.
+        运行以验证测试结果如同预期中一样。即6个六面的骰子各自展示可能的一个面。
     </p>
     <p>
-        The stack view shows the results in a more graphical way using dice emojis
-        if possible. Insert this test into
+        stack view会以一个更加图形化的方式来展示结果，如果可能的话，则使用骰子emoji。将下列的测试插入到
         <em>
             ViewControllerTests.swift
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -511,37 +501,31 @@
         </table>
     </div>
     <p>
-        Run the tests again to check that the interface is acting as you expect.
-        These last two tests demonstrate a very useful technique for testing, by
-        supplying known data to a method and checking the result.
+        再次运行测试，以检查交互是否如你所预期一样地执行。剩下的两个测试将展示测试中一个非常有用的技术，通过提供已知的数据给一个方法，再检查结果。
     </p>
     <p>
-        If you’re feeling keen, it looks like there is some re-factoring that
-        could be done here! :]
+        如果你感到好奇，有一些重构看起来可以在这里完成！:]
     </p>
     <h3>
-        UI Testing
+        UI测试
     </h3>
     <p>
-        Time to move on to the UITests. Close the assistant editor and open
+        是时候去进行UI测试了。关闭assistant editor并打开
         <em>
             High_RollerUITests.swift
         </em>
-        . The default code is very similar to the testing code you’ve been using
-        so far, with just a couple of extra lines in
+        。默认的代码非常类似于目前为止你所看到的测试代码，仅仅是在
         <code>
             setup()
         </code>
-        .
+        中额外的几行有所不同。
     </p>
     <p>
-        One interesting thing about UITests is their ability to record interface
-        interactions. Remove the comments from inside
+        关于UI测试的一件很有趣的事，就是它可以记录界面的交互。从
         <code>
             testExample()
         </code>
-        , place the cursor on a blank line inside the function and click the red
-        dot at the bottom left of the edit pane to start recording:
+        中移除注释，将光标置于方法内的空白行上，并点击编辑面板左下角的红点以开始录制：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/Record-650x293.png"
@@ -550,39 +534,33 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        When the app starts, follow this sequence of interactions, pausing after
-        each step to let Xcode write at least one new line:
+        当app启动的时候，跟随这个交互的顺序，在每一个步骤后稍停一下，让Xcode至少写下一行新的代码：
     </p>
     <ol>
         <li>
-            Click the up arrow on the “Number of dice” stepper.
+            点击“骰子数量”stepper的向上的箭头。
         </li>
         <li>
-            Click the up arrow on the “Number of dice” stepper again.
+            再次点击“骰子数量”stepper的向上的箭头。
         </li>
         <li>
-            Double-click inside the “Number of dice” text field.
+            双击“骰子数量”内的text field。
         </li>
         <li>
-            Type 6 and press Tab.
+            输入6并按下Tab键。
         </li>
         <li>
-            Open the “Number of sides” popup and select 12.
+            打开“面数”下拉菜单并选择12。
         </li>
         <li>
-            Click the “Roll” button.
+            点击“Roll”按钮。
         </li>
     </ol>
     <p>
-        Click the record button again to stop recording.
+        再次点击记录按钮以停止记录。
     </p>
     <p>
-        Xcode will have filled in the function with details of your actions, but
-        you will see one odd thing where you selected 12 from the popup. Xcode
-        can’t quite decide what option to use, so it shows you a number of possibilities.
-        In a complex interface, this might be important to distinguish between
-        different controls, but in this case the first option is sufficient for
-        your needs.
+        Xcode将在该方法中，自动生成对应你的操作的动作。但当你从下拉菜单中选择12的时候，会看到一些奇怪的事情的发送。Xcode无法确定使用哪个选项，因此会将可能的选项都展示给你。在一个复杂的界面中，这个机制对于区分不同的控件是非常重要的，但在本例中第一个选择就可以满足你的需求。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/RecordUITest2.png"
@@ -591,19 +569,14 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Click on the down arrow beside
+        点击
         <em>
             menuItems[“12”]
         </em>
-        to see the popup. Choosing the one to use is easy enough, but convincing
-        Xcode of your choice is not so straightforward.
+        旁的向下箭头以查看下拉菜单。选择一项来用足够得容易，但使Xcode相信你的选择并非如此得简单。
     </p>
     <p>
-        Select the first option in the list which will dismiss the popup. Then
-        click on the item which will still have a pale blue background. When it’s
-        selected, the background will have a slightly darker shade of blue; you
-        can then press Return to accept this choice, which will leave your code
-        looking like this:
+        选择列表中第一个选项，下拉的菜单会消失。然后点击其中一项，这时它仍然会有淡蓝色的背景。当它被选中之后，背景就会带有一个略深一些的蓝色阴影，你可以按Return键来接收这个选择，之后你的代码看起来就类似如下的样子：
     </p>
     <div class="wp_codebox">
         <table>
@@ -625,38 +598,34 @@
         </table>
     </div>
     <p>
-        The main use for recording is to show the syntax for accessing the interface
-        elements. The unexpected thing is that you aren’t getting
+        记录的主要用途，是为了展示访问界面元素的语法。但意料之外的事却是你无法获取到
         <code>
             NSButton
         </code>
-        or
+        或
         <code>
             NSTextField
         </code>
-        references; you’re getting
+        的引用，只能通过获取
         <code>
             XCUIElement
         </code>
-        s instead. This gives you the ability to send messages and test a limited
-        number of properties.
+        来代替。以此来赋予你发送消息和测试一些property的能力。
         <code>
             value
         </code>
-        is an
+        则是
         <code>
             Any
         </code>
-        that will usually hold the most important content of the
+        类型的，用来持有
         <code>
             XCUIElement
         </code>
-        .
+        中最重要的内容。
     </p>
     <p>
-        Using the information in the recording to work out how to access the elements,
-        this test function checks to see that editing the number of dice using
-        the stepper also changes the text field:
+        使用记录中的信息来确定如何访问元素。此测试方法将用来检查使用stepper编辑骰子的数量后，text field中的值也可以发生相应的改变：
     </p>
     <div class="wp_codebox">
         <table>
@@ -677,10 +646,7 @@
         </table>
     </div>
     <p>
-        Save the file and run the test by clicking in the little diamond in the
-        margin beside it. The app will run, the mouse pointer will be moved to
-        the stepper’s up arrow and it will click twice. This is fun, like having
-        a robot operate your app!
+        保存文件，并点击旁边的小菱形来运行测试。app会运行起来，鼠标指针这时会移动到stepper的向上箭头处，并点击两次。这很有趣，就好像是一个机器人在操作你的app！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/robot.png"
@@ -689,11 +655,10 @@
         sizes="(max-width: 400px) 100vw, 400px">
     </p>
     <p>
-        It’s a lot slower than the previous tests, though, so UITesting is not
-        for everyday use.
+        这比之前的测试会慢很多，但UI测试并非是每天都会被使用的。
     </p>
     <h2>
-        Network and Asynchronous Tests
+        网络和异步测试
     </h2>
     <p>
         So far, everyone is happy. Family games night is going ahead, your role-playing
@@ -1564,9 +1529,5 @@
             Joe Masilotti’s excellent cheat sheet
         </a>
         .
-    </p>
-    <p>
-        I hope you enjoyed this Unit testing tutorial; if you have any questions
-        or comments, please join the forum discussion below!
     </p>
 </div>
