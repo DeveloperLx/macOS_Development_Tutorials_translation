@@ -694,42 +694,41 @@
         </table>
     </div>
     <p>
-        So you could parse the data returned and use that data for the roll. Check
-        out
+        所以你就可以解析返回的数据，并将其用于骰子的滚动上。打开
         <em>
             WebSource.swift
         </em>
-        and you’ll see this is exactly what it does. But how do you test this?
+        ，你就可以看到它到底是如何实现的。但你如何测试这点？
     </p>
     <p>
-        The first thing is to make a
+        第一件事就是创建
         <em>
             WebSourceTests.swift
         </em>
-        test file. Select the
-        <em>
-            High RollerTests
-        </em>
-        group in the
+        测试文件。选择
         <em>
             File Navigator
         </em>
-        and use
+        中的
         <em>
-            File\New\File…
+            High RollerTests
         </em>
-        to make a new
+        这组，并使用
         <em>
-            macOS\Unit Test Case Class
+            File/New/File…
         </em>
-        and name it
+        中的
+        <em>
+            macOS/Unit Test Case Class
+        </em>
+        创建一个名为
         <code>
             WebSourceTests
         </code>
-        .
+        的类。
     </p>
     <p>
-        Delete the contents of the class and add the following import statement:
+        删除类的内容，并添加下列的import语句：
     </p>
     <div class="wp_codebox">
         <table>
@@ -745,11 +744,11 @@
         </table>
     </div>
     <p>
-        Open
+        在assistant editor中打开
         <em>
             WebSource.swift
         </em>
-        in the assistant editor.
+        。
     </p>
     <p>
         Look at
