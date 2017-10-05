@@ -10,63 +10,52 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        In
-        <a href="https://www.raywenderlich.com/141405/unit-testing-macos-part-12"
-        sl-processed="1">
-            Part 1 of this Unit testing tutorial
+        在本教程的
+        <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Unit%20Testing%20on%20macOS%20-%20Part%201:2.md" sl-processed="1">
+            第一部分
         </a>
-        , you learned how to use Test Driven Development to test new code and
-        how to add unit tests to existing code. In this part, you’ll learn how
-        to test the user interface, how to test networking code and learn about
-        a couple of Xcode tools to help your testing.
+        ，你已经学习了如何使用TDD来测试新添加的代码，及添加单元测试到已存在的代码中。在这一部分，你将学习如何测试UI，如何测试网络代码，以及一些帮助你进行测试的Xcode工具。
     </p>
     <p>
-        If you haven’t completed Part 1, or want a fresh start, download the
+        如果你还未完成第一部分，或是想要一个新的开始，可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/08/HighRoller-part1.zip"
         sl-processed="1">
-            completed project from Part 1 project
+            这里
         </a>
-        here. This project uses Swift 3 and requires, at a minimum, Xcode 8 beta
-        6. Open it in Xcode and press
+        下载第一部分完整的项目。该项目使用Swift 3，最低Xcode 8 beta 6以上的版本。在Xcode中打开它并按下
         <em>
             Command-U
         </em>
-        to run all the tests to confirm that everything is working as expected.
+        键来运行所有的测试，确认一切如你期望中一样得工作正常。
     </p>
     <h2>
-        Testing the Interface
+        测试交互
     </h2>
     <p>
-        As you saw in part 1, Xcode includes the ability to run UITests. While
-        these can be useful, it is much faster to test views and view controllers
-        programmatically. Instead of having Xcode run the app and send fake clicks
-        to interface objects, get your tests to create a new instance of your view
-        or view controller and work with that directly. You can get and set properties,
-        call methods — including IBAction methods — and test the results much more
-        quickly.
+        正如你在第一部分中所看到的一样，Xcode包含了运行UITests的能力。尽管这个非常有用，单用编程的方式来测试view和view controller可以更加快速。在测试中我们会创建一个view或view controller的实例去直接测试，而不是运行app并发送模拟点击事件到交互对象上。你可以获取和设置property，调用方法 - 包括IBAction方法 - 来更加快速地测试出结果。
     </p>
     <p>
-        Select the
-        <em>
-            High RollerTests
-        </em>
-        group in the
+        在
         <em>
             File Navigator
         </em>
-        and use
+        中选择
         <em>
-            File\New\File…
+            High RollerTests
         </em>
-        to create a new
+        组，并使用
         <em>
-            macOS\Unit Test Case Class
+            File/New/File…
         </em>
-        named
+        中的
+        <em>
+            macOS/Unit Test Case Class
+        </em>
+        来创建一个名为
         <code>
             ViewControllerTests
         </code>
-        . Delete all the code and add the following import to the top of the file:
+        的类。添加全部的代码并添加下列的import到文件的顶部：
     </p>
     <div class="wp_codebox">
         <table>
@@ -82,11 +71,11 @@
         </table>
     </div>
     <p>
-        Insert the following code into the
+        插入下列的代码到
         <code>
             ViewControllerTests
         </code>
-        class:
+        类中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -105,56 +94,53 @@
         </table>
     </div>
     <p>
-        So what’s going on here?
+        上述的代码：
     </p>
     <ol>
         <li>
-            The entire class will have access to a
+            整个的类会使用一个名为
+            <em>
+            File Navigator
+            </em>
+            的property访问
             <code>
                 ViewController
             </code>
-            property names
-            <code>
-                vc
-            </code>
-            . It’s OK to make this non-optional because if it crashes, that’s still
-            a useful test result.
+            。可以将它设为非可选的，因为如果它崩溃掉的话，仍然是一个非常有用的测试结果。
         </li>
         <li>
-            This view controller is instantiated from the storyboard
+            这个view controller是从storyboard的
             <code>
                 setup()
             </code>
-            .
+            中实例化的。
         </li>
         <li>
-            To trigger the view lifecycle, get the view controller’s
+            为了触发view的生命周期，获取view controller的
             <code>
                 view
             </code>
-            property. You don’t need to store it; the act of getting it makes the
-            view controller create it correctly.
+            property。你无需去保存，因为获取它的动作就已是的创建view controller的动作正确地执行。
         </li>
     </ol>
     <p>
-        Instantiating a view controller this way will only work if the view controller
-        has a storyboard ID. Open
+        以这种方式实例化view controller，必须保证它有一个storyboard ID。打开
         <em>
             Main.storyboard
         </em>
-        , select
+        ，选择
         <em>
             ViewController
         </em>
-        and show the
+        ，并在右侧打开
         <em>
             Identity Inspector
         </em>
-        on the right. Set the Storyboard ID to
+        。将Storyboard ID设置为
         <em>
             ViewController
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/AddStoryboardID.png"
@@ -163,15 +149,15 @@
         sizes="(max-width: 512px) 100vw, 512px">
     </p>
     <p>
-        The first test will confirm that the
+        第一个测试将用来确认
         <em>
             ViewController
         </em>
-        was created properly. Go back to
+        正确地被创建。切回
         <em>
             ViewControllerTests.swift
         </em>
-        and add the following test function:
+        并添加下列的测试方法：
     </p>
     <div class="wp_codebox">
         <table>
@@ -187,21 +173,18 @@
         </table>
     </div>
     <p>
-        Run the tests; if this test fails or crashes, go back to
+        运行测试。如果出现失败或崩溃的话，返回
         <em>
             Main.storyboard
         </em>
-        and check that you set the storyboard ID correctly.
+        并检查你的storyboard ID是否设置正确。
     </p>
     <p>
-        Build and run the app to have a look at the interface. All the controls
-        are functional, so click the
+        运行app来查看一下界面。所有的控件都是有功能的，因此点击
         <em>
             Roll
         </em>
-        button to roll the dice. Change the settings and roll again; notice that
-        the number of dice can be set using a test field or a stepper and that
-        you set the number of sides for the dice using a popup.
+        按钮来滚动骰子；修改设置并再次滚动，注意骰子的数量可以使用一个text field或stepper来设定，而骰子的面数则使用一个弹出菜单来设定。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/BuildRun2.png"
@@ -210,15 +193,14 @@
         sizes="(max-width: 658px) 100vw, 658px">
     </p>
     <p>
-        Before testing that the controls operate as expected, you first need to
-        confirm the interface elements start off with the expected values.
+        在测试之前，控件的操作都如同期望中一样地执行，你需要首先确认交互元素是以期望中的值开始的。
     </p>
     <p>
-        Add this test to
+        添加下列的测试到
         <em>
             ViewControllerTests
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -236,31 +218,28 @@
         </table>
     </div>
     <p>
-        Run the tests to make sure the initial setup is valid.
+        运行测试，以确认初始化的设置是正确的。
     </p>
     <p>
-        Once that is confirmed, you can test what happens when you change the
-        parameters through the interface. When you change the number in the text
-        field, the value of the stepper should change to match and vice versa.
+        确认之后，下一步你就该测试，当通过交互改变参数之后发生了什么。当你在text field中修改了文本框之后，stepper的值就应当发出相应的改变，反之亦然。
     </p>
     <p>
-        If you were using the app and clicked on the up or down arrows to change
-        the stepper, the IBAction method
+        如果你在使用app的过程中，通过点击向上或向下的箭头改变了stepper的值，
         <code>
             numberOfDiceStepperChanged(\_:)
         </code>
-        would be called automatically. Similarly, if you edited the text field,
+        方法就会被自动地调用。类似的，如果你编辑text field的话，
         <code>
             numberOfDiceTextFieldChanged(\_:)
         </code>
-        would be called. When testing, you have to call the IBAction methods manually.
+        就会被调用。在测试的时候，你必须手动地来调用这IBAction方法。
     </p>
     <p>
-        Insert the following two tests into
+        插入下列的两个测试到
         <em>
             ViewControllerTests
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
