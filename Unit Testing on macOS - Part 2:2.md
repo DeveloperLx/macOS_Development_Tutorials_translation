@@ -767,51 +767,49 @@
         Mocking
     </h3>
     <p>
-        In the real code,
+        在实际的代码中，
         <code>
             URLSession
         </code>
-        was used to start a
+        是用来启动
         <code>
             URLSessionDataTask
         </code>
-        which returned the response. 
-        Since you don’t want to access the internet,
-        you can test that the
+        的，用它来返回响应。由于不想访问网络，你可以测试
         <code>
             URLRequest
         </code>
-        is configured correctly, that the
+        是正确配置的，而
         <code>
             URLSessionDataTask
         </code>
-        is created and that the
+        可以被创建，
         <code>
             URLSessionDataTask
         </code>
-        is started.
+        可以被启动。
     </p>
     <p>
-        You’re going to create mock versions of the classes involved:
+        你将要创建的mock版本的类包括：
         <code>
             MockURLSession
         </code>
-        and
+        和
         <code>
             MockURLSessionDataTask
         </code>
-        , which you can use instead of the real classes.
+        ，你可以用它们来代替真实的类。
     </p>
     <p>
-        At the bottom of the
+        在
         <em>
             WebSourcesTests.swift
         </em>
-        file, outside the
+        文件的底部，
         <code>
             WebSourceTests
         </code>
-        class, add the following two new classes:
+        类的外部，添加下面的两个新的类：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MockURLSession</span>: <span class="hljs-title">URLSession</span> </span>{
   <span class="hljs-keyword">var</span> url: <span class="hljs-type">URL</span>?
@@ -835,49 +833,48 @@
         <code>
             MockURLSession
         </code>
-        sub-classes
+        继承自
         <code>
             URLSession
         </code>
-        , supplying an alternative version of
+        ，提供了一个替代版本的
         <code>
             dataTask(with:completionHandler:)
         </code>
-        that stores the URL from the supplied
+        ，它会储存来自提供的
         <code>
             URLRequest
         </code>
-        and returns a
+        的URL并返回一个
         <code>
             MockURLSessionTask
         </code>
-        instead of a
+        来替代
         <code>
             URLSessionDataTask
         </code>
-        .
+        。
     </p>
     <p>
         <code>
             MockURLSessionTask
         </code>
-        sub-classes
+        则继承自
         <code>
             URLSessionDataTask
         </code>
-        and when
+        ，当
         <code>
             resume()
         </code>
-        is called, does not go online but instead sets a flag to show that this
-        has happened.
+        被调用时，并不会真正地访问网络，而是标记一个flag表示此事已发生。
     </p>
     <p>
-        Add the following to the
+        添加下列代码到
         <code>
             WebSourceTests
         </code>
-        class and run the new test:
+        类中，并运行新的测试：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testUsingMockURLSession</span><span class="hljs-params">()</span></span> {
   <span class="hljs-comment">// 1</span>
@@ -903,64 +900,62 @@
 }
 </pre>
     <p>
-        What’s going on in this test?
+        这个测试中做了些什么？
     </p>
     <ol>
         <li>
-            Construct the
+            如同之前一样地构建
             <code>
                 URLRequest
             </code>
-            as before.
+            。
         </li>
         <li>
-            Create a
+            创建一个
             <code>
                 MockURLSession
             </code>
-            and confirm the initial properties.
+            并配置初始的property。
         </li>
         <li>
-            Create the
+            创建
             <code>
                 MockURLSessionTask
             </code>
-            and call
+            并调用
             <code>
                 resume()
             </code>
-            .
+            。
         </li>
         <li>
-            Test that the properties have changed as expected.
+            测试这些property发生了如预期中的变化。
         </li>
     </ol>
     <p>
-        This test checks the first part of the process: the
+        这就完成了第一部分的测试：
         <code>
             URLRequest
         </code>
-        , the
+        ，
         <code>
             URLSession
         </code>
-        and the
+        ，和
         <code>
             URLSessionDataTask
         </code>
-        , and it tests that the data task is started. What is missing is any test
-        for parsing the returned data.
+        ，以及data task的启动。现在缺少的测试是解析返回的数据。
     </p>
     <p>
-        There are two test cases you need to cover here: if the data returns matches
-        the expected format, and if it does not.
+        这里你需要覆盖两个测试的case：返回的数据是否为期望中的格式。
     </p>
     <p>
-        Add these two tests to
+        添加下列的两个测试到
         <em>
             WebSourcesTests.swift
         </em>
-        and run them:
+        中并运行：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testParsingGoodData</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">let</span> webSource = <span class="hljs-type">WebSource</span>()
@@ -987,69 +982,64 @@
 }
 </pre>
     <p>
-        Here you have used expectations to test the network connection, mocking
-        to simulate the networking to allow tests independent of the network and
-        a third-party web site, and finally supplied data to test the data parsing,
-        again independently.
+        这里你使用期望来测试了网络连接，mocking来模拟网络，来使得测试可以独立于网络和第三方的网站，最后则提供数据来测试数据的解析，增强独立的能力。
     </p>
     <h2>
-        Performance Testing
+        性能测试
     </h2>
     <p>
-        Xcode also offers performance testing to check how fast your code executes.
-        In
+        Xcode还提供了性能的测试，来检测你代码运行的速度。在
         <em>
             Roll.swift
         </em>
-        ,
+        中的
         <code>
             totalForDice()
         </code>
-        uses
+        ，使用
         <code>
             flatMap
         </code>
-        and
+        和
         <code>
             reduce
         </code>
-        to calculate the total for the dice, allowing for the fact that
+        来计算骰子的总数，且允许
         <code>
             value
         </code>
-        is an optional. But is this the fastest approach?
+        是可选类型的。但这是最快的方法么？
     </p>
     <p>
-        To test performance, select the
-        <em>
-            High RollerTests
-        </em>
-        group in the
+        为了测试性能，在
         <em>
             File Navigator
         </em>
-        and use
+        中选择
         <em>
-            File\New\File…
+            High RollerTests
         </em>
-        to create a new
+        这组，并使用
         <em>
-            macOS\Unit Test Case Class
+            File/New/File...
         </em>
-        named
+        中的
+        <em>
+            macOS/Unit Test Case Class
+        </em>
+        创建一个名为
         <code>
             PerformanceTests
         </code>
-        .
+        的类。
     </p>
     <p>
-        Delete the contents of the class and — you guessed it — add the following
-        import as you’ve done before:
+        如你所想，和之前一样，删除类中的内容，并添加下列的import：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
 </pre>
     <p>
-        Insert this test function:
+        插入下列的测试方法：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice_FlatMap_Reduce</span><span class="hljs-params">()</span></span> {
     <span class="hljs-comment">// 1</span>
@@ -1064,32 +1054,32 @@
   }
 </pre>
     <p>
-        The sections of this function are as follows:
+        上述的测试：
     </p>
     <ol>
         <li>
-            Set up a
-            <code>
-                Roll
-            </code>
-            with 20
+            用20个
             <code>
                 Dice
             </code>
-            .
+            设置
+            <code>
+                Roll
+            </code>
+            。
         </li>
         <li>
             <code>
                 self.measure
             </code>
-            defines the timing block.
+            则定义了定时的block。
         </li>
         <li>
-            This is the code being measured.
+            这里就是将被测量的代码。
         </li>
     </ol>
     <p>
-        Run the test and you will see a result like this:
+        运行测试，你将会看到类似如下的结果：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/PerformanceTest-650x239.png"
