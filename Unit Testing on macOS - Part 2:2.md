@@ -57,19 +57,8 @@
         </code>
         的类。添加全部的代码并添加下列的import到文件的顶部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420901">
-                    <td class="code" id="p142090code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            @testable import High_Roller
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
+</pre>
     <p>
         插入下列的代码到
         <code>
@@ -77,22 +66,20 @@
         </code>
         类中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420902">
-                    <td class="code" id="p142090code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 var vc: ViewController! &nbsp; override func setUp() { super.setUp()
-                            &nbsp; // 2 let storyboard = NSStoryboard(name: "Main", bundle: nil) vc
-                            = storyboard.instantiateController(withIdentifier: "ViewController") as!
-                            ViewController &nbsp; // 3 _ = vc.view }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">var</span> vc: <span class="hljs-type">ViewController</span>!
+
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setUp</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.setUp()
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> storyboard = <span class="hljs-type">NSStoryboard</span>(name: <span class="hljs-string">"Main"</span>, bundle: <span class="hljs-literal">nil</span>)
+  vc = storyboard.instantiateController(withIdentifier: <span class="hljs-string">"ViewController"</span>) <span class="hljs-keyword">as</span>! <span class="hljs-type">ViewController</span>
+
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-number">_</span> = vc.view
+}
+</pre>
     <p>
         上述的代码：
     </p>
@@ -159,19 +146,10 @@
         </em>
         并添加下列的测试方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420903">
-                    <td class="code" id="p142090code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testViewControllerIsCreated() { XCTAssertNotNil(vc) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testViewControllerIsCreated</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-type">XCTAssertNotNil</span>(vc)
+}
+</pre>
     <p>
         运行测试。如果出现失败或崩溃的话，返回
         <em>
@@ -202,21 +180,12 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420904">
-                    <td class="code" id="p142090code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testControlsHaveDefaultData() { XCTAssertEqual(vc.numberOfDiceTextField.stringValue,
-                            String(2)) XCTAssertEqual(vc.numberOfDiceStepper.integerValue, 2) XCTAssertEqual(vc.numberOfSidesPopup.titleOfSelectedItem,
-                            String(6)) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testControlsHaveDefaultData</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfDiceTextField.stringValue, <span class="hljs-type">String</span>(<span class="hljs-number">2</span>))
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfDiceStepper.integerValue, <span class="hljs-number">2</span>)
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfSidesPopup.titleOfSelectedItem, <span class="hljs-type">String</span>(<span class="hljs-number">6</span>))
+}
+</pre>
     <p>
         运行测试，以确认初始化的设置是正确的。
     </p>
@@ -241,24 +210,22 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420905">
-                    <td class="code" id="p142090code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testChangingTextFieldChangesStepper() { vc.numberOfDiceTextField.stringValue
-                            = String(4) vc.numberOfDiceTextFieldChanged(vc.numberOfDiceTextField) &nbsp;
-                            XCTAssertEqual(vc.numberOfDiceTextField.stringValue, String(4)) XCTAssertEqual(vc.numberOfDiceStepper.integerValue,
-                            4) } &nbsp; func testChangingStepperChangesTextField() { vc.numberOfDiceStepper.integerValue
-                            = 10 vc.numberOfDiceStepperChanged(vc.numberOfDiceStepper) &nbsp; XCTAssertEqual(vc.numberOfDiceTextField.stringValue,
-                            String(10)) XCTAssertEqual(vc.numberOfDiceStepper.integerValue, 10) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testChangingTextFieldChangesStepper</span><span class="hljs-params">()</span></span> {
+  vc.numberOfDiceTextField.stringValue = <span class="hljs-type">String</span>(<span class="hljs-number">4</span>)
+  vc.numberOfDiceTextFieldChanged(vc.numberOfDiceTextField)
+
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfDiceTextField.stringValue, <span class="hljs-type">String</span>(<span class="hljs-number">4</span>))
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfDiceStepper.integerValue, <span class="hljs-number">4</span>)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testChangingStepperChangesTextField</span><span class="hljs-params">()</span></span> {
+  vc.numberOfDiceStepper.integerValue = <span class="hljs-number">10</span>
+  vc.numberOfDiceStepperChanged(vc.numberOfDiceStepper)
+
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfDiceTextField.stringValue, <span class="hljs-type">String</span>(<span class="hljs-number">10</span>))
+  <span class="hljs-type">XCTAssertEqual</span>(vc.numberOfDiceStepper.integerValue, <span class="hljs-number">10</span>)
+}
+</pre>
     <p>
         运行测试来查看结果。你还应当测试view controller中的变量，以确认它们如同期望中的方式进行变化。
     </p>
@@ -273,21 +240,15 @@
         </code>
         存在对象，并含有期望的默认property：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420906">
-                    <td class="code" id="p142090code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testViewControllerHasRollObject() { XCTAssertNotNil(vc.roll) } &nbsp;
-                            func testRollHasDefaultSettings() { XCTAssertEqual(vc.roll.numberOfSides,
-                            6) XCTAssertEqual(vc.roll.dice.count, 2) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testViewControllerHasRollObject</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-type">XCTAssertNotNil</span>(vc.roll)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testRollHasDefaultSettings</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-type">XCTAssertEqual</span>(vc.roll.numberOfSides, <span class="hljs-number">6</span>)
+  <span class="hljs-type">XCTAssertEqual</span>(vc.roll.dice.<span class="hljs-built_in">count</span>, <span class="hljs-number">2</span>)
+}
+</pre>
     <p>
         接下来，你需要确认通过界面中的元素改变一项设置后，确实可以改变
         <code>
@@ -295,25 +256,22 @@
         </code>
         对象中的设置。添加下列的设置：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420907">
-                    <td class="code" id="p142090code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testChangingNumberOfDiceInTextFieldChangesRoll() { vc.numberOfDiceTextField.stringValue
-                            = String(4) vc.numberOfDiceTextFieldChanged(vc.numberOfDiceTextField) &nbsp;
-                            XCTAssertEqual(vc.roll.dice.count, 4) } &nbsp; func testChangingNumberOfDiceInStepperChangesRoll()
-                            { vc.numberOfDiceStepper.integerValue = 10 vc.numberOfDiceStepperChanged(vc.numberOfDiceStepper)
-                            &nbsp; XCTAssertEqual(vc.roll.dice.count, 10) } &nbsp; func testChangingNumberOfSidesPopupChangesRoll()
-                            { vc.numberOfSidesPopup.selectItem(withTitle: "20") vc.numberOfSidesPopupChanged(vc.numberOfSidesPopup)
-                            &nbsp; XCTAssertEqual(vc.roll.numberOfSides, 20) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testChangingNumberOfDiceInTextFieldChangesRoll</span><span class="hljs-params">()</span></span> {
+      vc.numberOfDiceTextField.stringValue = <span class="hljs-type">String</span>(<span class="hljs-number">4</span>)
+      vc.numberOfDiceTextFieldChanged(vc.numberOfDiceTextField)
+      <span class="hljs-type">XCTAssertEqual</span>(vc.roll.dice.<span class="hljs-built_in">count</span>, <span class="hljs-number">4</span>)
+    }
+    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testChangingNumberOfDiceInStepperChangesRoll</span><span class="hljs-params">()</span></span> {
+      vc.numberOfDiceStepper.integerValue = <span class="hljs-number">10</span>
+      vc.numberOfDiceStepperChanged(vc.numberOfDiceStepper)
+      <span class="hljs-type">XCTAssertEqual</span>(vc.roll.dice.<span class="hljs-built_in">count</span>, <span class="hljs-number">10</span>)
+    }
+    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testChangingNumberOfSidesPopupChangesRoll</span><span class="hljs-params">()</span></span> {
+      vc.numberOfSidesPopup.selectItem(withTitle: <span class="hljs-string">"20"</span>)
+      vc.numberOfSidesPopupChanged(vc.numberOfSidesPopup)
+      <span class="hljs-type">XCTAssertEqual</span>(vc.roll.numberOfSides, <span class="hljs-number">20</span>)
+    }
+</pre>
     <p>
         这三个测试会分别操作text field，stepper和弹出菜单。在每次UI元素发生变化之后，它们就会检查
         <code>
@@ -391,41 +349,24 @@
         </em>
         并添加下列的测试：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420908">
-                    <td class="code" id="p142090code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testDisplayIsBlankAtStart() { XCTAssertEqual(vc.resultsTextView.string,
-                            "") XCTAssertEqual(vc.resultsStackView.views.count, 0) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testDisplayIsBlankAtStart</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-type">XCTAssertEqual</span>(vc.resultsTextView.string, <span class="hljs-string">""</span>)
+  <span class="hljs-type">XCTAssertEqual</span>(vc.resultsStackView.views.<span class="hljs-built_in">count</span>, <span class="hljs-number">0</span>)
+}
+</pre>
     <p>
         运行测试来确认开始的展示如同期望一般。
     </p>
     <p>
         接下来，添加下面的测试来检查Roll按钮被点击之后，数据是否出现：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1420909">
-                    <td class="code" id="p142090code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testDisplayIsFilledInAfterRoll() { vc.rollButtonClicked(vc.rollButton)
-                            &nbsp; XCTAssertNotEqual(vc.resultsTextView.string, "") XCTAssertEqual(vc.resultsStackView.views.count,
-                            2) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testDisplayIsFilledInAfterRoll</span><span class="hljs-params">()</span></span> {
+  vc.rollButtonClicked(vc.rollButton)
+
+  <span class="hljs-type">XCTAssertNotEqual</span>(vc.resultsTextView.string, <span class="hljs-string">""</span>)
+  <span class="hljs-type">XCTAssertEqual</span>(vc.resultsStackView.views.<span class="hljs-built_in">count</span>, <span class="hljs-number">2</span>)
+}
+</pre>
     <p>
         由于默认的设置中，骰子的数量为2，因此检查stack view有两个view是安全的。但如果你不知道设置是什么，你就无法测试展示的数据是否正确了。
     </p>
@@ -451,24 +392,17 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209010">
-                    <td class="code" id="p142090code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testTextResultDisplayIsCorrect() { let testRolls = [1, 2, 3, 4, 5,
-                            6] vc.displayDiceFromRoll(diceRolls: testRolls) &nbsp; var expectedText
-                            = "Total rolled: 21\n" expectedText += "Dice rolled: 1, 2, 3, 4, 5, 6 (6
-                            x 6 sided dice)\n" expectedText += "You rolled: 1 x 1s, 1 x 2s, 1 x 3s,
-                            1 x 4s, 1 x 5s, 1 x 6s" &nbsp; XCTAssertEqual(vc.resultsTextView.string,
-                            expectedText) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTextResultDisplayIsCorrect</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> testRolls = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+  vc.displayDiceFromRoll(diceRolls: testRolls)
+
+  <span class="hljs-keyword">var</span> expectedText = <span class="hljs-string">"Total rolled: 21\n"</span>
+  expectedText += <span class="hljs-string">"Dice rolled: 1, 2, 3, 4, 5, 6 (6 x 6 sided dice)\n"</span>
+  expectedText += <span class="hljs-string">"You rolled: 1 x 1s,  1 x 2s,  1 x 3s,  1 x 4s,  1 x 5s,  1 x 6s"</span>
+
+  <span class="hljs-type">XCTAssertEqual</span>(vc.resultsTextView.string, expectedText)
+}
+</pre>
     <p>
         运行以验证测试结果如同预期中一样。即6个六面的骰子各自展示可能的一个面。
     </p>
@@ -479,27 +413,24 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209011">
-                    <td class="code" id="p142090code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testGraphicalResultDisplayIsCorrect() { let testRolls = [1, 2, 3,
-                            4, 5, 6] vc.displayDiceFromRoll(diceRolls: testRolls) &nbsp; let diceEmojis
-                            = ["\u{2680}", "\u{2681}", "\u{2682}", "\u{2683}", "\u{2684}", "\u{2685}"
-                            ] &nbsp; XCTAssertEqual(vc.resultsStackView.views.count, 6) &nbsp; for
-                            (index, diceView) in vc.resultsStackView.views.enumerated() { guard let
-                            diceView = diceView as? NSTextField else { XCTFail("View \(index) is not
-                            NSTextField") return } let diceViewContent = diceView.stringValue XCTAssertEqual(diceViewContent,
-                            diceEmojis[index], "View \(index) is not showing the correct emoji.") }
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testGraphicalResultDisplayIsCorrect</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> testRolls = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+  vc.displayDiceFromRoll(diceRolls: testRolls)
+
+  <span class="hljs-keyword">let</span> diceEmojis = [<span class="hljs-string">"\u{2680}"</span>, <span class="hljs-string">"\u{2681}"</span>, <span class="hljs-string">"\u{2682}"</span>, <span class="hljs-string">"\u{2683}"</span>, <span class="hljs-string">"\u{2684}"</span>, <span class="hljs-string">"\u{2685}"</span> ]
+
+  <span class="hljs-type">XCTAssertEqual</span>(vc.resultsStackView.views.<span class="hljs-built_in">count</span>, <span class="hljs-number">6</span>)
+
+  <span class="hljs-keyword">for</span> (index, diceView) <span class="hljs-keyword">in</span> vc.resultsStackView.views.enumerated() {
+    <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> diceView = diceView <span class="hljs-keyword">as</span>? <span class="hljs-type">NSTextField</span> <span class="hljs-keyword">else</span> {
+      <span class="hljs-type">XCTFail</span>(<span class="hljs-string">"View <span class="hljs-subst">\(index)</span> is not NSTextField"</span>)
+      <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">let</span> diceViewContent = diceView.stringValue
+    <span class="hljs-type">XCTAssertEqual</span>(diceViewContent, diceEmojis[index], <span class="hljs-string">"View <span class="hljs-subst">\(index)</span> is not showing the correct emoji."</span>)
+  }
+}
+</pre>
     <p>
         再次运行测试，以检查交互是否如你所预期一样地执行。剩下的两个测试将展示测试中一个非常有用的技术，通过提供已知的数据给一个方法，再检查结果。
     </p>
@@ -578,25 +509,20 @@
     <p>
         选择列表中第一个选项，下拉的菜单会消失。然后点击其中一项，这时它仍然会有淡蓝色的背景。当它被选中之后，背景就会带有一个略深一些的蓝色阴影，你可以按Return键来接收这个选择，之后你的代码看起来就类似如下的样子：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209012">
-                    <td class="code" id="p142090code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testExample() { &nbsp; let highRollerWindow = XCUIApplication().windows["High
-                            Roller"] let incrementArrow = highRollerWindow.steppers.children(matching:
-                            .incrementArrow).element incrementArrow.click() incrementArrow.click()
-                            &nbsp; let textField = highRollerWindow.children(matching: .textField).element
-                            textField.doubleClick() textField.typeText("6\t") highRollerWindow.children(matching:
-                            .popUpButton).element.click() highRollerWindow.menuItems["12"].click()
-                            highRollerWindow.buttons["Roll"].click() &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testExample</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">let</span> highRollerWindow = <span class="hljs-type">XCUIApplication</span>().windows[<span class="hljs-string">"High Roller"</span>]
+    <span class="hljs-keyword">let</span> incrementArrow = highRollerWindow.steppers.children(matching: .incrementArrow).element
+    incrementArrow.click()
+    incrementArrow.click()
+    <span class="hljs-keyword">let</span> textField = highRollerWindow.children(matching: .textField).element
+    textField.doubleClick()
+    textField.typeText(<span class="hljs-string">"6\t"</span>)
+    highRollerWindow.children(matching: .popUpButton).element.click()
+    highRollerWindow.menuItems[<span class="hljs-string">"12"</span>].click()
+    highRollerWindow.buttons[<span class="hljs-string">"Roll"</span>].click()
+
+  }
+</pre>
     <p>
         记录的主要用途，是为了展示访问界面元素的语法。但意料之外的事却是你无法获取到
         <code>
@@ -627,24 +553,19 @@
     <p>
         使用记录中的信息来确定如何访问元素。此测试方法将用来检查使用stepper编辑骰子的数量后，text field中的值也可以发生相应的改变：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209013">
-                    <td class="code" id="p142090code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testIncreasingNumberOfDice() { let highRollerWindow = XCUIApplication().windows["High
-                            Roller"] &nbsp; let incrementArrow = highRollerWindow.steppers.children(matching:
-                            .incrementArrow).element incrementArrow.click() incrementArrow.click()
-                            &nbsp; let textField = highRollerWindow.children(matching: .textField).element
-                            let textFieldValue = textField.value as? String &nbsp; XCTAssertEqual(textFieldValue,
-                            "4") }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testIncreasingNumberOfDice</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> highRollerWindow = <span class="hljs-type">XCUIApplication</span>().windows[<span class="hljs-string">"High Roller"</span>]
+
+  <span class="hljs-keyword">let</span> incrementArrow = highRollerWindow.steppers.children(matching: .incrementArrow).element
+  incrementArrow.click()
+  incrementArrow.click()
+
+  <span class="hljs-keyword">let</span> textField = highRollerWindow.children(matching: .textField).element
+  <span class="hljs-keyword">let</span> textFieldValue = textField.value <span class="hljs-keyword">as</span>? <span class="hljs-type">String</span>
+
+  <span class="hljs-type">XCTAssertEqual</span>(textFieldValue, <span class="hljs-string">"4"</span>)
+}
+</pre>
     <p>
         保存文件，并点击旁边的小菱形来运行测试。app会运行起来，鼠标指针这时会移动到stepper的向上箭头处，并点击两次。这很有趣，就好像是一个机器人在操作你的app！
     </p>
@@ -679,20 +600,12 @@
         </code>
         参数，这个网页就会展示滚动很多六面的骰子的结果。似乎和下面这部分的内容相关：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209014">
-                    <td class="code" id="p142090code14">
-                        <pre class="html" style="font-family:monospace;">
-                            &lt;p&gt;You rolled 2 dice:&lt;/p&gt; &lt;p&gt; &lt;img src="dice6.png"
-                            alt="6" /&gt; &lt;img src="dice1.png" alt="1" /&gt; &lt;/p&gt;
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="html" class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You rolled 2 dice:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dice6.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"6"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dice1.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"1"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</pre>
     <p>
         所以你就可以解析返回的数据，并将其用于骰子的滚动上。打开
         <em>
@@ -730,19 +643,8 @@
     <p>
         删除类的内容，并添加下列的import语句：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209015">
-                    <td class="code" id="p142090code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            @testable import High_Roller
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
+</pre>
     <p>
         在assistant editor中打开
         <em>
@@ -751,60 +653,51 @@
         。
     </p>
     <p>
-        Look at
-        <code>
-            findRollOnline(numberOfDice:completion:)
-        </code>
-        in
+        在
         <em>
             WebSource.swift
         </em>
-        . This function creates a
+        中查看
+        <code>
+            findRollOnline(numberOfDice:completion:)
+        </code>
+        方法。这个方法会创建一个
         <code>
             URLRequest
         </code>
-        and a
+        和一个
         <code>
             URLSession
         </code>
-        and then combines them into a
+        ，然后将它们连接到
         <code>
             URLSessionDataTask
         </code>
-        which tries to download the web page for the selected number of dice.
+        中，它会尝试基于选定骰子的数量，尝试下载相应的网页。
     </p>
     <p>
-        If data arrives, it parses the result and calls the completion handler
-        with the dice results or an empty array.
+        收到数据后，它就会解析结果并调用completion handler，并带有骰子的结果或空数组作为参数。
     </p>
     <p>
-        As a first attempt at testing, try adding the following to
+        作为测试的第一个尝试，添加下列的内容到
         <em>
             WebSourceTests.swift
         </em>
-        :
+        中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209016">
-                    <td class="code" id="p142090code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testDownloadingOnlineRollPage() { let webSource = WebSource() webSource.findRollOnline(numberOfDice:
-                            2) { (result) in XCTAssertEqual(result.count, 2) } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testDownloadingOnlineRollPage</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> webSource = <span class="hljs-type">WebSource</span>()
+  webSource.findRollOnline(numberOfDice: <span class="hljs-number">2</span>) { (result) <span class="hljs-keyword">in</span>
+    <span class="hljs-type">XCTAssertEqual</span>(result.<span class="hljs-built_in">count</span>, <span class="hljs-number">2</span>)
+  }
+}
+</pre>
     <p>
-        When you run this test, it passes suspiciously fast. Click in the margin
-        to add a breakpoint to the
+        当你运行测试的时候，它会以令人怀疑的速度快速通过。点击左边的位置来添加一个断点在
         <code>
             XCTAssertEqual()
         </code>
-        line.
+        这行。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/breakpoint-650x128.png"
@@ -813,73 +706,62 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Run the test again, and your breakpoint never gets triggered. The test
-        is completing without waiting for the results to come back. This is a bit
-        of a trap, as you could have erroneously assumed that the test passed.
-        Never worry, XCTests has the solution to this: expectations!
+        再次运行测试，你会发现断点永远不会触发。测试在没有结果返回的情况下就完成了。无需担心，XCTests有办法解决这点，那就是expectation！
     </p>
     <p>
-        Replace the previous test with this one:
+        将之前的测试替换为如下这样：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209017">
-                    <td class="code" id="p142090code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testDownloadingPageUsingExpectation() { // 1 let expect = expectation(description:
-                            "waitForWebSource") var diceRollsReceived = 0 &nbsp; let webSource = WebSource()
-                            webSource.findRollOnline(numberOfDice: 2) { (result) in diceRollsReceived
-                            = result.count // 2 expect.fulfill() } &nbsp; // 3 waitForExpectations(timeout:
-                            10, handler: nil) XCTAssertEqual(diceRollsReceived, 2) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testDownloadingPageUsingExpectation</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> expect = expectation(description: <span class="hljs-string">"waitForWebSource"</span>)
+  <span class="hljs-keyword">var</span> diceRollsReceived = <span class="hljs-number">0</span>
+
+  <span class="hljs-keyword">let</span> webSource = <span class="hljs-type">WebSource</span>()
+  webSource.findRollOnline(numberOfDice: <span class="hljs-number">2</span>) { (result) <span class="hljs-keyword">in</span>
+    diceRollsReceived = result.<span class="hljs-built_in">count</span>
+    <span class="hljs-comment">// 2</span>
+    expect.fulfill()
+  }
+
+  <span class="hljs-comment">// 3</span>
+  waitForExpectations(timeout: <span class="hljs-number">10</span>, handler: <span class="hljs-literal">nil</span>)
+  <span class="hljs-type">XCTAssertEqual</span>(diceRollsReceived, <span class="hljs-number">2</span>)
+}
+</pre>
     <p>
-        There are several new things to look at here:
+        这里有几件新鲜的事值得去关注：
     </p>
     <ol>
         <li>
-            Create an
+            用人类可读的描述创建一个
             <code>
                 XCTestExpectation
             </code>
-            with a human-readable description.
+            。
         </li>
         <li>
-            When the closure is called after the data has been returned, fulfill this
-            expectation by indicating whatever it’s been waiting for has now happened.
+            当数据返回之后，闭包就会被调用，并通过指明现在等待的事情来实现这个期望。
         </li>
         <li>
-            Set up a timeout for the test function to wait until the expectation has
-            been fulfilled. In this case, if the web page hasn’t returned the data
-            within 10 seconds, the expectation will timeout.
+            为这个测试方法设置一个超时时间，以等待期望被实现。在本例中，如果网页不能在10秒之内返回数据，期望就会超时。
         </li>
     </ol>
     <p>
-        This time, put a breakpoint on the
+        这次，在
         <code>
             XCTAssertEqual()
         </code>
-        line, and it should trigger and the test will pass for real. If you want
-        to see what happens when an expectation times out, set the timeout to something
-        really small (0.1 works for me) and run the test again.
+        这行设置一个断点，它应当会触发，测试就可以真正地通过了。如果你想看到一个期望超时时会发生什么，可以将超时时间设置为一个非常小的值（比方说0.1秒），并再次运行测试。
     </p>
     <p>
-        Now you know how to test asynchronously, which is really useful for network
-        access and long background tasks. But what if you want to test your network
-        code and you don’t have access to the internet, or the site is down, or
-        you just want your tests to run faster?
+        现在你就了解如何进行异步的测试了，这对于测试网络连接，和长时间的后台任务非常得有用。但如果在未连接到网络的情况下，你想测试网络的代码，或是这个网站已关闭，或是你只想测试地更快一些，该怎么办？
     </p>
     <p>
-        In this case, you can use a testing technique called
+        在本例中，你可以使用一种叫做
         <em>
             mocking
         </em>
-        to simulate your network call.
+        的测试技术，来模拟你的网络调用。
     </p>
     <h3>
         Mocking
@@ -893,7 +775,8 @@
         <code>
             URLSessionDataTask
         </code>
-        which returned the response. Since you don’t want to access the internet,
+        which returned the response. 
+        Since you don’t want to access the internet,
         you can test that the
         <code>
             URLRequest
@@ -930,24 +813,24 @@
         </code>
         class, add the following two new classes:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209018">
-                    <td class="code" id="p142090code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            class MockURLSession: URLSession { var url: URL? var dataTask = MockURLSessionTask()
-                            &nbsp; override func dataTask(with request: URLRequest, completionHandler:
-                            @escaping (Data?, URLResponse?, Error?) -&gt; Void) -&gt; MockURLSessionTask
-                            { self.url = request.url return dataTask } } &nbsp; class MockURLSessionTask:
-                            URLSessionDataTask { var resumeGotCalled = false &nbsp; override func resume()
-                            { resumeGotCalled = true } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MockURLSession</span>: <span class="hljs-title">URLSession</span> </span>{
+  <span class="hljs-keyword">var</span> url: <span class="hljs-type">URL</span>?
+  <span class="hljs-keyword">var</span> dataTask = <span class="hljs-type">MockURLSessionTask</span>()
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">dataTask</span><span class="hljs-params">(with request: URLRequest, completionHandler: @escaping <span class="hljs-params">(Data?, URLResponse?, Error?)</span></span></span> -&gt; <span class="hljs-type">Void</span>) -&gt; <span class="hljs-type">MockURLSessionTask</span> {
+      <span class="hljs-keyword">self</span>.url = request.url
+      <span class="hljs-keyword">return</span> dataTask
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MockURLSessionTask</span>: <span class="hljs-title">URLSessionDataTask</span> </span>{
+  <span class="hljs-keyword">var</span> resumeGotCalled = <span class="hljs-literal">false</span>
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">resume</span><span class="hljs-params">()</span></span> {
+    resumeGotCalled = <span class="hljs-literal">true</span>
+  }
+}
+</pre>
     <p>
         <code>
             MockURLSession
@@ -996,24 +879,29 @@
         </code>
         class and run the new test:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209019">
-                    <td class="code" id="p142090code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testUsingMockURLSession() { // 1 let address = "https://www.random.org/dice/?num=2"
-                            guard let url = URL(string: address) else { XCTFail() return } let request
-                            = URLRequest(url: url) &nbsp; // 2 let mockSession = MockURLSession() XCTAssertFalse(mockSession.dataTask.resumeGotCalled)
-                            XCTAssertNil(mockSession.url) &nbsp; // 3 let task = mockSession.dataTask(with:
-                            request) { (data, response, error) in } task.resume() &nbsp; // 4 XCTAssertTrue(mockSession.dataTask.resumeGotCalled)
-                            XCTAssertEqual(mockSession.url, url) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testUsingMockURLSession</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">let</span> address = <span class="hljs-string">"https://www.random.org/dice/?num=2"</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> url = <span class="hljs-type">URL</span>(string: address) <span class="hljs-keyword">else</span> {
+    <span class="hljs-type">XCTFail</span>()
+    <span class="hljs-keyword">return</span>
+  }
+  <span class="hljs-keyword">let</span> request = <span class="hljs-type">URLRequest</span>(url: url)
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">let</span> mockSession = <span class="hljs-type">MockURLSession</span>()
+  <span class="hljs-type">XCTAssertFalse</span>(mockSession.dataTask.resumeGotCalled)
+  <span class="hljs-type">XCTAssertNil</span>(mockSession.url)
+
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">let</span> task = mockSession.dataTask(with: request) { (data, response, error) <span class="hljs-keyword">in</span> }
+  task.resume()
+
+  <span class="hljs-comment">// 4</span>
+  <span class="hljs-type">XCTAssertTrue</span>(mockSession.dataTask.resumeGotCalled)
+  <span class="hljs-type">XCTAssertEqual</span>(mockSession.url, url)
+}
+</pre>
     <p>
         What’s going on in this test?
     </p>
@@ -1074,28 +962,30 @@
         </em>
         and run them:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209020">
-                    <td class="code" id="p142090code20">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testParsingGoodData() { let webSource = WebSource() let goodDataString
-                            = "&lt;p&gt;You rolled 2 dice:&lt;/p&gt;\n&lt;p&gt;\n&lt;img src=\"dice6.png\"
-                            alt=\"6\" /&gt;\n&lt;img src=\"dice1.png\" alt=\"1\" /&gt;\n&lt;/p&gt;"
-                            guard let goodData = goodDataString.data(using: .utf8) else { XCTFail()
-                            return } &nbsp; let diceArray = webSource.parseIncomingData(data: goodData)
-                            XCTAssertEqual(diceArray, [6, 1]) } &nbsp; func testParsingBadData() {
-                            let webSource = WebSource() let badDataString = "This string is not the
-                            expected result" guard let badData = badDataString.data(using: .utf8) else
-                            { XCTFail() return } &nbsp; let diceArray = webSource.parseIncomingData(data:
-                            badData) XCTAssertEqual(diceArray, []) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testParsingGoodData</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> webSource = <span class="hljs-type">WebSource</span>()
+  <span class="hljs-keyword">let</span> goodDataString = <span class="hljs-string">"&lt;p&gt;You rolled 2 dice:&lt;/p&gt;\n&lt;p&gt;\n&lt;img src=\"dice6.png\" alt=\"6\" /&gt;\n&lt;img src=\"dice1.png\" alt=\"1\" /&gt;\n&lt;/p&gt;"</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> goodData = goodDataString.data(using: .utf8) <span class="hljs-keyword">else</span> {
+    <span class="hljs-type">XCTFail</span>()
+    <span class="hljs-keyword">return</span>
+  }
+
+  <span class="hljs-keyword">let</span> diceArray = webSource.parseIncomingData(data: goodData)
+  <span class="hljs-type">XCTAssertEqual</span>(diceArray, [<span class="hljs-number">6</span>, <span class="hljs-number">1</span>])
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testParsingBadData</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">let</span> webSource = <span class="hljs-type">WebSource</span>()
+  <span class="hljs-keyword">let</span> badDataString = <span class="hljs-string">"This string is not the expected result"</span>
+  <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> badData = badDataString.data(using: .utf8) <span class="hljs-keyword">else</span> {
+    <span class="hljs-type">XCTFail</span>()
+    <span class="hljs-keyword">return</span>
+  }
+
+  <span class="hljs-keyword">let</span> diceArray = webSource.parseIncomingData(data: badData)
+  <span class="hljs-type">XCTAssertEqual</span>(diceArray, [])
+}
+</pre>
     <p>
         Here you have used expectations to test the network connection, mocking
         to simulate the networking to allow tests independent of the network and
@@ -1156,37 +1046,23 @@
         Delete the contents of the class and — you guessed it — add the following
         import as you’ve done before:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209021">
-                    <td class="code" id="p142090code21">
-                        <pre class="swift" style="font-family:monospace;">
-                            @testable import High_Roller
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
+</pre>
     <p>
         Insert this test function:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209022">
-                    <td class="code" id="p142090code22">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testPerformanceTotalForDice_FlatMap_Reduce() { // 1 var roll = Roll()
-                            roll.changeNumberOfDice(newDiceCount: 20) roll.rollAll() &nbsp; // 2 self.measure
-                            { // 3 _ = roll.totalForDice() } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice_FlatMap_Reduce</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    roll.changeNumberOfDice(newDiceCount: <span class="hljs-number">20</span>)
+    roll.rollAll()
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">self</span>.measure {
+      <span class="hljs-comment">// 3</span>
+      <span class="hljs-number">_</span> = roll.totalForDice()
+    }
+  }
+</pre>
     <p>
         The sections of this function are as follows:
     </p>
@@ -1233,21 +1109,17 @@
     <p>
         Replace the test with the following:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209023">
-                    <td class="code" id="p142090code23">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testPerformanceTotalForDice_FlatMap_Reduce() { var roll = Roll()
-                            roll.changeNumberOfDice(newDiceCount: 20) roll.rollAll() &nbsp; self.measure
-                            { for _ in 0 ..&lt; 10_000 { _ = roll.totalForDice() } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice_FlatMap_Reduce</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    roll.changeNumberOfDice(newDiceCount: <span class="hljs-number">20</span>)
+    roll.rollAll()
+    <span class="hljs-keyword">self</span>.measure {
+      <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-number">10_000</span> {
+        <span class="hljs-number">_</span> = roll.totalForDice()
+      }
+    }
+  }
+</pre>
     <p>
         Run the test again; the result you get will depend on your processor,
         but I get about 0.2 seconds. Adjust the loop counter from
@@ -1264,23 +1136,29 @@
         </em>
         in the assistant editor and add them as follows:
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209024">
-                    <td class="code" id="p142090code24">
-                        <pre class="swift" style="font-family:monospace;">
-                            func totalForDice2() -&gt; Int { let total = dice .filter { $0.value !=
-                            nil } .reduce(0) { $0 + $1.value! } return total } &nbsp; func totalForDice3()
-                            -&gt; Int { let total = dice .reduce(0) { $0 + ($1.value ?? 0) } return
-                            total } &nbsp; func totalForDice4() -&gt; Int { var total = 0 for d in
-                            dice { if let dieValue = d.value { total += dieValue } } return total }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice2</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">let</span> total = dice
+      .<span class="hljs-built_in">filter</span> { $<span class="hljs-number">0</span>.value != <span class="hljs-literal">nil</span> }
+      .<span class="hljs-built_in">reduce</span>(<span class="hljs-number">0</span>) { $<span class="hljs-number">0</span> + $<span class="hljs-number">1</span>.value! }
+    <span class="hljs-keyword">return</span> total
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice3</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">let</span> total = dice
+      .<span class="hljs-built_in">reduce</span>(<span class="hljs-number">0</span>) { $<span class="hljs-number">0</span> + ($<span class="hljs-number">1</span>.value ?? <span class="hljs-number">0</span>) }
+    <span class="hljs-keyword">return</span> total
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice4</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">var</span> total = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> dice {
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> dieValue = d.value {
+        total += dieValue
+      }
+    }
+    <span class="hljs-keyword">return</span> total
+  }
+</pre>
     <p>
         And here are the matching performance tests which you should add to
         <em>
@@ -1288,27 +1166,39 @@
         </em>
         :
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14209025">
-                    <td class="code" id="p142090code25">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testPerformanceTotalForDice2_Filter_Reduce() { var roll = Roll()
-                            roll.changeNumberOfDice(newDiceCount: 20) roll.rollAll() &nbsp; self.measure
-                            { for _ in 0 ..&lt; 10_000 { _ = roll.totalForDice2() } } } &nbsp; func
-                            testPerformanceTotalForDice3_Reduce() { var roll = Roll() roll.changeNumberOfDice(newDiceCount:
-                            20) roll.rollAll() &nbsp; self.measure { for _ in 0 ..&lt; 10_000 { _ =
-                            roll.totalForDice3() } } } &nbsp; func testPerformanceTotalForDice4_Old_Style()
-                            { var roll = Roll() roll.changeNumberOfDice(newDiceCount: 20) roll.rollAll()
-                            &nbsp; self.measure { for _ in 0 ..&lt; 10_000 { _ = roll.totalForDice4()
-                            } } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice2_Filter_Reduce</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    roll.changeNumberOfDice(newDiceCount: <span class="hljs-number">20</span>)
+    roll.rollAll()
+    <span class="hljs-keyword">self</span>.measure {
+      <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-number">10_000</span> {
+        <span class="hljs-number">_</span> = roll.totalForDice2()
+      }
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice3_Reduce</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    roll.changeNumberOfDice(newDiceCount: <span class="hljs-number">20</span>)
+    roll.rollAll()
+    <span class="hljs-keyword">self</span>.measure {
+      <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-number">10_000</span> {
+        <span class="hljs-number">_</span> = roll.totalForDice3()
+      }
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice4_Old_Style</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    roll.changeNumberOfDice(newDiceCount: <span class="hljs-number">20</span>)
+    roll.rollAll()
+    <span class="hljs-keyword">self</span>.measure {
+      <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-number">10_000</span> {
+        <span class="hljs-number">_</span> = roll.totalForDice4()
+      }
+    }
+  }
+</pre>
     <p>
         Run these tests and work out which option is the fastest. Did you guess
         which one would win? I didn’t!
