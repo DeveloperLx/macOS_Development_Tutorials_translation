@@ -282,19 +282,8 @@
         </code>
         这行的下方：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414051">
-                    <td class="code" id="p141405code1">
-                        <pre class="swift" style="font-family:monospace;">
-                            @testable import High_Roller
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
+</pre>
     <p>
         现在你就可以删除
         <em>
@@ -319,19 +308,10 @@
         </em>
         类中，添加下列的测试方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414052">
-                    <td class="code" id="p141405code2">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testForDice() { let _ = Dice() }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testForDice</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">let</span> <span class="hljs-number">_</span> = <span class="hljs-type">Dice</span>()
+  }
+</pre>
     <p>
         在你运行测试之前，这里会爆出一个编译错误：
         <code>
@@ -365,19 +345,10 @@
     <p>
         添加下列的代码到文件中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414053">
-                    <td class="code" id="p141405code3">
-                        <pre class="swift" style="font-family:monospace;">
-                            struct Dice { &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Dice</span> </span>{
+
+}
+</pre>
     <p>
         回到
         <em>
@@ -519,20 +490,13 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414054">
-                    <td class="code" id="p141405code4">
-                        <pre class="swift" style="font-family:monospace;">
-                            // 1 func testValueForNewDiceIsNil() { let testDie = Dice() &nbsp; //
-                            2 XCTAssertNil(testDie.value, "Die value should be nil after init") }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testValueForNewDiceIsNil</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">let</span> testDie = <span class="hljs-type">Dice</span>()
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-type">XCTAssertNil</span>(testDie.value, <span class="hljs-string">"Die value should be nil after init"</span>)
+  }
+</pre>
     <p>
         上述的测试：
     </p>
@@ -578,19 +542,8 @@
         </code>
         的结构体中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414055">
-                    <td class="code" id="p141405code5">
-                        <pre class="swift" style="font-family:monospace;">
-                            var value: Int?
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> value: <span class="hljs-type">Int</span>?
+</pre>
     <p>
         在app构建之前，
         <em>
@@ -613,20 +566,12 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414056">
-                    <td class="code" id="p141405code6">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testRollDie() { var testDie = Dice() testDie.rollDie() &nbsp; XCTAssertNotNil(testDie.value)
-                            }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testRollDie</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> testDie = <span class="hljs-type">Dice</span>()
+    testDie.rollDie()
+    <span class="hljs-type">XCTAssertNotNil</span>(testDie.value)
+  }
+</pre>
     <p>
         这个测试使用了
         <code>
@@ -653,19 +598,10 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414057">
-                    <td class="code" id="p141405code7">
-                        <pre class="swift" style="font-family:monospace;">
-                            func rollDie() { &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">()</span></span> {
+
+  }
+</pre>
     <p>
         运行测试，你会看到一个警告，关于使用
         <code>
@@ -689,19 +625,10 @@
         </code>
         修改为如下的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414058">
-                    <td class="code" id="p141405code8">
-                        <pre class="swift" style="font-family:monospace;">
-                            mutating func rollDie() { value = 0 }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">()</span></span> {
+    value = <span class="hljs-number">0</span>
+  }
+</pre>
     <p>
         现在你已明白了TDD如何产生一些奇怪的代码。你很清楚
         <code>
@@ -726,21 +653,14 @@
         </code>
         方法：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p1414059">
-                    <td class="code" id="p141405code9">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testDiceRoll_ShouldBeFromOneToSix() { var testDie = Dice() testDie.rollDie()
-                            &nbsp; XCTAssertTrue(testDie.value! &gt;= 1) XCTAssertTrue(testDie.value!
-                            &lt;= 6) XCTAssertFalse(testDie.value == 0) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testDiceRoll_ShouldBeFromOneToSix</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> testDie = <span class="hljs-type">Dice</span>()
+    testDie.rollDie()
+    <span class="hljs-type">XCTAssertTrue</span>(testDie.value! &gt;= <span class="hljs-number">1</span>)
+    <span class="hljs-type">XCTAssertTrue</span>(testDie.value! &lt;= <span class="hljs-number">6</span>)
+    <span class="hljs-type">XCTAssertFalse</span>(testDie.value == <span class="hljs-number">0</span>)
+  }
+</pre>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/one-sided_dice2.png"
         alt="one-sided_dice2" width="100" height="116" class="alignright size-full wp-image-142143">
@@ -766,26 +686,36 @@
         </em>
         中添加另一个测试：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140510">
-                    <td class="code" id="p141405code10">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testRollsAreSpreadRoughlyEvenly() { var testDie = Dice() var rolls:
-                            [Int: Double] = [:] &nbsp; // 1 let rollCounter = 600.0 &nbsp; for _ in
-                            0 ..&lt; Int(rollCounter) { testDie.rollDie() guard let newRoll = testDie.value
-                            else { // 2 XCTFail() return } &nbsp; // 3 if let existingCount = rolls[newRoll]
-                            { rolls[newRoll] = existingCount + 1 } else { rolls[newRoll] = 1 } } &nbsp;
-                            // 4 XCTAssertEqual(rolls.keys.count, 6) &nbsp; // 5 for (key, roll) in
-                            rolls { XCTAssertEqualWithAccuracy(roll, rollCounter / 6, accuracy: rollCounter
-                            / 6 * 0.3, "Dice gave \(roll) x \(key)") } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testRollsAreSpreadRoughlyEvenly</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> testDie = <span class="hljs-type">Dice</span>()
+    <span class="hljs-keyword">var</span> rolls: [<span class="hljs-type">Int</span>: <span class="hljs-type">Double</span>] = [:]
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">let</span> rollCounter = <span class="hljs-number">600.0</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-type">Int</span>(rollCounter) {
+      testDie.rollDie()
+      <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> newRoll = testDie.value <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// 2</span>
+        <span class="hljs-type">XCTFail</span>()
+        <span class="hljs-keyword">return</span>
+      }
+      <span class="hljs-comment">// 3</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> existingCount = rolls[newRoll] {
+        rolls[newRoll] = existingCount + <span class="hljs-number">1</span>
+      } <span class="hljs-keyword">else</span> {
+        rolls[newRoll] = <span class="hljs-number">1</span>
+      }
+    }
+    <span class="hljs-comment">// 4</span>
+    <span class="hljs-type">XCTAssertEqual</span>(rolls.keys.<span class="hljs-built_in">count</span>, <span class="hljs-number">6</span>)
+    <span class="hljs-comment">// 5</span>
+    <span class="hljs-keyword">for</span> (key, roll) <span class="hljs-keyword">in</span> rolls {
+      <span class="hljs-type">XCTAssertEqualWithAccuracy</span>(roll,
+                                 rollCounter / <span class="hljs-number">6</span>,
+                                 accuracy: rollCounter / <span class="hljs-number">6</span> * <span class="hljs-number">0.3</span>,
+                                 <span class="hljs-string">"Dice gave <span class="hljs-subst">\(roll)</span> x <span class="hljs-subst">\(key)</span>"</span>)
+    }
+  }
+</pre>
     <p>
         上述的测试代码：
     </p>
@@ -849,20 +779,10 @@
         </em>
         中，将该方法修改成如下的样子：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140511">
-                    <td class="code" id="p141405code11">
-                        <pre class="swift" style="font-family:monospace;">
-                            mutating func rollDie() { value = Int(arc4random_uniform(UInt32(6))) +
-                            1 }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">()</span></span> {
+    value = <span class="hljs-type">Int</span>(arc4random_uniform(<span class="hljs-type">UInt32</span>(<span class="hljs-number">6</span>))) + <span class="hljs-number">1</span>
+  }
+</pre>
     <p>
         上述代码使用了
         <code>
@@ -904,21 +824,14 @@
         </em>
         并添加另一个测试：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140512">
-                    <td class="code" id="p141405code12">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testRollingTwentySidedDice() { var testDie = Dice() testDie.rollDie(numberOfSides:
-                            20) &nbsp; XCTAssertNotNil(testDie.value) XCTAssertTrue(testDie.value!
-                            &gt;= 1) XCTAssertTrue(testDie.value! &lt;= 20) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testRollingTwentySidedDice</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> testDie = <span class="hljs-type">Dice</span>()
+    testDie.rollDie(numberOfSides: <span class="hljs-number">20</span>)
+    <span class="hljs-type">XCTAssertNotNil</span>(testDie.value)
+    <span class="hljs-type">XCTAssertTrue</span>(testDie.value! &gt;= <span class="hljs-number">1</span>)
+    <span class="hljs-type">XCTAssertTrue</span>(testDie.value! &lt;= <span class="hljs-number">20</span>)
+  }
+</pre>
     <p>
         编译器会抱怨说
         <code>
@@ -942,19 +855,8 @@
         </code>
         的形参：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140513">
-                    <td class="code" id="p141405code13">
-                        <pre class="swift" style="font-family:monospace;">
-                            mutating func rollDie(numberOfSides: Int) {
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">(numberOfSides: Int)</span></span> {
+</pre>
     <p>
         但这会导致之前的测试失败，因为它们并没有提供参数。你
         <i>
@@ -973,19 +875,8 @@
         </code>
         的声明修改为：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140514">
-                    <td class="code" id="p141405code14">
-                        <pre class="swift" style="font-family:monospace;">
-                            mutating func rollDie(numberOfSides: Int = 6) {
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">(numberOfSides: Int = <span class="hljs-number">6</span>)</span></span> {
+</pre>
     <p>
         现在所有的测试就都通过了，但你还在处在之前相同的位置：测试并不会检查当20个面的骰子滚动的时候，产生的值是1到20之间的。
     </p>
@@ -996,26 +887,31 @@
         </code>
         的测试了，但针对的是20个面的骰子。
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140515">
-                    <td class="code" id="p141405code15">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testTwentySidedRollsAreSpreadRoughlyEvenly() { var testDie = Dice()
-                            var rolls: [Int: Double] = [:] let rollCounter = 2000.0 &nbsp; for _ in
-                            0 ..&lt; Int(rollCounter) { testDie.rollDie(numberOfSides: 20) guard let
-                            newRoll = testDie.value else { XCTFail() return } &nbsp; if let existingCount
-                            = rolls[newRoll] { rolls[newRoll] = existingCount + 1 } else { rolls[newRoll]
-                            = 1 } } &nbsp; XCTAssertEqual(rolls.keys.count, 20) &nbsp; for (key, roll)
-                            in rolls { XCTAssertEqualWithAccuracy(roll, rollCounter / 20, accuracy:
-                            rollCounter / 20 * 0.3, "Dice gave \(roll) x \(key)") } }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTwentySidedRollsAreSpreadRoughlyEvenly</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> testDie = <span class="hljs-type">Dice</span>()
+    <span class="hljs-keyword">var</span> rolls: [<span class="hljs-type">Int</span>: <span class="hljs-type">Double</span>] = [:]
+    <span class="hljs-keyword">let</span> rollCounter = <span class="hljs-number">2000.0</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-type">Int</span>(rollCounter) {
+      testDie.rollDie(numberOfSides: <span class="hljs-number">20</span>)
+      <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> newRoll = testDie.value <span class="hljs-keyword">else</span> {
+        <span class="hljs-type">XCTFail</span>()
+        <span class="hljs-keyword">return</span>
+      }
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> existingCount = rolls[newRoll] {
+        rolls[newRoll] = existingCount + <span class="hljs-number">1</span>
+      } <span class="hljs-keyword">else</span> {
+        rolls[newRoll] = <span class="hljs-number">1</span>
+      }
+    }
+    <span class="hljs-type">XCTAssertEqual</span>(rolls.keys.<span class="hljs-built_in">count</span>, <span class="hljs-number">20</span>)
+    <span class="hljs-keyword">for</span> (key, roll) <span class="hljs-keyword">in</span> rolls {
+      <span class="hljs-type">XCTAssertEqualWithAccuracy</span>(roll,
+                                 rollCounter / <span class="hljs-number">20</span>,
+                                 accuracy: rollCounter / <span class="hljs-number">20</span> * <span class="hljs-number">0.3</span>,
+                                 <span class="hljs-string">"Dice gave <span class="hljs-subst">\(roll)</span> x <span class="hljs-subst">\(key)</span>"</span>)
+    }
+  }
+</pre>
     <p>
         这个测试给出了7个失败：key的数量只有6个，且它们的分布并不相等。使用
         <em>
@@ -1079,28 +975,37 @@
         </em>
         文件的尾部，要在类的外部：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140516">
-                    <td class="code" id="p141405code16">
-                        <pre class="swift" style="font-family:monospace;">
-                            extension DiceTests { &nbsp; fileprivate func performMultipleRollTests(numberOfSides:
-                            Int = 6) { var testDie = Dice() var rolls: [Int: Double] = [:] let rollCounter
-                            = Double(numberOfSides) * 100.0 let expectedResult = rollCounter / Double(numberOfSides)
-                            let allowedAccuracy = rollCounter / Double(numberOfSides) * 0.3 &nbsp;
-                            for _ in 0 ..&lt; Int(rollCounter) { testDie.rollDie(numberOfSides: numberOfSides)
-                            guard let newRoll = testDie.value else { XCTFail() return } &nbsp; if let
-                            existingCount = rolls[newRoll] { rolls[newRoll] = existingCount + 1 } else
-                            { rolls[newRoll] = 1 } } &nbsp; XCTAssertEqual(rolls.keys.count, numberOfSides)
-                            &nbsp; for (key, roll) in rolls { XCTAssertEqualWithAccuracy(roll, expectedResult,
-                            accuracy: allowedAccuracy, "Dice gave \(roll) x \(key)") } } &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">DiceTests</span> </span>{
+
+  <span class="hljs-keyword">fileprivate</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">performMultipleRollTests</span><span class="hljs-params">(numberOfSides: Int = <span class="hljs-number">6</span>)</span></span> {
+    <span class="hljs-keyword">var</span> testDie = <span class="hljs-type">Dice</span>()
+    <span class="hljs-keyword">var</span> rolls: [<span class="hljs-type">Int</span>: <span class="hljs-type">Double</span>] = [:]
+    <span class="hljs-keyword">let</span> rollCounter = <span class="hljs-type">Double</span>(numberOfSides) * <span class="hljs-number">100.0</span>
+    <span class="hljs-keyword">let</span> expectedResult = rollCounter / <span class="hljs-type">Double</span>(numberOfSides)
+    <span class="hljs-keyword">let</span> allowedAccuracy = rollCounter / <span class="hljs-type">Double</span>(numberOfSides) * <span class="hljs-number">0.3</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-type">Int</span>(rollCounter) {
+      testDie.rollDie(numberOfSides: numberOfSides)
+      <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> newRoll = testDie.value <span class="hljs-keyword">else</span> {
+        <span class="hljs-type">XCTFail</span>()
+        <span class="hljs-keyword">return</span>
+      }
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> existingCount = rolls[newRoll] {
+        rolls[newRoll] = existingCount + <span class="hljs-number">1</span>
+      } <span class="hljs-keyword">else</span> {
+        rolls[newRoll] = <span class="hljs-number">1</span>
+      }
+    }
+    <span class="hljs-type">XCTAssertEqual</span>(rolls.keys.<span class="hljs-built_in">count</span>, numberOfSides)
+    <span class="hljs-keyword">for</span> (key, roll) <span class="hljs-keyword">in</span> rolls {
+      <span class="hljs-type">XCTAssertEqualWithAccuracy</span>(roll,
+                                 expectedResult,
+                                 accuracy: allowedAccuracy,
+                                 <span class="hljs-string">"Dice gave <span class="hljs-subst">\(roll)</span> x <span class="hljs-subst">\(key)</span>"</span>)
+    }
+  }
+
+}
+</pre>
     <p>
         这个方法的名称并不以
         <code>
@@ -1123,21 +1028,14 @@
         </code>
         方法替换为下列的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140517">
-                    <td class="code" id="p141405code17">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testRollsAreSpreadRoughlyEvenly() { performMultipleRollTests() }
-                            &nbsp; func testTwentySidedRollsAreSpreadRoughlyEvenly() { performMultipleRollTests(numberOfSides:
-                            20) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testRollsAreSpreadRoughlyEvenly</span><span class="hljs-params">()</span></span> {
+    performMultipleRollTests()
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTwentySidedRollsAreSpreadRoughlyEvenly</span><span class="hljs-params">()</span></span> {
+    performMultipleRollTests(numberOfSides: <span class="hljs-number">20</span>)
+  }
+</pre>
     <p>
         再次运行所有的测试，来证实上述重构正确。
     </p>
@@ -1199,20 +1097,8 @@
         </code>
         修改为如下的代码：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140518">
-                    <td class="code" id="p141405code18">
-                        <pre class="swift" style="font-family:monospace;">
-                            fileprivate func performMultipleRollTests(numberOfSides: Int = 6, line:
-                            UInt = #line) {
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">performMultipleRollTests</span><span class="hljs-params">(numberOfSides: Int = <span class="hljs-number">6</span>, line: UInt = #line)</span></span> {
+</pre>
     <p>
         将
         <code>
@@ -1220,21 +1106,16 @@
         </code>
         修改为如下的样子：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140519">
-                    <td class="code" id="p141405code19">
-                        <pre class="swift" style="font-family:monospace;">
-                            XCTAssertEqual(rolls.keys.count, numberOfSides, line: line) &nbsp; for
-                            (key, roll) in rolls { XCTAssertEqualWithAccuracy(roll, expectedResult,
-                            accuracy: allowedAccuracy, "Dice gave \(roll) x \(key)", line: line) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-type">XCTAssertEqual</span>(rolls.keys.<span class="hljs-built_in">count</span>, numberOfSides, line: line)
+
+<span class="hljs-keyword">for</span> (key, roll) <span class="hljs-keyword">in</span> rolls {
+  <span class="hljs-type">XCTAssertEqualWithAccuracy</span>(roll,
+                             expectedResult,
+                             accuracy: allowedAccuracy,
+                             <span class="hljs-string">"Dice gave <span class="hljs-subst">\(roll)</span> x <span class="hljs-subst">\(key)</span>"</span>,
+                             line: line)
+}
+</pre>
     <p>
         你无需修改调用
         <code>
@@ -1300,27 +1181,43 @@
         </code>
         。将全部占位的代码替换为如下内容：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140520">
-                    <td class="code" id="p141405code20">
-                        <pre class="swift" style="font-family:monospace;">
-                            struct Roll { &nbsp; var dice: [Dice] = [] var numberOfSides = 6 &nbsp;
-                            mutating func changeNumberOfDice(newDiceCount: Int) { dice = [] for _ in
-                            0 ..&lt; newDiceCount { dice.append(Dice()) } } &nbsp; var allDiceValues:
-                            [Int] { return dice.flatMap { $0.value} } &nbsp; mutating func rollAll()
-                            { for index in 0 ..&lt; dice.count { dice[index].rollDie(numberOfSides:
-                            numberOfSides) } } &nbsp; mutating func changeValueForDie(at diceIndex:
-                            Int, to newValue: Int) { if diceIndex &lt; dice.count { dice[diceIndex].value
-                            = newValue } } &nbsp; func totalForDice() -&gt; Int { let total = dice
-                            .flatMap { $0.value } .reduce(0) { $0 - $1 } return total } &nbsp; }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Roll</span> </span>{
+
+  <span class="hljs-keyword">var</span> dice: [<span class="hljs-type">Dice</span>] = []
+  <span class="hljs-keyword">var</span> numberOfSides = <span class="hljs-number">6</span>
+
+  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">changeNumberOfDice</span><span class="hljs-params">(newDiceCount: Int)</span></span> {
+    dice = []
+    <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; newDiceCount {
+      dice.append(<span class="hljs-type">Dice</span>())
+    }
+  }
+
+  <span class="hljs-keyword">var</span> allDiceValues: [<span class="hljs-type">Int</span>] {
+    <span class="hljs-keyword">return</span> dice.flatMap { $<span class="hljs-number">0</span>.value}
+  }
+
+  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollAll</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; dice.<span class="hljs-built_in">count</span> {
+      dice[index].rollDie(numberOfSides: numberOfSides)
+    }
+  }
+
+  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">changeValueForDie</span><span class="hljs-params">(at diceIndex: Int, to newValue: Int)</span></span> {
+    <span class="hljs-keyword">if</span> diceIndex &lt; dice.<span class="hljs-built_in">count</span> {
+      dice[diceIndex].value = newValue
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {
+    <span class="hljs-keyword">let</span> total = dice
+      .flatMap { $<span class="hljs-number">0</span>.value }
+      .<span class="hljs-built_in">reduce</span>(<span class="hljs-number">0</span>) { $<span class="hljs-number">0</span> - $<span class="hljs-number">1</span> }
+    <span class="hljs-keyword">return</span> total
+  }
+
+}
+</pre>
     <p>
         （发现错误了么？现在先忽略它，这就是我们将要测试的地方。:]）
     </p>
@@ -1354,19 +1251,8 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140521">
-                    <td class="code" id="p141405code21">
-                        <pre class="swift" style="font-family:monospace;">
-                            @testable import High_Roller
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
+</pre>
     <p>
         在assistant editor中打开
         <em>
@@ -1396,42 +1282,30 @@
         </em>
         中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140522">
-                    <td class="code" id="p141405code22">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testCreatingRollOfDice() { var roll = Roll() for _ in 0 ..&lt; 5
-                            { roll.dice.append(Dice()) } &nbsp; XCTAssertNotNil(roll) XCTAssertEqual(roll.dice.count,
-                            5) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testCreatingRollOfDice</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-number">5</span> {
+      roll.dice.append(<span class="hljs-type">Dice</span>())
+    }
+    <span class="hljs-type">XCTAssertNotNil</span>(roll)
+    <span class="hljs-type">XCTAssertEqual</span>(roll.dice.<span class="hljs-built_in">count</span>, <span class="hljs-number">5</span>)
+  }
+</pre>
     <p>
         运行测试。目前一切都好 - 第一个测试通过了。和TDD不同，一个失败的测试并非是基本的第一步，因为代码（理论上）早已可以正常地工作。
     </p>
     <p>
         接下来，使用下列的测试，来检查在滚动之前，点数的总数为0：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140523">
-                    <td class="code" id="p141405code23">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testTotalForDiceBeforeRolling_ShouldBeZero() { var roll = Roll()
-                            for _ in 0 ..&lt; 5 { roll.dice.append(Dice()) } &nbsp; let total = roll.totalForDice()
-                            XCTAssertEqual(total, 0) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTotalForDiceBeforeRolling_ShouldBeZero</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
+    <span class="hljs-keyword">for</span> <span class="hljs-number">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> ..&lt; <span class="hljs-number">5</span> {
+      roll.dice.append(<span class="hljs-type">Dice</span>())
+    }
+    <span class="hljs-keyword">let</span> total = roll.totalForDice()
+    <span class="hljs-type">XCTAssertEqual</span>(total, <span class="hljs-number">0</span>)
+  }
+</pre>
     <p>
         再次成功了，但看起来似乎需要进行一些重构。每个测试的第一部分都设置了一个
         <code>
@@ -1461,44 +1335,37 @@
         </code>
         类的内容替换为：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140524">
-                    <td class="code" id="p141405code24">
-                        <pre class="swift" style="font-family:monospace;">
-                            var roll: Roll! &nbsp; override func setUp() { super.setUp() &nbsp; roll
-                            = Roll() roll.changeNumberOfDice(newDiceCount: 5) } &nbsp; func testCreatingRollOfDice()
-                            { XCTAssertNotNil(roll) XCTAssertEqual(roll.dice.count, 5) } &nbsp; func
-                            testTotalForDiceBeforeRolling_ShouldBeZero() { let total = roll.totalForDice()
-                            XCTAssertEqual(total, 0) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> roll: <span class="hljs-type">Roll</span>!
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setUp</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">super</span>.setUp()
+    roll = <span class="hljs-type">Roll</span>()
+    roll.changeNumberOfDice(newDiceCount: <span class="hljs-number">5</span>)
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testCreatingRollOfDice</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-type">XCTAssertNotNil</span>(roll)
+    <span class="hljs-type">XCTAssertEqual</span>(roll.dice.<span class="hljs-built_in">count</span>, <span class="hljs-number">5</span>)
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTotalForDiceBeforeRolling_ShouldBeZero</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">let</span> total = roll.totalForDice()
+    <span class="hljs-type">XCTAssertEqual</span>(total, <span class="hljs-number">0</span>)
+  }
+</pre>
     <p>
         按照惯例，再次运行测试，来检查一切是否正常工作。
     </p>
     <p> 
         在6面骰子的情况下，最小的总数应当是5，而最大的总数则应是30，因此添加下列的测试来验证总数是否处于这个范围之中：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140525">
-                    <td class="code" id="p141405code25">
-                        <pre class="swift" style="font-family:monospace;">
-                            func testTotalForDiceAfterRolling_ShouldBeBetween5And30() { roll.rollAll()
-                            let total = roll.totalForDice() XCTAssertGreaterThanOrEqual(total, 5) XCTAssertLessThanOrEqual(total,
-                            30) }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTotalForDiceAfterRolling_ShouldBeBetween5And30</span><span class="hljs-params">()</span></span> {
+    roll.rollAll()
+    <span class="hljs-keyword">let</span> total = roll.totalForDice()
+    <span class="hljs-type">XCTAssertGreaterThanOrEqual</span>(total, <span class="hljs-number">5</span>)
+    <span class="hljs-type">XCTAssertLessThanOrEqual</span>(total, <span class="hljs-number">30</span>)
+  }
+</pre>
     <p>
         运行测试 - 它失败了！看起来测试已经发现了一个代码中的bug。问题应该是在
         <code>
@@ -1525,21 +1392,14 @@
         </code>
         是减而不是加value。将减号改为加号：
     </p>
-    <div class="wp_codebox">
-        <table>
-            <tbody>
-                <tr id="p14140526">
-                    <td class="code" id="p141405code26">
-                        <pre class="swift" style="font-family:monospace;">
-                            func totalForDice() -&gt; Int { let total = dice .flatMap { $0.value }
-                            // .reduce(0) { $0 - $1 } // bug line .reduce(0) { $0 + $1 } // fixed return
-                            total }
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {
+  <span class="hljs-keyword">let</span> total = dice
+    .flatMap { $<span class="hljs-number">0</span>.value }
+    <span class="hljs-comment">// .reduce(0) { $0 - $1 }       // bug line</span>
+    .<span class="hljs-built_in">reduce</span>(<span class="hljs-number">0</span>) { $<span class="hljs-number">0</span> + $<span class="hljs-number">1</span> }          <span class="hljs-comment">// fixed</span>
+  <span class="hljs-keyword">return</span> total
+}
+</pre>
     <p>
         再次运行你的测试 - 现在一切都完美地运行了。
     </p>
