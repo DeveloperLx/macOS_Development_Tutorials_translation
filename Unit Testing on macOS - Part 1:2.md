@@ -13,65 +13,54 @@
         </a>
     </p>
     <p>
-        Unit testing is one of those things that we all know deep down we should
-        be doing, but it seems too difficult, too boring, or too much like hard
-        work.
+        单元测试是我们都深深知道需要去做的事之一，但看起来非常得困难和无聊，是一个很辛苦的工作。
     </p>
     <p>
-        It’s so much fun creating code that does exciting things; why would anyone
-        want to spend half the time writing code that just checks things?
+        编写代码去完成令人激动的事情是多么得有趣，为何人们要花费一半的时间编写代码只是为了进行测试？
     </p>
     <p>
-        The reason is
+        为了
         <em>
-            confidence
+            把握性
         </em>
-        ! In this Unit testing on macOS tutorial, you’ll learn how to test your
-        code and you will gain confidence that your code is doing what you want
-        it to do, confidence that you can make major changes to your code and confidence
-        that you won’t break anything.
+        ！在本教程中，你将学习如何测试你的代码，以此增强对代码能够正确完成你所期望事情，适应变化，不造成问题的把握力。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        This project uses Swift 3 and requires, at a minimum, Xcode 8 beta 6.
-        Download the
+        本项目使用Swift 3语言，Xcode 8 beta 6以上版本。下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/08/HighRoller-starter.zip"
         sl-processed="1">
-            starter project
+            起始项目
         </a>
-        and open it in Xcode.
+        并打开。
     </p>
     <p>
-        If you have done any other tutorials here at raywenderlich.com, you are
-        probably expecting to build and run at this stage, but not this time —
-        you are going to test. Go to the
+        假如你已完成过raywenderlich.com中这里的其它教程，你可能会期望拿到这里运行。但这次不会去测试这些。点击
         <em>
             Product
         </em>
-        menu and choose
+        菜单并选择
         <em>
             Test
         </em>
-        . Note the shortcut —
+        。注意快捷键 —
         <em>
             Command-U
         </em>
-        — you’ll be using it a lot.
+        — 你将在本教程中使用多次。
     </p>
     <p>
-        When you run the tests, Xcode will build the app and you will see the
-        app window appear a couple of times before you get a message saying “Test
-        Succeeded”. In the
+        当你运行测试时，Xcode将构建app，你会看到几秒钟app的窗口，然后才给出信息“Test Succeeded”。在左侧的
         <em>
             Navigator
         </em>
-        pane on the left, select
+        面板中，选择
         <em>
             Test navigator
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/TestNavigator2.png"
@@ -80,17 +69,15 @@
         sizes="(max-width: 513px) 100vw, 513px">
     </p>
     <p>
-        This shows you the three tests added by default; each one has a green
-        tick beside it, showing that the test passed. To see the file containing
-        those tests, click on the second line in the
+        这里展示了默认添加的三个测试；每个的旁边都有一个绿色的标记，表示该测试已通过。要查看包含这些测试的文件，可以点击
         <em>
             Test Navigator
         </em>
-        where it says
+        中的第二行
         <em>
             High RollerTests
         </em>
-        preceded by an uppercase T icon.
+        ，它带有一个大写T的图标，表示其层级更高。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/DefaultTests3.png"
@@ -99,134 +86,114 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        There are a few important things to note here:
+        这里有一些很重要的事值得注意：
     </p>
     <ul>
         <li>
-            The imports:
+            导入的
             <em>
                 XCTest
             </em>
-            is the testing framework provided by Xcode.
+            是由Xcode提供的测试框架。
             <code>
                 @testable import High_Roller
             </code>
-            is the import that gives the testing code access to all the code in the
+            则让代码可以访问
             <code>
                 High_Roller
             </code>
-            module. Every test file will need these two imports.
+            模块中的所有代码。每个测试文件都需要这样的两个导入。
         </li>
         <li>
             <code>
                 setup()
             </code>
-            and
+            和
             <code>
                 tearDown()
             </code>
-            : these are called before and after
+            ：两个方法会在:
             <em>
-                every single
+                每个单个的
             </em>
-            test method.
+            测试方法被调用之前和之后调用。
         </li>
         <li>
             <code>
                 testExample()
             </code>
-            and
+            和
             <code>
                 testPerformanceExample()
             </code>
-            : actual tests. The first one tests functionality, and the second one
-            tests performance. Every test function name must begin with
+            ：实际的测试。第一个测试功能，第二个则测试性能。每个测试方法的名称都必须以: 
             <code>
                 test
             </code>
-            so that Xcode can recognize it as a test to perform.
+            开头，这样才能被Xcode识别为一个测试的方法去执行。
         </li>
     </ul>
     <h3>
-        What Is Unit Testing?
+        神马是单元测试？
     </h3>
     <p>
-        Before you get into writing your own tests, it’s time for a brief discussion
-        about unit testing, what it actually is and why you should use it.
+        在你开始编写你的测试之前，我们需要进行一个简短的讨论，单元测试到底是什么，你为何应当使用它。
     </p>
     <p>
-        A unit test is a function that tests a single piece — or unit — of your
-        code. It doesn’t get included in the code of your application, but is used
-        during development to check that your code does what you expected.
+        单元测试是用来测试你的一段代码的功能。它并不包含在你的app之中，但可以在开发期间测试代码是否符合你的期望。
     </p>
     <p>
-        A common first reaction to unit tests is: “Are you telling me I should
-        write
+        对于单元测试，常见的第一反应是：“你要我写
         <i>
-            twice
+            两次
         </i>
-        as much code? One function for the app itself and
+        的代码？一次为了app本身，
         <i>
-            another
+            另一次
         </i>
-        to test that function?” Actually, it can be worse than that — some projects
-        end up with
+        则用来测试这个方法？”实际上有可能比这更糟 — 一些项目的测试代码可能会比产品本身的代码
         <i>
-            more
+            更多
         </i>
-        testing code than production code.
+        。
     </p>
     <p>
-        At first, this seems like a terrible waste of time and effort — but wait
-        until a test catches something that you didn’t spot, or alerts you to a
-        side-effect of re-factoring. That’s when you realize what an amazing tool
-        this is. After a while, any project without unit tests feels very fragile,
-        and you’ll hesitate to make any changes because you cannot be sure what
-        will happen.
+        首先，看起来这非常浪费时间和精力 — 但当一个测试捕捉到了你之前未注意过的问题，或警告你出现了副作用的时候，你就会明白它是一个多么棒的工具了。慢慢地，你就会感到一个没有单元测试的项目是多么得脆弱，你做出任何的改动都会顾虑重重，因为你无法确定将会发生什么。
     </p>
     <h2>
-        Test Driven Development
+        测试驱动开发
     </h2>
     <p>
-        Test Driven Development (TDD) is a branch of unit testing where you start
-        with the tests and only write code as required by the tests. Again, this
-        seems like a very strange way to proceed at first and can produce some
-        very peculiar code as you’ll see in a minute. The upshot is that this process
-        really makes you think about the purpose of the code before coding begins.
+        测试驱动开发（Test Driven Development TDD）是单元测试的一个分支，你会从这里开始测试，且只编写测试所需求的代码。这一开始看起来是个非常奇怪的处理方式，且会产生一些非常奇怪的代码。但最终你会发现，它可以在你编码之前帮助你思考编码的目的。
     </p>
     <p>
-        Test Driven Development has three repeating steps:
+        TDD有三个重复的步骤：
     </p>
     <ol>
         <li>
             <em>
-                Red
+                红色
             </em>
-            : Write a failing test.
+            ：编写一个失败的测试。
         </li>
         <li>
             <em>
-                Green
+                绿色
             </em>
-            : Write the minimum code needed to make the test pass.
+            ：编写可以使测试通过的最小代码集。
         </li>
         <li>
             <em>
-                Refactor
+                重构
             </em>
-            : Optional; if any app or test code can be re-factored to make it better,
-            do it now.
+            ：可选的步骤；如果一个任何的app或测试代码可以通过重构来让它变得更好，那就这么做。
         </li>
     </ol>
     <p>
-        This sequence is important and the key to effective TDD. Fixing a failing
-        test gives you a clear indication you know exactly what your code is doing.
-        If your test passes the first time, without any new code being written,
-        then you have not correctly pin-pointed the next stage of development.
+        对于有效的TDD，顺序是非常重要和关键的。修复一个失败的测试，可以帮助你了解代码到底在做什么。如果你的测试在没有任何新编写代码的情况下，第一次就通过了，你就无法确知下一阶段的开发该做些什么。
     </p>
     <p>
-        To start, you’ll write a series of tests and the accompanying code using
-        TDD.
+        开始，你将使用TDD编写一系列测试和伴随的代码。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/dog-239x320.png"
@@ -235,92 +202,85 @@
         sizes="(max-width: 239px) 100vw, 239px">
     </p>
     <h2>
-        The Test Project
+        测试项目
     </h2>
     <p>
-        This project is a dice rolling utility for board gamers. Ever sit down
-        to play a game with the family and discover that the dog ate the dice?
-        Now your app can come to the rescue. And if anyone says “I don’t trust
-        a computer not to cheat!” you can proudly say that the app has been unit
-        tested to prove that it works correctly. That’s bound to impress the family
-        — and you will have saved games night. :]
+        这个项目是棋盘玩家的投骰子工具。有过和家人坐在一起玩游戏，但发现骰子却被狗吃了的经历么？这个App可以帮助你解决烦恼。如果有人说“我不相信计算机不会作弊！”你就可以自豪地说这个app已通过了单元测试，证明它可以正确地工作。这一定会给你的家人留下深刻的印象 — 让你们今晚的游戏可以继续下去。:]
     </p>
     <p>
-        The model for this app will have two main object types:
+        这个app的model包含两个主要的对象类型：一个是
         <code>
             Dice
         </code>
-        , which will have a
+        ，它包含一个
         <code>
             value
         </code>
-        property and a method for generating a random value, and
+        property和一个用来生成任意值的方法；另一个是
         <code>
             Roll
         </code>
-        , which will be a collection of
+        ，它含有一个
         <code>
             Dice
         </code>
-        objects with methods for rolling them all, totaling the values and so
-        on.
+        对象的集合，并附有一起滚动骰子，计算总值等等的方法。
     </p>
     <p>
-        This first test class is for the
+        第一个测试类针对的是
         <code>
             Dice
         </code>
-        object type.
+        对象类型。
     </p>
     <h2>
-        The Dice Test Class
+        Dice测试类
     </h2>
     <p>
-        In Xcode go to the
+        在Xcode中切到
         <em>
             File Navigator
         </em>
-        and select the
+        并选择
         <em>
             High RollerTests
         </em>
-        group. Select
+        组。选择
         <em>
-            File\New\File…
+            File/New/File…
         </em>
-        and choose
+        ，然后点击
         <em>
-            macOS\Unit Test Case Class
+            macOS/Unit Test Case Class
         </em>
-        . Click
+        。点击
         <em>
             Next
         </em>
-        and name the class
+        并将类命名为
         <code>
             DiceTests
         </code>
-        . Make sure the language is set to Swift. Click
+        。语言设为Swift。点击
         <em>
             Next
         </em>
-        and
+        及
         <em>
             Create
         </em>
-        .
+        。
     </p>
     <p>
-        Select all the code inside the class and delete it. Add the following
-        statement to
+        选择类内部的全部代码并删除。添加下列的代码到
         <em>
             DiceTests.swift
         </em>
-        just under the
+        中，就在
         <code>
             import XCTest
         </code>
-        line:
+        这行的下方：
     </p>
     <div class="wp_codebox">
         <table>
@@ -336,28 +296,28 @@
         </table>
     </div>
     <p>
-        Now you can delete
+        现在你就可以删除
         <em>
             HighRollerTests.swift
         </em>
-        as you don’t need the default tests any longer.
+        了，因为你不再需要默认的测试。
     </p>
     <p>
-        The first thing to test is whether a
+        第一件要测试的事是
         <code>
             Dice
         </code>
-        object can be created.
+        对象可否被创建。
     </p>
     <h3>
-        Your First Test
+        你的第一个测试
     </h3>
     <p>
-        Inside the
+        在
         <em>
             DiceTests
         </em>
-        class, add the following test function:
+        类中，添加下列的测试方法：
     </p>
     <div class="wp_codebox">
         <table>
@@ -373,38 +333,37 @@
         </table>
     </div>
     <p>
-        This gives a compile error before you can even run the test:
+        在你运行测试之前，这里会爆出一个编译错误：
         <code>
             "Use of unresolved identifier 'Dice'"
         </code>
-        . In TDD, a test that fails to compile is considered a failing test, so
-        you have just completed step 1 of the TDD sequence.
+        。在TDD中，一个未能编译通过的测试会被认做是失败的测试，因此你现在只是完成了TDD顺序中的第一步。
     </p>
     <p>
-        To make this test pass with the minimum of code, go to the
+        要用最少的代码使这里的代码测试通过，切到
         <em>
             File Navigator
         </em>
-        and select the
-        <em>
-            Model
-        </em>
-        group in the main
+        ，并在主
         <em>
             High Roller
         </em>
-        group. Use
+        组中选择
         <em>
-            File\New\File…
+            Model
         </em>
-        to create a new Swift file and name it
+        组。点击
+        <em>
+            File/New/File…
+        </em>
+        创建一个新的Swift文件并命名为
         <em>
             Dice.swift
         </em>
-        .
+        。
     </p>
     <p>
-        Add the following code to the file:
+        添加下列的代码到文件中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -420,33 +379,28 @@
         </table>
     </div>
     <p>
-        Go back to
+        回到
         <em>
             DiceTests.swift
         </em>
-        ; the error will still be visible until the next build. However, you can
-        now run the test in several different ways.
+        ，在下次构建之前，错误并不会消失。然而，你现在可以以几种不同的方式来运行测试。
     </p>
     <p>
-        If you click the diamond in the margin beside the test function,
+        如果你点击测试方法旁边的菱形，就
         <em>
-            only that single test
+            只会运行这一个测试
         </em>
-        will run. Try that now, and the diamond will turn into a green checkmark
-        symbol, showing that the test has passed.
+        。现在尝试一把，菱形就会变成绿色的勾，表示这个测试已通过。
     </p>
     <p>
-        You can click a green symbol (or a red symbol that shows a failed test)
-        at any time to run a test. There will now be another green symbol beside
-        the class name. Clicking this will run all the tests
+        任何时候，你都可以点击这个绿色的标记（或表示失败测试的红色标记）来运行测试。这时在类名旁边就会出现另一个绿色的标记。点击它就会运行
         <em>
-            in the class
+            在这个类中的
         </em>
-        . At the moment, this is the same as running the single test, but that
-        will soon change.
+        所有测试。此刻点击它和运行单个测试还没有什么区别，但很快就会发生变化。
     </p>
     <p>
-        The final way to test your code is to run all the tests.
+        测试你代码的最后一种方式就是运行所有的测试。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/RunningTests-650x152.png"
@@ -455,56 +409,49 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Press
+        按下
         <em>
             Command-U
         </em>
-        to run all the tests and then go to the
+        键就可以运行全部的测试，然后切到
         <em>
             Test Navigator
         </em>
-        where you will see your single test in the High RollerTests section; you
-        may need to expand the sections to see it. The green checkmark symbols
-        appear beside every test. If you move the mouse pointer up and down the
-        list of tests, you will see small play buttons appear which you can use
-        to run any test or set of tests.
+        ，你就可以在High RollerTests部分看到你单个的测试。可能你需要将此部分展开才能看到。绿色的勾会出现在每个测试的旁边。如果你将鼠标指针在列表中上下移动，你就会看到出现了小小的播放按钮，你可以点击它来运行任意测试或测试的集合。
     </p>
     <p>
-        In the
+        在
         <em>
             Test Navigator
         </em>
-        , you can see that the
+        中，你看到
         <em>
             High RollerUITests
         </em>
-        ran as well. The problem with UI Tests are that they’re slow. You want
-        your tests to be fast as possible so that there is no drawback to testing
-        frequently. To solve this problem, edit the scheme so that the UI Tests
-        don’t run automatically.
+        也会被运行。带有UI测试的问题是会变慢。你希望你的测试能够尽可能地快，以便频繁地进行测试。要解决这个问题，就需要编辑scheme来使得UI测试不会自动运行。
     </p>
     <p>
-        Go to the scheme popup in the toolbar and select
+        在工具栏scheme的弹出菜单中选择
         <em>
             Edit scheme…
         </em>
-        . Click
+        。点击左侧面板中的. Click
         <em>
             Test
         </em>
-        in the pane on the left and un-check
+        ，然后取消勾选
         <em>
             High RollerUITests
         </em>
-        . Close the scheme window and run your tests again with
+        。关闭scheme的窗口，然后按
         <em>
             Command-U
         </em>
-        . The UI Tests are faded out in the
+        键再次运行你的测试。这时在
         <em>
             Test Navigator
         </em>
-        , but they can still be run manually.
+        中，你就会发现UI测试不会再被自动执行了，但仍然可以手动地让它执行。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/TurnOffUITests-650x362.png"
@@ -513,70 +460,64 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <h3>
-        Choosing Which Tests to Run
+        选择运行哪个测试
     </h3>
     <p>
-        So which method should you use for running your tests? Single, class or
-        all?
+        我们应当选择哪个方法来运行测试？单个，类中，或是全部？
     </p>
     <p>
-        If you are working on a test, it is often useful to test it on its own
-        or in its class. Once you have a passing test, it is vital to check that
-        it hasn’t broken anything else, so you should do a complete test run after
-        that.
+        如果你正基于某一个测试工作，通常就选择测试它本身或所在的整个类。通过一个测试后，检查它是否对其它的东西造成了破坏就变得非常关键，因此你应当在这时执行一次完整的测试。
     </p>
     <p>
-        To make things easier as you progress, open
-        <em>
-            DiceTests.swift
-        </em>
-        in the
+        为了进展得更容易些，在
         <em>
             primary editor
         </em>
-        and
-        <em>
-            Dice.swift
-        </em>
-        in the
-        <em>
-            assistant editor
-        </em>
-        . This is a very convenient way to work as you cycle through the TDD sequence.
-    </p>
-    <p>
-        That completes the second step of the TDD sequence; since there is no
-        refactoring to be done, it’s time to go back to step 1 and write another
-        failing test.
-    </p>
-    <h3>
-        Testing for nil
-    </h3>
-    <p>
-        Every
-        <em>
-            Dice
-        </em>
-        object should have a
-        <code>
-            value
-        </code>
-        which should be
-        <code>
-            nil
-        </code>
-        when the
-        <em>
-            Dice
-        </em>
-        object is instantiated.
-    </p>
-    <p>
-        Add the following test to
+        中打开
         <em>
             DiceTests.swift
         </em>
-        :
+        ，而在
+        <em>
+            assistant editor
+        </em>
+        中打开
+        <em>
+            Dice.swift
+        </em>
+        。这是一个非常方便的工作方式，便于完成TDD的序列。
+    </p>
+    <p>
+        这就完成了TDD序列的第二个步骤。由于没有进行过重构，因此现在就应当返回步骤一，来编写另一个失败的测试。
+    </p>
+    <h3>
+        测试nil
+    </h3>
+    <p>
+        每个
+        <em>
+            Dice
+        </em>
+        对象都有一个
+        <code>
+            value
+        </code>
+        ，当
+        <em>
+            Dice
+        </em>
+        被初始化时，它的值应当为
+        <code>
+            nil
+        </code>
+        。
+    </p>
+    <p>
+        添加下列的测试到
+        <em>
+            DiceTests.swift
+        </em>
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -593,52 +534,49 @@
         </table>
     </div>
     <p>
-        Here’s what this test does:
+        上述的测试：
     </p>
     <ol>
         <li>
-            The function name starts with
+            方法的名称以
             <code>
                 'test'
             </code>
-            , and the remainder of the function name expresses what the test checks.
+            开头，而剩余的部分则表明测试什么。
         </li>
         <li>
-            The test uses one of the many
+            本测试使用
             <code>
                 XCTAssert
             </code>
-            functions to confirm that the value is
+            方法之一来确认value是
             <code>
                 nil
             </code>
-            . The second parameter of
+            。
             <code>
                 XCTAssertNil()
             </code>
-            is an optional string that provides the error message if the test fails.
-            I generally prefer to use descriptive function names and leave this parameter
-            blank in the interests of keeping the actual test code clean and easy to
-            read.
+            方法的第二个参数是一个可选的字符串，当测试失败的时候，用来提供错误信息。我通常偏好使用描述性较强的方法名称，而将这个参数置空，来保持实际测试的代码整洁易读。
         </li>
     </ol>
     <p>
-        This test code produces a compile error:
+        这个测试代码会产生一个编译错误：
         <code>
-            "Value of type 'Dice' has no member 'value'"
+            “Value of type 'Dice' has no member 'value'”
         </code>
-        .
+        。
     </p>
     <p>
-        To fix this error, add the following property definition to the
-        <code>
-            Dice
-        </code>
-        struct within
+        为修复这个错误，在
         <em>
             Dice.swift
         </em>
-        :
+        中添加下列的property声明到
+        <code>
+            Dice
+        </code>
+        的结构体中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -654,28 +592,26 @@
         </table>
     </div>
     <p>
-        In
+        在app构建之前，
         <em>
             DiceTests.swift
         </em>
-        , the compile error will not disappear until the app is built. Press
+        中的编译错误并不会消失。按下
         <em>
             Command-U
         </em>
-        to build the app and run the tests which should pass. Again there is nothing
-        to re-factor.
+        键来构建app并运行测试，这时测试就应该通过了。此时这里就没有需要重构的地方了。
     </p>
     <p>
-        Each
+        每个
         <code>
             Dice
         </code>
-        object has to be able to “roll” itself and generate its value. Add this
-        next test to
+        对象都应该可以“滚动”并生成它的value。添加下一个测试到
         <em>
             DiceTests.swift
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -692,31 +628,30 @@
         </table>
     </div>
     <p>
-        This test uses
+        这个测试使用了
         <code>
             XCTAssertNotNil()
         </code>
-        instead of
+        方法来替换之前测试中的
         <code>
             XCTAssertNil()
         </code>
-        from the previous test.
+        。
     </p>
     <p>
-        As the Dice struct has no
+        由于Dice结构体还没有
         <code>
             rollDie()
         </code>
-        method, this will inevitably cause another compile error. To fix it, switch
-        back to the
+        方法，此时必然就会出现另一个编译错误。为了修复它，切回到
         <em>
             Assistant Editor
         </em>
-        and add the following to
+        中，并添加下列代码到
         <em>
             Dice.swift
         </em>
-        :
+        中：
     </p>
     <div class="wp_codebox">
         <table>
@@ -732,27 +667,27 @@
         </table>
     </div>
     <p>
-        Run the tests; you’ll see a warning about using
+        运行测试，你会看到一个警告，关于使用
         <code>
             var
         </code>
-        instead of
+        来替换
         <code>
             let
         </code>
-        along with a note that
+        ，以及一个
         <code>
             XCTAssert
         </code>
-        has failed this time. That makes sense, since
+        这次将会失败的提示。这是讲得通的，因为
         <code>
             rollDie()
         </code>
-        isn’t doing anything yet. Change
+        到现在还未做任何事。将
         <code>
             rollDie()
         </code>
-        as shown below:
+        修改为如下的代码：
     </p>
     <div class="wp_codebox">
         <table>
@@ -768,34 +703,28 @@
         </table>
     </div>
     <p>
-        Now you are seeing how TDD can produce some odd code. You know that eventually
-        the
+        现在你已明白了TDD如何产生一些奇怪的代码。你很清楚
         <code>
             Dice
         </code>
-        struct has to produce random dice values, but you haven’t written a test
-        asking for that yet, so this function is the minimum code need to pass
-        the test. Run all the tests again to prove this.
+        结构体最终产生的是随机的值，但由于目前为止，你还没有编写测试来验证这点，因此这个方法还是能够通过目前测试的最小代码集。再次运行测试来证明这点。
     </p>
     <h3>
         Developing to Tests
     </h3>
     <p>
-        Put your thinking cap on — these next tests are designed to shape the
-        way your code comes together. This can feel backwards at first, but it’s
-        a very powerful way to make you focus on the true intent of your code.
+        拓宽你的思路 — 接下来的几个测试旨在塑造你代码的组织方式。开始你会感到是不又要返工了，但实际上这是让你可以聚焦在你代码真实意图的强有力的方式。
     </p>
     <p>
-        You know that a standard die has six sides, so the value of any die after
-        rolling should be between 1 and 6 inclusive. Go back to
+        一个标准的骰子有6个面，因此任意一次滚动得出的值都应该在一和六之间。切到
         <em>
             DiceTests.swift
         </em>
-        and add this test, which introduces two more
+        并添加下列的测试，现在又引入了两个
         <code>
             XCTAssert
         </code>
-        functions:
+        方法：
     </p>
     <div class="wp_codebox">
         <table>
@@ -817,33 +746,25 @@
         alt="one-sided_dice2" width="100" height="116" class="alignright size-full wp-image-142143">
     </p>
     <p>
-        Run the tests; two of the assertions will fail. Change
+        运行测试，现在两个断言都会失败。修改
         <code>
             rollDie()
         </code>
-        in
-        <em>
-            Dice.swift
-        </em>
-        so that it sets
+        方法，将
         <code>
             value
         </code>
-        to 1 and try again. This time all the tests pass, but this dice roller
-        won’t be of much use! :]
+        设置为1。这次就可以通过测试了，但这样的骰子仍没神马用处！:]
     </p>
     <p>
-        Instead of testing a single value, what about making the test roll the
-        die multiple times and count how many of each number it gets? There won’t
-        be a perfectly even distribution of all numbers, but a large enough sample
-        should be close enough for your tests.
+        换一个思路，我们何不测试滚动骰子多次，然后统计生成的每种value的个数？可能无法做到完美，但一个足够大的样本数量应该可以足够接近你的测试意图。
     </p>
     <p>
-        Time for another test in
+        在
         <em>
             DiceTests.swift
         </em>
-        :
+        中添加另一个测试：
     </p>
     <div class="wp_codebox">
         <table>
@@ -866,55 +787,50 @@
         </table>
     </div>
     <p>
-        Here’s what’s going on in this test:
+        上述的测试代码：
     </p>
     <ol>
         <li>
             <code>
                 rollCounter
             </code>
-            specifies how many times the dice will be rolled. 100 for each expected
-            number seems like a reasonable sample size.
+            指示骰子将被滚动的次数。我们认为相应于每个期望的数字滚动100次是一个大致合理的样本数量。
         </li>
         <li>
-            If the die has no value at any time during the loop, the test will fail
-            and exit immediately.
+            如果任何一次循环后value没有值，测试会失败并立刻退出。
             <code>
                 XCTFail()
             </code>
-            is like an assertion that can never pass, which works very well with
+            类似于一个断言，它永远都不会通过，非常适合于
             <code>
                 guard
             </code>
-            statements.
+            语句搭配使用。
         </li>
         <li>
-            After each roll, you add the result to a dictionary.
+            每次滚动之后，你都将结果保存到一个字典中。
         </li>
         <li>
-            This assertion confirms that there are 6 keys in the dictionary, one for
-            each of the expected numbers.
+            这个断言确定字典中有六个key，它们都是滚动骰子所期望得到的数字。
         </li>
         <li>
-            The test uses a new assertion:
+            这个测试使用了一个新的断言：
             <code>
                 XCTAssertEqualWithAccuracy()
             </code>
-            which allows inexact comparisons. Since
+            ，它可以进行不精确的比较。由于
             <code>
                 XCTAssertEqualWithAccuracy()
             </code>
-            is called numerous times, the optional message is used to show which part
-            of the loop failed.
+            会被调用非常多次，因此用可选的信息来表示哪一部分的循环失败了。
         </li>
     </ol>
     <p>
-        Run the test; as you would expect, it fails as every roll is 1. To see
-        the errors in more detail, go to the
+        运行测试，如你所料，测试因为每次滚动都得到的是1失败了。切到
         <em>
             Issue Navigator
         </em>
-        where you can read what the test results were, and what was expected.
+        可以查看更多详细的错误信息。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/IssueNavigator.png"
@@ -923,15 +839,15 @@
         sizes="(max-width: 515px) 100vw, 515px">
     </p>
     <p>
-        It is finally time to add the random number generator to
+        最后，添加随机数字生成器到
         <code>
             rollDie()
         </code>
-        . In
+        中。在
         <em>
             Dice.swift
         </em>
-        , change the function as shown below:
+        中，将该方法修改成如下的样子：
     </p>
     <div class="wp_codebox">
         <table>
