@@ -1088,16 +1088,11 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        As well as getting the green checkmark symbol, you will see a speed indicator
-        which in my test shows “Time: 0.000 sec (98% STDEV)”. The standard deviation
-        (STDEV) will indicate if there are any significant changes from the previous
-        results. In this case, there is only one result —&nbsp;zero — so STDEV
-        is meaningless. Also meaningless is a result of 0.000 seconds, so the test
-        needs to be longer. The easiest way to do this is to add a loop that repeats
-        the measure block enough times to get an actual time.
+        在获得绿色的勾的标记的同时，你还会看到一个速度的标识，显示“Time: 0.000 sec (98% STDEV)”。
+        STDEV（标注偏差）会表明这里和之前的结果是否存在有重大的差别。在本例中，这里就一个结果 - 0 - 因此STDEV是无意义的。无意义的结果就是0.000秒了，因此需要更长的测试。要做到这点，最简单的方式就是添加循环来重复measure block足够多的次数，以此获取到实际的时间。
     </p>
     <p>
-        Replace the test with the following:
+        将测试替换为如下的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice_FlatMap_Reduce</span><span class="hljs-params">()</span></span> {
     <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
@@ -1111,20 +1106,14 @@
   }
 </pre>
     <p>
-        Run the test again; the result you get will depend on your processor,
-        but I get about 0.2 seconds. Adjust the loop counter from
-        <code>
-            10_000
-        </code>
-        until you get around 0.2.
+        再次运行测试。你得到的结果会依赖于你的处理器，在我这里大约是0.2秒。可以调整循环的次数，让你最后所得到的时间接近0.2秒。
     </p>
     <p>
-        Here are three other possible ways of adding up the total of the dice.
-        Open
+        还有三种可能的方式来增加total。在assistant editor中打开
         <em>
             Roll.swift
         </em>
-        in the assistant editor and add them as follows:
+        并添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice2</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {
     <span class="hljs-keyword">let</span> total = dice
@@ -1150,11 +1139,11 @@
   }
 </pre>
     <p>
-        And here are the matching performance tests which you should add to
+        下面则是相应的性能测试，你可以将它们添加到
         <em>
             PerformanceTests.swift
         </em>
-        :
+        中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testPerformanceTotalForDice2_Filter_Reduce</span><span class="hljs-params">()</span></span> {
     <span class="hljs-keyword">var</span> roll = <span class="hljs-type">Roll</span>()
@@ -1190,8 +1179,7 @@
   }
 </pre>
     <p>
-        Run these tests and work out which option is the fastest. Did you guess
-        which one would win? I didn’t!
+        运行这些测试，看下那种方式是最快的。你能猜出那种是最快的么？反正我不能！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/tortoise.png"
@@ -1200,24 +1188,22 @@
         sizes="(max-width: 500px) 100vw, 500px">
     </p>
     <h2>
-        Code Coverage
+        代码覆盖
     </h2>
     <p>
-        The final Xcode test tool to discuss is code coverage, which is the measure
-        of how much of your code is covered during a series of tests. It’s turned
-        off by default. To turn it on, select
+        我们要讨论的最后一个Xcode测试工具就是代码覆盖了，它会用来统计这一系列的测试覆盖了你多少的代码。默认它是关闭的，要将其打开，只需在窗口顶部的schemes下拉菜单中选择
         <em>
             Edit Scheme…
         </em>
-        in the schemes popup at the top of the window. Select
+        ，然后选择左侧一列的
         <em>
             Test
         </em>
-        in the column on the left and then check
+        并勾选
         <em>
             Gather coverage data
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/TurnOnCodeCoverage-650x362.png"
@@ -1226,32 +1212,29 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Close that window and press
+        关闭这个窗口并按下
         <em>
             Command-U
         </em>
-        to re-run all the tests. Once the tests are complete, go to the
+        键来重新运行所有的测试。完成之后，切到
         <em>
             Report Navigator
         </em>
-        and select the latest entry.
+        并选择latest这项。
     </p>
     <p>
-        You’ll see the test report showing a series of green checkmarks, plus
-        some timings for the performance tests. If you don’t see this, make sure
-        both
+        你会看到测试报告展示了一系列绿色的勾的标记，以及一些性能测试的计时。如果你无法看到这些，请确认在左上角选择了
         <em>
             All
         </em>
-        toggles are selected at the top left.
+        开关。
     </p>
     <p>
-        Click on
+        点击这里顶部的
         <em>
             Coverage
         </em>
-        at the top of this display and mouse over the top of the blue bars to
-        see that your tests cover nearly 80% of your code. Amazing work! :]
+        ，并使鼠标经过蓝条之上，你会看到你的测试覆盖了你将近80%的代码。令人惊奇的工作！:]
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/CodeCoverage4.png"
@@ -1260,33 +1243,29 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        The two model objects (
+        两个model对象（
         <code>
             Dice
         </code>
-        and
+        和
         <code>
             Roll
         </code>
-        ) are very well covered. If you are only going to add some tests, the
-        model is the best place to start.
+        ）都被很好地覆盖了。如果你只想添加一些测试，model就是开始的最好的地方。
     </p>
     <p>
-        There is another good, fast way to improve code coverage: delete code
-        that isn’t being used. Look at the coverage for
+        还有一种很好的，并且可以快速提高代码覆盖率的方法：删除未使用过的代码。如
         <em>
             AppDelegate.swift
         </em>
-        , it’s at 50%.
+        ，它的代码覆盖率仅为50%。
     </p>
     <p>
-        Go to the
+        切到
         <em>
             AppDelegate.swift
         </em>
-        file. On the gutter on the right-hand side, mouse up and down and you’ll
-        see it shows green for methods called during the tests, and red for methods
-        that are not called.
+        。在右侧的“沟”上，上下移动鼠标，你会看到在测试过程中调用过的代码被标记成了绿色，未调用过的则标记成了红色。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/Code_not_covered-650x161.png"
@@ -1295,54 +1274,41 @@
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        In this case,
+        在本例中，
         <code>
             applicationWillTerminate(\_:)
         </code>
-        is not used at all; it’s dramatically decreasing the code coverage for
-        this file. Since the app is not using this function, delete it. Now run
-        all the tests again and
+        方法从未被使用过，但却显著地减小了代码覆盖率。由于本app用不到这个方法，就可以将它直接删除。再次运行所有的测试，
         <em>
             AppDelegate.swift
         </em>
-        has jumped to 100% coverage.
+        就变到100%了。
     </p>
     <p>
-        This may seem to be cheating the system, but it is actually good practice
-        to remove any dead code that is cluttering up your app. Xcode tries to
-        be helpful when you make a new file and supplies lots of boilerplate code
-        by default, but if you don’t need any of this, delete it.
+        这个看起来像是在骗系统，但移除任何会使你app变杂乱的无用代码确实是一个很好的实践。Xcode为了使用方便，会在新建文件时提供很多的模板代码，但如果你不需要的话，删除即可。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        If you find the code coverage gutter and flashes of red and green distracting,
-        turn them off by selecting
-        <em>
-            Hide Code Coverage
-        </em>
-        from the
+        如果你觉得代码的“沟”，和红色绿色的标记会让你分心，可以通过
         <em>
             Editor
         </em>
-        menu. This doesn’t stop Xcode gathering the code coverage data, but stops
-        it being displayed while you edit.
+        菜单中的
+        <em>
+            Hide Code Coverage
+        </em>
+        来将它们关闭。这并不会让Xcode停止收集代码覆盖的数据，只是让它在你编辑的时候先不要展示出来。
     </div>
     <p>
-        Now for the warning about code coverage: it is a tool, not a goal! Some
-        developers and employers treat it as a goal and insist on a certain percentage.
-        But it is possible to get a good percentage without testing meaningfully.
-        Tests have to be well thought out and not just added for the sake of increasing
-        your code coverage.
+        关于代码覆盖有一些小小的提示：它只是一个工具，而不是一个目标！一些开发者会将它看做是一个目标，必须保持一个很高的代码覆盖率才可以，但也有可能是通过无意义的测试来获得的较高百分比。测试应当要经过很好的考虑，而不是仅仅为了增加你的代码覆盖率。
     </p>
     <p>
-        Tests may call numerous functions in your code without actually checking
-        the result. While a high code coverage number is probably better than a
-        low one, it doesn’t say anything about the quality of the tests.
+        测试可能在调用了你大量代码的情况下，并没有实际地检查它们的结果是否正确。尽管一个较高的代码覆盖率的数据可能会比较低的好一些，但这并不能完全地代表了代码的质量就会更好。
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1354,10 +1320,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1365,41 +1332,40 @@
         </div>
     </div>
     <p>
-        You can download the final version of the
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/08/HighRoller-final.zip"
         sl-processed="1">
-            sample project here
+            这里
         </a>
-        .
+        下载最终版本的项目。
     </p>
     <p>
-        Apple has a set of docs about
+        关于使用Xcode测试，苹果有一系列的
         <a href="https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/"
         sl-processed="1">
-            Testing with Xcode
+            文档
         </a>
-        with links to relevant WWDC videos.
+        及相关的WWDC视频。
     </p>
     <p>
         <a href="http://nshipster.com/xctestcase/" sl-processed="1">
             NSHipster
         </a>
-        has a useful summary of the various assertions and what you really need
-        to know to write tests.
+        中有关于各种断言，以及编写测试你需要知道的地方非常有用的总结。
     </p>
     <p>
-        For information about Test Driven Development, check out
+        关于TDD的更多信息，可以参考
         <a href="http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd"
         sl-processed="1">
             Uncle Bob’s excellent site
         </a>
-        .
+        。
     </p>
     <p>
-        Interested in learning more about UITests? Check out the
+        如果感兴趣于UITests的更多内容？请访问
         <a href="http://masilotti.com/ui-testing-cheat-sheet/" sl-processed="1">
             Joe Masilotti’s excellent cheat sheet
         </a>
-        .
+        。
     </p>
 </div>
