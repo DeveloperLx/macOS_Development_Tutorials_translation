@@ -59,7 +59,6 @@
     </h2>
     <p>
         从
-        The starter project can be downloaded
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/Reader_Starter.zip"
         sl-processed="1">
             这里
